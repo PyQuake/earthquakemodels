@@ -37,5 +37,3 @@ def calcLogLikelihood(modelLambda,modelOmega):
 	return log_likelihood, joint_log_likelihood, discardModel
 
 
-
-#quant,,,grupo e real
