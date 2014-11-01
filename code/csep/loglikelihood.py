@@ -33,9 +33,9 @@ def calcLogLikelihood(modelLambda,modelOmega):
         if (lambda_i == 0 and omega_i != 0):
             return float('-inf') # invalid Model	
 
-        if (modelOmega[i] == 0 and modelLamba[i] == 0):
+        if (lambda_i == 0 and omega_i == 0):
             sumLogLikelihood += 1
-        elif:
+        else:
             sumLogFactorial = 0
             for i in range(omega_i):
                 sumLogFactorial+=math.log10(i+1)
