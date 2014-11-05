@@ -48,6 +48,7 @@ def readFromFile(filename):
                                      int(event["hour"]),int(event["min"]),seconds,miliseconds)
             
         ret.append(event)
+    f.close()
     return ret
 
 # TODO: transform year/month/day conditions into datetime conditions automagically
