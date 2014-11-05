@@ -6,37 +6,49 @@ Year, Month, Day, Hour, Minute, Second, Latitude, Longitude,
 Magnitude, Depth
 """
 
-#Implementantion notes:
-# earthquakes is a list that contains the earthquake attributes
-#I dont know if the names of the columns is going to be important in the future, so I added this info in the first element
+import math
+from datetime import datetime
 
+JMA_keys = ("lon","lat","year","month","day","mag","depth","hour",
+            "min","sec")
+FNET_keys = ("year","month","day","hour","min","sec","lat","lon",
+             "depth","mag","s1","s2","d1","d2","r1","r2","depth2",
+             "mag2","var")
+
+
+# stackexchange says that python dicts are super fast, so we are using them
+# to store catalog information AND the column names. Might want to change this later.
 # fnet has 19 columns, jma has 10 columns
 def readFromFile(filename):
     """ Returns a catalog created from a JMA or FNET text file
     """
     f = open(filename,"r")
-
-    earthquakes_JMA=['Lon Lat Year Month Day Mag_JMA Depth Hour Min Sec']
-    earthquakes_FNET=['Year Month Day Hour Min Sec Lat Lon Depth Mag_JMA S1 S2 D1 D2 R1 R2 Depth Mag_FNET Var']
-
-    # first, detecting JMA or FNET
+    keys = None
+    ret = list()
+    
     for line in f:
-        if line[0] != '#':
-            tokens = line.split()
-            if (len(tokens)==10):
-                #print ("JMA")
-		del earthquakes_FNET[:]
-		earthquakes_JMA.append(tokens)
+        if line[0] == '#':
+            continue
+        tokens = line.split()
+        
+        # test the file type if still undefined
+        if keys == None:
+            if len(tokens)==10:
+                keys = JMA_keys
             else:
-                #print ("FNET")
-		del earthquakes_JMA[:]
-		earthquakes_FNET.append(tokens)
+                keys = FNET_keys
 
-    if earthquakes_JMA != []:
-         return earthquakes_JMA
-    else:
-         return earthquakes_JNET
-
+        event = dict()
+        for key,value in zip(keys,tokens):
+            event[key] = float(value)
+            
+        seconds = int(math.modf(event["sec"])[1])
+        miliseconds = int(math.modf(event["sec"])[0]*1000)
+        event["datetime"] = datetime(int(event["year"]),int(event["month"]),int(event["day"]),
+                                     int(event["hour"]),int(event["min"]),seconds,miliseconds)
+            
+        ret.append(event)
+    return ret
 
 def filter(catalog,filter):
     """ Reduces a catalog by removing events that do not match the filter
