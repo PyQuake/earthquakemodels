@@ -24,19 +24,7 @@ def newModel(definitions,initialvalue=0):
     
 
 def addCatalog(model,catalog):
-    def filter(catalog,conditions):
-    """ Returns a new catalog by removing events of the old one that do not 
-    match the conditions. The conditions is a list of dictionaries in 
-    the following form:
-
-    {"key":'name',"min":value,"max":value}
-    
-    an element in the catalog will be discarded if every field with key "condition" is not 
-    between the minimum and maximum values. If max or min is None, that limit is not tested.
-    
-    WARNING: remember that the "datetime" key requires a datetime object
-    """
-    
+    # TODO: everything
     ret = []
     for event in catalog:
         discarded = False
