@@ -50,7 +50,33 @@ def readFromFile(filename):
         ret.append(event)
     return ret
 
-def filter(catalog,filter):
-    """ Reduces a catalog by removing events that do not match the filter
+# TODO: transform year/month/day conditions into datetime conditions automagically
+def filter(catalog,conditions):
+    """ Returns a new catalog by removing events of the old one that do not 
+    match the conditions. The conditions is a list of dictionaries in 
+    the following form:
+
+    {"key":'name',"min":value,"max":value}
+    
+    an element in the catalog will be discarded if every field with key "condition" is not 
+    between the minimum and maximum values. If max or min is None, that limit is not tested.
+    
+    WARNING: remember that the "datetime" key requires a datetime object
     """
-    pass	
+    
+    ret = []
+    for event in catalog:
+        discarded = False
+        for condition in conditions:
+            if 'min' in condition:
+                discarded = discarded or (event[condition['key']] < condition['min'])
+            if 'max' in condition:
+                discarded = discarded or (event[condition['key']] > condition['max'])
+            if discarded:
+                break
+        if not discarded:
+            ret.append(event)
+    return ret
+    
+    
+    
