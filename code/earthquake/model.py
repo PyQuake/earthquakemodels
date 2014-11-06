@@ -78,10 +78,15 @@ def saveModelToFile(model, filename):
     return
 
 #May need to convert the model from class str to class model
+#Am i doing it right??
 def lodModelFromFile(filename):
     """ Loads the model to a specific file,  passed as arg
     """
 
     with open('filename', 'r') as f:
-        model = f.read()
+        strModel = f.read()
     f.close()
+
+    model = model(strModel)
+
+    return model

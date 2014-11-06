@@ -25,9 +25,10 @@ def calcLogLikelihood(modelLambda,modelOmega):
     """
 
     sumLogLikelihood = 0
-    # FIXME: this probably should throw an exception instead.
+    # FIXME: Exception thrown, if it needs a spefic name, we should create an exception class
+    #Should abort execution, or sould we continue even after it?
     if len(modelLambda) != len(modelOmega):
-        sys.exit("Tried to calculate log likelihood for models with different sizes")
+        raise NameError("Tried to calculate log likelihood for models with different sizes")
 
     for lambda_i,omega_i in zip(modelLambda,modelOmega):
         if (lambda_i == 0 and omega_i != 0):
