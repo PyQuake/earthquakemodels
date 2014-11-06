@@ -68,25 +68,27 @@ def saveModelToFile(model, filename):
     """ Saves the model to a specific file, both passed as arg
     """
 
-    with open('filename', 'r') as f:
-        strModel = str(model)
-        f.write(strModel)
+    with open(filename, 'w') as f:
+        f.write(str(model.bins))
+        f.write("\n")
+        f.write(str(model.definitions))
         f.write("\n")
     f.close()
-    print ("The model was succesfully saved to the file", filename)
+    #print ("The model was succesfully saved to the file", filename)
 
     return
 
 #May need to convert the model from class str to class model
 #Am i doing it right??
-def lodModelFromFile(filename):
+def loadModelFromFile(filename):
     """ Loads the model to a specific file,  passed as arg
     """
 
-    with open('filename', 'r') as f:
-        strModel = f.read()
+    ret = model()
+
+    with open(filename, 'r') as f:
+        ret.bins = eval(f.readline())
+        ret.definitions = eval(f.readline())
     f.close()
 
-    model = model(strModel)
-
-    return model
+    return ret
