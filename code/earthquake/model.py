@@ -50,7 +50,7 @@ def loadModelDefinition(filename):
     """
     f = open(filename, "r")
     ret = list()
-    keys = {'key','min','step','bins'}
+    keys = ['key','min','step','bins']
     
     for line in f:
         if line[0] == '#':
@@ -58,7 +58,12 @@ def loadModelDefinition(filename):
         tokens = line.split()
         definition = dict()
         for key,value in zip(keys,tokens):
-            definition[key] = value
+            if key == 'key':
+                definition[key] = value
+            elif(key == 'bins'):
+                definition[key] = int(value)
+            else:
+                definition[key] = float(value)
         ret.append(definition)
         
     f.close()
