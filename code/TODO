@@ -3,8 +3,8 @@
 - Gerar imagem representando nivel de risco do bin a partir de um modelo
 - Algoritmo RI para geracao de Modelo
   - definir catalogo "treino" e periodo alvo
-- Salvar modelo para arquivo
-- ler modelo de arquivo
+=======>>>> DONE - Salvar modelo para arquivo 
+=======>>>> DONE - ler modelo de arquivo
 - script que le modelo e catalogo e calcula log likelihood/testes/etc
 - programacao de modelo usando GA (versao Claus/versao Yuri)
 

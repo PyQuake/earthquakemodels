@@ -48,7 +48,7 @@ def loadModelDefinition(filename):
     The file is defined as multiple lines, with each line containing:
     key min step bins
     """
-    f = open(filename)
+    f = open(filename, "r")
     ret = list()
     keys = {'key','min','step','bins'}
     
@@ -63,3 +63,25 @@ def loadModelDefinition(filename):
         
     f.close()
     return ret
+
+def saveModelToFile(model, filename):
+    """ Saves the model to a specific file, both passed as arg
+    """
+
+    with open('filename', 'r') as f:
+        strModel = str(model)
+        f.write(strModel)
+        f.write("\n")
+    f.close()
+    print ("The model was succesfully saved to the file", filename)
+
+    return
+
+#May need to convert the model from class str to class model
+def lodModelFromFile(filename):
+    """ Loads the model to a specific file,  passed as arg
+    """
+
+    with open('filename', 'r') as f:
+        model = f.read()
+    f.close()
