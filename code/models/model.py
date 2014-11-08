@@ -43,27 +43,30 @@ def addFromCatalog(model,catalog):
             max_lat = model.definitions[i]['min'] + (model.definitions[i]['bins'] * model.definitions[i]['step'])
             bins_lat = model.definitions[i]['bins']
 
+    z = 0
     for m in range(len(catalog)):
-        for i in range(bins_lon):
-            if catalog[m]['lon'] < max_lon and catalog[m]['lon'] > min_lon:
-                index = float(i)/min_lon
-                if (catalog[m]['lon']-min_lon) >= (index*10) and (catalog[m]['lon']-min_lon) < ((index+step_lon)*10) : 
-                    if (index*10) + step_lon > max_lon: #to avoid the last index to be out of limits
-                        k -= 1
-                    break
-                k += 1
-        for j in range(bins_lat):
-            if catalog[m]['lat'] < max_lat and catalog[m]['lat'] > min_lat:
-                index = float(j)/min_lat
-                if (catalog[m]['lat']-min_lat) >= (index*10) and (catalog[m]['lat']-min_lat) < ((index+step_lat)*10) :
-                    if (index*10) + step_lat > max_lat: 
-                        l -= 1
-                    break
-            l += 1
+        if catalog[m]['year'] == 2000:  
+            if catalog[m]['lon']<max_lon and catalog[m]['lon']>min_lon:
+                if catalog[m]['lat']<max_lat and catalog[m]['lat']>min_lat:
+                    for i in range(bins_lon):    
+                        index = (step_lon*i) + min_lon
+                        if catalog[m]['lon']>=index and catalog[m]['lon']<(index+step_lon) : 
+                            if index+step_lon>max_lon: #to avoid the last index to be out of limits
+                                k -= 1
+                            break
+                        k += 1
+                    for j in range(bins_lat):
+                        index = (step_lat*j) + min_lat
+                        if catalog[m]['lat']>=index and catalog[m]['lat']<(index+step_lat) :
+                            if index+step_lat>max_lat: #to avoid the last index to be out of limits
+                                l -= 1
+                            break
+                        l += 1
 
-        index = k*bins_lon+l #matriz[i,j] -> vetor[i*45+j], i=lon, j=lat, i=k, j=l
-        model.bins[int(index)] += 1
+                index = k*bins_lon+l #matriz[i,j] -> vetor[i*45+j], i=lon, j=lat, i=k, j=l
+                model.bins[index] += 1
         l, k = 0,0
+        print (z)
     return model
     
 
