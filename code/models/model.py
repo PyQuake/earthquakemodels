@@ -23,25 +23,48 @@ def newModel(definitions,initialvalue=0):
     return ret
     
 
-def addCatalog(model,catalog):
-    # TODO: everything
-    ret = []
-    for event in catalog:
-        discarded = False
-        for condition in conditions:
-            if 'min' in condition:
-                discarded = discarded or (event[condition['key']] < condition['min'])
-            if 'max' in condition:
-                discarded = discarded or (event[condition['key']] > condition['max'])
-            if discarded:
+#This considers the catalog has passed a filter before
+def addFromCatalog(model,catalog):
+
+    k, l, index = 0, 0, 0
+
+
+    for i in range(len(model.definitions)):
+        if model.definitions[i]['key'] == 'lon':
+            range_lon = model.definitions[i]['step'] * model.definitions[i]['bins']
+            step_lon = model.definitions[i]['step']
+            min_lon = model.definitions[i]['min']
+            max_lon = model.definitions[i]['min'] + (model.definitions[i]['bins'] * model.definitions[i]['step'])
+            bins_lon = model.definitions[i]['bins']
+        elif model.definitions[i]['key'] == 'lat':
+            range_lat = model.definitions[i]['step'] * model.definitions[i]['bins']
+            step_lat = model.definitions[i]['step']
+            min_lat = model.definitions[i]['min']
+            max_lat = model.definitions[i]['min'] + (model.definitions[i]['bins'] * model.definitions[i]['step'])
+            bins_lat = model.definitions[i]['bins']
+
+    for k in range(len(catalog)):
+        for i in range(bins_lon):
+            index = float(i)/ min_lon
+            if(catalog[k]['lon'] >= index and catalog[k]['lon'] < (index + step_lon)):
+                if(index + step_lon > max_lon):
+                    k -= 1
                 break
-        if not discarded:
-            ret.append(event)
-    return ret
+            k += 1
+        for j in range(bins_lat):
+            index = float(j)/ min_lat
+            if(catalog[k]['lat'] >= index and catalog[k]['lat'] < (index + step_lat)):
+                if(index + step_lat > max_lat):
+                    l -= 1
+                break
+            l += 1
+
+        index = k*step_lon+l #matriz[i,j] -> vetor[i*45+j], i=lon, j=lat, i=k, j=l
+        type(index)
+        # model.bins[index] = +1
+
+    return model
     
-    
-    
-    pass
 
 def loadModelDefinition(filename):
     """ Creates a dictionary list with the definitions for a model from a file.
