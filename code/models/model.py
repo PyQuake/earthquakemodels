@@ -24,7 +24,7 @@ def newModel(definitions,initialvalue=0):
     
 
 #This considers the catalog has passed a filter before
-def addFromCatalog(model,catalog):
+def addFromCatalog(model,catalog, year):
 
     k, l, index = 0, 0, 0
 
@@ -45,29 +45,29 @@ def addFromCatalog(model,catalog):
 
     for m in range(len(catalog)):
         #kind of a filter, we should define how we are going to filter by year
-        if catalog[m]['year'] == 2000:  
-            if catalog[m]['lon']>min_lon and catalog[m]['lon']<max_lon:
-                if catalog[m]['lat']>min_lat and catalog[m]['lat']<max_lat:
-                    #calculating the adequated bin for a coordinate of a earthquake
-                    for i in range(bins_lon):    
-                        index = (step_lon*i) + min_lon
-                        if catalog[m]['lon']>=index and catalog[m]['lon']<(index+step_lon) : 
-                            if index+step_lon>max_lon: #to avoid the last index to be out of limits
-                                k -= 1
-                            break
-                        k += 1
-                    for j in range(bins_lat):
-                        index = (step_lat*j) + min_lat
-                        if catalog[m]['lat']>=index and catalog[m]['lat']<(index+step_lat) :
-                            if index+step_lat>max_lat: #to avoid the last index to be out of limits
-                                l -= 1
-                            break
-                        l += 1
-                    if(k==0 and l==0):
-                        print (catalog[m]['lon'], catalog[m]['lat'])
-                    index = k*bins_lon+l #matriz[i,j] -> vetor[i*45+j], i=lon, j=lat, i=k, j=l
-                    model.bins[index] += 1
-                    k,l = 0,0
+            if catalog[m]['year'] == year:  
+                if catalog[m]['lon']>min_lon and catalog[m]['lon']<max_lon:
+                    if catalog[m]['lat']>min_lat and catalog[m]['lat']<max_lat:
+                        #calculating the adequated bin for a coordinate of a earthquake
+                        for i in range(bins_lon):    
+                            index = (step_lon*i) + min_lon
+                            if catalog[m]['lon']>=index and catalog[m]['lon']<(index+step_lon) : 
+                                if index+step_lon>max_lon: #to avoid the last index to be out of limits
+                                    k -= 1
+                                break
+                            k += 1
+                        for j in range(bins_lat):
+                            index = (step_lat*j) + min_lat
+                            if catalog[m]['lat']>=index and catalog[m]['lat']<(index+step_lat) :
+                                if index+step_lat>max_lat: #to avoid the last index to be out of limits
+                                    l -= 1
+                                break
+                            l += 1
+                        if(k==0 and l==0):
+                            print (catalog[m]['lon'], catalog[m]['lat'])
+                        index = k*bins_lon+l #matriz[i,j] -> vetor[i*45+j], i=lon, j=lat, i=k, j=l
+                        model.bins[index] += 1
+                        k,l = 0,0
     return model
     
 
@@ -125,3 +125,9 @@ def loadModelFromFile(filename):
     f.close()
 
     return ret
+
+def createImageFromFile(fileToLoad,fileToSave):
+    import rpy2.robjects as robjects
+    robjects.r('''source("models/createMatrix.R")''')
+    r_myfunction = robjects.globalenv['plotMatrizModel']
+    r_myfunction("../2000.txt", "2000.png")
