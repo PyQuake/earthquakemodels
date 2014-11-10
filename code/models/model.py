@@ -43,11 +43,12 @@ def addFromCatalog(model,catalog):
             max_lat = model.definitions[i]['min'] + (model.definitions[i]['bins'] * model.definitions[i]['step'])
             bins_lat = model.definitions[i]['bins']
 
-    z = 0
     for m in range(len(catalog)):
+        #kind of a filter, we should define how we are going to filter by year
         if catalog[m]['year'] == 2000:  
-            if catalog[m]['lon']<max_lon and catalog[m]['lon']>min_lon:
-                if catalog[m]['lat']<max_lat and catalog[m]['lat']>min_lat:
+            if catalog[m]['lon']>min_lon and catalog[m]['lon']<max_lon:
+                if catalog[m]['lat']>min_lat and catalog[m]['lat']<max_lat:
+                    #calculating the adequated bin for a coordinate of a earthquake
                     for i in range(bins_lon):    
                         index = (step_lon*i) + min_lon
                         if catalog[m]['lon']>=index and catalog[m]['lon']<(index+step_lon) : 
@@ -62,11 +63,11 @@ def addFromCatalog(model,catalog):
                                 l -= 1
                             break
                         l += 1
-
-                index = k*bins_lon+l #matriz[i,j] -> vetor[i*45+j], i=lon, j=lat, i=k, j=l
-                model.bins[index] += 1
-        l, k = 0,0
-        print (z)
+                    if(k==0 and l==0):
+                        print (catalog[m]['lon'], catalog[m]['lat'])
+                    index = k*bins_lon+l #matriz[i,j] -> vetor[i*45+j], i=lon, j=lat, i=k, j=l
+                    model.bins[index] += 1
+                    k,l = 0,0
     return model
     
 
