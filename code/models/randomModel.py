@@ -21,3 +21,7 @@ def poissonPress(x,mi):
                     k += 1
                     prob = prob * x
                 return k
+
+def calcNumberBins(modelLamba, modelOmega):
+    for i in range(len(modelLamba)):
+        modelLamba[i] = poissonPress(modelLamba[i], modelOmega[i])
