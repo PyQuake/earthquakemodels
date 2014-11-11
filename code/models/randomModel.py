@@ -2,6 +2,7 @@
 
 """
 import numpy.random 
+import math
 
 def makePoissonModel(model,lam=1):
 
