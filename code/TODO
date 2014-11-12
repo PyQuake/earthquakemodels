@@ -3,11 +3,11 @@
 - Gerar imagem com localizacao exata dos terremotos a partir de um modelo
   - Talvez usar basement library
 - Gerar imagem representando nivel de risco do bin a partir de um modelo
-	- Funcao feita. Algumas definições precisam ser descutidas
+	- Funcao feita. Algumas definições precisam ser descutidas, por algum motivo, quando uso como funcao, da erros
 - Algoritmo RI para geracao de Modelo
   - definir catalogo "treino" e periodo alvo
 - script que le modelo e catalogo e calcula log likelihood/testes/etc
 - programacao de modelo usando GA (versao Claus/versao Yuri)
-  - Comecei a fazer. Estou confuso quanto a interação entre o pacote
+  - Feito, minha versao. Tenho que arrumar pra ficar mais limpo o codigo
   
 - E outras coisas (adicionar aqui)

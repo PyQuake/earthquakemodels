@@ -130,4 +130,4 @@ def createImageFromFile(fileToLoad,fileToSave):
     import rpy2.robjects as robjects
     robjects.r('''source("models/createMatrix.R")''')
     r_myfunction = robjects.globalenv['plotMatrizModel']
-    r_myfunction("../2000.txt", "2000.png")
+    r_myfunction(fileToLoad, fileToSave)   
