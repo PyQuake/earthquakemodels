@@ -28,20 +28,19 @@ def addFromCatalog(model,catalog, year):
 
     k, l, index = 0, 0, 0
 
-
-    for i in range(len(model.definitions)):
-        if model.definitions[i]['key'] == 'lon':
-            range_lon = model.definitions[i]['step'] * model.definitions[i]['bins']
-            step_lon = model.definitions[i]['step']
-            min_lon = model.definitions[i]['min']
-            max_lon = model.definitions[i]['min'] + (model.definitions[i]['bins'] * model.definitions[i]['step'])
-            bins_lon = model.definitions[i]['bins']
-        elif model.definitions[i]['key'] == 'lat':
-            range_lat = model.definitions[i]['step'] * model.definitions[i]['bins']
-            step_lat = model.definitions[i]['step']
-            min_lat = model.definitions[i]['min']
-            max_lat = model.definitions[i]['min'] + (model.definitions[i]['bins'] * model.definitions[i]['step'])
-            bins_lat = model.definitions[i]['bins']
+    for definition in model.definitions:
+        if definition['key'] == 'lon':
+            range_lon = definition['step'] * definition['bins']
+            step_lon = definition['step']
+            min_lon = definition['min']
+            max_lon = definition['min'] + (definition['bins'] * definition['step'])
+            bins_lon = definition['bins']
+        if definition['key'] == 'lat':
+            range_lat = definition['step'] * definition['bins']
+            step_lat = definition['step']
+            min_lat = definition['min']
+            max_lat = definition['min'] + (definition['bins'] * definition['step'])
+            bins_lat = definition['bins']
 
     for m in range(len(catalog)):
         #kind of a filter, we should define how we are going to filter by year
