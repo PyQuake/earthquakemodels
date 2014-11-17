@@ -3,16 +3,18 @@
 """
 import numpy.random 
 import math
+import array
 
 def makePoissonModel(model,lam=1):
     """ Modifies the model passed as parameter, replacing all bins 
     with random values taken from a Poisson distribution with lambda = lam
 
     Returns modified model for chaining"""
-	model.bins = (numpy.random.poisson(lam, len(model.bins))+1).tolist()
+    model.bins = (numpy.random.poisson(lam, len(model.bins))+1).tolist()
 
-	return model
+    return model
 
+#TODO: move to math util(?), for sure, we need to take this out of here
 def invertPoisson(x,mi):
     """ Calculates the value that would be found in a 
     poisson distribution with lambda = mi at probability
@@ -29,6 +31,7 @@ def invertPoisson(x,mi):
                     prob = prob * x
                 return k
 
+#TODO: move to math util(?), for sure, we need to take this out of here
 def calcNumberBins(lamba_i, omega_i):
     """ Transform a set of real valued bins (0..1) into 
     a set of integer bins, using the value of real data 
@@ -36,3 +39,15 @@ def calcNumberBins(lamba_i, omega_i):
     for lam,om in zip(lambda_i,omega_i):
         lam = invertPoisson(lam,omega)
     return lamba_i
+
+def normalizeArray(array):
+    #TODO: check if it works with negative values in array
+    arrayCopy=array.array('f')
+
+    sumValue = sum(array);
+
+    #divide each entry by this sumValue
+    for value in array:
+        arrayCopy.append(value/sumValue)
+
+    return arrayCopy

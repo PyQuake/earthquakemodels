@@ -1,6 +1,7 @@
 earthquake/catalog.py:# TODO: transform year/month/day conditions into datetime conditions automagically
-earthquake/model.py:    # TODO: everything
 models/model.py:# TODO: Use datetime instead of year
 models/model.py:    # TODO: nao usar key como nome de variavel aqui (criar um dicionario se necessario)
 models/model.py:    # TODO: calcular o numero de keys in definition
 models/model.py:    # TODO: limpar isto um pouco
+models/randomModel.py:#TODO: move to math util(?), for sure, we need to take this out of here
+models/randomModel.py:#TODO: move to math util(?), for sure, we need to take this out of here
