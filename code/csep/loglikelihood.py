@@ -71,7 +71,7 @@ def calcLTest(modelLambda, modelOmega, simulatingSystem='perBin'):
 
         lSimulated.append(calcLogLikelihood(modelLambda,simulatedObservation))
 
-    gamma=percentile(lObserved, lSimulated);
+    gamma=percentile(lObserved, lSimulated)
     return gamma
 
 #why does it add so big numbers????

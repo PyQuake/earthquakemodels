@@ -33,13 +33,13 @@ def invertPoisson(x,mi):
                 return k
 
 #TODO: move to math util(?), for sure, we need to take this out of here
-def calcNumberBins(lamba_i, omega_i):
+def calcNumberBins(lambda_i, omega_i):
     """ Transform a set of real valued bins (0..1) into 
     a set of integer bins, using the value of real data 
     (omega) as the mean for the poisson distribution"""
     for lam,om in zip(lambda_i,omega_i):
-        lam = invertPoisson(lam,omega)
-    return lamba_i
+        lam = invertPoisson(lam,om)
+    return lam
 
 def normalizeArray(vector):
     #TODO: check if it works with negative values in vector
@@ -58,7 +58,6 @@ def percentile(value, sample):
     sampleCopy=sample.tolist()
     sampleCopy.sort()
     sampleCopy.reverse()
-    print(sampleCopy, value)
     for i in range(numberOfSamples):
         if value<=sampleCopy[i]:
             return float(i/numberOfSamples)
