@@ -8,9 +8,10 @@ definition by Schorlemmer et al. 2007
 import sys
 import math
 import array
-import numpy.random
+import numpy
+import random
 
-from models.randomModel import invertPoisson, normalizeArray
+from models.randomModel import invertPoisson, normalizeArray, percentile
 
 
 # Implementation notes:
@@ -49,46 +50,72 @@ def calcLogLikelihood(modelLambda,modelOmega):
             
     return sumLogLikelihood
 
-def calcLTest(modelLambda, modelOmega):
+def calcLTest(modelLambda, modelOmega, simulatingSystem='perBin'):
+    #para ca, os modelos devem estar em int, invertPoisson
     lObserved = calcLogLikelihood(modelLambda, modelOmega);
 
-    numberOfSimulations = 1000;
+    numberOfSimulations = 1000
     lSimulated = array.array('f')
 
     for i in range(numberOfSimulations):
-        #criar a simulatesEqkCatalog, qual e a entrada??
-        simulatedObservation = simulatedEqkCatalog(modelLambda)
+        simulatedObservation=type(modelLambda)
+        #which type the return of the next function is?? Conversions may be needed
+        #it neeed wich king of data in modelLamba.bins? the probability or the integer?
+        #by guessing, until now, prob
+        #until now, the normalize section i the one that defines it, and I dont know!
+        #It is better to send int
+        if(simulatingSystem=='perZechar'):
+            simulatedObservation.bins = simulatedPerZechar(modelLambda)
+        elif(simulatingSystem=='perBin'):
+            simulatedObservation.bins = simulatedPerBin(modelLambda)
+
         lSimulated.append(calcLogLikelihood(modelLambda,simulatedObservation))
 
-    #criar a percentile
-    gamma = MathUtil.percentile(lObserved, lSimulated);
+    gamma=percentile(lObserved, lSimulated);
     return gamma
 
-def simulatedEqkCatalog(modelLambda):
+#why does it add so big numbers????
+def simulatedPerBin(modelLambda):
+    bin = []
+    for i in range(len(modelLambda.bins)):
+        #poisson ou random mesmo?
+        rnd=random.random()
+        #usar o modelLambda.bins??
+        bin.append(invertPoisson(rnd, modelLambda.bins[i]))
+    return bin
+
+#TODO: Finish it
+def simulatedPerZechar(modelLambda):
+    #the function used in Zechar has threshold, though he uses it as 0
     expectedNumberOfEvents = sum(modelLambda.bins);
 
     # Sample the Poisson distribution with the specified expectation to
     # determine how many events to simulate
     rnd = numpy.random.random()
     
+    #this cannot use invertPoisson, or if it can, something is wrong
+    #Sure something is wrong, the expectedNumberOfEvents is a interger!
     numberOfEventsToSimulate = invertPoisson(rnd,expectedNumberOfEvents)
     
     # Normalize the expectations so that their sum is unity, use this
     # construct to build the simulated catalog
     #array.array o normalizedExpectations e, tipo 'f'
-    cumulativeFractionConstruct=array.array('f')
-
+    #it neeed wich king of data in modelLamba.bins? the probability or the integer?
+    #I guess, prob, thought it doesnt kame any sense
+    #It is better to receive int
+    #modelLambda is not of array type! It list type numpy.asarray, whatever they are the same
     normalizedExpectations = normalizeArray(modelLamba.bins);
 
     cumulativeFractionConstruct=array.array('f')
     cumulativeFractionConstruct.append(normalizedExpectations[0])
 
-    for normalizedExp, cumulativeFraction in zip(normalizedExpectations,cumulativeFractionConstruct):
+    #this needs testing
+    for i in range(len(normalizedExpectations)):
         if float('inf')!=normalizedExp:
             #need to use cumutaviteFraction i-1
-            cumulativeFraction=cumulativeFraction.append(cumulativeFraction[len(cumulativeFraction)-1])+normalizedExp
+            cumulativeFractionConstruct[i]=cumulativeFractionConstruct[i-1]+normalizedExp
         else:
-            cumutaviteFraction=cumulativeFraction.append(cumulativeFraction[len(cumulativeFraction)-1])
+            cumulativeFractionConstruct[i]=cumulativeFractionConstruct[i-1]
 
     # Simulate the catalog by drawing random numbers and mapping each
     # random number to a given modelLamba bin, based on its normalized rate
@@ -102,7 +129,7 @@ def simulatedEqkCatalog(modelLambda):
                 break
 
     
-    return simulatedObservations
+    return simulatedObservations.tolist()
 
 
 
