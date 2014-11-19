@@ -87,7 +87,7 @@ def simulatedPerBin(modelLambda):
 #TODO: Finish it
 def simulatedPerZechar(modelLambda):
     #the function used in Zechar has threshold, though he uses it as 0
-    expectedNumberOfEvents = sum(modelLambda.bins);
+    expectedNumberOfEvents = sum(modelLambda.bins)
 
     # Sample the Poisson distribution with the specified expectation to
     # determine how many events to simulate

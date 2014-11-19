@@ -57,7 +57,6 @@ def percentile(value, sample):
     numberOfSamples=len(sample)
     sampleCopy=sample.tolist()
     sampleCopy.sort()
-    sampleCopy.reverse()
     for i in range(numberOfSamples):
         if value<=sampleCopy[i]:
             return float(i/numberOfSamples)
