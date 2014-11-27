@@ -37,9 +37,10 @@ def calcNumberBins(lambda_i, omega_i):
     """ Transform a set of real valued bins (0..1) into 
     a set of integer bins, using the value of real data 
     (omega) as the mean for the poisson distribution"""
+    bin=[]
     for lam,om in zip(lambda_i,omega_i):
-        lam = invertPoisson(lam,om)
-    return lam
+        bin.append(invertPoisson(lam,om))
+    return bin
 
 def normalizeArray(vector):
     #TODO: check if it works with negative values in vector

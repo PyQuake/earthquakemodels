@@ -34,10 +34,10 @@ def initDEAP():
     logbook.header = "gen","min","avg","max","std"
 
 def evaluationFunction(individual, modelOmega):
-    modelLambda = type(modelOmega)
-    modelLambda.bins = list(individual)
-    modelLambda.bins = calcNumberBins(modelLambda.bins, modelOmega.bins)
-    logValue = loglikelihood(modelLambda, modelOmega)
+    modelLambda=type(modelOmega)
+    modelLambda.bins=list(individual)
+    modelLambda.bins=calcNumberBins(modelLambda.bins, modelOmega.bins)
+    logValue=loglikelihood(modelLambda, modelOmega)
 
     return logValue,
 
@@ -116,10 +116,10 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,n=500):
 
         pop[:] = offspring  
         record = stats.compile(pop)
-        logbook.record(gen=g,**record)
-    f = open('null_X_GA',"a")
-    f.write(str(logbook))
-    f.write('\n')
+    #     logbook.record(gen=g,**record)
+    # f = open('null_X_GA',"a")
+    # f.write(str(logbook))
+    # f.write('\n')
 
     best_ind = tools.selBest(pop, 1)[0]
     generatedModel = type(modelOmega)

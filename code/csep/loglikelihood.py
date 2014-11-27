@@ -52,10 +52,10 @@ def calcLogLikelihood(modelLambda,modelOmega):
 
 def calcLTest(modelLambda, modelOmega, simulatingSystem='perBin'):
     #para ca, os modelos devem estar em int, invertPoisson
-    lObserved = calcLogLikelihood(modelLambda, modelOmega);
+    lObserved=calcLogLikelihood(modelLambda, modelOmega)
 
-    numberOfSimulations = 1000
-    lSimulated = array.array('f')
+    numberOfSimulations=1000
+    lSimulated=array.array('f')
 
     for i in range(numberOfSimulations):
         simulatedObservation=type(modelLambda)
@@ -68,7 +68,6 @@ def calcLTest(modelLambda, modelOmega, simulatingSystem='perBin'):
             simulatedObservation.bins = simulatedPerZechar(modelLambda)
         elif(simulatingSystem=='perBin'):
             simulatedObservation.bins = simulatedPerBin(modelLambda)
-
         lSimulated.append(calcLogLikelihood(modelLambda,simulatedObservation))
 
     gamma=percentile(lObserved, lSimulated)
@@ -76,26 +75,27 @@ def calcLTest(modelLambda, modelOmega, simulatingSystem='perBin'):
 
 #why does it add so big numbers????
 def simulatedPerBin(modelLambda):
-    bin = []
+    bin=[]
+    rnd=random.random()
     for i in range(len(modelLambda.bins)):
-        #poisson ou random mesmo?
-        rnd=random.random()
         #usar o modelLambda.bins??
         bin.append(invertPoisson(rnd, modelLambda.bins[i]))
+        # if bin[i]>=12:
+        #     print(Value of the bin:",bin[i],", rnd: ",rnd,", modelLambda.bins[i]:",modelLambda.bins[i], sep=" ")
     return bin
 
 #TODO: Finish it
 def simulatedPerZechar(modelLambda):
     #the function used in Zechar has threshold, though he uses it as 0
-    expectedNumberOfEvents = sum(modelLambda.bins)
+    expectedNumberOfEvents=sum(modelLambda.bins)
 
     # Sample the Poisson distribution with the specified expectation to
     # determine how many events to simulate
-    rnd = numpy.random.random()
+    rnd=numpy.random.random()
     
     #this cannot use invertPoisson, or if it can, something is wrong
     #Sure something is wrong, the expectedNumberOfEvents is a interger!
-    numberOfEventsToSimulate = invertPoisson(rnd,expectedNumberOfEvents)
+    numberOfEventsToSimulate=invertPoisson(rnd,expectedNumberOfEvents)
     
     # Normalize the expectations so that their sum is unity, use this
     # construct to build the simulated catalog
@@ -104,27 +104,34 @@ def simulatedPerZechar(modelLambda):
     #I guess, prob, thought it doesnt kame any sense
     #It is better to receive int
     #modelLambda is not of array type! It list type numpy.asarray, whatever they are the same
-    normalizedExpectations = normalizeArray(modelLamba.bins);
+    normalizedExpectations=normalizeArray(modelLambda.bins);
 
     cumulativeFractionConstruct=array.array('f')
     cumulativeFractionConstruct.append(normalizedExpectations[0])
 
     #this needs testing
     for i in range(len(normalizedExpectations)):
-        if float('inf')!=normalizedExp:
+        if float('inf')!=normalizedExpectations[i]:
             #need to use cumutaviteFraction i-1
-            cumulativeFractionConstruct[i]=cumulativeFractionConstruct[i-1]+normalizedExp
+            cumulativeFractionConstruct.append(cumulativeFractionConstruct[i-1]+normalizedExpectations[i])
         else:
-            cumulativeFractionConstruct[i]=cumulativeFractionConstruct[i-1]
+            cumulativeFractionConstruct[i].append(cumulativeFractionConstruct[i-1])
 
     # Simulate the catalog by drawing random numbers and mapping each
     # random number to a given modelLamba bin, based on its normalized rate
     #should it be short ('h')?? Or if I canged to f as I did, is it ok?
-    simulatedObservations=array.array('f')
-    for numEvents in numberOfEventsToSimulate:
+    simulatedObservations=array.array('i')
+    for j in range(len(normalizedExpectations)):
+        simulatedObservations.append(0)  
+
+    for numEvents in range(numberOfEventsToSimulate):
         rnd = numpy.random.random()
-        for j in len(normalizedExpectations):
-            if (rnd < cumulativeFractionConstruct[j]):
+        for j in range(len(normalizedExpectations)):
+            if rnd<=cumulativeFractionConstruct[j]:
+                # if len(simulatedObservations)<j:
+                #     simulatedObservations.append(1)    
+                #     break
+                # else:
                 simulatedObservations[j]=simulatedObservations[j]+1
                 break
 
@@ -133,5 +140,16 @@ def simulatedPerZechar(modelLambda):
 
 
 
+def calcNTest(modelLambda, modelOmega):
+    #para ca, os modelos devem estar em int, invertPoisson
+    nObserved = sum(modelLambda.bins)
 
+    numberOfSimulations = 1000
+    nSimulated=array.array('i')
 
+    # simulatedQuantity=[]
+    for i in range(numberOfSimulations):
+        nSimulated.append(sum(simulatedPerBin(modelLambda)))
+        
+    gamma=percentile(nObserved, nSimulated)
+    return gamma
