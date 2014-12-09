@@ -50,7 +50,13 @@ def calcLogLikelihood(modelLambda,modelOmega):
             
     return sumLogLikelihood
 
+#TODO: explain what the LTest is, what it does, and what it measure.
 def calcLTest(modelLambda, modelOmega, simulatingSystem='perBin'):
+    """
+    Calculates the LTest between the model generated and the model to be compared to. 
+    The bins of Lambda and Omega must be probability values
+    It returns the LTest score between the models Lambda and Omega
+    """ 
     #para ca, os modelos devem estar em int, invertPoisson
     lObserved=calcLogLikelihood(modelLambda, modelOmega)
 
@@ -74,16 +80,25 @@ def calcLTest(modelLambda, modelOmega, simulatingSystem='perBin'):
     return gamma
 
 #why does it add so big numbers????
+#TODO: Should I make a better explanation of the simulatedPerBin function??
 def simulatedPerBin(modelLambda):
+    """ 
+    Generates integer numbers of earthquake from the model Lambda.
+    It uses one random value to be used with the probability found at an especific bin of Lambda.
+    It should be used to create the simulations need for the loglikelihood based tests.
+    """ 
     bin=[]
     rnd=random.random()
     for i in range(len(modelLambda.bins)):
-        #usar o modelLambda.bins??
         bin.append(invertPoisson(rnd, modelLambda.bins[i]))
     return bin
 
 #TODO: Finish it
 def simulatedPerZechar(modelLambda):
+    """ 
+    Not finished
+    """ 
+
     #the function used in Zechar has threshold, though he uses it as 0
     expectedNumberOfEvents=sum(modelLambda.bins)
 
@@ -137,8 +152,13 @@ def simulatedPerZechar(modelLambda):
     return simulatedObservations.tolist()
 
 
-
+#TODO: explain what the NTest is, what it does, and what it measure.
 def calcNTest(modelLambda, modelOmega):
+    """
+    Calculates the NTest between the model generated and the model to be compared to. 
+    The bins of Lambda and Omega must be probability values
+    It returns the NTest score between the models Lambda and Omega
+    """ 
     #para ca, os modelos devem estar em int, invertPoisson
     nObserved = sum(modelLambda.bins)
 

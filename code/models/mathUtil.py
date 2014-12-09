@@ -14,7 +14,6 @@ def invertPoisson(x,mi):
                     prob = prob * x
                 return k
 
-#TODO: move to math util(?), for sure, we need to take this out of here
 def calcNumberBins(lambda_i, omega_i):
     """ Transform a set of real valued bins (0..1) into 
     a set of integer bins, using the value of real data 
@@ -25,6 +24,8 @@ def calcNumberBins(lambda_i, omega_i):
     return bin
 
 def normalizeArray(vector):
+    #Only used by Zechar, not being used yet
+    """ Normalize the number of observations, to a value between 0 and 1""" 
     #TODO: check if it works with negative values in vector
     arrayCopy=array.array('f')
 
@@ -37,6 +38,9 @@ def normalizeArray(vector):
     return arrayCopy
 
 def percentile(value, sample):
+    """ Defines how many observations are less or igual to the sample
+        It sorts the vector sample, and advances it until we find a value in it that is bigger than the sample
+    """ 
     numberOfSamples=len(sample)
     sampleCopy=sample.tolist()
     sampleCopy.sort()

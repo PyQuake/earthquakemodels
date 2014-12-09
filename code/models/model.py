@@ -77,7 +77,8 @@ def addFromCatalog(model,catalog, year):
     
 
 def loadModelDefinition(filename):
-    """ Creates a dictionary list with the definitions for a model from a file.
+    """
+    Creates a dictionary list with the definitions for a model from a file.
     The file is defined as multiple lines, with each line containing:
     key min step bins
     """
@@ -116,7 +117,8 @@ def saveModelToFile(model, filename):
 
 # Use something safer than Eval (someday)
 def loadModelFromFile(filename):
-    """ Loads the model to a specific file,  passed as arg
+    """
+    Loads the model to a specific file,  passed as arg
     """
 
     ret = model()

@@ -1,7 +1,10 @@
+csep/loglikelihood.py:#TODO: explain what the LTest is, what it does, and what it measure.
+csep/loglikelihood.py:#TODO: Should I make a better explanation of the simulatedPerBin function??
+csep/loglikelihood.py:#TODO: Finish it
+csep/loglikelihood.py:#TODO: explain what the NTest is, what it does, and what it measure.
 earthquake/catalog.py:# TODO: transform year/month/day conditions into datetime conditions automagically
+models/mathUtil.py:    #TODO: check if it works with negative values in vector
 models/model.py:# TODO: Use datetime instead of year
 models/model.py:    # TODO: nao usar key como nome de variavel aqui (criar um dicionario se necessario)
 models/model.py:    # TODO: calcular o numero de keys in definition
 models/model.py:    # TODO: limpar isto um pouco
-models/randomModel.py:#TODO: move to math util(?), for sure, we need to take this out of here
-models/randomModel.py:#TODO: move to math util(?), for sure, we need to take this out of here

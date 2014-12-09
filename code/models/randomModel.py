@@ -15,4 +15,3 @@ def makePoissonModel(model,lam=1):
 
     return model
 
-#TODO: move to math util(?), for sure, we need to take this out of here
