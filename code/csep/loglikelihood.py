@@ -11,7 +11,7 @@ import array
 import numpy
 import random
 
-from models.randomModel import invertPoisson, normalizeArray, percentile
+from models.mathUtil import invertPoisson, normalizeArray, percentile
 
 
 # Implementation notes:
@@ -80,8 +80,6 @@ def simulatedPerBin(modelLambda):
     for i in range(len(modelLambda.bins)):
         #usar o modelLambda.bins??
         bin.append(invertPoisson(rnd, modelLambda.bins[i]))
-        # if bin[i]>=12:
-        #     print(Value of the bin:",bin[i],", rnd: ",rnd,", modelLambda.bins[i]:",modelLambda.bins[i], sep=" ")
     return bin
 
 #TODO: Finish it
