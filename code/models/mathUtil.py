@@ -1,3 +1,4 @@
+import math
 def invertPoisson(x,mi):
     """ Calculates the value that would be found in a 
     poisson distribution with lambda = mi at probability

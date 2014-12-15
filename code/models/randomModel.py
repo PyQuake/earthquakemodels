@@ -15,3 +15,12 @@ def makePoissonModel(model,lam=1):
 
     return model
 
+def makeRandomModel(model):
+    """ Modifies the model passed as parameter, replacing all bins 
+    with random values taken from a Random distribution
+
+    Returns modified model for chaining"""
+    model.bins = (numpy.random.random(size=len(model.bins))).tolist()
+
+    return model
+

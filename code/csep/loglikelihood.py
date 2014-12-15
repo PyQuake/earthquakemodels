@@ -54,8 +54,11 @@ def calcLogLikelihood(modelLambda,modelOmega):
 def calcLTest(modelLambda, modelOmega, simulatingSystem='perBin'):
     """
     Calculates the LTest between the model generated and the model to be compared to. 
-    The bins of Lambda and Omega must be probability values
+    The bins of Lambda and Omega must be integer values
     It returns the LTest score between the models Lambda and Omega
+
+    Pros: widely applicable, tests entire forecast
+    Cons: blends effects of spatial forecast, rate forecast, magnitude forecast
     """ 
     #para ca, os modelos devem estar em int, invertPoisson
     lObserved=calcLogLikelihood(modelLambda, modelOmega)
@@ -93,7 +96,7 @@ def simulatedPerBin(modelLambda):
         bin.append(invertPoisson(rnd, modelLambda.bins[i]))
     return bin
 
-#TODO: Finish it
+#TODO: Finish it, if we are to use it
 def simulatedPerZechar(modelLambda):
     """ 
     Not finished
@@ -156,8 +159,11 @@ def simulatedPerZechar(modelLambda):
 def calcNTest(modelLambda, modelOmega):
     """
     Calculates the NTest between the model generated and the model to be compared to. 
-    The bins of Lambda and Omega must be probability values
+    The bins of Lambda and Omega must be integer values
     It returns the NTest score between the models Lambda and Omega
+
+    Pros: isolates rate forecast, widely applicable
+    Cons: ignores spatial component, ignores magnitude component
     """ 
     #para ca, os modelos devem estar em int, invertPoisson
     nObserved = sum(modelLambda.bins)
