@@ -24,19 +24,16 @@ def calcNumberBins(lambda_i, omega_i):
         bin.append(invertPoisson(lam,om))
     return bin
 
-def normalizeArray(vector):
-    #Only used by Zechar, not being used yet
+def normalize(auxList):
     """ Normalize the number of observations, to a value between 0 and 1""" 
-    #TODO: check if it works with negative values in vector
-    arrayCopy=array.array('f')
 
-    sumValue = sum(vector)
+    sumValue = sum(auxList)
 
     #divide each entry by this sumValue
-    for value in vector:
-        arrayCopy.append(value/sumValue)
+    aux2List=[]
+    aux2List[:]=[x/sumValue for x in auxList]
 
-    return arrayCopy
+    return aux2List
 
 def percentile(value, sample):
     """ Defines how many observations are less or igual to the sample
