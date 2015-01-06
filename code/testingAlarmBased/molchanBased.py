@@ -81,31 +81,31 @@ def areaUnderTrajectory(molchanTrajectory, tau):
     for i in range(len(molchanTrajectory)):
     	height.append((N-i)/N)
 
-    area=
-    for i in range(n-1):
-        area+=height[i]*(molchanTrajectory[i+1]-molchanTrajectory[i])
-        # print(area,molchanTrajectory[i+1] ,molchanTrajectory[i], height[i])
+    area=0
+    index=0
+    for i in range(n):
+        area+=height[index]*(molchanTrajectory[index+1]-molchanTrajectory[index])
+        index+=1
     area+=height[n]*(tau-molchanTrajectory[n])
     
-    # area/=tauSteps
-    print(n,area, molchanTrajectory[n])
-    input("uma vez......")
+    area/=tau
+    # print(area)
     return area
     
 
 def assTest(modelLambda, modelOmega, tauSteps=0.01):
-	"""
-	Calculates the ASS alarm test function defined by Zechar. 
-	Its as alarm based test that considers regions, threshold, miss rate and hits.
-	The param should be an model with bins that divides one region, and every bin should contain the quatity of earthquakes
-	"""
-	molchanTrajectory=molchan(modelLambda, modelOmega)
-	assTrajectory=[]
+    """
+    Calculates the ASS alarm test function defined by Zechar. 
+    Its as alarm based test that considers regions, threshold, miss rate and hits.
+    The param should be an model with bins that divides one region, and every bin should contain the quatity of earthquakes
+    """
+    molchanTrajectory=molchan(modelLambda, modelOmega)
+    assTrajectory=[]
 
-	limitRange=int(1/tauSteps)
-	for i in range(limitRange):
-		tau=(i+1)*tauSteps
-		ass=1-areaUnderTrajectory(molchanTrajectory, tau)
-		assTrajectory.append(ass)
-
-	return assTrajectory
+    limitRange=int(1/tauSteps)
+    for i in range(limitRange):
+        tau=(i+1)*tauSteps
+        ass=1-areaUnderTrajectory(molchanTrajectory, tau)
+        assTrajectory.append(ass)
+    # print(assTrajectory)
+    return assTrajectory
