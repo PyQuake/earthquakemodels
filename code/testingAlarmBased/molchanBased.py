@@ -81,13 +81,15 @@ def areaUnderTrajectory(molchanTrajectory, tau):
     for i in range(len(molchanTrajectory)):
     	height.append((N-i)/N)
 
-    area=0
+    area=
     for i in range(n-1):
-    	area+=height[i]*(molchanTrajectory[i+1]-molchanTrajectory[i])
-    area+=height[n]*(tau - molchanTrajectory[n])
+        area+=height[i]*(molchanTrajectory[i+1]-molchanTrajectory[i])
+        # print(area,molchanTrajectory[i+1] ,molchanTrajectory[i], height[i])
+    area+=height[n]*(tau-molchanTrajectory[n])
     
-    area /= tau
-
+    # area/=tauSteps
+    print(n,area, molchanTrajectory[n])
+    input("uma vez......")
     return area
     
 
