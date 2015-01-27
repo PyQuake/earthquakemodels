@@ -11,7 +11,7 @@ import array
 import numpy
 import random
 
-from models.mathUtil import invertPoisson, normalizeArray, percentile
+from models.mathUtil import invertPoisson, normalize, percentile
 
 
 # Implementation notes:
@@ -96,7 +96,7 @@ def simulatedPerBin(modelLambda):
         bin.append(invertPoisson(rnd, modelLambda.bins[i]))
     return bin
 
-#TODO: Finish it, if we are to use it
+#TODO: Finish it, ONLY IF we are to use it
 def simulatedPerZechar(modelLambda):
     """ 
     Not finished
