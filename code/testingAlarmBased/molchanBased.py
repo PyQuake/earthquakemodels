@@ -11,19 +11,13 @@ import models.mathUtil as mathUtil
 def molchan(modelLambda, modelOmega):
 
     if len(modelLambda.bins)==len(modelOmega.bins):
-    	#TODO: Check how this normalize is done
     	referenceValues=[]
     	referenceValues[:]=[x+1 for x in modelOmega.bins]
     	
     	referenceValues=mathUtil.normalize(referenceValues)
-		#TODO: e so somar os bins do Omega? Uma vez que a gente quer testar o modelo nosso contra os dados reais?
     	N = sum(modelOmega.bins)
-    	#o que o claus tinha comentado aqui?????????
-    	#tem tamanho N+1 no zechar, aqui como fica?
     	trajectory=[0]*(N+1)
 
-    	#I need to order the in decresing order the values of modelOmega
-	    #I also need to have the same positions in the others, so thats what the zip is for
     	fullData=[]
     	for lam,value in zip(modelLambda.bins, referenceValues):
     		fullData.append((lam, value))
@@ -89,7 +83,6 @@ def areaUnderTrajectory(molchanTrajectory, tau):
     area+=height[n]*(tau-molchanTrajectory[n])
     
     area/=tau
-    # print(area)
     return area
     
 
@@ -107,5 +100,4 @@ def assTest(modelLambda, modelOmega, tauSteps=0.01):
         tau=(i+1)*tauSteps
         ass=1-areaUnderTrajectory(molchanTrajectory, tau)
         assTrajectory.append(ass)
-    # print(assTrajectory)
     return assTrajectory

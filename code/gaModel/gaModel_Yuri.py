@@ -4,7 +4,7 @@ from deap import base, creator, tools
 import numpy
 from csep.loglikelihood import calcLogLikelihood as loglikelihood
 from models.mathUtil import calcNumberBins
-#change this line to import only needed files
+#TODO: change this line to import only needed files
 import models.model
 import random
 import array
