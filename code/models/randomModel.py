@@ -28,14 +28,14 @@ def arbritaryExtremesModel(model):
     # TODO: calcular o numero de keys in definition
     for i in range(model.definitions[0]['bins']):
         for j in range(model.definitions[1]['bins']):
-            model.bins[i*model.definitions[0]['bins']+j]=1
+            model.bins[i*model.definitions[0]['bins']+j]=0
             if i==0:
-                model.bins[i*model.definitions[0]['bins']+j]=numpy.random.poisson()+1
+                model.bins[i*model.definitions[0]['bins']+j]=50
             elif i==44:
-                model.bins[i*model.definitions[0]['bins']+j]=numpy.random.poisson()+1
+                model.bins[i*model.definitions[0]['bins']+j]=50
             elif j==0:
-                model.bins[i*model.definitions[0]['bins']+j]=numpy.random.poisson()+1
+                model.bins[i*model.definitions[0]['bins']+j]=50
             elif j==44:
-                model.bins[i*model.definitions[0]['bins']+j]=numpy.random.poisson()+1
+                model.bins[i*model.definitions[0]['bins']+j]=50
 
     return model
