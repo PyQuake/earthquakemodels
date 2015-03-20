@@ -22,7 +22,6 @@ def gain(modelLambda, modelOmega, reference):
                 if p0>0 and p>0:
                     #TODO: Think if this way is a good way of doing it
                     if p0==1.0:
-                        print("entoru")
                         p0=0.9999999999999999
                     gain+=y*(p*(1-p0)/p0-(1-p))+(1-y)*(-p+(1-p)*(p0)/(1-p0))
 

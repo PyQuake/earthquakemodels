@@ -165,15 +165,13 @@ def calcNTest(modelLambda, modelOmega):
     Pros: isolates rate forecast, widely applicable
     Cons: ignores spatial component, ignores magnitude component
     """ 
-    #para ca, os modelos devem estar em int, invertPoisson
+
     nObserved = sum(modelLambda.bins)
 
     numberOfSimulations = 1000
     nSimulated=array.array('i')
 
-    # simulatedQuantity=[]
     for i in range(numberOfSimulations):
         nSimulated.append(sum(simulatedPerBin(modelLambda)))
-        
     gamma=percentile(nObserved, nSimulated)
     return gamma
