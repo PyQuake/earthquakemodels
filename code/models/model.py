@@ -6,22 +6,43 @@
 # bins - is the number of bins in this dimension
 
 import rpy2.robjects as robjects
+import datetime
+import numpy
 
 class model(object):
     pass
 
-def newModel(definitions,initialvalue=0):
+def newModel(definitions,mag=True,initialvalue=0):
     """ Creates an empty model based on a set of definitions. 
     The initialvalue parameter determines the initial value of 
     the bins contained in the model, and can be used to create 
     "neutral" models (containing 1 in all bins)
+
+    bins are the dimensional size for lat and long
+    cells are the dimensional size for mag
     """
     ret = model()
-    totalbins = 1
+    totalbins,totalcells = 1, 1
+    if mag==True:
+        ret.mag=True
+    else:
+        ret.mag=False
+    
     for i in definitions:
         totalbins *= i['bins']
+        if ret.mag==True:
+            totalcells *= i['cells']
+        else:
+            totalcells *= 1
+
     ret.definitions = definitions
-    ret.bins = [initialvalue]*totalbins
+    if ret.mag==True:
+        ret.bins = numpy.ndarray(shape=(totalbins,totalcells), dtype='i')
+        ret.bins.fill(initialvalue)#TODO: which intialvalue should be used for mag???
+    else:
+        # ret.bins = [initialvalue]*totalbins
+        ret.bins = numpy.ndarray(shape=(totalbins), dtype='i')
+        ret.bins.fill(initialvalue)
     return ret
     
 
@@ -29,7 +50,7 @@ def newModel(definitions,initialvalue=0):
 # TODO: Use datetime instead of year
 def addFromCatalog(model,catalog, year):
 
-    k, l, index = 0, 0, 0
+    k, l, index, cell, cell_i = 0, 0, 0, 0, 0
 
     # TODO: nao usar key como nome de variavel aqui (criar um dicionario se necessario)
     # TODO: calcular o numero de keys in definition
@@ -46,33 +67,51 @@ def addFromCatalog(model,catalog, year):
             min_lat = definition['min']
             max_lat = definition['min'] + (definition['bins'] * definition['step'])
             bins_lat = definition['bins']
-
+        if definition['key'] == 'mag':
+            range_mag = definition['step'] * definition['cells']
+            step_mag = definition['step']
+            min_mag = definition['min']
+            max_mag = definition['min'] + (definition['cells'] * definition['step'])
+            cells_mag = definition['cells']
     # TODO: limpar isto um pouco
     for m in range(len(catalog)):
         #kind of a filter, we should define how we are going to filter by year
         if catalog[m]['year'] == year:  
             if catalog[m]['lon']>min_lon and catalog[m]['lon']<max_lon:
                 if catalog[m]['lat']>min_lat and catalog[m]['lat']<max_lat:
-                    #calculating the adequated bin for a coordinate of a earthquake
-                    for i in range(bins_lon):    
-                        index = (step_lon*i) + min_lon
-                        if catalog[m]['lon']>=index and catalog[m]['lon']<(index+step_lon) : 
-                            if index+step_lon>max_lon: #to avoid the last index to be out of limits
-                                k -= 1
-                            break
-                        k += 1
-                    for j in range(bins_lat):
-                        index = (step_lat*j) + min_lat
-                        if catalog[m]['lat']>=index and catalog[m]['lat']<(index+step_lat) :
-                            if index+step_lat>max_lat: #to avoid the last index to be out of limits
-                                l -= 1
-                            break
-                        l += 1
-                    if(k==0 and l==0):
-                        print (catalog[m]['lon'], catalog[m]['lat'])
-                    index = k*bins_lon+l #matriz[i,j] -> vetor[i*45+j], i=lon, j=lat, i=k, j=l
-                    model.bins[index] += 1
-                    k,l = 0,0
+                    
+                        #calculating the adequated bin for a coordinate of a earthquake
+                        for i in range(bins_lon):    
+                            index = (step_lon*i) + min_lon
+                            if catalog[m]['lon']>=index and catalog[m]['lon']<(index+step_lon): 
+                                if index+step_lon>max_lon: #to avoid the last index to be out of limits
+                                    k -= 1
+                                break
+                            k += 1
+                        for j in range(bins_lat):
+                            index = (step_lat*j) + min_lat
+                            if catalog[m]['lat']>=index and catalog[m]['lat']<(index+step_lat):
+                                if index+step_lat>max_lat: #to avoid the last index to be out of limits
+                                    l -= 1
+                                break
+                            l += 1
+                        index = k*bins_lon+l #matriz[i,j] -> vetor[i*45+j], i=lon, j=lat, i=k, j=l
+                        
+                        if model.mag==True:
+                            if catalog[m]['mag']>min_mag and catalog[m]['mag']<max_mag:
+                                #calculating the adequated bin for a coordinate of a mag of the quake
+                                for n in range(cells_mag):    
+                                    cell = (step_mag*n) + min_mag
+                                    if catalog[m]['mag']>=cell and catalog[m]['mag']<(cell+step_mag): 
+                                        if cell+step_mag>max_mag: #to avoid the last index to be out of limits
+                                            cell_i -= 1
+                                        break
+                                    cell_i += 1
+                                model.bins[index,cell_i] += 1
+                        else:
+                            model.bins[index] += 1
+                        k,l,cell_i = 0,0,0
+    
     return model
     
 
@@ -84,7 +123,7 @@ def loadModelDefinition(filename):
     """
     f = open(filename, "r")
     ret = list()
-    keys = ['key','min','step','bins']
+    keys = ['key','min','step','bins', 'cells']
     
     for line in f:
         if line[0] == '#':
@@ -94,7 +133,9 @@ def loadModelDefinition(filename):
         for key,value in zip(keys,tokens):
             if key == 'key':
                 definition[key] = value
-            elif(key == 'bins'):
+            elif key == 'bins':
+                definition[key] = int(value)
+            elif key == 'cells':
                 definition[key] = int(value)
             else:
                 definition[key] = float(value)
@@ -104,29 +145,40 @@ def loadModelDefinition(filename):
     return ret
 
 def saveModelToFile(model, filename):
-    """ Saves the model to a specific file, both passed as arg
+    """ 
+    It saves the model to a specific file, both passed as arg
     """
-
-    with open(filename, 'w') as f:
-        f.write(str(model.bins))
-        f.write("\n")
-        f.write(str(model.definitions))
-        f.write("\n")
-    f.close()
-    #print ("The model was succesfully saved to the file", filename)
+    if model.mag==False:
+        with open(filename, 'w') as f:
+            f.write(str(model.bins))
+            f.write("\n")
+            f.write(str(model.definitions))
+            f.write("\n")
+            f.close()
+    else:
+        numpy.savetxt(filename, model.bins)
+        with open(filename+"def.txt", 'w') as f:
+            f.write(str(model.definitions))
+            f.write("\n")
+        f.close()   
 
 # Use something safer than Eval (someday)
-def loadModelFromFile(filename):
+def loadModelFromFile(filename, withMag=True):
     """
-    Loads the model to a specific file,  passed as arg
+    It Load the model to a specific file,  passed as arg
     """
 
     ret = model()
-
-    with open(filename, 'r') as f:
-        ret.bins = eval(f.readline())
-        ret.definitions = eval(f.readline())
-    f.close()
+    if withMag==False:
+        with open(filename, 'r') as f:
+            ret.bins = eval(f.readline())
+            ret.definitions = eval(f.readline())
+        f.close()
+    else:
+        with open(filename+"def.txt", 'r') as f:
+            ret.definitions = eval(f.readline())
+        f.close()
+        ret.bins = numpy.loadtxt(filename, dtype="i")
 
     return ret
 
@@ -135,3 +187,133 @@ def createImageFromModel(modelToDraw,fileToSave):
     r_myfunction = robjects.globalenv['plotMatrixModel']
     modeldata = robjects.IntVector(modelToDraw.bins)
     r_myfunction(modeldata, fileToSave)   
+
+
+#TODOD:UPDATE this
+def modelToMiniCSEP(model, filename, startDate, endDate):
+    """
+    Conversion between the model used by this framework to the template needed by miniCSEP.
+    More info: https://northridge.usc.edu/trac/csep/wiki/ForecastTemplates#no1
+    """
+
+    startDate=startDate+"T"+str(00).zfill(2)+":"+str(00).zfill(2)+":"+str(00).zfill(2)+"Z"
+    endDate=endDate+"T"+str(00).zfill(2)+":"+str(00).zfill(2)+":"+str(00).zfill(2)+"Z"
+
+    with open(filename, 'w') as f:
+        f.write("<?xml version='1.0' encoding='UTF-8'?>\n")
+        f.write("<CSEPForecast xmlns='http://www.scec.org/xml-ns/csep/forecast/0.05'>\n")
+        f.write("  <forecastData publicID='smi:org.scec/csep/forecast/1'>\n")
+        f.write("    <modelName>gaModel-UnB_Tsukuba</modelName>\n")
+        f.write("    <version>1.0</version>\n")
+        f.write("    <author>PyQuake-https://github.com/PyQuake/earthquakemodels</author>\n")
+
+        now = datetime.datetime.now()
+        f.write("    <issueDate>"+str(now.year)+"-"+str(now.month).zfill(2)+"-"+str(now.day).zfill(2)+
+            "T"+str(now.hour).zfill(2)+":"+str(now.minute).zfill(2)+":"+str(00).zfill(2)+"Z</issueDate>\n")
+        f.write("    <forecastStartDate>"+startDate+"</forecastStartDate>\n")
+        f.write("    <forecastEndDate>"+endDate+"</forecastEndDate>\n")
+        f.write("    <defaultCellDimension latRange='"+str(model.definitions[0]['step'])+
+                                        "' lonRange='"+str(model.definitions[1]['step'])+"'/>\n")
+        f.write("    <defaultMagBinDimension>"+str(model.definitions[2]['step'])+"</defaultMagBinDimension>\n")
+        f.write("    <lastMagBinOpen>1</lastMagBinOpen>\n")
+        f.write("    <depthLayer max='100.0' min='0.0'>\n")
+
+        latSteps,longSteps, magSteps=0,0,0
+        for bin in model.bins:
+            f.write("      <cell lat='"+str(round(model.definitions[0]['min']+latSteps*model.definitions[0]['step'],2))+
+                                "' lon='"+str(round(model.definitions[1]['min']+longSteps*model.definitions[1]['step'],2))+"'>\n")
+            for num in bin:
+                f.write("        <bin m='"+str(round(model.definitions[2]['min']+magSteps*model.definitions[2]['step'],2))+
+                                                    "'>"+str(num)+"</bin>\n")
+                magSteps+=1
+
+            f.write("      </cell>\n")
+
+            latSteps+=1
+            magSteps=0
+            if latSteps==45:
+                latSteps=0
+                longSteps+=1
+
+        f.write("    </depthLayer>\n")
+        f.write("  </forecastData>\n")
+        f.write("</CSEPForecast>\n")
+
+    f.close()
+
+
+#TODO: Check if this function really is obslote...
+def convertMagtoNoMag(modelMag):
+    """
+    At first, you should use convert2DToArray
+    Convert model (matrix) with mag array to a temporary model (array) without mag array
+    It is important to use a different model to receive the return of this function
+    """
+    ret=model()
+
+    ret.bins=[0]*len(modelMag.bins)
+    for cell, i in zip(modelMag.bins, range(len(modelMag.bins))):
+        ret.bins[i]=sum(cell)
+
+    return ret
+
+#TODO:Check if I sould add model.definitions to the returned model
+def convert2DToArray(modelMag, definitions):
+    """
+    Convert model (matrix) with mag array to a model (array) with mag
+    The new model is a 1D array
+    It is important to use a different model to receive the return of this function
+
+    IMPORTANT: The definition used here should be with Mag definitions
+    """
+    ret=model()
+
+    ret.bins = numpy.ndarray(shape=(len(modelMag.bins)*len(modelMag.bins[0])), dtype='i')
+    ret.bins.fill(0)
+
+    ret.definitions=definitions
+     
+    i=0
+    for bin in modelMag.bins:
+        j=0
+        while j<len(bin):
+            ret.bins[i*j]=bin[j]
+            j+=1
+        i+=1
+    return ret
+
+def convertArrayto2D(modelWithout, definitions):
+    """
+    Convert model (array) with mag array to a model (matrix) with mag
+    The new model is a 2D array
+    It is important to use a different model to receive the return of this function
+
+    IMPORTANT: The definition used here should be with Mag definitions
+    """
+    ret=model()
+     
+    totalbins,totalcells = 1, 1
+    for i in definitions:
+        totalbins *= i['bins']
+        totalcells *= i['cells']
+    ret.bins = numpy.ndarray(shape=(totalbins,totalcells), dtype='i')
+    ret.bins.fill(0)
+
+    ret.definitions=definitions
+    ret.mag=True
+
+    i,j=0,0
+    for bin in modelWithout.bins:
+        ret.bins[i,j]=bin
+        j+=1
+        i+=1
+        if j==totalcells:
+            j=0
+        if i==totalbins:
+            i=0
+
+    return ret
+
+
+
+

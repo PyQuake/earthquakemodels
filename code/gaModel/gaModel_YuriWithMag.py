@@ -37,21 +37,24 @@ def initDEAP():
 def evaluationFunction(individual, modelOmega):
     modelLambda=type(modelOmega)
     modelLambda.bins=list(individual)
-    modelLambda.bins=calcNumberBins(modelLambda.bins, modelOmega.bins)
-    logValue=loglikelihood(modelLambda, modelOmega)
+
+    auxOmega=models.model.convert2DToArray(modelOmega, modelOmega.definitions)
+
+    modelLambda.bins=calcNumberBins(modelLambda.bins, auxOmega.bins.tolist())
+    logValue=loglikelihood(modelLambda, auxOmega)
 
     return logValue,
 
 def gaModel(NGEN,CXPB,MUTPB,modelOmega,n=500):
-
-	#Should this go to initDEAP????
+    #Should this go to initDEAP????
     toolbox = base.Toolbox()
     toolbox.register("evaluate", evaluationFunction, modelOmega=modelOmega)
     creator.create("FitnessFunction", base.Fitness, weights=(1.0,))
-    creator.create("Individual", array.array, typecode='d', fitness=creator.FitnessFunction)
-	# Attribute generator
+    creator.create("Individual", numpy.ndarray, typecode='d', fitness=creator.FitnessFunction)
+    # Attribute generator
     toolbox.register("attr_float", random.random)
-    toolbox.register("individual", tools.initRepeat, creator.Individual, toolbox.attr_float, len(modelOmega.bins))
+    toolbox.register("individual", tools.initRepeat, creator.Individual, toolbox.attr_float, len(modelOmega.bins)*
+        len(modelOmega.bins[0]))
 
     toolbox.register("population", tools.initRepeat, list, toolbox.individual)
 
@@ -77,7 +80,6 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,n=500):
         ind.fitness.values = fit
 
     for g in range(NGEN):
-        print("NGEN: ", g)
         # Select the next generation individuals
         offspring = toolbox.select(pop, len(pop))
         # Clone the selected individuals
@@ -106,8 +108,8 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,n=500):
         for ind, fit in zip(invalid_ind, fitnesses):
             ind.fitness.values = fit
 
-	    # The population is entirely replaced by the offspring, but the last pop best_ind
-	    #Elitism
+        # The population is entirely replaced by the offspring, but the last pop best_ind
+        #Elitism
         best_ind = tools.selBest(pop, 1)[0]
         worst_ind = tools.selWorst(offspring, 1)[0]
 

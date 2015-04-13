@@ -65,6 +65,7 @@ def filter(catalog,conditions):
     WARNING: remember that the "datetime" key requires a datetime object
     """
     
+    #TODO: Add mag filter
     ret = []
     for event in catalog:
         discarded = False

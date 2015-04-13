@@ -21,7 +21,7 @@ from models.mathUtil import invertPoisson, normalize, percentile
 def calcLogLikelihood(modelLambda,modelOmega):
     """
     Calculates the log likelihood between two RELM models. Lambda is usually 
-    the forecast model, and Omage is usually the real data model. Both models 
+    the forecast model, and Omega is usually the real data model. Both models 
     are defined as lists of integers representing earthquake amounts.
     
     Lambda and Omega must be of the same size.
