@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 import earthquake.catalog as catalog
 import models.model as model
 import gaModel.gaModel_Yuri as ga
@@ -37,4 +39,5 @@ def createRealModel(year, withMag=True):
 		model.saveModelToFile(observacao, '../Zona/realWithMag'+str(year)+'.txt')
 	
 
-	
+	if __name__ == "__main__":
+	    execGaModelWithMag()
