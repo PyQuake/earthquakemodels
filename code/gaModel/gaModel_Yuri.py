@@ -119,7 +119,7 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,n=500):
         pop[:] = offspring  
         record = stats.compile(pop)
         logbook.record(gen=g,time=time.time()-starttime,**record)
-    f = open('../Zona/model/gaWithMag_2000_logbook.txt',"a")
+    f = open('../Zona/model/gaWithMag_2011_logbook.txt',"a")
     f.write(str(logbook))
     f.write('\n')
 
