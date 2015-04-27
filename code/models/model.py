@@ -107,11 +107,11 @@ def addFromCatalog(model,catalog, year):
                                             cell_i -= 1
                                         break
                                     cell_i += 1
+
                                 model.bins[index,cell_i] += 1
                         else:
                             model.bins[index] += 1
                         k,l,cell_i = 0,0,0
-    
     return model
     
 

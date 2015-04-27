@@ -8,7 +8,7 @@ import gaModel.gaModel_YuriWithMag as gaWithMag
 def execGaModel(year, times):
 	observacao=model.loadModelFromFile('../Zona/real'+str(year)+'.txt',False)
 	definicao=model.loadModelDefinition('../params/Kanto.txt')
-	modelo=model.newModel(definicao)
+	modelo=model.newModel(definicao, False)
 	modelo=ga.gaModel(100,0.9,0.1,observacao)
 	model.saveModelToFile(modelo, '../Zona/model/modelo'+str(year)+'.txt')
 	for i in range(times):
@@ -30,7 +30,7 @@ def createRealModel(year, withMag=True):
 	definicao=model.loadModelDefinition('../params/KantoWithMag.txt')
 	catalogo=catalog.readFromFile('../data/jmacat_2000_2013.dat')
 	catalogo=catalog.filter(catalogo,definicao)
-	observacao=model.newModel(definicao, mag=withMag)
+	observacao=model.newModel(definicao, mag=True)
 	observacao=model.addFromCatalog(observacao,catalogo,year)
 	
 	if observacao.mag==False:
