@@ -4,13 +4,22 @@ import earthquake.catalog as catalog
 import models.model as model
 import gaModel.gaModel_Yuri as ga
 import gaModel.gaModel_YuriWithMag as gaWithMag
+import gaModel.etasGaModel as etasGaModel
+
+def execEtasGaModel(year, times):
+	observacao=model.loadModelFromFile('../Zona/real'+str(year)+'.txt',False)
+	definicao=model.loadModelDefinition('../params/Kanto.txt')
+	modelo=model.newModel(definicao, False)
+	for i in range(times):
+		modelo=etasGaModel.gaModel(100,0.8,0.5,observacao, year)
+		print(modelo.bins)
+		break
+		# model.saveModelToFile(modelo, '../Zona/model/modeloWithMag'+str(year)+"exec"+str(i)+'.txt')
 
 def execGaModel(year, times):
 	observacao=model.loadModelFromFile('../Zona/real'+str(year)+'.txt',False)
 	definicao=model.loadModelDefinition('../params/Kanto.txt')
 	modelo=model.newModel(definicao, False)
-	modelo=ga.gaModel(100,0.9,0.1,observacao)
-	model.saveModelToFile(modelo, '../Zona/model/modelo'+str(year)+'.txt')
 	for i in range(times):
 		modelo=ga.gaModel(100,0.9,0.1,modelo)
 		model.saveModelToFile(modelo, '../Zona/model/modeloWithMag'+str(year)+"exec"+str(i)+'.txt')

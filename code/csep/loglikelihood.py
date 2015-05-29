@@ -35,7 +35,7 @@ def calcLogLikelihood(modelLambda,modelOmega):
     #Should abort execution, or sould we continue even after it?
     if len(modelLambda.bins) != len(modelOmega.bins):
         raise NameError("Tried to calculate log likelihood for models with different sizes")
-
+    index=0
     for lambda_i,omega_i in zip(modelLambda.bins,modelOmega.bins):
         if (lambda_i == 0 and omega_i != 0):
             return float('-inf') # invalid Model	
@@ -47,7 +47,7 @@ def calcLogLikelihood(modelLambda,modelOmega):
             for i in range(omega_i):
                 sumLogFactorial+=math.log10(i+1)
             sumLogLikelihood += -lambda_i + omega_i*math.log10(lambda_i) - sumLogFactorial
-            
+        index+=1            
     return sumLogLikelihood
 
 #TODO: explain what the LTest is, what it does, and what it measure.

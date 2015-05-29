@@ -8,6 +8,7 @@
 import rpy2.robjects as robjects
 import datetime
 import numpy
+from models.mathUtil import invertPoisson
 
 class model(object):
     pass
@@ -315,5 +316,45 @@ def convertArrayto2D(modelWithout, definitions):
     return ret
 
 
+#TODO:choose a better name
+#Gen to Fen
+def convertFromListToData(observations,modelOmega):
 
+    # ret=newModel(modelOmega.definitions, False)
+    ret=model()
+    ret.bins=[0.0]*len(modelOmega.bins)
+
+    index,i= 0,0
+
+    for bin in observations:
+        if (i%3)==0:
+            index=int(bin)
+        elif (i%3)==1:            
+            ret.bins[int(index)]=bin
+        elif (i%3)==2:            
+            pass
+        i+=1
+    return ret
+
+
+# def convertGenToFen(observations,modelOmega):
+#     model=newModel(modelOmega.definitions, False)
+#     for event in observations:
+#         model.bins[event['index']]=event['value']
+
+#     return model
+
+
+# def convertFenToGen(model):
+#     ret=list()
+#     definition = dict()
+#     for bin,i in zip(model.bins,range(len(model.bins))):
+#         definition = dict()
+#         if bin!=0:
+#             definition['value']=bin
+#             definition['index']=i
+#             definition['mag']=0
+#             ret.append(definition)
+
+#     return ret    
 

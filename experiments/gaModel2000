@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<CSEPForecast xmlns='http://www.scec.org/xml-ns/csep/forecast/0.05'>
+  <forecastData publicID='smi:org.scec/csep/forecast/1'>
+    <modelName>gaModel-UnB_Tsukuba</modelName>
+    <version>1.0</version>
+    <author>PyQuake-https://github.com/PyQuake/earthquakemodels</author>
+    <issueDate>2015-05-07T15:43:00Z</issueDate>
+    <forecastStartDate>2000T00:00:00Z</forecastStartDate>
+    <forecastEndDate>2001T00:00:00Z</forecastEndDate>
+    <defaultCellDimension latRange='0.05' lonRange='0.05'/>
