@@ -116,9 +116,9 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega, year, n=500):
         pop[:] = offspring  
         record = stats.compile(pop)
         logbook.record(gen=g,time=time.time()-starttime,**record)
-    f = open('../Zona/etasGaModel/etasGaModelLista_'+str(year)+'_logbook.txt',"a")
-    f.write(str(logbook))
-    f.write('\n')
+    # f = open('../Zona/etasGaModel/etasGaModelLista_'+str(year)+'_logbook.txt',"a")
+    # f.write(str(logbook))
+    # f.write('\n')
 
 
     best_ind = tools.selBest(pop, 1)[0]

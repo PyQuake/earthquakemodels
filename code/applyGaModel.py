@@ -10,8 +10,9 @@ import models.modelEtasGa as etasGa
 
 # EM OFF
 def execEtasGaModelLista(year, times, save=False):
-	observacao=etasGa.loadModelFromFile('../Zona/realEtas'+str(year)+'.txt',False)
+	observacao=model.loadModelFromFile('../Zona/real'+str(year)+'.txt',False)
 	definicao=model.loadModelDefinition('../params/KantoEtas.txt')
+	observacao.definitions=definicao
 	modelo=etasGa.newModel(definicao,False)
 	for i in range(times):
 		modelo=etasGaModelLista.gaModel(100,0.9,0.1,observacao, year)
