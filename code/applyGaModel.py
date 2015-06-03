@@ -8,17 +8,17 @@ import gaModel.etasGaModelLista as etasGaModelLista
 import gaModel.etasGaModelNP as etasGaModelNP
 import models.modelEtasGa as etasGa
 
-EM OFF
+# EM OFF
 def execEtasGaModelLista(year, times, save=False):
-	observacao=etasGa.loadModelFromFile('../Zona/realEtas'+str(year)+'.txt')
+	observacao=etasGa.loadModelFromFile('../Zona/realEtas'+str(year)+'.txt',False)
 	definicao=model.loadModelDefinition('../params/KantoEtas.txt')
-	modelo=etasGa.newModel(definicao)
+	modelo=etasGa.newModel(definicao,False)
 	for i in range(times):
 		modelo=etasGaModelLista.gaModel(100,0.9,0.1,observacao, year)
-		print(modelo.bins)
-		print(modelo.magnitudeValues)
+		#print(modelo.bins)
+		#print(modelo.magnitudeValues)
 		if save==True:
-			model.saveModelToFile(modelo, '../Zona/model/modeloWithMag'+str(year)+"exec"+str(i)+'.txt')
+			model.saveModelToFile(modelo, '../Zona/model/etasLista'+str(year)+'exec.txt')
 
 def execEtasGaModelNP(year, times, save=False):
 	observacao=etasGa.loadModelFromFile('../Zona/realEtas'+str(year)+'.txt')
@@ -26,10 +26,10 @@ def execEtasGaModelNP(year, times, save=False):
 	modelo=etasGa.newModel(definicao)
 	for i in range(times):
 		modelo=etasGaModelNP.gaModel(100,0.9,0.1,observacao, year)
-		print(modelo.bins)
-		print(modelo.magnitudeValues)
+		#print(modelo.bins)
+		#print(modelo.magnitudeValues)
 		if save==True:
-			model.saveModelToFile(modelo, '../Zona/model/modeloWithMag'+str(year)+"exec"+str(i)+'.txt')
+			model.saveModelToFile(modelo, '../Zona/model/etasNP'+str(year)+'exec.txt')
 
 def execGaModel(year, times, save=False):
 	observacao=model.loadModelFromFile('../Zona/real'+str(year)+'.txt',False)
@@ -38,7 +38,7 @@ def execGaModel(year, times, save=False):
 	for i in range(times):
 		modelo=ga.gaModel(100,0.9,0.1,modelo)
 		if save==True:
-			model.saveModelToFile(modelo, '../Zona/model/modelo'+str(year)+"exec"+str(i)+'.txt')
+			model.saveModelToFile(modelo, '../Zona/model/modelo'+str(year)+'exec.txt')
 
 def execGaModelWithMag(year, times, save=False):
 	observacao=model.loadModelFromFile('../Zona/realWithMag'+str(year)+'.txt')
