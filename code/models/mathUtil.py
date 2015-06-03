@@ -15,13 +15,13 @@ def invertPoisson(x,mi):
                     prob = prob * x
                 return k
 
-def calcNumberBins(lambda_i, omega_i):
+def calcNumberBins(lambda_i, omega_i, adjusting=0):
     """ Transform a set of real valued bins (0..1) into 
     a set of integer bins, using the value of real data 
     (omega) as the mean for the poisson distribution"""
     bin=[]
     for lam,om in zip(lambda_i,omega_i):
-        bin.append(invertPoisson(lam,om))
+        bin.append(invertPoisson(lam,om)-adjusting)
     return bin
 
 def normalize(auxList):

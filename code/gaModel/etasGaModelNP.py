@@ -11,35 +11,6 @@ import random
 import array
 
 
-def initDEAP():
-    toolbox = base.Toolbox()
-    toolbox.register("evaluate", evaluationFunction, modelOmega=modelOmega)
-    creator.create("FitnessFunction", base.Fitness, weights=(1.0,))
-    creator.create("Individual", array.array, typecode='d', fitness=creator.FitnessFunction)
-    # Attribute generator
-    toolbox.register("attr_index", random.randint,0 ,2024)
-    toolbox.register("attr_mag", random.uniform, 5.0, 9.0)
-    toolbox.register("attr_prob", random.random)
-    # toolbox.register("individual", tools.initRepeat, creator.Individual, toolbox.attr_float, len(modelOmega.bins))
-    # dataOmega=models.model.convertFenToGen(modelOmega)
-    toolbox.register("individual", tools.initCycle, creator.Individual,
-                 (toolbox.attr_index, toolbox.attr_mag, toolbox.attr_prob), n=len(modelOmega.bins)-modelOmega.bins.count(0))
-
-    toolbox.register("population", tools.initRepeat, list, toolbox.individual)
-
-    toolbox.register("mate", tools.cxBlend, alpha = 0.5)
-    toolbox.register("select", tools.selRoulette)
-    toolbox.register("mutate", tools.mutPolynomialBounded,indpb=0.05, eta = 1, low = 0, up = 1)
-
-    stats = tools.Statistics(key=lambda ind: ind.fitness.values)
-    stats.register("avg", numpy.mean)
-    stats.register("std", numpy.std)
-    stats.register("min", numpy.min)
-    stats.register("max", numpy.max)
-
-    logbook = tools.Logbook()
-    logbook.header = "gen","min","avg","max","std"
-
 def evaluationFunction(individual, modelOmega):
     modelLambda=type(modelOmega)
     modelLambda.bins=list(individual)
@@ -49,35 +20,47 @@ def evaluationFunction(individual, modelOmega):
 
     return logValue,
 
-def mutationFunction(individual, indpb):
-    if random.random()<indpb:
-        individual[0]=random.randint(0 ,2024)
-    if random.random()<indpb:
-        individual[1]=random.random()
-    if random.random()<indpb:
-        individual[2]=random.uniform(5.0,9.0)
+def mutationFunction(individual, indpb, definitions, length):
+    i=0
+    while i<length:
+        if random.random()<indpb:
+            individual[i]=random.randint(0 ,length)
+        if random.random()<indpb:
+            individual[i+1]=random.random()
+        if random.random()<indpb:
+            individual[i+2]=random.uniform(definitions[2]['min'], 
+            definitions[2]['min'] + definitions[2]['cells']*definitions[2]['step'])
+        i+=3
     return individual
 
 
 def gaModel(NGEN,CXPB,MUTPB,modelOmega, year, n=500):
 
-    #Should this go to initDEAP????
     toolbox = base.Toolbox()
     toolbox.register("evaluate", evaluationFunction, modelOmega=modelOmega)
     creator.create("FitnessFunction", base.Fitness, weights=(1.0,))
+    #TODO: Check if its posible to use it as obj, maybe, OFF
     creator.create("Individual", array.array, typecode='d', fitness=creator.FitnessFunction)
     # Attribute generator
-    toolbox.register("attr_index", random.randint,0 ,2024)
-    toolbox.register("attr_mag", random.uniform, 5.0, 9.0)
-    toolbox.register("attr_prob", random.random)
+    #TODO: Em andamento... OFF
+    lengthList=len(modelOmega.bins)-1
+    # lengthList=numpy.count_nonzero(modelOmega.bins)
+    # lengthList+=round(((-1)+random.uniform(0.0,2.0))*(n*0.1))
+    toolbox.register("attr_index", random.randint,0 ,lengthList)
+
+    toolbox.register("attr_mag", random.uniform, modelOmega.definitions[2]['min'], 
+        modelOmega.definitions[2]['min'] + modelOmega.definitions[2]['cells']*modelOmega.definitions[2]['step'])
+
+    toolbox.register("attr_prob", random.random)   
+
     toolbox.register("individual", tools.initCycle, creator.Individual,
-                 (toolbox.attr_index, toolbox.attr_prob, toolbox.attr_mag), n=len(modelOmega.bins)-modelOmega.bins.count(0))
+                 (toolbox.attr_index, toolbox.attr_prob, toolbox.attr_mag), n=lengthList)
 
     toolbox.register("population", tools.initRepeat, list, toolbox.individual)
 
     toolbox.register("mate", tools.cxOnePoint)
     toolbox.register("select", tools.selTournament, tournsize=3)
-    toolbox.register("mutate", mutationFunction,indpb=0.1)
+    toolbox.register("mutate", mutationFunction,indpb=0.1, definitions=modelOmega.definitions, length=lengthList)
 
     stats = tools.Statistics(key=lambda ind: ind.fitness.values)
     stats.register("avg", numpy.mean)
@@ -86,10 +69,11 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega, year, n=500):
     stats.register("max", numpy.max)
 
     logbook = tools.Logbook()
-    logbook.header = "gen","time","min","avg","max","std"
+    # logbook.header = "gen","time","min","avg","max","std"
     starttime = time.time()
 
     pop = toolbox.population(n)
+
     # Evaluate the entire population
 
     fitnesses = list(map(toolbox.evaluate, pop))#need to pass 2 model.bins. One is the real data, the other de generated model
@@ -113,7 +97,7 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega, year, n=500):
                 toolbox.mutate(mutant)
                 del mutant.fitness.values
         
-        #Evaluate the individuals with an invalid fitness
+        # Evaluate the individuals with an invalid fitness
         invalid_ind = [ind for ind in offspring if not ind.fitness.valid]
 
         fitnesses = map(toolbox.evaluate, invalid_ind)
@@ -125,7 +109,6 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega, year, n=500):
         best_ind = tools.selBest(pop, 1)[0]
         worst_ind = tools.selWorst(offspring, 1)[0]
 
-
         for i in range(len(offspring)):
             if offspring[i] == worst_ind:
                 offspring[i] = best_ind
@@ -134,9 +117,10 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega, year, n=500):
         pop[:] = offspring  
         record = stats.compile(pop)
         logbook.record(gen=g,time=time.time()-starttime,**record)
-    f = open('../Zona/etasGaModel/gaWithMag_'+str(year)+'_logbook.txt',"a")
-    f.write(str(logbook))
-    f.write('\n')
+        f = open('../Zona/etasGaModel/etasGaModelNP_'+str(year)+'_logbook.txt',"a")
+        f.write(str(logbook))
+        f.write('\n')
+
 
 
     best_ind = tools.selBest(pop, 1)[0]
@@ -145,5 +129,10 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega, year, n=500):
     generatedModel = models.model.convertFromListToData(best_ind,modelOmega)
     generatedModel.bins = calcNumberBins(generatedModel.bins, modelOmega.bins)
     generatedModel.definitions = modelOmega.definitions
+
+    #TODO: Check if this is ok
+    # for i,mag in zip(range(len(generatedModel.bins)), generatedModel.magnitudeValues):
+    #     if mag==0.0:
+    #         generatedModel.bins[i]=0
 
     return generatedModel

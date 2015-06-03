@@ -39,8 +39,9 @@ def newModel(definitions,mag=True,initialvalue=0):
     ret.definitions = definitions
     if ret.mag==True:
         ret.bins = numpy.ndarray(shape=(totalbins,totalcells), dtype='i')
-        ret.bins.fill(initialvalue)#TODO: which intialvalue should be used for mag???
+        ret.bins.fill(initialvalue)
     else:
+        #This is how was done before
         # ret.bins = [initialvalue]*totalbins
         ret.bins = numpy.ndarray(shape=(totalbins), dtype='i')
         ret.bins.fill(initialvalue)
@@ -100,7 +101,7 @@ def addFromCatalog(model,catalog, year):
                         
                         if model.mag==True:
                             if catalog[m]['mag']>min_mag and catalog[m]['mag']<max_mag:
-                                #calculating the adequated bin for a coordinate of a mag of the quake
+                                #calculating the adequated bin for a coordinate of the mag of the quake
                                 for n in range(cells_mag):    
                                     cell = (step_mag*n) + min_mag
                                     if catalog[m]['mag']>=cell and catalog[m]['mag']<(cell+step_mag): 
@@ -145,6 +146,7 @@ def loadModelDefinition(filename):
     f.close()
     return ret
 
+#TODO: FIX THIS!!! For the mag=False situation
 def saveModelToFile(model, filename):
     """ 
     It saves the model to a specific file, both passed as arg
@@ -163,6 +165,7 @@ def saveModelToFile(model, filename):
             f.write("\n")
         f.close()   
 
+#TODO: FIX THIS!!! For the mag=False situation
 # Use something safer than Eval (someday)
 def loadModelFromFile(filename, withMag=True):
     """
@@ -323,6 +326,7 @@ def convertFromListToData(observations,modelOmega):
     # ret=newModel(modelOmega.definitions, False)
     ret=model()
     ret.bins=[0.0]*len(modelOmega.bins)
+    ret.magnitudeValues=[0.0]*len(modelOmega.bins)
 
     index,i= 0,0
 
@@ -330,9 +334,9 @@ def convertFromListToData(observations,modelOmega):
         if (i%3)==0:
             index=int(bin)
         elif (i%3)==1:            
-            ret.bins[int(index)]=bin
+            ret.bins[index]=bin
         elif (i%3)==2:            
-            pass
+            ret.magnitudeValues[index]=bin
         i+=1
     return ret
 
