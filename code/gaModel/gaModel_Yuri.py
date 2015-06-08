@@ -42,7 +42,7 @@ def evaluationFunction(individual, modelOmega):
 
     return logValue,
 
-def gaModel(NGEN,CXPB,MUTPB,modelOmega,n=500):
+def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,n=500):
 
 	#Should this go to initDEAP????
     toolbox = base.Toolbox()
@@ -66,7 +66,7 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,n=500):
     stats.register("max", numpy.max)
 
     logbook = tools.Logbook()
-    logbook.header = "gen","time","min","avg","max","std"
+    # logbook.header = "gen","time","min","avg","max","std"
     starttime = time.time()
 
     pop = toolbox.population(n)
@@ -119,7 +119,7 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,n=500):
         pop[:] = offspring  
         record = stats.compile(pop)
         logbook.record(gen=g,time=time.time()-starttime,**record)
-    f = open('../Zona/model/gaWithMag_2011_logbook.txt',"a")
+    f = open('../Zona/etasGaModel/gaWithoutMag'+str(year)+'_logbook.txt',"a")
     f.write(str(logbook))
     f.write('\n')
 

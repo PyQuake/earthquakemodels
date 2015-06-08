@@ -117,9 +117,9 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega, year, n=500):
         pop[:] = offspring  
         record = stats.compile(pop)
         logbook.record(gen=g,time=time.time()-starttime,**record)
-        f = open('../Zona/etasGaModel/etasGaModelNP_'+str(year)+'_logbook.txt',"a")
-        f.write(str(logbook))
-        f.write('\n')
+    f = open('../Zona/etasGaModel/etasGaModelNP_'+str(year)+'_logbook.txt',"a")
+    f.write(str(logbook))
+    f.write('\n')
 
 
 
@@ -129,7 +129,7 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega, year, n=500):
     generatedModel = models.model.convertFromListToData(best_ind,modelOmega)
     generatedModel.bins = calcNumberBins(generatedModel.bins, modelOmega.bins)
     generatedModel.definitions = modelOmega.definitions
-
+    generatedModel.mag=True
     #TODO: Check if this is ok
     # for i,mag in zip(range(len(generatedModel.bins)), generatedModel.magnitudeValues):
     #     if mag==0.0:

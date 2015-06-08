@@ -25,12 +25,6 @@ def addFromCatalog(model,catalog, year):
             min_lat = definition['min']
             max_lat = definition['min'] + (definition['bins'] * definition['step'])
             bins_lat = definition['bins']
-        # if definition['key'] == 'mag':
-        #     range_mag = definition['step'] * definition['cells']
-        #     step_mag = definition['step']
-        #     min_mag = definition['min']
-        #     max_mag = definition['min'] + (definition['cells'] * definition['step'])
-        #     cells_mag = definition['cells']
     
     # TODO: limpar isto um pouco
     for m in range(len(catalog)):
@@ -79,6 +73,7 @@ def newModel(definitions,initialvalue=0):
     ret.mag=False
 
     ret.definitions = definitions
+    # ret.bins = [initialvalue]*totalbins
     ret.bins = numpy.ndarray(shape=(totalbins), dtype='i')
     ret.bins.fill(initialvalue)
 

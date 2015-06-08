@@ -4,31 +4,17 @@ import earthquake.catalog as catalog
 import models.model as model
 import gaModel.gaModel_Yuri as ga
 import gaModel.gaModel_YuriWithMag as gaWithMag
-import gaModel.etasGaModelLista as etasGaModelLista
 import gaModel.etasGaModelNP as etasGaModelNP
 import models.modelEtasGa as etasGa
 
-# EM OFF
-def execEtasGaModelLista(year, times, save=False):
-	observacao=model.loadModelFromFile('../Zona/real'+str(year)+'.txt',False)
-	definicao=model.loadModelDefinition('../params/KantoEtas.txt')
-	observacao.definitions=definicao
-	modelo=etasGa.newModel(definicao,False)
-	for i in range(times):
-		modelo=etasGaModelLista.gaModel(100,0.9,0.1,observacao, year)
-		#print(modelo.bins)
-		#print(modelo.magnitudeValues)
-		if save==True:
-			model.saveModelToFile(modelo, '../Zona/model/etasLista'+str(year)+'exec.txt')
 
-def execEtasGaModelNP(year, times, save=False):
+def execEtasGaModel(year, times, save=False):
 	observacao=etasGa.loadModelFromFile('../Zona/realEtas'+str(year)+'.txt')
 	definicao=model.loadModelDefinition('../params/KantoEtas.txt')
 	modelo=etasGa.newModel(definicao)
 	for i in range(times):
 		modelo=etasGaModelNP.gaModel(100,0.9,0.1,observacao, year)
-		#print(modelo.bins)
-		#print(modelo.magnitudeValues)
+		modelo.mag=True
 		if save==True:
 			model.saveModelToFile(modelo, '../Zona/model/etasNP'+str(year)+'exec.txt')
 
@@ -37,7 +23,7 @@ def execGaModel(year, times, save=False):
 	definicao=model.loadModelDefinition('../params/Kanto.txt')
 	modelo=model.newModel(definicao, False)
 	for i in range(times):
-		modelo=ga.gaModel(100,0.9,0.1,modelo)
+		modelo=ga.gaModel(100,0.9,0.1,modelo,year)
 		if save==True:
 			model.saveModelToFile(modelo, '../Zona/model/modelo'+str(year)+'exec.txt')
 
@@ -48,7 +34,7 @@ def execGaModelWithMag(year, times, save=False):
 	auxModelo=model.convert2DToArray(modelo, modelo.definitions)
 	auxModelo.bins=auxModelo.bins.tolist()
 	for i in range(times):
-		modelo=ga.gaModel(100,0.9,0.1,auxModelo)
+		modelo=ga.gaModel(100,0.9,0.1,auxModelo, year)
 		if save==True:
 			model.saveModelToFile(model.convertArrayto2D(modelo,definicao), '../Zona/model/modeloWithMag'+str(year)+"exec"+str(i)+'.txt')
 
@@ -65,7 +51,7 @@ def createRealModel(year, withMag=True, save=False):
 	
 	if save==True:
 		if observacao.mag==False:
-			#TODO: FIX THIS!!!!
+			#TODO: FIX THIS!!!! WHAT
 			model.saveModelToFile(observacao, '../Zona/real'+str(year)+'.txt')
 		else:
 			model.saveModelToFile(observacao, '../Zona/realWithMag'+str(year)+'.txt')
