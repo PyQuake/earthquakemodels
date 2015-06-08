@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 import earthquake.catalog as catalog
 import models.model as model
@@ -74,5 +74,12 @@ def createRealModelforEtas(year, save=False):
 	
 	return observation
 
-	if __name__ == "__main__":
-	    execGaModelWithMag()
+def main():
+	year=2000
+	while year<2011:
+		print(year)
+		execEtasGaModel(year,10,True)
+		year+=1
+
+if __name__ == "__main__":
+	main()
