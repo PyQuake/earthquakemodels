@@ -131,5 +131,5 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,n=500):
     generatedModel.bins = list(best_ind)
     generatedModel.bins = calcNumberBins(generatedModel.bins, modelOmega.bins)
     generatedModel.definitions = modelOmega.definitions
-
+    generatedModel.mag=True
     return generatedModel
