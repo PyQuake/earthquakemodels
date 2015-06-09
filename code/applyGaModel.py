@@ -78,7 +78,7 @@ def main():
 	year=2000
 	while year<2011:
 		print(year)
-		execGaModel(year,10,True)
+		execGaModelWithMag(year,10,True)
 		year+=1
 
 if __name__ == "__main__":
