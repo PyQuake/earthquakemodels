@@ -78,7 +78,7 @@ def main(year):
 	year=2000
 
 	createRealModelforEtas(year,True)
-#	execGaModel(year,10,True)
+	execGaModel(year,10,True)
 #	execGaModelWithMag(year,10,True)
 	execEtasGaModel(year,10,True)
 
