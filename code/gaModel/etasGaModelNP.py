@@ -130,9 +130,5 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega, year, n=500):
     generatedModel.bins = calcNumberBins(generatedModel.bins, modelOmega.bins)
     generatedModel.definitions = modelOmega.definitions
     generatedModel.mag=True
-    #TODO: Check if this is ok
-    # for i,mag in zip(range(len(generatedModel.bins)), generatedModel.magnitudeValues):
-    #     if mag==0.0:
-    #         generatedModel.bins[i]=0
 
     return generatedModel
