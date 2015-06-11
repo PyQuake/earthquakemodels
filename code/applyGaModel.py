@@ -74,13 +74,13 @@ def createRealModelforEtas(year, save=False):
 	
 	return observation
 
-def main(year):
+def main():
 	year=2000
 
 	createRealModelforEtas(year,True)
-	execGaModel(year,10,True)
+	# execGaModel(year,10,True)
 #	execGaModelWithMag(year,10,True)
-	execEtasGaModel(year,10,True)
+	execEtasGaModel(year,1,True)
 
 
 if __name__ == "__main__":
