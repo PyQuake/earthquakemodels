@@ -5,7 +5,7 @@ def clear(filename):
 	saveFile = open(filename+"_R.txt", 'w')
 
 	for line in text:
-		data = re.sub(r'gen.*', '', line, flags=re.MULTILINE)		
+		data = re.sub(r'avg.*', '', line, flags=re.MULTILINE)		
 		saveFile.write(data)
 		saveFile.write('\n')
 

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-
+import models.mathUtil as mathUtil
 import earthquake.catalog as catalog
 import models.model as model
 import gaModel.gaModel_Yuri as ga
@@ -11,26 +11,27 @@ import models.modelEtasGa as etasGa
 def execEtasGaModel(year, times, save=False):
 	observacao=etasGa.loadModelFromFile('../Zona/realEtas'+str(year)+'.txt')
 	definicao=model.loadModelDefinition('../params/KantoEtas.txt')
-	modelo=etasGa.newModel(definicao)
+	# modelo=etasGa.newModel(definicao)
 	for i in range(times):
 		modelo=etasGaModelNP.gaModel(100,0.9,0.1,observacao, year)
 		modelo.mag=True
 		if save==True:
-			model.saveModelToFile(modelo, '../Zona/model/etasNP'+str(year)+'exec.txt')
+			etasGa.saveModelToFile(modelo, '../Zona/model/etasNP'+str(year)+'exec.txt')
 
 def execGaModel(year, times, save=False):
-	observacao=model.loadModelFromFile('../Zona/real'+str(year)+'.txt',False)
+	observacao=model.loadModelFromFile('../Zona/real'+str(year)+'.txt')
+	observacao.bins=observacao.bins.tolist()
 	definicao=model.loadModelDefinition('../params/Kanto.txt')
-	modelo=model.newModel(definicao, False)
+	# modelo=model.newModel(definicao, False)
 	for i in range(times):
-		modelo=ga.gaModel(100,0.9,0.1,modelo,year)
+		modelo=ga.gaModel(100,0.9,0.1,observacao,year)
 		if save==True:
 			model.saveModelToFile(modelo, '../Zona/model/modelo'+str(year)+'exec.txt')
 
 def execGaModelWithMag(year, times, save=False):
 	observacao=model.loadModelFromFile('../Zona/realWithMag'+str(year)+'.txt')
 	definicao=model.loadModelDefinition('../params/KantoWithMag.txt')
-	modelo=model.newModel(definicao)
+	# modelo=model.newModel(definicao)
 	auxModelo=model.convert2DToArray(modelo, modelo.definitions)
 	auxModelo.bins=auxModelo.bins.tolist()
 	for i in range(times):
@@ -51,7 +52,6 @@ def createRealModel(year, withMag=True, save=False):
 	
 	if save==True:
 		if observacao.mag==False:
-			#TODO: FIX THIS!!!! WHAT
 			model.saveModelToFile(observacao, '../Zona/real'+str(year)+'.txt')
 		else:
 			model.saveModelToFile(observacao, '../Zona/realWithMag'+str(year)+'.txt')
@@ -67,6 +67,7 @@ def createRealModelforEtas(year, save=False):
 	catalogo=catalog.filter(catalogo,definition)
 	observation=etasGa.newModel(definition)
 	observation=etasGa.addFromCatalog(observation,catalogo,year)
+	observation.prob=mathUtil.normalize(observation.bins)
 
 	observation.mag=True
 	if save==True:
@@ -76,12 +77,13 @@ def createRealModelforEtas(year, save=False):
 
 def main():
 	year=2000
-
-	createRealModelforEtas(year,True)
-	# execGaModel(year,10,True)
-#	execGaModelWithMag(year,10,True)
-	execEtasGaModel(year,1,True)
-
+	while year<2011:
+		# createRealModelforEtas(year, save=True)
+		createRealModel(year,withMag=False, save=True)
+		execGaModel(year,2,True)
+			# execGaModelWithMag(year,10,True)
+		# execEtasGaModel(year,10,True)
+		year+=1
 
 if __name__ == "__main__":
 	main()

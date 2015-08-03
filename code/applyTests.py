@@ -11,7 +11,7 @@ def execTests(year):
 
 	f = open("../experiments/"+str(year)+"TestsResults.txt", "w")
         
-	gaModel=model.loadModelFromFile('../Zona/modelo'+str(year)+'.txt')
+	gaModel=model.loadModelFromFile('../Zona/model/modelo'+str(year)+'.txt')
 	modeloReal=model.loadModelFromFile('../Zona/real'+str(year)+'.txt')	
 	print("Applying all tests available to the gaModel...")
 	lTestValue=log.calcLTest(gaModel, modeloReal)

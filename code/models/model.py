@@ -5,7 +5,7 @@
 # step - is the size of the bin
 # bins - is the number of bins in this dimension
 
-import rpy2.robjects as robjects
+#import rpy2.robjects as robjects
 import datetime
 import numpy
 from models.mathUtil import invertPoisson
@@ -40,11 +40,15 @@ def newModel(definitions,mag=True,initialvalue=0):
     if ret.mag==True:
         ret.bins = numpy.ndarray(shape=(totalbins,totalcells), dtype='i')
         ret.bins.fill(initialvalue)
+        ret.prob = numpy.ndarray(shape=(totalbins), dtype='i')
+        ret.prob.fill(0.0)
     else:
         #This is how was done before
         # ret.bins = [initialvalue]*totalbins
         ret.bins = numpy.ndarray(shape=(totalbins), dtype='i')
         ret.bins.fill(initialvalue)
+        ret.prob = numpy.ndarray(shape=(totalbins), dtype='i')
+        ret.prob.fill(0.0)
     return ret
     
 
@@ -146,43 +150,29 @@ def loadModelDefinition(filename):
     f.close()
     return ret
 
-#TODO: FIX THIS!!! For the mag=False situation
 def saveModelToFile(model, filename):
     """ 
     It saves the model to a specific file, both passed as arg
     """
-    if model.mag==False:
-        with open(filename, 'w') as f:
-            f.write(str(model.bins))
-            f.write("\n")
-            f.write(str(model.definitions))
-            f.write("\n")
-            f.close()
-    else:
-        numpy.savetxt(filename, model.bins)
-        with open(filename+"def.txt", 'w') as f:
-            f.write(str(model.definitions))
-            f.write("\n")
-        f.close()   
+    numpy.savetxt(filename, model.bins)
+    with open(filename+"def.txt", 'w') as f:
+        f.write(str(model.definitions))
+        f.write("\n")
+    f.close()   
 
 #TODO: FIX THIS!!! For the mag=False situation
 # Use something safer than Eval (someday)
-def loadModelFromFile(filename, withMag=True):
+def loadModelFromFile(filename):
     """
     It Load the model to a specific file,  passed as arg
     """
 
     ret = model()
-    if withMag==False:
-        with open(filename, 'r') as f:
-            ret.bins = eval(f.readline())
-            ret.definitions = eval(f.readline())
-        f.close()
-    else:
-        with open(filename+"def.txt", 'r') as f:
-            ret.definitions = eval(f.readline())
-        f.close()
-        ret.bins = numpy.loadtxt(filename, dtype="i")
+
+    with open(filename+"def.txt", 'r') as f:
+        ret.definitions = eval(f.readline())
+    f.close()
+    ret.bins = numpy.loadtxt(filename, dtype="i")
 
     return ret
 
@@ -223,10 +213,10 @@ def modelToMiniCSEP(model, filename, startDate, endDate):
         f.write("    <depthLayer max='100.0' min='0.0'>\n")
 
         latSteps,longSteps, magSteps=0,0,0
-        for bin in model.bins:
+        for bins in model.bins:
             f.write("      <cell lat='"+str(round(model.definitions[0]['min']+latSteps*model.definitions[0]['step'],2))+
                                 "' lon='"+str(round(model.definitions[1]['min']+longSteps*model.definitions[1]['step'],2))+"'>\n")
-            for num in bin:
+            for num in bins:
                 f.write("        <bin m='"+str(round(model.definitions[2]['min']+magSteps*model.definitions[2]['step'],2))+
                                                     "'>"+str(num)+"</bin>\n")
                 magSteps+=1

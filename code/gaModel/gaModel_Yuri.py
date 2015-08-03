@@ -44,12 +44,12 @@ def evaluationFunction(individual, modelOmega):
 
 def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,n=500):
 
-	#Should this go to initDEAP????
+    #Should this go to initDEAP????
     toolbox = base.Toolbox()
     toolbox.register("evaluate", evaluationFunction, modelOmega=modelOmega)
     creator.create("FitnessFunction", base.Fitness, weights=(1.0,))
     creator.create("Individual", array.array, typecode='d', fitness=creator.FitnessFunction)
-	# Attribute generator
+    # Attribute generator
     toolbox.register("attr_float", random.random)
     toolbox.register("individual", tools.initRepeat, creator.Individual, toolbox.attr_float, len(modelOmega.bins))
 
@@ -106,8 +106,8 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,n=500):
         for ind, fit in zip(invalid_ind, fitnesses):
             ind.fitness.values = fit
 
-	    # The population is entirely replaced by the offspring, but the last pop best_ind
-	    #Elitism
+        # The population is entirely replaced by the offspring, but the last pop best_ind
+        #Elitism
         best_ind = tools.selBest(pop, 1)[0]
         worst_ind = tools.selWorst(offspring, 1)[0]
 
@@ -119,9 +119,9 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,n=500):
         pop[:] = offspring  
         record = stats.compile(pop)
         logbook.record(gen=g,time=time.time()-starttime,**record)
-    f = open('../Zona/etasGaModel/gaWithoutMag'+str(year)+'_logbook.txt',"a")
-    f.write(str(logbook))
-    f.write('\n')
+    # f = open('../Zona/etasGaModel/gaModel'+str(year)+'_logbook.txt',"a")
+    # f.write(str(logbook))
+    # f.write('\n')
 
     best_ind = tools.selBest(pop, 1)[0]
     generatedModel = type(modelOmega)

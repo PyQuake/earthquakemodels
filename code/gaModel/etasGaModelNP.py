@@ -25,9 +25,9 @@ def mutationFunction(individual, indpb, definitions, length):
     while i<length:
         if random.random()<indpb:
             individual[i]=random.randint(0 ,length)
-        if random.random()<indpb:
+        # if random.random()<indpb:
             individual[i+1]=random.random()
-        if random.random()<indpb:
+        # if random.random()<indpb:
             individual[i+2]=random.uniform(definitions[2]['min'], 
             definitions[2]['min'] + definitions[2]['cells']*definitions[2]['step'])
         i+=3
@@ -127,8 +127,10 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega, year, n=500):
     generatedModel = type(modelOmega)
     generatedModel.bins = [0.0]*len(modelOmega.bins)
     generatedModel = models.model.convertFromListToData(best_ind,modelOmega)
+    generatedModel.prob = generatedModel.bins
     generatedModel.bins = calcNumberBins(generatedModel.bins, modelOmega.bins)
     generatedModel.definitions = modelOmega.definitions
     generatedModel.mag=True
+
 
     return generatedModel
