@@ -43,6 +43,7 @@ In most cases, you can call the most important methods in two ways. The direct a
 What i mean from direct approach: It is possible to simply call, for example, the method to genarate a model by GA. That method needs some arguments and you would have to provide them to be able to run the method. 
 
 The self-structured way is an aprroach that allows you to call the method in the right sequence making it easier to run the methods.
+```
 
 # Executing the main GA methods - self-structured way
 ```bash
@@ -52,14 +53,16 @@ in applyGaModel.py you can generate some different kinds of GA models. All simil
   you have to specify the year for the model and how many times you would like to execute the GA. Also, you may chose to save the model in a file. But first, you have to create the reference model for comparison (in most cases it is the resulting data after filtering the catalog by the year) by calling:
     createRealModelforEtas(year, save=False)
   with the same parameters, but times.
-  
 ```
+
 #Executing the main GA methods - The direct approach 
 ```bash
 in the models.etasGaModelNP you can call the GA model method by itself. You may do it by:
   gaModel(NGEN,CXPB,MUTPB,modelOmega, year, n=500)
 in which NGEN, CXPB, MUTPB and n are the GA parameters. modelOmega is the reference model to be comapared (in most cases it is the resulting data after filtering the catalog by the year). You should choose the year parameter as well.
 ```
+
+#Executing the the testing methods
 Some tests were implemented. For those, the same idea above is applyed, we both have the The direct approach and the self-structured way. But in this case, the self-structured way is recommended. This may be out of date. 
 
 ```bash
