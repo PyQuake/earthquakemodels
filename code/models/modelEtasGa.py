@@ -134,7 +134,7 @@ def simpleHibrid(model,fileMag, fileSaveCat):
 
     # modelo=etasGa.loadModelFromFile('../Zona/model/etasNP2000exec.txt')
 
-    modelo.magnitudeValues = numpy.zeros(shape=(len(modelo.bins),modelo.definitions[2]['cells']), dtype='f')
+    model.magnitudeValues = numpy.zeros(shape=(len(model.bins),model.definitions[2]['cells']), dtype='f')
 
     # f = open("../Zona/etasim1.txt", 'r')
     f = open(fileMag, 'r')
@@ -161,18 +161,18 @@ def simpleHibrid(model,fileMag, fileSaveCat):
         i, quakesCount, number = 0, 0, 1
 
     while quakes != []:
-        if i >= len(modelo.bins):
+        if i >= len(model.bins):
             break
         j = 0 
         while j < len(quakes):
-            if  modelo.bins[i] > quakesCount:
-                index = localizarIndex(modelo, quakes[j])
-                if modelo.magnitudeValues[i][index] == 0:
+            if  model.bins[i] > quakesCount:
+                index = localizarIndex(model, quakes[j])
+                if model.magnitudeValues[i][index] == 0:
                     
-                    saveCatalog(modelo, i, number, quakes[j], times[j])
+                    saveCatalog(fileSaveCat, model, i, number, quakes[j], times[j])
                     number += 1
 
-                    modelo.magnitudeValues[i][index] = quakes.pop(j)
+                    model.magnitudeValues[i][index] = quakes.pop(j)
                     times.pop(j)
 
                     j = 0
@@ -184,10 +184,9 @@ def simpleHibrid(model,fileMag, fileSaveCat):
             j+=1
     # print(len(quakes), quakesCount, modelo.bins[i], quakes, i)
     
+    return model
 
-    return modelo
-
-def saveCatalog(modelo, index, number, mag, time):
+def saveCatalog(fileSaveCat, modelo, index, number, mag, time):
     lon, lat = calcCoordenada(modelo, index)
     depth, year, month, days = 0,0,0,0
     data2Save = []
@@ -201,7 +200,7 @@ def saveCatalog(modelo, index, number, mag, time):
     data2Save.append(month)
     data2Save.append(days)
 
-    f = open("./testeModelCatalog.txt", 'a')
+    f = open(fileSaveCat, 'a')
     f.write(str(data2Save))
     f.write("\n")
     f.close()
@@ -223,7 +222,7 @@ def localizarIndex(modelo, mag):
     j = 0
 
     step_mag = modelo.definitions[2]['step']
-    min_mag = modelo.definitions[2]['min'] + 3
+    min_mag = modelo.definitions[2]['min']
     max_mag = modelo.definitions[2]['min'] + (modelo.definitions[2]['cells'] * modelo.definitions[2]['step']) + 3
     cells_mag = modelo.definitions[2]['cells']
 
@@ -237,26 +236,26 @@ def localizarIndex(modelo, mag):
     return j
 
 
-def analise(modelo, tudo=False):
+# def analise(modelo, tudo=False):
 
-    if(tudo == False):
-        somaBins,somaMag, index = 0,0,0
-        for (mag, bins) in zip(modelo.magnitudeValues, modelo.bins):
-            if bins != 1:
-                if  numpy.count_nonzero(mag) != bins:
-                    print(mag, bins, index)
-                somaBins+=bins
-                somaMag+=numpy.count_nonzero(mag) 
-            index+=1
-        print(somaBins, somaMag)
-    else:
-        somaBins,somaMag, index = 0,0,0
-        for (mag, bins) in zip(modelo.magnitudeValues, modelo.bins):
-            print(mag, bins, index)
-            somaBins+=bins
-            somaMag+=numpy.count_nonzero(mag) 
-            index+=1
-        print(somaBins, somaMag)
+#     if(tudo == False):
+#         somaBins,somaMag, index = 0,0,0
+#         for (mag, bins) in zip(modelo.magnitudeValues, modelo.bins):
+#             if bins != 1:
+#                 if  numpy.count_nonzero(mag) != bins:
+#                     print(mag, bins, index)
+#                 somaBins+=bins
+#                 somaMag+=numpy.count_nonzero(mag) 
+#             index+=1
+#         print(somaBins, somaMag)
+#     else:
+#         somaBins,somaMag, index = 0,0,0
+#         for (mag, bins) in zip(modelo.magnitudeValues, modelo.bins):
+#             print(mag, bins, index)
+#             somaBins+=bins
+#             somaMag+=numpy.count_nonzero(mag) 
+#             index+=1
+#         print(somaBins, somaMag)
 
 
 

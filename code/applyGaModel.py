@@ -31,7 +31,7 @@ def execGaModel(year, times, save=False):
 def execGaModelWithMag(year, times, save=False):
 	observacao=model.loadModelFromFile('../Zona/realWithMag'+str(year)+'.txt')
 	definicao=model.loadModelDefinition('../params/KantoWithMag.txt')
-	# modelo=model.newModel(definicao)
+	modelo=model.newModel(definicao)
 	auxModelo=model.convert2DToArray(modelo, modelo.definitions)
 	auxModelo.bins=auxModelo.bins.tolist()
 	for i in range(times):
