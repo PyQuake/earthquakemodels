@@ -10,7 +10,15 @@ import models.model
 import random
 import array
 
+global length
+length=0
 
+class genotype():
+    def __init__(self):
+        self.index=random.randint(0 ,length)
+        self.prob=random.random()
+
+        
 def evaluationFunction(individual, modelOmega):
 
     logValue = float('Infinity')
@@ -50,27 +58,33 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega, year, n=500):
     toolbox.register("evaluate", evaluationFunction, modelOmega=modelOmega)
     creator.create("FitnessFunction", base.Fitness, weights=(1.0,))
     #TODO: Check if its posible to use it as obj, maybe, OFF
-    creator.create("Individual", array.array, typecode='d', fitness=creator.FitnessFunction)
+    # creator.create("Individual", array.array, fitness=creator.FitnessFunction)
+    creator.create("Individual", numpy.ndarray, fitness=creator.FitnessFunction)
+    # numpy.ndarray((10,)
     # Attribute generator
 
     # Calculate the len of the gen by the mean of the Omegas size
-    lengthList0=len(modelOmega[0].bins)-1
-    lengthList1=len(modelOmega[1].bins)-1
-    lengthList2=len(modelOmega[2].bins)-1
-    lengthList3=len(modelOmega[3].bins)-1
-    lengthList4=len(modelOmega[4].bins)-1
-    lengthList = int((lengthList4 + lengthList3 + lengthList2 + lengthList1)/4)
+    lengthList=list()
+    lengthList.append(len(modelOmega[0].bins)-1)
+    lengthList.append(len(modelOmega[1].bins)-1)
+    lengthList.append(len(modelOmega[2].bins)-1)
+    lengthList.append(len(modelOmega[3].bins)-1)
+    lengthList.append(len(modelOmega[4].bins)-1)
+    global length 
+    length = int((lengthList[0] + lengthList[1] + lengthList[2]+ lengthList[3]+lengthList[4])/5)
 
-    toolbox.register("attr_index", random.randint,0 ,lengthList)
-    toolbox.register("attr_prob", random.random)   
+    # toolbox.register("attr_index", )
+    # toolbox.register("attr_prob", random.random)   
 
-    toolbox.register("individual", tools.initCycle, creator.Individual,(toolbox.attr_index, toolbox.attr_prob), n=lengthList)
+    # toolbox.register("individual", tools.initCycle, creator.Individual,(toolbox.attr_index, toolbox.attr_prob), n=lengthList)
+    # toolbox.register("gen", genotype, n=length)
+    toolbox.register("individual", tools.initRepeat, creator.Individual, genotype, n=length)
 
     toolbox.register("population", tools.initRepeat, list, toolbox.individual)
 
     toolbox.register("mate", tools.cxOnePoint)
     toolbox.register("select", tools.selTournament, tournsize=3)
-    toolbox.register("mutate", mutationFunction,indpb=0.1, definitions=modelOmega[0].definitions, length=lengthList)
+    toolbox.register("mutate", mutationFunction,indpb=0.1, definitions=modelOmega[0].definitions, length=length)
 
     stats = tools.Statistics(key=lambda ind: ind.fitness.values)
     stats.register("avg", numpy.mean)
@@ -79,7 +93,7 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega, year, n=500):
     stats.register("max", numpy.max)
 
     logbook = tools.Logbook()
-    # logbook.header = "gen","time","min","avg","max","std"
+    # logbook.header = "ngen","time","min","avg","max","std"
     starttime = time.time()
 
     pop = toolbox.population(n)
@@ -125,7 +139,7 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega, year, n=500):
 
         pop[:] = offspring  
         record = stats.compile(pop)
-        logbook.record(gen=g,time=time.time()-starttime,**record)
+        logbook.record(ngen=g,time=time.time()-starttime,**record)
     f = open('../Zona/etasGaModel/etasGaModelNP_'+str(year)+'_logbook.txt',"a")
     f.write(str(logbook))
     f.write('\n')
