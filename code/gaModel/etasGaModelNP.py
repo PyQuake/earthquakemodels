@@ -18,6 +18,8 @@ class genotype():
         self.index=random.randint(0 ,length)
         self.prob=random.random()
 
+def equalObjects(x,y):
+    return x==y
         
 def evaluationFunction(individual, modelOmega):
 
@@ -26,7 +28,6 @@ def evaluationFunction(individual, modelOmega):
 
     for i in range(len(modelOmega)):        
         modelLambda=type(modelOmega[0])
-        modelLambda.bins=list(individual)
         bins=models.model.convertFromListToData(individual,len(modelOmega[i].bins))    
         lambdasBins.append(bins)
 
@@ -41,14 +42,15 @@ def evaluationFunction(individual, modelOmega):
 
     return logValue,
 
+#enteder essa mutação...
 def mutationFunction(individual, indpb, definitions, length):
-    i=0
-    while i<length:
+    # i=0
+    # while i<length:
+    for i in range(length):
         if random.random()<indpb:
-            individual[i]=random.randint(0 ,length)
+            individual[i].index=random.randint(0 ,length)
         # if random.random()<indpb:
-            individual[i+1]=random.random()
-        i+=2
+            individual[i].prob=random.random()
     return individual
 
 
@@ -133,7 +135,9 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega, year, n=500):
         worst_ind = tools.selWorst(offspring, 1)[0]
 
         for i in range(len(offspring)):
-            if offspring[i] == worst_ind:
+            # if offspring[i] == worst_ind:
+            result = list(map(equalObjects,offspring[i],best_ind))
+            if all(result)==True:
                 offspring[i] = best_ind
                 break
 

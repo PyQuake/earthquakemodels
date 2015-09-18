@@ -313,22 +313,32 @@ def convertArrayto2D(modelWithout, definitions):
 #Gen to Fen
 def convertFromListToData(observations,length):
 
-    # ret=newModel(modelOmega.definitions, False)
     ret=model()
     ret.bins=[0.0]*length
-    # ret.magnitudeValues=[0.0]*len(modelOmega.bins)
 
-    index,i= 0,0
-
-    for bin in observations:
-        if (i%2)==0:
-            index=int(bin)
-        elif (i%2)==1:            
-            ret.bins[index]=bin
-        # elif (i%3)==2:            
-        #     ret.magnitudeValues[index]=bin
-        i+=1
+    for gene in observations:    
+        ret.bins[gene.index]=gene.prob
     return ret
+
+#for the list idea, out of date
+# def convertFromListToData(observations,length):
+
+#     # ret=newModel(modelOmega.definitions, False)
+#     ret=model()
+#     ret.bins=[0.0]*length
+#     # ret.magnitudeValues=[0.0]*len(modelOmega.bins)
+
+#     index,i= 0,0
+
+#     for bin in observations:
+#         if (i%2)==0:
+#             index=int(bin)
+#         elif (i%2)==1:            
+#             ret.bins[index]=bin
+#         # elif (i%3)==2:            
+#         #     ret.magnitudeValues[index]=bin
+#         i+=1
+#     return ret
 
 
 # def convertGenToFen(observations,modelOmega):
