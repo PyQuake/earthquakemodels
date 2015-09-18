@@ -35,10 +35,17 @@ def initDEAP():
     logbook.header = "gen","min","avg","max","std"
 
 def evaluationFunction(individual, modelOmega):
-    modelLambda=type(modelOmega)
-    modelLambda.bins=list(individual)
-    modelLambda.bins=calcNumberBins(modelLambda.bins, modelOmega.bins)
-    logValue=loglikelihood(modelLambda, modelOmega)
+    
+    logValue = float('Infinity')
+    modelLambda=type(modelOmega[0])
+    
+    for i in range(len(modelOmega)):
+        modelLambda.bins=list(individual)
+        modelLambda.bins=calcNumberBins(modelLambda.bins, modelOmega[i].bins)    
+        tempValue=loglikelihood(modelLambda, modelOmega[i])
+
+        if tempValue < logValue:
+            logValue = tempValue
 
     return logValue,
 
@@ -51,7 +58,7 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,n=500):
     creator.create("Individual", array.array, typecode='d', fitness=creator.FitnessFunction)
     # Attribute generator
     toolbox.register("attr_float", random.random)
-    toolbox.register("individual", tools.initRepeat, creator.Individual, toolbox.attr_float, len(modelOmega.bins))
+    toolbox.register("individual", tools.initRepeat, creator.Individual, toolbox.attr_float, len(modelOmega[0].bins))
 
     toolbox.register("population", tools.initRepeat, list, toolbox.individual)
 
@@ -124,9 +131,9 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,n=500):
     # f.write('\n')
 
     best_ind = tools.selBest(pop, 1)[0]
-    generatedModel = type(modelOmega)
+    generatedModel = type(modelOmega[0])
     generatedModel.bins = list(best_ind)
-    generatedModel.bins = calcNumberBins(generatedModel.bins, modelOmega.bins)
-    generatedModel.definitions = modelOmega.definitions
+    generatedModel.bins = calcNumberBins(generatedModel.bins, modelOmega[0].bins)
+    generatedModel.definitions = modelOmega[0].definitions
     generatedModel.mag=False
     return generatedModel

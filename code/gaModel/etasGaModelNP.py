@@ -12,11 +12,24 @@ import array
 
 
 def evaluationFunction(individual, modelOmega):
-    modelLambda=type(modelOmega)
-    modelLambda.bins=list(individual)
-    modelLambda=models.model.convertFromListToData(individual,modelOmega)
-    modelLambda.bins=calcNumberBins(modelLambda.bins, modelOmega.bins)
-    logValue=loglikelihood(modelLambda, modelOmega)
+
+    logValue = float('Infinity')
+    lambdasBins=list()
+
+    for i in range(len(modelOmega)):        
+        modelLambda=type(modelOmega[0])
+        modelLambda.bins=list(individual)
+        bins=models.model.convertFromListToData(individual,len(modelOmega[i].bins))    
+        lambdasBins.append(bins)
+
+    for i in range(len(modelOmega)):    
+        
+        modelLambda=models.model.convertFromListToData(individual,len(modelOmega[i].bins))    
+        modelLambda.bins=lambdasBins[i].bins
+        tempValue=loglikelihood(modelLambda, modelOmega[i])
+
+        if tempValue < logValue:
+            logValue = tempValue
 
     return logValue,
 
@@ -27,10 +40,7 @@ def mutationFunction(individual, indpb, definitions, length):
             individual[i]=random.randint(0 ,length)
         # if random.random()<indpb:
             individual[i+1]=random.random()
-        # if random.random()<indpb:
-            individual[i+2]=random.uniform(definitions[2]['min'], 
-            definitions[2]['min'] + definitions[2]['cells']*definitions[2]['step'])
-        i+=3
+        i+=2
     return individual
 
 
@@ -42,25 +52,25 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega, year, n=500):
     #TODO: Check if its posible to use it as obj, maybe, OFF
     creator.create("Individual", array.array, typecode='d', fitness=creator.FitnessFunction)
     # Attribute generator
-    #TODO: Em andamento... OFF
-    lengthList=len(modelOmega.bins)-1
-    # lengthList=numpy.count_nonzero(modelOmega.bins)
-    # lengthList+=round(((-1)+random.uniform(0.0,2.0))*(n*0.1))
+
+    # Calculate the len of the gen by the mean of the Omegas size
+    lengthList0=len(modelOmega[0].bins)-1
+    lengthList1=len(modelOmega[1].bins)-1
+    lengthList2=len(modelOmega[2].bins)-1
+    lengthList3=len(modelOmega[3].bins)-1
+    lengthList4=len(modelOmega[4].bins)-1
+    lengthList = int((lengthList4 + lengthList3 + lengthList2 + lengthList1)/4)
+
     toolbox.register("attr_index", random.randint,0 ,lengthList)
-
-    toolbox.register("attr_mag", random.uniform, modelOmega.definitions[2]['min'], 
-        modelOmega.definitions[2]['min'] + modelOmega.definitions[2]['cells']*modelOmega.definitions[2]['step'])
-
     toolbox.register("attr_prob", random.random)   
 
-    toolbox.register("individual", tools.initCycle, creator.Individual,
-                 (toolbox.attr_index, toolbox.attr_prob, toolbox.attr_mag), n=lengthList)
+    toolbox.register("individual", tools.initCycle, creator.Individual,(toolbox.attr_index, toolbox.attr_prob), n=lengthList)
 
     toolbox.register("population", tools.initRepeat, list, toolbox.individual)
 
     toolbox.register("mate", tools.cxOnePoint)
     toolbox.register("select", tools.selTournament, tournsize=3)
-    toolbox.register("mutate", mutationFunction,indpb=0.1, definitions=modelOmega.definitions, length=lengthList)
+    toolbox.register("mutate", mutationFunction,indpb=0.1, definitions=modelOmega[0].definitions, length=lengthList)
 
     stats = tools.Statistics(key=lambda ind: ind.fitness.values)
     stats.register("avg", numpy.mean)
@@ -73,7 +83,6 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega, year, n=500):
     starttime = time.time()
 
     pop = toolbox.population(n)
-
     # Evaluate the entire population
 
     fitnesses = list(map(toolbox.evaluate, pop))#need to pass 2 model.bins. One is the real data, the other de generated model
@@ -124,12 +133,12 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega, year, n=500):
 
 
     best_ind = tools.selBest(pop, 1)[0]
-    generatedModel = type(modelOmega)
-    generatedModel.bins = [0.0]*len(modelOmega.bins)
-    generatedModel = models.model.convertFromListToData(best_ind,modelOmega)
+    generatedModel = type(modelOmega[0])
+    generatedModel.bins = [0.0]*len(modelOmega[0].bins)
+    generatedModel = models.model.convertFromListToData(best_ind,len(modelOmega[0].bins))
     generatedModel.prob = generatedModel.bins
-    generatedModel.bins = calcNumberBins(generatedModel.bins, modelOmega.bins)
-    generatedModel.definitions = modelOmega.definitions
+    generatedModel.bins = calcNumberBins(generatedModel.bins, modelOmega[0].bins)
+    generatedModel.definitions = modelOmega[0].definitions
     generatedModel.mag=True
 
 

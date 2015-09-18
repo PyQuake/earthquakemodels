@@ -9,24 +9,54 @@ import models.modelEtasGa as etasGa
 
 
 def execEtasGaModel(year, times, save=False):
-	observacao=etasGa.loadModelFromFile('../Zona/realEtas'+str(year)+'.txt')
+	observacao0=etasGa.loadModelFromFile('../Zona/realEtas'+str(year)+'.txt')
+	observacao1=etasGa.loadModelFromFile('../Zona/realEtas'+str(year+1)+'.txt')
+	observacao2=etasGa.loadModelFromFile('../Zona/realEtas'+str(year+2)+'.txt')
+	observacao3=etasGa.loadModelFromFile('../Zona/realEtas'+str(year+3)+'.txt')
+	observacao4=etasGa.loadModelFromFile('../Zona/realEtas'+str(year+4)+'.txt')
+
+	observacao=list()
+	observacao.append(observacao0)
+	observacao.append(observacao1)
+	observacao.append(observacao2)
+	observacao.append(observacao3)
+	observacao.append(observacao4)
+
 	definicao=model.loadModelDefinition('../params/KantoEtas.txt')
-	# modelo=etasGa.newModel(definicao)
+
 	for i in range(times):
 		modelo=etasGaModelNP.gaModel(100,0.9,0.1,observacao, year)
 		modelo.mag=True
 		if save==True:
-			etasGa.saveModelToFile(modelo, '../Zona/model/etasNP'+str(year)+'exec.txt')
+			year+=5
+			etasGa.saveModelToFile(modelo, '../Zona/model/teste_etasNP'+str(year)+'exec.txt')
 
 def execGaModel(year, times, save=False):
-	observacao=model.loadModelFromFile('../Zona/real'+str(year)+'.txt')
-	observacao.bins=observacao.bins.tolist()
+	observacao0=model.loadModelFromFile('../Zona/real'+str(year)+'.txt')
+	observacao0.bins=observacao0.bins.tolist()
+	observacao1=model.loadModelFromFile('../Zona/real'+str(year+1)+'.txt')
+	observacao1.bins=observacao1.bins.tolist()
+	observacao2=model.loadModelFromFile('../Zona/real'+str(year+2)+'.txt')
+	observacao2.bins=observacao2.bins.tolist()
+	observacao3=model.loadModelFromFile('../Zona/real'+str(year+3)+'.txt')
+	observacao3.bins=observacao3.bins.tolist()
+	observacao4=model.loadModelFromFile('../Zona/real'+str(year+4)+'.txt')
+	observacao4.bins=observacao4.bins.tolist()
+	
+	observacao=list()
+	observacao.append(observacao0)
+	observacao.append(observacao1)
+	observacao.append(observacao2)
+	observacao.append(observacao3)
+	observacao.append(observacao4)
+
 	definicao=model.loadModelDefinition('../params/Kanto.txt')
-	# modelo=model.newModel(definicao, False)
+
 	for i in range(times):
 		modelo=ga.gaModel(100,0.9,0.1,observacao,year)
 		if save==True:
-			model.saveModelToFile(modelo, '../Zona/model/modelo'+str(year)+'exec.txt')
+			year+=5
+			model.saveModelToFile(modelo, '../Zona/model/teste_modelo'+str(year)+'exec.txt')
 
 def execGaModelWithMag(year, times, save=False):
 	observacao=model.loadModelFromFile('../Zona/realWithMag'+str(year)+'.txt')
@@ -80,9 +110,9 @@ def main():
 	while year<2011:
 		# createRealModelforEtas(year, save=True)
 		createRealModel(year,withMag=False, save=True)
-		execGaModel(year,2,True)
+		execGaModel(year,10,True)
 			# execGaModelWithMag(year,10,True)
-		# execEtasGaModel(year,10,True)
+		execEtasGaModel(year,10,True)
 		year+=1
 
 if __name__ == "__main__":
