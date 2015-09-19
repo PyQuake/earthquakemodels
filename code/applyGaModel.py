@@ -13,7 +13,7 @@ def execEtasGaModel(year, qntYears=5, times=10, save=False):
 	observations=list()
 
 	for i in range(qntYears):
-		observation=etasGa.loadModelFromFile('../Zona/realEtas'+str(year)+'.txt')
+		observation=etasGa.loadModelFromFile('../Zona/realEtas'+str(year+i)+'.txt')
 		observation.bins=observation.bins.tolist()
 		observations.append(observation)
 
@@ -93,9 +93,9 @@ def main():
 	while year<2011:
 		# createRealModelforEtas(year, save=True)
 		# createRealModel(year,withMag=False, save=True)
-		execGaModel(year,10,True)
-			# execGaModelWithMag(year,10,True)
-		execEtasGaModel(year,10,True)
+		execGaModel(year,save=True)
+		# execGaModelWithMag(year,10,True)
+		# execEtasGaModel(year, save=True)
 		year+=1
 
 if __name__ == "__main__":

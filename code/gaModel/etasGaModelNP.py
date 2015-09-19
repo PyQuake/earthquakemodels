@@ -19,7 +19,7 @@ class genotype():
         self.prob=random.random()
 
 def equalObjects(x,y):
-    return x==y
+    return x.prob==y.prob and x.index==y.index
         
 def evaluationFunction(individual, modelOmega):
 
@@ -60,26 +60,19 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega, year, n=500):
     toolbox.register("evaluate", evaluationFunction, modelOmega=modelOmega)
     creator.create("FitnessFunction", base.Fitness, weights=(1.0,))
     #TODO: Check if its posible to use it as obj, maybe, OFF
-    # creator.create("Individual", array.array, fitness=creator.FitnessFunction)
     creator.create("Individual", numpy.ndarray, fitness=creator.FitnessFunction)
     # numpy.ndarray((10,)
     # Attribute generator
 
     # Calculate the len of the gen by the mean of the Omegas size
     lengthList=list()
-    lengthList.append(len(modelOmega[0].bins)-1)
-    lengthList.append(len(modelOmega[1].bins)-1)
-    lengthList.append(len(modelOmega[2].bins)-1)
-    lengthList.append(len(modelOmega[3].bins)-1)
-    lengthList.append(len(modelOmega[4].bins)-1)
+    tempValue=0
+    for i in range(len(modelOmega)):    
+        lengthList.append(len(modelOmega[i].bins)-1)
+        tempValue+=lengthList[i]
     global length 
-    length = int((lengthList[0] + lengthList[1] + lengthList[2]+ lengthList[3]+lengthList[4])/5)
+    length = int(tempValue/len(lengthList))
 
-    # toolbox.register("attr_index", )
-    # toolbox.register("attr_prob", random.random)   
-
-    # toolbox.register("individual", tools.initCycle, creator.Individual,(toolbox.attr_index, toolbox.attr_prob), n=lengthList)
-    # toolbox.register("gen", genotype, n=length)
     toolbox.register("individual", tools.initRepeat, creator.Individual, genotype, n=length)
 
     toolbox.register("population", tools.initRepeat, list, toolbox.individual)
@@ -136,9 +129,10 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega, year, n=500):
 
         for i in range(len(offspring)):
             # if offspring[i] == worst_ind:
-            result = list(map(equalObjects,offspring[i],best_ind))
+            result = list(map(equalObjects,offspring[i],worst_ind))
             if all(result)==True:
                 offspring[i] = best_ind
+                print("Elitism")
                 break
 
         pop[:] = offspring  
