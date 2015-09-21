@@ -95,7 +95,7 @@ def main():
 		# createRealModel(year,withMag=False, save=True)
 		execGaModel(year,save=True)
 		# execGaModelWithMag(year,10,True)
-		# execEtasGaModel(year, save=True)
+		execEtasGaModel(year, save=True)
 		year+=1
 
 if __name__ == "__main__":
