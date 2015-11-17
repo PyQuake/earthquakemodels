@@ -31,7 +31,7 @@ def normalize(auxList):
 
     #divide each entry by this sumValue
     aux2List=[]
-    aux2List[:]=[x/sumValue for x in auxList]
+    aux2List[:]=[12/sumValue if x >= 12 else x/sumValue for x in auxList]
 
     return aux2List
 

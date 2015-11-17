@@ -294,6 +294,7 @@ def modelToZecharTests(model, filename, startDate, endDate):
         latSteps,longSteps, magSteps=0,0,0
 
         binsNormalized = mathUtil.normalize(model.bins)
+        # for bins in model.prob:
         for bins in binsNormalized:
             f.write("      <cell lat='"+str(round(model.definitions[0]['min']+latSteps*model.definitions[0]['step'],2))+
                                 "' lon='"+str(round(model.definitions[1]['min']+longSteps*model.definitions[1]['step'],2))+"'>\n")
@@ -317,3 +318,59 @@ def modelToZecharTests(model, filename, startDate, endDate):
         f.write("</CSEPForecast>\n")
 
     f.close()
+
+
+def ideaRIinMmodels(model,steps=5):
+
+
+    maxIndex = model.definitions[0]['bins']*model.definitions[1]['bins']*model.definitions[2]['bins']-1
+    minIndex = 0
+    row = model.definitions[0]['bins']
+
+    data = []
+    for bins,index in zip(model.bins, range(len(model.bins))):
+        aux = []
+        value = bins
+        if value > 12:
+            model.bins[index] = 12
+            value = 12
+        if value > 1:
+            aux.append(value)
+            aux.append(index)
+            data.append(aux)
+
+    for info in data:
+        value = info[0]
+        index = info[1]
+
+        for newTarget in range(steps):
+            value -= 2
+            if value > 0:
+                if index-newTarget >= minIndex:
+                    model.bins[index-newTarget] += value
+                    if model.bins[index-newTarget] > 12:
+                        model.bins[index-newTarget] = 12
+
+                if index+newTarget <= maxIndex:
+                    model.bins[index+newTarget] += value
+                    if model.bins[index+newTarget] > 12:
+                        model.bins[index+newTarget] = 12
+
+                if index + newTarget*row <= maxIndex:
+                    model.bins[index + newTarget*row] += value
+                    if model.bins[index + newTarget*row] > 12:
+                        model.bins[index + newTarget*row] = 12
+
+                if index - newTarget*row >= minIndex:
+                    model.bins[index - newTarget*row] += value                    
+                    if model.bins[index - newTarget*row] > 12:
+                        model.bins[index - newTarget*row] = 12
+
+            else:
+                break
+
+
+
+
+
+

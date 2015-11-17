@@ -183,57 +183,7 @@ def createImageFromModel(modelToDraw,fileToSave):
     r_myfunction(modeldata, fileToSave)   
 
 
-#TODOD:UPDATE this
-def modelToMiniCSEP(model, filename, startDate, endDate):
-    """
-    Conversion between the model used by this framework to the template needed by miniCSEP.
-    More info: https://northridge.usc.edu/trac/csep/wiki/ForecastTemplates#no1
-    """
 
-    startDate=startDate+"T"+str(00).zfill(2)+":"+str(00).zfill(2)+":"+str(00).zfill(2)+"Z"
-    endDate=endDate+"T"+str(00).zfill(2)+":"+str(00).zfill(2)+":"+str(00).zfill(2)+"Z"
-
-    with open(filename, 'w') as f:
-        f.write("<?xml version='1.0' encoding='UTF-8'?>\n")
-        f.write("<CSEPForecast xmlns='http://www.scec.org/xml-ns/csep/forecast/0.05'>\n")
-        f.write("  <forecastData publicID='smi:org.scec/csep/forecast/1'>\n")
-        f.write("    <modelName>gaModel-UnB_Tsukuba</modelName>\n")
-        f.write("    <version>1.0</version>\n")
-        f.write("    <author>PyQuake-https://github.com/PyQuake/earthquakemodels</author>\n")
-
-        now = datetime.datetime.now()
-        f.write("    <issueDate>"+str(now.year)+"-"+str(now.month).zfill(2)+"-"+str(now.day).zfill(2)+
-            "T"+str(now.hour).zfill(2)+":"+str(now.minute).zfill(2)+":"+str(00).zfill(2)+"Z</issueDate>\n")
-        f.write("    <forecastStartDate>"+startDate+"</forecastStartDate>\n")
-        f.write("    <forecastEndDate>"+endDate+"</forecastEndDate>\n")
-        f.write("    <defaultCellDimension latRange='"+str(model.definitions[0]['step'])+
-                                        "' lonRange='"+str(model.definitions[1]['step'])+"'/>\n")
-        f.write("    <defaultMagBinDimension>"+str(model.definitions[2]['step'])+"</defaultMagBinDimension>\n")
-        f.write("    <lastMagBinOpen>1</lastMagBinOpen>\n")
-        f.write("    <depthLayer max='100.0' min='0.0'>\n")
-
-        latSteps,longSteps, magSteps=0,0,0
-        for bins in model.bins:
-            f.write("      <cell lat='"+str(round(model.definitions[0]['min']+latSteps*model.definitions[0]['step'],2))+
-                                "' lon='"+str(round(model.definitions[1]['min']+longSteps*model.definitions[1]['step'],2))+"'>\n")
-            for num in bins:
-                f.write("        <bin m='"+str(round(model.definitions[2]['min']+magSteps*model.definitions[2]['step'],2))+
-                                                    "'>"+str(num)+"</bin>\n")
-                magSteps+=1
-
-            f.write("      </cell>\n")
-
-            latSteps+=1
-            magSteps=0
-            if latSteps==45:
-                latSteps=0
-                longSteps+=1
-
-        f.write("    </depthLayer>\n")
-        f.write("  </forecastData>\n")
-        f.write("</CSEPForecast>\n")
-
-    f.close()
 
 
 #TODO: Check if this function really is obslote...
@@ -319,46 +269,4 @@ def convertFromListToData(observations,length):
     for gene in observations:    
         ret.bins[gene.index]=gene.prob
     return ret
-
-#for the list idea, out of date
-# def convertFromListToData(observations,length):
-
-#     # ret=newModel(modelOmega.definitions, False)
-#     ret=model()
-#     ret.bins=[0.0]*length
-#     # ret.magnitudeValues=[0.0]*len(modelOmega.bins)
-
-#     index,i= 0,0
-
-#     for bin in observations:
-#         if (i%2)==0:
-#             index=int(bin)
-#         elif (i%2)==1:            
-#             ret.bins[index]=bin
-#         # elif (i%3)==2:            
-#         #     ret.magnitudeValues[index]=bin
-#         i+=1
-#     return ret
-
-
-# def convertGenToFen(observations,modelOmega):
-#     model=newModel(modelOmega.definitions, False)
-#     for event in observations:
-#         model.bins[event['index']]=event['value']
-
-#     return model
-
-
-# def convertFenToGen(model):
-#     ret=list()
-#     definition = dict()
-#     for bin,i in zip(model.bins,range(len(model.bins))):
-#         definition = dict()
-#         if bin!=0:
-#             definition['value']=bin
-#             definition['index']=i
-#             definition['mag']=0
-#             ret.append(definition)
-
-#     return ret    
 

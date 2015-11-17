@@ -1,0 +1,13 @@
+forecastFile=gaModels2007/randPoissonModel2007.xml
+observationFile=gaModels2007/new_2007.dat
+referenceForecastFile=gaModels2007/teste_gaModel2007.xml
+executeLTest=true
+executeMTest=false
+executeNTest=true
+executeRTest=true
+executeSTest=false
+executeMolchanTest=true
+executeASSTest=true
+executeROCTest=false
+executeGamblingTest=true
+resultsFile=gaModels2007/randPoissonModel2007-result.txt

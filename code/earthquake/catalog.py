@@ -81,4 +81,41 @@ def filter(catalog,conditions):
     return ret
     
     
-    
+def saveCatalogPerYear(catalog,year):
+    f = open("../zechar_sw/gaModels"+str(year)+"/"+str(year)+".dat", "w")
+
+    for i in range(len(catalog)):
+
+        time = catalog[i]['datetime']
+        timeSplit = time.timetuple()
+
+        if timeSplit[0] == year:
+            f.write(str(catalog[i]['lat']))
+            f.write(" ")
+            f.write(str(catalog[i]['lon']))
+            f.write(" ")
+            f.write(str(year))
+            f.write(" ")
+            f.write(str(timeSplit[1]))#moth
+            f.write(" ")
+            f.write(str(timeSplit[2]))#day
+            f.write(" ")
+            f.write(str(catalog[i]['mag']))
+            f.write(" ")
+            f.write(str(catalog[i]['depth']))
+            f.write(" ")
+            f.write(str(timeSplit[3]))#hour
+            f.write(" ")
+            f.write(str(timeSplit[4]))#minute
+            f.write(" ")
+            f.write(str(timeSplit[5]))#sec
+            f.write(" ")
+            f.write("\n")
+    f.close()
+
+
+
+
+
+
+
