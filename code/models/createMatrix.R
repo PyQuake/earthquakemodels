@@ -105,10 +105,10 @@ while(year<=2010){
   plotMatrixModel(raw_data, saveFile)  
   
   #gaModel
-  file = paste("teste_gaModel",year,"WithRI.txt",sep="")
-  raw_data = read.csv2(file, sep='\n', header=F)
-  saveFile = paste("../model_heatMap/gaModel",year,"WithRIheatMap.png",sep="")
-  plotMatrixModel(raw_data, saveFile) 
+#   file = paste("teste_gaModel",year,"WithRI.txt",sep="")
+#   raw_data = read.csv2(file, sep='\n', header=F)
+#   saveFile = paste("../model_heatMap/gaModel",year,"WithRIheatMap.png",sep="")
+#   plotMatrixModel(raw_data, saveFile) 
   
   
   
