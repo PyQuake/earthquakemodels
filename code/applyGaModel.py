@@ -95,21 +95,21 @@ def main():
 		print("Kanto", year)
 		region = "Kanto"
 		# createRealModelforEtas(year, region, save=True)
-		createRealModel(year, region, withMag=False, save=True)
-		print("Kansai", year)
-		region = "Kansai"
-		# # createRealModelforEtas(year, region, save=True)
-		createRealModel(year, region, withMag=False, save=True)
-		print("Tohoku", year)
-		region = "Tohoku"
-		# # createRealModelforEtas(year, region, save=True)
-		createRealModel(year, region, withMag=False, save=True)
-		print("EastJapan", year)
-		region = "EastJapan"
-		# # createRealModelforEtas(year, region, save=True)
-		createRealModel(year, region, withMag=False, save=True)
+		# createRealModel(year, region, withMag=False, save=True)
+		# print("Kansai", year)
+		# region = "Kansai"
+		# # # createRealModelforEtas(year, region, save=True)
+		# createRealModel(year, region, withMag=False, save=True)
+		# print("Tohoku", year)
+		# region = "Tohoku"
+		# # # createRealModelforEtas(year, region, save=True)
+		# createRealModel(year, region, withMag=False, save=True)
+		# print("EastJapan", year)
+		# region = "EastJapan"
+		# # # createRealModelforEtas(year, region, save=True)
+		# createRealModel(year, region, withMag=False, save=True)
 		
-		# execGaModel(year, region,save=True)
+		execGaModel(year, region,save=True)
 		#this should not be used
 		# execGaModelWithMag(year,10,True)
 		# execEtasGaModel(year, region, save=True)
