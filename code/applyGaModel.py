@@ -100,12 +100,12 @@ def main():
 		# region = "Kansai"
 		# # # createRealModelforEtas(year, region, save=True)
 		# createRealModel(year, region, withMag=False, save=True)
-		print("Tohoku", year)
-		region = "Tohoku"
+		# print("Tohoku", year)
+		# region = "Tohoku"
 		# # # createRealModelforEtas(year, region, save=True)
 		# createRealModel(year, region, withMag=False, save=True)
-		# print("EastJapan", year)
-		# region = "EastJapan"
+		print("EastJapan", year)
+		region = "EastJapan"
 		# # # createRealModelforEtas(year, region, save=True)
 		# createRealModel(year, region, withMag=False, save=True)
 		
