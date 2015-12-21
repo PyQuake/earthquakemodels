@@ -109,10 +109,10 @@ def main():
 		# # # createRealModelforEtas(year, region, save=True)
 		# createRealModel(year, region, withMag=False, save=True)
 		
-		# execGaModel(year, region,save=True)
+		execGaModel(year, region,save=True)
 		#this should not be used
 		# execGaModelWithMag(year,10,True)
-		execEtasGaModel(year, region, save=True)
+		# execEtasGaModel(year, region, save=True)
 		year+=1
 
 if __name__ == "__main__":
