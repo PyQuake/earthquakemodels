@@ -92,12 +92,12 @@ def createRealModelforEtas(year, region, save=False):
 def main():
 	year=2000
 	while year<2011:
-		print("Kanto", year)
-		region = "Kanto"
+		# print("Kanto", year)
+		# region = "Kanto"
 		# createRealModelforEtas(year, region, save=True)
 		# createRealModel(year, region, withMag=False, save=True)
-		# print("Kansai", year)
-		# region = "Kansai"
+		print("Kansai", year)
+		region = "Kansai"
 		# # # createRealModelforEtas(year, region, save=True)
 		# createRealModel(year, region, withMag=False, save=True)
 		# print("Tohoku", year)
