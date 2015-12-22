@@ -77,7 +77,7 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega, year, n=500):
 
     toolbox.register("population", tools.initRepeat, list, toolbox.individual)
 
-    toolbox.register("mate", tools.cxTwoPoint)
+    toolbox.register("mate", tools.cxOnePoint)
     toolbox.register("select", tools.selTournament, tournsize=3)
     toolbox.register("mutate", mutationFunction,indpb=0.1, definitions=modelOmega[0].definitions, length=length)
 
