@@ -120,6 +120,7 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega, year, n=500):
 
         fitnesses = map(toolbox.evaluate, invalid_ind)
 
+
         for ind, fit in zip(invalid_ind, fitnesses):
             ind.fitness.values = fit
         # The population is entirely replaced by the offspring, but the last pop best_ind
@@ -132,7 +133,6 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega, year, n=500):
             result = list(map(equalObjects,offspring[i],worst_ind))
             if all(result)==True:
                 offspring[i] = best_ind
-                print("Elitism")
                 break
 
         pop[:] = offspring  

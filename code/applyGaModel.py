@@ -23,7 +23,7 @@ def execEtasGaModel(year, region, qntYears=5, times=10, save=False):
 		modelo=etasGaModelNP.gaModel(100,0.9,0.1,observations, year)
 		modelo.mag=True
 		if save==True:
-			etasGa.saveModelToFile(modelo, '../Zona/model/'+region+'teste_etasNP'+str(year+qntYears)+'exec.txt')
+			etasGa.saveModelToFile(modelo, '../Zona/model/'+region+'teste_etasNP'+str(year+qntYears)+str(i)+'.txt')
 
 def execGaModel(year, region, qntYears=5, times=10, save=False):
 
@@ -39,7 +39,7 @@ def execGaModel(year, region, qntYears=5, times=10, save=False):
 	for i in range(times):
 		modelo=ga.gaModel(100,0.9,0.1,observations,year)
 		if save==True:
-			model.saveModelToFile(modelo, '../Zona/model/'+region+'teste_modelo'+str(year+qntYears)+'exec.txt')
+			model.saveModelToFile(modelo, '../Zona/model/'+region+'teste_modelo'+str(year+qntYears)+str(i)+'.txt')
 
 #should not use this one
 def execGaModelWithMag(year, region, times, save=False):
