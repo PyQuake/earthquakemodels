@@ -31,8 +31,8 @@ def initDEAP():
     stats.register("min", numpy.min)
     stats.register("max", numpy.max)
 
-    logbook = tools.Logbook()
-    logbook.header = "gen","min","avg","max","std"
+    # logbook = tools.Logbook()
+    # logbook.header = "gen","min","avg","max","std"
 
 def evaluationFunction(individual, modelOmega):
     
@@ -50,8 +50,6 @@ def evaluationFunction(individual, modelOmega):
     return logValue,
 
 def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,n=500):
-
-    #Should this go to initDEAP????
     toolbox = base.Toolbox()
     toolbox.register("evaluate", evaluationFunction, modelOmega=modelOmega)
     creator.create("FitnessFunction", base.Fitness, weights=(1.0,))
@@ -62,9 +60,9 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,n=500):
 
     toolbox.register("population", tools.initRepeat, list, toolbox.individual)
 
-    toolbox.register("mate", tools.cxTwoPoint)
+    toolbox.register("mate", tools.cxOnePoint)
     toolbox.register("select", tools.selTournament, tournsize=3)
-    toolbox.register("mutate", tools.mutPolynomialBounded,indpb=0.05, eta = 1, low = 0, up = 1)
+    toolbox.register("mutate", tools.mutShuffleIndexes, indpb=0.1)
 
     stats = tools.Statistics(key=lambda ind: ind.fitness.values)
     stats.register("avg", numpy.mean)
@@ -72,7 +70,7 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,n=500):
     stats.register("min", numpy.min)
     stats.register("max", numpy.max)
 
-    logbook = tools.Logbook()
+    # logbook = tools.Logbook()
     # logbook.header = "gen","time","min","avg","max","std"
     starttime = time.time()
 
@@ -124,8 +122,8 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,n=500):
                 break
 
         pop[:] = offspring  
-        record = stats.compile(pop)
-        logbook.record(gen=g,time=time.time()-starttime,**record)
+        # record = stats.compile(pop)
+        # logbook.record(gen=g,time=time.time()-starttime,**record)
     # f = open('../Zona/etasGaModel/gaModel'+str(year)+'_logbook.txt',"a")
     # f.write(str(logbook))
     # f.write('\n')
@@ -136,4 +134,15 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,n=500):
     generatedModel.bins = calcNumberBins(generatedModel.bins, modelOmega[0].bins)
     generatedModel.definitions = modelOmega[0].definitions
     generatedModel.mag=False
-    return generatedModel
+
+    #for pysmac
+    logValue = float('Infinity')
+    for i in range(len(modelOmega)):    
+        tempValue=loglikelihood(generatedModel, modelOmega[i])
+        if tempValue < logValue:
+            logValue = tempValue
+    generatedModel.loglikelihood = logValue
+    return logValue
+
+
+    # return generatedModel

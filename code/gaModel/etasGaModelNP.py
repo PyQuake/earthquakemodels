@@ -87,7 +87,7 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega, year, n=500):
     stats.register("min", numpy.min)
     stats.register("max", numpy.max)
 
-    logbook = tools.Logbook()
+    # logbook = tools.Logbook()
     # logbook.header = "ngen","time","min","avg","max","std"
     starttime = time.time()
 
@@ -136,11 +136,11 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega, year, n=500):
                 break
 
         pop[:] = offspring  
-        record = stats.compile(pop)
-        logbook.record(ngen=g,time=time.time()-starttime,**record)
-    f = open('../Zona/etasGaModel/etasGaModelNP_'+str(year)+'_logbook.txt',"a")
-    f.write(str(logbook))
-    f.write('\n')
+        # record = stats.compile(pop)
+        # logbook.record(ngen=g,time=time.time()-starttime,**record)
+    # f = open('../Zona/etasGaModel/etasGaModelNP_'+str(year)+'_logbook.txt',"a")
+    # f.write(str(logbook))
+    # f.write('\n')
 
 
 
@@ -153,5 +153,13 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega, year, n=500):
     generatedModel.definitions = modelOmega[0].definitions
     generatedModel.mag=True
 
-    return evaluationFunction(generatedModel, modelOmega)
+
+    #for pysmac
+    logValue = float('Infinity')
+    for i in range(len(modelOmega)):    
+        tempValue=loglikelihood(generatedModel, modelOmega[i])
+        if tempValue < logValue:
+            logValue = tempValue
+    generatedModel.loglikelihood = logValue
+    return logValue
     # return generatedModel

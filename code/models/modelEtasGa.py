@@ -100,6 +100,10 @@ def saveModelToFile(model, filename):
         with open(filename+"def.txt", 'w') as f:
             f.write(str(model.definitions))
             f.write("\n")
+        f.close()  
+        with open(filename+"loglikelihood.txt", 'w') as f:
+            f.write(str(model.loglikelihood))
+            f.write("\n")
         f.close()   
         # with open(filename+"prob.txt", 'w') as f:
         #     f.write(str(model.prob))

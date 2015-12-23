@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python
 import models.mathUtil as mathUtil
 import earthquake.catalog as catalog
 import models.model as model
@@ -90,7 +90,7 @@ def createRealModelforEtas(year, region, save=False):
 	return observation
 
 def main():
-	print(sys.argv[1])
+	# print(sys.argv[1])
 	year=2000
 	while year<2011:
 		# print("Kanto", year)
@@ -110,10 +110,10 @@ def main():
 		# # # createRealModelforEtas(year, region, save=True)
 		# createRealModel(year, region, withMag=False, save=True)
 		
-		# execGaModel(year, region,save=True)
+		execGaModel(year, region,save=True)
 		#this should not be used
 		# execGaModelWithMag(year,10,True)
-		execEtasGaModel(year, region, save=True)
+		# execEtasGaModel(year, region, save=True)
 		year+=1
 
 if __name__ == "__main__":
