@@ -31,7 +31,7 @@ def teste_ga(n_generations,crossover,mutation, inds):
 	region="Tohoku"
 	year=2000
 	for i in range(qntYears):
-		observation=etasGa.loadModelFromFile('../../Zona/'+region+'real'+str(year+i)+'.txt')
+		observation=etasGa.loadModelFromFile('../Zona/'+region+'real'+str(year+i)+'.txt')
 		observation.bins=observation.bins.tolist()
 		observations.append(observation)
 
@@ -47,10 +47,10 @@ def teste_ga(n_generations,crossover,mutation, inds):
 
 
 parameter_definition=dict(\
-	n_generations   =("integer", [50,200],    100),
+	n_generations   =("integer", [50,150], 100),
 	mutation=("real", [0,1],   0.1),	
 	crossover=("real", [0,1], 0.9),	
-	inds=("integer", [200,700],    500),
+	inds=("integer", [250,750],    500),
 	# criterion   =("categorical", ['gini', 'entropy'], 'entropy'),
 )
 
@@ -64,7 +64,7 @@ parameter_definition=dict(\
 # when this is not appropriate, e.g., when discretizing an interval.
 
 # Now we create the optimizer object again. This time with some parameters
-opt = pysmac.SMAC_optimizer( working_directory = '/tmp/pysmac_test/',# the folder where SMAC generates output
+opt = pysmac.SMAC_optimizer( working_directory = './etasga/',# the folder where SMAC generates output
 							persistent_files=False,	# whether the output will persist beyond the python object's lifetime
 							debug = False	# if something goes wrong, enable this for diagnostic output
 )
@@ -77,12 +77,12 @@ opt = pysmac.SMAC_optimizer( working_directory = '/tmp/pysmac_test/',# the folde
 
 # The minimize method also has optional arguments
 value, parameters = opt.minimize(teste_ga,
-					100, parameter_definition,	# in a real setting, you probably want to do more than 100 evaluations here
-					num_runs = 2,	# number of independent SMAC runs
+					200, parameter_definition,	# in a real setting, you probably want to do more than 100 evaluations here
+					num_runs = 4,	# number of independent SMAC runs
 					# seed = 2,	# the random seed used. can be an int or a list of ints of length num_runs
 					num_procs = 4,	# pysmac can harness multicore architecture. Specify the number of processes to use here.
-					mem_limit_function_mb=1000,	# There are a build-in mechanisms to limit the resources available to each function call:
-					t_limit_function_s = 20000	# You can limit the memory available and the wallclock time for each function call
+					# mem_limit_function_mb=1000,	# There are a build-in mechanisms to limit the resources available to each function call:
+					# t_limit_function_s = 20000	# You can limit the memory available and the wallclock time for each function call
 )
 print(('The highest accuracy found: %f'%(-value)))
 print(('Parameter setting %s'%parameters))

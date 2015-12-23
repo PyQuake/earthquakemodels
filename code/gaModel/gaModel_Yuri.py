@@ -62,7 +62,7 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,n=500):
 
     toolbox.register("mate", tools.cxOnePoint)
     toolbox.register("select", tools.selTournament, tournsize=3)
-    toolbox.register("mutate", tools.mutShuffleIndexes, indpb=0.1)
+    toolbox.register("mutate", tools.mutPolynomialBounded,indpb=0.05, eta = 1, low = 0, up = 1)
 
     stats = tools.Statistics(key=lambda ind: ind.fitness.values)
     stats.register("avg", numpy.mean)
