@@ -6,7 +6,7 @@ import gaModel.gaModel_Yuri as ga
 import gaModel.gaModel_YuriWithMag as gaWithMag
 import gaModel.etasGaModelNP as etasGaModelNP
 import models.modelEtasGa as etasGa
-
+import sys
 
 def execEtasGaModel(year, region, qntYears=5, times=10, save=False):
 	
@@ -90,6 +90,7 @@ def createRealModelforEtas(year, region, save=False):
 	return observation
 
 def main():
+	print(sys.argv[1])
 	year=2000
 	while year<2011:
 		# print("Kanto", year)

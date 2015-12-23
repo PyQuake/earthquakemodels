@@ -42,7 +42,7 @@ def evaluationFunction(individual, modelOmega):
 
     return logValue,
 
-#enteder essa mutação...
+
 def mutationFunction(individual, indpb, definitions, length):
     # i=0
     # while i<length:
@@ -153,5 +153,5 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega, year, n=500):
     generatedModel.definitions = modelOmega[0].definitions
     generatedModel.mag=True
 
-
-    return generatedModel
+    return evaluationFunction(generatedModel, modelOmega)
+    # return generatedModel
