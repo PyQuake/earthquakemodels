@@ -1,12 +1,12 @@
-16:24:59.215 [main] INFO  c.u.c.b.a.l.ComplexLoggingOptions - Logging to: /home/lara06/Documents/earthquakemodels/tunning/./etasga/out/scenario/log-run2.txt
-16:24:59.227 [main] INFO  c.u.c.b.a.m.version.VersionTracker - Version of Algorithm Execution & Abstraction Toolkit is v2.10.03-master-814 (ebf4c8c913d5) 
-16:24:59.227 [main] INFO  c.u.c.b.a.m.version.VersionTracker - Version of Java Runtime Environment is Java HotSpot(TM) 64-Bit Server VM (1.7.0_76) 
-16:24:59.227 [main] INFO  c.u.c.b.a.m.version.VersionTracker - Version of OS is Linux 3.8.0-42-generic (amd64) 
-16:24:59.227 [main] INFO  c.u.c.b.a.m.version.VersionTracker - Version of Random Forest Library is v1.10.01-master-120 (b68439c2c391) 
-16:24:59.227 [main] INFO  c.u.c.b.a.m.version.VersionTracker - Version of SMAC is v2.10.03-master-778 (3ee628ef9bf2) 
-16:24:59.228 [main] INFO  c.u.c.b.a.m.j.JCommanderHelper - Call String: smac --scenario-file ./etasga/scenario.dat --tae IPC --ipc-mechanism TCP --ipc-remote-port 53602 --seed 2 --intensification-percentage 0.5 --runcount-limit 200 --console-log-level OFF --numPCA 7 --rf-num-trees 10 --skip-features True --abort-on-first-run-crash False --rf-full-tree-bootstrap False --validation False --rf-ignore-conditionality False 
-16:24:59.228 [main] INFO  c.u.c.b.smac.executors.SMACExecutor - ********** The next bit of output can be ignored, it is merely useful for debugging **********
-16:24:59.228 [main] INFO  c.u.c.b.smac.executors.SMACExecutor - ==========Enviroment Variables===========
+08:57:07.278 [main] INFO  c.u.c.b.a.l.ComplexLoggingOptions - Logging to: /home/lara06/Documents/earthquakemodels/tunning/./etasga/out/scenario/log-run2.txt
+08:57:07.307 [main] INFO  c.u.c.b.a.m.version.VersionTracker - Version of Algorithm Execution & Abstraction Toolkit is v2.10.03-master-814 (ebf4c8c913d5) 
+08:57:07.315 [main] INFO  c.u.c.b.a.m.version.VersionTracker - Version of Java Runtime Environment is Java HotSpot(TM) 64-Bit Server VM (1.7.0_76) 
+08:57:07.315 [main] INFO  c.u.c.b.a.m.version.VersionTracker - Version of OS is Linux 3.8.0-42-generic (amd64) 
+08:57:07.315 [main] INFO  c.u.c.b.a.m.version.VersionTracker - Version of Random Forest Library is v1.10.01-master-120 (b68439c2c391) 
+08:57:07.315 [main] INFO  c.u.c.b.a.m.version.VersionTracker - Version of SMAC is v2.10.03-master-778 (3ee628ef9bf2) 
+08:57:07.316 [main] INFO  c.u.c.b.a.m.j.JCommanderHelper - Call String: smac --scenario-file ./etasga/scenario.dat --tae IPC --ipc-mechanism TCP --ipc-remote-port 51674 --seed 2 --intensification-percentage 0.5 --runcount-limit 200 --console-log-level OFF --numPCA 7 --rf-num-trees 10 --skip-features True --abort-on-first-run-crash False --rf-full-tree-bootstrap False --validation False --rf-ignore-conditionality False 
+08:57:07.316 [main] INFO  c.u.c.b.smac.executors.SMACExecutor - ********** The next bit of output can be ignored, it is merely useful for debugging **********
+08:57:07.316 [main] INFO  c.u.c.b.smac.executors.SMACExecutor - ==========Enviroment Variables===========
 COLORTERM=gnome-terminal
 COMPIZ_CONFIG_PROFILE=ubuntu
 DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-PFYq5e1aXo,guid=6523dbd9f0f8d1339ed8f0b100000021
@@ -52,8 +52,8 @@ XDG_SESSION_PATH=/org/freedesktop/DisplayManager/Session0
 XFILESEARCHPATH=/usr/dt/app-defaults/%L/Dt
 _=/usr/bin/python3
 
-16:24:59.228 [main] INFO  c.u.c.b.smac.executors.SMACExecutor - Hostname:lara06pc
-16:24:59.228 [main] INFO  c.u.c.b.smac.executors.SMACExecutor - ==========System Properties==============
+08:57:07.316 [main] INFO  c.u.c.b.smac.executors.SMACExecutor - Hostname:lara06pc
+08:57:07.316 [main] INFO  c.u.c.b.smac.executors.SMACExecutor - ==========System Properties==============
 ERRLOG=/home/lara06/Documents/earthquakemodels/tunning/./etasga/out/scenario/log-err2.txt
 NUMRUN=2
 OUTPUTDIR=/home/lara06/Documents/earthquakemodels/tunning/./etasga/out/scenario
@@ -104,7 +104,7 @@ sun.cpu.endian=little
 sun.cpu.isalist=
 sun.desktop=gnome
 sun.io.unicode.encoding=UnicodeLittle
-sun.java.command=ca.ubc.cs.beta.smac.executors.SMACExecutor --scenario-file ./etasga/scenario.dat --tae IPC --ipc-mechanism TCP --ipc-remote-port 53602 --seed 2 --intensification-percentage 0.5 --runcount-limit 200 --console-log-level OFF --numPCA 7 --rf-num-trees 10 --skip-features True --abort-on-first-run-crash False --rf-full-tree-bootstrap False --validation False --rf-ignore-conditionality False
+sun.java.command=ca.ubc.cs.beta.smac.executors.SMACExecutor --scenario-file ./etasga/scenario.dat --tae IPC --ipc-mechanism TCP --ipc-remote-port 51674 --seed 2 --intensification-percentage 0.5 --runcount-limit 200 --console-log-level OFF --numPCA 7 --rf-num-trees 10 --skip-features True --abort-on-first-run-crash False --rf-full-tree-bootstrap False --validation False --rf-ignore-conditionality False
 sun.java.launcher=SUN_STANDARD
 sun.jnu.encoding=UTF-8
 sun.management.compiler=HotSpot 64-Bit Tiered Compilers
@@ -116,7 +116,7 @@ user.language=en
 user.name=lara06
 user.timezone=America/Sao_Paulo
 
-16:24:59.255 [main] INFO  c.u.c.b.a.m.j.JCommanderHelper - ==========Configuration Options==========
+08:57:07.394 [main] INFO  c.u.c.b.a.m.j.JCommanderHelper - ==========Configuration Options==========
 [SMACOptions]
  adaptiveCapping = false
  alwaysRunInitialConfiguration = false
@@ -398,7 +398,7 @@ warmStartOptions = [WarmStartOptions]
  ipcMechanism = TCP
  encodingMechanism = CALL_STRING
  remoteHost = 127.0.0.1
- remotePort = 53602
+ remotePort = 51674
  udpPacketSize = 4096
  localPort = 0
  execScript = null
@@ -421,10 +421,17 @@ warmStartOptions = [WarmStartOptions]
  minResponse = 0.0
  observerFrequency = 500
  trendCoefficient = 0.0
- seed = 1450895098400
+ seed = 1450954625538
  persistent = false
  scaleDelay = 1.0
 
 
-16:24:59.326 [main] INFO  c.u.c.b.a.t.b.i.IPCTargetAlgorithmEvaluator - Target Algorithm Evaluator making TCP connections to 127.0.0.1:53602.
-16:24:59.599 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - SMAC started at: Dec 23, 2015 4:24:59 PM. Minimizing mean quality.
+08:57:07.561 [main] INFO  c.u.c.b.a.t.b.i.IPCTargetAlgorithmEvaluator - Target Algorithm Evaluator making TCP connections to 127.0.0.1:51674.
+08:57:07.964 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - SMAC started at: Dec 24, 2015 8:57:07 AM. Minimizing mean quality.
+08:59:08.009 [TAE Warning Checking Thread (4-1)] WARN  c.u.c.b.a.t.d.s.WarnOnNoWallOrRuntimeTargetAlgorithmEvaluatorDecorator$1 - Runs have been submitted to Target Algorithm Evaluator but we have not seen any progress (no observed runs have any non-zero walltime or runtime) after 120 seconds of waiting, it's possible that the observer frequency is too low, or something is wrong with the Target Algorithm Evaluator (for instance some require that you start external processes and will hang if you don't).
+09:02:59.463 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - First incumbent: config 1 (internal ID: 0x000F), with mean quality: 809.3802112417115; estimate based on 1 runs.
+09:02:59.485 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Sample call for new incumbent config 1 (internal ID: 0x000F): 
+cd /home/lara06/Documents/earthquakemodels/tunning/./etasga; echo 0 id_0 0 3600.0 2147483647 -1 -crossover '0.9' -inds '500' -mutation '0.1' -n_generations '100'  
+09:06:38.012 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Incumbent changed to: config 3 (internal ID: 0x7557), with mean quality: 803.3802112417115; estimate based on 1 runs.
+09:06:38.013 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Sample call for new incumbent config 3 (internal ID: 0x7557): 
+cd /home/lara06/Documents/earthquakemodels/tunning/./etasga; echo 0 id_0 0 3600.0 2147483647 -1 -crossover '0.324818426790216' -inds '369' -mutation '0.026265849508723016' -n_generations '82'  
