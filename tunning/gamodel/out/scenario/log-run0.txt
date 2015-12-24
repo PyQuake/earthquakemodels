@@ -1,73 +1,73 @@
-16:25:47.668 [main] INFO  c.u.c.b.a.l.ComplexLoggingOptions - Logging to: /home/lara06/Documents/earthquakemodels/tunning/./gamodel/out/scenario/log-run0.txt
-16:25:47.699 [main] INFO  c.u.c.b.a.m.version.VersionTracker - Version of Algorithm Execution & Abstraction Toolkit is v2.10.03-master-814 (ebf4c8c913d5) 
-16:25:47.703 [main] INFO  c.u.c.b.a.m.version.VersionTracker - Version of Java Runtime Environment is Java HotSpot(TM) 64-Bit Server VM (1.7.0_76) 
-16:25:47.703 [main] INFO  c.u.c.b.a.m.version.VersionTracker - Version of OS is Linux 3.8.0-42-generic (amd64) 
-16:25:47.703 [main] INFO  c.u.c.b.a.m.version.VersionTracker - Version of Random Forest Library is v1.10.01-master-120 (b68439c2c391) 
-16:25:47.703 [main] INFO  c.u.c.b.a.m.version.VersionTracker - Version of SMAC is v2.10.03-master-778 (3ee628ef9bf2) 
-16:25:47.704 [main] INFO  c.u.c.b.a.m.j.JCommanderHelper - Call String: smac --scenario-file ./gamodel/scenario.dat --tae IPC --ipc-mechanism TCP --ipc-remote-port 43105 --seed 0 --intensification-percentage 0.5 --runcount-limit 200 --console-log-level OFF --numPCA 7 --rf-num-trees 10 --skip-features True --abort-on-first-run-crash False --rf-full-tree-bootstrap False --validation False --rf-ignore-conditionality False 
-16:25:47.704 [main] INFO  c.u.c.b.smac.executors.SMACExecutor - ********** The next bit of output can be ignored, it is merely useful for debugging **********
-16:25:47.704 [main] INFO  c.u.c.b.smac.executors.SMACExecutor - ==========Enviroment Variables===========
+17:41:26.970 [main] INFO  c.u.c.b.a.l.ComplexLoggingOptions - Logging to: /home/lara03/Documents/earthquakemodels/tunning/./gamodel/out/scenario/log-run0.txt
+17:41:27.027 [main] INFO  c.u.c.b.a.m.version.VersionTracker - Version of Algorithm Execution & Abstraction Toolkit is v2.10.03-master-814 (ebf4c8c913d5) 
+17:41:27.027 [main] INFO  c.u.c.b.a.m.version.VersionTracker - Version of Java Runtime Environment is Java HotSpot(TM) 64-Bit Server VM (1.7.0_80) 
+17:41:27.027 [main] INFO  c.u.c.b.a.m.version.VersionTracker - Version of OS is Linux 3.8.0-41-generic (amd64) 
+17:41:27.027 [main] INFO  c.u.c.b.a.m.version.VersionTracker - Version of Random Forest Library is v1.10.01-master-120 (b68439c2c391) 
+17:41:27.027 [main] INFO  c.u.c.b.a.m.version.VersionTracker - Version of SMAC is v2.10.03-master-778 (3ee628ef9bf2) 
+17:41:27.028 [main] INFO  c.u.c.b.a.m.j.JCommanderHelper - Call String: smac --scenario-file ./gamodel/scenario.dat --tae IPC --ipc-mechanism TCP --ipc-remote-port 44126 --seed 0 --intensification-percentage 0.5 --runcount-limit 200 --console-log-level OFF --numPCA 7 --rf-num-trees 10 --skip-features True --abort-on-first-run-crash False --rf-full-tree-bootstrap False --validation False --rf-ignore-conditionality False 
+17:41:27.028 [main] INFO  c.u.c.b.smac.executors.SMACExecutor - ********** The next bit of output can be ignored, it is merely useful for debugging **********
+17:41:27.028 [main] INFO  c.u.c.b.smac.executors.SMACExecutor - ==========Enviroment Variables===========
 COLORTERM=gnome-terminal
 COMPIZ_CONFIG_PROFILE=ubuntu
-DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-PFYq5e1aXo,guid=6523dbd9f0f8d1339ed8f0b100000021
+DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-FrWeFW95Xy,guid=1e8947cb29e8c30d14a33b4c000002a4
 DEFAULTS_PATH=/usr/share/gconf/ubuntu.default.path
 DERBY_HOME=/usr/lib/jvm/java-7-oracle/db
 DESKTOP_SESSION=ubuntu
 DISPLAY=:0
 GDMSESSION=ubuntu
 GNOME_DESKTOP_SESSION_ID=this-is-deprecated
-GNOME_KEYRING_CONTROL=/tmp/keyring-KA4RMG
-GNOME_KEYRING_PID=1783
-GPG_AGENT_INFO=/tmp/keyring-KA4RMG/gpg:0:1
-HOME=/home/lara06
+GNOME_KEYRING_CONTROL=/tmp/keyring-bTHVjL
+GNOME_KEYRING_PID=2144
+GPG_AGENT_INFO=/tmp/keyring-bTHVjL/gpg:0:1
+HOME=/home/lara03
 J2REDIR=/usr/lib/jvm/java-7-oracle/jre
 J2SDKDIR=/usr/lib/jvm/java-7-oracle
 JAVA_HOME=/usr/lib/jvm/java-7-oracle
 LANG=en_US.UTF-8
 LESSCLOSE=/usr/bin/lesspipe %s %s
 LESSOPEN=| /usr/bin/lesspipe %s
-LOGNAME=lara06
+LOGNAME=lara03
 LS_COLORS=rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lz=01;31:*.xz=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.axv=01;35:*.anx=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.axa=00;36:*.oga=00;36:*.spx=00;36:*.xspf=00;36:
 MANDATORY_PATH=/usr/share/gconf/ubuntu.mandatory.path
 NLSPATH=/usr/dt/lib/nls/msg/%L/%N.cat
-OLDPWD=/home/lara06
+OLDPWD=/home/lara03/Documents/earthquakemodels
 PATH=/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/lib/jvm/java-7-oracle/bin:/usr/lib/jvm/java-7-oracle/db/bin:/usr/lib/jvm/java-7-oracle/jre/bin
-PWD=/home/lara06/Documents/earthquakemodels/tunning
-SESSION_MANAGER=local/lara06pc:@/tmp/.ICE-unix/1794,unix/lara06pc:/tmp/.ICE-unix/1794
+PWD=/home/lara03/Documents/earthquakemodels/tunning
+SESSION_MANAGER=local/lara03pc:@/tmp/.ICE-unix/2155,unix/lara03pc:/tmp/.ICE-unix/2155
 SHELL=/bin/bash
 SHLVL=1
-SSH_AGENT_PID=1855
-SSH_AUTH_SOCK=/tmp/keyring-KA4RMG/ssh
+SSH_AGENT_PID=2194
+SSH_AUTH_SOCK=/tmp/keyring-bTHVjL/ssh
 TERM=xterm
 UBUNTU_MENUPROXY=libappmenu.so
-USER=lara06
-WINDOWID=69209756
-XAUTHORITY=/home/lara06/.Xauthority
+USER=lara03
+WINDOWID=60817414
+XAUTHORITY=/home/lara03/.Xauthority
 XDG_CONFIG_DIRS=/etc/xdg/xdg-ubuntu:/etc/xdg
 XDG_CURRENT_DESKTOP=Unity
 XDG_DATA_DIRS=/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/
 XDG_SEAT_PATH=/org/freedesktop/DisplayManager/Seat0
-XDG_SESSION_COOKIE=5805059e2b510df701e3a22600000005-1450441645.436453-824980585
+XDG_SESSION_COOKIE=6cc8092605961ba599119e8100000005-1450440125.514924-176041896
 XDG_SESSION_PATH=/org/freedesktop/DisplayManager/Session0
 XFILESEARCHPATH=/usr/dt/app-defaults/%L/Dt
 _=/usr/bin/python3
 
-16:25:47.712 [main] INFO  c.u.c.b.smac.executors.SMACExecutor - Hostname:lara06pc
-16:25:47.713 [main] INFO  c.u.c.b.smac.executors.SMACExecutor - ==========System Properties==============
-ERRLOG=/home/lara06/Documents/earthquakemodels/tunning/./gamodel/out/scenario/log-err0.txt
+17:41:27.028 [main] INFO  c.u.c.b.smac.executors.SMACExecutor - Hostname:lara03pc
+17:41:27.029 [main] INFO  c.u.c.b.smac.executors.SMACExecutor - ==========System Properties==============
+ERRLOG=/home/lara03/Documents/earthquakemodels/tunning/./gamodel/out/scenario/log-err0.txt
 NUMRUN=0
-OUTPUTDIR=/home/lara06/Documents/earthquakemodels/tunning/./gamodel/out/scenario
+OUTPUTDIR=/home/lara03/Documents/earthquakemodels/tunning/./gamodel/out/scenario
 ROOT-LEVEL=INFO
-RUNLOG=/home/lara06/Documents/earthquakemodels/tunning/./gamodel/out/scenario/log-run0.txt
+RUNLOG=/home/lara03/Documents/earthquakemodels/tunning/./gamodel/out/scenario/log-run0.txt
 STDOUT-LEVEL=OFF
-WARNLOG=/home/lara06/Documents/earthquakemodels/tunning/./gamodel/out/scenario/log-warn0.txt
+WARNLOG=/home/lara03/Documents/earthquakemodels/tunning/./gamodel/out/scenario/log-warn0.txt
 awt.toolkit=sun.awt.X11.XToolkit
 file.encoding=UTF-8
 file.encoding.pkg=sun.io
 file.separator=/
 java.awt.graphicsenv=sun.awt.X11GraphicsEnvironment
 java.awt.printerjob=sun.print.PSPrinterJob
-java.class.path=/usr/local/lib/python3.2/dist-packages/pysmac-0.9-py3.2.egg/pysmac/smac/smac-v2.10.03-master-778/lib/commons-math3-3.3.jar:/usr/local/lib/python3.2/dist-packages/pysmac-0.9-py3.2.egg/pysmac/smac/smac-v2.10.03-master-778/lib/fastrf-src.jar:/usr/local/lib/python3.2/dist-packages/pysmac-0.9-py3.2.egg/pysmac/smac/smac-v2.10.03-master-778/lib/jcommander.jar:/usr/local/lib/python3.2/dist-packages/pysmac-0.9-py3.2.egg/pysmac/smac/smac-v2.10.03-master-778/lib/commons-collections-3.2.1.jar:/usr/local/lib/python3.2/dist-packages/pysmac-0.9-py3.2.egg/pysmac/smac/smac-v2.10.03-master-778/lib/DomainInter.jar:/usr/local/lib/python3.2/dist-packages/pysmac-0.9-py3.2.egg/pysmac/smac/smac-v2.10.03-master-778/lib/aeatk.jar:/usr/local/lib/python3.2/dist-packages/pysmac-0.9-py3.2.egg/pysmac/smac/smac-v2.10.03-master-778/lib/jcip-annotations-src.jar:/usr/local/lib/python3.2/dist-packages/pysmac-0.9-py3.2.egg/pysmac/smac/smac-v2.10.03-master-778/lib/smac-src.jar:/usr/local/lib/python3.2/dist-packages/pysmac-0.9-py3.2.egg/pysmac/smac/smac-v2.10.03-master-778/lib/commons-collections-3.2.1-sources.jar:/usr/local/lib/python3.2/dist-packages/pysmac-0.9-py3.2.egg/pysmac/smac/smac-v2.10.03-master-778/lib/Jama-1.0.2.jar:/usr/local/lib/python3.2/dist-packages/pysmac-0.9-py3.2.egg/pysmac/smac/smac-v2.10.03-master-778/lib/jmatharray.jar:/usr/local/lib/python3.2/dist-packages/pysmac-0.9-py3.2.egg/pysmac/smac/smac-v2.10.03-master-778/lib/commons-io-2.1.jar:/usr/local/lib/python3.2/dist-packages/pysmac-0.9-py3.2.egg/pysmac/smac/smac-v2.10.03-master-778/lib/logback-access-1.1.2.jar:/usr/local/lib/python3.2/dist-packages/pysmac-0.9-py3.2.egg/pysmac/smac/smac-v2.10.03-master-778/lib/numerics4j-1.3.jar:/usr/local/lib/python3.2/dist-packages/pysmac-0.9-py3.2.egg/pysmac/smac/smac-v2.10.03-master-778/lib/jackson-core-2.3.1.jar:/usr/local/lib/python3.2/dist-packages/pysmac-0.9-py3.2.egg/pysmac/smac/smac-v2.10.03-master-778/lib/exp4j-0.3.10.jar:/usr/local/lib/python3.2/dist-packages/pysmac-0.9-py3.2.egg/pysmac/smac/smac-v2.10.03-master-778/lib/opencsv-2.3.jar:/usr/local/lib/python3.2/dist-packages/pysmac-0.9-py3.2.egg/pysmac/smac/smac-v2.10.03-master-778/lib/jcip-annotations.jar:/usr/local/lib/python3.2/dist-packages/pysmac-0.9-py3.2.egg/pysmac/smac/smac-v2.10.03-master-778/lib/guava-14.0.1.jar:/usr/local/lib/python3.2/dist-packages/pysmac-0.9-py3.2.egg/pysmac/smac/smac-v2.10.03-master-778/lib/exp4j-0.4.3.BETA-3.jar:/usr/local/lib/python3.2/dist-packages/pysmac-0.9-py3.2.egg/pysmac/smac/smac-v2.10.03-master-778/lib/jackson-annotations-2.3.1.jar:/usr/local/lib/python3.2/dist-packages/pysmac-0.9-py3.2.egg/pysmac/smac/smac-v2.10.03-master-778/lib/commons-math-2.2.jar:/usr/local/lib/python3.2/dist-packages/pysmac-0.9-py3.2.egg/pysmac/smac/smac-v2.10.03-master-778/lib/fastrf.jar:/usr/local/lib/python3.2/dist-packages/pysmac-0.9-py3.2.egg/pysmac/smac/smac-v2.10.03-master-778/lib/logback-classic-1.1.2.jar:/usr/local/lib/python3.2/dist-packages/pysmac-0.9-py3.2.egg/pysmac/smac/smac-v2.10.03-master-778/lib/logback-core-1.1.2.jar:/usr/local/lib/python3.2/dist-packages/pysmac-0.9-py3.2.egg/pysmac/smac/smac-v2.10.03-master-778/lib/spi-0.2.4.jar:/usr/local/lib/python3.2/dist-packages/pysmac-0.9-py3.2.egg/pysmac/smac/smac-v2.10.03-master-778/lib/smac.jar:/usr/local/lib/python3.2/dist-packages/pysmac-0.9-py3.2.egg/pysmac/smac/smac-v2.10.03-master-778/lib/jackson-databind-2.3.1.jar:/usr/local/lib/python3.2/dist-packages/pysmac-0.9-py3.2.egg/pysmac/smac/smac-v2.10.03-master-778/lib/slf4j-api-1.7.5.jar:/usr/local/lib/python3.2/dist-packages/pysmac-0.9-py3.2.egg/pysmac/smac/smac-v2.10.03-master-778/lib/aeatk-src.jar:/usr/local/lib/python3.2/dist-packages/pysmac-0.9-py3.2.egg/pysmac/smac/smac-v2.10.03-master-778/conf:/usr/local/lib/python3.2/dist-packages/pysmac-0.9-py3.2.egg/pysmac/smac/smac-v2.10.03-master-778/patches
+java.class.path=/usr/local/lib/python3.2/dist-packages/pysmac-0.9-py3.2.egg/pysmac/smac/smac-v2.10.03-master-778/lib/Jama-1.0.2.jar:/usr/local/lib/python3.2/dist-packages/pysmac-0.9-py3.2.egg/pysmac/smac/smac-v2.10.03-master-778/lib/jackson-core-2.3.1.jar:/usr/local/lib/python3.2/dist-packages/pysmac-0.9-py3.2.egg/pysmac/smac/smac-v2.10.03-master-778/lib/opencsv-2.3.jar:/usr/local/lib/python3.2/dist-packages/pysmac-0.9-py3.2.egg/pysmac/smac/smac-v2.10.03-master-778/lib/smac.jar:/usr/local/lib/python3.2/dist-packages/pysmac-0.9-py3.2.egg/pysmac/smac/smac-v2.10.03-master-778/lib/logback-access-1.1.2.jar:/usr/local/lib/python3.2/dist-packages/pysmac-0.9-py3.2.egg/pysmac/smac/smac-v2.10.03-master-778/lib/jmatharray.jar:/usr/local/lib/python3.2/dist-packages/pysmac-0.9-py3.2.egg/pysmac/smac/smac-v2.10.03-master-778/lib/jcommander.jar:/usr/local/lib/python3.2/dist-packages/pysmac-0.9-py3.2.egg/pysmac/smac/smac-v2.10.03-master-778/lib/aeatk.jar:/usr/local/lib/python3.2/dist-packages/pysmac-0.9-py3.2.egg/pysmac/smac/smac-v2.10.03-master-778/lib/jcip-annotations.jar:/usr/local/lib/python3.2/dist-packages/pysmac-0.9-py3.2.egg/pysmac/smac/smac-v2.10.03-master-778/lib/spi-0.2.4.jar:/usr/local/lib/python3.2/dist-packages/pysmac-0.9-py3.2.egg/pysmac/smac/smac-v2.10.03-master-778/lib/logback-core-1.1.2.jar:/usr/local/lib/python3.2/dist-packages/pysmac-0.9-py3.2.egg/pysmac/smac/smac-v2.10.03-master-778/lib/numerics4j-1.3.jar:/usr/local/lib/python3.2/dist-packages/pysmac-0.9-py3.2.egg/pysmac/smac/smac-v2.10.03-master-778/lib/commons-collections-3.2.1.jar:/usr/local/lib/python3.2/dist-packages/pysmac-0.9-py3.2.egg/pysmac/smac/smac-v2.10.03-master-778/lib/logback-classic-1.1.2.jar:/usr/local/lib/python3.2/dist-packages/pysmac-0.9-py3.2.egg/pysmac/smac/smac-v2.10.03-master-778/lib/exp4j-0.4.3.BETA-3.jar:/usr/local/lib/python3.2/dist-packages/pysmac-0.9-py3.2.egg/pysmac/smac/smac-v2.10.03-master-778/lib/jcip-annotations-src.jar:/usr/local/lib/python3.2/dist-packages/pysmac-0.9-py3.2.egg/pysmac/smac/smac-v2.10.03-master-778/lib/commons-math3-3.3.jar:/usr/local/lib/python3.2/dist-packages/pysmac-0.9-py3.2.egg/pysmac/smac/smac-v2.10.03-master-778/lib/DomainInter.jar:/usr/local/lib/python3.2/dist-packages/pysmac-0.9-py3.2.egg/pysmac/smac/smac-v2.10.03-master-778/lib/commons-math-2.2.jar:/usr/local/lib/python3.2/dist-packages/pysmac-0.9-py3.2.egg/pysmac/smac/smac-v2.10.03-master-778/lib/slf4j-api-1.7.5.jar:/usr/local/lib/python3.2/dist-packages/pysmac-0.9-py3.2.egg/pysmac/smac/smac-v2.10.03-master-778/lib/fastrf-src.jar:/usr/local/lib/python3.2/dist-packages/pysmac-0.9-py3.2.egg/pysmac/smac/smac-v2.10.03-master-778/lib/guava-14.0.1.jar:/usr/local/lib/python3.2/dist-packages/pysmac-0.9-py3.2.egg/pysmac/smac/smac-v2.10.03-master-778/lib/fastrf.jar:/usr/local/lib/python3.2/dist-packages/pysmac-0.9-py3.2.egg/pysmac/smac/smac-v2.10.03-master-778/lib/exp4j-0.3.10.jar:/usr/local/lib/python3.2/dist-packages/pysmac-0.9-py3.2.egg/pysmac/smac/smac-v2.10.03-master-778/lib/commons-collections-3.2.1-sources.jar:/usr/local/lib/python3.2/dist-packages/pysmac-0.9-py3.2.egg/pysmac/smac/smac-v2.10.03-master-778/lib/smac-src.jar:/usr/local/lib/python3.2/dist-packages/pysmac-0.9-py3.2.egg/pysmac/smac/smac-v2.10.03-master-778/lib/aeatk-src.jar:/usr/local/lib/python3.2/dist-packages/pysmac-0.9-py3.2.egg/pysmac/smac/smac-v2.10.03-master-778/lib/jackson-databind-2.3.1.jar:/usr/local/lib/python3.2/dist-packages/pysmac-0.9-py3.2.egg/pysmac/smac/smac-v2.10.03-master-778/lib/jackson-annotations-2.3.1.jar:/usr/local/lib/python3.2/dist-packages/pysmac-0.9-py3.2.egg/pysmac/smac/smac-v2.10.03-master-778/lib/commons-io-2.1.jar:/usr/local/lib/python3.2/dist-packages/pysmac-0.9-py3.2.egg/pysmac/smac/smac-v2.10.03-master-778/conf:/usr/local/lib/python3.2/dist-packages/pysmac-0.9-py3.2.egg/pysmac/smac/smac-v2.10.03-master-778/patches
 java.class.version=51.0
 java.endorsed.dirs=/usr/lib/jvm/java-7-oracle/jre/lib/endorsed
 java.ext.dirs=/usr/lib/jvm/java-7-oracle/jre/lib/ext:/usr/java/packages/lib/ext
@@ -75,27 +75,27 @@ java.home=/usr/lib/jvm/java-7-oracle/jre
 java.io.tmpdir=/tmp
 java.library.path=/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib
 java.runtime.name=Java(TM) SE Runtime Environment
-java.runtime.version=1.7.0_76-b13
+java.runtime.version=1.7.0_80-b15
 java.specification.name=Java Platform API Specification
 java.specification.vendor=Oracle Corporation
 java.specification.version=1.7
 java.vendor=Oracle Corporation
 java.vendor.url=http://java.oracle.com/
 java.vendor.url.bug=http://bugreport.sun.com/bugreport/
-java.version=1.7.0_76
+java.version=1.7.0_80
 java.vm.info=mixed mode
 java.vm.name=Java HotSpot(TM) 64-Bit Server VM
 java.vm.specification.name=Java Virtual Machine Specification
 java.vm.specification.vendor=Oracle Corporation
 java.vm.specification.version=1.7
 java.vm.vendor=Oracle Corporation
-java.vm.version=24.76-b04
+java.vm.version=24.80-b11
 line.separator=
 
 logback.configurationFile=ca/ubc/cs/beta/aeatk/logging/complex-logback.xml
 os.arch=amd64
 os.name=Linux
-os.version=3.8.0-42-generic
+os.version=3.8.0-41-generic
 path.separator=:
 sun.arch.data.model=64
 sun.boot.class.path=/usr/lib/jvm/java-7-oracle/jre/lib/resources.jar:/usr/lib/jvm/java-7-oracle/jre/lib/rt.jar:/usr/lib/jvm/java-7-oracle/jre/lib/sunrsasign.jar:/usr/lib/jvm/java-7-oracle/jre/lib/jsse.jar:/usr/lib/jvm/java-7-oracle/jre/lib/jce.jar:/usr/lib/jvm/java-7-oracle/jre/lib/charsets.jar:/usr/lib/jvm/java-7-oracle/jre/lib/jfr.jar:/usr/lib/jvm/java-7-oracle/jre/classes
@@ -104,19 +104,19 @@ sun.cpu.endian=little
 sun.cpu.isalist=
 sun.desktop=gnome
 sun.io.unicode.encoding=UnicodeLittle
-sun.java.command=ca.ubc.cs.beta.smac.executors.SMACExecutor --scenario-file ./gamodel/scenario.dat --tae IPC --ipc-mechanism TCP --ipc-remote-port 43105 --seed 0 --intensification-percentage 0.5 --runcount-limit 200 --console-log-level OFF --numPCA 7 --rf-num-trees 10 --skip-features True --abort-on-first-run-crash False --rf-full-tree-bootstrap False --validation False --rf-ignore-conditionality False
+sun.java.command=ca.ubc.cs.beta.smac.executors.SMACExecutor --scenario-file ./gamodel/scenario.dat --tae IPC --ipc-mechanism TCP --ipc-remote-port 44126 --seed 0 --intensification-percentage 0.5 --runcount-limit 200 --console-log-level OFF --numPCA 7 --rf-num-trees 10 --skip-features True --abort-on-first-run-crash False --rf-full-tree-bootstrap False --validation False --rf-ignore-conditionality False
 sun.java.launcher=SUN_STANDARD
 sun.jnu.encoding=UTF-8
 sun.management.compiler=HotSpot 64-Bit Tiered Compilers
 sun.os.patch.level=unknown
 user.country=US
-user.dir=/home/lara06/Documents/earthquakemodels/tunning
-user.home=/home/lara06
+user.dir=/home/lara03/Documents/earthquakemodels/tunning
+user.home=/home/lara03
 user.language=en
-user.name=lara06
+user.name=lara03
 user.timezone=America/Sao_Paulo
 
-16:25:47.785 [main] INFO  c.u.c.b.a.m.j.JCommanderHelper - ==========Configuration Options==========
+17:41:27.097 [main] INFO  c.u.c.b.a.m.j.JCommanderHelper - ==========Configuration Options==========
 [SMACOptions]
  adaptiveCapping = false
  alwaysRunInitialConfiguration = false
@@ -137,14 +137,14 @@ ucip = [UnbiasChallengerInitializationProcedureOptions]
  deterministicInstanceOrdering = false
  doValidation = false
  execMode = SMAC
- experimentDir = /home/lara06/Documents/earthquakemodels/tunning/
+ experimentDir = /home/lara03/Documents/earthquakemodels/tunning/
  expFunc = null
 help = [HelpOptions]
 		 showHiddenParameters = false
 		 showHelp = false
 		 helpLevel = BASIC
 		 showVersion = false
-		 helpDefaults = /home/lara06/.aeatk/help.opt
+		 helpDefaults = /home/lara03/.aeatk/help.opt
 
  initialChallengeRuns = 1
  initialIncumbent = DEFAULT
@@ -218,7 +218,7 @@ scenarioConfig = [ScenarioOptions]
 				 testInstanceSuffix = null
 				 ignoreFeatures = true
 
-		 scenarioFile = /home/lara06/Documents/earthquakemodels/tunning/./gamodel/scenario.dat
+		 scenarioFile = /home/lara03/Documents/earthquakemodels/tunning/./gamodel/scenario.dat
 		 outputDirectory = ./gamodel/out
 		 invalidScenarioReason = null
 		algoExecOptions = [AlgorithmExecutionOptions]
@@ -252,7 +252,7 @@ scenarioConfig = [ScenarioOptions]
 								 postCommand = null
 								 exceptionOnError = false
 								 logOutput = true
-								 directory = /home/lara06/Documents/earthquakemodels/tunning/.
+								 directory = /home/lara03/Documents/earthquakemodels/tunning/.
 
 						 checkResultOrderConsistent = false
 						 skipOutstandingEvaluationsTAE = false
@@ -269,7 +269,7 @@ scenarioConfig = [ScenarioOptions]
 						 observeWalltimeScale = 0.95
 						 observeWalltimeDelay = 5.0
 						 synchronousObserver = true
-						 taeDefaults = /home/lara06/.aeatk/tae.opt
+						 taeDefaults = /home/lara03/.aeatk/tae.opt
 						ttaedo = [TransformTargetAlgorithmEvaluatorDecoratorOptions]
 								 transform = false
 								 transformValidValuesOnly = true
@@ -293,8 +293,8 @@ scenarioConfig = [ScenarioOptions]
 						 warnIfNoResponseFromTAE = 120
 						 taeStopProcessingOnShutdown = true
 						 filecache = false
-						 fileCacheSource = /home/lara06/Documents/earthquakemodels/tunning/./runcache
-						 fileCacheOutput = /home/lara06/Documents/earthquakemodels/tunning/./runcache
+						 fileCacheSource = /home/lara03/Documents/earthquakemodels/tunning/./runcache
+						 fileCacheOutput = /home/lara03/Documents/earthquakemodels/tunning/./runcache
 						 fileCacheCrashOnMiss = false
 						 transformCrashedQuality = true
 						 transformCrashedQualityValue = 1.0E9
@@ -313,7 +313,7 @@ seedOptions = [SeedOptions]
 		 numRun = 0
 		 initialSeedMap = {}
 
- smacDefaults = /home/lara06/.aeatk/smac.opt
+ smacDefaults = /home/lara03/.aeatk/smac.opt
 stateOpts = [StateFactoryOptions]
 		 stateSerializer = LEGACY
 		 statedeSerializer = LEGACY
@@ -384,7 +384,7 @@ warmStartOptions = [WarmStartOptions]
  pgForceKillCommand = bash -c "kill -s KILL -%pid"
  procNiceKillCommand = kill -s TERM %pid
  procForceKillCommand = kill -s KILL %pid
- smacDefaults = /home/lara06/.aeatk/cli-tae.opt
+ smacDefaults = /home/lara03/.aeatk/cli-tae.opt
 
 [ConstantTargetAlgorithmEvaluatorOptions]
  runResult = SAT
@@ -398,13 +398,13 @@ warmStartOptions = [WarmStartOptions]
  ipcMechanism = TCP
  encodingMechanism = CALL_STRING
  remoteHost = 127.0.0.1
- remotePort = 43105
+ remotePort = 44126
  udpPacketSize = 4096
  localPort = 0
  execScript = null
  execScriptOutput = false
  poolConnections = false
- ipcDefaults = /home/lara06/.aeatk/ipc-tae.opt
+ ipcDefaults = /home/lara03/.aeatk/ipc-tae.opt
  asyncThreads = 5
 
 [PreloadedResponseTargetAlgorithmEvaluatorOptions]
@@ -421,11 +421,12 @@ warmStartOptions = [WarmStartOptions]
  minResponse = 0.0
  observerFrequency = 500
  trendCoefficient = 0.0
- seed = 1450895145842
+ seed = 1450899685302
  persistent = false
  scaleDelay = 1.0
 
 
+<<<<<<< HEAD
 16:25:47.952 [main] INFO  c.u.c.b.a.t.b.i.IPCTargetAlgorithmEvaluator - Target Algorithm Evaluator making TCP connections to 127.0.0.1:43105.
 16:25:48.378 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - SMAC started at: Dec 23, 2015 4:25:48 PM. Minimizing mean quality.
 16:27:48.434 [TAE Warning Checking Thread (4-1)] WARN  c.u.c.b.a.t.d.s.WarnOnNoWallOrRuntimeTargetAlgorithmEvaluatorDecorator$1 - Runs have been submitted to Target Algorithm Evaluator but we have not seen any progress (no observed runs have any non-zero walltime or runtime) after 120 seconds of waiting, it's possible that the observer frequency is too low, or something is wrong with the Target Algorithm Evaluator (for instance some require that you start external processes and will hang if you don't).
@@ -592,3 +593,8 @@ cd /home/lara06/Documents/earthquakemodels/tunning/./gamodel; echo 0 id_0 0 3600
 08:54:06.120 [main] WARN  c.u.c.b.a.t.d.s.TimingCheckerTargetAlgorithmEvaluator - Algorithm Run Result reported a runtime of 31834.12 (secs) that exceeded it's cutoff time of 3600.0 (secs) by 28234.12 (secs). Next warning at 28235.12 (secs)  
 09:01:13.447 [main] WARN  c.u.c.b.a.t.d.s.TimingCheckerTargetAlgorithmEvaluator - Algorithm Run Result reported a runtime of 32002.896 (secs) that exceeded it's cutoff time of 3600.0 (secs) by 28402.896 (secs). Next warning at 28403.896 (secs)  
 09:06:41.831 [main] WARN  c.u.c.b.a.t.d.s.TimingCheckerTargetAlgorithmEvaluator - Algorithm Run Result reported a runtime of 32302.724 (secs) that exceeded it's cutoff time of 3600.0 (secs) by 28702.724 (secs). Next warning at 28703.724 (secs)  
+=======
+17:41:27.321 [main] INFO  c.u.c.b.a.s.l.LegacyStateFactory - Found previous run data in state output folder: /home/lara03/Documents/earthquakemodels/tunning/./gamodel/out/scenario , renamed to: old-state-state-run0-1450899687320
+17:41:27.342 [main] INFO  c.u.c.b.a.t.b.i.IPCTargetAlgorithmEvaluator - Target Algorithm Evaluator making TCP connections to 127.0.0.1:44126.
+17:41:27.912 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - SMAC started at: Dec 23, 2015 5:41:27 PM. Minimizing mean quality.
+>>>>>>> 6ed3a05fa46d3cc83506c8200384f67c54d837c8

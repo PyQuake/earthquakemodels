@@ -121,4 +121,38 @@
   "r-result-seed" : -1,
   "r-addl-run-data" : "",
   "r-wallclock-time" : 145.478
+} {
+  "r-rc" : {
+    "@rc-id" : 5,
+    "rc-algo-exec-config" : {
+      "@algo-exec-config-id" : 2
+    },
+    "rc-cutoff" : 3600.0,
+    "rc-pisp" : {
+      "@pisp-id" : 2
+    },
+    "rc-pc" : {
+      "@pc-id" : 5,
+      "pc-pcs" : {
+        "@pcs-id" : 2
+      },
+      "pc-settings" : {
+        "crossover" : "0.5071183337752125",
+        "inds" : "602",
+        "mutation" : "0.6098036148496353",
+        "n_generations" : "90"
+      },
+      "pc-active-parameters" : [ "crossover", "inds", "mutation", "n_generations" ],
+      "pc-forbidden" : false,
+      "pc-default" : false
+    },
+    "rc-sample-idx" : 0
+  },
+  "r-run-result" : "SAT",
+  "r-runtime" : 327.212,
+  "r-run-length" : 0.0,
+  "r-quality" : 802.3802112417115,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 354.437
 }
