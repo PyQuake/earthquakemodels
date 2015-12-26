@@ -161,5 +161,5 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega, year, n=500):
         if tempValue < logValue:
             logValue = tempValue
     generatedModel.loglikelihood = logValue
-    # return logValue
-    return generatedModel
+    return logValue
+    # return generatedModel
