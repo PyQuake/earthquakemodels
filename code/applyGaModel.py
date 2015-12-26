@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 import models.mathUtil as mathUtil
 import earthquake.catalog as catalog
 import models.model as model
@@ -16,11 +16,10 @@ def execEtasGaModel(year, region, qntYears=5, times=10, save=False):
 		observation=etasGa.loadModelFromFile('../Zona/'+region+'real'+str(year+i)+'.txt')
 		observation.bins=observation.bins.tolist()
 		observations.append(observation)
-
 	# definicao=model.loadModelDefinition('../params/KantoEtas.txt')
 
 	for i in range(times):
-		modelo=etasGaModelNP.gaModel(100,0.9,0.1,observations, year)
+		modelo=etasGaModelNP.gaModel(149,0.1049,0.2889,observations, year,n=360)
 		modelo.mag=True
 		if save==True:
 			etasGa.saveModelToFile(modelo, '../Zona/model/'+region+'teste_etasNP'+str(year+qntYears)+str(i)+'.txt')
@@ -37,7 +36,7 @@ def execGaModel(year, region, qntYears=5, times=10, save=False):
 	# definicao=model.loadModelDefinition('../params/Kanto.txt')
 
 	for i in range(times):
-		modelo=ga.gaModel(100,0.9,0.1,observations,year)
+		modelo=ga.gaModel(77,0.1906,0.5170,observations,year,n=619)
 		if save==True:
 			model.saveModelToFile(modelo, '../Zona/model/'+region+'teste_modelo'+str(year+qntYears)+str(i)+'.txt')
 
@@ -90,31 +89,19 @@ def createRealModelforEtas(year, region, save=False):
 	return observation
 
 def main():
-	# print(sys.argv[1])
-	year=2000
-	while year<2011:
-		# print("Kanto", year)
-		# region = "Kanto"
-		# createRealModelforEtas(year, region, save=True)
-		# createRealModel(year, region, withMag=False, save=True)
-		# print("Kansai", year)
-		# region = "Kansai"
-		# # # createRealModelforEtas(year, region, save=True)
-		# createRealModel(year, region, withMag=False, save=True)
-		print("Tohoku", year)
-		region = "Tohoku"
-		# # # createRealModelforEtas(year, region, save=True)
-		# createRealModel(year, region, withMag=False, save=True)
-		# print("EastJapan", year)
-		# region = "EastJapan"
-		# # # createRealModelforEtas(year, region, save=True)
-		# createRealModel(year, region, withMag=False, save=True)
-		
-		execGaModel(year, region,save=True)
-		#this should not be used
-		# execGaModelWithMag(year,10,True)
-		# execEtasGaModel(year, region, save=True)
-		year+=1
+	region = sys.argv[1]
+	year = int(sys.argv[2])
+	# createRealModelforEtas(year, region, save=True)
+	# createRealModel(year, region, withMag=False, save=True)
+	# # # createRealModelforEtas(year, region, save=True)
+	# createRealModel(year, region, withMag=False, save=True)
+	# # # createRealModelforEtas(year, region, save=True)
+	# createRealModel(year, region, withMag=False, save=True)
+	# # # createRealModelforEtas(year, region, save=True)
+	# createRealModel(year, region, withMag=False, save=True)
+	
+	# execGaModel(year, region,save=True)
+	execEtasGaModel(year, region, save=True)
 
 if __name__ == "__main__":
 	main()
