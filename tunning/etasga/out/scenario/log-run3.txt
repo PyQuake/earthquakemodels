@@ -428,3 +428,4 @@ warmStartOptions = [WarmStartOptions]
 
 15:06:58.220 [main] INFO  c.u.c.b.a.t.b.i.IPCTargetAlgorithmEvaluator - Target Algorithm Evaluator making TCP connections to 127.0.0.1:37428.
 15:06:58.594 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - SMAC started at: Dec 28, 2015 3:06:58 PM. Minimizing mean quality.
+15:08:58.659 [TAE Warning Checking Thread (4-1)] WARN  c.u.c.b.a.t.d.s.WarnOnNoWallOrRuntimeTargetAlgorithmEvaluatorDecorator$1 - Runs have been submitted to Target Algorithm Evaluator but we have not seen any progress (no observed runs have any non-zero walltime or runtime) after 120 seconds of waiting, it's possible that the observer frequency is too low, or something is wrong with the Target Algorithm Evaluator (for instance some require that you start external processes and will hang if you don't).
