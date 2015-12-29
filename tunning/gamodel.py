@@ -5,7 +5,7 @@ import pysmac
 import sys
 
 # sys.path.append('/Users/yclavinas/Documents/estudos/unb/earthquakemodels/code')
-sys.path.append('/home/lara13/Documents/earthquakemodels/code')
+sys.path.append('/home/lara10/Documents/earthquakemodels/code')
 
 import gaModel.gaModel_Yuri as etasGaModelNP
 import models.model as etasGa
@@ -29,7 +29,7 @@ import models.model as etasGa
 def teste_ga(n_generations,crossover,mutation,inds):
 	observations=list()
 	qntYears = 5
-	region="Kanto"
+	region="Kansai"
 	year=2003
 	for i in range(qntYears):
 		observation=etasGa.loadModelFromFile('../Zona/'+region+'real'+str(year+i)+'.txt')

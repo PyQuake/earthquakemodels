@@ -1,23 +1,23 @@
-18:49:00.623 [main] INFO  c.u.c.b.a.l.ComplexLoggingOptions - Logging to: /home/lara10/Documents/earthquakemodels/tunning/./gamodel/out/scenario/log-run2.txt
-18:49:00.641 [main] INFO  c.u.c.b.a.m.version.VersionTracker - Version of Algorithm Execution & Abstraction Toolkit is v2.10.03-master-814 (ebf4c8c913d5) 
-18:49:00.641 [main] INFO  c.u.c.b.a.m.version.VersionTracker - Version of Java Runtime Environment is Java HotSpot(TM) 64-Bit Server VM (1.7.0_80) 
-18:49:00.642 [main] INFO  c.u.c.b.a.m.version.VersionTracker - Version of OS is Linux 3.13.0-32-generic (amd64) 
-18:49:00.642 [main] INFO  c.u.c.b.a.m.version.VersionTracker - Version of Random Forest Library is v1.10.01-master-120 (b68439c2c391) 
-18:49:00.642 [main] INFO  c.u.c.b.a.m.version.VersionTracker - Version of SMAC is v2.10.03-master-778 (3ee628ef9bf2) 
-18:49:00.666 [main] INFO  c.u.c.b.a.m.j.JCommanderHelper - Call String: smac --scenario-file ./gamodel/scenario.dat --tae IPC --ipc-mechanism TCP --ipc-remote-port 34545 --seed 2 --intensification-percentage 0.5 --runcount-limit 200 --console-log-level OFF --numPCA 7 --rf-num-trees 10 --skip-features True --abort-on-first-run-crash False --rf-full-tree-bootstrap False --validation False --rf-ignore-conditionality False 
-18:49:00.667 [main] INFO  c.u.c.b.smac.executors.SMACExecutor - ********** The next bit of output can be ignored, it is merely useful for debugging **********
-18:49:00.667 [main] INFO  c.u.c.b.smac.executors.SMACExecutor - ==========Enviroment Variables===========
+10:21:39.818 [main] INFO  c.u.c.b.a.l.ComplexLoggingOptions - Logging to: /home/lara10/Documents/earthquakemodels/tunning/./gamodel/out/scenario/log-run2.txt
+10:21:39.834 [main] INFO  c.u.c.b.a.m.version.VersionTracker - Version of Algorithm Execution & Abstraction Toolkit is v2.10.03-master-814 (ebf4c8c913d5) 
+10:21:39.834 [main] INFO  c.u.c.b.a.m.version.VersionTracker - Version of Java Runtime Environment is Java HotSpot(TM) 64-Bit Server VM (1.7.0_80) 
+10:21:39.834 [main] INFO  c.u.c.b.a.m.version.VersionTracker - Version of OS is Linux 3.13.0-32-generic (amd64) 
+10:21:39.834 [main] INFO  c.u.c.b.a.m.version.VersionTracker - Version of Random Forest Library is v1.10.01-master-120 (b68439c2c391) 
+10:21:39.834 [main] INFO  c.u.c.b.a.m.version.VersionTracker - Version of SMAC is v2.10.03-master-778 (3ee628ef9bf2) 
+10:21:39.835 [main] INFO  c.u.c.b.a.m.j.JCommanderHelper - Call String: smac --scenario-file ./gamodel/scenario.dat --tae IPC --ipc-mechanism TCP --ipc-remote-port 46739 --seed 2 --intensification-percentage 0.5 --runcount-limit 200 --console-log-level OFF --numPCA 7 --rf-num-trees 10 --skip-features True --abort-on-first-run-crash False --rf-full-tree-bootstrap False --validation False --rf-ignore-conditionality False 
+10:21:39.835 [main] INFO  c.u.c.b.smac.executors.SMACExecutor - ********** The next bit of output can be ignored, it is merely useful for debugging **********
+10:21:39.835 [main] INFO  c.u.c.b.smac.executors.SMACExecutor - ==========Enviroment Variables===========
 COLORTERM=gnome-terminal
 COMPIZ_CONFIG_PROFILE=ubuntu
-DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-BsZxM7eqxc,guid=330f43f0c65a420edfc228e700000022
+DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-pWDO2zIZwN,guid=8978ec1e2d9096d09cf2d74a00000c01
 DEFAULTS_PATH=/usr/share/gconf/ubuntu.default.path
 DESKTOP_SESSION=ubuntu
 DISPLAY=:0
 GDMSESSION=ubuntu
 GNOME_DESKTOP_SESSION_ID=this-is-deprecated
-GNOME_KEYRING_CONTROL=/tmp/keyring-V5mrB8
-GNOME_KEYRING_PID=1753
-GPG_AGENT_INFO=/tmp/keyring-V5mrB8/gpg:0:1
+GNOME_KEYRING_CONTROL=/tmp/keyring-fTj0WQ
+GNOME_KEYRING_PID=2135
+GPG_AGENT_INFO=/tmp/keyring-fTj0WQ/gpg:0:1
 HOME=/home/lara10
 LANG=en_US.UTF-8
 LESSCLOSE=/usr/bin/lesspipe %s %s
@@ -26,30 +26,30 @@ LOGNAME=lara10
 LS_COLORS=rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lz=01;31:*.xz=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.axv=01;35:*.anx=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.axa=00;36:*.oga=00;36:*.spx=00;36:*.xspf=00;36:
 MANDATORY_PATH=/usr/share/gconf/ubuntu.mandatory.path
 NLSPATH=/usr/dt/lib/nls/msg/%L/%N.cat
-OLDPWD=/home/lara10/Documents/earthquakemodels
+OLDPWD=/home/lara10
 PATH=/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games
 PWD=/home/lara10/Documents/earthquakemodels/tunning
-SESSION_MANAGER=local/lara10-HP-Compaq-8200-Elite-SFF-PC:@/tmp/.ICE-unix/1764,unix/lara10-HP-Compaq-8200-Elite-SFF-PC:/tmp/.ICE-unix/1764
+SESSION_MANAGER=local/lara10-HP-Compaq-8200-Elite-SFF-PC:@/tmp/.ICE-unix/2146,unix/lara10-HP-Compaq-8200-Elite-SFF-PC:/tmp/.ICE-unix/2146
 SHELL=/bin/bash
 SHLVL=1
-SSH_AGENT_PID=1799
-SSH_AUTH_SOCK=/tmp/keyring-V5mrB8/ssh
+SSH_AGENT_PID=2181
+SSH_AUTH_SOCK=/tmp/keyring-fTj0WQ/ssh
 TERM=xterm
 UBUNTU_MENUPROXY=libappmenu.so
 USER=lara10
-WINDOWID=46138948
+WINDOWID=41943046
 XAUTHORITY=/home/lara10/.Xauthority
 XDG_CONFIG_DIRS=/etc/xdg/xdg-ubuntu:/etc/xdg
 XDG_CURRENT_DESKTOP=Unity
 XDG_DATA_DIRS=/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/
 XDG_SEAT_PATH=/org/freedesktop/DisplayManager/Seat0
-XDG_SESSION_COOKIE=a782d2fc0c5c99b0726a00db00000008-1450958850.833857-183498188
+XDG_SESSION_COOKIE=a782d2fc0c5c99b0726a00db00000008-1451391610.623167-73586427
 XDG_SESSION_PATH=/org/freedesktop/DisplayManager/Session0
 XFILESEARCHPATH=/usr/dt/app-defaults/%L/Dt
 _=/usr/bin/python3
 
-18:49:00.667 [main] INFO  c.u.c.b.smac.executors.SMACExecutor - Hostname:lara10-HP-Compaq-8200-Elite-SFF-PC
-18:49:00.667 [main] INFO  c.u.c.b.smac.executors.SMACExecutor - ==========System Properties==============
+10:21:39.835 [main] INFO  c.u.c.b.smac.executors.SMACExecutor - Hostname:lara10-HP-Compaq-8200-Elite-SFF-PC
+10:21:39.835 [main] INFO  c.u.c.b.smac.executors.SMACExecutor - ==========System Properties==============
 ERRLOG=/home/lara10/Documents/earthquakemodels/tunning/./gamodel/out/scenario/log-err2.txt
 NUMRUN=2
 OUTPUTDIR=/home/lara10/Documents/earthquakemodels/tunning/./gamodel/out/scenario
@@ -100,7 +100,7 @@ sun.cpu.endian=little
 sun.cpu.isalist=
 sun.desktop=gnome
 sun.io.unicode.encoding=UnicodeLittle
-sun.java.command=ca.ubc.cs.beta.smac.executors.SMACExecutor --scenario-file ./gamodel/scenario.dat --tae IPC --ipc-mechanism TCP --ipc-remote-port 34545 --seed 2 --intensification-percentage 0.5 --runcount-limit 200 --console-log-level OFF --numPCA 7 --rf-num-trees 10 --skip-features True --abort-on-first-run-crash False --rf-full-tree-bootstrap False --validation False --rf-ignore-conditionality False
+sun.java.command=ca.ubc.cs.beta.smac.executors.SMACExecutor --scenario-file ./gamodel/scenario.dat --tae IPC --ipc-mechanism TCP --ipc-remote-port 46739 --seed 2 --intensification-percentage 0.5 --runcount-limit 200 --console-log-level OFF --numPCA 7 --rf-num-trees 10 --skip-features True --abort-on-first-run-crash False --rf-full-tree-bootstrap False --validation False --rf-ignore-conditionality False
 sun.java.launcher=SUN_STANDARD
 sun.jnu.encoding=UTF-8
 sun.management.compiler=HotSpot 64-Bit Tiered Compilers
@@ -112,7 +112,7 @@ user.language=en
 user.name=lara10
 user.timezone=America/Sao_Paulo
 
-18:49:00.789 [main] INFO  c.u.c.b.a.m.j.JCommanderHelper - ==========Configuration Options==========
+10:21:39.860 [main] INFO  c.u.c.b.a.m.j.JCommanderHelper - ==========Configuration Options==========
 [SMACOptions]
  adaptiveCapping = false
  alwaysRunInitialConfiguration = false
@@ -394,7 +394,7 @@ warmStartOptions = [WarmStartOptions]
  ipcMechanism = TCP
  encodingMechanism = CALL_STRING
  remoteHost = 127.0.0.1
- remotePort = 34545
+ remotePort = 46739
  udpPacketSize = 4096
  localPort = 0
  execScript = null
@@ -417,10 +417,11 @@ warmStartOptions = [WarmStartOptions]
  minResponse = 0.0
  observerFrequency = 500
  trendCoefficient = 0.0
- seed = 1451335738560
+ seed = 1451391697947
  persistent = false
  scaleDelay = 1.0
 
 
-18:49:00.925 [main] INFO  c.u.c.b.a.t.b.i.IPCTargetAlgorithmEvaluator - Target Algorithm Evaluator making TCP connections to 127.0.0.1:34545.
-18:49:01.398 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - SMAC started at: Dec 28, 2015 6:49:01 PM. Minimizing mean quality.
+10:21:40.144 [main] INFO  c.u.c.b.a.s.l.LegacyStateFactory - Found previous run data in state output folder: /home/lara10/Documents/earthquakemodels/tunning/./gamodel/out/scenario , renamed to: old-state-state-run2-1451391700144
+10:21:40.182 [main] INFO  c.u.c.b.a.t.b.i.IPCTargetAlgorithmEvaluator - Target Algorithm Evaluator making TCP connections to 127.0.0.1:46739.
+10:21:40.629 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - SMAC started at: Dec 29, 2015 10:21:40 AM. Minimizing mean quality.
