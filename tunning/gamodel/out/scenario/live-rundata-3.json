@@ -4,16 +4,39 @@
   "pi-instance-specific-info" : "0",
   "pi-features" : { },
   "pi-instance-id(deprecated)" : 1
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+} ]
+=======
+>>>>>>> 7c56cd7d4d60f318f54dbae82b643fd975de1d61
+>>>>>>> e2b0368c85be9aa8d6fa980e9e8a663f8cd23367
 } ] {
   "r-rc" : {
     "@rc-id" : 2,
     "rc-algo-exec-config" : {
       "@algo-exec-config-id" : 2,
       "algo-exec" : "echo 0",
+<<<<<<< HEAD
       "algo-exec-dir" : "/home/lara10/Documents/earthquakemodels/tunning/./gamodel",
       "algo-pcs" : {
         "@pcs-id" : 2,
         "pcs-filename" : "/home/lara10/Documents/earthquakemodels/tunning/./gamodel/parameters.pcs",
+=======
+<<<<<<< HEAD
+      "algo-exec-dir" : "/home/lara06/Documents/earthquakemodels/tunning/./gamodel",
+      "algo-pcs" : {
+        "@pcs-id" : 2,
+        "pcs-filename" : "/home/lara06/Documents/earthquakemodels/tunning/./gamodel/parameters.pcs",
+=======
+      "algo-exec-dir" : "/home/lara12/Documents/earthquakemodels/tunning/./gamodel",
+      "algo-pcs" : {
+        "@pcs-id" : 2,
+        "pcs-filename" : "/home/lara12/Documents/earthquakemodels/tunning/./gamodel/parameters.pcs",
+>>>>>>> 7c56cd7d4d60f318f54dbae82b643fd975de1d61
+>>>>>>> e2b0368c85be9aa8d6fa980e9e8a663f8cd23367
         "pcs-text" : "n_generations integer [50, 150] [100]\nmutation real [0, 1] [0.1]\ninds integer [250, 750] [500]\ncrossover real [0, 1] [0.9]\n",
         "pcs-subspace" : { }
       },
@@ -49,8 +72,174 @@
   "r-run-result" : "SAT",
   "r-runtime" : 0.0,
   "r-run-length" : 0.0,
+<<<<<<< HEAD
   "r-quality" : 1600.0,
   "r-result-seed" : -1,
   "r-addl-run-data" : "",
   "r-wallclock-time" : 921.933
 }
+=======
+  "r-quality" : 800.0,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+<<<<<<< HEAD
+  "r-wallclock-time" : 485.959
+=======
+  "r-wallclock-time" : 465.21
+>>>>>>> 7c56cd7d4d60f318f54dbae82b643fd975de1d61
+} {
+  "r-rc" : {
+    "@rc-id" : 3,
+    "rc-algo-exec-config" : {
+      "@algo-exec-config-id" : 2
+    },
+    "rc-cutoff" : 3600.0,
+    "rc-pisp" : {
+      "@pisp-id" : 2
+    },
+    "rc-pc" : {
+      "@pc-id" : 3,
+      "pc-pcs" : {
+        "@pcs-id" : 2
+      },
+      "pc-settings" : {
+        "crossover" : "0.24957469801053256",
+        "inds" : "636",
+        "mutation" : "0.24935965856322562",
+        "n_generations" : "114"
+      },
+      "pc-active-parameters" : [ "crossover", "inds", "mutation", "n_generations" ],
+      "pc-forbidden" : false,
+      "pc-default" : false
+    },
+    "rc-sample-idx" : 0
+  },
+  "r-run-result" : "SAT",
+<<<<<<< HEAD
+  "r-runtime" : 234.844,
+=======
+  "r-runtime" : 232.650466,
+>>>>>>> 7c56cd7d4d60f318f54dbae82b643fd975de1d61
+  "r-run-length" : 0.0,
+  "r-quality" : 800.0,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+<<<<<<< HEAD
+  "r-wallclock-time" : 346.92
+=======
+  "r-wallclock-time" : 337.858
+>>>>>>> 7c56cd7d4d60f318f54dbae82b643fd975de1d61
+} {
+  "r-rc" : {
+    "@rc-id" : 4,
+    "rc-algo-exec-config" : {
+      "@algo-exec-config-id" : 2
+    },
+    "rc-cutoff" : 3600.0,
+    "rc-pisp" : {
+      "@pisp-id" : 2
+    },
+    "rc-pc" : {
+      "@pc-id" : 4,
+      "pc-pcs" : {
+        "@pcs-id" : 2
+      },
+      "pc-settings" : {
+        "crossover" : "0.11633485689279055",
+        "inds" : "553",
+        "mutation" : "0.20128668499288194",
+        "n_generations" : "50"
+      },
+      "pc-active-parameters" : [ "crossover", "inds", "mutation", "n_generations" ],
+      "pc-forbidden" : false,
+      "pc-default" : false
+    },
+    "rc-sample-idx" : 0
+  },
+  "r-run-result" : "SAT",
+<<<<<<< HEAD
+  "r-runtime" : 402.628,
+=======
+  "r-runtime" : 400.331988,
+>>>>>>> 7c56cd7d4d60f318f54dbae82b643fd975de1d61
+  "r-run-length" : 0.0,
+  "r-quality" : 800.0,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+<<<<<<< HEAD
+  "r-wallclock-time" : 97.144
+}
+=======
+  "r-wallclock-time" : 92.18
+} {
+  "r-rc" : {
+    "@rc-id" : 5,
+    "rc-algo-exec-config" : {
+      "@algo-exec-config-id" : 2
+    },
+    "rc-cutoff" : 3600.0,
+    "rc-pisp" : {
+      "@pisp-id" : 2
+    },
+    "rc-pc" : {
+      "@pc-id" : 5,
+      "pc-pcs" : {
+        "@pcs-id" : 2
+      },
+      "pc-settings" : {
+        "crossover" : "0.6502855073334343",
+        "inds" : "613",
+        "mutation" : "0.7100151308642039",
+        "n_generations" : "59"
+      },
+      "pc-active-parameters" : [ "crossover", "inds", "mutation", "n_generations" ],
+      "pc-forbidden" : false,
+      "pc-default" : false
+    },
+    "rc-sample-idx" : 0
+  },
+  "r-run-result" : "SAT",
+  "r-runtime" : 446.266022,
+  "r-run-length" : 0.0,
+  "r-quality" : 800.0,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 345.846
+} {
+  "r-rc" : {
+    "@rc-id" : 6,
+    "rc-algo-exec-config" : {
+      "@algo-exec-config-id" : 2
+    },
+    "rc-cutoff" : 3600.0,
+    "rc-pisp" : {
+      "@pisp-id" : 2
+    },
+    "rc-pc" : {
+      "@pc-id" : 6,
+      "pc-pcs" : {
+        "@pcs-id" : 2
+      },
+      "pc-settings" : {
+        "crossover" : "0.43018788706173805",
+        "inds" : "729",
+        "mutation" : "0.7403620499519693",
+        "n_generations" : "59"
+      },
+      "pc-active-parameters" : [ "crossover", "inds", "mutation", "n_generations" ],
+      "pc-forbidden" : false,
+      "pc-default" : false
+    },
+    "rc-sample-idx" : 0
+  },
+  "r-run-result" : "SAT",
+  "r-runtime" : 617.887169,
+  "r-run-length" : 0.0,
+  "r-quality" : 800.0,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 393.065
+}
+>>>>>>> 2753753cc5b728dc01c0bd9c55dbff9cf909c239
+>>>>>>> 7c56cd7d4d60f318f54dbae82b643fd975de1d61
+>>>>>>> e2b0368c85be9aa8d6fa980e9e8a663f8cd23367

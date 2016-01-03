@@ -1,0 +1,6 @@
+Run Number,Run History Configuration ID,Instance ID,Response Value (y),Censored?,Cutoff Time Used,Seed,Runtime,Run Length,Run Result Code,Run Quality,SMAC Iteration,SMAC Cumulative Runtime,Run Result,Additional Algorithm Run Data,Wall Clock Time,
+1,1,1,800.0,0,3600.0,-1,0.0,0.0,1,800.0,0,0.0,SAT,,462.642,
+2,2,1,800.0,0,3600.0,-1,233.013688,0.0,1,800.0,1,233.013688,SAT,,445.022,
+3,3,1,800.0,0,3600.0,-1,454.080591,0.0,1,800.0,1,687.094279,SAT,,172.81,
+4,4,1,800.0,0,3600.0,-1,539.514689,0.0,1,800.0,2,1226.608968,SAT,,311.634,
+5,5,1,800.0,0,3600.0,-1,693.714034,0.0,1,800.0,2,1920.323002,SAT,,347.567,
