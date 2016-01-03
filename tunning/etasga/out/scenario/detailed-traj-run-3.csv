@@ -1,2 +1,6 @@
 "CPU Time Used","Estimated Training Performance","Wallclock Time","Incumbent ID","Automatic Configurator (CPU) Time","Full Configuration","Predicted Performance (if available)",
 "0.0"," 1.7976931348623157E308","0.0","1","0.0", " crossover='0.9', inds='500', mutation='0.1', n_generations='100'","NaN"
+<<<<<<< HEAD
+=======
+"0.45423263999999997"," 800.0","315.958","1","0.354484794", " crossover='0.9', inds='500', mutation='0.1', n_generations='100'","NaN"
+>>>>>>> 2753753cc5b728dc01c0bd9c55dbff9cf909c239
