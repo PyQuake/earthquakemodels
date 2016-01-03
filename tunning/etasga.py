@@ -27,7 +27,7 @@ import models.modelEtasGa as etasGa
 def teste_ga(n_generations,crossover,mutation, inds):
 	observations=list()
 	qntYears = 5
-	region="Tohoku"
+	region="EastJapan"
 	year=2004
 	for i in range(qntYears):
 		observation=etasGa.loadModelFromFile('../Zona/'+region+'real'+str(year+i)+'.txt')
