@@ -433,3 +433,6 @@ warmStartOptions = [WarmStartOptions]
 16:35:27.008 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - First incumbent: config 1 (internal ID: 0x000F), with mean quality: 801.0; estimate based on 1 runs.
 16:35:27.012 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Sample call for new incumbent config 1 (internal ID: 0x000F): 
 cd /home/lara06/Documents/earthquakemodels/tunning/./etasga; echo 0 id_0 0 3600.0 2147483647 -1 -crossover '0.9' -inds '500' -mutation '0.1' -n_generations '100'  
+16:49:30.922 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Incumbent changed to: config 6 (internal ID: 0x1263D), with mean quality: 800.0; estimate based on 1 runs.
+16:49:30.923 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Sample call for new incumbent config 6 (internal ID: 0x1263D): 
+cd /home/lara06/Documents/earthquakemodels/tunning/./etasga; echo 0 id_0 0 3600.0 2147483647 -1 -crossover '0.6045843604358732' -inds '370' -mutation '0.1336491919604602' -n_generations '66'  
