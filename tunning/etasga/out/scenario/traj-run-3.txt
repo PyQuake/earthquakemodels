@@ -1,3 +1,19 @@
 "CPU Time Used","Estimated Training Performance","Wallclock Time","Incumbent ID","Automatic Configurator (CPU) Time","Configuration..."
 0.0, 1.7976931348623157E308, 0.0, 1, 0.0,  crossover='0.9', inds='500', mutation='0.1', n_generations='100'
+<<<<<<< HEAD
 0.5981290360000002, 2030.0, 837.755, 1, 0.4984303819999999,  crossover='0.9', inds='500', mutation='0.1', n_generations='100'
+=======
+<<<<<<< HEAD
+0.592145578, 1600.0, 821.952, 1, 0.4923776420000002,  crossover='0.9', inds='500', mutation='0.1', n_generations='100'
+=======
+<<<<<<< HEAD
+0.46168548500000006, 802.0, 331.907, 1, 0.36193306300000005,  crossover='0.9', inds='500', mutation='0.1', n_generations='100'
+166.446322656, 800.0, 574.746, 2, 0.654506463,  crossover='0.24957469801053256', inds='636', mutation='0.24935965856322562', n_generations='114'
+=======
+<<<<<<< HEAD
+=======
+0.45423263999999997, 800.0, 315.958, 1, 0.354484794,  crossover='0.9', inds='500', mutation='0.1', n_generations='100'
+>>>>>>> 2753753cc5b728dc01c0bd9c55dbff9cf909c239
+>>>>>>> 7c56cd7d4d60f318f54dbae82b643fd975de1d61
+>>>>>>> e2b0368c85be9aa8d6fa980e9e8a663f8cd23367
+>>>>>>> 1ab8e8d65a314013f58ff7b685a46383690a9d3e
