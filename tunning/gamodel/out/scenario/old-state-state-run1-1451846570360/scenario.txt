@@ -1,0 +1,9 @@
+overall_obj MEAN
+algo-deterministic True
+output-dir ./gamodel/out
+run-obj QUALITY
+instances ./gamodel/instances.dat
+algo-exec echo 0
+cutoff_time 3600
+algo-exec-dir ./gamodel/
+pcs-file ./gamodel/parameters.pcs
