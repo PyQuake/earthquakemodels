@@ -28,7 +28,7 @@ def teste_ga(n_generations,crossover,mutation):
 	observations=list()
 	qntYears = 5
 	region="Kansai"
-	year=2005
+	year=2006
 
 	for i in range(qntYears):
 		observation=etasGa.loadModelFromFile('../Zona/'+region+'real'+str(year+i)+'.txt')

@@ -1,12 +1,12 @@
-09:13:48.309 [main] INFO  c.u.c.b.a.l.ComplexLoggingOptions - Logging to: /home/lara05/Documents/earthquakemodels/tunning/./gamodel/out/scenario/log-run0.txt
-09:13:48.356 [main] INFO  c.u.c.b.a.m.version.VersionTracker - Version of Algorithm Execution & Abstraction Toolkit is v2.10.03-master-814 (ebf4c8c913d5) 
-09:13:48.356 [main] INFO  c.u.c.b.a.m.version.VersionTracker - Version of Java Runtime Environment is Java HotSpot(TM) 64-Bit Server VM (1.7.0_80) 
-09:13:48.356 [main] INFO  c.u.c.b.a.m.version.VersionTracker - Version of OS is Linux 3.8.0-41-generic (amd64) 
-09:13:48.356 [main] INFO  c.u.c.b.a.m.version.VersionTracker - Version of Random Forest Library is v1.10.01-master-120 (b68439c2c391) 
-09:13:48.356 [main] INFO  c.u.c.b.a.m.version.VersionTracker - Version of SMAC is v2.10.03-master-778 (3ee628ef9bf2) 
-09:13:48.357 [main] INFO  c.u.c.b.a.m.j.JCommanderHelper - Call String: smac --scenario-file ./gamodel/scenario.dat --tae IPC --ipc-mechanism TCP --ipc-remote-port 55226 --seed 0 --intensification-percentage 0.5 --runcount-limit 500 --console-log-level OFF --numPCA 7 --rf-num-trees 10 --skip-features True --abort-on-first-run-crash False --rf-full-tree-bootstrap False --validation False --rf-ignore-conditionality False 
-09:13:48.357 [main] INFO  c.u.c.b.smac.executors.SMACExecutor - ********** The next bit of output can be ignored, it is merely useful for debugging **********
-09:13:48.357 [main] INFO  c.u.c.b.smac.executors.SMACExecutor - ==========Enviroment Variables===========
+09:15:23.563 [main] INFO  c.u.c.b.a.l.ComplexLoggingOptions - Logging to: /home/lara05/Documents/earthquakemodels/tunning/./gamodel/out/scenario/log-run0.txt
+09:15:23.687 [main] INFO  c.u.c.b.a.m.version.VersionTracker - Version of Algorithm Execution & Abstraction Toolkit is v2.10.03-master-814 (ebf4c8c913d5) 
+09:15:23.687 [main] INFO  c.u.c.b.a.m.version.VersionTracker - Version of Java Runtime Environment is Java HotSpot(TM) 64-Bit Server VM (1.7.0_80) 
+09:15:23.687 [main] INFO  c.u.c.b.a.m.version.VersionTracker - Version of OS is Linux 3.8.0-41-generic (amd64) 
+09:15:23.687 [main] INFO  c.u.c.b.a.m.version.VersionTracker - Version of Random Forest Library is v1.10.01-master-120 (b68439c2c391) 
+09:15:23.688 [main] INFO  c.u.c.b.a.m.version.VersionTracker - Version of SMAC is v2.10.03-master-778 (3ee628ef9bf2) 
+09:15:23.688 [main] INFO  c.u.c.b.a.m.j.JCommanderHelper - Call String: smac --scenario-file ./gamodel/scenario.dat --tae IPC --ipc-mechanism TCP --ipc-remote-port 44855 --seed 0 --intensification-percentage 0.5 --runcount-limit 500 --console-log-level OFF --numPCA 7 --rf-num-trees 10 --skip-features True --abort-on-first-run-crash False --rf-full-tree-bootstrap False --validation False --rf-ignore-conditionality False 
+09:15:23.688 [main] INFO  c.u.c.b.smac.executors.SMACExecutor - ********** The next bit of output can be ignored, it is merely useful for debugging **********
+09:15:23.688 [main] INFO  c.u.c.b.smac.executors.SMACExecutor - ==========Enviroment Variables===========
 COLORTERM=gnome-terminal
 COMPIZ_CONFIG_PROFILE=ubuntu
 DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-8Uj0i2GeCK,guid=1e004ba5bef6682fedbb58d100000033
@@ -41,7 +41,7 @@ SSH_AUTH_SOCK=/tmp/keyring-vqmLOI/ssh
 TERM=xterm
 UBUNTU_MENUPROXY=libappmenu.so
 USER=lara05
-WINDOWID=58720262
+WINDOWID=58723017
 XAUTHORITY=/home/lara05/.Xauthority
 XDG_CONFIG_DIRS=/etc/xdg/xdg-ubuntu:/etc/xdg
 XDG_CURRENT_DESKTOP=Unity
@@ -52,8 +52,8 @@ XDG_SESSION_PATH=/org/freedesktop/DisplayManager/Session0
 XFILESEARCHPATH=/usr/dt/app-defaults/%L/Dt
 _=/usr/bin/python3
 
-09:13:48.357 [main] INFO  c.u.c.b.smac.executors.SMACExecutor - Hostname:lara05pc
-09:13:48.357 [main] INFO  c.u.c.b.smac.executors.SMACExecutor - ==========System Properties==============
+09:15:23.689 [main] INFO  c.u.c.b.smac.executors.SMACExecutor - Hostname:lara05pc
+09:15:23.689 [main] INFO  c.u.c.b.smac.executors.SMACExecutor - ==========System Properties==============
 ERRLOG=/home/lara05/Documents/earthquakemodels/tunning/./gamodel/out/scenario/log-err0.txt
 NUMRUN=0
 OUTPUTDIR=/home/lara05/Documents/earthquakemodels/tunning/./gamodel/out/scenario
@@ -104,7 +104,7 @@ sun.cpu.endian=little
 sun.cpu.isalist=
 sun.desktop=gnome
 sun.io.unicode.encoding=UnicodeLittle
-sun.java.command=ca.ubc.cs.beta.smac.executors.SMACExecutor --scenario-file ./gamodel/scenario.dat --tae IPC --ipc-mechanism TCP --ipc-remote-port 55226 --seed 0 --intensification-percentage 0.5 --runcount-limit 500 --console-log-level OFF --numPCA 7 --rf-num-trees 10 --skip-features True --abort-on-first-run-crash False --rf-full-tree-bootstrap False --validation False --rf-ignore-conditionality False
+sun.java.command=ca.ubc.cs.beta.smac.executors.SMACExecutor --scenario-file ./gamodel/scenario.dat --tae IPC --ipc-mechanism TCP --ipc-remote-port 44855 --seed 0 --intensification-percentage 0.5 --runcount-limit 500 --console-log-level OFF --numPCA 7 --rf-num-trees 10 --skip-features True --abort-on-first-run-crash False --rf-full-tree-bootstrap False --validation False --rf-ignore-conditionality False
 sun.java.launcher=SUN_STANDARD
 sun.jnu.encoding=UTF-8
 sun.management.compiler=HotSpot 64-Bit Tiered Compilers
@@ -116,7 +116,7 @@ user.language=en
 user.name=lara05
 user.timezone=America/Sao_Paulo
 
-09:13:48.417 [main] INFO  c.u.c.b.a.m.j.JCommanderHelper - ==========Configuration Options==========
+09:15:23.821 [main] INFO  c.u.c.b.a.m.j.JCommanderHelper - ==========Configuration Options==========
 [SMACOptions]
  adaptiveCapping = false
  alwaysRunInitialConfiguration = false
@@ -398,7 +398,7 @@ warmStartOptions = [WarmStartOptions]
  ipcMechanism = TCP
  encodingMechanism = CALL_STRING
  remoteHost = 127.0.0.1
- remotePort = 55226
+ remotePort = 44855
  udpPacketSize = 4096
  localPort = 0
  execScript = null
@@ -421,11 +421,11 @@ warmStartOptions = [WarmStartOptions]
  minResponse = 0.0
  observerFrequency = 500
  trendCoefficient = 0.0
- seed = 1451992426989
+ seed = 1451992521907
  persistent = false
  scaleDelay = 1.0
 
 
-09:13:48.559 [main] INFO  c.u.c.b.a.s.l.LegacyStateFactory - Found previous run data in state output folder: /home/lara05/Documents/earthquakemodels/tunning/./gamodel/out/scenario , renamed to: old-state-state-run0-1451992428559
-09:13:48.589 [main] INFO  c.u.c.b.a.t.b.i.IPCTargetAlgorithmEvaluator - Target Algorithm Evaluator making TCP connections to 127.0.0.1:55226.
-09:13:48.860 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - SMAC started at: Jan 5, 2016 9:13:48 AM. Minimizing mean quality.
+09:15:24.012 [main] INFO  c.u.c.b.a.s.l.LegacyStateFactory - Found previous run data in state output folder: /home/lara05/Documents/earthquakemodels/tunning/./gamodel/out/scenario , renamed to: old-state-state-run0-1451992524012
+09:15:24.032 [main] INFO  c.u.c.b.a.t.b.i.IPCTargetAlgorithmEvaluator - Target Algorithm Evaluator making TCP connections to 127.0.0.1:44855.
+09:15:24.433 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - SMAC started at: Jan 5, 2016 9:15:24 AM. Minimizing mean quality.

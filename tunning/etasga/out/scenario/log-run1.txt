@@ -1,12 +1,12 @@
-09:13:54.577 [main] INFO  c.u.c.b.a.l.ComplexLoggingOptions - Logging to: /home/lara05/Documents/earthquakemodels/tunning/./etasga/out/scenario/log-run1.txt
-09:13:54.688 [main] INFO  c.u.c.b.a.m.version.VersionTracker - Version of Algorithm Execution & Abstraction Toolkit is v2.10.03-master-814 (ebf4c8c913d5) 
-09:13:54.688 [main] INFO  c.u.c.b.a.m.version.VersionTracker - Version of Java Runtime Environment is Java HotSpot(TM) 64-Bit Server VM (1.7.0_80) 
-09:13:54.688 [main] INFO  c.u.c.b.a.m.version.VersionTracker - Version of OS is Linux 3.8.0-41-generic (amd64) 
-09:13:54.688 [main] INFO  c.u.c.b.a.m.version.VersionTracker - Version of Random Forest Library is v1.10.01-master-120 (b68439c2c391) 
-09:13:54.688 [main] INFO  c.u.c.b.a.m.version.VersionTracker - Version of SMAC is v2.10.03-master-778 (3ee628ef9bf2) 
-09:13:54.688 [main] INFO  c.u.c.b.a.m.j.JCommanderHelper - Call String: smac --scenario-file ./etasga/scenario.dat --tae IPC --ipc-mechanism TCP --ipc-remote-port 40925 --seed 1 --intensification-percentage 0.5 --runcount-limit 500 --console-log-level OFF --numPCA 7 --rf-num-trees 10 --skip-features True --abort-on-first-run-crash False --rf-full-tree-bootstrap False --validation False --rf-ignore-conditionality False 
-09:13:54.689 [main] INFO  c.u.c.b.smac.executors.SMACExecutor - ********** The next bit of output can be ignored, it is merely useful for debugging **********
-09:13:54.689 [main] INFO  c.u.c.b.smac.executors.SMACExecutor - ==========Enviroment Variables===========
+09:15:07.972 [main] INFO  c.u.c.b.a.l.ComplexLoggingOptions - Logging to: /home/lara05/Documents/earthquakemodels/tunning/./etasga/out/scenario/log-run1.txt
+09:15:08.019 [main] INFO  c.u.c.b.a.m.version.VersionTracker - Version of Algorithm Execution & Abstraction Toolkit is v2.10.03-master-814 (ebf4c8c913d5) 
+09:15:08.019 [main] INFO  c.u.c.b.a.m.version.VersionTracker - Version of Java Runtime Environment is Java HotSpot(TM) 64-Bit Server VM (1.7.0_80) 
+09:15:08.019 [main] INFO  c.u.c.b.a.m.version.VersionTracker - Version of OS is Linux 3.8.0-41-generic (amd64) 
+09:15:08.020 [main] INFO  c.u.c.b.a.m.version.VersionTracker - Version of Random Forest Library is v1.10.01-master-120 (b68439c2c391) 
+09:15:08.020 [main] INFO  c.u.c.b.a.m.version.VersionTracker - Version of SMAC is v2.10.03-master-778 (3ee628ef9bf2) 
+09:15:08.020 [main] INFO  c.u.c.b.a.m.j.JCommanderHelper - Call String: smac --scenario-file ./etasga/scenario.dat --tae IPC --ipc-mechanism TCP --ipc-remote-port 49345 --seed 1 --intensification-percentage 0.5 --runcount-limit 500 --console-log-level OFF --numPCA 7 --rf-num-trees 10 --skip-features True --abort-on-first-run-crash False --rf-full-tree-bootstrap False --validation False --rf-ignore-conditionality False 
+09:15:08.020 [main] INFO  c.u.c.b.smac.executors.SMACExecutor - ********** The next bit of output can be ignored, it is merely useful for debugging **********
+09:15:08.020 [main] INFO  c.u.c.b.smac.executors.SMACExecutor - ==========Enviroment Variables===========
 COLORTERM=gnome-terminal
 COMPIZ_CONFIG_PROFILE=ubuntu
 DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-8Uj0i2GeCK,guid=1e004ba5bef6682fedbb58d100000033
@@ -41,7 +41,7 @@ SSH_AUTH_SOCK=/tmp/keyring-vqmLOI/ssh
 TERM=xterm
 UBUNTU_MENUPROXY=libappmenu.so
 USER=lara05
-WINDOWID=58720313
+WINDOWID=58722783
 XAUTHORITY=/home/lara05/.Xauthority
 XDG_CONFIG_DIRS=/etc/xdg/xdg-ubuntu:/etc/xdg
 XDG_CURRENT_DESKTOP=Unity
@@ -52,8 +52,8 @@ XDG_SESSION_PATH=/org/freedesktop/DisplayManager/Session0
 XFILESEARCHPATH=/usr/dt/app-defaults/%L/Dt
 _=/usr/bin/python3
 
-09:13:54.689 [main] INFO  c.u.c.b.smac.executors.SMACExecutor - Hostname:lara05pc
-09:13:54.689 [main] INFO  c.u.c.b.smac.executors.SMACExecutor - ==========System Properties==============
+09:15:08.021 [main] INFO  c.u.c.b.smac.executors.SMACExecutor - Hostname:lara05pc
+09:15:08.021 [main] INFO  c.u.c.b.smac.executors.SMACExecutor - ==========System Properties==============
 ERRLOG=/home/lara05/Documents/earthquakemodels/tunning/./etasga/out/scenario/log-err1.txt
 NUMRUN=1
 OUTPUTDIR=/home/lara05/Documents/earthquakemodels/tunning/./etasga/out/scenario
@@ -104,7 +104,7 @@ sun.cpu.endian=little
 sun.cpu.isalist=
 sun.desktop=gnome
 sun.io.unicode.encoding=UnicodeLittle
-sun.java.command=ca.ubc.cs.beta.smac.executors.SMACExecutor --scenario-file ./etasga/scenario.dat --tae IPC --ipc-mechanism TCP --ipc-remote-port 40925 --seed 1 --intensification-percentage 0.5 --runcount-limit 500 --console-log-level OFF --numPCA 7 --rf-num-trees 10 --skip-features True --abort-on-first-run-crash False --rf-full-tree-bootstrap False --validation False --rf-ignore-conditionality False
+sun.java.command=ca.ubc.cs.beta.smac.executors.SMACExecutor --scenario-file ./etasga/scenario.dat --tae IPC --ipc-mechanism TCP --ipc-remote-port 49345 --seed 1 --intensification-percentage 0.5 --runcount-limit 500 --console-log-level OFF --numPCA 7 --rf-num-trees 10 --skip-features True --abort-on-first-run-crash False --rf-full-tree-bootstrap False --validation False --rf-ignore-conditionality False
 sun.java.launcher=SUN_STANDARD
 sun.jnu.encoding=UTF-8
 sun.management.compiler=HotSpot 64-Bit Tiered Compilers
@@ -116,7 +116,7 @@ user.language=en
 user.name=lara05
 user.timezone=America/Sao_Paulo
 
-09:13:54.788 [main] INFO  c.u.c.b.a.m.j.JCommanderHelper - ==========Configuration Options==========
+09:15:08.072 [main] INFO  c.u.c.b.a.m.j.JCommanderHelper - ==========Configuration Options==========
 [SMACOptions]
  adaptiveCapping = false
  alwaysRunInitialConfiguration = false
@@ -398,7 +398,7 @@ warmStartOptions = [WarmStartOptions]
  ipcMechanism = TCP
  encodingMechanism = CALL_STRING
  remoteHost = 127.0.0.1
- remotePort = 40925
+ remotePort = 49345
  udpPacketSize = 4096
  localPort = 0
  execScript = null
@@ -421,11 +421,11 @@ warmStartOptions = [WarmStartOptions]
  minResponse = 0.0
  observerFrequency = 500
  trendCoefficient = 0.0
- seed = 1451992432826
+ seed = 1451992507209
  persistent = false
  scaleDelay = 1.0
 
 
-09:13:54.993 [main] INFO  c.u.c.b.a.s.l.LegacyStateFactory - Found previous run data in state output folder: /home/lara05/Documents/earthquakemodels/tunning/./etasga/out/scenario , renamed to: old-state-state-run1-1451992434993
-09:13:55.006 [main] INFO  c.u.c.b.a.t.b.i.IPCTargetAlgorithmEvaluator - Target Algorithm Evaluator making TCP connections to 127.0.0.1:40925.
-09:13:55.421 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - SMAC started at: Jan 5, 2016 9:13:55 AM. Minimizing mean quality.
+09:15:08.154 [main] INFO  c.u.c.b.a.s.l.LegacyStateFactory - Found previous run data in state output folder: /home/lara05/Documents/earthquakemodels/tunning/./etasga/out/scenario , renamed to: old-state-state-run1-1451992508154
+09:15:08.161 [main] INFO  c.u.c.b.a.t.b.i.IPCTargetAlgorithmEvaluator - Target Algorithm Evaluator making TCP connections to 127.0.0.1:49345.
+09:15:08.354 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - SMAC started at: Jan 5, 2016 9:15:08 AM. Minimizing mean quality.
