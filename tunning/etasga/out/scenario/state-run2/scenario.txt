@@ -1,0 +1,9 @@
+overall_obj MEAN
+algo-deterministic True
+output-dir ./etasga/out
+run-obj QUALITY
+instances ./etasga/instances.dat
+algo-exec echo 0
+cutoff_time 3600
+algo-exec-dir ./etasga/
+pcs-file ./etasga/parameters.pcs
