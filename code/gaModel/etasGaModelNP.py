@@ -54,7 +54,10 @@ def mutationFunction(individual, indpb, definitions, length):
     return individual
 
 
-def gaModel(NGEN,CXPB,MUTPB,modelOmega, year, n=500):
+def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,n_aval=50000):
+    
+    n=n_aval/NGEN
+
 
     toolbox = base.Toolbox()
     toolbox.register("evaluate", evaluationFunction, modelOmega=modelOmega)

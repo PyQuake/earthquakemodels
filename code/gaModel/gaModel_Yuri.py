@@ -49,7 +49,11 @@ def evaluationFunction(individual, modelOmega):
 
     return logValue,
 
-def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,n=500):
+def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,n_aval=50000):
+    
+    n=n_aval/NGEN
+
+
     toolbox = base.Toolbox()
     toolbox.register("evaluate", evaluationFunction, modelOmega=modelOmega)
     creator.create("FitnessFunction", base.Fitness, weights=(1.0,))

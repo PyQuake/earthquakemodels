@@ -47,10 +47,10 @@ def teste_ga(n_generations,crossover,mutation, inds):
 
 
 parameter_definition=dict(\
-	n_generations   =("integer", [50,150], 100),
+	n_generations   =("integer", [50,250], 100),
 	mutation=("real", [0,1],   0.1),	
 	crossover=("real", [0,1], 0.9),	
-	inds=("integer", [250,750],    500),
+	# inds=("integer", [250,750],    500),
 	# criterion   =("categorical", ['gini', 'entropy'], 'entropy'),
 )
 
