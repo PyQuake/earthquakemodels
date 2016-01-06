@@ -4,7 +4,7 @@ import pysmac
 import sys
 
 # sys.path.append('/Users/yclavinas/Documents/estudos/unb/earthquakemodels/code')
-sys.path.append('/home/lara10/Documents/earthquakemodels/code')
+sys.path.append('/home/lara04/Documents/earthquakemodels/code')
 
 import gaModel.gaModel_Yuri as etasGaModelNP
 import models.model as etasGa
@@ -25,11 +25,11 @@ import models.model as etasGa
 # predictor.fit(X_train, Y_train)
 # return -predictor.score(X_test, Y_test)
 
-def teste_ga(n_generations,crossover,mutation,inds):
+def teste_ga(n_generations,crossover,mutation):
 	observations=list()
 	qntYears = 5
-	region="Kansai"
-	year=2005
+	region="Kanto"
+	year=2006
 	for i in range(qntYears):
 		observation=etasGa.loadModelFromFile('../Zona/'+region+'real'+str(year+i)+'.txt')
 		observation.bins=observation.bins.tolist()
@@ -38,7 +38,7 @@ def teste_ga(n_generations,crossover,mutation,inds):
 		# definicao=model.loadModelDefinition('../params/KantoEtas.txt')
 
 		# for i in range(times):
-	value=etasGaModelNP.gaModel(n_generations,crossover,mutation,observations, year, inds)
+	value=etasGaModelNP.gaModel(n_generations,crossover,mutation,observations, year)
 	print(value)
 	return -value
 	# modelo.mag=True
@@ -47,10 +47,10 @@ def teste_ga(n_generations,crossover,mutation,inds):
 
 
 parameter_definition=dict(\
-	n_generations   =("integer", [50,150], 100),
-	mutation=("real", [0,1],   0.1),	
+	n_generations   =("integer", [50,250], 100),	
 	crossover=("real", [0,1], 0.9),	
-	inds=("integer", [250,750],    500),
+	mutation=("real", [0,1],   0.1),
+	# inds=("integer", [250,750],    500),
 	# criterion   =("categorical", ['gini', 'entropy'], 'entropy'),
 )
 
@@ -77,7 +77,7 @@ opt = pysmac.SMAC_optimizer( working_directory = './gamodel/',# the folder where
 
 # The minimize method also has optional arguments
 value, parameters = opt.minimize(teste_ga,
-					200, parameter_definition,	# in a real setting, you probably want to do more than 100 evaluations here
+					500, parameter_definition,	# in a real setting, you probably want to do more than 100 evaluations here
 					num_runs = 4,	# number of independent SMAC runs
 					# seed = 2,	# the random seed used. can be an int or a list of ints of length num_runs
 					num_procs = 4,	# pysmac can harness multicore architecture. Specify the number of processes to use here.
