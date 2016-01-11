@@ -100,8 +100,8 @@ def main():
 	# # # createRealModelforEtas(year, region, save=True)
 	# createRealModel(year, region, withMag=False, save=True)
 	
-	# execGaModel(2006, "Kansai",save=True)
-	execEtasGaModel(2006, "Kansai", save=True)
+	execGaModel(2006, "Kansai",save=True)
+	# execEtasGaModel(2006, "Kansai", save=True)
 
 if __name__ == "__main__":
 	main()
