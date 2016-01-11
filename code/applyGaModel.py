@@ -19,7 +19,7 @@ def execEtasGaModel(year, region, qntYears=5, times=10, save=False):
 	# definicao=model.loadModelDefinition('../params/KantoEtas.txt')
 
 	for i in range(times):
-		modelo=etasGaModelNP.gaModel(149,0.1049,0.2889,observations, year,n=360)
+		modelo=etasGaModelNP.gaModel(100,0.1,0.9,observations, year)
 		modelo.mag=True
 		if save==True:
 			etasGa.saveModelToFile(modelo, '../Zona/model/'+region+'teste_etasNP'+str(year+qntYears)+str(i)+'.txt')
@@ -36,7 +36,7 @@ def execGaModel(year, region, qntYears=5, times=10, save=False):
 	# definicao=model.loadModelDefinition('../params/Kanto.txt')
 
 	for i in range(times):
-		modelo=ga.gaModel(77,0.1906,0.5170,observations,year,n=619)
+		modelo=ga.gaModel(100,0.1,0.9,observations,year)
 		if save==True:
 			model.saveModelToFile(modelo, '../Zona/model/'+region+'teste_modelo'+str(year+qntYears)+str(i)+'.txt')
 
@@ -89,8 +89,8 @@ def createRealModelforEtas(year, region, save=False):
 	return observation
 
 def main():
-	region = sys.argv[1]
-	year = int(sys.argv[2])
+	# region = sys.argv[1]
+	# year = int(sys.argv[2])
 	# createRealModelforEtas(year, region, save=True)
 	# createRealModel(year, region, withMag=False, save=True)
 	# # # createRealModelforEtas(year, region, save=True)
@@ -100,8 +100,8 @@ def main():
 	# # # createRealModelforEtas(year, region, save=True)
 	# createRealModel(year, region, withMag=False, save=True)
 	
-	# execGaModel(year, region,save=True)
-	execEtasGaModel(year, region, save=True)
+	execGaModel(2006, "Kanto",save=True)
+	# execEtasGaModel(2006, "Kanto", save=True)
 
 if __name__ == "__main__":
 	main()
