@@ -8,7 +8,7 @@ import gaModel.etasGaModelNP as etasGaModelNP
 import models.modelEtasGa as etasGa
 import sys
 
-def execEtasGaModel(year, region, qntYears=5, times=10, save=False):
+def execEtasGaModel(year, region, qntYears=5, times=20, save=True):
 	
 	observations=list()
 
@@ -22,9 +22,9 @@ def execEtasGaModel(year, region, qntYears=5, times=10, save=False):
 		modelo=etasGaModelNP.gaModel(100,0.1,0.9,observations, year)
 		modelo.mag=True
 		if save==True:
-			etasGa.saveModelToFile(modelo, '../Zona/model/'+region+'teste_etasNP'+str(year+qntYears)+str(i)+'.txt')
+			etasGa.saveModelToFile(modelo, '../Zona/model/'+region+'paper_etasNP'+str(year+qntYears)+str(i)+'.txt')
 
-def execGaModel(year, region, qntYears=5, times=10, save=False):
+def execGaModel(year, region, qntYears=5, times=20, save=True):
 
 	observations=list()
 
@@ -38,7 +38,7 @@ def execGaModel(year, region, qntYears=5, times=10, save=False):
 	for i in range(times):
 		modelo=ga.gaModel(100,0.1,0.9,observations,year)
 		if save==True:
-			model.saveModelToFile(modelo, '../Zona/model/'+region+'teste_modelo'+str(year+qntYears)+str(i)+'.txt')
+			model.saveModelToFile(modelo, '../Zona/model/'+region+'paper_modelo'+str(year+qntYears)+str(i)+'.txt')
 
 #should not use this one
 def execGaModelWithMag(year, region, times, save=False):
@@ -100,8 +100,13 @@ def main():
 	# # # createRealModelforEtas(year, region, save=True)
 	# createRealModel(year, region, withMag=False, save=True)
 	
-	# execGaModel(2006, "Kanto",save=True)
+	execGaModel(2006, "Kanto",save=True)
+	execGaModel(2006, "Kansai",save=True)
+	execGaModel(2006, "EastJapan",save=True)
+	execGaModel(2006, "Tohoku",save=True)
 	execEtasGaModel(2006, "Kanto", save=True)
+	execEtasGaModel(2006, "Kansai", save=True)
+	execEtasGaModel(2006, "EastJapan", save=True)
 
 if __name__ == "__main__":
 	main()
