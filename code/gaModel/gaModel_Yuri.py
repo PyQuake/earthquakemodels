@@ -119,7 +119,7 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,n_aval=50000):
         # The population is entirely replaced by the offspring, but the last pop best_ind
         #Elitism
 		best_ind = tools.selBest(pop, 1)[0]
-		print(sum(best_ind))
+
 		worst_ind = tools.selWorst(offspring, 1)[0]
 
 		for i in range(len(offspring)):
