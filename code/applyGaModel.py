@@ -84,7 +84,7 @@ def createRealModelforEtas(year, region, save=False):
 
 	observation.mag=True
 	if save==True:
-		etasGa.saveModelToFile(observation, '../Zona/'+region+'realEtas'+str(year)+'.txt')
+		etasGa.saveModelToFile(observation, '../Zona/'+region+'realEtas'+str(year)+'.txt', real=True)
 	
 	return observation
 

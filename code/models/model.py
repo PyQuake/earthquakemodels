@@ -150,7 +150,7 @@ def loadModelDefinition(filename):
     f.close()
     return ret
 
-def saveModelToFile(model, filename):
+def saveModelToFile(model, filename, real=False):
     """ 
     It saves the model to a specific file, both passed as arg
     """
@@ -158,10 +158,11 @@ def saveModelToFile(model, filename):
     with open(filename+"def.txt", 'w') as f:
         f.write(str(model.definitions))
         f.write("\n")
-    with open(filename+"loglikelihood.txt", 'w') as f:
-        f.write(str(model.loglikelihood))
-        f.write("\n")
-    f.close()   
+    if real==False:
+        with open(filename+"loglikelihood.txt", 'w') as f:
+            f.write(str(model.loglikelihood))
+            f.write("\n")
+        f.close()   
 
 #TODO: FIX THIS!!! For the mag=False situation
 # Use something safer than Eval (someday)

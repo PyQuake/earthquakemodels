@@ -84,7 +84,7 @@ def newModel(definitions,initialvalue=0):
 
     return ret
 
-def saveModelToFile(model, filename):
+def saveModelToFile(model, filename,real=False):
     """ 
     It saves the model to a specific file, both passed as arg
     """
@@ -101,10 +101,12 @@ def saveModelToFile(model, filename):
             f.write(str(model.definitions))
             f.write("\n")
         f.close()  
-        with open(filename+"loglikelihood.txt", 'w') as f:
-            f.write(str(model.loglikelihood))
-            f.write("\n")
-        f.close()   
+        print("foi")
+        if real==False:
+            with open(filename+"loglikelihood.txt", 'w') as f:
+                f.write(str(model.loglikelihood))
+                f.write("\n")
+            f.close()   
         # with open(filename+"prob.txt", 'w') as f:
         #     f.write(str(model.prob))
         #     f.write("\n")
@@ -400,23 +402,26 @@ def ideaRIinMmodels(model,steps=5):
 
 #TODO: validate the equation
 #PARAMS: from SAPP R
-def pdfOmoriUtsu(t2=30, c=0.002, p=1.3):
+def pdfOmoriUtsu(t2=30, c=0.003, p=1.1):
     # g(t-ti)
     #Analyzing earthquake clustering features by using stochastic reconstruction
     pdf_triggered = ((p-1)/c)*math.pow((1+t2/c),-p)
     return pdf_triggered
 
 #TODO: validate the equation
-def quakesTriggered(magMain, magThreshold=5, a=0.6):
-    # a=2/3 ???
+def quakesTriggered(magMain, magThreshold=5):
+    alpha = math.pow(magMain,-1)
     #scaling realationship between the n of aftershocks and the size of the mainshock
     #A = area in km2 connecting afteshock with the mag of the mainshock
     A = math.pow(math.e,1.02*magMain -4)
     #Analyzing earthquake clustering features by using stochastic reconstruction
-    k = A * math.exp(a*(magMain-magThreshold))
+    k = A * math.exp(alpha*(magMain-magThreshold))
      
     return k
 
+
+def gutenbergRichterLaw(magMain, magThreshold=5, beta=1):
+    return beta*math.pow(math.e,-beta*(magMain-magThreshold))
 
 def limitTo12(model):
     for bins,index in zip(model.bins, range(len(model.bins))):

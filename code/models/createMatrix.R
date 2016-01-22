@@ -9,12 +9,14 @@ library(RColorBrewer)
 #display.brewer.all()
 image <- readPNG("../data/kantomap.png")
 
-plotMatrixModel = function(modelData, fileToSave){
+plotMatrixModel = function(modelData, fileToSave, r, c){
   # TODO -- hardcoded map is BAD
-  matrixData = matrix(nrow = 45, ncol = 45) 
+  matrixData = matrix(nrow = r, ncol = c) 
   k = 1
-  for (i in 1:45){
-    for (j in 1:45){
+  for (i in 1:r){
+    for (j in 1:c){
+      print(k)
+      print(modelData$V1[k])
       value = as.numeric(levels(modelData$V1[k]))[modelData$V1[k]]
       if (value > 12){
         value = 12 
@@ -52,9 +54,15 @@ plotMatrixReal = function(modelData, fileToSave){
   dev.off()
 }
 
+year = 2011
+setwd("~/Documents/estudos/unb/earthquakemodels/Zona/model/")
+file = paste("EastJapanpaper_etasNP",year,"0.txt",sep="")
+raw_data = read.csv2(file, sep='\n', header=F)
+saveFile = paste("../../../etasNP",year,"heatMap.png",sep="")
+plotMatrixModel(raw_data, saveFile, 40, 40) 
 
 
-year = 2005
+year=2005
 #sem ri
 while(year<=2010){
   #etas
