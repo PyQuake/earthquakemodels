@@ -108,8 +108,8 @@ def main():
 	# execGaModel(2005, "Kansai",save=True)
 	# execGaModel(2005, "EastJapan",save=True)
 	# execGaModel(2005, "Tohoku",save=True)
-	execEtasGaModel(2005, "Kanto", save=True)
-	# execEtasGaModel(2005, "Kansai", save=True)
+	#execEtasGaModel(2005, "Kanto", save=True)
+	execEtasGaModel(2005, "Kansai", save=True)
 	# execEtasGaModel(2005, "EastJapan", save=True)
 	# execEtasGaModel(2005, "Tohoku", save=True)
 
