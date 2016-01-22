@@ -65,9 +65,9 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,n_aval=50000):
 
 	toolbox.register("population", tools.initRepeat, list, toolbox.individual)
 
-	toolbox.register("mate", tools.cxOnePoint)
-	toolbox.register("select", tools.selTournament, tournsize=3)
-	toolbox.register("mutate", tools.mutPolynomialBounded,indpb=0.05, eta = 1, low = 0, up = 1)
+	toolbox.register("mate", tools.cxTwoPoint)
+	toolbox.register("select", tools.selTournament, tournsize=00)
+	toolbox.register("mutate", tools.mutPolynomialBounded,indpb=0.1, eta = 1, low = 0, up = 1)
 
 	stats = tools.Statistics(key=lambda ind: ind.fitness.values)
 	stats.register("avg", numpy.mean)
@@ -119,6 +119,7 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,n_aval=50000):
         # The population is entirely replaced by the offspring, but the last pop best_ind
         #Elitism
 		best_ind = tools.selBest(pop, 1)[0]
+		print(sum(best_ind))
 		worst_ind = tools.selWorst(offspring, 1)[0]
 
 		for i in range(len(offspring)):
@@ -126,7 +127,7 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,n_aval=50000):
 				offspring[i] = best_ind
 				break
 
-		pop[:] = offspring  
+		pop[:] = offspring
         # record = stats.compile(pop)
         # logbook.record(gen=g,time=time.time()-starttime,**record)
     # f = open('../Zona/etasGaModel/gaModel'+str(year)+'_logbook.txt',"a")
