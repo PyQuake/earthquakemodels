@@ -36,7 +36,10 @@ def execGaModel(year, region, qntYears=5, times=20, save=True):
 	# definicao=model.loadModelDefinition('../params/Kanto.txt')
 
 	for i in range(times):
-		modelo=ga.gaModel(100,0.1,0.9,observations,year)
+		if region == "Toholku":
+			modelo=ga.gaModel(106,0.1724,0.8826,observations,year)
+		else:
+			modelo=ga.gaModel(100,0.1,0.9,observations,year)
 		if save==True:
 			model.saveModelToFile(modelo, '../Zona/model/'+region+'paper_modelo'+str(year+qntYears)+str(i)+'.txt')
 
@@ -99,14 +102,17 @@ def main():
 	# createRealModel(year, region, withMag=False, save=True)
 	# # # createRealModelforEtas(year, region, save=True)
 	# createRealModel(year, region, withMag=False, save=True)
-	
-	execGaModel(2006, "Kanto",save=True)
-	execGaModel(2006, "Kansai",save=True)
-	execGaModel(2006, "EastJapan",save=True)
-	execGaModel(2006, "Tohoku",save=True)
-	execEtasGaModel(2006, "Kanto", save=True)
-	execEtasGaModel(2006, "Kansai", save=True)
-	execEtasGaModel(2006, "EastJapan", save=True)
+
+	execEtasGaModel(2006, "Tohoku", save=True)	
+	execGaModel(2005, "Kanto",save=True)
+	execGaModel(2005, "Kansai",save=True)
+	execGaModel(2005, "EastJapan",save=True)
+	execGaModel(2005, "Tohoku",save=True)
+	execEtasGaModel(2005, "Kanto", save=True)
+	execEtasGaModel(2005, "Kansai", save=True)
+	execEtasGaModel(2005, "EastJapan", save=True)
+	execEtasGaModel(2005, "Tohoku", save=True)
+
 
 if __name__ == "__main__":
 	main()
