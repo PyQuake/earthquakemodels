@@ -66,7 +66,7 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,n_aval=50000):
 	toolbox.register("population", tools.initRepeat, list, toolbox.individual)
 
 	toolbox.register("mate", tools.cxTwoPoint)
-	toolbox.register("select", tools.selTournament, tournsize=00)
+	toolbox.register("select", tools.selTournament, tournsize=10)
 	toolbox.register("mutate", tools.mutPolynomialBounded,indpb=0.1, eta = 1, low = 0, up = 1)
 
 	stats = tools.Statistics(key=lambda ind: ind.fitness.values)
