@@ -1,4 +1,4 @@
 #key, min, step, bins, cells
 lat 34 0.05 40 1
 lon 134.5 0.05 40 1
-mag 5.0 0.1 1 50
+mag 3.0 0.1 1 70

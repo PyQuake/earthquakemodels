@@ -101,7 +101,6 @@ def saveModelToFile(model, filename,real=False):
             f.write(str(model.definitions))
             f.write("\n")
         f.close()  
-        print("foi")
         if real==False:
             with open(filename+"loglikelihood.txt", 'w') as f:
                 f.write(str(model.loglikelihood))
@@ -304,9 +303,9 @@ def modelToZecharTests(model, filename, startDate, endDate):
         latSteps,longSteps, magSteps=0,0,0
 
         #Normalized or probability?
-        # binsNormalized = mathUtil.normalize(model.bins)
-        for bins in model.prob:
-        # for bins in binsNormalized:
+        binsNormalized = mathUtil.normalize(model.bins)
+        # for bins in model.prob:
+        for bins in binsNormalized:
             f.write("      <cell lat='"+str(round(model.definitions[0]['min']+latSteps*model.definitions[0]['step'],2))+
                                 "' lon='"+str(round(model.definitions[1]['min']+longSteps*model.definitions[1]['step'],2))+"'>\n")
             f.write("        <bin m='"+str(round(model.definitions[2]['min']+magSteps*model.definitions[2]['step'],2))+
@@ -385,30 +384,13 @@ def ideaRIinMmodels(model,steps=5):
                 break
 
 
-
-#probably wrong
-# def omoriUtsuFormula(magMain, magThreshold, t2=30, t1=0, a=1.83, c=0.002, b=0.85, p=1.3):
-    
-#     if p == 1:
-#         pass
-#         numbert1 = math.pow(10,(b*((magMain - magThreshold)-a)))*math.log(math.abs(t1+c))
-#         numbert2 = math.pow(10,(b*((magMain - magThreshold)-a)))*math.log(math.abs(t2+c))
-#     else:
-#         numbert1 = -(math.pow(10, b*(magMain - magThreshold)-a) / (p-1) * math.pow((t1+c),(p-1)))
-#         numbert2 = -(math.pow(10, b*(magMain - magThreshold)-a) / (p-1) * math.pow((t2+c),(p-1)))
-#     number = numbert2 - numbert1
-    
-#     return number
-
-#TODO: validate the equation
-#PARAMS: from SAPP R
 def pdfOmoriUtsu(t2=30, c=0.003, p=1.1):
     # g(t-ti)
     #Analyzing earthquake clustering features by using stochastic reconstruction
     pdf_triggered = ((p-1)/c)*math.pow((1+t2/c),-p)
     return pdf_triggered
 
-#TODO: validate the equation
+
 def quakesTriggered(magMain, magThreshold=5):
     alpha = math.pow(magMain,-1)
     #scaling realationship between the n of aftershocks and the size of the mainshock
@@ -416,8 +398,22 @@ def quakesTriggered(magMain, magThreshold=5):
     A = math.pow(math.e,1.02*magMain -4)
     #Analyzing earthquake clustering features by using stochastic reconstruction
     k = A * math.exp(alpha*(magMain-magThreshold))
-     
     return k
+
+def sumTriggeredByDaysWithRI(model, t2=30):
+    model=simpleHibrid(model,"../Zona/etasim1.txt","./testeModelCatalog.txt")
+    for (binOfmagMain,index) in zip(model.magnitudeValues,range(len(model.magnitudeValues))):
+        for magMain in binOfmagMain:
+            aftershocks = 0
+            if magMain > 0: 
+                for t in range(t2):
+                    aftershocks += pdfOmoriUtsu(t2=t+1)*quakesTriggered(magMain)
+                    print(int(aftershocks), index, magMain,t)
+                model.bins[index]+=int(aftershocks)
+    ideaRIinMmodels(model)
+    limitTo12(model)
+
+    return model
 
 
 def gutenbergRichterLaw(magMain, magThreshold=5, beta=1):
