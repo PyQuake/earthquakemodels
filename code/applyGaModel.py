@@ -104,13 +104,13 @@ def main():
 	# createRealModel(year, region, withMag=False, save=True)
 
 	# execEtasGaModel(2006, "Tohoku", save=True)	
-	# execGaModel(2005, "Kanto",save=True)
-	# execGaModel(2005, "Kansai",save=True)
+	#execGaModel(2005, "Kanto",save=True)
+	#execGaModel(2005, "Kansai",save=True)
 	# execGaModel(2005, "EastJapan",save=True)
-	# execGaModel(2005, "Tohoku",save=True)
-	execEtasGaModel(2005, "Kanto", save=True)
-	# execEtasGaModel(2005, "Kansai", save=True)
-	# execEtasGaModel(2005, "EastJapan", save=True)
+	execGaModel(2005, "Tohoku",save=True)
+	#execEtasGaModel(2005, "Kanto", save=True)
+	#execEtasGaModel(2005, "Kansai", save=True)
+	#execEtasGaModel(2005, "EastJapan", save=True)
 	# execEtasGaModel(2005, "Tohoku", save=True)
 
 
