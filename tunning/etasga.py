@@ -4,7 +4,7 @@ import pysmac
 import sys
 
 # sys.path.append('/Users/yclavinas/Documents/estudos/unb/earthquakemodels/code')
-sys.path.append('/home/lara09/Documents/earthquakemodels/code')
+sys.path.append('/home/lara03/Documents/earthquakemodels/code')
 import gaModel.etasGaModelNP as etasGaModelNP
 import models.modelEtasGa as etasGa
 
