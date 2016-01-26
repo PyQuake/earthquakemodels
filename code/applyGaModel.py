@@ -124,14 +124,14 @@ def main():
 	#	year+=1	
 	
 	
-		execGaModel(year, "Kanto",save=True)
-		execGaModel(year, "Kansai",save=True)
-		execGaModel(year, "EastJapan",save=True)
-		execGaModel(year, "Tohoku",save=True)
-	#execEtasGaModel(2005, "Kanto", save=True)
-	#execEtasGaModel(2005, "Kansai", save=True)
-	#execEtasGaModel(2005, "EastJapan", save=True)
-	#execEtasGaModel(2005, "Tohoku", save=True)
+		#execGaModel(year, "Kanto",save=True)
+		#execGaModel(year, "Kansai",save=True)
+		#execGaModel(year, "EastJapan",save=True)
+		#execGaModel(year, "Tohoku",save=True)
+		execEtasGaModel(2005, "Kanto", save=True)
+		execEtasGaModel(2005, "Kansai", save=True)
+		execEtasGaModel(2005, "EastJapan", save=True)
+		execEtasGaModel(2005, "Tohoku", save=True)
 
 
 if __name__ == "__main__":
