@@ -17,6 +17,8 @@ def addFromCatalog(model,catalog, year):
 
     # TODO: nao usar key como nome de variavel aqui (criar um dicionario se necessario)
     # TODO: calcular o numero de keys in definition
+    range_lon,step_lon,min_lon,max_lon,bins_lon=0,0,0,0,0
+    range_lat,step_lat,min_lat,max_lat,bins_lat=0,0,0,0,0
     for definition in model.definitions:
         if definition['key'] == 'lon':
             range_lon = definition['step'] * definition['bins']
@@ -30,14 +32,18 @@ def addFromCatalog(model,catalog, year):
             min_lat = definition['min']
             max_lat = definition['min'] + (definition['bins'] * definition['step'])
             bins_lat = definition['bins']
-    
     # TODO: limpar isto um pouco
     for m in range(len(catalog)):
         #kind of a filter, we should define how we are going to filter by year
         if catalog[m]['year'] == year:  
+            # print(catalog[m]['lon'], catalog[m]['lat'], "antes do teste de consitencia")
+            # input()
             if catalog[m]['lon']>min_lon and catalog[m]['lon']<max_lon:
+                # print(catalog[m]['lon'], "depois do lon")
+                # input()
                 if catalog[m]['lat']>min_lat and catalog[m]['lat']<max_lat:
-                    
+                        # print(catalog[m]['lat'], "depois do lat")
+                        # input()
                         #calculating the adequated bin for a coordinate of a earthquake
                         for i in range(bins_lon):    
                             index = (step_lon*i) + min_lon

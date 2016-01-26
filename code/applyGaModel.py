@@ -13,7 +13,7 @@ def execEtasGaModel(year, region, qntYears=5, times=20, save=True):
 	observations=list()
 
 	for i in range(qntYears):
-		observation=etasGa.loadModelFromFile('../Zona/'+region+'real'+str(year+i)+'.txt')
+		observation=model.loadModelFromFile('../Zona/3.0'+region+'real'+str(year+i)+'.txt')
 		observation.bins=observation.bins.tolist()
 		observations.append(observation)
 	# definicao=model.loadModelDefinition('../params/KantoEtas.txt')
@@ -29,7 +29,7 @@ def execGaModel(year, region, qntYears=5, times=20, save=True):
 	observations=list()
 
 	for i in range(qntYears):
-		observation=model.loadModelFromFile('../Zona/'+region+'real'+str(year+i)+'.txt')
+		observation=model.loadModelFromFile('../Zona/3.0'+region+'real'+str(year+i)+'.txt')
 		observation.bins=observation.bins.tolist()
 		observations.append(observation)
 
@@ -65,10 +65,9 @@ def createRealModel(year, region, withMag=True, save=False):
 	catalogo=catalog.filter(catalogo,definicao)
 	observacao=model.newModel(definicao, mag=withMag)
 	observacao=model.addFromCatalog(observacao,catalogo,year)
-	
 	if save==True:
 		if observacao.mag==False:
-			model.saveModelToFile(observacao, '../Zona/'+str(5.0)+region+'real'+str(year)+'.txt', real=True)
+			model.saveModelToFile(observacao, '../Zona/'+str(3.0)+region+'real'+str(year)+'.txt', real=True)
 		else:
 			model.saveModelToFile(observacao, '../Zona/'+region+'realWithMag'+str(year)+'.txt', real=True)
 
@@ -95,39 +94,39 @@ def main():
 	# region = sys.argv[1]
 	# year = int(sys.argv[2])
 	year=2000
-	#region="Tohoku"
+	# region="Tohoku"
+	# while(year<2012):
+	# 	print(year)
+	# 	# createRealModelforEtas(year, region, save=True)
+	# 	createRealModel(year, region, withMag=False, save=True)
+	# 	year+=1	
+	# year=2000
+	# region="EastJapan"
+	# while(year<2012):
+	# 	print(year)
+	# 	# createRealModelforEtas(year, region, save=True)
+	# 	createRealModel(year, region, withMag=False, save=True)
+	# 	year+=1	
+	# year=2000
+	# region="kanto"
+	# while(year<2012):
+	# 	print(year)
+	# 	# createRealModelforEtas(year, region, save=True)
+	# 	createRealModel(year, region, withMag=False, save=True)
+	# 	year+=1	
+	# year=2000
+	region="Kansai"
 	while(year<2012):
-	#	print(year)
+		print(year)
 		# createRealModelforEtas(year, region, save=True)
-	#	createRealModel(year, region, withMag=False, save=True)
-	#	year+=1	
-	#year=2000
-	#region="EastJapan"
-	#while(year<2012):
-	#	print(year)
-		# createRealModelforEtas(year, region, save=True)
-	#	createRealModel(year, region, withMag=False, save=True)
-	#	year+=1	
-	#year=2000
-	#region="kanto"
-	#while(year<2012):
-	#	print(year)
-	#	# createRealModelforEtas(year, region, save=True)
-	#	createRealModel(year, region, withMag=False, save=True)
-	#	year+=1	
-	#year=2000
-	#region="Kansai"
-	#while(year<2012):
-	#	print(year)
-	#	# createRealModelforEtas(year, region, save=True)
-	#	createRealModel(year, region, withMag=False, save=True)
-	#	year+=1	
+		createRealModel(year, region, withMag=False, save=True)
+		year+=1	
 	
 	
-		execGaModel(year, "Kanto",save=True)
-		execGaModel(year, "Kansai",save=True)
-		execGaModel(year, "EastJapan",save=True)
-		execGaModel(year, "Tohoku",save=True)
+		# execGaModel(year, "Kanto",save=True)
+		# execGaModel(year, "Kansai",save=True)
+		# execGaModel(year, "EastJapan",save=True)
+		# execGaModel(year, "Tohoku",save=True)
 		#execEtasGaModel(2005, "Kanto", save=True)
 		#execEtasGaModel(2005, "Kansai", save=True)
 		#execEtasGaModel(2005, "EastJapan", save=True)
