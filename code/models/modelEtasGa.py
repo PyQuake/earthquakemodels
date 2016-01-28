@@ -251,33 +251,6 @@ def localizarIndex(modelo, mag):
     return j
 
 
-# def analise(modelo, tudo=False):
-
-#     if(tudo == False):
-#         somaBins,somaMag, index = 0,0,0
-#         for (mag, bins) in zip(modelo.magnitudeValues, modelo.bins):
-#             if bins != 1:
-#                 if  numpy.count_nonzero(mag) != bins:
-#                     print(mag, bins, index)
-#                 somaBins+=bins
-#                 somaMag+=numpy.count_nonzero(mag) 
-#             index+=1
-#         print(somaBins, somaMag)
-#     else:
-#         somaBins,somaMag, index = 0,0,0
-#         for (mag, bins) in zip(modelo.magnitudeValues, modelo.bins):
-#             print(mag, bins, index)
-#             somaBins+=bins
-#             somaMag+=numpy.count_nonzero(mag) 
-#             index+=1
-#         print(somaBins, somaMag)
-
-
-
-
-
-
-
 def modelToZecharTests(model, filename, startDate, endDate):
     """
     Conversion between the model used by this framework to the template needed by zechar files.
@@ -390,19 +363,20 @@ def ideaRIinMmodels(model,steps=5):
                 break
 
 
-def pdfOmoriUtsu(t2=30, c=0.003, p=1.1):
+def pdfOmoriUtsu(t2=30, c=0.003, p=1.3):
     # g(t-ti)
-    #Analyzing earthquake clustering features by using stochastic reconstruction
+    #Analyzing earthquake clustering features by using stochastic reconstruction/zhuang
     pdf_triggered = ((p-1)/c)*math.pow((1+t2/c),-p)
     return pdf_triggered
 
 
-def quakesTriggered(magMain, magThreshold=5):
+def quakesTriggered(magMain, magThreshold=3):
     alpha = math.pow(magMain,-1)
     #scaling realationship between the n of aftershocks and the size of the mainshock
     #A = area in km2 connecting afteshock with the mag of the mainshock
+    #Utsu and Seki (1955) formula/yamanaka
     A = math.pow(math.e,1.02*magMain -4)
-    #Analyzing earthquake clustering features by using stochastic reconstruction
+    #Analyzing earthquake clustering features by using stochastic reconstruction/zhuang
     k = A * math.exp(alpha*(magMain-magThreshold))
     return k
 
@@ -422,7 +396,7 @@ def sumTriggeredByDaysWithRI(model, t2=30):
     return model
 
 
-def gutenbergRichterLaw(magMain, magThreshold=5, beta=1):
+def gutenbergRichterLaw(magMain, magThreshold=3, beta=1):
     return beta*math.pow(math.e,-beta*(magMain-magThreshold))
 
 def limitTo12(model):
@@ -431,3 +405,6 @@ def limitTo12(model):
             model.bins[index]=12
 
     return model
+
+
+
