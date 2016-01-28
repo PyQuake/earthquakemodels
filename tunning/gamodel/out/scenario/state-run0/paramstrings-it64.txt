@@ -12,7 +12,10 @@
 <<<<<<< HEAD
 =======
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
 12: crossover='0.436212825048126', mutation='0.020810978508163158', n_generations='88'
 13: crossover='0.5331797097399655', mutation='0.9749163660168291', n_generations='80'
 14: crossover='0.5800805092951367', mutation='0.4013254898095453', n_generations='185'
@@ -28,6 +31,9 @@
 24: crossover='0.510917864337642', mutation='0.44990202027343074', n_generations='95'
 25: crossover='0.8198579526137167', mutation='9.122581485569992E-4', n_generations='99'
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
 26: crossover='0.5691173431422815', mutation='0.08405700948594008', n_generations='132'
 27: crossover='0.6425921452494665', mutation='0.6552676148067762', n_generations='145'
 28: crossover='0.31786321230925463', mutation='0.5515676283607558', n_generations='212'
@@ -131,6 +137,8 @@
 126: crossover='0.6642660440031217', mutation='0.4039277977806972', n_generations='147'
 127: crossover='0.8858578482796307', mutation='0.2946515472651483', n_generations='220'
 128: crossover='0.1666860417895607', mutation='0.38461631614841063', n_generations='226'
+<<<<<<< HEAD
+=======
 =======
 26: crossover='0.6317924992909363', mutation='0.01696875848048407', n_generations='166'
 27: crossover='0.6425921452494665', mutation='0.6552676148067762', n_generations='145'
@@ -355,4 +363,5 @@
 128: crossover='0.26040089875839234', mutation='0.014753794388409736', n_generations='238'
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
 129: crossover='0.44402970965606603', mutation='0.11778993714940245', n_generations='104'

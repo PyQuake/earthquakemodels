@@ -111,8 +111,8 @@ def main():
 	 	# createRealModelforEtas(year, region, save=True)
 	#	createRealModel(year, region, withMag=False, save=True)
 	#	year+=1	
-	year=2005
-	while(year<2012):
+	year=2001
+	while(year<2005):
 	#	print(year)
 		# createRealModelforEtas(year, region, save=True)
 	#	createRealModel(year, region, withMag=False, save=True)
@@ -126,9 +126,9 @@ def main():
 		#execEtasGaModel(year, "Kanto", save=True)
 		#execEtasGaModel(year, "Kansai", save=True)
 		execEtasGaModel(year, "EastJapan", save=True)
-		#execEtasGaModel(year, "Tohoku", save=True)
+		# execEtasGaModel(year, "Tohoku", save=True)
 		print(year)
-		year+1
+		year+=1
 
 if __name__ == "__main__":
 	main()

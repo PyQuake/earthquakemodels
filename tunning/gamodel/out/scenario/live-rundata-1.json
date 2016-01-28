@@ -11,6 +11,12 @@
       "@algo-exec-config-id" : 2,
       "algo-exec" : "echo 0",
 <<<<<<< HEAD
+      "algo-exec-dir" : "/home/lara06/Documents/earthquakemodels/tunning/./gamodel",
+      "algo-pcs" : {
+        "@pcs-id" : 2,
+        "pcs-filename" : "/home/lara06/Documents/earthquakemodels/tunning/./gamodel/parameters.pcs",
+=======
+<<<<<<< HEAD
       "algo-exec-dir" : "/home/lara10/Documents/earthquakemodels/tunning/./gamodel",
       "algo-pcs" : {
         "@pcs-id" : 2,
@@ -28,6 +34,7 @@
         "pcs-filename" : "/home/lara05/Documents/earthquakemodels/tunning/./gamodel/parameters.pcs",
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
         "pcs-text" : "n_generations integer [50, 250] [100]\nmutation real [0, 1] [0.1]\ncrossover real [0, 1] [0.9]\n",
         "pcs-subspace" : { }
       },
@@ -63,6 +70,12 @@
   "r-runtime" : 0.0,
   "r-run-length" : 0.0,
 <<<<<<< HEAD
+  "r-quality" : 800.0,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 232.67
+=======
+<<<<<<< HEAD
   "r-quality" : 1600.0,
   "r-result-seed" : -1,
   "r-addl-run-data" : "",
@@ -80,6 +93,7 @@
   "r-wallclock-time" : 470.483
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
 } {
   "r-rc" : {
     "@rc-id" : 3,
@@ -108,6 +122,14 @@
   },
   "r-run-result" : "SAT",
 <<<<<<< HEAD
+  "r-runtime" : 232.008,
+  "r-run-length" : 0.0,
+  "r-quality" : 800.0,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 251.311
+=======
+<<<<<<< HEAD
   "r-runtime" : 466.300571,
   "r-run-length" : 0.0,
   "r-quality" : 1600.0,
@@ -131,6 +153,7 @@
   "r-wallclock-time" : 497.197
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
 } {
   "r-rc" : {
     "@rc-id" : 4,
@@ -159,6 +182,14 @@
   },
   "r-run-result" : "SAT",
 <<<<<<< HEAD
+  "r-runtime" : 482.964,
+  "r-run-length" : 0.0,
+  "r-quality" : 800.0,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 210.7
+=======
+<<<<<<< HEAD
   "r-runtime" : 961.173227,
   "r-run-length" : 0.0,
   "r-quality" : 1600.0,
@@ -182,6 +213,7 @@
   "r-wallclock-time" : 420.628
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
 } {
   "r-rc" : {
     "@rc-id" : 5,
@@ -210,6 +242,14 @@
   },
   "r-run-result" : "SAT",
 <<<<<<< HEAD
+  "r-runtime" : 692.776,
+  "r-run-length" : 0.0,
+  "r-quality" : 800.0,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 248.037
+=======
+<<<<<<< HEAD
   "r-runtime" : 1385.969319,
   "r-run-length" : 0.0,
   "r-quality" : 1600.0,
@@ -233,6 +273,7 @@
   "r-wallclock-time" : 491.049
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
 } {
   "r-rc" : {
     "@rc-id" : 6,
@@ -261,6 +302,14 @@
   },
   "r-run-result" : "SAT",
 <<<<<<< HEAD
+  "r-runtime" : 939.484,
+  "r-run-length" : 0.0,
+  "r-quality" : 800.0,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 255.061
+=======
+<<<<<<< HEAD
   "r-runtime" : 1881.577979,
   "r-run-length" : 0.0,
   "r-quality" : 1600.0,
@@ -284,6 +333,7 @@
   "r-wallclock-time" : 500.521
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
 } {
   "r-rc" : {
     "@rc-id" : 7,
@@ -312,6 +362,14 @@
   },
   "r-run-result" : "SAT",
 <<<<<<< HEAD
+  "r-runtime" : 1194.108,
+  "r-run-length" : 0.0,
+  "r-quality" : 800.0,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 313.412
+=======
+<<<<<<< HEAD
   "r-runtime" : 2384.095142,
   "r-run-length" : 0.0,
   "r-quality" : 1600.0,
@@ -335,6 +393,7 @@
   "r-wallclock-time" : 625.211
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
 } {
   "r-rc" : {
     "@rc-id" : 8,
@@ -363,6 +422,14 @@
   },
   "r-run-result" : "SAT",
 <<<<<<< HEAD
+  "r-runtime" : 1506.884,
+  "r-run-length" : 0.0,
+  "r-quality" : 800.0,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 274.401
+=======
+<<<<<<< HEAD
   "r-runtime" : 3009.617982,
   "r-run-length" : 0.0,
   "r-quality" : 1600.0,
@@ -386,6 +453,7 @@
   "r-wallclock-time" : 547.509
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
 } {
   "r-rc" : {
     "@rc-id" : 9,
@@ -414,6 +482,14 @@
   },
   "r-run-result" : "SAT",
 <<<<<<< HEAD
+  "r-runtime" : 1780.516,
+  "r-run-length" : 0.0,
+  "r-quality" : 800.0,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 280.847
+=======
+<<<<<<< HEAD
   "r-runtime" : 3557.417669,
   "r-run-length" : 0.0,
   "r-quality" : 1600.0,
@@ -437,6 +513,7 @@
   "r-wallclock-time" : 561.368
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
 } {
   "r-rc" : {
     "@rc-id" : 10,
@@ -465,6 +542,14 @@
   },
   "r-run-result" : "SAT",
 <<<<<<< HEAD
+  "r-runtime" : 2060.228,
+  "r-run-length" : 0.0,
+  "r-quality" : 800.0,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 424.359
+=======
+<<<<<<< HEAD
   "r-runtime" : 4120.43194,
   "r-run-length" : 0.0,
   "r-quality" : 1600.0,
@@ -488,6 +573,7 @@
   "r-wallclock-time" : 847.812
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
 } {
   "r-rc" : {
     "@rc-id" : 11,
@@ -516,6 +602,14 @@
   },
   "r-run-result" : "SAT",
 <<<<<<< HEAD
+  "r-runtime" : 2484.164,
+  "r-run-length" : 0.0,
+  "r-quality" : 800.0,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 308.932
+=======
+<<<<<<< HEAD
   "r-runtime" : 4978.966098,
   "r-run-length" : 0.0,
   "r-quality" : 1600.0,
@@ -539,6 +633,7 @@
   "r-wallclock-time" : 619.005
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
 } {
   "r-rc" : {
     "@rc-id" : 12,
@@ -567,6 +662,14 @@
   },
   "r-run-result" : "SAT",
 <<<<<<< HEAD
+  "r-runtime" : 2792.776,
+  "r-run-length" : 0.0,
+  "r-quality" : 800.0,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 245.974
+=======
+<<<<<<< HEAD
   "r-runtime" : 5599.230429,
   "r-run-length" : 0.0,
   "r-quality" : 1600.0,
@@ -590,6 +693,7 @@
   "r-wallclock-time" : 495.171
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
 } {
   "r-rc" : {
     "@rc-id" : 13,
@@ -616,11 +720,17 @@
         "mutation" : "0.31284076753472356",
         "n_generations" : "184"
 =======
+<<<<<<< HEAD
+        "crossover" : "0.4375397365382815",
+        "mutation" : "0.31284076753472356",
+        "n_generations" : "184"
+=======
         "crossover" : "0.21390185027796882",
         "mutation" : "0.1160546504028358",
         "n_generations" : "157"
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
       },
       "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
       "pc-forbidden" : false,
@@ -629,6 +739,14 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
+  "r-runtime" : 3038.496,
+  "r-run-length" : 0.0,
+  "r-quality" : 800.0,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 238.906
+=======
 <<<<<<< HEAD
   "r-runtime" : 6097.673871,
   "r-run-length" : 0.0,
@@ -653,6 +771,7 @@
   "r-wallclock-time" : 197.101
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
 } {
   "r-rc" : {
     "@rc-id" : 14,
@@ -681,6 +800,14 @@
   },
   "r-run-result" : "SAT",
 <<<<<<< HEAD
+  "r-runtime" : 3276.356,
+  "r-run-length" : 0.0,
+  "r-quality" : 800.0,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 172.087
+=======
+<<<<<<< HEAD
   "r-runtime" : 6576.417624,
   "r-run-length" : 0.0,
   "r-quality" : 1600.0,
@@ -704,6 +831,7 @@
   "r-wallclock-time" : 341.383
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
 } {
   "r-rc" : {
     "@rc-id" : 15,
@@ -730,11 +858,17 @@
         "mutation" : "0.8204716090114883",
         "n_generations" : "51"
 =======
+<<<<<<< HEAD
+        "crossover" : "0.7436242218858481",
+        "mutation" : "0.8204716090114883",
+        "n_generations" : "51"
+=======
         "crossover" : "0.25329279552962003",
         "mutation" : "0.10719720959220291",
         "n_generations" : "125"
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
       },
       "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
       "pc-forbidden" : false,
@@ -743,6 +877,14 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
+  "r-runtime" : 3448.148,
+  "r-run-length" : 0.0,
+  "r-quality" : 800.0,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 259.735
+=======
 <<<<<<< HEAD
   "r-runtime" : 6918.92578,
   "r-run-length" : 0.0,
@@ -767,6 +909,7 @@
   "r-wallclock-time" : 176.774
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
 } {
   "r-rc" : {
     "@rc-id" : 16,
@@ -795,6 +938,14 @@
   },
   "r-run-result" : "SAT",
 <<<<<<< HEAD
+  "r-runtime" : 3707.544,
+  "r-run-length" : 0.0,
+  "r-quality" : 800.0,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 273.917
+=======
+<<<<<<< HEAD
   "r-runtime" : 7442.175195,
   "r-run-length" : 0.0,
   "r-quality" : 1600.0,
@@ -818,6 +969,7 @@
   "r-wallclock-time" : 547.368
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
 } {
   "r-rc" : {
     "@rc-id" : 17,
@@ -844,11 +996,17 @@
         "mutation" : "0.8651898280264146",
         "n_generations" : "226"
 =======
+<<<<<<< HEAD
+        "crossover" : "0.5444834696076157",
+        "mutation" : "0.8651898280264146",
+        "n_generations" : "226"
+=======
         "crossover" : "0.6643638792577558",
         "mutation" : "0.1121162755957219",
         "n_generations" : "128"
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
       },
       "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
       "pc-forbidden" : false,
@@ -857,6 +1015,14 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
+  "r-runtime" : 3981.076,
+  "r-run-length" : 0.0,
+  "r-quality" : 800.0,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 309.915
+=======
 <<<<<<< HEAD
   "r-runtime" : 7990.147558,
   "r-run-length" : 0.0,
@@ -881,6 +1047,7 @@
   "r-wallclock-time" : 438.339
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
 } {
   "r-rc" : {
     "@rc-id" : 18,
@@ -909,6 +1076,14 @@
   },
   "r-run-result" : "SAT",
 <<<<<<< HEAD
+  "r-runtime" : 4288.664,
+  "r-run-length" : 0.0,
+  "r-quality" : 800.0,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 144.436
+=======
+<<<<<<< HEAD
   "r-runtime" : 8609.062516,
   "r-run-length" : 0.0,
   "r-quality" : 1600.0,
@@ -932,6 +1107,7 @@
   "r-wallclock-time" : 288.043
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
 } {
   "r-rc" : {
     "@rc-id" : 19,
@@ -958,11 +1134,17 @@
         "mutation" : "0.5858138222233603",
         "n_generations" : "142"
 =======
+<<<<<<< HEAD
+        "crossover" : "0.14994035542517492",
+        "mutation" : "0.5858138222233603",
+        "n_generations" : "142"
+=======
         "crossover" : "0.9317609051970571",
         "mutation" : "0.9879398186878469",
         "n_generations" : "190"
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
       },
       "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
       "pc-forbidden" : false,
@@ -971,6 +1153,14 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
+  "r-runtime" : 4432.152,
+  "r-run-length" : 0.0,
+  "r-quality" : 800.0,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 179.799
+=======
 <<<<<<< HEAD
   "r-runtime" : 8895.892763,
   "r-run-length" : 0.0,
@@ -995,6 +1185,7 @@
   "r-wallclock-time" : 590.657
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
 } {
   "r-rc" : {
     "@rc-id" : 20,
@@ -1023,6 +1214,14 @@
   },
   "r-run-result" : "SAT",
 <<<<<<< HEAD
+  "r-runtime" : 4611.744,
+  "r-run-length" : 0.0,
+  "r-quality" : 800.0,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 202.656
+=======
+<<<<<<< HEAD
   "r-runtime" : 9255.275852,
   "r-run-length" : 0.0,
   "r-quality" : 1600.0,
@@ -1046,6 +1245,7 @@
   "r-wallclock-time" : 405.787
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
 } {
   "r-rc" : {
     "@rc-id" : 21,
@@ -1072,11 +1272,17 @@
         "mutation" : "0.31466567342282004",
         "n_generations" : "213"
 =======
+<<<<<<< HEAD
+        "crossover" : "0.26304318437779906",
+        "mutation" : "0.31466567342282004",
+        "n_generations" : "213"
+=======
         "crossover" : "0.5083520747445328",
         "mutation" : "0.10980138277847651",
         "n_generations" : "230"
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
       },
       "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
       "pc-forbidden" : false,
@@ -1085,6 +1291,14 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
+  "r-runtime" : 4813.988,
+  "r-run-length" : 0.0,
+  "r-quality" : 800.0,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 220.898
+=======
 <<<<<<< HEAD
   "r-runtime" : 9659.729215,
   "r-run-length" : 0.0,
@@ -1109,6 +1323,7 @@
   "r-wallclock-time" : 407.91
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
 } {
   "r-rc" : {
     "@rc-id" : 22,
@@ -1137,6 +1352,14 @@
   },
   "r-run-result" : "SAT",
 <<<<<<< HEAD
+  "r-runtime" : 5034.588,
+  "r-run-length" : 0.0,
+  "r-quality" : 800.0,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 114.742
+=======
+<<<<<<< HEAD
   "r-runtime" : 10092.104026,
   "r-run-length" : 0.0,
   "r-quality" : 1600.0,
@@ -1160,6 +1383,7 @@
   "r-wallclock-time" : 231.672
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
 } {
   "r-rc" : {
     "@rc-id" : 23,
@@ -1186,11 +1410,17 @@
         "mutation" : "0.3480727039382042",
         "n_generations" : "219"
 =======
+<<<<<<< HEAD
+        "crossover" : "0.029203048756384797",
+        "mutation" : "0.3480727039382042",
+        "n_generations" : "219"
+=======
         "crossover" : "0.837923374626427",
         "mutation" : "0.10846360653029963",
         "n_generations" : "239"
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
       },
       "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
       "pc-forbidden" : false,
@@ -1199,6 +1429,14 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
+  "r-runtime" : 5149.164,
+  "r-run-length" : 0.0,
+  "r-quality" : 800.0,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 129.311
+=======
 <<<<<<< HEAD
   "r-runtime" : 10325.90775,
   "r-run-length" : 0.0,
@@ -1223,6 +1461,7 @@
   "r-wallclock-time" : 537.829
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
 } {
   "r-rc" : {
     "@rc-id" : 24,
@@ -1251,6 +1490,14 @@
   },
   "r-run-result" : "SAT",
 <<<<<<< HEAD
+  "r-runtime" : 5278.288,
+  "r-run-length" : 0.0,
+  "r-quality" : 800.0,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 240.527
+=======
+<<<<<<< HEAD
   "r-runtime" : 10581.821064,
   "r-run-length" : 0.0,
   "r-quality" : 1600.0,
@@ -1274,6 +1521,7 @@
   "r-wallclock-time" : 480.486
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
 } {
   "r-rc" : {
     "@rc-id" : 25,
@@ -1300,11 +1548,17 @@
         "mutation" : "0.8713482748396338",
         "n_generations" : "51"
 =======
+<<<<<<< HEAD
+        "crossover" : "0.2527313442855973",
+        "mutation" : "0.8713482748396338",
+        "n_generations" : "51"
+=======
         "crossover" : "0.14891836820393944",
         "mutation" : "0.10826463922725205",
         "n_generations" : "232"
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
       },
       "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
       "pc-forbidden" : false,
@@ -1313,6 +1567,14 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
+  "r-runtime" : 5518.54,
+  "r-run-length" : 0.0,
+  "r-quality" : 800.0,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 247.703
+=======
 <<<<<<< HEAD
   "r-runtime" : 11064.841265,
   "r-run-length" : 0.0,
@@ -1337,6 +1599,7 @@
   "r-wallclock-time" : 196.836
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
 } {
   "r-rc" : {
     "@rc-id" : 26,
@@ -1365,6 +1628,14 @@
   },
   "r-run-result" : "SAT",
 <<<<<<< HEAD
+  "r-runtime" : 5766.008,
+  "r-run-length" : 0.0,
+  "r-quality" : 800.0,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 239.666
+=======
+<<<<<<< HEAD
   "r-runtime" : 11562.938974,
   "r-run-length" : 0.0,
   "r-quality" : 1600.0,
@@ -1388,6 +1659,7 @@
   "r-wallclock-time" : 480.35
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
 } {
   "r-rc" : {
     "@rc-id" : 27,
@@ -1414,11 +1686,17 @@
         "mutation" : "0.1810450150688162",
         "n_generations" : "122"
 =======
+<<<<<<< HEAD
+        "crossover" : "0.5808833740405862",
+        "mutation" : "0.1810450150688162",
+        "n_generations" : "122"
+=======
         "crossover" : "0.08785208627467489",
         "mutation" : "0.10804564112705561",
         "n_generations" : "123"
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
       },
       "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
       "pc-forbidden" : false,
@@ -1427,6 +1705,14 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
+  "r-runtime" : 6005.452,
+  "r-run-length" : 0.0,
+  "r-quality" : 800.0,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 213.143
+=======
 <<<<<<< HEAD
   "r-runtime" : 12042.888788,
   "r-run-length" : 0.0,
@@ -1451,6 +1737,7 @@
   "r-wallclock-time" : 118.392
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
 } {
   "r-rc" : {
     "@rc-id" : 28,
@@ -1479,6 +1766,14 @@
   },
   "r-run-result" : "SAT",
 <<<<<<< HEAD
+  "r-runtime" : 6218.296,
+  "r-run-length" : 0.0,
+  "r-quality" : 800.0,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 189.181
+=======
+<<<<<<< HEAD
   "r-runtime" : 12467.376012,
   "r-run-length" : 0.0,
   "r-quality" : 1600.0,
@@ -1502,6 +1797,7 @@
   "r-wallclock-time" : 382.131
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
 } {
   "r-rc" : {
     "@rc-id" : 29,
@@ -1528,11 +1824,17 @@
         "mutation" : "0.10510876485479836",
         "n_generations" : "177"
 =======
+<<<<<<< HEAD
+        "crossover" : "0.7540264335659553",
+        "mutation" : "0.10510876485479836",
+        "n_generations" : "177"
+=======
         "crossover" : "0.5754582426073467",
         "mutation" : "0.10814650682352178",
         "n_generations" : "113"
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
       },
       "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
       "pc-forbidden" : false,
@@ -1541,6 +1843,14 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
+  "r-runtime" : 6407.284,
+  "r-run-length" : 0.0,
+  "r-quality" : 800.0,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 259.132
+=======
 <<<<<<< HEAD
   "r-runtime" : 12849.45266,
   "r-run-length" : 0.0,
@@ -1565,6 +1875,7 @@
   "r-wallclock-time" : 357.918
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
 } {
   "r-rc" : {
     "@rc-id" : 30,
@@ -1593,6 +1904,14 @@
   },
   "r-run-result" : "SAT",
 <<<<<<< HEAD
+  "r-runtime" : 6666.136,
+  "r-run-length" : 0.0,
+  "r-quality" : 800.0,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 277.384
+=======
+<<<<<<< HEAD
   "r-runtime" : 13369.544227,
   "r-run-length" : 0.0,
   "r-quality" : 1600.0,
@@ -1616,6 +1935,7 @@
   "r-wallclock-time" : 557.219
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
 } {
   "r-rc" : {
     "@rc-id" : 31,
@@ -1642,11 +1962,17 @@
         "mutation" : "0.02748675164105674",
         "n_generations" : "243"
 =======
+<<<<<<< HEAD
+        "crossover" : "0.6441586693639318",
+        "mutation" : "0.02748675164105674",
+        "n_generations" : "243"
+=======
         "crossover" : "0.4210754558581412",
         "mutation" : "0.10813437818297056",
         "n_generations" : "122"
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
       },
       "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
       "pc-forbidden" : false,
@@ -1655,6 +1981,14 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
+  "r-runtime" : 6942.716,
+  "r-run-length" : 0.0,
+  "r-quality" : 800.0,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 314.783
+=======
 <<<<<<< HEAD
   "r-runtime" : 13922.827889,
   "r-run-length" : 0.0,
@@ -1679,6 +2013,7 @@
   "r-wallclock-time" : 312.733
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
 } {
   "r-rc" : {
     "@rc-id" : 32,
@@ -1707,6 +2042,14 @@
   },
   "r-run-result" : "SAT",
 <<<<<<< HEAD
+  "r-runtime" : 7257.212,
+  "r-run-length" : 0.0,
+  "r-quality" : 800.0,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 198.294
+=======
+<<<<<<< HEAD
   "r-runtime" : 14557.192606,
   "r-run-length" : 0.0,
   "r-quality" : 1600.0,
@@ -1730,6 +2073,7 @@
   "r-wallclock-time" : 395.386
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
 } {
   "r-rc" : {
     "@rc-id" : 33,
@@ -1756,11 +2100,17 @@
         "mutation" : "0.5191502815014631",
         "n_generations" : "58"
 =======
+<<<<<<< HEAD
+        "crossover" : "0.24977530989496044",
+        "mutation" : "0.5191502815014631",
+        "n_generations" : "58"
+=======
         "crossover" : "0.8924205997627194",
         "mutation" : "0.3550544018365741",
         "n_generations" : "184"
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
       },
       "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
       "pc-forbidden" : false,
@@ -1769,6 +2119,14 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
+  "r-runtime" : 7455.308,
+  "r-run-length" : 0.0,
+  "r-quality" : 800.0,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 172.569
+=======
 <<<<<<< HEAD
   "r-runtime" : 14957.150442,
   "r-run-length" : 0.0,
@@ -1793,6 +2151,7 @@
   "r-wallclock-time" : 716.91
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
 } {
   "r-rc" : {
     "@rc-id" : 34,
@@ -1821,6 +2180,14 @@
   },
   "r-run-result" : "SAT",
 <<<<<<< HEAD
+  "r-runtime" : 7627.632,
+  "r-run-length" : 0.0,
+  "r-quality" : 800.0,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 224.752
+=======
+<<<<<<< HEAD
   "r-runtime" : 15304.981393,
   "r-run-length" : 0.0,
   "r-quality" : 1600.0,
@@ -1844,6 +2211,7 @@
   "r-wallclock-time" : 450.244
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
 } {
   "r-rc" : {
     "@rc-id" : 35,
@@ -1866,6 +2234,11 @@
         "n_generations" : "216"
 =======
 <<<<<<< HEAD
+        "crossover" : "0.6532853614204877",
+        "mutation" : "0.7200712350920487",
+        "n_generations" : "216"
+=======
+<<<<<<< HEAD
         "crossover" : "0.42615937158286443",
         "mutation" : "0.027202721735418933",
         "n_generations" : "110"
@@ -1875,6 +2248,7 @@
         "n_generations" : "236"
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
       },
       "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
       "pc-forbidden" : false,
@@ -1883,6 +2257,14 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
+  "r-runtime" : 7852.08,
+  "r-run-length" : 0.0,
+  "r-quality" : 800.0,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 343.739
+=======
 <<<<<<< HEAD
   "r-runtime" : 15757.94603,
   "r-run-length" : 0.0,
@@ -1907,6 +2289,7 @@
   "r-wallclock-time" : 981.78
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
 } {
   "r-rc" : {
     "@rc-id" : 36,
@@ -1935,6 +2318,14 @@
   },
   "r-run-result" : "SAT",
 <<<<<<< HEAD
+  "r-runtime" : 8195.56,
+  "r-run-length" : 0.0,
+  "r-quality" : 800.0,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 225.41
+=======
+<<<<<<< HEAD
   "r-runtime" : 16445.804012,
   "r-run-length" : 0.0,
   "r-quality" : 1600.0,
@@ -1958,6 +2349,7 @@
   "r-wallclock-time" : 438.537
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
 } {
   "r-rc" : {
     "@rc-id" : 37,
@@ -1980,6 +2372,11 @@
         "n_generations" : "143"
 =======
 <<<<<<< HEAD
+        "crossover" : "0.348290031099608",
+        "mutation" : "0.3717846369325538",
+        "n_generations" : "143"
+=======
+<<<<<<< HEAD
         "crossover" : "0.21623258218935837",
         "mutation" : "0.02696447218854725",
         "n_generations" : "99"
@@ -1989,6 +2386,7 @@
         "n_generations" : "115"
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
       },
       "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
       "pc-forbidden" : false,
@@ -1997,6 +2395,16 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
+  "r-runtime" : 8420.788,
+  "r-run-length" : 0.0,
+  "r-quality" : 800.0,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 195.851
+} {
+  "r-rc" : {
+=======
 <<<<<<< HEAD
   "r-runtime" : 16885.958202,
   "r-run-length" : 0.0,
@@ -2023,6 +2431,7 @@
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
 } {
   "r-rc" : {
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
     "@rc-id" : 38,
     "rc-algo-exec-config" : {
       "@algo-exec-config-id" : 2
@@ -2049,6 +2458,14 @@
   },
   "r-run-result" : "SAT",
 <<<<<<< HEAD
+  "r-runtime" : 8616.176,
+  "r-run-length" : 0.0,
+  "r-quality" : 800.0,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 258.865
+=======
+<<<<<<< HEAD
   "r-runtime" : 17281.511416,
   "r-run-length" : 0.0,
   "r-quality" : 1600.0,
@@ -2072,6 +2489,7 @@
   "r-wallclock-time" : 515.79
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
 } {
   "r-rc" : {
     "@rc-id" : 39,
@@ -2094,6 +2512,11 @@
         "n_generations" : "148"
 =======
 <<<<<<< HEAD
+        "crossover" : "0.3542246198457948",
+        "mutation" : "0.4905307045767746",
+        "n_generations" : "148"
+=======
+<<<<<<< HEAD
         "crossover" : "0.9762454737223815",
         "mutation" : "0.02705853840654371",
         "n_generations" : "135"
@@ -2103,6 +2526,7 @@
         "n_generations" : "143"
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
       },
       "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
       "pc-forbidden" : false,
@@ -2111,6 +2535,14 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
+  "r-runtime" : 8873.328,
+  "r-run-length" : 0.0,
+  "r-quality" : 800.0,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 243.307
+=======
 <<<<<<< HEAD
   "r-runtime" : 17798.247126,
   "r-run-length" : 0.0,
@@ -2135,6 +2567,7 @@
   "r-wallclock-time" : 537.959
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
 } {
   "r-rc" : {
     "@rc-id" : 40,
@@ -2163,6 +2596,14 @@
   },
   "r-run-result" : "SAT",
 <<<<<<< HEAD
+  "r-runtime" : 9115.076,
+  "r-run-length" : 0.0,
+  "r-quality" : 800.0,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 148.86
+=======
+<<<<<<< HEAD
   "r-runtime" : 17798.247126,
   "r-run-length" : 0.0,
   "r-quality" : 1600.0,
@@ -2186,6 +2627,7 @@
   "r-wallclock-time" : 293.154
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
 } {
   "r-rc" : {
     "@rc-id" : 41,
@@ -2208,6 +2650,11 @@
         "n_generations" : "214"
 =======
 <<<<<<< HEAD
+        "crossover" : "0.25837657997412844",
+        "mutation" : "0.4769095793107353",
+        "n_generations" : "214"
+=======
+<<<<<<< HEAD
         "crossover" : "0.7592828056006246",
         "mutation" : "0.9573554000548866",
         "n_generations" : "233"
@@ -2217,6 +2664,7 @@
         "n_generations" : "196"
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
       },
       "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
       "pc-forbidden" : false,
@@ -2225,6 +2673,14 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
+  "r-runtime" : 9263.088,
+  "r-run-length" : 0.0,
+  "r-quality" : 800.0,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 257.674
+=======
 <<<<<<< HEAD
   "r-runtime" : 18576.970119,
   "r-run-length" : 0.0,
@@ -2249,6 +2705,7 @@
   "r-wallclock-time" : 238.654
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
 } {
   "r-rc" : {
     "@rc-id" : 42,
@@ -2277,6 +2734,14 @@
   },
   "r-run-result" : "SAT",
 <<<<<<< HEAD
+  "r-runtime" : 9520.004,
+  "r-run-length" : 0.0,
+  "r-quality" : 800.0,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 210.955
+=======
+<<<<<<< HEAD
   "r-runtime" : 18576.970119,
   "r-run-length" : 0.0,
   "r-quality" : 1600.0,
@@ -2300,6 +2765,7 @@
   "r-wallclock-time" : 424.167
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
 } {
   "r-rc" : {
     "@rc-id" : 43,
@@ -2322,6 +2788,11 @@
         "n_generations" : "93"
 =======
 <<<<<<< HEAD
+        "crossover" : "0.8372159655258312",
+        "mutation" : "0.9464843893533385",
+        "n_generations" : "93"
+=======
+<<<<<<< HEAD
         "crossover" : "2.373656769039112E-5",
         "mutation" : "0.027029700012603297",
         "n_generations" : "128"
@@ -2331,6 +2802,7 @@
         "n_generations" : "198"
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
       },
       "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
       "pc-forbidden" : false,
@@ -2339,6 +2811,14 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
+  "r-runtime" : 9730.716,
+  "r-run-length" : 0.0,
+  "r-quality" : 800.0,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 291.602
+=======
 <<<<<<< HEAD
   "r-runtime" : 19524.506477,
   "r-run-length" : 0.0,
@@ -2363,6 +2843,7 @@
   "r-wallclock-time" : 340.961
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
 } {
   "r-rc" : {
     "@rc-id" : 44,
@@ -2391,6 +2872,14 @@
   },
   "r-run-result" : "SAT",
 <<<<<<< HEAD
+  "r-runtime" : 10022.064,
+  "r-run-length" : 0.0,
+  "r-quality" : 800.0,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 273.405
+=======
+<<<<<<< HEAD
   "r-runtime" : 20115.598096,
   "r-run-length" : 0.0,
   "r-quality" : 1600.0,
@@ -2414,6 +2903,7 @@
   "r-wallclock-time" : 539.392
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
 } {
   "r-rc" : {
     "@rc-id" : 45,
@@ -2436,6 +2926,11 @@
         "n_generations" : "94"
 =======
 <<<<<<< HEAD
+        "crossover" : "0.7223868752889628",
+        "mutation" : "0.9368815643021505",
+        "n_generations" : "94"
+=======
+<<<<<<< HEAD
         "crossover" : "0.003937756113725377",
         "mutation" : "0.33967833204904696",
         "n_generations" : "165"
@@ -2445,6 +2940,7 @@
         "n_generations" : "55"
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
       },
       "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
       "pc-forbidden" : false,
@@ -2453,6 +2949,14 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
+  "r-runtime" : 10294.112,
+  "r-run-length" : 0.0,
+  "r-quality" : 800.0,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 303.898
+=======
 <<<<<<< HEAD
   "r-runtime" : 20657.966951,
   "r-run-length" : 0.0,
@@ -2477,6 +2981,7 @@
   "r-wallclock-time" : 114.278
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
 } {
   "r-rc" : {
     "@rc-id" : 46,
@@ -2505,6 +3010,14 @@
   },
   "r-run-result" : "SAT",
 <<<<<<< HEAD
+  "r-runtime" : 10597.14,
+  "r-run-length" : 0.0,
+  "r-quality" : 800.0,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 146.125
+=======
+<<<<<<< HEAD
   "r-runtime" : 21268.955809,
   "r-run-length" : 0.0,
   "r-quality" : 1600.0,
@@ -2528,6 +3041,7 @@
   "r-wallclock-time" : 287.544
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
 } {
   "r-rc" : {
     "@rc-id" : 47,
@@ -2550,6 +3064,11 @@
         "n_generations" : "219"
 =======
 <<<<<<< HEAD
+        "crossover" : "0.34003624901293694",
+        "mutation" : "0.927504237539835",
+        "n_generations" : "219"
+=======
+<<<<<<< HEAD
         "crossover" : "0.0036106770971745528",
         "mutation" : "0.6809515225123224",
         "n_generations" : "165"
@@ -2559,6 +3078,7 @@
         "n_generations" : "169"
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
       },
       "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
       "pc-forbidden" : false,
@@ -2567,6 +3087,14 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
+  "r-runtime" : 10742.116,
+  "r-run-length" : 0.0,
+  "r-quality" : 800.0,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 329.076
+=======
 <<<<<<< HEAD
   "r-runtime" : 21561.189132,
   "r-run-length" : 0.0,
@@ -2591,6 +3119,7 @@
   "r-wallclock-time" : 503.443
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
 } {
   "r-rc" : {
     "@rc-id" : 48,
@@ -2619,6 +3148,14 @@
   },
   "r-run-result" : "SAT",
 <<<<<<< HEAD
+  "r-runtime" : 11068.52,
+  "r-run-length" : 0.0,
+  "r-quality" : 800.0,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 399.586
+=======
+<<<<<<< HEAD
   "r-runtime" : 22215.365532,
   "r-run-length" : 0.0,
   "r-quality" : 1600.0,
@@ -2642,6 +3179,7 @@
   "r-wallclock-time" : 796.506
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
 } {
   "r-rc" : {
     "@rc-id" : 49,
@@ -2664,6 +3202,11 @@
         "n_generations" : "133"
 =======
 <<<<<<< HEAD
+        "crossover" : "0.8729126484014798",
+        "mutation" : "0.9368218959652345",
+        "n_generations" : "133"
+=======
+<<<<<<< HEAD
         "crossover" : "0.0025204141924408674",
         "mutation" : "0.9768832530978075",
         "n_generations" : "155"
@@ -2673,6 +3216,7 @@
         "n_generations" : "238"
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
       },
       "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
       "pc-forbidden" : false,
@@ -2681,6 +3225,14 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
+  "r-runtime" : 11465.432,
+  "r-run-length" : 0.0,
+  "r-quality" : 800.0,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 352.197
+=======
 <<<<<<< HEAD
   "r-runtime" : 23014.870328,
   "r-run-length" : 0.0,
@@ -2705,6 +3257,7 @@
   "r-wallclock-time" : 266.839
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
 } {
   "r-rc" : {
     "@rc-id" : 50,
@@ -2733,6 +3286,14 @@
   },
   "r-run-result" : "SAT",
 <<<<<<< HEAD
+  "r-runtime" : 11815.408,
+  "r-run-length" : 0.0,
+  "r-quality" : 800.0,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 226.25
+=======
+<<<<<<< HEAD
   "r-runtime" : 23014.870328,
   "r-run-length" : 0.0,
   "r-quality" : 1600.0,
@@ -2756,6 +3317,7 @@
   "r-wallclock-time" : 456.394
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
 } {
   "r-rc" : {
     "@rc-id" : 51,
@@ -2778,6 +3340,11 @@
         "n_generations" : "76"
 =======
 <<<<<<< HEAD
+        "crossover" : "0.8862058363177834",
+        "mutation" : "0.3995744461197198",
+        "n_generations" : "76"
+=======
+<<<<<<< HEAD
         "crossover" : "0.002213168885467409",
         "mutation" : "0.0421147219750283",
         "n_generations" : "245"
@@ -2787,6 +3354,7 @@
         "n_generations" : "157"
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
       },
       "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
       "pc-forbidden" : false,
@@ -2795,6 +3363,14 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
+  "r-runtime" : 12040.048,
+  "r-run-length" : 0.0,
+  "r-quality" : 800.0,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 266.126
+=======
 <<<<<<< HEAD
   "r-runtime" : 24169.621231,
   "r-run-length" : 0.0,
@@ -2819,6 +3395,7 @@
   "r-wallclock-time" : 21.924
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
 } {
   "r-rc" : {
     "@rc-id" : 52,
@@ -2847,6 +3424,14 @@
   },
   "r-run-result" : "SAT",
 <<<<<<< HEAD
+  "r-runtime" : 12306.036,
+  "r-run-length" : 0.0,
+  "r-quality" : 800.0,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 275.537
+=======
+<<<<<<< HEAD
   "r-runtime" : 24169.621231,
   "r-run-length" : 0.0,
   "r-quality" : 1600.0,
@@ -2870,6 +3455,7 @@
   "r-wallclock-time" : 551.654
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
 } {
   "r-rc" : {
     "@rc-id" : 53,
@@ -2892,6 +3478,11 @@
         "n_generations" : "90"
 =======
 <<<<<<< HEAD
+        "crossover" : "0.709737039814864",
+        "mutation" : "0.8424822189396424",
+        "n_generations" : "90"
+=======
+<<<<<<< HEAD
         "crossover" : "0.0023832082512549313",
         "mutation" : "0.22385156724199706",
         "n_generations" : "96"
@@ -2901,6 +3492,7 @@
         "n_generations" : "192"
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
       },
       "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
       "pc-forbidden" : false,
@@ -2909,6 +3501,14 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
+  "r-runtime" : 12581.376,
+  "r-run-length" : 0.0,
+  "r-quality" : 800.0,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 276.386
+=======
 <<<<<<< HEAD
   "r-runtime" : 25261.726203,
   "r-run-length" : 0.0,
@@ -2933,6 +3533,7 @@
   "r-wallclock-time" : 229.707
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
 } {
   "r-rc" : {
     "@rc-id" : 54,
@@ -2961,6 +3562,14 @@
   },
   "r-run-result" : "SAT",
 <<<<<<< HEAD
+  "r-runtime" : 12856.416,
+  "r-run-length" : 0.0,
+  "r-quality" : 800.0,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 253.723
+=======
+<<<<<<< HEAD
   "r-runtime" : 25817.059529,
   "r-run-length" : 0.0,
   "r-quality" : 1600.0,
@@ -2984,6 +3593,7 @@
   "r-wallclock-time" : 501.75
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
 } {
   "r-rc" : {
     "@rc-id" : 55,
@@ -3006,6 +3616,11 @@
         "n_generations" : "184"
 =======
 <<<<<<< HEAD
+        "crossover" : "0.8471911646821241",
+        "mutation" : "0.047285497355261774",
+        "n_generations" : "184"
+=======
+<<<<<<< HEAD
         "crossover" : "0.746285860160382",
         "mutation" : "0.02702272562974639",
         "n_generations" : "65"
@@ -3015,6 +3630,7 @@
         "n_generations" : "179"
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
       },
       "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
       "pc-forbidden" : false,
@@ -3023,6 +3639,14 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
+  "r-runtime" : 13108.864,
+  "r-run-length" : 0.0,
+  "r-quality" : 800.0,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 323.979
+=======
 <<<<<<< HEAD
   "r-runtime" : 26323.483144,
   "r-run-length" : 0.0,
@@ -3047,6 +3671,7 @@
   "r-wallclock-time" : 299.286
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
 } {
   "r-rc" : {
     "@rc-id" : 56,
@@ -3075,6 +3700,14 @@
   },
   "r-run-result" : "SAT",
 <<<<<<< HEAD
+  "r-runtime" : 13108.864,
+  "r-run-length" : 0.0,
+  "r-quality" : 800.0,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 244.303
+=======
+<<<<<<< HEAD
   "r-runtime" : 26323.483144,
   "r-run-length" : 0.0,
   "r-quality" : 1600.0,
@@ -3098,6 +3731,7 @@
   "r-wallclock-time" : 491.186
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
 } {
   "r-rc" : {
     "@rc-id" : 57,
@@ -3120,6 +3754,11 @@
         "n_generations" : "216"
 =======
 <<<<<<< HEAD
+        "crossover" : "0.34825764138837945",
+        "mutation" : "0.7389450642559632",
+        "n_generations" : "216"
+=======
+<<<<<<< HEAD
         "crossover" : "0.002354778535499591",
         "mutation" : "0.5304103951842665",
         "n_generations" : "127"
@@ -3129,6 +3768,7 @@
         "n_generations" : "201"
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
       },
       "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
       "pc-forbidden" : false,
@@ -3137,6 +3777,14 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
+  "r-runtime" : 13676.372,
+  "r-run-length" : 0.0,
+  "r-quality" : 800.0,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 317.22
+=======
 <<<<<<< HEAD
   "r-runtime" : 27463.944332,
   "r-run-length" : 0.0,
@@ -3161,6 +3809,7 @@
   "r-wallclock-time" : 232.844
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
 } {
   "r-rc" : {
     "@rc-id" : 58,
@@ -3189,6 +3838,14 @@
   },
   "r-run-result" : "SAT",
 <<<<<<< HEAD
+  "r-runtime" : 13676.372,
+  "r-run-length" : 0.0,
+  "r-quality" : 800.0,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 263.01
+=======
+<<<<<<< HEAD
   "r-runtime" : 27463.944332,
   "r-run-length" : 0.0,
   "r-quality" : 1600.0,
@@ -3212,6 +3869,7 @@
   "r-wallclock-time" : 525.234
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
 } {
   "r-rc" : {
     "@rc-id" : 59,
@@ -3234,6 +3892,11 @@
         "n_generations" : "231"
 =======
 <<<<<<< HEAD
+        "crossover" : "0.32574019060703296",
+        "mutation" : "0.241844692129207",
+        "n_generations" : "231"
+=======
+<<<<<<< HEAD
         "crossover" : "0.0022486323751399473",
         "mutation" : "0.3672233491976129",
         "n_generations" : "113"
@@ -3243,6 +3906,7 @@
         "n_generations" : "160"
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
       },
       "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
       "pc-forbidden" : false,
@@ -3251,6 +3915,14 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
+  "r-runtime" : 14255.112,
+  "r-run-length" : 0.0,
+  "r-quality" : 800.0,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 187.909
+=======
 <<<<<<< HEAD
   "r-runtime" : 28627.55228,
   "r-run-length" : 0.0,
@@ -3275,6 +3947,7 @@
   "r-wallclock-time" : 83.329
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
 } {
   "r-rc" : {
     "@rc-id" : 60,
@@ -3303,6 +3976,14 @@
   },
   "r-run-result" : "SAT",
 <<<<<<< HEAD
+  "r-runtime" : 14442.872,
+  "r-run-length" : 0.0,
+  "r-quality" : 800.0,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 228.582
+=======
+<<<<<<< HEAD
   "r-runtime" : 28627.55228,
   "r-run-length" : 0.0,
   "r-quality" : 1600.0,
@@ -3326,6 +4007,7 @@
   "r-wallclock-time" : 458.532
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
 } {
   "r-rc" : {
     "@rc-id" : 61,
@@ -3348,6 +4030,11 @@
         "n_generations" : "234"
 =======
 <<<<<<< HEAD
+        "crossover" : "0.43933677312481456",
+        "mutation" : "0.5718440828305279",
+        "n_generations" : "234"
+=======
+<<<<<<< HEAD
         "crossover" : "0.002240295877705689",
         "mutation" : "0.23936002230072706",
         "n_generations" : "245"
@@ -3357,6 +4044,7 @@
         "n_generations" : "61"
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
       },
       "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
       "pc-forbidden" : false,
@@ -3365,6 +4053,14 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
+  "r-runtime" : 14671.28,
+  "r-run-length" : 0.0,
+  "r-quality" : 800.0,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 347.256
+=======
 <<<<<<< HEAD
   "r-runtime" : 29480.971397,
   "r-run-length" : 0.0,
@@ -3389,6 +4085,7 @@
   "r-wallclock-time" : 300.907
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
 } {
   "r-rc" : {
     "@rc-id" : 62,
@@ -3417,6 +4114,14 @@
   },
   "r-run-result" : "SAT",
 <<<<<<< HEAD
+  "r-runtime" : 15016.604,
+  "r-run-length" : 0.0,
+  "r-quality" : 800.0,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 200.084
+=======
+<<<<<<< HEAD
   "r-runtime" : 29480.971397,
   "r-run-length" : 0.0,
   "r-quality" : 1600.0,
@@ -3440,6 +4145,7 @@
   "r-wallclock-time" : 396.325
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
 } {
   "r-rc" : {
     "@rc-id" : 63,
@@ -3462,6 +4168,11 @@
         "n_generations" : "91"
 =======
 <<<<<<< HEAD
+        "crossover" : "0.6502401444747038",
+        "mutation" : "0.3010141956154767",
+        "n_generations" : "91"
+=======
+<<<<<<< HEAD
         "crossover" : "0.7229337933828431",
         "mutation" : "0.5527570822241152",
         "n_generations" : "99"
@@ -3471,6 +4182,7 @@
         "n_generations" : "178"
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
       },
       "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
       "pc-forbidden" : false,
@@ -3479,6 +4191,14 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
+  "r-runtime" : 15215.396,
+  "r-run-length" : 0.0,
+  "r-quality" : 800.0,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 210.556
+=======
 <<<<<<< HEAD
   "r-runtime" : 30575.212746,
   "r-run-length" : 0.0,
@@ -3503,6 +4223,7 @@
   "r-wallclock-time" : 526.347
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
 } {
   "r-rc" : {
     "@rc-id" : 64,
@@ -3525,6 +4246,11 @@
         "n_generations" : "99"
 =======
 <<<<<<< HEAD
+        "crossover" : "0.7229337933828431",
+        "mutation" : "0.5527570822241152",
+        "n_generations" : "99"
+=======
+<<<<<<< HEAD
         "crossover" : "0.5549752209374414",
         "mutation" : "0.8228001929233197",
         "n_generations" : "216"
@@ -3534,6 +4260,7 @@
         "n_generations" : "99"
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
       },
       "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
       "pc-forbidden" : false,
@@ -3542,6 +4269,14 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
+  "r-runtime" : 15425.776,
+  "r-run-length" : 0.0,
+  "r-quality" : 800.0,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 231.511
+=======
 <<<<<<< HEAD
   "r-runtime" : 30996.941748,
   "r-run-length" : 0.0,
@@ -3566,6 +4301,7 @@
   "r-wallclock-time" : 464.754
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
 } {
   "r-rc" : {
     "@rc-id" : 65,
@@ -3588,6 +4324,11 @@
         "n_generations" : "189"
 =======
 <<<<<<< HEAD
+        "crossover" : "0.11590431654358446",
+        "mutation" : "0.2311777603463866",
+        "n_generations" : "189"
+=======
+<<<<<<< HEAD
         "crossover" : "0.6802239524242568",
         "mutation" : "0.9420288707474422",
         "n_generations" : "191"
@@ -3597,6 +4338,7 @@
         "n_generations" : "227"
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
       },
       "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
       "pc-forbidden" : false,
@@ -3605,6 +4347,14 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
+  "r-runtime" : 15657.104,
+  "r-run-length" : 0.0,
+  "r-quality" : 800.0,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 119.707
+=======
 <<<<<<< HEAD
   "r-runtime" : 31462.720346,
   "r-run-length" : 0.0,
@@ -3629,6 +4379,7 @@
   "r-wallclock-time" : 344.241
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
 } {
   "r-rc" : {
     "@rc-id" : 66,
@@ -3651,6 +4402,11 @@
         "n_generations" : "191"
 =======
 <<<<<<< HEAD
+        "crossover" : "0.6802239524242568",
+        "mutation" : "0.9420288707474422",
+        "n_generations" : "191"
+=======
+<<<<<<< HEAD
         "crossover" : "0.0022370721188111897",
         "mutation" : "0.12594062743076484",
         "n_generations" : "56"
@@ -3660,6 +4416,7 @@
         "n_generations" : "191"
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
       },
       "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
       "pc-forbidden" : false,
@@ -3668,6 +4425,14 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
+  "r-runtime" : 15776.7,
+  "r-run-length" : 0.0,
+  "r-quality" : 800.0,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 406.644
+=======
 <<<<<<< HEAD
   "r-runtime" : 31703.213061,
   "r-run-length" : 0.0,
@@ -3692,6 +4457,7 @@
   "r-wallclock-time" : 819.023
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
 } {
   "r-rc" : {
     "@rc-id" : 67,
@@ -3714,6 +4480,11 @@
         "n_generations" : "77"
 =======
 <<<<<<< HEAD
+        "crossover" : "0.25380613918223927",
+        "mutation" : "0.9148193509230935",
+        "n_generations" : "77"
+=======
+<<<<<<< HEAD
         "crossover" : "0.050814065632808436",
         "mutation" : "0.5302317227692178",
         "n_generations" : "214"
@@ -3723,6 +4494,7 @@
         "n_generations" : "120"
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
       },
       "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
       "pc-forbidden" : false,
@@ -3731,6 +4503,14 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
+  "r-runtime" : 16182.92,
+  "r-run-length" : 0.0,
+  "r-quality" : 800.0,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 262.823
+=======
 <<<<<<< HEAD
   "r-runtime" : 32522.122436,
   "r-run-length" : 0.0,
@@ -3755,6 +4535,7 @@
   "r-wallclock-time" : 454.524
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
 } {
   "r-rc" : {
     "@rc-id" : 68,
@@ -3777,6 +4558,11 @@
         "n_generations" : "214"
 =======
 <<<<<<< HEAD
+        "crossover" : "0.050814065632808436",
+        "mutation" : "0.5302317227692178",
+        "n_generations" : "214"
+=======
+<<<<<<< HEAD
         "crossover" : "0.7537357469636367",
         "mutation" : "0.828418956598732",
         "n_generations" : "172"
@@ -3786,6 +4572,7 @@
         "n_generations" : "214"
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
       },
       "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
       "pc-forbidden" : false,
@@ -3794,6 +4581,14 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
+  "r-runtime" : 16444.552,
+  "r-run-length" : 0.0,
+  "r-quality" : 800.0,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 234.467
+=======
 <<<<<<< HEAD
   "r-runtime" : 33048.298788,
   "r-run-length" : 0.0,
@@ -3818,6 +4613,7 @@
   "r-wallclock-time" : 468.562
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
 } {
   "r-rc" : {
     "@rc-id" : 69,
@@ -3840,6 +4636,11 @@
         "n_generations" : "241"
 =======
 <<<<<<< HEAD
+        "crossover" : "0.4269065686416005",
+        "mutation" : "0.1422594352290757",
+        "n_generations" : "241"
+=======
+<<<<<<< HEAD
         "crossover" : "0.002240295877705689",
         "mutation" : "0.23936002230072706",
         "n_generations" : "193"
@@ -3849,6 +4650,7 @@
         "n_generations" : "108"
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
       },
       "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
       "pc-forbidden" : false,
@@ -3857,6 +4659,15 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
+  "r-runtime" : 16678.008,
+  "r-run-length" : 0.0,
+  "r-quality" : 800.0,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 201.498
+} {
+=======
 <<<<<<< HEAD
   "r-runtime" : 33520.419144,
   "r-run-length" : 0.0,
@@ -3883,6 +4694,7 @@
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 } {
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
   "r-rc" : {
     "@rc-id" : 70,
     "rc-algo-exec-config" : {
@@ -3904,6 +4716,11 @@
         "n_generations" : "172"
 =======
 <<<<<<< HEAD
+        "crossover" : "0.7537357469636367",
+        "mutation" : "0.828418956598732",
+        "n_generations" : "172"
+=======
+<<<<<<< HEAD
         "crossover" : "0.6735128689276245",
         "mutation" : "0.2708685254940426",
         "n_generations" : "149"
@@ -3913,6 +4730,7 @@
         "n_generations" : "172"
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
       },
       "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
       "pc-forbidden" : false,
@@ -3921,6 +4739,14 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
+  "r-runtime" : 16879.336,
+  "r-run-length" : 0.0,
+  "r-quality" : 800.0,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 358.107
+=======
 <<<<<<< HEAD
   "r-runtime" : 33921.801371,
   "r-run-length" : 0.0,
@@ -3945,6 +4771,7 @@
   "r-wallclock-time" : 713.607
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
 } {
   "r-rc" : {
     "@rc-id" : 71,
@@ -3967,6 +4794,11 @@
         "n_generations" : "96"
 =======
 <<<<<<< HEAD
+        "crossover" : "0.6084143415927901",
+        "mutation" : "0.8591132496533354",
+        "n_generations" : "96"
+=======
+<<<<<<< HEAD
         "crossover" : "0.5423795184279673",
         "mutation" : "0.12290426962649548",
         "n_generations" : "167"
@@ -3976,6 +4808,7 @@
         "n_generations" : "79"
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
       },
       "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
       "pc-forbidden" : false,
@@ -3984,6 +4817,18 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
+  "r-runtime" : 17236.456,
+  "r-run-length" : 0.0,
+  "r-quality" : 800.0,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 290.739
+} {
+  "r-rc" : {
+    "@rc-id" : 72,
+    "rc-algo-exec-config" : {
+=======
 <<<<<<< HEAD
   "r-runtime" : 34640.341799,
   "r-run-length" : 0.0,
@@ -4012,6 +4857,7 @@
   "r-rc" : {
     "@rc-id" : 72,
     "rc-algo-exec-config" : {
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
       "@algo-exec-config-id" : 2
     },
     "rc-cutoff" : 3600.0,
@@ -4030,6 +4876,11 @@
         "n_generations" : "149"
 =======
 <<<<<<< HEAD
+        "crossover" : "0.6735128689276245",
+        "mutation" : "0.2708685254940426",
+        "n_generations" : "149"
+=======
+<<<<<<< HEAD
         "crossover" : "0.45737252212051094",
         "mutation" : "0.027018366160790563",
         "n_generations" : "234"
@@ -4039,6 +4890,7 @@
         "n_generations" : "149"
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
       },
       "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
       "pc-forbidden" : false,
@@ -4047,6 +4899,14 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
+  "r-runtime" : 17526.908,
+  "r-run-length" : 0.0,
+  "r-quality" : 800.0,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 245.083
+=======
 <<<<<<< HEAD
   "r-runtime" : 35222.494605,
   "r-run-length" : 0.0,
@@ -4071,6 +4931,7 @@
   "r-wallclock-time" : 496.191
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
 } {
   "r-rc" : {
     "@rc-id" : 73,
@@ -4093,6 +4954,11 @@
         "n_generations" : "134"
 =======
 <<<<<<< HEAD
+        "crossover" : "0.9762404312531774",
+        "mutation" : "0.16220022180930183",
+        "n_generations" : "134"
+=======
+<<<<<<< HEAD
         "crossover" : "0.6355256785666064",
         "mutation" : "0.08736105484079693",
         "n_generations" : "204"
@@ -4102,6 +4968,7 @@
         "n_generations" : "88"
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
       },
       "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
       "pc-forbidden" : false,
@@ -4110,6 +4977,14 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
+  "r-runtime" : 17771.792,
+  "r-run-length" : 0.0,
+  "r-quality" : 800.0,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 263.67
+=======
 <<<<<<< HEAD
   "r-runtime" : 35717.933525,
   "r-run-length" : 0.0,
@@ -4134,6 +5009,7 @@
   "r-wallclock-time" : 538.71
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
 } {
   "r-rc" : {
     "@rc-id" : 74,
@@ -4156,6 +5032,11 @@
         "n_generations" : "167"
 =======
 <<<<<<< HEAD
+        "crossover" : "0.5423795184279673",
+        "mutation" : "0.12290426962649548",
+        "n_generations" : "167"
+=======
+<<<<<<< HEAD
         "crossover" : "0.5725325673761018",
         "mutation" : "0.8924669481104431",
         "n_generations" : "246"
@@ -4165,6 +5046,7 @@
         "n_generations" : "167"
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
       },
       "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
       "pc-forbidden" : false,
@@ -4173,6 +5055,14 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
+  "r-runtime" : 18034.088,
+  "r-run-length" : 0.0,
+  "r-quality" : 800.0,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 191.217
+=======
 <<<<<<< HEAD
   "r-runtime" : 36243.007873,
   "r-run-length" : 0.0,
@@ -4197,6 +5087,7 @@
   "r-wallclock-time" : 374.512
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
 } {
   "r-rc" : {
     "@rc-id" : 75,
@@ -4219,6 +5110,11 @@
         "n_generations" : "79"
 =======
 <<<<<<< HEAD
+        "crossover" : "0.8664983989892001",
+        "mutation" : "0.9880892639062542",
+        "n_generations" : "79"
+=======
+<<<<<<< HEAD
         "crossover" : "0.0723414998638513",
         "mutation" : "0.026010268646229573",
         "n_generations" : "177"
@@ -4228,6 +5124,7 @@
         "n_generations" : "228"
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
       },
       "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
       "pc-forbidden" : false,
@@ -4236,6 +5133,14 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
+  "r-runtime" : 18224.088,
+  "r-run-length" : 0.0,
+  "r-quality" : 800.0,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 296.712
+=======
 <<<<<<< HEAD
   "r-runtime" : 36615.90872,
   "r-run-length" : 0.0,
@@ -4260,6 +5165,7 @@
   "r-wallclock-time" : 635.626
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
 } {
   "r-rc" : {
     "@rc-id" : 76,
@@ -4282,6 +5188,11 @@
         "n_generations" : "204"
 =======
 <<<<<<< HEAD
+        "crossover" : "0.6355256785666064",
+        "mutation" : "0.08736105484079693",
+        "n_generations" : "204"
+=======
+<<<<<<< HEAD
         "crossover" : "0.9426962986236356",
         "mutation" : "0.017361432828912338",
         "n_generations" : "186"
@@ -4291,6 +5202,7 @@
         "n_generations" : "204"
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
       },
       "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
       "pc-forbidden" : false,
@@ -4299,6 +5211,14 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
+  "r-runtime" : 18520.236,
+  "r-run-length" : 0.0,
+  "r-quality" : 800.0,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 184.308
+=======
 <<<<<<< HEAD
   "r-runtime" : 37212.034899,
   "r-run-length" : 0.0,
@@ -4323,6 +5243,7 @@
   "r-wallclock-time" : 372.198
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
 } {
   "r-rc" : {
     "@rc-id" : 77,
@@ -4345,6 +5266,11 @@
         "n_generations" : "157"
 =======
 <<<<<<< HEAD
+        "crossover" : "0.47990541882837723",
+        "mutation" : "0.996593440541513",
+        "n_generations" : "157"
+=======
+<<<<<<< HEAD
         "crossover" : "0.2916638897850401",
         "mutation" : "0.8695021557576943",
         "n_generations" : "61"
@@ -4354,6 +5280,7 @@
         "n_generations" : "225"
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
       },
       "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
       "pc-forbidden" : false,
@@ -4362,6 +5289,14 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
+  "r-runtime" : 18703.324,
+  "r-run-length" : 0.0,
+  "r-quality" : 800.0,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 327.195
+=======
 <<<<<<< HEAD
   "r-runtime" : 37584.258247,
   "r-run-length" : 0.0,
@@ -4386,6 +5321,7 @@
   "r-wallclock-time" : 318.936
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
 } {
   "r-rc" : {
     "@rc-id" : 78,
@@ -4408,6 +5344,11 @@
         "n_generations" : "246"
 =======
 <<<<<<< HEAD
+        "crossover" : "0.5725325673761018",
+        "mutation" : "0.8924669481104431",
+        "n_generations" : "246"
+=======
+<<<<<<< HEAD
         "crossover" : "0.014697824991830255",
         "mutation" : "0.07308949355801986",
         "n_generations" : "74"
@@ -4417,6 +5358,7 @@
         "n_generations" : "246"
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
       },
       "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
       "pc-forbidden" : false,
@@ -4425,6 +5367,14 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
+  "r-runtime" : 19029.7,
+  "r-run-length" : 0.0,
+  "r-quality" : 800.0,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 331.084
+=======
 <<<<<<< HEAD
   "r-runtime" : 38241.47593,
   "r-run-length" : 0.0,
@@ -4449,6 +5399,7 @@
   "r-wallclock-time" : 658.147
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
 } {
   "r-rc" : {
     "@rc-id" : 79,
@@ -4471,6 +5422,11 @@
         "n_generations" : "86"
 =======
 <<<<<<< HEAD
+        "crossover" : "0.9709746977758034",
+        "mutation" : "0.2429836759143258",
+        "n_generations" : "86"
+=======
+<<<<<<< HEAD
         "crossover" : "0.6559995993905715",
         "mutation" : "0.21946774884717846",
         "n_generations" : "219"
@@ -4480,6 +5436,7 @@
         "n_generations" : "193"
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
       },
       "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
       "pc-forbidden" : false,
@@ -4488,6 +5445,14 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
+  "r-runtime" : 19358.792,
+  "r-run-length" : 0.0,
+  "r-quality" : 800.0,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 267.509
+=======
 <<<<<<< HEAD
   "r-runtime" : 38903.466049,
   "r-run-length" : 0.0,
@@ -4512,6 +5477,7 @@
   "r-wallclock-time" : 298.084
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
 } {
   "r-rc" : {
     "@rc-id" : 80,
@@ -4534,6 +5500,11 @@
         "n_generations" : "177"
 =======
 <<<<<<< HEAD
+        "crossover" : "0.0723414998638513",
+        "mutation" : "0.026010268646229573",
+        "n_generations" : "177"
+=======
+<<<<<<< HEAD
         "crossover" : "0.8202756461823327",
         "mutation" : "0.43681767896733414",
         "n_generations" : "139"
@@ -4543,6 +5514,7 @@
         "n_generations" : "177"
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
       },
       "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
       "pc-forbidden" : false,
@@ -4551,6 +5523,14 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
+  "r-runtime" : 19624.824,
+  "r-run-length" : 0.0,
+  "r-quality" : 800.0,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 35.705
+=======
 <<<<<<< HEAD
   "r-runtime" : 39439.343833,
   "r-run-length" : 0.0,
@@ -4575,6 +5555,7 @@
   "r-wallclock-time" : 70.507
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
 } {
   "r-rc" : {
     "@rc-id" : 81,
@@ -4597,6 +5578,11 @@
         "n_generations" : "154"
 =======
 <<<<<<< HEAD
+        "crossover" : "0.12417556677855257",
+        "mutation" : "0.4082796461843091",
+        "n_generations" : "154"
+=======
+<<<<<<< HEAD
         "crossover" : "0.6078188518677983",
         "mutation" : "0.33049823978670234",
         "n_generations" : "71"
@@ -4606,6 +5592,7 @@
         "n_generations" : "184"
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
       },
       "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
       "pc-forbidden" : false,
@@ -4614,6 +5601,14 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
+  "r-runtime" : 19660.068,
+  "r-run-length" : 0.0,
+  "r-quality" : 800.0,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 169.138
+=======
 <<<<<<< HEAD
   "r-runtime" : 39507.987004,
   "r-run-length" : 0.0,
@@ -4638,6 +5633,7 @@
   "r-wallclock-time" : 313.2
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
 } {
   "r-rc" : {
     "@rc-id" : 82,
@@ -4660,6 +5656,11 @@
         "n_generations" : "61"
 =======
 <<<<<<< HEAD
+        "crossover" : "0.2916638897850401",
+        "mutation" : "0.8695021557576943",
+        "n_generations" : "61"
+=======
+<<<<<<< HEAD
         "crossover" : "0.5609887700103015",
         "mutation" : "0.835391711285919",
         "n_generations" : "108"
@@ -4669,6 +5670,7 @@
         "n_generations" : "61"
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
       },
       "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
       "pc-forbidden" : false,
@@ -4677,6 +5679,14 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
+  "r-runtime" : 19829.052,
+  "r-run-length" : 0.0,
+  "r-quality" : 800.0,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 256.568
+=======
 <<<<<<< HEAD
   "r-runtime" : 39847.617774,
   "r-run-length" : 0.0,
@@ -4701,6 +5711,7 @@
   "r-wallclock-time" : 510.648
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
 } {
   "r-rc" : {
     "@rc-id" : 83,
@@ -4723,6 +5734,11 @@
         "n_generations" : "144"
 =======
 <<<<<<< HEAD
+        "crossover" : "0.3681036321346054",
+        "mutation" : "0.5738078011383472",
+        "n_generations" : "144"
+=======
+<<<<<<< HEAD
         "crossover" : "0.901904621649393",
         "mutation" : "0.8432410032705577",
         "n_generations" : "178"
@@ -4732,6 +5748,7 @@
         "n_generations" : "172"
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
       },
       "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
       "pc-forbidden" : false,
@@ -4740,6 +5757,14 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
+  "r-runtime" : 20085.384,
+  "r-run-length" : 0.0,
+  "r-quality" : 800.0,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 210.931
+=======
 <<<<<<< HEAD
   "r-runtime" : 40363.13607,
   "r-run-length" : 0.0,
@@ -4764,6 +5789,7 @@
   "r-wallclock-time" : 605.11
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
 } {
   "r-rc" : {
     "@rc-id" : 84,
@@ -4786,6 +5812,11 @@
         "n_generations" : "219"
 =======
 <<<<<<< HEAD
+        "crossover" : "0.6559995993905715",
+        "mutation" : "0.21946774884717846",
+        "n_generations" : "219"
+=======
+<<<<<<< HEAD
         "crossover" : "0.7903457326699921",
         "mutation" : "0.140348052435038",
         "n_generations" : "50"
@@ -4795,6 +5826,7 @@
         "n_generations" : "219"
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
       },
       "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
       "pc-forbidden" : false,
@@ -4803,6 +5835,14 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
+  "r-runtime" : 20296.072,
+  "r-run-length" : 0.0,
+  "r-quality" : 800.0,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 242.855
+=======
 <<<<<<< HEAD
   "r-runtime" : 40788.326759,
   "r-run-length" : 0.0,
@@ -4827,6 +5867,7 @@
   "r-wallclock-time" : 488.401
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
 } {
   "r-rc" : {
     "@rc-id" : 85,
@@ -4849,6 +5890,11 @@
         "n_generations" : "81"
 =======
 <<<<<<< HEAD
+        "crossover" : "0.16753400792877005",
+        "mutation" : "0.22875424676254175",
+        "n_generations" : "81"
+=======
+<<<<<<< HEAD
         "crossover" : "0.48581730869557826",
         "mutation" : "0.49604214343092834",
         "n_generations" : "74"
@@ -4858,6 +5904,7 @@
         "n_generations" : "161"
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
       },
       "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
       "pc-forbidden" : false,
@@ -4866,6 +5913,14 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
+  "r-runtime" : 20538.692,
+  "r-run-length" : 0.0,
+  "r-quality" : 800.0,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 100.919
+=======
 <<<<<<< HEAD
   "r-runtime" : 41273.139936,
   "r-run-length" : 0.0,
@@ -4890,6 +5945,7 @@
   "r-wallclock-time" : 651.211
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
 } {
   "r-rc" : {
     "@rc-id" : 86,
@@ -4912,6 +5968,11 @@
         "n_generations" : "139"
 =======
 <<<<<<< HEAD
+        "crossover" : "0.8202756461823327",
+        "mutation" : "0.43681767896733414",
+        "n_generations" : "139"
+=======
+<<<<<<< HEAD
         "crossover" : "0.8872947862066807",
         "mutation" : "0.0014761220043616463",
         "n_generations" : "194"
@@ -4921,6 +5982,7 @@
         "n_generations" : "139"
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
       },
       "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
       "pc-forbidden" : false,
@@ -4929,6 +5991,14 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
+  "r-runtime" : 20639.516,
+  "r-run-length" : 0.0,
+  "r-quality" : 800.0,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 298.071
+=======
 <<<<<<< HEAD
   "r-runtime" : 41475.536061,
   "r-run-length" : 0.0,
@@ -4953,6 +6023,7 @@
   "r-wallclock-time" : 596.948
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
 } {
   "r-rc" : {
     "@rc-id" : 87,
@@ -4975,6 +6046,11 @@
         "n_generations" : "81"
 =======
 <<<<<<< HEAD
+        "crossover" : "0.5840817465344125",
+        "mutation" : "0.09762140826754928",
+        "n_generations" : "81"
+=======
+<<<<<<< HEAD
         "crossover" : "0.9673138995728228",
         "mutation" : "0.6463491548747546",
         "n_generations" : "123"
@@ -4984,6 +6060,7 @@
         "n_generations" : "170"
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
       },
       "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
       "pc-forbidden" : false,
@@ -4992,6 +6069,14 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
+  "r-runtime" : 20937.328,
+  "r-run-length" : 0.0,
+  "r-quality" : 800.0,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 169.101
+=======
 <<<<<<< HEAD
   "r-runtime" : 42070.710323,
   "r-run-length" : 0.0,
@@ -5016,6 +6101,7 @@
   "r-wallclock-time" : 357.359
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
 } {
   "r-rc" : {
     "@rc-id" : 88,
@@ -5038,6 +6124,11 @@
         "n_generations" : "71"
 =======
 <<<<<<< HEAD
+        "crossover" : "0.6078188518677983",
+        "mutation" : "0.33049823978670234",
+        "n_generations" : "71"
+=======
+<<<<<<< HEAD
         "crossover" : "0.45683091770747986",
         "mutation" : "0.2945608609208581",
         "n_generations" : "142"
@@ -5047,6 +6138,7 @@
         "n_generations" : "71"
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
       },
       "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
       "pc-forbidden" : false,
@@ -5055,6 +6147,14 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
+  "r-runtime" : 21105.536,
+  "r-run-length" : 0.0,
+  "r-quality" : 800.0,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 198.65
+=======
 <<<<<<< HEAD
   "r-runtime" : 42409.875405,
   "r-run-length" : 0.0,
@@ -5079,6 +6179,7 @@
   "r-wallclock-time" : 397.157
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
 } {
   "r-rc" : {
     "@rc-id" : 89,
@@ -5101,6 +6202,11 @@
         "n_generations" : "238"
 =======
 <<<<<<< HEAD
+        "crossover" : "0.4723889782863052",
+        "mutation" : "0.29072148609115533",
+        "n_generations" : "238"
+=======
+<<<<<<< HEAD
         "crossover" : "0.018687997514618693",
         "mutation" : "0.030764636720963745",
         "n_generations" : "112"
@@ -5110,6 +6216,7 @@
         "n_generations" : "152"
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
       },
       "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
       "pc-forbidden" : false,
@@ -5118,6 +6225,14 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
+  "r-runtime" : 21303.064,
+  "r-run-length" : 0.0,
+  "r-quality" : 800.0,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 177.374
+=======
 <<<<<<< HEAD
   "r-runtime" : 42810.583556,
   "r-run-length" : 0.0,
@@ -5142,6 +6257,7 @@
   "r-wallclock-time" : 697.097
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
 } {
   "r-rc" : {
     "@rc-id" : 90,
@@ -5164,6 +6280,11 @@
         "n_generations" : "178"
 =======
 <<<<<<< HEAD
+        "crossover" : "0.901904621649393",
+        "mutation" : "0.8432410032705577",
+        "n_generations" : "178"
+=======
+<<<<<<< HEAD
         "crossover" : "0.7388526807108466",
         "mutation" : "0.8614198463527266",
         "n_generations" : "50"
@@ -5173,6 +6294,7 @@
         "n_generations" : "178"
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
       },
       "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
       "pc-forbidden" : false,
@@ -5181,6 +6303,14 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
+  "r-runtime" : 21479.816,
+  "r-run-length" : 0.0,
+  "r-quality" : 800.0,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 409.718
+=======
 <<<<<<< HEAD
   "r-runtime" : 43167.429072,
   "r-run-length" : 0.0,
@@ -5205,6 +6335,7 @@
   "r-wallclock-time" : 817.611
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
 } {
   "r-rc" : {
     "@rc-id" : 91,
@@ -5227,6 +6358,11 @@
         "n_generations" : "241"
 =======
 <<<<<<< HEAD
+        "crossover" : "0.7212653981719964",
+        "mutation" : "0.16412525559515856",
+        "n_generations" : "241"
+=======
+<<<<<<< HEAD
         "crossover" : "0.22220222270264112",
         "mutation" : "0.0404936642922642",
         "n_generations" : "244"
@@ -5236,6 +6372,7 @@
         "n_generations" : "160"
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
       },
       "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
       "pc-forbidden" : false,
@@ -5244,6 +6381,14 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
+  "r-runtime" : 21887.048,
+  "r-run-length" : 0.0,
+  "r-quality" : 800.0,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 303.843
+=======
 <<<<<<< HEAD
   "r-runtime" : 43981.386612,
   "r-run-length" : 0.0,
@@ -5268,6 +6413,7 @@
   "r-wallclock-time" : 588.1
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
 } {
   "r-rc" : {
     "@rc-id" : 92,
@@ -5290,6 +6436,11 @@
         "n_generations" : "74"
 =======
 <<<<<<< HEAD
+        "crossover" : "0.48581730869557826",
+        "mutation" : "0.49604214343092834",
+        "n_generations" : "74"
+=======
+<<<<<<< HEAD
         "crossover" : "0.8754968129061432",
         "mutation" : "0.10107617505028044",
         "n_generations" : "242"
@@ -5299,6 +6450,7 @@
         "n_generations" : "74"
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
       },
       "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
       "pc-forbidden" : false,
@@ -5307,6 +6459,14 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
+  "r-runtime" : 22189.86,
+  "r-run-length" : 0.0,
+  "r-quality" : 800.0,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 211.271
+=======
 <<<<<<< HEAD
   "r-runtime" : 44594.279456,
   "r-run-length" : 0.0,
@@ -5331,6 +6491,7 @@
   "r-wallclock-time" : 423.961
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
 } {
   "r-rc" : {
     "@rc-id" : 93,
@@ -5353,6 +6514,11 @@
         "n_generations" : "152"
 =======
 <<<<<<< HEAD
+        "crossover" : "0.8748276545825179",
+        "mutation" : "0.20821233385136972",
+        "n_generations" : "152"
+=======
+<<<<<<< HEAD
         "crossover" : "0.0640177752706248",
         "mutation" : "0.046148991606207",
         "n_generations" : "52"
@@ -5362,6 +6528,7 @@
         "n_generations" : "237"
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
       },
       "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
       "pc-forbidden" : false,
@@ -5370,6 +6537,14 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
+  "r-runtime" : 22400.652,
+  "r-run-length" : 0.0,
+  "r-quality" : 800.0,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 331.079
+=======
 <<<<<<< HEAD
   "r-runtime" : 45018.13279,
   "r-run-length" : 0.0,
@@ -5394,6 +6569,7 @@
   "r-wallclock-time" : 404.953
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
 } {
   "r-rc" : {
     "@rc-id" : 94,
@@ -5416,6 +6592,11 @@
         "n_generations" : "123"
 =======
 <<<<<<< HEAD
+        "crossover" : "0.9673138995728228",
+        "mutation" : "0.6463491548747546",
+        "n_generations" : "123"
+=======
+<<<<<<< HEAD
         "crossover" : "0.6640908658682784",
         "mutation" : "0.24845246083412453",
         "n_generations" : "79"
@@ -5425,6 +6606,7 @@
         "n_generations" : "123"
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
       },
       "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
       "pc-forbidden" : false,
@@ -5433,6 +6615,14 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
+  "r-runtime" : 22731.356,
+  "r-run-length" : 0.0,
+  "r-quality" : 800.0,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 298.121
+=======
 <<<<<<< HEAD
   "r-runtime" : 45682.666878,
   "r-run-length" : 0.0,
@@ -5457,6 +6647,7 @@
   "r-wallclock-time" : 598.873
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
 } {
   "r-rc" : {
     "@rc-id" : 95,
@@ -5479,6 +6670,11 @@
         "n_generations" : "208"
 =======
 <<<<<<< HEAD
+        "crossover" : "0.08884840611694189",
+        "mutation" : "0.8704871250392728",
+        "n_generations" : "208"
+=======
+<<<<<<< HEAD
         "crossover" : "0.12143516365548646",
         "mutation" : "0.04908596182551639",
         "n_generations" : "216"
@@ -5488,6 +6684,7 @@
         "n_generations" : "107"
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
       },
       "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
       "pc-forbidden" : false,
@@ -5496,6 +6693,14 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
+  "r-runtime" : 23029.136,
+  "r-run-length" : 0.0,
+  "r-quality" : 800.0,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 313.052
+=======
 <<<<<<< HEAD
   "r-runtime" : 46278.818804,
   "r-run-length" : 0.0,
@@ -5520,6 +6725,7 @@
   "r-wallclock-time" : 222.87
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
 } {
   "r-rc" : {
     "@rc-id" : 96,
@@ -5542,6 +6748,11 @@
         "n_generations" : "142"
 =======
 <<<<<<< HEAD
+        "crossover" : "0.45683091770747986",
+        "mutation" : "0.2945608609208581",
+        "n_generations" : "142"
+=======
+<<<<<<< HEAD
         "crossover" : "0.2112669300563076",
         "mutation" : "0.8359936784285312",
         "n_generations" : "81"
@@ -5551,6 +6762,7 @@
         "n_generations" : "142"
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
       },
       "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
       "pc-forbidden" : false,
@@ -5559,6 +6771,14 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
+  "r-runtime" : 23341.336,
+  "r-run-length" : 0.0,
+  "r-quality" : 800.0,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 170.169
+=======
 <<<<<<< HEAD
   "r-runtime" : 46904.909592,
   "r-run-length" : 0.0,
@@ -5583,6 +6803,7 @@
   "r-wallclock-time" : 338.678
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
 } {
   "r-rc" : {
     "@rc-id" : 97,
@@ -5605,6 +6826,11 @@
         "n_generations" : "141"
 =======
 <<<<<<< HEAD
+        "crossover" : "0.3190193101242901",
+        "mutation" : "0.902241351354855",
+        "n_generations" : "141"
+=======
+<<<<<<< HEAD
         "crossover" : "0.06890079251294601",
         "mutation" : "0.0519009138072416",
         "n_generations" : "144"
@@ -5614,6 +6840,7 @@
         "n_generations" : "250"
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
       },
       "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
       "pc-forbidden" : false,
@@ -5622,6 +6849,14 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
+  "r-runtime" : 23510.296,
+  "r-run-length" : 0.0,
+  "r-quality" : 800.0,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 308.433
+=======
 <<<<<<< HEAD
   "r-runtime" : 47240.885665,
   "r-run-length" : 0.0,
@@ -5646,6 +6881,7 @@
   "r-wallclock-time" : 461.987
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
 } {
   "r-rc" : {
     "@rc-id" : 98,
@@ -5662,6 +6898,13 @@
         "@pcs-id" : 2
       },
       "pc-settings" : {
+<<<<<<< HEAD
+        "crossover" : "0.7388526807108466",
+        "mutation" : "0.8614198463527266",
+        "n_generations" : "50"
+      },
+      "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
+=======
 <<<<<<< HEAD
         "crossover" : "0.7388526807108466",
         "mutation" : "0.8614198463527266",
@@ -11388,12 +12631,21 @@
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
       },
       "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
       "pc-forbidden" : false,
       "pc-default" : false
     },
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
+  "r-runtime" : 23818.444,
+  "r-run-length" : 0.0,
+  "r-quality" : 800.0,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 260.857
+=======
 <<<<<<< HEAD
   "r-runtime" : 86004.105597,
   "r-run-length" : 0.0,
@@ -11410,4 +12662,5 @@
   "r-wallclock-time" : 275.556
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 >>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04
 }
