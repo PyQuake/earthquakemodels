@@ -1,0 +1,5 @@
+1: crossover='0.9', mutation='0.1', n_generations='100'
+2: crossover='0.3717949165152603', mutation='0.20445481197326143', n_generations='205'
+3: crossover='0.324818426790216', mutation='0.23773390736707933', n_generations='55'
+4: crossover='0.7536767499821508', mutation='0.02695829401235783', n_generations='169'
+5: crossover='0.1622385732796756', mutation='0.7744796794261644', n_generations='148'

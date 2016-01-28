@@ -9,9 +9,17 @@
 9: crossover='0.7256675153016645', mutation='0.9059392931641236', n_generations='107'
 10: crossover='0.07909294455073212', mutation='0.34052146724927745', n_generations='193'
 11: crossover='0.01511001853732874', mutation='0.93510047998887', n_generations='214'
+<<<<<<< HEAD
 12: crossover='0.934298957946178', mutation='0.9902234177151019', n_generations='105'
 13: crossover='0.3604959854991251', mutation='0.8351398949614516', n_generations='96'
 14: crossover='0.9387045431864889', mutation='0.987450931499574', n_generations='77'
 15: crossover='0.6452986945759821', mutation='0.22364234012547257', n_generations='52'
 16: crossover='0.9400528471722169', mutation='0.7402139415617912', n_generations='128'
+=======
+12: crossover='0.34418160648774476', mutation='0.14627198362758298', n_generations='126'
+13: crossover='0.3604959854991251', mutation='0.8351398949614516', n_generations='96'
+14: crossover='0.2440653696500683', mutation='0.9536697599605922', n_generations='181'
+15: crossover='0.6452986945759821', mutation='0.22364234012547257', n_generations='52'
+16: crossover='0.21823089655287997', mutation='0.1255004935382935', n_generations='67'
+>>>>>>> 40d814705a470fed13b12d6359989396e6ecd75e
 17: crossover='0.6624527399502632', mutation='0.7814874840196181', n_generations='217'
