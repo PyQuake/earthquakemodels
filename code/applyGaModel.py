@@ -111,8 +111,8 @@ def main():
 	 	# createRealModelforEtas(year, region, save=True)
 	#	createRealModel(year, region, withMag=False, save=True)
 	#	year+=1	
-	year=2001
-	while(year<2005):
+	year=2005
+	while(year<2012):
 	#	print(year)
 		# createRealModelforEtas(year, region, save=True)
 	#	createRealModel(year, region, withMag=False, save=True)
