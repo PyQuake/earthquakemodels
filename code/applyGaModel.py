@@ -119,8 +119,8 @@ def main():
 	#	year+=1	
 	
 	
-		execGaModel(year, "Kanto",save=True)
-		#execGaModel(year, "Kansai",save=True)
+		#execGaModel(year, "Kanto",save=True)
+		execGaModel(year, "Kansai",save=True)
 		#execGaModel(year, "EastJapan",save=True)
 		#execGaModel(year, "Tohoku",save=True)
 		#execEtasGaModel(year, "Kanto", save=True)
