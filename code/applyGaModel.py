@@ -8,7 +8,7 @@ import gaModel.etasGaModelNP as etasGaModelNP
 import models.modelEtasGa as etasGa
 import sys
 
-def execEtasGaModel(year, region, qntYears=5, times=20, save=True):
+def execEtasGaModel(year, region, qntYears=5, times=10, save=True):
 	
 	observations=list()
 
@@ -24,7 +24,7 @@ def execEtasGaModel(year, region, qntYears=5, times=20, save=True):
 		if save==True:
 			etasGa.saveModelToFile(modelo, '../Zona/model/'+region+'paper_etasNP'+str(year+qntYears)+str(i)+'.txt')
 
-def execGaModel(year, region, qntYears=5, times=20, save=True):
+def execGaModel(year, region, qntYears=5, times=10, save=True):
 
 	observations=list()
 
