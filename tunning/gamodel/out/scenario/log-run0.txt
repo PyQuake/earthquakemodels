@@ -1,0 +1,577 @@
+10:57:34.003 [main] INFO  c.u.c.b.a.l.ComplexLoggingOptions - Logging to: /home/lara13/Documents/earthquakemodels/tunning/./gamodel/out/scenario/log-run0.txt
+10:57:34.011 [main] INFO  c.u.c.b.a.m.version.VersionTracker - Version of Algorithm Execution & Abstraction Toolkit is v2.10.03-master-814 (ebf4c8c913d5) 
+10:57:34.012 [main] INFO  c.u.c.b.a.m.version.VersionTracker - Version of Java Runtime Environment is Java HotSpot(TM) 64-Bit Server VM (1.7.0_80) 
+10:57:34.012 [main] INFO  c.u.c.b.a.m.version.VersionTracker - Version of OS is Linux 3.13.0-32-generic (amd64) 
+10:57:34.012 [main] INFO  c.u.c.b.a.m.version.VersionTracker - Version of Random Forest Library is v1.10.01-master-120 (b68439c2c391) 
+10:57:34.012 [main] INFO  c.u.c.b.a.m.version.VersionTracker - Version of SMAC is v2.10.03-master-778 (3ee628ef9bf2) 
+10:57:34.012 [main] INFO  c.u.c.b.a.m.j.JCommanderHelper - Call String: smac --scenario-file ./gamodel/scenario.dat --tae IPC --ipc-mechanism TCP --ipc-remote-port 35233 --seed 0 --intensification-percentage 0.5 --runcount-limit 500 --console-log-level OFF --numPCA 7 --rf-num-trees 10 --skip-features True --abort-on-first-run-crash False --rf-full-tree-bootstrap False --validation False --rf-ignore-conditionality False 
+10:57:34.012 [main] INFO  c.u.c.b.smac.executors.SMACExecutor - ********** The next bit of output can be ignored, it is merely useful for debugging **********
+10:57:34.013 [main] INFO  c.u.c.b.smac.executors.SMACExecutor - ==========Enviroment Variables===========
+COLORTERM=gnome-terminal
+COMPIZ_CONFIG_PROFILE=ubuntu
+DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-kSHOfsregf,guid=6356e784e3a968b3f98a0b2800000375
+DEFAULTS_PATH=/usr/share/gconf/ubuntu.default.path
+DESKTOP_SESSION=ubuntu
+DISPLAY=:0
+GDMSESSION=ubuntu
+GNOME_DESKTOP_SESSION_ID=this-is-deprecated
+GNOME_KEYRING_CONTROL=/tmp/keyring-n9o2YV
+GNOME_KEYRING_PID=1864
+GPG_AGENT_INFO=/tmp/keyring-n9o2YV/gpg:0:1
+HOME=/home/lara13
+LANG=en_US.UTF-8
+LESSCLOSE=/usr/bin/lesspipe %s %s
+LESSOPEN=| /usr/bin/lesspipe %s
+LOGNAME=lara13
+LS_COLORS=rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lz=01;31:*.xz=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.axv=01;35:*.anx=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.axa=00;36:*.oga=00;36:*.spx=00;36:*.xspf=00;36:
+MANDATORY_PATH=/usr/share/gconf/ubuntu.mandatory.path
+NLSPATH=/usr/dt/lib/nls/msg/%L/%N.cat
+OLDPWD=/home/lara13/Documents/earthquakemodels/code
+PATH=/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games
+PWD=/home/lara13/Documents/earthquakemodels/tunning
+SESSION_MANAGER=local/lara13-HP-Compaq-8200-Elite-SFF-PC:@/tmp/.ICE-unix/1875,unix/lara13-HP-Compaq-8200-Elite-SFF-PC:/tmp/.ICE-unix/1875
+SHELL=/bin/bash
+SHLVL=1
+SSH_AGENT_PID=1910
+SSH_AUTH_SOCK=/tmp/keyring-n9o2YV/ssh
+TERM=xterm
+UBUNTU_MENUPROXY=libappmenu.so
+USER=lara13
+WINDOWID=41943189
+XAUTHORITY=/home/lara13/.Xauthority
+XDG_CONFIG_DIRS=/etc/xdg/xdg-ubuntu:/etc/xdg
+XDG_CURRENT_DESKTOP=Unity
+XDG_DATA_DIRS=/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/
+XDG_SEAT_PATH=/org/freedesktop/DisplayManager/Seat0
+XDG_SESSION_COOKIE=2e2467d5f766ac6a141559d400000007-1453481437.684594-1667031361
+XDG_SESSION_PATH=/org/freedesktop/DisplayManager/Session0
+XFILESEARCHPATH=/usr/dt/app-defaults/%L/Dt
+_=/usr/bin/python3
+
+10:57:34.013 [main] INFO  c.u.c.b.smac.executors.SMACExecutor - Hostname:lara13-HP-Compaq-8200-Elite-SFF-PC
+10:57:34.013 [main] INFO  c.u.c.b.smac.executors.SMACExecutor - ==========System Properties==============
+ERRLOG=/home/lara13/Documents/earthquakemodels/tunning/./gamodel/out/scenario/log-err0.txt
+NUMRUN=0
+OUTPUTDIR=/home/lara13/Documents/earthquakemodels/tunning/./gamodel/out/scenario
+ROOT-LEVEL=INFO
+RUNLOG=/home/lara13/Documents/earthquakemodels/tunning/./gamodel/out/scenario/log-run0.txt
+STDOUT-LEVEL=OFF
+WARNLOG=/home/lara13/Documents/earthquakemodels/tunning/./gamodel/out/scenario/log-warn0.txt
+awt.toolkit=sun.awt.X11.XToolkit
+file.encoding=UTF-8
+file.encoding.pkg=sun.io
+file.separator=/
+java.awt.graphicsenv=sun.awt.X11GraphicsEnvironment
+java.awt.printerjob=sun.print.PSPrinterJob
+java.class.path=/usr/local/lib/python3.2/dist-packages/pysmac-0.9-py3.2.egg/pysmac/smac/smac-v2.10.03-master-778/lib/commons-math-2.2.jar:/usr/local/lib/python3.2/dist-packages/pysmac-0.9-py3.2.egg/pysmac/smac/smac-v2.10.03-master-778/lib/DomainInter.jar:/usr/local/lib/python3.2/dist-packages/pysmac-0.9-py3.2.egg/pysmac/smac/smac-v2.10.03-master-778/lib/jcip-annotations-src.jar:/usr/local/lib/python3.2/dist-packages/pysmac-0.9-py3.2.egg/pysmac/smac/smac-v2.10.03-master-778/lib/jcommander.jar:/usr/local/lib/python3.2/dist-packages/pysmac-0.9-py3.2.egg/pysmac/smac/smac-v2.10.03-master-778/lib/jackson-databind-2.3.1.jar:/usr/local/lib/python3.2/dist-packages/pysmac-0.9-py3.2.egg/pysmac/smac/smac-v2.10.03-master-778/lib/jackson-annotations-2.3.1.jar:/usr/local/lib/python3.2/dist-packages/pysmac-0.9-py3.2.egg/pysmac/smac/smac-v2.10.03-master-778/lib/smac-src.jar:/usr/local/lib/python3.2/dist-packages/pysmac-0.9-py3.2.egg/pysmac/smac/smac-v2.10.03-master-778/lib/exp4j-0.3.10.jar:/usr/local/lib/python3.2/dist-packages/pysmac-0.9-py3.2.egg/pysmac/smac/smac-v2.10.03-master-778/lib/jmatharray.jar:/usr/local/lib/python3.2/dist-packages/pysmac-0.9-py3.2.egg/pysmac/smac/smac-v2.10.03-master-778/lib/fastrf-src.jar:/usr/local/lib/python3.2/dist-packages/pysmac-0.9-py3.2.egg/pysmac/smac/smac-v2.10.03-master-778/lib/smac.jar:/usr/local/lib/python3.2/dist-packages/pysmac-0.9-py3.2.egg/pysmac/smac/smac-v2.10.03-master-778/lib/spi-0.2.4.jar:/usr/local/lib/python3.2/dist-packages/pysmac-0.9-py3.2.egg/pysmac/smac/smac-v2.10.03-master-778/lib/jackson-core-2.3.1.jar:/usr/local/lib/python3.2/dist-packages/pysmac-0.9-py3.2.egg/pysmac/smac/smac-v2.10.03-master-778/lib/numerics4j-1.3.jar:/usr/local/lib/python3.2/dist-packages/pysmac-0.9-py3.2.egg/pysmac/smac/smac-v2.10.03-master-778/lib/fastrf.jar:/usr/local/lib/python3.2/dist-packages/pysmac-0.9-py3.2.egg/pysmac/smac/smac-v2.10.03-master-778/lib/commons-math3-3.3.jar:/usr/local/lib/python3.2/dist-packages/pysmac-0.9-py3.2.egg/pysmac/smac/smac-v2.10.03-master-778/lib/slf4j-api-1.7.5.jar:/usr/local/lib/python3.2/dist-packages/pysmac-0.9-py3.2.egg/pysmac/smac/smac-v2.10.03-master-778/lib/logback-access-1.1.2.jar:/usr/local/lib/python3.2/dist-packages/pysmac-0.9-py3.2.egg/pysmac/smac/smac-v2.10.03-master-778/lib/Jama-1.0.2.jar:/usr/local/lib/python3.2/dist-packages/pysmac-0.9-py3.2.egg/pysmac/smac/smac-v2.10.03-master-778/lib/commons-collections-3.2.1.jar:/usr/local/lib/python3.2/dist-packages/pysmac-0.9-py3.2.egg/pysmac/smac/smac-v2.10.03-master-778/lib/logback-classic-1.1.2.jar:/usr/local/lib/python3.2/dist-packages/pysmac-0.9-py3.2.egg/pysmac/smac/smac-v2.10.03-master-778/lib/aeatk-src.jar:/usr/local/lib/python3.2/dist-packages/pysmac-0.9-py3.2.egg/pysmac/smac/smac-v2.10.03-master-778/lib/jcip-annotations.jar:/usr/local/lib/python3.2/dist-packages/pysmac-0.9-py3.2.egg/pysmac/smac/smac-v2.10.03-master-778/lib/commons-collections-3.2.1-sources.jar:/usr/local/lib/python3.2/dist-packages/pysmac-0.9-py3.2.egg/pysmac/smac/smac-v2.10.03-master-778/lib/logback-core-1.1.2.jar:/usr/local/lib/python3.2/dist-packages/pysmac-0.9-py3.2.egg/pysmac/smac/smac-v2.10.03-master-778/lib/exp4j-0.4.3.BETA-3.jar:/usr/local/lib/python3.2/dist-packages/pysmac-0.9-py3.2.egg/pysmac/smac/smac-v2.10.03-master-778/lib/commons-io-2.1.jar:/usr/local/lib/python3.2/dist-packages/pysmac-0.9-py3.2.egg/pysmac/smac/smac-v2.10.03-master-778/lib/guava-14.0.1.jar:/usr/local/lib/python3.2/dist-packages/pysmac-0.9-py3.2.egg/pysmac/smac/smac-v2.10.03-master-778/lib/aeatk.jar:/usr/local/lib/python3.2/dist-packages/pysmac-0.9-py3.2.egg/pysmac/smac/smac-v2.10.03-master-778/lib/opencsv-2.3.jar:/usr/local/lib/python3.2/dist-packages/pysmac-0.9-py3.2.egg/pysmac/smac/smac-v2.10.03-master-778/conf:/usr/local/lib/python3.2/dist-packages/pysmac-0.9-py3.2.egg/pysmac/smac/smac-v2.10.03-master-778/patches
+java.class.version=51.0
+java.endorsed.dirs=/usr/lib/jvm/java-7-oracle/jre/lib/endorsed
+java.ext.dirs=/usr/lib/jvm/java-7-oracle/jre/lib/ext:/usr/java/packages/lib/ext
+java.home=/usr/lib/jvm/java-7-oracle/jre
+java.io.tmpdir=/tmp
+java.library.path=/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib
+java.runtime.name=Java(TM) SE Runtime Environment
+java.runtime.version=1.7.0_80-b15
+java.specification.name=Java Platform API Specification
+java.specification.vendor=Oracle Corporation
+java.specification.version=1.7
+java.vendor=Oracle Corporation
+java.vendor.url=http://java.oracle.com/
+java.vendor.url.bug=http://bugreport.sun.com/bugreport/
+java.version=1.7.0_80
+java.vm.info=mixed mode
+java.vm.name=Java HotSpot(TM) 64-Bit Server VM
+java.vm.specification.name=Java Virtual Machine Specification
+java.vm.specification.vendor=Oracle Corporation
+java.vm.specification.version=1.7
+java.vm.vendor=Oracle Corporation
+java.vm.version=24.80-b11
+line.separator=
+
+logback.configurationFile=ca/ubc/cs/beta/aeatk/logging/complex-logback.xml
+os.arch=amd64
+os.name=Linux
+os.version=3.13.0-32-generic
+path.separator=:
+sun.arch.data.model=64
+sun.boot.class.path=/usr/lib/jvm/java-7-oracle/jre/lib/resources.jar:/usr/lib/jvm/java-7-oracle/jre/lib/rt.jar:/usr/lib/jvm/java-7-oracle/jre/lib/sunrsasign.jar:/usr/lib/jvm/java-7-oracle/jre/lib/jsse.jar:/usr/lib/jvm/java-7-oracle/jre/lib/jce.jar:/usr/lib/jvm/java-7-oracle/jre/lib/charsets.jar:/usr/lib/jvm/java-7-oracle/jre/lib/jfr.jar:/usr/lib/jvm/java-7-oracle/jre/classes
+sun.boot.library.path=/usr/lib/jvm/java-7-oracle/jre/lib/amd64
+sun.cpu.endian=little
+sun.cpu.isalist=
+sun.desktop=gnome
+sun.io.unicode.encoding=UnicodeLittle
+sun.java.command=ca.ubc.cs.beta.smac.executors.SMACExecutor --scenario-file ./gamodel/scenario.dat --tae IPC --ipc-mechanism TCP --ipc-remote-port 35233 --seed 0 --intensification-percentage 0.5 --runcount-limit 500 --console-log-level OFF --numPCA 7 --rf-num-trees 10 --skip-features True --abort-on-first-run-crash False --rf-full-tree-bootstrap False --validation False --rf-ignore-conditionality False
+sun.java.launcher=SUN_STANDARD
+sun.jnu.encoding=UTF-8
+sun.management.compiler=HotSpot 64-Bit Tiered Compilers
+sun.os.patch.level=unknown
+user.country=US
+user.dir=/home/lara13/Documents/earthquakemodels/tunning
+user.home=/home/lara13
+user.language=en
+user.name=lara13
+user.timezone=America/Sao_Paulo
+
+10:57:34.038 [main] INFO  c.u.c.b.a.m.j.JCommanderHelper - ==========Configuration Options==========
+[SMACOptions]
+ adaptiveCapping = false
+ alwaysRunInitialConfiguration = false
+ capAddSlack = 1.0
+ capSlack = 1.3
+classicInitModeOpts = [ClassicInitializationProcedureOptions]
+		 initialIncumbentRuns = 1
+
+dciModeOpts = [DoublingCappingInitializationProcedureOptions]
+		 numberOfChallengers = 2
+		 numberOfRunsPerChallenger = 2
+
+ucip = [UnbiasChallengerInitializationProcedureOptions]
+		 numberOfChallengers = 2
+		 numberOfRunsPerChallenger = 2
+		 cpulimit = 0
+
+ deterministicInstanceOrdering = false
+ doValidation = false
+ execMode = SMAC
+ experimentDir = /home/lara13/Documents/earthquakemodels/tunning/
+ expFunc = null
+help = [HelpOptions]
+		 showHiddenParameters = false
+		 showHelp = false
+		 helpLevel = BASIC
+		 showVersion = false
+		 helpDefaults = /home/lara13/.aeatk/help.opt
+
+ initialChallengeRuns = 1
+ initialIncumbent = DEFAULT
+ initializationMode = CLASSIC
+ intensificationPercentage = 0.5
+ initialChallengers = []
+ initialChallengersIntensificationTime = 2147483647
+ iterativeCappingBreakOnFirstCompletion = false
+ iterativeCappingK = 1
+logOptions = [ComplexLoggingOptions]
+		 consoleLogLevel = OFF
+		 logLevel = INFO
+
+ maxIncumbentRuns = 2000
+mbOptions = [ModelBuildingOptions]
+		 maskCensoredDataAsKappaMax = false
+		 maskInactiveConditionalParametersAsDefaultValue = true
+		 maskCensoredDataAsUncensored = false
+		 imputationIterations = 2
+
+ modelHashCodeFile = null
+ numberOfChallengers = 10
+ numberOfRandomConfigsInEI = 10000
+ numberOfRandomConfigsUsedForLocalSearch = 0
+ numPCA = 7
+ optionFile = null
+ optionFile2 = null
+randomForestOptions = [RandomForestOptions]
+		 brokenVarianceCalculation = false
+		 freeMemoryPercentageToSubsample = 0.25
+		 fullTreeBootstrap = false
+		 ignoreConditionality = false
+		 imputeMean = false
+		 logModel = false
+		 minVariance = 1.0E-14
+		 numTrees = 10
+		 penalizeImputedValues = false
+		 preprocessMarginal = true
+		 ratioFeatures = 0.8333333333333334
+		 shuffleImputedValues = false
+		 splitMin = 10
+		 storeDataInLeaves = false
+		 subsamplePercentage = 0.9
+		 subsampleValuesWhenLowMemory = false
+
+runGroupOptions = [RunGroupOptions]
+		 runGroupName = %SCENARIO_NAME
+		 runGroupExit = false
+		 replacementChar = %
+
+scenarioConfig = [ScenarioOptions]
+		 _runObj = QUALITY
+		 intraInstanceObj = MEAN
+		 interInstanceObj = MEAN
+		limitOptions = [TerminationCriteriaOptions]
+				 tunerTimeout = 2147483647
+				 numIterations = 2147483647
+				 runtimeLimit = 2147483647
+				 totalNumRunsLimit = 500
+				 countSMACTimeAsTunerTime = true
+				 challengeIncumbentAttempts = 1000
+				 fileToWatch = null
+
+		instanceOptions = [ProblemInstanceOptions]
+				 instanceFile = ./gamodel/instances.dat
+				 instanceFeatureFile = null
+				 testInstanceFile = null
+				 checkInstanceFilesExist = false
+				 useInstances = true
+				 instanceSuffix = null
+				 testInstanceSuffix = null
+				 ignoreFeatures = true
+
+		 scenarioFile = /home/lara13/Documents/earthquakemodels/tunning/./gamodel/scenario.dat
+		 outputDirectory = ./gamodel/out
+		 invalidScenarioReason = null
+		algoExecOptions = [AlgorithmExecutionOptions]
+				 algoExec = echo 0
+				 algoExecDir = ./gamodel/
+				 deterministic = true
+				 cutoffTime = 3600.0
+				 cutoffLength = -1.0
+				 additionalContext = {}
+				taeOpts = [TargetAlgorithmEvaluatorOptions]
+						 targetAlgorithmEvaluator = IPC
+						 abortOnCrash = false
+						 abortOnFirstRunCrash = false
+						 retryCount = 0
+						 cacheRuns = false
+						 cacheDebug = false
+						 useDynamicCappingExclusively = false
+						 reportStrictlyIncreasingRuntimes = false
+						 boundRuns = false
+						 maxConcurrentAlgoExecs = 1
+						 exitOnFailure = false
+						 runHashCodeFile = null
+						 leakMemory = false
+						 leakMemoryAmount = 1024
+						 verifySAT = null
+						 checkSATConsistency = true
+						 checkSATConsistencyException = true
+						 callObserverBeforeCompletion = true
+						prePostOptions = [PrePostCommandOptions]
+								 preCommand = null
+								 postCommand = null
+								 exceptionOnError = false
+								 logOutput = true
+								 directory = /home/lara13/Documents/earthquakemodels/tunning/.
+
+						 checkResultOrderConsistent = false
+						 skipOutstandingEvaluationsTAE = false
+						 logRequestResponses = false
+						 logRequestResponsesRCOnly = false
+						 trackRunsScheduled = false
+						 trackRunsScheduledResolution = 1.0
+						 uncleanShutdownCheck = true
+						 killCaptimeExceedingRun = true
+						 killCaptimeExceedingRunFactor = 10.0
+						 checkRunConfigsUnique = true
+						 checkRunConfigsUniqueException = true
+						 observeWalltimeIfNoRuntime = true
+						 observeWalltimeScale = 0.95
+						 observeWalltimeDelay = 5.0
+						 synchronousObserver = true
+						 taeDefaults = /home/lara13/.aeatk/tae.opt
+						ttaedo = [TransformTargetAlgorithmEvaluatorDecoratorOptions]
+								 transform = false
+								 transformValidValuesOnly = true
+								 SAT_runtime_transform = R
+								 SAT_quality_transform = Q
+								 UNSAT_runtime_transform = R
+								 UNSAT_quality_transform = Q
+								 TIMEOUT_runtime_transform = R
+								 TIMEOUT_quality_transform = Q
+								 other_runtime_transform = R
+								 other_quality_transform = Q
+
+						tForkOptions = [ForkingTargetAlgorithmEvaluatorDecoratorOptions]
+								 forkToTAE = null
+								fPolicyOptions = [ForkingTargetAlgorithmEvaluatorDecoratorPolicyOptions]
+										 fPolicy = null
+										 duplicateOnSlaveQuickTimeout = 5
+
+
+						 fileToWatch = null
+						 warnIfNoResponseFromTAE = 120
+						 taeStopProcessingOnShutdown = true
+						 filecache = false
+						 fileCacheSource = /home/lara13/Documents/earthquakemodels/tunning/./runcache
+						 fileCacheOutput = /home/lara13/Documents/earthquakemodels/tunning/./runcache
+						 fileCacheCrashOnMiss = false
+						 transformCrashedQuality = true
+						 transformCrashedQualityValue = 1.0E9
+						 filterZeroCutoffRuns = true
+
+				paramFileDelegate = [ParamConfigurationSpaceOptions]
+						 paramFile = ./gamodel/parameters.pcs
+						 searchSubspace = null
+						 searchSubspaceFile = null
+						 continuousNeighbours = 4
+
+
+
+seedOptions = [SeedOptions]
+		 seedOffset = 0
+		 numRun = 0
+		 initialSeedMap = {}
+
+ smacDefaults = /home/lara13/.aeatk/smac.opt
+stateOpts = [StateFactoryOptions]
+		 stateSerializer = LEGACY
+		 statedeSerializer = LEGACY
+		 restoreStateFrom = null
+		 restoreIteration = null
+		 restoreScenario = null
+		 cleanOldStatesOnSuccess = true
+		 saveContextWithState = true
+
+trackingOptions = [ParamConfigurationOriginTrackingOptions]
+		 configTracking = false
+
+validationOptions = [ValidationOptions]
+		 maxTimestamp = -1.0
+		 minTimestamp = 0.0
+		 multFactor = 2.0
+		 numberOfTestInstances = 2147483647
+		 numberOfTestSeedsPerInstance = 1000
+		 numberOfValidationRuns = 1
+		 outputFileSuffix = 
+		 saveStateFile = false
+		 useWallClockTime = true
+		 validateAll = false
+		 validateOnlyIfTunerTimeReached = 0.0
+		 validateOnlyIfWallTimeReached = 0.0
+		 validateOnlyLastIncumbent = true
+		 validationHeaders = true
+		 validationRoundingMode = UP
+
+warmStartOptions = [WarmStartOptions]
+		 warmStartStateFrom = null
+		 restoreIteration = 2147483647
+
+ validationSeed = 0
+ saveRunsEveryIteration = false
+ stateQuickSaves = true
+ shutdownTAEWhenDone = true
+ validationCores = null
+ shareModelMode = false
+ shareRunDataFrequency = 300
+ shareModeModeTAE = true
+ writeRunData = true
+ defaultHandler = USE_ALL
+ sharedModeModeAssymetricMode = false
+
+[AnalyticTargetAlgorithmEvaluatorOptions]
+ simulateDelay = false
+ cores = 0
+ observerFrequency = 100
+ func = CAMELBACK
+ scaleDelay = 1.0
+
+[BlackHoleTargetAlgorithmEvaluatorOptions]
+ warnings = true
+
+[CommandLineTargetAlgorithmEvaluatorOptions]
+ observerFrequency = 500
+ concurrentExecution = true
+ cores = 1
+ logAllCallStrings = false
+ logAllResultLines = false
+ logAllCallsAndResultLines = false
+ logAllProcessOutput = false
+ listenForUpdates = true
+ paramArgumentsContainQuotes = false
+ pgEnvKillCommand = null
+ pgNiceKillCommand = bash -c "kill -s TERM -%pid"
+ pgForceKillCommand = bash -c "kill -s KILL -%pid"
+ procNiceKillCommand = kill -s TERM %pid
+ procForceKillCommand = kill -s KILL %pid
+ smacDefaults = /home/lara13/.aeatk/cli-tae.opt
+
+[ConstantTargetAlgorithmEvaluatorOptions]
+ runResult = SAT
+ runtime = 1.0
+ quality = 0.0
+ runlength = 0.0
+ additionalRunData = 
+
+[IPCTargetAlgorithmEvaluatorOptions]
+ persistent = false
+ ipcMechanism = TCP
+ encodingMechanism = CALL_STRING
+ remoteHost = 127.0.0.1
+ remotePort = 35233
+ udpPacketSize = 4096
+ localPort = 0
+ execScript = null
+ execScriptOutput = false
+ poolConnections = false
+ ipcDefaults = /home/lara13/.aeatk/ipc-tae.opt
+ asyncThreads = 5
+
+[PreloadedResponseTargetAlgorithmEvaluatorOptions]
+ preloadedResponses = 
+ runLength = -1.0
+ quality = 0.0
+ additionalRunData = 
+
+[RandomResponseTargetAlgorithmEvaluatorOptions]
+ simulateDelay = false
+ additionalRunData = 
+ cores = 0
+ maxResponse = 10.0
+ minResponse = 0.0
+ observerFrequency = 500
+ trendCoefficient = 0.0
+ seed = 1453726653217
+ persistent = false
+ scaleDelay = 1.0
+
+
+10:57:34.160 [main] INFO  c.u.c.b.a.t.b.i.IPCTargetAlgorithmEvaluator - Target Algorithm Evaluator making TCP connections to 127.0.0.1:35233.
+10:57:34.367 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - SMAC started at: Jan 25, 2016 10:57:34 AM. Minimizing mean quality.
+10:59:34.390 [TAE Warning Checking Thread (4-1)] WARN  c.u.c.b.a.t.d.s.WarnOnNoWallOrRuntimeTargetAlgorithmEvaluatorDecorator$1 - Runs have been submitted to Target Algorithm Evaluator but we have not seen any progress (no observed runs have any non-zero walltime or runtime) after 120 seconds of waiting, it's possible that the observer frequency is too low, or something is wrong with the Target Algorithm Evaluator (for instance some require that you start external processes and will hang if you don't).
+11:07:35.166 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - First incumbent: config 1 (internal ID: 0x000F), with mean quality: 2025.301029995664; estimate based on 1 runs.
+11:07:35.186 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Sample call for new incumbent config 1 (internal ID: 0x000F): 
+cd /home/lara13/Documents/earthquakemodels/tunning/./gamodel; echo 0 id_0 0 3600.0 2147483647 -1 -crossover '0.9' -mutation '0.1' -n_generations '100'  
+12:16:59.916 [main] WARN  c.u.c.b.a.t.d.s.TimingCheckerTargetAlgorithmEvaluator - Algorithm Run Result reported a runtime of 4094.314487 (secs) that exceeded it's cutoff time of 3600.0 (secs) by 494.3144870000001 (secs). Next warning at 495.3144870000001 (secs)  
+12:32:39.083 [main] WARN  c.u.c.b.a.t.d.s.TimingCheckerTargetAlgorithmEvaluator - Algorithm Run Result reported a runtime of 4746.224168 (secs) that exceeded it's cutoff time of 3600.0 (secs) by 1146.2241679999997 (secs). Next warning at 1147.2241679999997 (secs)  
+12:44:28.618 [main] WARN  c.u.c.b.a.t.d.s.TimingCheckerTargetAlgorithmEvaluator - Algorithm Run Result reported a runtime of 5681.424841 (secs) that exceeded it's cutoff time of 3600.0 (secs) by 2081.424841 (secs). Next warning at 2082.424841 (secs)  
+12:58:58.119 [main] WARN  c.u.c.b.a.t.d.s.TimingCheckerTargetAlgorithmEvaluator - Algorithm Run Result reported a runtime of 6945.861592 (secs) that exceeded it's cutoff time of 3600.0 (secs) by 3345.861592 (secs). Next warning at 3346.861592 (secs)  
+13:20:13.007 [main] WARN  c.u.c.b.a.t.d.s.TimingCheckerTargetAlgorithmEvaluator - Algorithm Run Result reported a runtime of 7928.795107 (secs) that exceeded it's cutoff time of 3600.0 (secs) by 4328.795107 (secs). Next warning at 4329.795107 (secs)  
+13:41:59.452 [main] WARN  c.u.c.b.a.t.d.s.TimingCheckerTargetAlgorithmEvaluator - Algorithm Run Result reported a runtime of 9232.476891 (secs) that exceeded it's cutoff time of 3600.0 (secs) by 5632.476891 (secs). Next warning at 5633.476891 (secs)  
+13:52:38.620 [main] WARN  c.u.c.b.a.t.d.s.TimingCheckerTargetAlgorithmEvaluator - Algorithm Run Result reported a runtime of 9823.359592 (secs) that exceeded it's cutoff time of 3600.0 (secs) by 6223.359592000001 (secs). Next warning at 6224.359592000001 (secs)  
+14:02:59.858 [main] WARN  c.u.c.b.a.t.d.s.TimingCheckerTargetAlgorithmEvaluator - Algorithm Run Result reported a runtime of 10459.474938 (secs) that exceeded it's cutoff time of 3600.0 (secs) by 6859.474937999999 (secs). Next warning at 6860.474937999999 (secs)  
+14:21:45.241 [main] WARN  c.u.c.b.a.t.d.s.TimingCheckerTargetAlgorithmEvaluator - Algorithm Run Result reported a runtime of 11079.345818 (secs) that exceeded it's cutoff time of 3600.0 (secs) by 7479.345818 (secs). Next warning at 7480.345818 (secs)  
+14:36:06.664 [main] WARN  c.u.c.b.a.t.d.s.TimingCheckerTargetAlgorithmEvaluator - Algorithm Run Result reported a runtime of 12202.603007 (secs) that exceeded it's cutoff time of 3600.0 (secs) by 8602.603007 (secs). Next warning at 8603.603007 (secs)  
+14:45:47.810 [main] WARN  c.u.c.b.a.t.d.s.TimingCheckerTargetAlgorithmEvaluator - Algorithm Run Result reported a runtime of 13061.690488 (secs) that exceeded it's cutoff time of 3600.0 (secs) by 9461.690488 (secs). Next warning at 9462.690488 (secs)  
+15:03:25.925 [main] WARN  c.u.c.b.a.t.d.s.TimingCheckerTargetAlgorithmEvaluator - Algorithm Run Result reported a runtime of 13641.87585 (secs) that exceeded it's cutoff time of 3600.0 (secs) by 10041.87585 (secs). Next warning at 10042.87585 (secs)  
+15:11:20.418 [main] WARN  c.u.c.b.a.t.d.s.TimingCheckerTargetAlgorithmEvaluator - Algorithm Run Result reported a runtime of 14698.476661 (secs) that exceeded it's cutoff time of 3600.0 (secs) by 11098.476661 (secs). Next warning at 11099.476661 (secs)  
+15:20:09.645 [main] WARN  c.u.c.b.a.t.d.s.TimingCheckerTargetAlgorithmEvaluator - Algorithm Run Result reported a runtime of 15172.282981 (secs) that exceeded it's cutoff time of 3600.0 (secs) by 11572.282981 (secs). Next warning at 11573.282981 (secs)  
+15:29:14.355 [main] WARN  c.u.c.b.a.t.d.s.TimingCheckerTargetAlgorithmEvaluator - Algorithm Run Result reported a runtime of 15700.694014 (secs) that exceeded it's cutoff time of 3600.0 (secs) by 12100.694014 (secs). Next warning at 12101.694014 (secs)  
+15:36:59.983 [main] WARN  c.u.c.b.a.t.d.s.TimingCheckerTargetAlgorithmEvaluator - Algorithm Run Result reported a runtime of 16244.590868 (secs) that exceeded it's cutoff time of 3600.0 (secs) by 12644.590868 (secs). Next warning at 12645.590868 (secs)  
+15:50:11.902 [main] WARN  c.u.c.b.a.t.d.s.TimingCheckerTargetAlgorithmEvaluator - Algorithm Run Result reported a runtime of 16709.465314 (secs) that exceeded it's cutoff time of 3600.0 (secs) by 13109.465314000001 (secs). Next warning at 13110.465314000001 (secs)  
+15:54:48.162 [main] WARN  c.u.c.b.a.t.d.s.TimingCheckerTargetAlgorithmEvaluator - Algorithm Run Result reported a runtime of 17500.233574 (secs) that exceeded it's cutoff time of 3600.0 (secs) by 13900.233574000002 (secs). Next warning at 13901.233574000002 (secs)  
+16:05:30.896 [main] WARN  c.u.c.b.a.t.d.s.TimingCheckerTargetAlgorithmEvaluator - Algorithm Run Result reported a runtime of 17775.575667 (secs) that exceeded it's cutoff time of 3600.0 (secs) by 14175.575667000001 (secs). Next warning at 14176.575667000001 (secs)  
+16:11:14.886 [main] WARN  c.u.c.b.a.t.d.s.TimingCheckerTargetAlgorithmEvaluator - Algorithm Run Result reported a runtime of 18417.119882 (secs) that exceeded it's cutoff time of 3600.0 (secs) by 14817.119881999999 (secs). Next warning at 14818.119881999999 (secs)  
+16:22:14.133 [main] WARN  c.u.c.b.a.t.d.s.TimingCheckerTargetAlgorithmEvaluator - Algorithm Run Result reported a runtime of 18759.200942 (secs) that exceeded it's cutoff time of 3600.0 (secs) by 15159.200942 (secs). Next warning at 15160.200942 (secs)  
+16:34:57.032 [main] WARN  c.u.c.b.a.t.d.s.TimingCheckerTargetAlgorithmEvaluator - Algorithm Run Result reported a runtime of 19415.033863 (secs) that exceeded it's cutoff time of 3600.0 (secs) by 15815.033863 (secs). Next warning at 15816.033863 (secs)  
+16:42:38.604 [main] WARN  c.u.c.b.a.t.d.s.TimingCheckerTargetAlgorithmEvaluator - Algorithm Run Result reported a runtime of 20173.314111 (secs) that exceeded it's cutoff time of 3600.0 (secs) by 16573.314111 (secs). Next warning at 16574.314111 (secs)  
+16:44:46.531 [main] WARN  c.u.c.b.a.t.d.s.TimingCheckerTargetAlgorithmEvaluator - Algorithm Run Result reported a runtime of 20632.21775 (secs) that exceeded it's cutoff time of 3600.0 (secs) by 17032.21775 (secs). Next warning at 17033.21775 (secs)  
+16:54:56.247 [main] WARN  c.u.c.b.a.t.d.s.TimingCheckerTargetAlgorithmEvaluator - Algorithm Run Result reported a runtime of 20759.819213 (secs) that exceeded it's cutoff time of 3600.0 (secs) by 17159.819213 (secs). Next warning at 17160.819213 (secs)  
+17:04:03.238 [main] WARN  c.u.c.b.a.t.d.s.TimingCheckerTargetAlgorithmEvaluator - Algorithm Run Result reported a runtime of 21368.644844 (secs) that exceeded it's cutoff time of 3600.0 (secs) by 17768.644844 (secs). Next warning at 17769.644844 (secs)  
+17:21:59.894 [main] WARN  c.u.c.b.a.t.d.s.TimingCheckerTargetAlgorithmEvaluator - Algorithm Run Result reported a runtime of 21914.696488 (secs) that exceeded it's cutoff time of 3600.0 (secs) by 18314.696488 (secs). Next warning at 18315.696488 (secs)  
+17:26:33.459 [main] WARN  c.u.c.b.a.t.d.s.TimingCheckerTargetAlgorithmEvaluator - Algorithm Run Result reported a runtime of 22989.155284 (secs) that exceeded it's cutoff time of 3600.0 (secs) by 19389.155284 (secs). Next warning at 19390.155284 (secs)  
+17:36:49.121 [main] WARN  c.u.c.b.a.t.d.s.TimingCheckerTargetAlgorithmEvaluator - Algorithm Run Result reported a runtime of 23262.228274 (secs) that exceeded it's cutoff time of 3600.0 (secs) by 19662.228274 (secs). Next warning at 19663.228274 (secs)  
+17:51:27.244 [main] WARN  c.u.c.b.a.t.d.s.TimingCheckerTargetAlgorithmEvaluator - Algorithm Run Result reported a runtime of 23876.976039 (secs) that exceeded it's cutoff time of 3600.0 (secs) by 20276.976039 (secs). Next warning at 20277.976039 (secs)  
+17:58:56.110 [main] WARN  c.u.c.b.a.t.d.s.TimingCheckerTargetAlgorithmEvaluator - Algorithm Run Result reported a runtime of 24752.675086 (secs) that exceeded it's cutoff time of 3600.0 (secs) by 21152.675086 (secs). Next warning at 21153.675086 (secs)  
+18:10:49.704 [main] WARN  c.u.c.b.a.t.d.s.TimingCheckerTargetAlgorithmEvaluator - Algorithm Run Result reported a runtime of 25199.522395 (secs) that exceeded it's cutoff time of 3600.0 (secs) by 21599.522395 (secs). Next warning at 21600.522395 (secs)  
+18:21:39.270 [main] WARN  c.u.c.b.a.t.d.s.TimingCheckerTargetAlgorithmEvaluator - Algorithm Run Result reported a runtime of 25912.166 (secs) that exceeded it's cutoff time of 3600.0 (secs) by 22312.166 (secs). Next warning at 22313.166 (secs)  
+18:28:33.340 [main] WARN  c.u.c.b.a.t.d.s.TimingCheckerTargetAlgorithmEvaluator - Algorithm Run Result reported a runtime of 26560.866395 (secs) that exceeded it's cutoff time of 3600.0 (secs) by 22960.866395 (secs). Next warning at 22961.866395 (secs)  
+18:47:26.656 [main] WARN  c.u.c.b.a.t.d.s.TimingCheckerTargetAlgorithmEvaluator - Algorithm Run Result reported a runtime of 27108.487903 (secs) that exceeded it's cutoff time of 3600.0 (secs) by 23508.487903 (secs). Next warning at 23509.487903 (secs)  
+19:00:08.152 [main] WARN  c.u.c.b.a.t.d.s.TimingCheckerTargetAlgorithmEvaluator - Algorithm Run Result reported a runtime of 28229.743536 (secs) that exceeded it's cutoff time of 3600.0 (secs) by 24629.743536 (secs). Next warning at 24630.743536 (secs)  
+19:07:17.409 [main] WARN  c.u.c.b.a.t.d.s.TimingCheckerTargetAlgorithmEvaluator - Algorithm Run Result reported a runtime of 28864.719933 (secs) that exceeded it's cutoff time of 3600.0 (secs) by 25264.719933 (secs). Next warning at 25265.719933 (secs)  
+19:11:33.697 [main] WARN  c.u.c.b.a.t.d.s.TimingCheckerTargetAlgorithmEvaluator - Algorithm Run Result reported a runtime of 29293.145324 (secs) that exceeded it's cutoff time of 3600.0 (secs) by 25693.145324 (secs). Next warning at 25694.145324 (secs)  
+19:17:14.252 [main] WARN  c.u.c.b.a.t.d.s.TimingCheckerTargetAlgorithmEvaluator - Algorithm Run Result reported a runtime of 29548.887448 (secs) that exceeded it's cutoff time of 3600.0 (secs) by 25948.887448 (secs). Next warning at 25949.887448 (secs)  
+19:23:31.775 [main] WARN  c.u.c.b.a.t.d.s.TimingCheckerTargetAlgorithmEvaluator - Algorithm Run Result reported a runtime of 29888.694545 (secs) that exceeded it's cutoff time of 3600.0 (secs) by 26288.694545 (secs). Next warning at 26289.694545 (secs)  
+19:34:11.581 [main] WARN  c.u.c.b.a.t.d.s.TimingCheckerTargetAlgorithmEvaluator - Algorithm Run Result reported a runtime of 30265.386565 (secs) that exceeded it's cutoff time of 3600.0 (secs) by 26665.386565 (secs). Next warning at 26666.386565 (secs)  
+19:38:31.060 [main] WARN  c.u.c.b.a.t.d.s.TimingCheckerTargetAlgorithmEvaluator - Algorithm Run Result reported a runtime of 30904.116376 (secs) that exceeded it's cutoff time of 3600.0 (secs) by 27304.116376 (secs). Next warning at 27305.116376 (secs)  
+19:52:14.322 [main] WARN  c.u.c.b.a.t.d.s.TimingCheckerTargetAlgorithmEvaluator - Algorithm Run Result reported a runtime of 31163.158456 (secs) that exceeded it's cutoff time of 3600.0 (secs) by 27563.158456 (secs). Next warning at 27564.158456 (secs)  
+19:57:20.162 [main] WARN  c.u.c.b.a.t.d.s.TimingCheckerTargetAlgorithmEvaluator - Algorithm Run Result reported a runtime of 31984.793453 (secs) that exceeded it's cutoff time of 3600.0 (secs) by 28384.793453 (secs). Next warning at 28385.793453 (secs)  
+20:06:56.920 [main] WARN  c.u.c.b.a.t.d.s.TimingCheckerTargetAlgorithmEvaluator - Algorithm Run Result reported a runtime of 32290.023689 (secs) that exceeded it's cutoff time of 3600.0 (secs) by 28690.023689 (secs). Next warning at 28691.023689 (secs)  
+20:12:59.309 [main] WARN  c.u.c.b.a.t.d.s.TimingCheckerTargetAlgorithmEvaluator - Algorithm Run Result reported a runtime of 32865.776363 (secs) that exceeded it's cutoff time of 3600.0 (secs) by 29265.776362999997 (secs). Next warning at 29266.776362999997 (secs)  
+20:26:05.204 [main] WARN  c.u.c.b.a.t.d.s.TimingCheckerTargetAlgorithmEvaluator - Algorithm Run Result reported a runtime of 33227.529434 (secs) that exceeded it's cutoff time of 3600.0 (secs) by 29627.529433999996 (secs). Next warning at 29628.529433999996 (secs)  
+20:41:20.894 [main] WARN  c.u.c.b.a.t.d.s.TimingCheckerTargetAlgorithmEvaluator - Algorithm Run Result reported a runtime of 34011.9621 (secs) that exceeded it's cutoff time of 3600.0 (secs) by 30411.962099999997 (secs). Next warning at 30412.962099999997 (secs)  
+20:51:56.151 [main] WARN  c.u.c.b.a.t.d.s.TimingCheckerTargetAlgorithmEvaluator - Algorithm Run Result reported a runtime of 34925.647426 (secs) that exceeded it's cutoff time of 3600.0 (secs) by 31325.647426000003 (secs). Next warning at 31326.647426000003 (secs)  
+21:00:06.377 [main] WARN  c.u.c.b.a.t.d.s.TimingCheckerTargetAlgorithmEvaluator - Algorithm Run Result reported a runtime of 35559.881145 (secs) that exceeded it's cutoff time of 3600.0 (secs) by 31959.881145 (secs). Next warning at 31960.881145 (secs)  
+21:16:25.880 [main] WARN  c.u.c.b.a.t.d.s.TimingCheckerTargetAlgorithmEvaluator - Algorithm Run Result reported a runtime of 36049.200595 (secs) that exceeded it's cutoff time of 3600.0 (secs) by 32449.200595000002 (secs). Next warning at 32450.200595000002 (secs)  
+21:21:54.902 [main] WARN  c.u.c.b.a.t.d.s.TimingCheckerTargetAlgorithmEvaluator - Algorithm Run Result reported a runtime of 37026.844124 (secs) that exceeded it's cutoff time of 3600.0 (secs) by 33426.844124 (secs). Next warning at 33427.844124 (secs)  
+21:26:06.741 [main] WARN  c.u.c.b.a.t.d.s.TimingCheckerTargetAlgorithmEvaluator - Algorithm Run Result reported a runtime of 37355.226531 (secs) that exceeded it's cutoff time of 3600.0 (secs) by 33755.226531 (secs). Next warning at 33756.226531 (secs)  
+21:34:26.785 [main] WARN  c.u.c.b.a.t.d.s.TimingCheckerTargetAlgorithmEvaluator - Algorithm Run Result reported a runtime of 37606.608058 (secs) that exceeded it's cutoff time of 3600.0 (secs) by 34006.608058 (secs). Next warning at 34007.608058 (secs)  
+21:38:50.904 [main] WARN  c.u.c.b.a.t.d.s.TimingCheckerTargetAlgorithmEvaluator - Algorithm Run Result reported a runtime of 38105.46468 (secs) that exceeded it's cutoff time of 3600.0 (secs) by 34505.46468 (secs). Next warning at 34506.46468 (secs)  
+21:46:45.259 [main] WARN  c.u.c.b.a.t.d.s.TimingCheckerTargetAlgorithmEvaluator - Algorithm Run Result reported a runtime of 38369.154168 (secs) that exceeded it's cutoff time of 3600.0 (secs) by 34769.154168 (secs). Next warning at 34770.154168 (secs)  
+22:00:04.254 [main] WARN  c.u.c.b.a.t.d.s.TimingCheckerTargetAlgorithmEvaluator - Algorithm Run Result reported a runtime of 38842.596404 (secs) that exceeded it's cutoff time of 3600.0 (secs) by 35242.596404 (secs). Next warning at 35243.596404 (secs)  
+22:10:12.272 [main] WARN  c.u.c.b.a.t.d.s.TimingCheckerTargetAlgorithmEvaluator - Algorithm Run Result reported a runtime of 39640.16675 (secs) that exceeded it's cutoff time of 3600.0 (secs) by 36040.16675 (secs). Next warning at 36041.16675 (secs)  
+22:17:00.953 [main] WARN  c.u.c.b.a.t.d.s.TimingCheckerTargetAlgorithmEvaluator - Algorithm Run Result reported a runtime of 40245.055785 (secs) that exceeded it's cutoff time of 3600.0 (secs) by 36645.055785 (secs). Next warning at 36646.055785 (secs)  
+22:18:37.271 [main] WARN  c.u.c.b.a.t.d.s.TimingCheckerTargetAlgorithmEvaluator - Algorithm Run Result reported a runtime of 40652.661089 (secs) that exceeded it's cutoff time of 3600.0 (secs) by 37052.661089 (secs). Next warning at 37053.661089 (secs)  
+22:33:30.106 [main] WARN  c.u.c.b.a.t.d.s.TimingCheckerTargetAlgorithmEvaluator - Algorithm Run Result reported a runtime of 40748.753562 (secs) that exceeded it's cutoff time of 3600.0 (secs) by 37148.753562 (secs). Next warning at 37149.753562 (secs)  
+22:37:49.619 [main] WARN  c.u.c.b.a.t.d.s.TimingCheckerTargetAlgorithmEvaluator - Algorithm Run Result reported a runtime of 41639.997479 (secs) that exceeded it's cutoff time of 3600.0 (secs) by 38039.997479 (secs). Next warning at 38040.997479 (secs)  
+22:50:09.843 [main] WARN  c.u.c.b.a.t.d.s.TimingCheckerTargetAlgorithmEvaluator - Algorithm Run Result reported a runtime of 41898.039571 (secs) that exceeded it's cutoff time of 3600.0 (secs) by 38298.039571 (secs). Next warning at 38299.039571 (secs)  
+22:53:46.189 [main] WARN  c.u.c.b.a.t.d.s.TimingCheckerTargetAlgorithmEvaluator - Algorithm Run Result reported a runtime of 42636.725533 (secs) that exceeded it's cutoff time of 3600.0 (secs) by 39036.725533 (secs). Next warning at 39037.725533 (secs)  
+23:03:51.624 [main] WARN  c.u.c.b.a.t.d.s.TimingCheckerTargetAlgorithmEvaluator - Algorithm Run Result reported a runtime of 42851.951177 (secs) that exceeded it's cutoff time of 3600.0 (secs) by 39251.951177 (secs). Next warning at 39252.951177 (secs)  
+23:15:15.409 [main] WARN  c.u.c.b.a.t.d.s.TimingCheckerTargetAlgorithmEvaluator - Algorithm Run Result reported a runtime of 43454.296777 (secs) that exceeded it's cutoff time of 3600.0 (secs) by 39854.296777 (secs). Next warning at 39855.296777 (secs)  
+23:23:15.032 [main] WARN  c.u.c.b.a.t.d.s.TimingCheckerTargetAlgorithmEvaluator - Algorithm Run Result reported a runtime of 44134.856993 (secs) that exceeded it's cutoff time of 3600.0 (secs) by 40534.856993 (secs). Next warning at 40535.856993 (secs)  
+23:31:11.531 [main] WARN  c.u.c.b.a.t.d.s.TimingCheckerTargetAlgorithmEvaluator - Algorithm Run Result reported a runtime of 44612.367406 (secs) that exceeded it's cutoff time of 3600.0 (secs) by 41012.367406 (secs). Next warning at 41013.367406 (secs)  
+23:46:46.975 [main] WARN  c.u.c.b.a.t.d.s.TimingCheckerTargetAlgorithmEvaluator - Algorithm Run Result reported a runtime of 45088.143645 (secs) that exceeded it's cutoff time of 3600.0 (secs) by 41488.143645 (secs). Next warning at 41489.143645 (secs)  
+23:48:10.760 [main] WARN  c.u.c.b.a.t.d.s.TimingCheckerTargetAlgorithmEvaluator - Algorithm Run Result reported a runtime of 46022.07481 (secs) that exceeded it's cutoff time of 3600.0 (secs) by 42422.07481 (secs). Next warning at 42423.07481 (secs)  
+23:54:19.056 [main] WARN  c.u.c.b.a.t.d.s.TimingCheckerTargetAlgorithmEvaluator - Algorithm Run Result reported a runtime of 46105.655281 (secs) that exceeded it's cutoff time of 3600.0 (secs) by 42505.655281 (secs). Next warning at 42506.655281 (secs)  
+23:59:20.010 [main] WARN  c.u.c.b.a.t.d.s.TimingCheckerTargetAlgorithmEvaluator - Algorithm Run Result reported a runtime of 46473.367814 (secs) that exceeded it's cutoff time of 3600.0 (secs) by 42873.367814 (secs). Next warning at 42874.367814 (secs)  
+00:10:22.550 [main] WARN  c.u.c.b.a.t.d.s.TimingCheckerTargetAlgorithmEvaluator - Algorithm Run Result reported a runtime of 46773.656112 (secs) that exceeded it's cutoff time of 3600.0 (secs) by 43173.656112 (secs). Next warning at 43174.656112 (secs)  
+00:23:25.317 [main] WARN  c.u.c.b.a.t.d.s.TimingCheckerTargetAlgorithmEvaluator - Algorithm Run Result reported a runtime of 47434.772338 (secs) that exceeded it's cutoff time of 3600.0 (secs) by 43834.772338 (secs). Next warning at 43835.772338 (secs)  
+00:37:45.675 [main] WARN  c.u.c.b.a.t.d.s.TimingCheckerTargetAlgorithmEvaluator - Algorithm Run Result reported a runtime of 48215.954816 (secs) that exceeded it's cutoff time of 3600.0 (secs) by 44615.954816 (secs). Next warning at 44616.954816 (secs)  
+00:43:42.112 [main] WARN  c.u.c.b.a.t.d.s.TimingCheckerTargetAlgorithmEvaluator - Algorithm Run Result reported a runtime of 49074.730926 (secs) that exceeded it's cutoff time of 3600.0 (secs) by 45474.730926 (secs). Next warning at 45475.730926 (secs)  
+00:53:36.156 [main] WARN  c.u.c.b.a.t.d.s.TimingCheckerTargetAlgorithmEvaluator - Algorithm Run Result reported a runtime of 49430.436458 (secs) that exceeded it's cutoff time of 3600.0 (secs) by 45830.436458 (secs). Next warning at 45831.436458 (secs)  
+01:01:29.061 [main] WARN  c.u.c.b.a.t.d.s.TimingCheckerTargetAlgorithmEvaluator - Algorithm Run Result reported a runtime of 50023.35153 (secs) that exceeded it's cutoff time of 3600.0 (secs) by 46423.35153 (secs). Next warning at 46424.35153 (secs)  
+01:07:44.309 [main] WARN  c.u.c.b.a.t.d.s.TimingCheckerTargetAlgorithmEvaluator - Algorithm Run Result reported a runtime of 50495.266488 (secs) that exceeded it's cutoff time of 3600.0 (secs) by 46895.266488 (secs). Next warning at 46896.266488 (secs)  
+01:18:52.152 [main] WARN  c.u.c.b.a.t.d.s.TimingCheckerTargetAlgorithmEvaluator - Algorithm Run Result reported a runtime of 50869.898966 (secs) that exceeded it's cutoff time of 3600.0 (secs) by 47269.898966 (secs). Next warning at 47270.898966 (secs)  
+01:28:14.175 [main] WARN  c.u.c.b.a.t.d.s.TimingCheckerTargetAlgorithmEvaluator - Algorithm Run Result reported a runtime of 51536.759541 (secs) that exceeded it's cutoff time of 3600.0 (secs) by 47936.759541 (secs). Next warning at 47937.759541 (secs)  
+01:32:59.657 [main] WARN  c.u.c.b.a.t.d.s.TimingCheckerTargetAlgorithmEvaluator - Algorithm Run Result reported a runtime of 52098.095348 (secs) that exceeded it's cutoff time of 3600.0 (secs) by 48498.095348 (secs). Next warning at 48499.095348 (secs)  
+01:41:38.118 [main] WARN  c.u.c.b.a.t.d.s.TimingCheckerTargetAlgorithmEvaluator - Algorithm Run Result reported a runtime of 52383.182651 (secs) that exceeded it's cutoff time of 3600.0 (secs) by 48783.182651 (secs). Next warning at 48784.182651 (secs)  
+01:43:40.249 [main] WARN  c.u.c.b.a.t.d.s.TimingCheckerTargetAlgorithmEvaluator - Algorithm Run Result reported a runtime of 52901.002334 (secs) that exceeded it's cutoff time of 3600.0 (secs) by 49301.002334 (secs). Next warning at 49302.002334 (secs)  
+01:49:44.708 [main] WARN  c.u.c.b.a.t.d.s.TimingCheckerTargetAlgorithmEvaluator - Algorithm Run Result reported a runtime of 53022.911302 (secs) that exceeded it's cutoff time of 3600.0 (secs) by 49422.911302 (secs). Next warning at 49423.911302 (secs)  
+01:53:34.691 [main] WARN  c.u.c.b.a.t.d.s.TimingCheckerTargetAlgorithmEvaluator - Algorithm Run Result reported a runtime of 53386.919257 (secs) that exceeded it's cutoff time of 3600.0 (secs) by 49786.919257 (secs). Next warning at 49787.919257 (secs)  
+02:06:20.955 [main] WARN  c.u.c.b.a.t.d.s.TimingCheckerTargetAlgorithmEvaluator - Algorithm Run Result reported a runtime of 53616.515764 (secs) that exceeded it's cutoff time of 3600.0 (secs) by 50016.515764 (secs). Next warning at 50017.515764 (secs)  
+02:12:19.040 [main] WARN  c.u.c.b.a.t.d.s.TimingCheckerTargetAlgorithmEvaluator - Algorithm Run Result reported a runtime of 54381.834514 (secs) that exceeded it's cutoff time of 3600.0 (secs) by 50781.834514 (secs). Next warning at 50782.834514 (secs)  
+02:24:20.441 [main] WARN  c.u.c.b.a.t.d.s.TimingCheckerTargetAlgorithmEvaluator - Algorithm Run Result reported a runtime of 54738.714856 (secs) that exceeded it's cutoff time of 3600.0 (secs) by 51138.714856 (secs). Next warning at 51139.714856 (secs)  
+02:30:52.717 [main] WARN  c.u.c.b.a.t.d.s.TimingCheckerTargetAlgorithmEvaluator - Algorithm Run Result reported a runtime of 55459.055485 (secs) that exceeded it's cutoff time of 3600.0 (secs) by 51859.055485 (secs). Next warning at 51860.055485 (secs)  
+02:40:38.610 [main] WARN  c.u.c.b.a.t.d.s.TimingCheckerTargetAlgorithmEvaluator - Algorithm Run Result reported a runtime of 55850.596069 (secs) that exceeded it's cutoff time of 3600.0 (secs) by 52250.596069 (secs). Next warning at 52251.596069 (secs)  
+02:45:04.859 [main] WARN  c.u.c.b.a.t.d.s.TimingCheckerTargetAlgorithmEvaluator - Algorithm Run Result reported a runtime of 56435.466244 (secs) that exceeded it's cutoff time of 3600.0 (secs) by 52835.466244 (secs). Next warning at 52836.466244 (secs)  
+02:54:13.428 [main] WARN  c.u.c.b.a.t.d.s.TimingCheckerTargetAlgorithmEvaluator - Algorithm Run Result reported a runtime of 56701.107052 (secs) that exceeded it's cutoff time of 3600.0 (secs) by 53101.107052 (secs). Next warning at 53102.107052 (secs)  
+03:00:51.424 [main] WARN  c.u.c.b.a.t.d.s.TimingCheckerTargetAlgorithmEvaluator - Algorithm Run Result reported a runtime of 57248.608193 (secs) that exceeded it's cutoff time of 3600.0 (secs) by 53648.608193 (secs). Next warning at 53649.608193 (secs)  
+03:07:03.960 [main] WARN  c.u.c.b.a.t.d.s.TimingCheckerTargetAlgorithmEvaluator - Algorithm Run Result reported a runtime of 57644.616708 (secs) that exceeded it's cutoff time of 3600.0 (secs) by 54044.616708 (secs). Next warning at 54045.616708 (secs)  
+03:15:05.997 [main] WARN  c.u.c.b.a.t.d.s.TimingCheckerTargetAlgorithmEvaluator - Algorithm Run Result reported a runtime of 58015.020366 (secs) that exceeded it's cutoff time of 3600.0 (secs) by 54415.020366 (secs). Next warning at 54416.020366 (secs)  
+03:26:45.812 [main] WARN  c.u.c.b.a.t.d.s.TimingCheckerTargetAlgorithmEvaluator - Algorithm Run Result reported a runtime of 58494.59067 (secs) that exceeded it's cutoff time of 3600.0 (secs) by 54894.59067 (secs). Next warning at 54895.59067 (secs)  
+03:41:24.473 [main] WARN  c.u.c.b.a.t.d.s.TimingCheckerTargetAlgorithmEvaluator - Algorithm Run Result reported a runtime of 59190.936258 (secs) that exceeded it's cutoff time of 3600.0 (secs) by 55590.936258 (secs). Next warning at 55591.936258 (secs)  
+03:55:36.273 [main] WARN  c.u.c.b.a.t.d.s.TimingCheckerTargetAlgorithmEvaluator - Algorithm Run Result reported a runtime of 60066.551455 (secs) that exceeded it's cutoff time of 3600.0 (secs) by 56466.551455 (secs). Next warning at 56467.551455 (secs)  
+04:03:21.983 [main] WARN  c.u.c.b.a.t.d.s.TimingCheckerTargetAlgorithmEvaluator - Algorithm Run Result reported a runtime of 60916.862037 (secs) that exceeded it's cutoff time of 3600.0 (secs) by 57316.862037 (secs). Next warning at 57317.862037 (secs)  
+04:14:47.107 [main] WARN  c.u.c.b.a.t.d.s.TimingCheckerTargetAlgorithmEvaluator - Algorithm Run Result reported a runtime of 61381.69679 (secs) that exceeded it's cutoff time of 3600.0 (secs) by 57781.69679 (secs). Next warning at 57782.69679 (secs)  
+04:21:09.641 [main] WARN  c.u.c.b.a.t.d.s.TimingCheckerTargetAlgorithmEvaluator - Algorithm Run Result reported a runtime of 62065.840389 (secs) that exceeded it's cutoff time of 3600.0 (secs) by 58465.840389 (secs). Next warning at 58466.840389 (secs)  
+04:33:40.293 [main] WARN  c.u.c.b.a.t.d.s.TimingCheckerTargetAlgorithmEvaluator - Algorithm Run Result reported a runtime of 62447.793333 (secs) that exceeded it's cutoff time of 3600.0 (secs) by 58847.793333 (secs). Next warning at 58848.793333 (secs)  
+04:39:58.777 [main] WARN  c.u.c.b.a.t.d.s.TimingCheckerTargetAlgorithmEvaluator - Algorithm Run Result reported a runtime of 63197.514922 (secs) that exceeded it's cutoff time of 3600.0 (secs) by 59597.514922 (secs). Next warning at 59598.514922 (secs)  
+04:48:02.132 [main] WARN  c.u.c.b.a.t.d.s.TimingCheckerTargetAlgorithmEvaluator - Algorithm Run Result reported a runtime of 63767.592591 (secs) that exceeded it's cutoff time of 3600.0 (secs) by 60167.592591 (secs). Next warning at 60168.592591 (secs)  
+04:54:41.846 [main] WARN  c.u.c.b.a.t.d.s.TimingCheckerTargetAlgorithmEvaluator - Algorithm Run Result reported a runtime of 64058.144433 (secs) that exceeded it's cutoff time of 3600.0 (secs) by 60458.144433 (secs). Next warning at 60459.144433 (secs)  
+05:01:37.347 [main] WARN  c.u.c.b.a.t.d.s.TimingCheckerTargetAlgorithmEvaluator - Algorithm Run Result reported a runtime of 64457.34832 (secs) that exceeded it's cutoff time of 3600.0 (secs) by 60857.34832 (secs). Next warning at 60858.34832 (secs)  
+05:17:51.292 [main] WARN  c.u.c.b.a.t.d.s.TimingCheckerTargetAlgorithmEvaluator - Algorithm Run Result reported a runtime of 64872.197205 (secs) that exceeded it's cutoff time of 3600.0 (secs) by 61272.197205 (secs). Next warning at 61273.197205 (secs)  
+05:24:13.119 [main] WARN  c.u.c.b.a.t.d.s.TimingCheckerTargetAlgorithmEvaluator - Algorithm Run Result reported a runtime of 65844.735728 (secs) that exceeded it's cutoff time of 3600.0 (secs) by 62244.735728 (secs). Next warning at 62245.735728 (secs)  
+05:35:30.861 [main] WARN  c.u.c.b.a.t.d.s.TimingCheckerTargetAlgorithmEvaluator - Algorithm Run Result reported a runtime of 66225.796465 (secs) that exceeded it's cutoff time of 3600.0 (secs) by 62625.79646500001 (secs). Next warning at 62626.79646500001 (secs)  
+05:41:56.456 [main] WARN  c.u.c.b.a.t.d.s.TimingCheckerTargetAlgorithmEvaluator - Algorithm Run Result reported a runtime of 66902.224135 (secs) that exceeded it's cutoff time of 3600.0 (secs) by 63302.224135 (secs). Next warning at 63303.224135 (secs)  
+05:52:53.937 [main] WARN  c.u.c.b.a.t.d.s.TimingCheckerTargetAlgorithmEvaluator - Algorithm Run Result reported a runtime of 67287.271592 (secs) that exceeded it's cutoff time of 3600.0 (secs) by 63687.271592000005 (secs). Next warning at 63688.271592000005 (secs)  
+06:00:15.651 [main] WARN  c.u.c.b.a.t.d.s.TimingCheckerTargetAlgorithmEvaluator - Algorithm Run Result reported a runtime of 67943.892658 (secs) that exceeded it's cutoff time of 3600.0 (secs) by 64343.892658 (secs). Next warning at 64344.892658 (secs)  
+06:12:57.710 [main] WARN  c.u.c.b.a.t.d.s.TimingCheckerTargetAlgorithmEvaluator - Algorithm Run Result reported a runtime of 68384.905567 (secs) that exceeded it's cutoff time of 3600.0 (secs) by 64784.905566999994 (secs). Next warning at 64785.905566999994 (secs)  
+06:19:10.175 [main] WARN  c.u.c.b.a.t.d.s.TimingCheckerTargetAlgorithmEvaluator - Algorithm Run Result reported a runtime of 69145.83072 (secs) that exceeded it's cutoff time of 3600.0 (secs) by 65545.83072 (secs). Next warning at 65546.83072 (secs)  
+06:25:46.613 [main] WARN  c.u.c.b.a.t.d.s.TimingCheckerTargetAlgorithmEvaluator - Algorithm Run Result reported a runtime of 69517.660427 (secs) that exceeded it's cutoff time of 3600.0 (secs) by 65917.660427 (secs). Next warning at 65918.660427 (secs)  
+06:32:36.776 [main] WARN  c.u.c.b.a.t.d.s.TimingCheckerTargetAlgorithmEvaluator - Algorithm Run Result reported a runtime of 69913.436483 (secs) that exceeded it's cutoff time of 3600.0 (secs) by 66313.436483 (secs). Next warning at 66314.436483 (secs)  
+06:46:36.456 [main] WARN  c.u.c.b.a.t.d.s.TimingCheckerTargetAlgorithmEvaluator - Algorithm Run Result reported a runtime of 70322.874661 (secs) that exceeded it's cutoff time of 3600.0 (secs) by 66722.874661 (secs). Next warning at 66723.874661 (secs)  
+06:50:15.142 [main] WARN  c.u.c.b.a.t.d.s.TimingCheckerTargetAlgorithmEvaluator - Algorithm Run Result reported a runtime of 71161.52673 (secs) that exceeded it's cutoff time of 3600.0 (secs) by 67561.52673 (secs). Next warning at 67562.52673 (secs)  
+07:01:23.306 [main] WARN  c.u.c.b.a.t.d.s.TimingCheckerTargetAlgorithmEvaluator - Algorithm Run Result reported a runtime of 71379.929684 (secs) that exceeded it's cutoff time of 3600.0 (secs) by 67779.929684 (secs). Next warning at 67780.929684 (secs)  
+07:07:44.837 [main] WARN  c.u.c.b.a.t.d.s.TimingCheckerTargetAlgorithmEvaluator - Algorithm Run Result reported a runtime of 72047.186232 (secs) that exceeded it's cutoff time of 3600.0 (secs) by 68447.186232 (secs). Next warning at 68448.186232 (secs)  
+07:17:21.914 [main] WARN  c.u.c.b.a.t.d.s.TimingCheckerTargetAlgorithmEvaluator - Algorithm Run Result reported a runtime of 72428.149214 (secs) that exceeded it's cutoff time of 3600.0 (secs) by 68828.149214 (secs). Next warning at 68829.149214 (secs)  
+07:23:26.972 [main] WARN  c.u.c.b.a.t.d.s.TimingCheckerTargetAlgorithmEvaluator - Algorithm Run Result reported a runtime of 73004.486517 (secs) that exceeded it's cutoff time of 3600.0 (secs) by 69404.486517 (secs). Next warning at 69405.486517 (secs)  
+07:37:42.227 [main] WARN  c.u.c.b.a.t.d.s.TimingCheckerTargetAlgorithmEvaluator - Algorithm Run Result reported a runtime of 73368.970517 (secs) that exceeded it's cutoff time of 3600.0 (secs) by 69768.970517 (secs). Next warning at 69769.970517 (secs)  
+07:41:50.730 [main] WARN  c.u.c.b.a.t.d.s.TimingCheckerTargetAlgorithmEvaluator - Algorithm Run Result reported a runtime of 74221.62227 (secs) that exceeded it's cutoff time of 3600.0 (secs) by 70621.62227 (secs). Next warning at 70622.62227 (secs)  
+07:49:57.984 [main] WARN  c.u.c.b.a.t.d.s.TimingCheckerTargetAlgorithmEvaluator - Algorithm Run Result reported a runtime of 74468.680366 (secs) that exceeded it's cutoff time of 3600.0 (secs) by 70868.680366 (secs). Next warning at 70869.680366 (secs)  
+07:56:21.189 [main] WARN  c.u.c.b.a.t.d.s.TimingCheckerTargetAlgorithmEvaluator - Algorithm Run Result reported a runtime of 74951.400194 (secs) that exceeded it's cutoff time of 3600.0 (secs) by 71351.400194 (secs). Next warning at 71352.400194 (secs)  
+08:11:05.452 [main] WARN  c.u.c.b.a.t.d.s.TimingCheckerTargetAlgorithmEvaluator - Algorithm Run Result reported a runtime of 75333.88436 (secs) that exceeded it's cutoff time of 3600.0 (secs) by 71733.88436 (secs). Next warning at 71734.88436 (secs)  
+08:16:41.521 [main] WARN  c.u.c.b.a.t.d.s.TimingCheckerTargetAlgorithmEvaluator - Algorithm Run Result reported a runtime of 76216.616801 (secs) that exceeded it's cutoff time of 3600.0 (secs) by 72616.616801 (secs). Next warning at 72617.616801 (secs)  
+08:30:54.517 [main] WARN  c.u.c.b.a.t.d.s.TimingCheckerTargetAlgorithmEvaluator - Algorithm Run Result reported a runtime of 76552.056345 (secs) that exceeded it's cutoff time of 3600.0 (secs) by 72952.056345 (secs). Next warning at 72953.056345 (secs)  
+08:37:26.510 [main] WARN  c.u.c.b.a.t.d.s.TimingCheckerTargetAlgorithmEvaluator - Algorithm Run Result reported a runtime of 77403.572723 (secs) that exceeded it's cutoff time of 3600.0 (secs) by 73803.572723 (secs). Next warning at 73804.572723 (secs)  
+08:48:45.613 [main] WARN  c.u.c.b.a.t.d.s.TimingCheckerTargetAlgorithmEvaluator - Algorithm Run Result reported a runtime of 77794.529324 (secs) that exceeded it's cutoff time of 3600.0 (secs) by 74194.529324 (secs). Next warning at 74195.529324 (secs)  
+08:54:26.304 [main] WARN  c.u.c.b.a.t.d.s.TimingCheckerTargetAlgorithmEvaluator - Algorithm Run Result reported a runtime of 78472.569674 (secs) that exceeded it's cutoff time of 3600.0 (secs) by 74872.569674 (secs). Next warning at 74873.569674 (secs)  
+09:08:11.390 [main] WARN  c.u.c.b.a.t.d.s.TimingCheckerTargetAlgorithmEvaluator - Algorithm Run Result reported a runtime of 78811.495722 (secs) that exceeded it's cutoff time of 3600.0 (secs) by 75211.495722 (secs). Next warning at 75212.495722 (secs)  
+09:14:36.983 [main] WARN  c.u.c.b.a.t.d.s.TimingCheckerTargetAlgorithmEvaluator - Algorithm Run Result reported a runtime of 79632.891681 (secs) that exceeded it's cutoff time of 3600.0 (secs) by 76032.891681 (secs). Next warning at 76033.891681 (secs)  
+09:28:15.544 [main] WARN  c.u.c.b.a.t.d.s.TimingCheckerTargetAlgorithmEvaluator - Algorithm Run Result reported a runtime of 80017.777186 (secs) that exceeded it's cutoff time of 3600.0 (secs) by 76417.777186 (secs). Next warning at 76418.777186 (secs)  
+09:37:52.215 [main] WARN  c.u.c.b.a.t.d.s.TimingCheckerTargetAlgorithmEvaluator - Algorithm Run Result reported a runtime of 80833.603757 (secs) that exceeded it's cutoff time of 3600.0 (secs) by 77233.603757 (secs). Next warning at 77234.603757 (secs)  
+09:50:54.823 [main] WARN  c.u.c.b.a.t.d.s.TimingCheckerTargetAlgorithmEvaluator - Algorithm Run Result reported a runtime of 81824.652542 (secs) that exceeded it's cutoff time of 3600.0 (secs) by 78224.652542 (secs). Next warning at 78225.652542 (secs)  
+10:02:30.699 [main] WARN  c.u.c.b.a.t.d.s.TimingCheckerTargetAlgorithmEvaluator - Algorithm Run Result reported a runtime of 82189.146143 (secs) that exceeded it's cutoff time of 3600.0 (secs) by 78589.146143 (secs). Next warning at 78590.146143 (secs)  
+10:09:43.473 [main] WARN  c.u.c.b.a.t.d.s.TimingCheckerTargetAlgorithmEvaluator - Algorithm Run Result reported a runtime of 82883.647849 (secs) that exceeded it's cutoff time of 3600.0 (secs) by 79283.647849 (secs). Next warning at 79284.647849 (secs)  
+10:16:34.458 [main] WARN  c.u.c.b.a.t.d.s.TimingCheckerTargetAlgorithmEvaluator - Algorithm Run Result reported a runtime of 83315.534217 (secs) that exceeded it's cutoff time of 3600.0 (secs) by 79715.534217 (secs). Next warning at 79716.534217 (secs)  
+10:27:07.377 [main] WARN  c.u.c.b.a.t.d.s.TimingCheckerTargetAlgorithmEvaluator - Algorithm Run Result reported a runtime of 83725.647005 (secs) that exceeded it's cutoff time of 3600.0 (secs) by 80125.647005 (secs). Next warning at 80126.647005 (secs)  
+10:40:35.526 [main] WARN  c.u.c.b.a.t.d.s.TimingCheckerTargetAlgorithmEvaluator - Algorithm Run Result reported a runtime of 84357.202438 (secs) that exceeded it's cutoff time of 3600.0 (secs) by 80757.202438 (secs). Next warning at 80758.202438 (secs)  
+10:57:30.622 [main] WARN  c.u.c.b.a.t.d.s.TimingCheckerTargetAlgorithmEvaluator - Algorithm Run Result reported a runtime of 85163.6974 (secs) that exceeded it's cutoff time of 3600.0 (secs) by 81563.6974 (secs). Next warning at 81564.6974 (secs)  
+11:03:43.956 [main] WARN  c.u.c.b.a.t.d.s.TimingCheckerTargetAlgorithmEvaluator - Algorithm Run Result reported a runtime of 86176.545031 (secs) that exceeded it's cutoff time of 3600.0 (secs) by 82576.545031 (secs). Next warning at 82577.545031 (secs)  
+11:22:18.904 [main] WARN  c.u.c.b.a.t.d.s.TimingCheckerTargetAlgorithmEvaluator - Algorithm Run Result reported a runtime of 86549.115678 (secs) that exceeded it's cutoff time of 3600.0 (secs) by 82949.115678 (secs). Next warning at 82950.115678 (secs)  
+11:22:26.182 [Thread-6] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Making best attempt to save state. This state may be dirty, in that it was taken in the middle of an iteration and consequently may not be restorable. It may also be corrupt depending on the exact reason we are shutting down.
