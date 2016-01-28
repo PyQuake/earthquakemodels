@@ -1,6 +1,14 @@
 Run Number,Run History Configuration ID,Instance ID,Response Value (y),Censored?,Cutoff Time Used,Seed,Runtime,Run Length,Run Result Code,Run Quality,SMAC Iteration,SMAC Cumulative Runtime,Run Result,Additional Algorithm Run Data,Wall Clock Time,
 <<<<<<< HEAD
+1,1,1,800.0,0,3600.0,-1,0.0,0.0,1,800.0,0,0.0,SAT,,231.049,
+=======
+<<<<<<< HEAD
+1,1,1,1600.0,0,3600.0,-1,0.0,0.0,1,1600.0,0,0.0,SAT,,467.954,
+=======
+<<<<<<< HEAD
 1,1,1,2025.301029995664,0,3600.0,-1,0.0,0.0,1,2025.301029995664,0,0.0,SAT,,600.722,
 =======
 1,1,1,1601.6020599913281,0,3600.0,-1,0.0,0.0,1,1601.6020599913281,0,0.0,SAT,,473.642,
 >>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
+>>>>>>> 5dfaca464da908c9864b8cdf60e201b61d2b38f8
+>>>>>>> 3d73396bfdf577ba749b5092145ba0e293361b04

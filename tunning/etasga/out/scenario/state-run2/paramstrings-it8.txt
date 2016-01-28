@@ -9,9 +9,25 @@
 9: crossover='0.1339485895732897', mutation='0.6817374592529313', n_generations='113'
 10: crossover='0.6361024412494221', mutation='0.9164622204220474', n_generations='247'
 11: crossover='0.21590140676835923', mutation='0.7446249139022727', n_generations='206'
+<<<<<<< HEAD
+12: crossover='0.8356978486121928', mutation='0.5865639842237262', n_generations='234'
+13: crossover='0.6621261982700072', mutation='0.2226708212322429', n_generations='86'
+14: crossover='0.636862268433327', mutation='0.14376785097923805', n_generations='136'
+15: crossover='0.5704204772131738', mutation='0.3569901145039619', n_generations='147'
+16: crossover='0.4603087747831073', mutation='0.5475915785453763', n_generations='118'
+=======
+<<<<<<< HEAD
+12: crossover='0.49249440768898634', mutation='0.7558757074026277', n_generations='192'
+13: crossover='0.6621261982700072', mutation='0.2226708212322429', n_generations='86'
+14: crossover='0.6794021707717638', mutation='0.7478739681684441', n_generations='195'
+15: crossover='0.5704204772131738', mutation='0.3569901145039619', n_generations='147'
+16: crossover='0.732378017152303', mutation='0.7502071600875052', n_generations='52'
+=======
 12: crossover='0.8542589570168662', mutation='0.4329447442902914', n_generations='177'
 13: crossover='0.6621261982700072', mutation='0.2226708212322429', n_generations='86'
 14: crossover='0.8651529996300082', mutation='0.5883262925622509', n_generations='55'
 15: crossover='0.5704204772131738', mutation='0.3569901145039619', n_generations='147'
 16: crossover='0.8747491226693093', mutation='0.7532991383589871', n_generations='87'
+>>>>>>> 40d814705a470fed13b12d6359989396e6ecd75e
+>>>>>>> 19b837ed4846dfa896fb13558b9a4ecf6b01a0cd
 17: crossover='0.7815053772148964', mutation='0.6064659400581144', n_generations='190'
