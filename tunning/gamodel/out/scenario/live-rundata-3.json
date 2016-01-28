@@ -10,10 +10,17 @@
     "rc-algo-exec-config" : {
       "@algo-exec-config-id" : 2,
       "algo-exec" : "echo 0",
+<<<<<<< HEAD
       "algo-exec-dir" : "/home/lara13/Documents/earthquakemodels/tunning/./gamodel",
       "algo-pcs" : {
         "@pcs-id" : 2,
         "pcs-filename" : "/home/lara13/Documents/earthquakemodels/tunning/./gamodel/parameters.pcs",
+=======
+      "algo-exec-dir" : "/home/lara05/Documents/earthquakemodels/tunning/./gamodel",
+      "algo-pcs" : {
+        "@pcs-id" : 2,
+        "pcs-filename" : "/home/lara05/Documents/earthquakemodels/tunning/./gamodel/parameters.pcs",
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
         "pcs-text" : "n_generations integer [50, 250] [100]\nmutation real [0, 1] [0.1]\ncrossover real [0, 1] [0.9]\n",
         "pcs-subspace" : { }
       },
@@ -48,10 +55,17 @@
   "r-run-result" : "SAT",
   "r-runtime" : 0.0,
   "r-run-length" : 0.0,
+<<<<<<< HEAD
   "r-quality" : 2025.301029995664,
   "r-result-seed" : -1,
   "r-addl-run-data" : "",
   "r-wallclock-time" : 596.994
+=======
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 465.17
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 } {
   "r-rc" : {
     "@rc-id" : 3,
@@ -79,12 +93,21 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
   "r-runtime" : 595.24979,
   "r-run-length" : 0.0,
   "r-quality" : 2025.301029995664,
   "r-result-seed" : -1,
   "r-addl-run-data" : "",
   "r-wallclock-time" : 1051.418
+=======
+  "r-runtime" : 463.672,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 820.081
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 } {
   "r-rc" : {
     "@rc-id" : 4,
@@ -112,12 +135,21 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
   "r-runtime" : 1642.840827,
   "r-run-length" : 0.0,
   "r-quality" : 2025.301029995664,
   "r-result-seed" : -1,
   "r-addl-run-data" : "",
   "r-wallclock-time" : 492.233
+=======
+  "r-runtime" : 1282.12,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 378.769
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 } {
   "r-rc" : {
     "@rc-id" : 5,
@@ -145,12 +177,21 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
   "r-runtime" : 2134.230534,
   "r-run-length" : 0.0,
   "r-quality" : 2025.301029995664,
   "r-result-seed" : -1,
   "r-addl-run-data" : "",
   "r-wallclock-time" : 693.614
+=======
+  "r-runtime" : 1660.416,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 538.973
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 } {
   "r-rc" : {
     "@rc-id" : 6,
@@ -178,12 +219,21 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
   "r-runtime" : 2826.477393,
   "r-run-length" : 0.0,
   "r-quality" : 2025.301029995664,
   "r-result-seed" : -1,
   "r-addl-run-data" : "",
   "r-wallclock-time" : 447.343
+=======
+  "r-runtime" : 2198.54,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 345.921
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 } {
   "r-rc" : {
     "@rc-id" : 7,
@@ -211,12 +261,21 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
   "r-runtime" : 3272.896088,
   "r-run-length" : 0.0,
   "r-quality" : 2025.301029995664,
   "r-result-seed" : -1,
   "r-addl-run-data" : "",
   "r-wallclock-time" : 954.28
+=======
+  "r-runtime" : 2543.96,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 744.314
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 } {
   "r-rc" : {
     "@rc-id" : 8,
@@ -244,12 +303,21 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
   "r-runtime" : 4225.16599,
   "r-run-length" : 0.0,
   "r-quality" : 2025.301029995664,
   "r-result-seed" : -1,
   "r-addl-run-data" : "",
   "r-wallclock-time" : 813.796
+=======
+  "r-runtime" : 3287.096,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 635.91
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 } {
   "r-rc" : {
     "@rc-id" : 9,
@@ -277,12 +345,21 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
   "r-runtime" : 5037.368282,
   "r-run-length" : 0.0,
   "r-quality" : 2025.301029995664,
   "r-result-seed" : -1,
   "r-addl-run-data" : "",
   "r-wallclock-time" : 635.688
+=======
+  "r-runtime" : 3921.284,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 496.444
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 } {
   "r-rc" : {
     "@rc-id" : 10,
@@ -310,12 +387,21 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
   "r-runtime" : 5037.368282,
   "r-run-length" : 0.0,
   "r-quality" : 2025.301029995664,
   "r-result-seed" : -1,
   "r-addl-run-data" : "",
   "r-wallclock-time" : 705.403
+=======
+  "r-runtime" : 3921.284,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 548.379
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 } {
   "r-rc" : {
     "@rc-id" : 11,
@@ -343,12 +429,21 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
   "r-runtime" : 6375.953624,
   "r-run-length" : 0.0,
   "r-quality" : 2025.301029995664,
   "r-result-seed" : -1,
   "r-addl-run-data" : "",
   "r-wallclock-time" : 283.63
+=======
+  "r-runtime" : 4964.916,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 220.891
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 } {
   "r-rc" : {
     "@rc-id" : 12,
@@ -376,12 +471,21 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
   "r-runtime" : 6375.953624,
   "r-run-length" : 0.0,
   "r-quality" : 2025.301029995664,
   "r-result-seed" : -1,
   "r-addl-run-data" : "",
   "r-wallclock-time" : 1008.703
+=======
+  "r-runtime" : 5185.58,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 791.093
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 } {
   "r-rc" : {
     "@rc-id" : 13,
@@ -409,12 +513,21 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
   "r-runtime" : 7665.838924,
   "r-run-length" : 0.0,
   "r-quality" : 2025.301029995664,
   "r-result-seed" : -1,
   "r-addl-run-data" : "",
   "r-wallclock-time" : 669.82
+=======
+  "r-runtime" : 5975.496,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 522.029
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 } {
   "r-rc" : {
     "@rc-id" : 14,
@@ -442,12 +555,21 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
   "r-runtime" : 7665.838924,
   "r-run-length" : 0.0,
   "r-quality" : 2025.301029995664,
   "r-result-seed" : -1,
   "r-addl-run-data" : "",
   "r-wallclock-time" : 704.015
+=======
+  "r-runtime" : 6496.932,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 556.038
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 } {
   "r-rc" : {
     "@rc-id" : 15,
@@ -475,12 +597,21 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
   "r-runtime" : 9037.076385,
   "r-run-length" : 0.0,
   "r-quality" : 2025.301029995664,
   "r-result-seed" : -1,
   "r-addl-run-data" : "",
   "r-wallclock-time" : 792.302
+=======
+  "r-runtime" : 7051.2,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 621.307
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 } {
   "r-rc" : {
     "@rc-id" : 16,
@@ -508,12 +639,21 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
   "r-runtime" : 9828.04737,
   "r-run-length" : 0.0,
   "r-quality" : 2025.301029995664,
   "r-result-seed" : -1,
   "r-addl-run-data" : "",
   "r-wallclock-time" : 502.385
+=======
+  "r-runtime" : 7671.796,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 392.526
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 } {
   "r-rc" : {
     "@rc-id" : 17,
@@ -541,12 +681,21 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
   "r-runtime" : 10329.45696,
   "r-run-length" : 0.0,
   "r-quality" : 2025.301029995664,
   "r-result-seed" : -1,
   "r-addl-run-data" : "",
   "r-wallclock-time" : 683.919
+=======
+  "r-runtime" : 8063.896,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 532.23
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 } {
   "r-rc" : {
     "@rc-id" : 18,
@@ -574,12 +723,21 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
   "r-runtime" : 11010.37828,
   "r-run-length" : 0.0,
   "r-quality" : 2025.301029995664,
   "r-result-seed" : -1,
   "r-addl-run-data" : "",
   "r-wallclock-time" : 876.692
+=======
+  "r-runtime" : 8595.536,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 683.409
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 } {
   "r-rc" : {
     "@rc-id" : 19,
@@ -607,12 +765,21 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
   "r-runtime" : 11882.942069,
   "r-run-length" : 0.0,
   "r-quality" : 2025.301029995664,
   "r-result-seed" : -1,
   "r-addl-run-data" : "",
   "r-wallclock-time" : 473.696
+=======
+  "r-runtime" : 9277.18,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 367.683
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 } {
   "r-rc" : {
     "@rc-id" : 20,
@@ -640,12 +807,21 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
   "r-runtime" : 12354.461837,
   "r-run-length" : 0.0,
   "r-quality" : 2025.301029995664,
   "r-result-seed" : -1,
   "r-addl-run-data" : "",
   "r-wallclock-time" : 791.558
+=======
+  "r-runtime" : 9643.264,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 616.198
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 } {
   "r-rc" : {
     "@rc-id" : 21,
@@ -673,12 +849,21 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
   "r-runtime" : 13144.363608,
   "r-run-length" : 0.0,
   "r-quality" : 2025.301029995664,
   "r-result-seed" : -1,
   "r-addl-run-data" : "",
   "r-wallclock-time" : 240.59
+=======
+  "r-runtime" : 10257.372,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 187.497
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 } {
   "r-rc" : {
     "@rc-id" : 22,
@@ -706,12 +891,21 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
   "r-runtime" : 13383.540937,
   "r-run-length" : 0.0,
   "r-quality" : 2025.301029995664,
   "r-result-seed" : -1,
   "r-addl-run-data" : "",
   "r-wallclock-time" : 615.91
+=======
+  "r-runtime" : 10444.272,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 482.734
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 } {
   "r-rc" : {
     "@rc-id" : 23,
@@ -739,12 +933,21 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
   "r-runtime" : 13998.373489,
   "r-run-length" : 0.0,
   "r-quality" : 2025.301029995664,
   "r-result-seed" : -1,
   "r-addl-run-data" : "",
   "r-wallclock-time" : 1197.966
+=======
+  "r-runtime" : 10926.068,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 937.084
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 } {
   "r-rc" : {
     "@rc-id" : 24,
@@ -772,12 +975,21 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
   "r-runtime" : 15194.270006,
   "r-run-length" : 0.0,
   "r-quality" : 2025.301029995664,
   "r-result-seed" : -1,
   "r-addl-run-data" : "",
   "r-wallclock-time" : 609.238
+=======
+  "r-runtime" : 11861.024,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 472.294
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 } {
   "r-rc" : {
     "@rc-id" : 25,
@@ -805,12 +1017,21 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
   "r-runtime" : 15802.547307,
   "r-run-length" : 0.0,
   "r-quality" : 2025.301029995664,
   "r-result-seed" : -1,
   "r-addl-run-data" : "",
   "r-wallclock-time" : 625.547
+=======
+  "r-runtime" : 12332.68,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 486.147
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 } {
   "r-rc" : {
     "@rc-id" : 26,
@@ -838,12 +1059,21 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
   "r-runtime" : 15802.547307,
   "r-run-length" : 0.0,
   "r-quality" : 2025.301029995664,
   "r-result-seed" : -1,
   "r-addl-run-data" : "",
   "r-wallclock-time" : 939.358
+=======
+  "r-runtime" : 12818.08,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 730.384
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 } {
   "r-rc" : {
     "@rc-id" : 27,
@@ -871,12 +1101,21 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
   "r-runtime" : 17364.891716,
   "r-run-length" : 0.0,
   "r-quality" : 2025.301029995664,
   "r-result-seed" : -1,
   "r-addl-run-data" : "",
   "r-wallclock-time" : 739.219
+=======
+  "r-runtime" : 13547.636,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 566.17
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 } {
   "r-rc" : {
     "@rc-id" : 28,
@@ -904,12 +1143,21 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
   "r-runtime" : 17364.891716,
   "r-run-length" : 0.0,
   "r-quality" : 2026.301029995664,
   "r-result-seed" : -1,
   "r-addl-run-data" : "",
   "r-wallclock-time" : 112.871
+=======
+  "r-runtime" : 14113.08,
+  "r-run-length" : 0.0,
+  "r-quality" : 1601.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 88.957
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 } {
   "r-rc" : {
     "@rc-id" : 29,
@@ -937,12 +1185,21 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
   "r-runtime" : 18215.66341,
   "r-run-length" : 0.0,
   "r-quality" : 2025.301029995664,
   "r-result-seed" : -1,
   "r-addl-run-data" : "",
   "r-wallclock-time" : 524.34
+=======
+  "r-runtime" : 14201.284,
+  "r-run-length" : 0.0,
+  "r-quality" : 1601.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 403.534
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 } {
   "r-rc" : {
     "@rc-id" : 30,
@@ -970,12 +1227,21 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
   "r-runtime" : 18739.214725,
   "r-run-length" : 0.0,
   "r-quality" : 2025.301029995664,
   "r-result-seed" : -1,
   "r-addl-run-data" : "",
   "r-wallclock-time" : 729.174
+=======
+  "r-runtime" : 14603.356,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 573.167
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 } {
   "r-rc" : {
     "@rc-id" : 31,
@@ -992,9 +1258,15 @@
         "@pcs-id" : 2
       },
       "pc-settings" : {
+<<<<<<< HEAD
         "crossover" : "0.16801247373745143",
         "mutation" : "0.09156337535156522",
         "n_generations" : "245"
+=======
+        "crossover" : "0.4481744398346179",
+        "mutation" : "0.09822676722846846",
+        "n_generations" : "176"
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
       },
       "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
       "pc-forbidden" : false,
@@ -1003,12 +1275,21 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
   "r-runtime" : 19467.177817,
   "r-run-length" : 0.0,
   "r-quality" : 2025.301029995664,
   "r-result-seed" : -1,
   "r-addl-run-data" : "",
   "r-wallclock-time" : 180.889
+=======
+  "r-runtime" : 15173.288,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 272.922
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 } {
   "r-rc" : {
     "@rc-id" : 32,
@@ -1036,12 +1317,21 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
   "r-runtime" : 19647.745288,
   "r-run-length" : 0.0,
   "r-quality" : 2025.301029995664,
   "r-result-seed" : -1,
   "r-addl-run-data" : "",
   "r-wallclock-time" : 588.843
+=======
+  "r-runtime" : 15444.952,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 459.998
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 } {
   "r-rc" : {
     "@rc-id" : 33,
@@ -1058,9 +1348,15 @@
         "@pcs-id" : 2
       },
       "pc-settings" : {
+<<<<<<< HEAD
         "crossover" : "0.17519421062063112",
         "mutation" : "0.08946644714560581",
         "n_generations" : "190"
+=======
+        "crossover" : "0.08347610106045955",
+        "mutation" : "0.09698643255363526",
+        "n_generations" : "176"
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
       },
       "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
       "pc-forbidden" : false,
@@ -1069,12 +1365,21 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
   "r-runtime" : 20235.613288,
   "r-run-length" : 0.0,
   "r-quality" : 2025.301029995664,
   "r-result-seed" : -1,
   "r-addl-run-data" : "",
   "r-wallclock-time" : 191.725
+=======
+  "r-runtime" : 15904.488,
+  "r-run-length" : 0.0,
+  "r-quality" : 1601.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 96.353
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 } {
   "r-rc" : {
     "@rc-id" : 34,
@@ -1102,12 +1407,21 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
   "r-runtime" : 20426.993581,
   "r-run-length" : 0.0,
   "r-quality" : 2025.301029995664,
   "r-result-seed" : -1,
   "r-addl-run-data" : "",
   "r-wallclock-time" : 557.539
+=======
+  "r-runtime" : 16000.736,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 433.21
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 } {
   "r-rc" : {
     "@rc-id" : 35,
@@ -1124,9 +1438,15 @@
         "@pcs-id" : 2
       },
       "pc-settings" : {
+<<<<<<< HEAD
         "crossover" : "0.6875329645109032",
         "mutation" : "0.08878105780962986",
         "n_generations" : "91"
+=======
+        "crossover" : "0.6434354475213853",
+        "mutation" : "0.09801770107839369",
+        "n_generations" : "221"
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
       },
       "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
       "pc-forbidden" : false,
@@ -1135,12 +1455,21 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
   "r-runtime" : 20983.626428,
   "r-run-length" : 0.0,
   "r-quality" : 2025.301029995664,
   "r-result-seed" : -1,
   "r-addl-run-data" : "",
   "r-wallclock-time" : 506.083
+=======
+  "r-runtime" : 16433.436,
+  "r-run-length" : 0.0,
+  "r-quality" : 1601.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 429.149
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 } {
   "r-rc" : {
     "@rc-id" : 36,
@@ -1168,12 +1497,21 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
   "r-runtime" : 21487.252106,
   "r-run-length" : 0.0,
   "r-quality" : 2025.301029995664,
   "r-result-seed" : -1,
   "r-addl-run-data" : "",
   "r-wallclock-time" : 884.422
+=======
+  "r-runtime" : 16433.436,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 685.562
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 } {
   "r-rc" : {
     "@rc-id" : 37,
@@ -1190,9 +1528,15 @@
         "@pcs-id" : 2
       },
       "pc-settings" : {
+<<<<<<< HEAD
         "crossover" : "0.2000184938744285",
         "mutation" : "0.08798206072421899",
         "n_generations" : "216"
+=======
+        "crossover" : "0.5446417726484605",
+        "mutation" : "0.09812187987603482",
+        "n_generations" : "147"
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
       },
       "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
       "pc-forbidden" : false,
@@ -1201,12 +1545,21 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
   "r-runtime" : 22367.727135,
   "r-run-length" : 0.0,
   "r-quality" : 2025.301029995664,
   "r-result-seed" : -1,
   "r-addl-run-data" : "",
   "r-wallclock-time" : 267.295
+=======
+  "r-runtime" : 17546.912,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 319.447
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 } {
   "r-rc" : {
     "@rc-id" : 38,
@@ -1234,12 +1587,21 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
   "r-runtime" : 22633.555554,
   "r-run-length" : 0.0,
   "r-quality" : 2025.301029995664,
   "r-result-seed" : -1,
   "r-addl-run-data" : "",
   "r-wallclock-time" : 335.744
+=======
+  "r-runtime" : 17865.584,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 264.317
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 } {
   "r-rc" : {
     "@rc-id" : 39,
@@ -1256,9 +1618,15 @@
         "@pcs-id" : 2
       },
       "pc-settings" : {
+<<<<<<< HEAD
         "crossover" : "0.2818373359626781",
         "mutation" : "0.08688271386772561",
         "n_generations" : "238"
+=======
+        "crossover" : "0.5546863698493744",
+        "mutation" : "0.09808377377626443",
+        "n_generations" : "203"
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
       },
       "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
       "pc-forbidden" : false,
@@ -1267,12 +1635,21 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
   "r-runtime" : 22967.399751,
   "r-run-length" : 0.0,
   "r-quality" : 2025.301029995664,
   "r-result-seed" : -1,
   "r-addl-run-data" : "",
   "r-wallclock-time" : 255.007
+=======
+  "r-runtime" : 18128.564,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 382.806
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 } {
   "r-rc" : {
     "@rc-id" : 40,
@@ -1300,12 +1677,21 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
   "r-runtime" : 23220.68041,
   "r-run-length" : 0.0,
   "r-quality" : 2025.301029995664,
   "r-result-seed" : -1,
   "r-addl-run-data" : "",
   "r-wallclock-time" : 661.061
+=======
+  "r-runtime" : 18511.124,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 512.353
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 } {
   "r-rc" : {
     "@rc-id" : 41,
@@ -1322,9 +1708,15 @@
         "@pcs-id" : 2
       },
       "pc-settings" : {
+<<<<<<< HEAD
         "crossover" : "0.42592975688415546",
         "mutation" : "0.0863621578976782",
         "n_generations" : "172"
+=======
+        "crossover" : "0.2561653918710439",
+        "mutation" : "0.3146349754078477",
+        "n_generations" : "168"
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
       },
       "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
       "pc-forbidden" : false,
@@ -1333,12 +1725,21 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
   "r-runtime" : 23878.375497,
   "r-run-length" : 0.0,
   "r-quality" : 2025.301029995664,
   "r-result-seed" : -1,
   "r-addl-run-data" : "",
   "r-wallclock-time" : 443.331
+=======
+  "r-runtime" : 19022.504,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 348.129
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 } {
   "r-rc" : {
     "@rc-id" : 42,
@@ -1366,12 +1767,21 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
   "r-runtime" : 24319.465828,
   "r-run-length" : 0.0,
   "r-quality" : 2025.301029995664,
   "r-result-seed" : -1,
   "r-addl-run-data" : "",
   "r-wallclock-time" : 618.213
+=======
+  "r-runtime" : 19370.024,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 481.528
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 } {
   "r-rc" : {
     "@rc-id" : 43,
@@ -1388,9 +1798,15 @@
         "@pcs-id" : 2
       },
       "pc-settings" : {
+<<<<<<< HEAD
         "crossover" : "0.1569161853393346",
         "mutation" : "0.0859382072043372",
         "n_generations" : "118"
+=======
+        "crossover" : "0.8309177133048224",
+        "mutation" : "0.0031253019759392986",
+        "n_generations" : "121"
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
       },
       "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
       "pc-forbidden" : false,
@@ -1399,12 +1815,21 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
   "r-runtime" : 24936.311358,
   "r-run-length" : 0.0,
   "r-quality" : 2025.301029995664,
   "r-result-seed" : -1,
   "r-addl-run-data" : "",
   "r-wallclock-time" : 190.231
+=======
+  "r-runtime" : 19850.86,
+  "r-run-length" : 0.0,
+  "r-quality" : 1605.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 448.026
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 } {
   "r-rc" : {
     "@rc-id" : 44,
@@ -1432,12 +1857,21 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
   "r-runtime" : 25126.161367,
   "r-run-length" : 0.0,
   "r-quality" : 2025.301029995664,
   "r-result-seed" : -1,
   "r-addl-run-data" : "",
   "r-wallclock-time" : 1331.297
+=======
+  "r-runtime" : 19850.86,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 1043.991
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 } {
   "r-rc" : {
     "@rc-id" : 45,
@@ -1454,9 +1888,15 @@
         "@pcs-id" : 2
       },
       "pc-settings" : {
+<<<<<<< HEAD
         "crossover" : "0.11520655848027839",
         "mutation" : "0.08542941834315587",
         "n_generations" : "143"
+=======
+        "crossover" : "0.046778546279198086",
+        "mutation" : "0.07583744287560001",
+        "n_generations" : "162"
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
       },
       "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
       "pc-forbidden" : false,
@@ -1465,12 +1905,21 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
   "r-runtime" : 26454.879522,
   "r-run-length" : 0.0,
   "r-quality" : 2025.301029995664,
   "r-result-seed" : -1,
   "r-addl-run-data" : "",
   "r-wallclock-time" : 164.35
+=======
+  "r-runtime" : 21341.432,
+  "r-run-length" : 0.0,
+  "r-quality" : 1601.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 88.801
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 } {
   "r-rc" : {
     "@rc-id" : 46,
@@ -1498,12 +1947,21 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
   "r-runtime" : 26618.888167,
   "r-run-length" : 0.0,
   "r-quality" : 2025.301029995664,
   "r-result-seed" : -1,
   "r-addl-run-data" : "",
   "r-wallclock-time" : 413.244
+=======
+  "r-runtime" : 21341.432,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 327.562
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 } {
   "r-rc" : {
     "@rc-id" : 47,
@@ -1520,9 +1978,15 @@
         "@pcs-id" : 2
       },
       "pc-settings" : {
+<<<<<<< HEAD
         "crossover" : "0.32650101317949665",
         "mutation" : "0.0851381340106917",
         "n_generations" : "92"
+=======
+        "crossover" : "0.9814995229831606",
+        "mutation" : "0.03992913456681646",
+        "n_generations" : "102"
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
       },
       "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
       "pc-forbidden" : false,
@@ -1531,12 +1995,21 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
   "r-runtime" : 27031.3253,
   "r-run-length" : 0.0,
   "r-quality" : 2026.301029995664,
   "r-result-seed" : -1,
   "r-addl-run-data" : "",
   "r-wallclock-time" : 280.636
+=======
+  "r-runtime" : 21757.476,
+  "r-run-length" : 0.0,
+  "r-quality" : 1602.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 518.692
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 } {
   "r-rc" : {
     "@rc-id" : 48,
@@ -1564,12 +2037,21 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
   "r-runtime" : 27031.3253,
   "r-run-length" : 0.0,
   "r-quality" : 2025.301029995664,
   "r-result-seed" : -1,
   "r-addl-run-data" : "",
   "r-wallclock-time" : 864.38
+=======
+  "r-runtime" : 21757.476,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 669.302
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 } {
   "r-rc" : {
     "@rc-id" : 49,
@@ -1586,9 +2068,15 @@
         "@pcs-id" : 2
       },
       "pc-settings" : {
+<<<<<<< HEAD
         "crossover" : "0.19237263627250534",
         "mutation" : "0.08538363531012683",
         "n_generations" : "153"
+=======
+        "crossover" : "0.9789356260891396",
+        "mutation" : "0.18973660771716883",
+        "n_generations" : "136"
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
       },
       "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
       "pc-forbidden" : false,
@@ -1597,12 +2085,21 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
   "r-runtime" : 28174.152774,
   "r-run-length" : 0.0,
   "r-quality" : 2025.301029995664,
   "r-result-seed" : -1,
   "r-addl-run-data" : "",
   "r-wallclock-time" : 238.697
+=======
+  "r-runtime" : 22944.172,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 620.723
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 } {
   "r-rc" : {
     "@rc-id" : 50,
@@ -1630,12 +2127,21 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
   "r-runtime" : 28174.152774,
   "r-run-length" : 0.0,
   "r-quality" : 2025.301029995664,
   "r-result-seed" : -1,
   "r-addl-run-data" : "",
   "r-wallclock-time" : 834.221
+=======
+  "r-runtime" : 23564.336,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 654.606
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 } {
   "r-rc" : {
     "@rc-id" : 51,
@@ -1652,9 +2158,15 @@
         "@pcs-id" : 2
       },
       "pc-settings" : {
+<<<<<<< HEAD
         "crossover" : "0.5821841408949054",
         "mutation" : "0.08535927341238336",
         "n_generations" : "110"
+=======
+        "crossover" : "0.9795964682048358",
+        "mutation" : "0.6548188164486087",
+        "n_generations" : "150"
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
       },
       "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
       "pc-forbidden" : false,
@@ -1663,12 +2175,21 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
   "r-runtime" : 29245.183036,
   "r-run-length" : 0.0,
   "r-quality" : 2025.301029995664,
   "r-result-seed" : -1,
   "r-addl-run-data" : "",
   "r-wallclock-time" : 461.333
+=======
+  "r-runtime" : 24218.212,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 599.465
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 } {
   "r-rc" : {
     "@rc-id" : 52,
@@ -1696,12 +2217,21 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
   "r-runtime" : 29705.799965,
   "r-run-length" : 0.0,
   "r-quality" : 2025.301029995664,
   "r-result-seed" : -1,
   "r-addl-run-data" : "",
   "r-wallclock-time" : 797.189
+=======
+  "r-runtime" : 24814.828,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 625.687
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 } {
   "r-rc" : {
     "@rc-id" : 53,
@@ -1718,9 +2248,15 @@
         "@pcs-id" : 2
       },
       "pc-settings" : {
+<<<<<<< HEAD
         "crossover" : "0.6267999471088085",
         "mutation" : "0.08525756533762396",
         "n_generations" : "196"
+=======
+        "crossover" : "0.8978054771926804",
+        "mutation" : "0.02574411772289964",
+        "n_generations" : "206"
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
       },
       "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
       "pc-forbidden" : false,
@@ -1729,12 +2265,21 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
   "r-runtime" : 30501.87459,
   "r-run-length" : 0.0,
   "r-quality" : 2025.301029995664,
   "r-result-seed" : -1,
   "r-addl-run-data" : "",
   "r-wallclock-time" : 469.808
+=======
+  "r-runtime" : 25437.224,
+  "r-run-length" : 0.0,
+  "r-quality" : 1601.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 733.255
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 } {
   "r-rc" : {
     "@rc-id" : 54,
@@ -1762,12 +2307,21 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
   "r-runtime" : 30970.971676,
   "r-run-length" : 0.0,
   "r-quality" : 2025.301029995664,
   "r-result-seed" : -1,
   "r-addl-run-data" : "",
   "r-wallclock-time" : 797.015
+=======
+  "r-runtime" : 26170.012,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 622.241
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 } {
   "r-rc" : {
     "@rc-id" : 55,
@@ -1784,9 +2338,15 @@
         "@pcs-id" : 2
       },
       "pc-settings" : {
+<<<<<<< HEAD
         "crossover" : "0.007435095632164934",
         "mutation" : "0.2616327343147625",
         "n_generations" : "211"
+=======
+        "crossover" : "0.9800495081725349",
+        "mutation" : "0.9521162225166458",
+        "n_generations" : "71"
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
       },
       "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
       "pc-forbidden" : false,
@@ -1795,12 +2355,21 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
   "r-runtime" : 31766.51017,
   "r-run-length" : 0.0,
   "r-quality" : 2025.301029995664,
   "r-result-seed" : -1,
   "r-addl-run-data" : "",
   "r-wallclock-time" : 344.831
+=======
+  "r-runtime" : 26791.836,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 551.291
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 } {
   "r-rc" : {
     "@rc-id" : 56,
@@ -1828,12 +2397,21 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
   "r-runtime" : 32109.232242,
   "r-run-length" : 0.0,
   "r-quality" : 2025.301029995664,
   "r-result-seed" : -1,
   "r-addl-run-data" : "",
   "r-wallclock-time" : 567.265
+=======
+  "r-runtime" : 27342.592,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 437.797
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 } {
   "r-rc" : {
     "@rc-id" : 57,
@@ -1850,9 +2428,15 @@
         "@pcs-id" : 2
       },
       "pc-settings" : {
+<<<<<<< HEAD
         "crossover" : "0.7469611067921047",
         "mutation" : "0.5215551520819766",
         "n_generations" : "93"
+=======
+        "crossover" : "0.9836945685144073",
+        "mutation" : "0.17644335489203855",
+        "n_generations" : "172"
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
       },
       "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
       "pc-forbidden" : false,
@@ -1861,12 +2445,21 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
   "r-runtime" : 32673.50403,
   "r-run-length" : 0.0,
   "r-quality" : 2025.301029995664,
   "r-result-seed" : -1,
   "r-addl-run-data" : "",
   "r-wallclock-time" : 657.997
+=======
+  "r-runtime" : 27779.932,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 710.521
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 } {
   "r-rc" : {
     "@rc-id" : 58,
@@ -1894,12 +2487,21 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
   "r-runtime" : 33329.351898,
   "r-run-length" : 0.0,
   "r-quality" : 2026.301029995664,
   "r-result-seed" : -1,
   "r-addl-run-data" : "",
   "r-wallclock-time" : 305.337
+=======
+  "r-runtime" : 28488.396,
+  "r-run-length" : 0.0,
+  "r-quality" : 1601.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 237.14
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 } {
   "r-rc" : {
     "@rc-id" : 59,
@@ -1916,9 +2518,15 @@
         "@pcs-id" : 2
       },
       "pc-settings" : {
+<<<<<<< HEAD
         "crossover" : "0.02214335379814636",
         "mutation" : "0.6754094412378064",
         "n_generations" : "84"
+=======
+        "crossover" : "0.8187804973223267",
+        "mutation" : "0.39125163082072",
+        "n_generations" : "183"
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
       },
       "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
       "pc-forbidden" : false,
@@ -1927,12 +2535,21 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
   "r-runtime" : 33634.15597,
   "r-run-length" : 0.0,
   "r-quality" : 2025.301029995664,
   "r-result-seed" : -1,
   "r-addl-run-data" : "",
   "r-wallclock-time" : 487.956
+=======
+  "r-runtime" : 28724.36,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 531.855
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 } {
   "r-rc" : {
     "@rc-id" : 60,
@@ -1960,12 +2577,21 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
   "r-runtime" : 34120.168094,
   "r-run-length" : 0.0,
   "r-quality" : 2025.301029995664,
   "r-result-seed" : -1,
   "r-addl-run-data" : "",
   "r-wallclock-time" : 747.379
+=======
+  "r-runtime" : 29253.892,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 584.527
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 } {
   "r-rc" : {
     "@rc-id" : 61,
@@ -1982,9 +2608,15 @@
         "@pcs-id" : 2
       },
       "pc-settings" : {
+<<<<<<< HEAD
         "crossover" : "0.3825024640796246",
         "mutation" : "0.3231116635929522",
         "n_generations" : "185"
+=======
+        "crossover" : "0.8319401872462391",
+        "mutation" : "0.61356778024608",
+        "n_generations" : "206"
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
       },
       "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
       "pc-forbidden" : false,
@@ -1993,12 +2625,21 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
   "r-runtime" : 34864.30837,
   "r-run-length" : 0.0,
   "r-quality" : 2025.301029995664,
   "r-result-seed" : -1,
   "r-addl-run-data" : "",
   "r-wallclock-time" : 463.592
+=======
+  "r-runtime" : 29835.536,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 788.224
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 } {
   "r-rc" : {
     "@rc-id" : 62,
@@ -2026,12 +2667,21 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
   "r-runtime" : 35325.433414,
   "r-run-length" : 0.0,
   "r-quality" : 2025.301029995664,
   "r-result-seed" : -1,
   "r-addl-run-data" : "",
   "r-wallclock-time" : 227.574
+=======
+  "r-runtime" : 30620.476,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 178.871
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 } {
   "r-rc" : {
     "@rc-id" : 63,
@@ -2048,9 +2698,15 @@
         "@pcs-id" : 2
       },
       "pc-settings" : {
+<<<<<<< HEAD
         "crossover" : "0.8847683505713583",
         "mutation" : "0.08520192477857258",
         "n_generations" : "169"
+=======
+        "crossover" : "0.8294358511425474",
+        "mutation" : "0.5605428066871887",
+        "n_generations" : "94"
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
       },
       "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
       "pc-forbidden" : false,
@@ -2059,12 +2715,21 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
   "r-runtime" : 35551.798469,
   "r-run-length" : 0.0,
   "r-quality" : 2025.301029995664,
   "r-result-seed" : -1,
   "r-addl-run-data" : "",
   "r-wallclock-time" : 868.949
+=======
+  "r-runtime" : 30798.572,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 562.994
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 } {
   "r-rc" : {
     "@rc-id" : 64,
@@ -2092,12 +2757,21 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
   "r-runtime" : 36416.415177,
   "r-run-length" : 0.0,
   "r-quality" : 2025.301029995664,
   "r-result-seed" : -1,
   "r-addl-run-data" : "",
   "r-wallclock-time" : 632.779
+=======
+  "r-runtime" : 31359.208,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 493.126
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 } {
   "r-rc" : {
     "@rc-id" : 65,
@@ -2114,9 +2788,15 @@
         "@pcs-id" : 2
       },
       "pc-settings" : {
+<<<<<<< HEAD
         "crossover" : "0.3896525549616018",
         "mutation" : "0.08517809873879434",
         "n_generations" : "234"
+=======
+        "crossover" : "0.3012985240093292",
+        "mutation" : "0.012016799051464244",
+        "n_generations" : "90"
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
       },
       "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
       "pc-forbidden" : false,
@@ -2125,12 +2805,21 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
   "r-runtime" : 37045.915997,
   "r-run-length" : 0.0,
   "r-quality" : 2025.301029995664,
   "r-result-seed" : -1,
   "r-addl-run-data" : "",
   "r-wallclock-time" : 504.744
+=======
+  "r-runtime" : 31850.352,
+  "r-run-length" : 0.0,
+  "r-quality" : 1602.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 177.919
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 } {
   "r-rc" : {
     "@rc-id" : 66,
@@ -2158,12 +2847,21 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
   "r-runtime" : 37548.110606,
   "r-run-length" : 0.0,
   "r-quality" : 2025.301029995664,
   "r-result-seed" : -1,
   "r-addl-run-data" : "",
   "r-wallclock-time" : 491.497
+=======
+  "r-runtime" : 32027.548,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 388.045
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 } {
   "r-rc" : {
     "@rc-id" : 67,
@@ -2180,9 +2878,15 @@
         "@pcs-id" : 2
       },
       "pc-settings" : {
+<<<<<<< HEAD
         "crossover" : "0.021893101473571597",
         "mutation" : "0.9090359465181139",
         "n_generations" : "224"
+=======
+        "crossover" : "0.8312012417439054",
+        "mutation" : "0.7391998674344228",
+        "n_generations" : "197"
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
       },
       "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
       "pc-forbidden" : false,
@@ -2191,12 +2895,21 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
   "r-runtime" : 38038.723036,
   "r-run-length" : 0.0,
   "r-quality" : 2025.301029995664,
   "r-result-seed" : -1,
   "r-addl-run-data" : "",
   "r-wallclock-time" : 756.324
+=======
+  "r-runtime" : 32414.204,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 824.456
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 } {
   "r-rc" : {
     "@rc-id" : 68,
@@ -2224,12 +2937,21 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
   "r-runtime" : 38792.173703,
   "r-run-length" : 0.0,
   "r-quality" : 2025.301029995664,
   "r-result-seed" : -1,
   "r-addl-run-data" : "",
   "r-wallclock-time" : 589.364
+=======
+  "r-runtime" : 33235.284,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 460.844
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 } {
   "r-rc" : {
     "@rc-id" : 69,
@@ -2246,9 +2968,15 @@
         "@pcs-id" : 2
       },
       "pc-settings" : {
+<<<<<<< HEAD
         "crossover" : "0.0704744118900491",
         "mutation" : "0.08516695866195545",
         "n_generations" : "222"
+=======
+        "crossover" : "0.05238152248087369",
+        "mutation" : "0.008950212605740138",
+        "n_generations" : "200"
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
       },
       "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
       "pc-forbidden" : false,
@@ -2257,12 +2985,21 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
   "r-runtime" : 39380.575263,
   "r-run-length" : 0.0,
   "r-quality" : 2025.301029995664,
   "r-result-seed" : -1,
   "r-addl-run-data" : "",
   "r-wallclock-time" : 124.414
+=======
+  "r-runtime" : 33694.036,
+  "r-run-length" : 0.0,
+  "r-quality" : 1608.301029995664,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 37.865
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 } {
   "r-rc" : {
     "@rc-id" : 70,
@@ -2290,12 +3027,21 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
   "r-runtime" : 39380.575263,
   "r-run-length" : 0.0,
   "r-quality" : 2025.301029995664,
   "r-result-seed" : -1,
   "r-addl-run-data" : "",
   "r-wallclock-time" : 209.516
+=======
+  "r-runtime" : 33731.392,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 164.324
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 } {
   "r-rc" : {
     "@rc-id" : 71,
@@ -2312,9 +3058,15 @@
         "@pcs-id" : 2
       },
       "pc-settings" : {
+<<<<<<< HEAD
         "crossover" : "0.015256247577844495",
         "mutation" : "0.9615869838156544",
         "n_generations" : "226"
+=======
+        "crossover" : "0.2968676985391475",
+        "mutation" : "0.011162562112111973",
+        "n_generations" : "174"
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
       },
       "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
       "pc-forbidden" : false,
@@ -2323,12 +3075,21 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
   "r-runtime" : 39713.888755,
   "r-run-length" : 0.0,
   "r-quality" : 2025.301029995664,
   "r-result-seed" : -1,
   "r-addl-run-data" : "",
   "r-wallclock-time" : 819.385
+=======
+  "r-runtime" : 33894.78,
+  "r-run-length" : 0.0,
+  "r-quality" : 1602.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 190.245
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 } {
   "r-rc" : {
     "@rc-id" : 72,
@@ -2356,12 +3117,21 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
   "r-runtime" : 40531.5845,
   "r-run-length" : 0.0,
   "r-quality" : 2025.301029995664,
   "r-result-seed" : -1,
   "r-addl-run-data" : "",
   "r-wallclock-time" : 792.523
+=======
+  "r-runtime" : 34083.904,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 617.833
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 } {
   "r-rc" : {
     "@rc-id" : 73,
@@ -2378,9 +3148,15 @@
         "@pcs-id" : 2
       },
       "pc-settings" : {
+<<<<<<< HEAD
         "crossover" : "0.578919538542195",
         "mutation" : "0.08515111330857394",
         "n_generations" : "211"
+=======
+        "crossover" : "0.019997617443684557",
+        "mutation" : "0.4380140133091126",
+        "n_generations" : "208"
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
       },
       "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
       "pc-forbidden" : false,
@@ -2389,12 +3165,21 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
   "r-runtime" : 41320.485213,
   "r-run-length" : 0.0,
   "r-quality" : 2025.301029995664,
   "r-result-seed" : -1,
   "r-addl-run-data" : "",
   "r-wallclock-time" : 748.38
+=======
+  "r-runtime" : 34699.052,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 322.885
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 } {
   "r-rc" : {
     "@rc-id" : 74,
@@ -2422,12 +3207,21 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
   "r-runtime" : 42066.319234,
   "r-run-length" : 0.0,
   "r-quality" : 2025.301029995664,
   "r-result-seed" : -1,
   "r-addl-run-data" : "",
   "r-wallclock-time" : 549.29
+=======
+  "r-runtime" : 35020.192,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 427.968
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 } {
   "r-rc" : {
     "@rc-id" : 75,
@@ -2455,12 +3249,21 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
   "r-runtime" : 42613.291985,
   "r-run-length" : 0.0,
   "r-quality" : 2025.301029995664,
   "r-result-seed" : -1,
   "r-addl-run-data" : "",
   "r-wallclock-time" : 687.75
+=======
+  "r-runtime" : 35445.716,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 539.129
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 } {
   "r-rc" : {
     "@rc-id" : 76,
@@ -2488,12 +3291,21 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
   "r-runtime" : 43299.789743,
   "r-run-length" : 0.0,
   "r-quality" : 2025.301029995664,
   "r-result-seed" : -1,
   "r-addl-run-data" : "",
   "r-wallclock-time" : 383.955
+=======
+  "r-runtime" : 35983.832,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 300.815
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 } {
   "r-rc" : {
     "@rc-id" : 77,
@@ -2510,9 +3322,15 @@
         "@pcs-id" : 2
       },
       "pc-settings" : {
+<<<<<<< HEAD
         "crossover" : "0.01064891884826058",
         "mutation" : "0.6660718692393245",
         "n_generations" : "199"
+=======
+        "crossover" : "0.22365101591699144",
+        "mutation" : "0.010351884327095662",
+        "n_generations" : "206"
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
       },
       "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
       "pc-forbidden" : false,
@@ -2521,12 +3339,21 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
   "r-runtime" : 43683.030005,
   "r-run-length" : 0.0,
   "r-quality" : 2025.301029995664,
   "r-result-seed" : -1,
   "r-addl-run-data" : "",
   "r-wallclock-time" : 550.803
+=======
+  "r-runtime" : 36284.412,
+  "r-run-length" : 0.0,
+  "r-quality" : 1602.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 191.107
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 } {
   "r-rc" : {
     "@rc-id" : 78,
@@ -2554,12 +3381,21 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
   "r-runtime" : 44232.760194,
   "r-run-length" : 0.0,
   "r-quality" : 2025.301029995664,
   "r-result-seed" : -1,
   "r-addl-run-data" : "",
   "r-wallclock-time" : 688.175
+=======
+  "r-runtime" : 36474.352,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 536.378
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 } {
   "r-rc" : {
     "@rc-id" : 79,
@@ -2576,9 +3412,15 @@
         "@pcs-id" : 2
       },
       "pc-settings" : {
+<<<<<<< HEAD
         "crossover" : "0.0040462433666097475",
         "mutation" : "0.4045919197091583",
         "n_generations" : "90"
+=======
+        "crossover" : "0.06388669886280907",
+        "mutation" : "0.1431001027962745",
+        "n_generations" : "99"
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
       },
       "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
       "pc-forbidden" : false,
@@ -2587,12 +3429,21 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
   "r-runtime" : 44919.64421,
   "r-run-length" : 0.0,
   "r-quality" : 2025.301029995664,
   "r-result-seed" : -1,
   "r-addl-run-data" : "",
   "r-wallclock-time" : 310.78
+=======
+  "r-runtime" : 37009.188,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 111.39
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 } {
   "r-rc" : {
     "@rc-id" : 80,
@@ -2620,12 +3471,21 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
   "r-runtime" : 45229.842605,
   "r-run-length" : 0.0,
   "r-quality" : 2025.301029995664,
   "r-result-seed" : -1,
   "r-addl-run-data" : "",
   "r-wallclock-time" : 817.044
+=======
+  "r-runtime" : 37119.932,
+  "r-run-length" : 0.0,
+  "r-quality" : 1602.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 636.381
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 } {
   "r-rc" : {
     "@rc-id" : 81,
@@ -2642,9 +3502,15 @@
         "@pcs-id" : 2
       },
       "pc-settings" : {
+<<<<<<< HEAD
         "crossover" : "0.38511759534766643",
         "mutation" : "0.20664864248470383",
         "n_generations" : "142"
+=======
+        "crossover" : "0.19749764608426967",
+        "mutation" : "0.11268248037297734",
+        "n_generations" : "229"
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
       },
       "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
       "pc-forbidden" : false,
@@ -2653,12 +3519,21 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
   "r-runtime" : 46045.405036,
   "r-run-length" : 0.0,
   "r-quality" : 2025.301029995664,
   "r-result-seed" : -1,
   "r-addl-run-data" : "",
   "r-wallclock-time" : 359.245
+=======
+  "r-runtime" : 37753.692,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 204.418
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 } {
   "r-rc" : {
     "@rc-id" : 82,
@@ -2686,12 +3561,21 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
   "r-runtime" : 46402.828097,
   "r-run-length" : 0.0,
   "r-quality" : 2026.301029995664,
   "r-result-seed" : -1,
   "r-addl-run-data" : "",
   "r-wallclock-time" : 248.954
+=======
+  "r-runtime" : 37957.752,
+  "r-run-length" : 0.0,
+  "r-quality" : 1601.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 191.615
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 } {
   "r-rc" : {
     "@rc-id" : 83,
@@ -2708,9 +3592,15 @@
         "@pcs-id" : 2
       },
       "pc-settings" : {
+<<<<<<< HEAD
         "crossover" : "0.6709828423068243",
         "mutation" : "0.93135126065961",
         "n_generations" : "111"
+=======
+        "crossover" : "0.7289407223221342",
+        "mutation" : "0.09805540974301263",
+        "n_generations" : "155"
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
       },
       "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
       "pc-forbidden" : false,
@@ -2719,12 +3609,21 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
   "r-runtime" : 46651.311435,
   "r-run-length" : 0.0,
   "r-quality" : 2025.301029995664,
   "r-result-seed" : -1,
   "r-addl-run-data" : "",
   "r-wallclock-time" : 740.0
+=======
+  "r-runtime" : 38149.056,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 494.238
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 } {
   "r-rc" : {
     "@rc-id" : 84,
@@ -2752,12 +3651,21 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
   "r-runtime" : 47389.998757,
   "r-run-length" : 0.0,
   "r-quality" : 2025.301029995664,
   "r-result-seed" : -1,
   "r-addl-run-data" : "",
   "r-wallclock-time" : 726.33
+=======
+  "r-runtime" : 38642.596,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 568.217
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 } {
   "r-rc" : {
     "@rc-id" : 85,
@@ -2774,9 +3682,15 @@
         "@pcs-id" : 2
       },
       "pc-settings" : {
+<<<<<<< HEAD
         "crossover" : "0.7541365730908531",
         "mutation" : "0.08514117827396961",
         "n_generations" : "179"
+=======
+        "crossover" : "0.02162170354919357",
+        "mutation" : "0.8732984684278695",
+        "n_generations" : "83"
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
       },
       "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
       "pc-forbidden" : false,
@@ -2785,12 +3699,21 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
   "r-runtime" : 48115.18663,
   "r-run-length" : 0.0,
   "r-quality" : 2025.301029995664,
   "r-result-seed" : -1,
   "r-addl-run-data" : "",
   "r-wallclock-time" : 616.758
+=======
+  "r-runtime" : 39210.08,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 497.177
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 } {
   "r-rc" : {
     "@rc-id" : 86,
@@ -2818,12 +3741,21 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
   "r-runtime" : 48115.18663,
   "r-run-length" : 0.0,
   "r-quality" : 2025.301029995664,
   "r-result-seed" : -1,
   "r-addl-run-data" : "",
   "r-wallclock-time" : 665.517
+=======
+  "r-runtime" : 39706.384,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 525.48
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 } {
   "r-rc" : {
     "@rc-id" : 87,
@@ -2840,9 +3772,15 @@
         "@pcs-id" : 2
       },
       "pc-settings" : {
+<<<<<<< HEAD
         "crossover" : "0.46278747453456204",
         "mutation" : "0.08272625772658704",
         "n_generations" : "227"
+=======
+        "crossover" : "0.06690180431869985",
+        "mutation" : "0.09913189969105651",
+        "n_generations" : "72"
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
       },
       "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
       "pc-forbidden" : false,
@@ -2851,12 +3789,21 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
   "r-runtime" : 49395.456119,
   "r-run-length" : 0.0,
   "r-quality" : 2025.301029995664,
   "r-result-seed" : -1,
   "r-addl-run-data" : "",
   "r-wallclock-time" : 425.983
+=======
+  "r-runtime" : 40229.58,
+  "r-run-length" : 0.0,
+  "r-quality" : 1602.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 95.823
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 } {
   "r-rc" : {
     "@rc-id" : 88,
@@ -2884,12 +3831,21 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
   "r-runtime" : 49395.456119,
   "r-run-length" : 0.0,
   "r-quality" : 2025.301029995664,
   "r-result-seed" : -1,
   "r-addl-run-data" : "",
   "r-wallclock-time" : 555.272
+=======
+  "r-runtime" : 40325.296,
+  "r-run-length" : 0.0,
+  "r-quality" : 1601.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 433.285
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 } {
   "r-rc" : {
     "@rc-id" : 89,
@@ -2906,9 +3862,15 @@
         "@pcs-id" : 2
       },
       "pc-settings" : {
+<<<<<<< HEAD
         "crossover" : "0.3863250414647177",
         "mutation" : "0.2990678245796786",
         "n_generations" : "196"
+=======
+        "crossover" : "0.03306093065628757",
+        "mutation" : "0.05179448525264607",
+        "n_generations" : "183"
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
       },
       "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
       "pc-forbidden" : false,
@@ -2917,12 +3879,21 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
   "r-runtime" : 50375.136528,
   "r-run-length" : 0.0,
   "r-quality" : 2025.301029995664,
   "r-result-seed" : -1,
   "r-addl-run-data" : "",
   "r-wallclock-time" : 412.584
+=======
+  "r-runtime" : 40758.28,
+  "r-run-length" : 0.0,
+  "r-quality" : 1602.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 55.819
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 } {
   "r-rc" : {
     "@rc-id" : 90,
@@ -2950,12 +3921,21 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
   "r-runtime" : 50785.406989,
   "r-run-length" : 0.0,
   "r-quality" : 2025.301029995664,
   "r-result-seed" : -1,
   "r-addl-run-data" : "",
   "r-wallclock-time" : 838.661
+=======
+  "r-runtime" : 40813.492,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 652.867
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 } {
   "r-rc" : {
     "@rc-id" : 91,
@@ -2972,9 +3952,15 @@
         "@pcs-id" : 2
       },
       "pc-settings" : {
+<<<<<<< HEAD
         "crossover" : "0.39957152390720896",
         "mutation" : "0.06708165013984779",
         "n_generations" : "118"
+=======
+        "crossover" : "0.010481495087618642",
+        "mutation" : "0.015649649048561587",
+        "n_generations" : "235"
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
       },
       "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
       "pc-forbidden" : false,
@@ -2983,12 +3969,21 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
   "r-runtime" : 51620.221177,
   "r-run-length" : 0.0,
   "r-quality" : 2026.301029995664,
   "r-result-seed" : -1,
   "r-addl-run-data" : "",
   "r-wallclock-time" : 353.245
+=======
+  "r-runtime" : 41464.716,
+  "r-run-length" : 0.0,
+  "r-quality" : 1601.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 31.733
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 } {
   "r-rc" : {
     "@rc-id" : 92,
@@ -3016,12 +4011,21 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
   "r-runtime" : 51971.726518,
   "r-run-length" : 0.0,
   "r-quality" : 2025.301029995664,
   "r-result-seed" : -1,
   "r-addl-run-data" : "",
   "r-wallclock-time" : 562.251
+=======
+  "r-runtime" : 41496.392,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 435.247
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 } {
   "r-rc" : {
     "@rc-id" : 93,
@@ -3038,9 +4042,15 @@
         "@pcs-id" : 2
       },
       "pc-settings" : {
+<<<<<<< HEAD
         "crossover" : "0.38803442295667445",
         "mutation" : "0.08516119239343412",
         "n_generations" : "128"
+=======
+        "crossover" : "0.044745999814886805",
+        "mutation" : "0.010994488513434653",
+        "n_generations" : "214"
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
       },
       "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
       "pc-forbidden" : false,
@@ -3049,12 +4059,21 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
   "r-runtime" : 52531.019389,
   "r-run-length" : 0.0,
   "r-quality" : 2025.301029995664,
   "r-result-seed" : -1,
   "r-addl-run-data" : "",
   "r-wallclock-time" : 350.782
+=======
+  "r-runtime" : 41931.136,
+  "r-run-length" : 0.0,
+  "r-quality" : 1602.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 51.418
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 } {
   "r-rc" : {
     "@rc-id" : 94,
@@ -3082,12 +4101,21 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
   "r-runtime" : 52879.85201,
   "r-run-length" : 0.0,
   "r-quality" : 2025.301029995664,
   "r-result-seed" : -1,
   "r-addl-run-data" : "",
   "r-wallclock-time" : 512.191
+=======
+  "r-runtime" : 41982.224,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 399.428
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 } {
   "r-rc" : {
     "@rc-id" : 95,
@@ -3104,9 +4132,15 @@
         "@pcs-id" : 2
       },
       "pc-settings" : {
+<<<<<<< HEAD
         "crossover" : "0.39949475057772776",
         "mutation" : "0.3538274101008875",
         "n_generations" : "148"
+=======
+        "crossover" : "0.04361586224878955",
+        "mutation" : "0.010554030215019217",
+        "n_generations" : "156"
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
       },
       "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
       "pc-forbidden" : false,
@@ -3115,12 +4149,21 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
   "r-runtime" : 53388.982787,
   "r-run-length" : 0.0,
   "r-quality" : 2025.301029995664,
   "r-result-seed" : -1,
   "r-addl-run-data" : "",
   "r-wallclock-time" : 565.869
+=======
+  "r-runtime" : 42380.916,
+  "r-run-length" : 0.0,
+  "r-quality" : 1603.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 38.521
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 } {
   "r-rc" : {
     "@rc-id" : 96,
@@ -3148,12 +4191,21 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
   "r-runtime" : 53951.760445,
   "r-run-length" : 0.0,
   "r-quality" : 2025.301029995664,
   "r-result-seed" : -1,
   "r-addl-run-data" : "",
   "r-wallclock-time" : 882.337
+=======
+  "r-runtime" : 42419.372,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 690.343
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 } {
   "r-rc" : {
     "@rc-id" : 97,
@@ -3170,9 +4222,15 @@
         "@pcs-id" : 2
       },
       "pc-settings" : {
+<<<<<<< HEAD
         "crossover" : "0.016721584444612803",
         "mutation" : "0.08515048593785235",
         "n_generations" : "230"
+=======
+        "crossover" : "0.04025542935854021",
+        "mutation" : "0.7287395349056537",
+        "n_generations" : "174"
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
       },
       "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
       "pc-forbidden" : false,
@@ -3181,12 +4239,21 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
   "r-runtime" : 54830.224612,
   "r-run-length" : 0.0,
   "r-quality" : 2025.301029995664,
   "r-result-seed" : -1,
   "r-addl-run-data" : "",
   "r-wallclock-time" : 103.015
+=======
+  "r-runtime" : 43106.736,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 482.168
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 } {
   "r-rc" : {
     "@rc-id" : 98,
@@ -3214,12 +4281,21 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
   "r-runtime" : 54932.36528,
   "r-run-length" : 0.0,
   "r-quality" : 2025.301029995664,
   "r-result-seed" : -1,
   "r-addl-run-data" : "",
   "r-wallclock-time" : 707.464
+=======
+  "r-runtime" : 43587.828,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 549.319
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 } {
   "r-rc" : {
     "@rc-id" : 99,
@@ -3236,9 +4312,15 @@
         "@pcs-id" : 2
       },
       "pc-settings" : {
+<<<<<<< HEAD
         "crossover" : "0.4130718842289116",
         "mutation" : "0.2790789871150565",
         "n_generations" : "50"
+=======
+        "crossover" : "0.06706652282753855",
+        "mutation" : "0.8609034616802143",
+        "n_generations" : "92"
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
       },
       "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
       "pc-forbidden" : false,
@@ -3247,12 +4329,21 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
   "r-runtime" : 55636.387717,
   "r-run-length" : 0.0,
   "r-quality" : 2025.301029995664,
   "r-result-seed" : -1,
   "r-addl-run-data" : "",
   "r-wallclock-time" : 396.202
+=======
+  "r-runtime" : 44135.464,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 505.554
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 } {
   "r-rc" : {
     "@rc-id" : 100,
@@ -3280,12 +4371,21 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
   "r-runtime" : 56030.66169,
   "r-run-length" : 0.0,
   "r-quality" : 2025.301029995664,
   "r-result-seed" : -1,
   "r-addl-run-data" : "",
   "r-wallclock-time" : 488.792
+=======
+  "r-runtime" : 44135.464,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 381.912
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 } {
   "r-rc" : {
     "@rc-id" : 101,
@@ -3302,9 +4402,15 @@
         "@pcs-id" : 2
       },
       "pc-settings" : {
+<<<<<<< HEAD
         "crossover" : "0.40213227220796843",
         "mutation" : "0.7008427048872862",
         "n_generations" : "227"
+=======
+        "crossover" : "0.06699322417313736",
+        "mutation" : "0.8148065268918724",
+        "n_generations" : "100"
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
       },
       "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
       "pc-forbidden" : false,
@@ -3313,12 +4419,21 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
   "r-runtime" : 56517.09067,
   "r-run-length" : 0.0,
   "r-quality" : 2025.301029995664,
   "r-result-seed" : -1,
   "r-addl-run-data" : "",
   "r-wallclock-time" : 709.917
+=======
+  "r-runtime" : 45022.008,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 442.557
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 } {
   "r-rc" : {
     "@rc-id" : 102,
@@ -3346,12 +4461,21 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
   "r-runtime" : 57223.628501,
   "r-run-length" : 0.0,
   "r-quality" : 2025.301029995664,
   "r-result-seed" : -1,
   "r-addl-run-data" : "",
   "r-wallclock-time" : 944.146
+=======
+  "r-runtime" : 45022.008,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 735.642
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 } {
   "r-rc" : {
     "@rc-id" : 103,
@@ -3368,9 +4492,15 @@
         "@pcs-id" : 2
       },
       "pc-settings" : {
+<<<<<<< HEAD
         "crossover" : "0.4010001201338014",
         "mutation" : "0.7384066253857839",
         "n_generations" : "106"
+=======
+        "crossover" : "0.6516079117067411",
+        "mutation" : "0.014920006001584052",
+        "n_generations" : "110"
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
       },
       "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
       "pc-forbidden" : false,
@@ -3379,12 +4509,21 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
   "r-runtime" : 58166.27769,
   "r-run-length" : 0.0,
   "r-quality" : 2025.301029995664,
   "r-result-seed" : -1,
   "r-addl-run-data" : "",
   "r-wallclock-time" : 665.075
+=======
+  "r-runtime" : 46199.264,
+  "r-run-length" : 0.0,
+  "r-quality" : 1602.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 379.455
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 } {
   "r-rc" : {
     "@rc-id" : 104,
@@ -3412,12 +4551,21 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
   "r-runtime" : 58830.170793,
   "r-run-length" : 0.0,
   "r-quality" : 2025.301029995664,
   "r-result-seed" : -1,
   "r-addl-run-data" : "",
   "r-wallclock-time" : 982.587
+=======
+  "r-runtime" : 46199.264,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 764.544
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 } {
   "r-rc" : {
     "@rc-id" : 105,
@@ -3434,9 +4582,15 @@
         "@pcs-id" : 2
       },
       "pc-settings" : {
+<<<<<<< HEAD
         "crossover" : "0.40053610770882275",
         "mutation" : "0.6557132873411144",
         "n_generations" : "188"
+=======
+        "crossover" : "0.8059602067832542",
+        "mutation" : "0.0744841960510425",
+        "n_generations" : "103"
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
       },
       "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
       "pc-forbidden" : false,
@@ -3445,12 +4599,21 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
   "r-runtime" : 59810.980583,
   "r-run-length" : 0.0,
   "r-quality" : 2025.301029995664,
   "r-result-seed" : -1,
   "r-addl-run-data" : "",
   "r-wallclock-time" : 894.042
+=======
+  "r-runtime" : 47342.512,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 457.084
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 } {
   "r-rc" : {
     "@rc-id" : 106,
@@ -3478,12 +4641,21 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
   "r-runtime" : 60703.422952,
   "r-run-length" : 0.0,
   "r-quality" : 2025.301029995664,
   "r-result-seed" : -1,
   "r-addl-run-data" : "",
   "r-wallclock-time" : 775.758
+=======
+  "r-runtime" : 47798.568,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 600.617
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 } {
   "r-rc" : {
     "@rc-id" : 107,
@@ -3500,9 +4672,15 @@
         "@pcs-id" : 2
       },
       "pc-settings" : {
+<<<<<<< HEAD
         "crossover" : "0.7870785262473037",
         "mutation" : "0.04427381504833883",
         "n_generations" : "247"
+=======
+        "crossover" : "0.04285842603612744",
+        "mutation" : "0.16245256114096396",
+        "n_generations" : "194"
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
       },
       "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
       "pc-forbidden" : false,
@@ -3511,12 +4689,21 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
   "r-runtime" : 61477.799947,
   "r-run-length" : 0.0,
   "r-quality" : 2025.301029995664,
   "r-result-seed" : -1,
   "r-addl-run-data" : "",
   "r-wallclock-time" : 783.758
+=======
+  "r-runtime" : 48398.004,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 166.005
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 } {
   "r-rc" : {
     "@rc-id" : 108,
@@ -3544,12 +4731,21 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
   "r-runtime" : 62260.270203,
   "r-run-length" : 0.0,
   "r-quality" : 2025.301029995664,
   "r-result-seed" : -1,
   "r-addl-run-data" : "",
   "r-wallclock-time" : 304.468
+=======
+  "r-runtime" : 48563.784,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 236.144
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 } {
   "r-rc" : {
     "@rc-id" : 109,
@@ -3566,9 +4762,15 @@
         "@pcs-id" : 2
       },
       "pc-settings" : {
+<<<<<<< HEAD
         "crossover" : "0.8636438423489112",
         "mutation" : "0.08364314399681927",
         "n_generations" : "69"
+=======
+        "crossover" : "0.9104774604128149",
+        "mutation" : "0.13527193682175642",
+        "n_generations" : "230"
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
       },
       "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
       "pc-forbidden" : false,
@@ -3577,12 +4779,21 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
   "r-runtime" : 62564.197387,
   "r-run-length" : 0.0,
   "r-quality" : 2025.301029995664,
   "r-result-seed" : -1,
   "r-addl-run-data" : "",
   "r-wallclock-time" : 610.433
+=======
+  "r-runtime" : 48799.652,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 660.871
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 } {
   "r-rc" : {
     "@rc-id" : 110,
@@ -3610,12 +4821,21 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
   "r-runtime" : 63173.423594,
   "r-run-length" : 0.0,
   "r-quality" : 2025.301029995664,
   "r-result-seed" : -1,
   "r-addl-run-data" : "",
   "r-wallclock-time" : 560.452
+=======
+  "r-runtime" : 49459.832,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 438.747
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 } {
   "r-rc" : {
     "@rc-id" : 111,
@@ -3632,9 +4852,15 @@
         "@pcs-id" : 2
       },
       "pc-settings" : {
+<<<<<<< HEAD
         "crossover" : "0.6499620271993503",
         "mutation" : "0.0847522015712191",
         "n_generations" : "76"
+=======
+        "crossover" : "0.019921088165327894",
+        "mutation" : "0.8477753492047572",
+        "n_generations" : "55"
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
       },
       "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
       "pc-forbidden" : false,
@@ -3643,12 +4869,21 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
   "r-runtime" : 63732.80378,
   "r-run-length" : 0.0,
   "r-quality" : 2026.301029995664,
   "r-result-seed" : -1,
   "r-addl-run-data" : "",
   "r-wallclock-time" : 494.636
+=======
+  "r-runtime" : 49897.148,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 462.795
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 } {
   "r-rc" : {
     "@rc-id" : 112,
@@ -3676,12 +4911,21 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
   "r-runtime" : 64226.493075,
   "r-run-length" : 0.0,
   "r-quality" : 2025.301029995664,
   "r-result-seed" : -1,
   "r-addl-run-data" : "",
   "r-wallclock-time" : 556.803
+=======
+  "r-runtime" : 50358.912,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 431.294
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 } {
   "r-rc" : {
     "@rc-id" : 113,
@@ -3698,9 +4942,15 @@
         "@pcs-id" : 2
       },
       "pc-settings" : {
+<<<<<<< HEAD
         "crossover" : "0.3998897791351035",
         "mutation" : "0.24857797809262772",
         "n_generations" : "214"
+=======
+        "crossover" : "0.06077304620565449",
+        "mutation" : "0.4878857673839583",
+        "n_generations" : "248"
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
       },
       "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
       "pc-forbidden" : false,
@@ -3709,12 +4959,21 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
   "r-runtime" : 64782.194178,
   "r-run-length" : 0.0,
   "r-quality" : 2025.301029995664,
   "r-result-seed" : -1,
   "r-addl-run-data" : "",
   "r-wallclock-time" : 578.617
+=======
+  "r-runtime" : 50789.72,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 485.053
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 } {
   "r-rc" : {
     "@rc-id" : 114,
@@ -3742,12 +5001,21 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
   "r-runtime" : 65359.685279,
   "r-run-length" : 0.0,
   "r-quality" : 2025.301029995664,
   "r-result-seed" : -1,
   "r-addl-run-data" : "",
   "r-wallclock-time" : 428.227
+=======
+  "r-runtime" : 51274.22,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 335.783
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 } {
   "r-rc" : {
     "@rc-id" : 115,
@@ -3764,9 +5032,15 @@
         "@pcs-id" : 2
       },
       "pc-settings" : {
+<<<<<<< HEAD
         "crossover" : "0.9828880175213666",
         "mutation" : "0.08487565112232764",
         "n_generations" : "246"
+=======
+        "crossover" : "0.049750882111000316",
+        "mutation" : "0.6604176145873211",
+        "n_generations" : "247"
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
       },
       "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
       "pc-forbidden" : false,
@@ -3775,12 +5049,21 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
   "r-runtime" : 65787.121331,
   "r-run-length" : 0.0,
   "r-quality" : 2025.301029995664,
   "r-result-seed" : -1,
   "r-addl-run-data" : "",
   "r-wallclock-time" : 834.752
+=======
+  "r-runtime" : 51609.66,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 546.006
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 } {
   "r-rc" : {
     "@rc-id" : 116,
@@ -3808,12 +5091,21 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
   "r-runtime" : 66620.67873,
   "r-run-length" : 0.0,
   "r-quality" : 2025.301029995664,
   "r-result-seed" : -1,
   "r-addl-run-data" : "",
   "r-wallclock-time" : 504.143
+=======
+  "r-runtime" : 52155.14,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 392.293
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 } {
   "r-rc" : {
     "@rc-id" : 117,
@@ -3830,9 +5122,15 @@
         "@pcs-id" : 2
       },
       "pc-settings" : {
+<<<<<<< HEAD
         "crossover" : "0.46791662275335644",
         "mutation" : "0.08487565112232764",
         "n_generations" : "246"
+=======
+        "crossover" : "0.02193632044817584",
+        "mutation" : "0.13350811271529872",
+        "n_generations" : "148"
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
       },
       "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
       "pc-forbidden" : false,
@@ -3841,12 +5139,21 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
   "r-runtime" : 67124.156217,
   "r-run-length" : 0.0,
   "r-quality" : 2025.301029995664,
   "r-result-seed" : -1,
   "r-addl-run-data" : "",
   "r-wallclock-time" : 437.538
+=======
+  "r-runtime" : 52547.056,
+  "r-run-length" : 0.0,
+  "r-quality" : 1602.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 115.219
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 } {
   "r-rc" : {
     "@rc-id" : 118,
@@ -3874,12 +5181,21 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
   "r-runtime" : 67561.163057,
   "r-run-length" : 0.0,
   "r-quality" : 2025.301029995664,
   "r-result-seed" : -1,
   "r-addl-run-data" : "",
   "r-wallclock-time" : 194.669
+=======
+  "r-runtime" : 52547.056,
+  "r-run-length" : 0.0,
+  "r-quality" : 1601.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 151.789
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 } {
   "r-rc" : {
     "@rc-id" : 119,
@@ -3896,9 +5212,15 @@
         "@pcs-id" : 2
       },
       "pc-settings" : {
+<<<<<<< HEAD
         "crossover" : "0.3997030199265308",
         "mutation" : "0.2498703153088926",
         "n_generations" : "194"
+=======
+        "crossover" : "0.05333627644431993",
+        "mutation" : "0.4791880165520076",
+        "n_generations" : "221"
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
       },
       "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
       "pc-forbidden" : false,
@@ -3907,12 +5229,21 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
   "r-runtime" : 67754.94528,
   "r-run-length" : 0.0,
   "r-quality" : 2025.301029995664,
   "r-result-seed" : -1,
   "r-addl-run-data" : "",
   "r-wallclock-time" : 566.88
+=======
+  "r-runtime" : 52812.6,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 338.994
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 } {
   "r-rc" : {
     "@rc-id" : 120,
@@ -3940,12 +5271,21 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
   "r-runtime" : 68320.817066,
   "r-run-length" : 0.0,
   "r-quality" : 2025.301029995664,
   "r-result-seed" : -1,
   "r-addl-run-data" : "",
   "r-wallclock-time" : 420.204
+=======
+  "r-runtime" : 52812.6,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 323.816
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 } {
   "r-rc" : {
     "@rc-id" : 121,
@@ -3962,9 +5302,15 @@
         "@pcs-id" : 2
       },
       "pc-settings" : {
+<<<<<<< HEAD
         "crossover" : "0.4470442342886314",
         "mutation" : "0.08487565112232764",
         "n_generations" : "246"
+=======
+        "crossover" : "0.052153219198666445",
+        "mutation" : "0.2932868182640238",
+        "n_generations" : "167"
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
       },
       "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
       "pc-forbidden" : false,
@@ -3973,12 +5319,21 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
   "r-runtime" : 68740.059448,
   "r-run-length" : 0.0,
   "r-quality" : 2025.301029995664,
   "r-result-seed" : -1,
   "r-addl-run-data" : "",
   "r-wallclock-time" : 425.703
+=======
+  "r-runtime" : 53473.192,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 217.606
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 } {
   "r-rc" : {
     "@rc-id" : 122,
@@ -4006,12 +5361,21 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
   "r-runtime" : 69163.476848,
   "r-run-length" : 0.0,
   "r-quality" : 2025.301029995664,
   "r-result-seed" : -1,
   "r-addl-run-data" : "",
   "r-wallclock-time" : 353.215
+=======
+  "r-runtime" : 53690.564,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 273.48
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 } {
   "r-rc" : {
     "@rc-id" : 123,
@@ -4028,9 +5392,15 @@
         "@pcs-id" : 2
       },
       "pc-settings" : {
+<<<<<<< HEAD
         "crossover" : "0.39969538369516133",
         "mutation" : "0.3002594118714279",
         "n_generations" : "122"
+=======
+        "crossover" : "0.05238152248087369",
+        "mutation" : "0.16791600203874324",
+        "n_generations" : "200"
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
       },
       "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
       "pc-forbidden" : false,
@@ -4039,12 +5409,21 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
   "r-runtime" : 69514.586458,
   "r-run-length" : 0.0,
   "r-quality" : 2025.301029995664,
   "r-result-seed" : -1,
   "r-addl-run-data" : "",
   "r-wallclock-time" : 487.023
+=======
+  "r-runtime" : 53963.712,
+  "r-run-length" : 0.0,
+  "r-quality" : 1601.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 115.099
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 } {
   "r-rc" : {
     "@rc-id" : 124,
@@ -4072,12 +5451,21 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
   "r-runtime" : 69999.480032,
   "r-run-length" : 0.0,
   "r-quality" : 2025.301029995664,
   "r-result-seed" : -1,
   "r-addl-run-data" : "",
   "r-wallclock-time" : 823.535
+=======
+  "r-runtime" : 54078.668,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 645.93
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 } {
   "r-rc" : {
     "@rc-id" : 125,
@@ -4094,9 +5482,15 @@
         "@pcs-id" : 2
       },
       "pc-settings" : {
+<<<<<<< HEAD
         "crossover" : "0.39958172216920373",
         "mutation" : "0.3137603265673313",
         "n_generations" : "121"
+=======
+        "crossover" : "0.052520497786499254",
+        "mutation" : "0.8321992358634562",
+        "n_generations" : "162"
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
       },
       "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
       "pc-forbidden" : false,
@@ -4105,12 +5499,21 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
   "r-runtime" : 70819.899728,
   "r-run-length" : 0.0,
   "r-quality" : 2025.301029995664,
   "r-result-seed" : -1,
   "r-addl-run-data" : "",
   "r-wallclock-time" : 422.79
+=======
+  "r-runtime" : 54723.916,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 602.042
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 } {
   "r-rc" : {
     "@rc-id" : 126,
@@ -4138,12 +5541,21 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
   "r-runtime" : 71242.129284,
   "r-run-length" : 0.0,
   "r-quality" : 2025.301029995664,
   "r-result-seed" : -1,
   "r-addl-run-data" : "",
   "r-wallclock-time" : 721.102
+=======
+  "r-runtime" : 55325.308,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 567.114
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 } {
   "r-rc" : {
     "@rc-id" : 127,
@@ -4160,9 +5572,15 @@
         "@pcs-id" : 2
       },
       "pc-settings" : {
+<<<<<<< HEAD
         "crossover" : "0.4087306767490978",
         "mutation" : "0.013560479241153445",
         "n_generations" : "216"
+=======
+        "crossover" : "0.38806336960387533",
+        "mutation" : "0.13476495155356238",
+        "n_generations" : "193"
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
       },
       "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
       "pc-forbidden" : false,
@@ -4171,12 +5589,21 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
   "r-runtime" : 71962.261151,
   "r-run-length" : 0.0,
   "r-quality" : 2025.301029995664,
   "r-result-seed" : -1,
   "r-addl-run-data" : "",
   "r-wallclock-time" : 395.227
+=======
+  "r-runtime" : 55891.88,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 257.588
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 } {
   "r-rc" : {
     "@rc-id" : 128,
@@ -4204,12 +5631,21 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
   "r-runtime" : 72356.976478,
   "r-run-length" : 0.0,
   "r-quality" : 2025.301029995664,
   "r-result-seed" : -1,
   "r-addl-run-data" : "",
   "r-wallclock-time" : 718.977
+=======
+  "r-runtime" : 56149.2,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 565.682
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 } {
   "r-rc" : {
     "@rc-id" : 129,
@@ -4226,9 +5662,15 @@
         "@pcs-id" : 2
       },
       "pc-settings" : {
+<<<<<<< HEAD
         "crossover" : "0.40781283800854295",
         "mutation" : "6.609038490931196E-4",
         "n_generations" : "224"
+=======
+        "crossover" : "0.9872143783392352",
+        "mutation" : "0.13395368496291282",
+        "n_generations" : "71"
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
       },
       "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
       "pc-forbidden" : false,
@@ -4237,12 +5679,21 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
   "r-runtime" : 73075.076029,
   "r-run-length" : 0.0,
   "r-quality" : 2027.301029995664,
   "r-result-seed" : -1,
   "r-addl-run-data" : "",
   "r-wallclock-time" : 321.799
+=======
+  "r-runtime" : 56714.424,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 519.85
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 } {
   "r-rc" : {
     "@rc-id" : 130,
@@ -4270,12 +5721,21 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
   "r-runtime" : 73396.252863,
   "r-run-length" : 0.0,
   "r-quality" : 2025.301029995664,
   "r-result-seed" : -1,
   "r-addl-run-data" : "",
   "r-wallclock-time" : 619.781
+=======
+  "r-runtime" : 57233.8,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 486.172
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 } {
   "r-rc" : {
     "@rc-id" : 131,
@@ -4292,9 +5752,15 @@
         "@pcs-id" : 2
       },
       "pc-settings" : {
+<<<<<<< HEAD
         "crossover" : "0.9892864061522006",
         "mutation" : "0.0063403412495106615",
         "n_generations" : "217"
+=======
+        "crossover" : "0.9779090932809347",
+        "mutation" : "0.11460759756425654",
+        "n_generations" : "116"
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
       },
       "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
       "pc-forbidden" : false,
@@ -4303,12 +5769,21 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
   "r-runtime" : 74014.790489,
   "r-run-length" : 0.0,
   "r-quality" : 2025.301029995664,
   "r-result-seed" : -1,
   "r-addl-run-data" : "",
   "r-wallclock-time" : 896.235
+=======
+  "r-runtime" : 57719.62,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 506.337
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 } {
   "r-rc" : {
     "@rc-id" : 132,
@@ -4336,12 +5811,21 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
   "r-runtime" : 74905.357798,
   "r-run-length" : 0.0,
   "r-quality" : 2025.301029995664,
   "r-result-seed" : -1,
   "r-addl-run-data" : "",
   "r-wallclock-time" : 726.153
+=======
+  "r-runtime" : 58225.532,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 572.088
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 } {
   "r-rc" : {
     "@rc-id" : 133,
@@ -4358,9 +5842,15 @@
         "@pcs-id" : 2
       },
       "pc-settings" : {
+<<<<<<< HEAD
         "crossover" : "0.4056833116050007",
         "mutation" : "0.7244483925055266",
         "n_generations" : "241"
+=======
+        "crossover" : "0.9976344278029594",
+        "mutation" : "0.13234727908529564",
+        "n_generations" : "91"
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
       },
       "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
       "pc-forbidden" : false,
@@ -4369,12 +5859,21 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
   "r-runtime" : 75630.480639,
   "r-run-length" : 0.0,
   "r-quality" : 2025.301029995664,
   "r-result-seed" : -1,
   "r-addl-run-data" : "",
   "r-wallclock-time" : 874.336
+=======
+  "r-runtime" : 58796.4,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 552.32
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 } {
   "r-rc" : {
     "@rc-id" : 134,
@@ -4402,12 +5901,21 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
   "r-runtime" : 76503.335187,
   "r-run-length" : 0.0,
   "r-quality" : 2025.301029995664,
   "r-result-seed" : -1,
   "r-addl-run-data" : "",
   "r-wallclock-time" : 712.975
+=======
+  "r-runtime" : 59348.236,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 559.744
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 } {
   "r-rc" : {
     "@rc-id" : 135,
@@ -4424,9 +5932,15 @@
         "@pcs-id" : 2
       },
       "pc-settings" : {
+<<<<<<< HEAD
         "crossover" : "0.9144072506004289",
         "mutation" : "0.004314246598970839",
         "n_generations" : "229"
+=======
+        "crossover" : "0.052307998130249334",
+        "mutation" : "0.5621640641148694",
+        "n_generations" : "208"
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
       },
       "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
       "pc-forbidden" : false,
@@ -4435,12 +5949,21 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
   "r-runtime" : 77215.06447,
   "r-run-length" : 0.0,
   "r-quality" : 2025.301029995664,
   "r-result-seed" : -1,
   "r-addl-run-data" : "",
   "r-wallclock-time" : 804.073
+=======
+  "r-runtime" : 59906.636,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 413.271
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 } {
   "r-rc" : {
     "@rc-id" : 136,
@@ -4468,12 +5991,21 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
   "r-runtime" : 78017.896848,
   "r-run-length" : 0.0,
   "r-quality" : 2025.301029995664,
   "r-result-seed" : -1,
   "r-addl-run-data" : "",
   "r-wallclock-time" : 385.272
+=======
+  "r-runtime" : 60319.656,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 301.148
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 } {
   "r-rc" : {
     "@rc-id" : 137,
@@ -4490,9 +6022,15 @@
         "@pcs-id" : 2
       },
       "pc-settings" : {
+<<<<<<< HEAD
         "crossover" : "0.7075691206293238",
         "mutation" : "0.003126172654712489",
         "n_generations" : "215"
+=======
+        "crossover" : "0.1739498277851146",
+        "mutation" : "0.09812187987603482",
+        "n_generations" : "147"
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
       },
       "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
       "pc-forbidden" : false,
@@ -4501,12 +6039,21 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
   "r-runtime" : 78402.513099,
   "r-run-length" : 0.0,
   "r-quality" : 2026.301029995664,
   "r-result-seed" : -1,
   "r-addl-run-data" : "",
   "r-wallclock-time" : 704.699
+=======
+  "r-runtime" : 60620.604,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 143.989
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 } {
   "r-rc" : {
     "@rc-id" : 138,
@@ -4534,12 +6081,21 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
   "r-runtime" : 79106.141923,
   "r-run-length" : 0.0,
   "r-quality" : 2025.301029995664,
   "r-result-seed" : -1,
   "r-addl-run-data" : "",
   "r-wallclock-time" : 745.643
+=======
+  "r-runtime" : 60764.46,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 586.641
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 } {
   "r-rc" : {
     "@rc-id" : 139,
@@ -4556,9 +6112,15 @@
         "@pcs-id" : 2
       },
       "pc-settings" : {
+<<<<<<< HEAD
         "crossover" : "0.920586121043459",
         "mutation" : "0.003795086320240837",
         "n_generations" : "166"
+=======
+        "crossover" : "0.8403566319482252",
+        "mutation" : "0.09920821009476122",
+        "n_generations" : "143"
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
       },
       "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
       "pc-forbidden" : false,
@@ -4567,12 +6129,21 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
   "r-runtime" : 79850.537634,
   "r-run-length" : 0.0,
   "r-quality" : 2025.301029995664,
   "r-result-seed" : -1,
   "r-addl-run-data" : "",
   "r-wallclock-time" : 662.079
+=======
+  "r-runtime" : 61349.852,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 555.218
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 } {
   "r-rc" : {
     "@rc-id" : 140,
@@ -4600,12 +6171,21 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
   "r-runtime" : 80511.500408,
   "r-run-length" : 0.0,
   "r-quality" : 2025.301029995664,
   "r-result-seed" : -1,
   "r-addl-run-data" : "",
   "r-wallclock-time" : 1137.517
+=======
+  "r-runtime" : 61904.256,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 898.106
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 } {
   "r-rc" : {
     "@rc-id" : 141,
@@ -4622,9 +6202,15 @@
         "@pcs-id" : 2
       },
       "pc-settings" : {
+<<<<<<< HEAD
         "crossover" : "0.9017982890903231",
         "mutation" : "0.003644456378497085",
         "n_generations" : "207"
+=======
+        "crossover" : "0.9793286456701921",
+        "mutation" : "0.1142381061980472",
+        "n_generations" : "60"
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
       },
       "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
       "pc-forbidden" : false,
@@ -4633,12 +6219,21 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
   "r-runtime" : 81647.263729,
   "r-run-length" : 0.0,
   "r-quality" : 2026.301029995664,
   "r-result-seed" : -1,
   "r-addl-run-data" : "",
   "r-wallclock-time" : 854.617
+=======
+  "r-runtime" : 62800.356,
+  "r-run-length" : 0.0,
+  "r-quality" : 1601.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 516.412
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 } {
   "r-rc" : {
     "@rc-id" : 142,
@@ -4666,12 +6261,21 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
   "r-runtime" : 82500.458251,
   "r-run-length" : 0.0,
   "r-quality" : 2025.301029995664,
   "r-result-seed" : -1,
   "r-addl-run-data" : "",
   "r-wallclock-time" : 752.135
+=======
+  "r-runtime" : 63316.276,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 591.693
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 } {
   "r-rc" : {
     "@rc-id" : 143,
@@ -4688,9 +6292,15 @@
         "@pcs-id" : 2
       },
       "pc-settings" : {
+<<<<<<< HEAD
         "crossover" : "0.18807756722297952",
         "mutation" : "0.21662791189572794",
         "n_generations" : "180"
+=======
+        "crossover" : "0.12323935528500797",
+        "mutation" : "0.11268248037297734",
+        "n_generations" : "123"
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
       },
       "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
       "pc-forbidden" : false,
@@ -4699,12 +6309,21 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
   "r-runtime" : 83251.456005,
   "r-run-length" : 0.0,
   "r-quality" : 2025.301029995664,
   "r-result-seed" : -1,
   "r-addl-run-data" : "",
   "r-wallclock-time" : 366.556
+=======
+  "r-runtime" : 63907.58,
+  "r-run-length" : 0.0,
+  "r-quality" : 1601.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 139.059
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 } {
   "r-rc" : {
     "@rc-id" : 144,
@@ -4732,12 +6351,21 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
   "r-runtime" : 83617.450061,
   "r-run-length" : 0.0,
   "r-quality" : 2027.301029995664,
   "r-result-seed" : -1,
   "r-addl-run-data" : "",
   "r-wallclock-time" : 259.202
+=======
+  "r-runtime" : 64046.524,
+  "r-run-length" : 0.0,
+  "r-quality" : 1602.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 203.243
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 } {
   "r-rc" : {
     "@rc-id" : 145,
@@ -4754,9 +6382,15 @@
         "@pcs-id" : 2
       },
       "pc-settings" : {
+<<<<<<< HEAD
         "crossover" : "0.3266494384368991",
         "mutation" : "0.5273254522824025",
         "n_generations" : "90"
+=======
+        "crossover" : "0.15664576509997008",
+        "mutation" : "0.09562773689593285",
+        "n_generations" : "86"
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
       },
       "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
       "pc-forbidden" : false,
@@ -4765,12 +6399,21 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
   "r-runtime" : 83876.264592,
   "r-run-length" : 0.0,
   "r-quality" : 2025.301029995664,
   "r-result-seed" : -1,
   "r-addl-run-data" : "",
   "r-wallclock-time" : 505.66
+=======
+  "r-runtime" : 64249.548,
+  "r-run-length" : 0.0,
+  "r-quality" : 1603.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 133.103
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 } {
   "r-rc" : {
     "@rc-id" : 146,
@@ -4798,12 +6441,21 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
   "r-runtime" : 84381.180845,
   "r-run-length" : 0.0,
   "r-quality" : 2025.301029995664,
   "r-result-seed" : -1,
   "r-addl-run-data" : "",
   "r-wallclock-time" : 365.394
+=======
+  "r-runtime" : 64382.488,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 287.695
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 } {
   "r-rc" : {
     "@rc-id" : 147,
@@ -4820,9 +6472,15 @@
         "@pcs-id" : 2
       },
       "pc-settings" : {
+<<<<<<< HEAD
         "crossover" : "0.3258162702087022",
         "mutation" : "0.7498335349472338",
         "n_generations" : "192"
+=======
+        "crossover" : "0.974157383259426",
+        "mutation" : "0.0894541782764563",
+        "n_generations" : "116"
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
       },
       "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
       "pc-forbidden" : false,
@@ -4831,12 +6489,21 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
   "r-runtime" : 84745.990981,
   "r-run-length" : 0.0,
   "r-quality" : 2025.301029995664,
   "r-result-seed" : -1,
   "r-addl-run-data" : "",
   "r-wallclock-time" : 739.004
+=======
+  "r-runtime" : 64669.748,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 505.052
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 } {
   "r-rc" : {
     "@rc-id" : 148,
@@ -4864,12 +6531,21 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+<<<<<<< HEAD
   "r-runtime" : 85483.929682,
   "r-run-length" : 0.0,
   "r-quality" : 2025.301029995664,
   "r-result-seed" : -1,
   "r-addl-run-data" : "",
   "r-wallclock-time" : 697.843
+=======
+  "r-runtime" : 65173.62,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 547.688
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 } {
   "r-rc" : {
     "@rc-id" : 149,
@@ -4886,9 +6562,14 @@
         "@pcs-id" : 2
       },
       "pc-settings" : {
+<<<<<<< HEAD
         "crossover" : "0.3264676024103492",
         "mutation" : "0.6452721503536212",
         "n_generations" : "81"
+=======
+        "crossover" : "0.16180813543565364",
+        "mutation" : "0.9917594642351593",
+        "n_generations" : "247"
       },
       "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
       "pc-forbidden" : false,
@@ -4897,10 +6578,1637 @@
     "rc-sample-idx" : 0
   },
   "r-run-result" : "SAT",
+  "r-runtime" : 65719.852,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 806.868
+} {
+  "r-rc" : {
+    "@rc-id" : 150,
+    "rc-algo-exec-config" : {
+      "@algo-exec-config-id" : 2
+    },
+    "rc-cutoff" : 3600.0,
+    "rc-pisp" : {
+      "@pisp-id" : 2
+    },
+    "rc-pc" : {
+      "@pc-id" : 150,
+      "pc-pcs" : {
+        "@pcs-id" : 2
+      },
+      "pc-settings" : {
+        "crossover" : "0.9770916957057924",
+        "mutation" : "0.9026980570147929",
+        "n_generations" : "169"
+      },
+      "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
+      "pc-forbidden" : false,
+      "pc-default" : false
+    },
+    "rc-sample-idx" : 0
+  },
+  "r-run-result" : "SAT",
+  "r-runtime" : 65719.852,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 786.358
+} {
+  "r-rc" : {
+    "@rc-id" : 151,
+    "rc-algo-exec-config" : {
+      "@algo-exec-config-id" : 2
+    },
+    "rc-cutoff" : 3600.0,
+    "rc-pisp" : {
+      "@pisp-id" : 2
+    },
+    "rc-pc" : {
+      "@pc-id" : 151,
+      "pc-pcs" : {
+        "@pcs-id" : 2
+      },
+      "pc-settings" : {
+        "crossover" : "0.05238152248087369",
+        "mutation" : "0.4577983045219472",
+        "n_generations" : "188"
+      },
+      "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
+      "pc-forbidden" : false,
+      "pc-default" : false
+    },
+    "rc-sample-idx" : 0
+  },
+  "r-run-result" : "SAT",
+  "r-runtime" : 67311.268,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 431.071
+} {
+  "r-rc" : {
+    "@rc-id" : 152,
+    "rc-algo-exec-config" : {
+      "@algo-exec-config-id" : 2
+    },
+    "rc-cutoff" : 3600.0,
+    "rc-pisp" : {
+      "@pisp-id" : 2
+    },
+    "rc-pc" : {
+      "@pc-id" : 152,
+      "pc-pcs" : {
+        "@pcs-id" : 2
+      },
+      "pc-settings" : {
+        "crossover" : "0.6822697979411312",
+        "mutation" : "0.8910294578325941",
+        "n_generations" : "247"
+      },
+      "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
+      "pc-forbidden" : false,
+      "pc-default" : false
+    },
+    "rc-sample-idx" : 0
+  },
+  "r-run-result" : "SAT",
+  "r-runtime" : 67741.76,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 779.61
+} {
+  "r-rc" : {
+    "@rc-id" : 153,
+    "rc-algo-exec-config" : {
+      "@algo-exec-config-id" : 2
+    },
+    "rc-cutoff" : 3600.0,
+    "rc-pisp" : {
+      "@pisp-id" : 2
+    },
+    "rc-pc" : {
+      "@pc-id" : 153,
+      "pc-pcs" : {
+        "@pcs-id" : 2
+      },
+      "pc-settings" : {
+        "crossover" : "0.05238152248087369",
+        "mutation" : "0.2673560403595228",
+        "n_generations" : "200"
+      },
+      "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
+      "pc-forbidden" : false,
+      "pc-default" : false
+    },
+    "rc-sample-idx" : 0
+  },
+  "r-run-result" : "SAT",
+  "r-runtime" : 68520.36,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 164.425
+} {
+  "r-rc" : {
+    "@rc-id" : 154,
+    "rc-algo-exec-config" : {
+      "@algo-exec-config-id" : 2
+    },
+    "rc-cutoff" : 3600.0,
+    "rc-pisp" : {
+      "@pisp-id" : 2
+    },
+    "rc-pc" : {
+      "@pc-id" : 154,
+      "pc-pcs" : {
+        "@pcs-id" : 2
+      },
+      "pc-settings" : {
+        "crossover" : "0.025650824109595627",
+        "mutation" : "0.44550008802677465",
+        "n_generations" : "191"
+      },
+      "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
+      "pc-forbidden" : false,
+      "pc-default" : false
+    },
+    "rc-sample-idx" : 0
+  },
+  "r-run-result" : "SAT",
+  "r-runtime" : 68684.496,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 382.732
+} {
+  "r-rc" : {
+    "@rc-id" : 155,
+    "rc-algo-exec-config" : {
+      "@algo-exec-config-id" : 2
+    },
+    "rc-cutoff" : 3600.0,
+    "rc-pisp" : {
+      "@pisp-id" : 2
+    },
+    "rc-pc" : {
+      "@pc-id" : 155,
+      "pc-pcs" : {
+        "@pcs-id" : 2
+      },
+      "pc-settings" : {
+        "crossover" : "0.6451170895919602",
+        "mutation" : "0.1000532474971072",
+        "n_generations" : "88"
+      },
+      "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
+      "pc-forbidden" : false,
+      "pc-default" : false
+    },
+    "rc-sample-idx" : 0
+  },
+  "r-run-result" : "SAT",
+  "r-runtime" : 69066.892,
+  "r-run-length" : 0.0,
+  "r-quality" : 1601.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 365.634
+} {
+  "r-rc" : {
+    "@rc-id" : 156,
+    "rc-algo-exec-config" : {
+      "@algo-exec-config-id" : 2
+    },
+    "rc-cutoff" : 3600.0,
+    "rc-pisp" : {
+      "@pisp-id" : 2
+    },
+    "rc-pc" : {
+      "@pc-id" : 156,
+      "pc-pcs" : {
+        "@pcs-id" : 2
+      },
+      "pc-settings" : {
+        "crossover" : "0.07430691210786633",
+        "mutation" : "0.876724650456669",
+        "n_generations" : "219"
+      },
+      "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
+      "pc-forbidden" : false,
+      "pc-default" : false
+    },
+    "rc-sample-idx" : 0
+  },
+  "r-run-result" : "SAT",
+  "r-runtime" : 69431.04,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 612.537
+} {
+  "r-rc" : {
+    "@rc-id" : 157,
+    "rc-algo-exec-config" : {
+      "@algo-exec-config-id" : 2
+    },
+    "rc-cutoff" : 3600.0,
+    "rc-pisp" : {
+      "@pisp-id" : 2
+    },
+    "rc-pc" : {
+      "@pc-id" : 157,
+      "pc-pcs" : {
+        "@pcs-id" : 2
+      },
+      "pc-settings" : {
+        "crossover" : "0.1087444399855293",
+        "mutation" : "0.13623266689339364",
+        "n_generations" : "91"
+      },
+      "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
+      "pc-forbidden" : false,
+      "pc-default" : false
+    },
+    "rc-sample-idx" : 0
+  },
+  "r-run-result" : "SAT",
+  "r-runtime" : 70041.136,
+  "r-run-length" : 0.0,
+  "r-quality" : 1601.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 134.919
+} {
+  "r-rc" : {
+    "@rc-id" : 158,
+    "rc-algo-exec-config" : {
+      "@algo-exec-config-id" : 2
+    },
+    "rc-cutoff" : 3600.0,
+    "rc-pisp" : {
+      "@pisp-id" : 2
+    },
+    "rc-pc" : {
+      "@pc-id" : 158,
+      "pc-pcs" : {
+        "@pcs-id" : 2
+      },
+      "pc-settings" : {
+        "crossover" : "0.13686783954944293",
+        "mutation" : "0.876395818917689",
+        "n_generations" : "115"
+      },
+      "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
+      "pc-forbidden" : false,
+      "pc-default" : false
+    },
+    "rc-sample-idx" : 0
+  },
+  "r-run-result" : "SAT",
+  "r-runtime" : 70175.776,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 577.576
+} {
+  "r-rc" : {
+    "@rc-id" : 159,
+    "rc-algo-exec-config" : {
+      "@algo-exec-config-id" : 2
+    },
+    "rc-cutoff" : 3600.0,
+    "rc-pisp" : {
+      "@pisp-id" : 2
+    },
+    "rc-pc" : {
+      "@pc-id" : 159,
+      "pc-pcs" : {
+        "@pcs-id" : 2
+      },
+      "pc-settings" : {
+        "crossover" : "0.8576729236241482",
+        "mutation" : "0.06990966587215258",
+        "n_generations" : "147"
+      },
+      "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
+      "pc-forbidden" : false,
+      "pc-default" : false
+    },
+    "rc-sample-idx" : 0
+  },
+  "r-run-result" : "SAT",
+  "r-runtime" : 70752.308,
+  "r-run-length" : 0.0,
+  "r-quality" : 1601.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 471.612
+} {
+  "r-rc" : {
+    "@rc-id" : 160,
+    "rc-algo-exec-config" : {
+      "@algo-exec-config-id" : 2
+    },
+    "rc-cutoff" : 3600.0,
+    "rc-pisp" : {
+      "@pisp-id" : 2
+    },
+    "rc-pc" : {
+      "@pc-id" : 160,
+      "pc-pcs" : {
+        "@pcs-id" : 2
+      },
+      "pc-settings" : {
+        "crossover" : "0.3461205931284427",
+        "mutation" : "0.8211964011181555",
+        "n_generations" : "87"
+      },
+      "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
+      "pc-forbidden" : false,
+      "pc-default" : false
+    },
+    "rc-sample-idx" : 0
+  },
+  "r-run-result" : "SAT",
+  "r-runtime" : 71221.992,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 524.723
+} {
+  "r-rc" : {
+    "@rc-id" : 161,
+    "rc-algo-exec-config" : {
+      "@algo-exec-config-id" : 2
+    },
+    "rc-cutoff" : 3600.0,
+    "rc-pisp" : {
+      "@pisp-id" : 2
+    },
+    "rc-pc" : {
+      "@pc-id" : 161,
+      "pc-pcs" : {
+        "@pcs-id" : 2
+      },
+      "pc-settings" : {
+        "crossover" : "0.15800937327056364",
+        "mutation" : "0.169466449933811",
+        "n_generations" : "73"
+      },
+      "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
+      "pc-forbidden" : false,
+      "pc-default" : false
+    },
+    "rc-sample-idx" : 0
+  },
+  "r-run-result" : "SAT",
+  "r-runtime" : 71744.676,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 181.756
+} {
+  "r-rc" : {
+    "@rc-id" : 162,
+    "rc-algo-exec-config" : {
+      "@algo-exec-config-id" : 2
+    },
+    "rc-cutoff" : 3600.0,
+    "rc-pisp" : {
+      "@pisp-id" : 2
+    },
+    "rc-pc" : {
+      "@pc-id" : 162,
+      "pc-pcs" : {
+        "@pcs-id" : 2
+      },
+      "pc-settings" : {
+        "crossover" : "0.43633838726770546",
+        "mutation" : "0.6563676954197303",
+        "n_generations" : "248"
+      },
+      "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
+      "pc-forbidden" : false,
+      "pc-default" : false
+    },
+    "rc-sample-idx" : 0
+  },
+  "r-run-result" : "SAT",
+  "r-runtime" : 71926.26,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 745.565
+} {
+  "r-rc" : {
+    "@rc-id" : 163,
+    "rc-algo-exec-config" : {
+      "@algo-exec-config-id" : 2
+    },
+    "rc-cutoff" : 3600.0,
+    "rc-pisp" : {
+      "@pisp-id" : 2
+    },
+    "rc-pc" : {
+      "@pc-id" : 163,
+      "pc-pcs" : {
+        "@pcs-id" : 2
+      },
+      "pc-settings" : {
+        "crossover" : "0.15783023393702555",
+        "mutation" : "0.17769429212335652",
+        "n_generations" : "227"
+      },
+      "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
+      "pc-forbidden" : false,
+      "pc-default" : false
+    },
+    "rc-sample-idx" : 0
+  },
+  "r-run-result" : "SAT",
+  "r-runtime" : 72670.156,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 206.129
+} {
+  "r-rc" : {
+    "@rc-id" : 164,
+    "rc-algo-exec-config" : {
+      "@algo-exec-config-id" : 2
+    },
+    "rc-cutoff" : 3600.0,
+    "rc-pisp" : {
+      "@pisp-id" : 2
+    },
+    "rc-pc" : {
+      "@pc-id" : 164,
+      "pc-pcs" : {
+        "@pcs-id" : 2
+      },
+      "pc-settings" : {
+        "crossover" : "0.05560574649933381",
+        "mutation" : "0.7403900111362981",
+        "n_generations" : "250"
+      },
+      "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
+      "pc-forbidden" : false,
+      "pc-default" : false
+    },
+    "rc-sample-idx" : 0
+  },
+  "r-run-result" : "SAT",
+  "r-runtime" : 72876.148,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 401.965
+} {
+  "r-rc" : {
+    "@rc-id" : 165,
+    "rc-algo-exec-config" : {
+      "@algo-exec-config-id" : 2
+    },
+    "rc-cutoff" : 3600.0,
+    "rc-pisp" : {
+      "@pisp-id" : 2
+    },
+    "rc-pc" : {
+      "@pc-id" : 165,
+      "pc-pcs" : {
+        "@pcs-id" : 2
+      },
+      "pc-settings" : {
+        "crossover" : "0.15260235676783107",
+        "mutation" : "0.5260900232427425",
+        "n_generations" : "247"
+      },
+      "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
+      "pc-forbidden" : false,
+      "pc-default" : false
+    },
+    "rc-sample-idx" : 0
+  },
+  "r-run-result" : "SAT",
+  "r-runtime" : 73277.82,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 480.833
+} {
+  "r-rc" : {
+    "@rc-id" : 166,
+    "rc-algo-exec-config" : {
+      "@algo-exec-config-id" : 2
+    },
+    "rc-cutoff" : 3600.0,
+    "rc-pisp" : {
+      "@pisp-id" : 2
+    },
+    "rc-pc" : {
+      "@pc-id" : 166,
+      "pc-pcs" : {
+        "@pcs-id" : 2
+      },
+      "pc-settings" : {
+        "crossover" : "0.10723465531799048",
+        "mutation" : "0.5837056216251064",
+        "n_generations" : "83"
+      },
+      "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
+      "pc-forbidden" : false,
+      "pc-default" : false
+    },
+    "rc-sample-idx" : 0
+  },
+  "r-run-result" : "SAT",
+  "r-runtime" : 73758.348,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 355.705
+} {
+  "r-rc" : {
+    "@rc-id" : 167,
+    "rc-algo-exec-config" : {
+      "@algo-exec-config-id" : 2
+    },
+    "rc-cutoff" : 3600.0,
+    "rc-pisp" : {
+      "@pisp-id" : 2
+    },
+    "rc-pc" : {
+      "@pc-id" : 167,
+      "pc-pcs" : {
+        "@pcs-id" : 2
+      },
+      "pc-settings" : {
+        "crossover" : "0.12972598286820303",
+        "mutation" : "0.13480567198313131",
+        "n_generations" : "50"
+      },
+      "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
+      "pc-forbidden" : false,
+      "pc-default" : false
+    },
+    "rc-sample-idx" : 0
+  },
+  "r-run-result" : "SAT",
+  "r-runtime" : 74113.824,
+  "r-run-length" : 0.0,
+  "r-quality" : 1601.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 139.809
+} {
+  "r-rc" : {
+    "@rc-id" : 168,
+    "rc-algo-exec-config" : {
+      "@algo-exec-config-id" : 2
+    },
+    "rc-cutoff" : 3600.0,
+    "rc-pisp" : {
+      "@pisp-id" : 2
+    },
+    "rc-pc" : {
+      "@pc-id" : 168,
+      "pc-pcs" : {
+        "@pcs-id" : 2
+      },
+      "pc-settings" : {
+        "crossover" : "0.17738789227496543",
+        "mutation" : "0.19649323222002513",
+        "n_generations" : "153"
+      },
+      "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
+      "pc-forbidden" : false,
+      "pc-default" : false
+    },
+    "rc-sample-idx" : 0
+  },
+  "r-run-result" : "SAT",
+  "r-runtime" : 74253.508,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 247.542
+} {
+  "r-rc" : {
+    "@rc-id" : 169,
+    "rc-algo-exec-config" : {
+      "@algo-exec-config-id" : 2
+    },
+    "rc-cutoff" : 3600.0,
+    "rc-pisp" : {
+      "@pisp-id" : 2
+    },
+    "rc-pc" : {
+      "@pc-id" : 169,
+      "pc-pcs" : {
+        "@pcs-id" : 2
+      },
+      "pc-settings" : {
+        "crossover" : "0.17131201033468713",
+        "mutation" : "0.10198954400652627",
+        "n_generations" : "140"
+      },
+      "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
+      "pc-forbidden" : false,
+      "pc-default" : false
+    },
+    "rc-sample-idx" : 0
+  },
+  "r-run-result" : "SAT",
+  "r-runtime" : 74500.888,
+  "r-run-length" : 0.0,
+  "r-quality" : 1601.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 142.103
+} {
+  "r-rc" : {
+    "@rc-id" : 170,
+    "rc-algo-exec-config" : {
+      "@algo-exec-config-id" : 2
+    },
+    "rc-cutoff" : 3600.0,
+    "rc-pisp" : {
+      "@pisp-id" : 2
+    },
+    "rc-pc" : {
+      "@pc-id" : 170,
+      "pc-pcs" : {
+        "@pcs-id" : 2
+      },
+      "pc-settings" : {
+        "crossover" : "0.7994005713950588",
+        "mutation" : "0.47494967559808354",
+        "n_generations" : "221"
+      },
+      "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
+      "pc-forbidden" : false,
+      "pc-default" : false
+    },
+    "rc-sample-idx" : 0
+  },
+  "r-run-result" : "SAT",
+  "r-runtime" : 74642.852,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 575.478
+} {
+  "r-rc" : {
+    "@rc-id" : 171,
+    "rc-algo-exec-config" : {
+      "@algo-exec-config-id" : 2
+    },
+    "rc-cutoff" : 3600.0,
+    "rc-pisp" : {
+      "@pisp-id" : 2
+    },
+    "rc-pc" : {
+      "@pc-id" : 171,
+      "pc-pcs" : {
+        "@pcs-id" : 2
+      },
+      "pc-settings" : {
+        "crossover" : "0.05238152248087369",
+        "mutation" : "0.5438404603337424",
+        "n_generations" : "200"
+      },
+      "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
+      "pc-forbidden" : false,
+      "pc-default" : false
+    },
+    "rc-sample-idx" : 0
+  },
+  "r-run-result" : "SAT",
+  "r-runtime" : 75217.748,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 301.704
+} {
+  "r-rc" : {
+    "@rc-id" : 172,
+    "rc-algo-exec-config" : {
+      "@algo-exec-config-id" : 2
+    },
+    "rc-cutoff" : 3600.0,
+    "rc-pisp" : {
+      "@pisp-id" : 2
+    },
+    "rc-pc" : {
+      "@pc-id" : 172,
+      "pc-pcs" : {
+        "@pcs-id" : 2
+      },
+      "pc-settings" : {
+        "crossover" : "0.008503053878275879",
+        "mutation" : "0.1661420498965288",
+        "n_generations" : "175"
+      },
+      "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
+      "pc-forbidden" : false,
+      "pc-default" : false
+    },
+    "rc-sample-idx" : 0
+  },
+  "r-run-result" : "SAT",
+  "r-runtime" : 75519.216,
+  "r-run-length" : 0.0,
+  "r-quality" : 1601.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 137.285
+} {
+  "r-rc" : {
+    "@rc-id" : 173,
+    "rc-algo-exec-config" : {
+      "@algo-exec-config-id" : 2
+    },
+    "rc-cutoff" : 3600.0,
+    "rc-pisp" : {
+      "@pisp-id" : 2
+    },
+    "rc-pc" : {
+      "@pc-id" : 173,
+      "pc-pcs" : {
+        "@pcs-id" : 2
+      },
+      "pc-settings" : {
+        "crossover" : "0.692069973767181",
+        "mutation" : "0.07333614414400863",
+        "n_generations" : "95"
+      },
+      "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
+      "pc-forbidden" : false,
+      "pc-default" : false
+    },
+    "rc-sample-idx" : 0
+  },
+  "r-run-result" : "SAT",
+  "r-runtime" : 75656.364,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 393.931
+} {
+  "r-rc" : {
+    "@rc-id" : 174,
+    "rc-algo-exec-config" : {
+      "@algo-exec-config-id" : 2
+    },
+    "rc-cutoff" : 3600.0,
+    "rc-pisp" : {
+      "@pisp-id" : 2
+    },
+    "rc-pc" : {
+      "@pc-id" : 174,
+      "pc-pcs" : {
+        "@pcs-id" : 2
+      },
+      "pc-settings" : {
+        "crossover" : "0.48398635062866313",
+        "mutation" : "0.6300662426378753",
+        "n_generations" : "226"
+      },
+      "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
+      "pc-forbidden" : false,
+      "pc-default" : false
+    },
+    "rc-sample-idx" : 0
+  },
+  "r-run-result" : "SAT",
+  "r-runtime" : 76044.972,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 528.586
+} {
+  "r-rc" : {
+    "@rc-id" : 175,
+    "rc-algo-exec-config" : {
+      "@algo-exec-config-id" : 2
+    },
+    "rc-cutoff" : 3600.0,
+    "rc-pisp" : {
+      "@pisp-id" : 2
+    },
+    "rc-pc" : {
+      "@pc-id" : 175,
+      "pc-pcs" : {
+        "@pcs-id" : 2
+      },
+      "pc-settings" : {
+        "crossover" : "0.13933827006599553",
+        "mutation" : "0.13605660245012596",
+        "n_generations" : "72"
+      },
+      "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
+      "pc-forbidden" : false,
+      "pc-default" : false
+    },
+    "rc-sample-idx" : 0
+  },
+  "r-run-result" : "SAT",
+  "r-runtime" : 76573.024,
+  "r-run-length" : 0.0,
+  "r-quality" : 1602.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 145.678
+} {
+  "r-rc" : {
+    "@rc-id" : 176,
+    "rc-algo-exec-config" : {
+      "@algo-exec-config-id" : 2
+    },
+    "rc-cutoff" : 3600.0,
+    "rc-pisp" : {
+      "@pisp-id" : 2
+    },
+    "rc-pc" : {
+      "@pc-id" : 176,
+      "pc-pcs" : {
+        "@pcs-id" : 2
+      },
+      "pc-settings" : {
+        "crossover" : "0.703619229807762",
+        "mutation" : "0.06853244156856986",
+        "n_generations" : "95"
+      },
+      "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
+      "pc-forbidden" : false,
+      "pc-default" : false
+    },
+    "rc-sample-idx" : 0
+  },
+  "r-run-result" : "SAT",
+  "r-runtime" : 76718.428,
+  "r-run-length" : 0.0,
+  "r-quality" : 1601.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 393.208
+} {
+  "r-rc" : {
+    "@rc-id" : 177,
+    "rc-algo-exec-config" : {
+      "@algo-exec-config-id" : 2
+    },
+    "rc-cutoff" : 3600.0,
+    "rc-pisp" : {
+      "@pisp-id" : 2
+    },
+    "rc-pc" : {
+      "@pc-id" : 177,
+      "pc-pcs" : {
+        "@pcs-id" : 2
+      },
+      "pc-settings" : {
+        "crossover" : "0.05247208001969561",
+        "mutation" : "0.9896707022068465",
+        "n_generations" : "59"
+      },
+      "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
+      "pc-forbidden" : false,
+      "pc-default" : false
+    },
+    "rc-sample-idx" : 0
+  },
+  "r-run-result" : "SAT",
+  "r-runtime" : 77111.008,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 552.247
+} {
+  "r-rc" : {
+    "@rc-id" : 178,
+    "rc-algo-exec-config" : {
+      "@algo-exec-config-id" : 2
+    },
+    "rc-cutoff" : 3600.0,
+    "rc-pisp" : {
+      "@pisp-id" : 2
+    },
+    "rc-pc" : {
+      "@pc-id" : 178,
+      "pc-pcs" : {
+        "@pcs-id" : 2
+      },
+      "pc-settings" : {
+        "crossover" : "0.3251885967289794",
+        "mutation" : "0.9755043659964812",
+        "n_generations" : "122"
+      },
+      "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
+      "pc-forbidden" : false,
+      "pc-default" : false
+    },
+    "rc-sample-idx" : 0
+  },
+  "r-run-result" : "SAT",
+  "r-runtime" : 77662.48,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 654.644
+} {
+  "r-rc" : {
+    "@rc-id" : 179,
+    "rc-algo-exec-config" : {
+      "@algo-exec-config-id" : 2
+    },
+    "rc-cutoff" : 3600.0,
+    "rc-pisp" : {
+      "@pisp-id" : 2
+    },
+    "rc-pc" : {
+      "@pc-id" : 179,
+      "pc-pcs" : {
+        "@pcs-id" : 2
+      },
+      "pc-settings" : {
+        "crossover" : "0.10796843489227803",
+        "mutation" : "0.1618036985090059",
+        "n_generations" : "243"
+      },
+      "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
+      "pc-forbidden" : false,
+      "pc-default" : false
+    },
+    "rc-sample-idx" : 0
+  },
+  "r-run-result" : "SAT",
+  "r-runtime" : 78315.828,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 258.24
+} {
+  "r-rc" : {
+    "@rc-id" : 180,
+    "rc-algo-exec-config" : {
+      "@algo-exec-config-id" : 2
+    },
+    "rc-cutoff" : 3600.0,
+    "rc-pisp" : {
+      "@pisp-id" : 2
+    },
+    "rc-pc" : {
+      "@pc-id" : 180,
+      "pc-pcs" : {
+        "@pcs-id" : 2
+      },
+      "pc-settings" : {
+        "crossover" : "0.5168609601739602",
+        "mutation" : "0.07704387339711793",
+        "n_generations" : "119"
+      },
+      "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
+      "pc-forbidden" : false,
+      "pc-default" : false
+    },
+    "rc-sample-idx" : 0
+  },
+  "r-run-result" : "SAT",
+  "r-runtime" : 78573.492,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 299.853
+} {
+  "r-rc" : {
+    "@rc-id" : 181,
+    "rc-algo-exec-config" : {
+      "@algo-exec-config-id" : 2
+    },
+    "rc-cutoff" : 3600.0,
+    "rc-pisp" : {
+      "@pisp-id" : 2
+    },
+    "rc-pc" : {
+      "@pc-id" : 181,
+      "pc-pcs" : {
+        "@pcs-id" : 2
+      },
+      "pc-settings" : {
+        "crossover" : "0.9086475500682474",
+        "mutation" : "0.4584669066653647",
+        "n_generations" : "87"
+      },
+      "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
+      "pc-forbidden" : false,
+      "pc-default" : false
+    },
+    "rc-sample-idx" : 0
+  },
+  "r-run-result" : "SAT",
+  "r-runtime" : 78872.816,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 550.438
+} {
+  "r-rc" : {
+    "@rc-id" : 182,
+    "rc-algo-exec-config" : {
+      "@algo-exec-config-id" : 2
+    },
+    "rc-cutoff" : 3600.0,
+    "rc-pisp" : {
+      "@pisp-id" : 2
+    },
+    "rc-pc" : {
+      "@pc-id" : 182,
+      "pc-pcs" : {
+        "@pcs-id" : 2
+      },
+      "pc-settings" : {
+        "crossover" : "0.06994108574482238",
+        "mutation" : "0.14165916132465128",
+        "n_generations" : "82"
+      },
+      "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
+      "pc-forbidden" : false,
+      "pc-default" : false
+    },
+    "rc-sample-idx" : 0
+  },
+  "r-run-result" : "SAT",
+  "r-runtime" : 79420.952,
+  "r-run-length" : 0.0,
+  "r-quality" : 1601.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 123.806
+} {
+  "r-rc" : {
+    "@rc-id" : 183,
+    "rc-algo-exec-config" : {
+      "@algo-exec-config-id" : 2
+    },
+    "rc-cutoff" : 3600.0,
+    "rc-pisp" : {
+      "@pisp-id" : 2
+    },
+    "rc-pc" : {
+      "@pc-id" : 183,
+      "pc-pcs" : {
+        "@pcs-id" : 2
+      },
+      "pc-settings" : {
+        "crossover" : "0.6429915476306087",
+        "mutation" : "0.5714665527321809",
+        "n_generations" : "115"
+      },
+      "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
+      "pc-forbidden" : false,
+      "pc-default" : false
+    },
+    "rc-sample-idx" : 0
+  },
+  "r-run-result" : "SAT",
+  "r-runtime" : 79544.584,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 535.782
+} {
+  "r-rc" : {
+    "@rc-id" : 184,
+    "rc-algo-exec-config" : {
+      "@algo-exec-config-id" : 2
+    },
+    "rc-cutoff" : 3600.0,
+    "rc-pisp" : {
+      "@pisp-id" : 2
+    },
+    "rc-pc" : {
+      "@pc-id" : 184,
+      "pc-pcs" : {
+        "@pcs-id" : 2
+      },
+      "pc-settings" : {
+        "crossover" : "0.9933475883299726",
+        "mutation" : "0.07341922621859565",
+        "n_generations" : "113"
+      },
+      "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
+      "pc-forbidden" : false,
+      "pc-default" : false
+    },
+    "rc-sample-idx" : 0
+  },
+  "r-run-result" : "SAT",
+  "r-runtime" : 80079.628,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 567.737
+} {
+  "r-rc" : {
+    "@rc-id" : 185,
+    "rc-algo-exec-config" : {
+      "@algo-exec-config-id" : 2
+    },
+    "rc-cutoff" : 3600.0,
+    "rc-pisp" : {
+      "@pisp-id" : 2
+    },
+    "rc-pc" : {
+      "@pc-id" : 185,
+      "pc-pcs" : {
+        "@pcs-id" : 2
+      },
+      "pc-settings" : {
+        "crossover" : "0.9715169648447091",
+        "mutation" : "0.37126042301444995",
+        "n_generations" : "217"
+      },
+      "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
+      "pc-forbidden" : false,
+      "pc-default" : false
+    },
+    "rc-sample-idx" : 0
+  },
+  "r-run-result" : "SAT",
+  "r-runtime" : 80646.052,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 705.746
+} {
+  "r-rc" : {
+    "@rc-id" : 186,
+    "rc-algo-exec-config" : {
+      "@algo-exec-config-id" : 2
+    },
+    "rc-cutoff" : 3600.0,
+    "rc-pisp" : {
+      "@pisp-id" : 2
+    },
+    "rc-pc" : {
+      "@pc-id" : 186,
+      "pc-pcs" : {
+        "@pcs-id" : 2
+      },
+      "pc-settings" : {
+        "crossover" : "0.1734150364964443",
+        "mutation" : "0.10529480193182783",
+        "n_generations" : "147"
+      },
+      "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
+      "pc-forbidden" : false,
+      "pc-default" : false
+    },
+    "rc-sample-idx" : 0
+  },
+  "r-run-result" : "SAT",
+  "r-runtime" : 81351.068,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 145.15
+} {
+  "r-rc" : {
+    "@rc-id" : 187,
+    "rc-algo-exec-config" : {
+      "@algo-exec-config-id" : 2
+    },
+    "rc-cutoff" : 3600.0,
+    "rc-pisp" : {
+      "@pisp-id" : 2
+    },
+    "rc-pc" : {
+      "@pc-id" : 187,
+      "pc-pcs" : {
+        "@pcs-id" : 2
+      },
+      "pc-settings" : {
+        "crossover" : "0.45502868938948393",
+        "mutation" : "0.9124405182539245",
+        "n_generations" : "152"
+      },
+      "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
+      "pc-forbidden" : false,
+      "pc-default" : false
+    },
+    "rc-sample-idx" : 0
+  },
+  "r-run-result" : "SAT",
+  "r-runtime" : 81495.956,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 730.314
+} {
+  "r-rc" : {
+    "@rc-id" : 188,
+    "rc-algo-exec-config" : {
+      "@algo-exec-config-id" : 2
+    },
+    "rc-cutoff" : 3600.0,
+    "rc-pisp" : {
+      "@pisp-id" : 2
+    },
+    "rc-pc" : {
+      "@pc-id" : 188,
+      "pc-pcs" : {
+        "@pcs-id" : 2
+      },
+      "pc-settings" : {
+        "crossover" : "0.05686544412229422",
+        "mutation" : "0.8978995822766431",
+        "n_generations" : "206"
+      },
+      "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
+      "pc-forbidden" : false,
+      "pc-default" : false
+    },
+    "rc-sample-idx" : 0
+  },
+  "r-run-result" : "SAT",
+  "r-runtime" : 82223.104,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 775.151
+} {
+  "r-rc" : {
+    "@rc-id" : 189,
+    "rc-algo-exec-config" : {
+      "@algo-exec-config-id" : 2
+    },
+    "rc-cutoff" : 3600.0,
+    "rc-pisp" : {
+      "@pisp-id" : 2
+    },
+    "rc-pc" : {
+      "@pc-id" : 189,
+      "pc-pcs" : {
+        "@pcs-id" : 2
+      },
+      "pc-settings" : {
+        "crossover" : "0.48279241764822367",
+        "mutation" : "0.02055034821586066",
+        "n_generations" : "146"
+      },
+      "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
+      "pc-forbidden" : false,
+      "pc-default" : false
+    },
+    "rc-sample-idx" : 0
+  },
+  "r-run-result" : "SAT",
+  "r-runtime" : 82996.072,
+  "r-run-length" : 0.0,
+  "r-quality" : 1603.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 305.774
+} {
+  "r-rc" : {
+    "@rc-id" : 190,
+    "rc-algo-exec-config" : {
+      "@algo-exec-config-id" : 2
+    },
+    "rc-cutoff" : 3600.0,
+    "rc-pisp" : {
+      "@pisp-id" : 2
+    },
+    "rc-pc" : {
+      "@pc-id" : 190,
+      "pc-pcs" : {
+        "@pcs-id" : 2
+      },
+      "pc-settings" : {
+        "crossover" : "0.17258286299407966",
+        "mutation" : "0.08422254970374976",
+        "n_generations" : "180"
+      },
+      "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
+      "pc-forbidden" : false,
+      "pc-default" : false
+    },
+    "rc-sample-idx" : 0
+  },
+  "r-run-result" : "SAT",
+  "r-runtime" : 83300.392,
+  "r-run-length" : 0.0,
+  "r-quality" : 1601.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 194.304
+} {
+  "r-rc" : {
+    "@rc-id" : 191,
+    "rc-algo-exec-config" : {
+      "@algo-exec-config-id" : 2
+    },
+    "rc-cutoff" : 3600.0,
+    "rc-pisp" : {
+      "@pisp-id" : 2
+    },
+    "rc-pc" : {
+      "@pc-id" : 191,
+      "pc-pcs" : {
+        "@pcs-id" : 2
+      },
+      "pc-settings" : {
+        "crossover" : "0.651097459742914",
+        "mutation" : "0.5180741966891744",
+        "n_generations" : "167"
+      },
+      "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
+      "pc-forbidden" : false,
+      "pc-default" : false
+    },
+    "rc-sample-idx" : 0
+  },
+  "r-run-result" : "SAT",
+  "r-runtime" : 83300.392,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 532.5
+} {
+  "r-rc" : {
+    "@rc-id" : 192,
+    "rc-algo-exec-config" : {
+      "@algo-exec-config-id" : 2
+    },
+    "rc-cutoff" : 3600.0,
+    "rc-pisp" : {
+      "@pisp-id" : 2
+    },
+    "rc-pc" : {
+      "@pc-id" : 192,
+      "pc-pcs" : {
+        "@pcs-id" : 2
+      },
+      "pc-settings" : {
+        "crossover" : "0.6587811980225518",
+        "mutation" : "0.09808377377626443",
+        "n_generations" : "139"
+      },
+      "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
+      "pc-forbidden" : false,
+      "pc-default" : false
+    },
+    "rc-sample-idx" : 0
+  },
+  "r-run-result" : "SAT",
+  "r-runtime" : 84025.324,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 453.411
+} {
+  "r-rc" : {
+    "@rc-id" : 193,
+    "rc-algo-exec-config" : {
+      "@algo-exec-config-id" : 2
+    },
+    "rc-cutoff" : 3600.0,
+    "rc-pisp" : {
+      "@pisp-id" : 2
+    },
+    "rc-pc" : {
+      "@pc-id" : 193,
+      "pc-pcs" : {
+        "@pcs-id" : 2
+      },
+      "pc-settings" : {
+        "crossover" : "0.7408082448172731",
+        "mutation" : "0.107025527809534",
+        "n_generations" : "148"
+      },
+      "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
+      "pc-forbidden" : false,
+      "pc-default" : false
+    },
+    "rc-sample-idx" : 0
+  },
+  "r-run-result" : "SAT",
+  "r-runtime" : 84478.012,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 546.198
+} {
+  "r-rc" : {
+    "@rc-id" : 194,
+    "rc-algo-exec-config" : {
+      "@algo-exec-config-id" : 2
+    },
+    "rc-cutoff" : 3600.0,
+    "rc-pisp" : {
+      "@pisp-id" : 2
+    },
+    "rc-pc" : {
+      "@pc-id" : 194,
+      "pc-pcs" : {
+        "@pcs-id" : 2
+      },
+      "pc-settings" : {
+        "crossover" : "0.502733133048642",
+        "mutation" : "0.07311339469094802",
+        "n_generations" : "113"
+      },
+      "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
+      "pc-forbidden" : false,
+      "pc-default" : false
+    },
+    "rc-sample-idx" : 0
+  },
+  "r-run-result" : "SAT",
+  "r-runtime" : 85023.364,
+  "r-run-length" : 0.0,
+  "r-quality" : 1601.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 315.253
+} {
+  "r-rc" : {
+    "@rc-id" : 195,
+    "rc-algo-exec-config" : {
+      "@algo-exec-config-id" : 2
+    },
+    "rc-cutoff" : 3600.0,
+    "rc-pisp" : {
+      "@pisp-id" : 2
+    },
+    "rc-pc" : {
+      "@pc-id" : 195,
+      "pc-pcs" : {
+        "@pcs-id" : 2
+      },
+      "pc-settings" : {
+        "crossover" : "0.5890984170113428",
+        "mutation" : "0.20469480045808375",
+        "n_generations" : "75"
+      },
+      "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
+      "pc-forbidden" : false,
+      "pc-default" : false
+    },
+    "rc-sample-idx" : 0
+  },
+  "r-run-result" : "SAT",
+  "r-runtime" : 85338.148,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 378.365
+} {
+  "r-rc" : {
+    "@rc-id" : 196,
+    "rc-algo-exec-config" : {
+      "@algo-exec-config-id" : 2
+    },
+    "rc-cutoff" : 3600.0,
+    "rc-pisp" : {
+      "@pisp-id" : 2
+    },
+    "rc-pc" : {
+      "@pc-id" : 196,
+      "pc-pcs" : {
+        "@pcs-id" : 2
+      },
+      "pc-settings" : {
+        "crossover" : "0.358361545497233",
+        "mutation" : "0.5212234461255979",
+        "n_generations" : "138"
+      },
+      "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
+      "pc-forbidden" : false,
+      "pc-default" : false
+    },
+    "rc-sample-idx" : 0
+  },
+  "r-run-result" : "SAT",
+  "r-runtime" : 85716.004,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 413.108
+} {
+  "r-rc" : {
+    "@rc-id" : 197,
+    "rc-algo-exec-config" : {
+      "@algo-exec-config-id" : 2
+    },
+    "rc-cutoff" : 3600.0,
+    "rc-pisp" : {
+      "@pisp-id" : 2
+    },
+    "rc-pc" : {
+      "@pc-id" : 197,
+      "pc-pcs" : {
+        "@pcs-id" : 2
+      },
+      "pc-settings" : {
+        "crossover" : "0.01537547705033604",
+        "mutation" : "0.8647215299998495",
+        "n_generations" : "180"
+      },
+      "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
+      "pc-forbidden" : false,
+      "pc-default" : false
+    },
+    "rc-sample-idx" : 0
+  },
+  "r-run-result" : "SAT",
+  "r-runtime" : 86128.604,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 693.621
+} {
+  "r-rc" : {
+    "@rc-id" : 198,
+    "rc-algo-exec-config" : {
+      "@algo-exec-config-id" : 2
+    },
+    "rc-cutoff" : 3600.0,
+    "rc-pisp" : {
+      "@pisp-id" : 2
+    },
+    "rc-pc" : {
+      "@pc-id" : 198,
+      "pc-pcs" : {
+        "@pcs-id" : 2
+      },
+      "pc-settings" : {
+        "crossover" : "0.6708393308094668",
+        "mutation" : "0.7200173799133436",
+        "n_generations" : "92"
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
+      },
+      "pc-active-parameters" : [ "crossover", "mutation", "n_generations" ],
+      "pc-forbidden" : false,
+      "pc-default" : false
+    },
+    "rc-sample-idx" : 0
+  },
+  "r-run-result" : "SAT",
+<<<<<<< HEAD
   "r-runtime" : 86180.728572,
   "r-run-length" : 0.0,
   "r-quality" : 2025.301029995664,
   "r-result-seed" : -1,
   "r-addl-run-data" : "",
   "r-wallclock-time" : 539.554
+=======
+  "r-runtime" : 86821.148,
+  "r-run-length" : 0.0,
+  "r-quality" : 1600.6020599913281,
+  "r-result-seed" : -1,
+  "r-addl-run-data" : "",
+  "r-wallclock-time" : 521.649
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 }

@@ -8,7 +8,7 @@ import gaModel.etasGaModelNP as etasGaModelNP
 import models.modelEtasGa as etasGa
 import sys
 
-def execEtasGaModel(year, region, qntYears=5, times=20, save=True):
+def execEtasGaModel(year, region, qntYears=5, times=10, save=True):
 	
 	observations=list()
 
@@ -24,7 +24,7 @@ def execEtasGaModel(year, region, qntYears=5, times=20, save=True):
 		if save==True:
 			etasGa.saveModelToFile(modelo, '../Zona/model/'+region+'paper_etasNP'+str(year+qntYears)+str(i)+'.txt')
 
-def execGaModel(year, region, qntYears=5, times=20, save=True):
+def execGaModel(year, region, qntYears=5, times=10, save=True):
 
 	observations=list()
 
@@ -109,9 +109,9 @@ def main():
 	#while(year<2012):
 		#print(year)
 	 	# createRealModelforEtas(year, region, save=True)
-		#createRealModel(year, region, withMag=False, save=True)
-		#year+=1	
-	year=2000
+	#	createRealModel(year, region, withMag=False, save=True)
+	#	year+=1	
+	year=2005
 	while(year<2012):
 	#	print(year)
 		# createRealModelforEtas(year, region, save=True)
@@ -127,7 +127,8 @@ def main():
 		execEtasGaModel(year, "Kansai", save=True)
 		#execEtasGaModel(year, "EastJapan", save=True)
 		#execEtasGaModel(year, "Tohoku", save=True)
-
+		print(year)
+		year+1
 
 if __name__ == "__main__":
 	main()

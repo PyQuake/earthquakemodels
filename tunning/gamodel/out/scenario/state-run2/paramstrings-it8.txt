@@ -11,7 +11,13 @@
 11: crossover='0.21590140676835923', mutation='0.7446249139022727', n_generations='206'
 12: crossover='0.6606480689322256', mutation='0.095412019418881', n_generations='187'
 13: crossover='0.6621261982700072', mutation='0.2226708212322429', n_generations='86'
+<<<<<<< HEAD
 14: crossover='0.3409700525893551', mutation='0.07475533082003016', n_generations='190'
 15: crossover='0.5704204772131738', mutation='0.3569901145039619', n_generations='147'
 16: crossover='0.7210561356457009', mutation='0.09293511488746686', n_generations='51'
+=======
+14: crossover='0.09898328870219542', mutation='0.09811297098307104', n_generations='214'
+15: crossover='0.5704204772131738', mutation='0.3569901145039619', n_generations='147'
+16: crossover='0.11602646734537392', mutation='0.8825264536076288', n_generations='67'
+>>>>>>> 624235e000e2bd040875708a9ab7828e6d9632d6
 17: crossover='0.7815053772148964', mutation='0.6064659400581144', n_generations='190'
