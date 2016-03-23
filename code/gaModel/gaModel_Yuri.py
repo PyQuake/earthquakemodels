@@ -42,8 +42,6 @@ def evaluationFunction(individual, modelOmega):
 	for i in range(len(modelOmega)):
 		modelLambda.bins=list(individual)
 		modelLambda.bins=calcNumberBins(modelLambda.bins, modelOmega[i].bins)
-		print(modelOmega[i])
-		print(modelOmega[i].bins)
 		tempValue=loglikelihood(modelLambda, modelOmega[i])
 
 		if tempValue < logValue:
@@ -51,7 +49,7 @@ def evaluationFunction(individual, modelOmega):
 
 	return logValue,
 
-def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,n_aval=50000):
+def gaModel(NGEN,CXPB,MUTPB,modelOmega,year, region, n_aval=50):
 
 	y=int(n_aval/NGEN)
 	x=n_aval - y*NGEN
@@ -71,14 +69,16 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,n_aval=50000):
 	toolbox.register("select", tools.selTournament, tournsize=3)
 	toolbox.register("mutate", tools.mutPolynomialBounded,indpb=0.1, eta = 1, low = 0, up = 1)
 
+	hof = tools.HallOfFame(1)
+
 	stats = tools.Statistics(key=lambda ind: ind.fitness.values)
 	stats.register("avg", numpy.mean)
 	stats.register("std", numpy.std)
 	stats.register("min", numpy.min)
 	stats.register("max", numpy.max)
 
-	# logbook = tools.Logbook()
-	# logbook.header = "gen","time","min","avg","max","std"
+	logbook = tools.Logbook()
+	logbook.header = "gen","time","min","avg","max","std", "best_loglikelihood"
 	starttime = time.time()
 
 	pop = toolbox.population(n)
@@ -89,7 +89,7 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,n_aval=50000):
 		ind.fitness.values = fit
 
 	for g in range(NGEN):
-		print("NGEN: ", g)
+		#print("NGEN: ", g)
 		# Select the next generation individuals
 		offspring = toolbox.select(pop, len(pop))
 		# Clone the selected individuals
@@ -127,28 +127,41 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,n_aval=50000):
 		for i in range(len(offspring)):
 			if offspring[i] == worst_ind:
 				offspring[i] = best_ind
-				break
-
+	
 		pop[:] = offspring
-        # record = stats.compile(pop)
-        # logbook.record(gen=g,time=time.time()-starttime,**record)
-    # f = open('../Zona/etasGaModel/gaModel'+str(year)+'_logbook.txt',"a")
-    # f.write(str(logbook))
-    # f.write('\n')
-
-	best_ind = tools.selBest(pop, 1)[0]
-	generatedModel = type(modelOmega[0])
-	generatedModel.bins = list(best_ind)
-	generatedModel.bins = calcNumberBins(generatedModel.bins, modelOmega[0].bins)
-	generatedModel.definitions = modelOmega[0].definitions
-	generatedModel.mag=False
-
-	#for pysmac
-	logValue = float('Infinity')
-	for i in range(len(modelOmega)):    
-		tempValue=loglikelihood(generatedModel, modelOmega[i])
-		if tempValue < logValue:
-			logValue = tempValue
-	generatedModel.loglikelihood = logValue
+		hof.update(pop)
+		
+		best_ind = hof[g]
+		generatedModel = type(modelOmega[0])
+		generatedModel.bins = [0.0]*len(modelOmega[0].bins)
+		generatedModel = models.model.convertFromListToData(best_ind,len(modelOmega[0].bins))
+		generatedModel.prob = generatedModel.bins
+		generatedModel.bins = calcNumberBins(generatedModel.bins, modelOmega[0].bins)
+		generatedModel.definitions = modelOmega[0].definitions
+		generatedModel.mag=True
+		
+		#for pysmac
+		logValue = float('Infinity')
+		for i in range(len(modelOmega)):    
+			tempValue=loglikelihood(generatedModel, modelOmega[i])
+			if tempValue < logValue:
+				logValue = tempValue
+		#generatedModel.loglikelihood = logValue
+		
+		record = stats.compile(pop)
+		logbook.record(gen=g,time=time.time()-starttime,best_loglikelihood=logValue, **record)
+		
+		print(logbook)
+		
+		f = open('../Zona2/logbook_gaModel/'+region+'_'+str(year)+'_logbook.txt',"a")
+		f.write(str(logbook))
+		f.write('\n')
+		
+	fitnesses = list(map(toolbox.evaluate, hof))#need to pass 2 model.bins. One is the real data, the other de generated model
+	for ind, fit in zip(hof, fitnesses):
+		ind.fitness.values = fit
+		print(fit)
+	exit(0)
+	
 	#return logValue
 	return generatedModel

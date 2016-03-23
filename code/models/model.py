@@ -176,7 +176,7 @@ def loadModelFromFile(filename):
     with open(filename+"def.txt", 'r') as f:
         ret.definitions = eval(f.readline())
     f.close()
-    ret.bins = numpy.loadtxt(filename, dtype="f")
+    ret.bins = numpy.loadtxt(filename, dtype="i")
 
     return ret
 

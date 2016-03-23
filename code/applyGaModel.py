@@ -19,26 +19,24 @@ def execEtasGaModel(year, region, qntYears=5, times=10, save=True):
 	# definicao=model.loadModelDefinition('../params/KantoEtas.txt')
 
 	for i in range(times):
-		modelo=etasGaModelNP.gaModel(100,0.1,0.9,observations, year)
+		modelo=etasGaModelNP.gaModel(100,0.1,0.9,observations, year, region)
 		modelo.mag=True
 		if save==True:
-			etasGa.saveModelToFile(modelo, '../Zona/model/'+region+'paper_etasNP'+str(year+qntYears)+str(i)+'.txt')
+			etasGa.saveModelToFile(modelo, '../Zona2/listaGA/'+region+'_'+str(year+qntYears)+str(i)+'.txt')
 
 def execGaModel(year, region, qntYears=5, times=10, save=True):
 
-	observations=list()
+    observations=list()
+    
+    for i in range(qntYears):
+        observation=model.loadModelFromFile('../Zona/3.0'+region+'real'+str(year+i)+'.txt')
+        observation.bins=observation.bins.tolist()
+        observations.append(observation)
 
-	for i in range(qntYears):
-		observation=model.loadModelFromFile('../Zona/3.0'+region+'real'+str(year+i)+'.txt')
-		observation.bins=observation.bins.tolist()
-		observations.append(observation)
-
-	# definicao=model.loadModelDefinition('../params/Kanto.txt')
-
-	for i in range(times):
-		modelo=ga.gaModel(100,0.1,0.9,observations,year)
-		if save==True:
-			model.saveModelToFile(modelo, '../Zona/model/'+region+'paper_modelo'+str(year+qntYears)+str(i)+'.txt')
+    for i in range(times):
+        modelo=ga.gaModel(10,0.1,0.9,observations,year, region)
+        if save==True:
+            model.saveModelToFile(modelo, '../Zona2/gaModel/'+region+'_'+str(year+qntYears)+str(i)+'.txt')
 
 #should not use this one
 def execGaModelWithMag(year, region, times, save=False):
@@ -55,20 +53,21 @@ def execGaModelWithMag(year, region, times, save=False):
 
 def createRealModel(year, region, withMag=True, save=False):
 	# if (withMag==True):
-	definicao=model.loadModelDefinition('../params/'+region+'WithMag.txt')
+    definicao=model.loadModelDefinition('../params/'+region+'WithMag.txt')
 	# else:
 	# 	definicao=model.loadModelDefinition('../params/'+region+'.txt')
-	catalogo=catalog.readFromFile('../data/jmacat_2000_2013.dat')
-	catalogo=catalog.filter(catalogo,definicao)
-	observacao=model.newModel(definicao, mag=withMag)
-	observacao=model.addFromCatalog(observacao,catalogo,year)
-	if save==True:
-		if observacao.mag==False:
-			model.saveModelToFile(observacao, '../Zona/'+str(3.0)+region+'real'+str(year)+'.txt', real=True)
-		else:
-			model.saveModelToFile(observacao, '../Zona/'+region+'realWithMag'+str(year)+'.txt', real=True)
-
-	return observacao
+    catalogo=catalog.readFromFile('../data/jmacat_2000_2013.dat')
+    catalogo=catalog.filter(catalogo,definicao)
+    observacao=model.newModel(definicao, mag=withMag)
+    observacao=model.addFromCatalog(observacao,catalogo,year)
+    print(observacao.bins)
+    if save==True:
+        if observacao.mag==False:
+            model.saveModelToFile(observacao, '../Zona/'+str(3.0)+region+'real'+str(year)+'.txt', real=True)
+        else:
+            model.saveModelToFile(observacao, '../Zona/'+region+'realWithMag'+str(year)+'.txt', real=True)
+    
+    return observacao
 
 #Actually, in this case, its kind of a mix between withMag and withoutMag
 #Hence, we want info about mag, but we are not incorporating it to the data (maybe this will change)
@@ -118,15 +117,17 @@ def main():
 	#	createRealModel(year, region, withMag=False, save=True)
 	#	year+=1	
 	
-	
+	#createRealModel(2005, "Kanto", withMag=False, save=True)
 	# execGaModel(2005, "Kanto",save=True)
 	# execGaModel(2005, "Kansai",save=True)
 	# execGaModel(2005, "EastJapan",save=True)
-	execGaModel(2005, "Tohoku",save=True)
+	#execGaModel(2005, "Tohoku",save=True)
 	#execEtasGaModel(2005, "Kanto", save=True)
 	#execEtasGaModel(2005, "Kansai", save=True)
-	# execEtasGaModel(2005, "EastJapan", save=True)
-		# execEtasGaModel(year, "Tohoku", save=True)
+	year=2005
+	while(year<2012):
+		execGaModel(year, "EastJapan", save=True)
+		#execEtasGaModel(year, "EastJapan", save=True)
 		# print(year)
 		# year+=1
 

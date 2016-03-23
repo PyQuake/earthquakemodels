@@ -54,7 +54,7 @@ def mutationFunction(individual, indpb, definitions, length):
     return individual
 
 
-def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,n_aval=50000):
+def gaModel(NGEN,CXPB,MUTPB,modelOmega,year, region, n_aval=50000):
 
 	y=int(n_aval/NGEN)
 	x=n_aval - y*NGEN
@@ -133,37 +133,35 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,n_aval=50000):
 		worst_ind = tools.selWorst(offspring, 1)[0]
 
 		for i in range(len(offspring)):
-            # if offspring[i] == worst_ind:
 			result = list(map(equalObjects,offspring[i],worst_ind))
 			if all(result)==True:
 				offspring[i] = best_ind
 				break
 
-		pop[:] = offspring  
-		# record = stats.compile(pop)
-		# logbook.record(ngen=g,time=time.time()-starttime,**record)
-    # f = open('../Zona/etasGaModel/etasGaModelNP_'+str(year)+'_logbook.txt',"a")
-    # f.write(str(logbook))
-    # f.write('\n')
+		best_ind = tools.selBest(pop, 1)[0]
+		generatedModel = type(modelOmega[0])
+		generatedModel.bins = [0.0]*len(modelOmega[0].bins)
+		generatedModel = models.model.convertFromListToData(best_ind,len(modelOmega[0].bins))
+		generatedModel.prob = generatedModel.bins
+		generatedModel.bins = calcNumberBins(generatedModel.bins, modelOmega[0].bins)
+		generatedModel.definitions = modelOmega[0].definitions
+		generatedModel.mag=True
 
 
-
-	best_ind = tools.selBest(pop, 1)[0]
-	generatedModel = type(modelOmega[0])
-	generatedModel.bins = [0.0]*len(modelOmega[0].bins)
-	generatedModel = models.model.convertFromListToData(best_ind,len(modelOmega[0].bins))
-	generatedModel.prob = generatedModel.bins
-	generatedModel.bins = calcNumberBins(generatedModel.bins, modelOmega[0].bins)
-	generatedModel.definitions = modelOmega[0].definitions
-	generatedModel.mag=True
-
-
-	#for pysmac
-	logValue = float('Infinity')
-	for i in range(len(modelOmega)):    
-		tempValue=loglikelihood(generatedModel, modelOmega[i])
-		if tempValue < logValue:
-			logValue = tempValue
-	generatedModel.loglikelihood = logValue
+		#for pysmac
+		logValue = float('Infinity')
+		for i in range(len(modelOmega)):    
+			tempValue=loglikelihood(generatedModel, modelOmega[i])
+			if tempValue < logValue:
+				logValue = tempValue
+		generatedModel.loglikelihood = logValue
+		
+		pop[:] = offspring
+		record = stats.compile(pop)
+		logbook.record(gen=g,time=time.time()-starttime,**record)
+		print(logbook)
+		f = open('../Zona2/logbook_listaGA/'+region+'_'+str(year)+'_logbook.txt',"a")
+		f.write(str(logbook))
+		f.write('\n')
 	#return logValue
 	return generatedModel
