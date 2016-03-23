@@ -156,7 +156,7 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region,n_aval=50000):
 
 	fig, ax1 = plt.subplots()
 
-	line1 = ax1.plot(gen, fit_mins, "b-", label="Minimum Fitness")
+	line1 = ax1.plot(gen, fit_mins, "b-", label="Maximum Fitness")
 	ax1.set_xlabel("Generation")
 	ax1.set_ylabel("Fitness", color="b")
 	for tl in ax1.get_yticklabels():
