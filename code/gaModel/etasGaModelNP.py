@@ -47,7 +47,7 @@ def mutationFunction(individual, indpb, definitions, length):
     return individual
 
 
-def gaModel(NGEN,CXPB,MUTPB,modelOmega,year, region, n_aval=50000):
+def gaModel(NGEN,CXPB,MUTPB,modelOmega,year, region, n_aval=5):
 
 	y=int(n_aval/NGEN)
 	x=n_aval - y*NGEN
@@ -141,7 +141,7 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year, region, n_aval=50000):
 	f.write('\n')
 	generatedModel = type(modelOmega[0])
 	generatedModel.bins = [0.0]*len(modelOmega[0].bins)
-	generatedModel = models.model.convertFromListToData(best_ind,len(modelOmega[0].bins))
+	generatedModel = models.model.convertFromListToData(best_pop,len(modelOmega[0].bins))
 	generatedModel.prob = generatedModel.bins
 	generatedModel.bins = calcNumberBins(generatedModel.bins, modelOmega[0].bins)
 	generatedModel.definitions = modelOmega[0].definitions
@@ -154,8 +154,7 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year, region, n_aval=50000):
 	
 	gen = logbook.select("gen")
 	fit_mins=logbook.select("max")
-	# fit_mins = logbook.chapters["fitness"].select("min")
-	size_avgs = logbook.chapters["size"].select("avg")
+	fit_std = logbook.select("std")
 
 	# print(gen, fit_mins, teste)
 
@@ -163,20 +162,19 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year, region, n_aval=50000):
 
 	fig, ax1 = plt.subplots()
 
-	line1 = ax1.plot(gen, fit_mins, "b-", label="Minimum Fitness")
+	line1 = ax1.plot(gen, fit_mins, "b-", label="Maximum Fitness")
 	ax1.set_xlabel("Generation")
 	ax1.set_ylabel("Fitness", color="b")
 	for tl in ax1.get_yticklabels():
 	    tl.set_color("b")
 
-	# ax2 = ax1.twinx()
-	# line2 = ax2.plot(gen, size_avgs, "r-", label="Average Size")
-	# ax2.set_ylabel("Size", color="r")
-	# for tl in ax2.get_yticklabels():
-	#     tl.set_color("r")
+	ax2 = ax1.twinx()
+	line2 = ax2.plot(gen, size_avgs, "r-", label="STD fitness")
+	ax2.set_ylabel("Size", color="r")
+	for tl in ax2.get_yticklabels():
+	     tl.set_color("r")
 
-	lns = line1
-	# lns = line1 + line2
+	lns = line1 + line2
 	labs = [l.get_label() for l in lns]
 	ax1.legend(lns, labs, loc="center right")
 
