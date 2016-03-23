@@ -49,7 +49,7 @@ def evaluationFunction(individual, modelOmega):
 
 	return logValue,
 
-def gaModel(NGEN,CXPB,MUTPB,modelOmega,year, region, n_aval=50):
+def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region,n_aval=50000):
 
 	y=int(n_aval/NGEN)
 	x=n_aval - y*NGEN
@@ -69,8 +69,6 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year, region, n_aval=50):
 	toolbox.register("select", tools.selTournament, tournsize=3)
 	toolbox.register("mutate", tools.mutPolynomialBounded,indpb=0.1, eta = 1, low = 0, up = 1)
 
-	hof = tools.HallOfFame(1)
-
 	stats = tools.Statistics(key=lambda ind: ind.fitness.values)
 	stats.register("avg", numpy.mean)
 	stats.register("std", numpy.std)
@@ -78,7 +76,7 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year, region, n_aval=50):
 	stats.register("max", numpy.max)
 
 	logbook = tools.Logbook()
-	logbook.header = "gen","time","min","avg","max","std", "best_loglikelihood"
+	logbook.header = "gen","time","min","avg","max","std"
 	starttime = time.time()
 
 	pop = toolbox.population(n)
@@ -89,7 +87,6 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year, region, n_aval=50):
 		ind.fitness.values = fit
 
 	for g in range(NGEN):
-		#print("NGEN: ", g)
 		# Select the next generation individuals
 		offspring = toolbox.select(pop, len(pop))
 		# Clone the selected individuals
@@ -118,50 +115,63 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year, region, n_aval=50):
 		for ind, fit in zip(invalid_ind, fitnesses):
 			ind.fitness.values = fit
 
-        # The population is entirely replaced by the offspring, but the last pop best_ind
+        # The population is entirely replaced by the offspring, but the last pop best_pop
         #Elitism
-		best_ind = tools.selBest(pop, 1)[0]
-
+		best_pop = tools.selBest(pop, 1)[0]
 		worst_ind = tools.selWorst(offspring, 1)[0]
-
 		for i in range(len(offspring)):
 			if offspring[i] == worst_ind:
-				offspring[i] = best_ind
-	
+				offspring[i] = best_pop
+				break
+
 		pop[:] = offspring
-		hof.update(pop)
 		
-		best_ind = hof[g]
-		generatedModel = type(modelOmega[0])
-		generatedModel.bins = [0.0]*len(modelOmega[0].bins)
-		generatedModel = models.model.convertFromListToData(best_ind,len(modelOmega[0].bins))
-		generatedModel.prob = generatedModel.bins
-		generatedModel.bins = calcNumberBins(generatedModel.bins, modelOmega[0].bins)
-		generatedModel.definitions = modelOmega[0].definitions
-		generatedModel.mag=True
-		
-		#for pysmac
-		logValue = float('Infinity')
-		for i in range(len(modelOmega)):    
-			tempValue=loglikelihood(generatedModel, modelOmega[i])
-			if tempValue < logValue:
-				logValue = tempValue
-		#generatedModel.loglikelihood = logValue
-		
+		#logBook
 		record = stats.compile(pop)
-		logbook.record(gen=g,time=time.time()-starttime,best_loglikelihood=logValue, **record)
-		
-		print(logbook)
-		
-		f = open('../Zona2/logbook_gaModel/'+region+'_'+str(year)+'_logbook.txt',"a")
-		f.write(str(logbook))
-		f.write('\n')
-		
-	fitnesses = list(map(toolbox.evaluate, hof))#need to pass 2 model.bins. One is the real data, the other de generated model
-	for ind, fit in zip(hof, fitnesses):
-		ind.fitness.values = fit
-		print(fit)
-	exit(0)
+		logbook.record(gen=g,time=time.time()-starttime,**record)
+	print(logbook)
+	f = open('../Zona2/logbook_gaModel/'+region+'_'+str(year)+'_logbook.txt',"a")
+	f.write(str(logbook))
+	f.write('\n')
+
 	
+	generatedModel = type(modelOmega[0])
+	generatedModel.prob = best_pop
+	generatedModel.bins = calcNumberBins(best_pop, modelOmega[0].bins)
+	generatedModel.loglikelihood = best_pop.fitness.values
+	generatedModel.definitions = modelOmega[0].definitions
+	generatedModel.mag=True
+	#for pysmac
+	# logValue = best_pop.fitness.values
 	#return logValue
+
+	gen = logbook.select("gen")
+	fit_mins=logbook.select("max")
+	# fit_mins = logbook.chapters["fitness"].select("min")
+	size_avgs = logbook.chapters["size"].select("avg")
+
+	# print(gen, fit_mins, teste)
+
+	import matplotlib.pyplot as plt
+
+	fig, ax1 = plt.subplots()
+
+	line1 = ax1.plot(gen, fit_mins, "b-", label="Minimum Fitness")
+	ax1.set_xlabel("Generation")
+	ax1.set_ylabel("Fitness", color="b")
+	for tl in ax1.get_yticklabels():
+	    tl.set_color("b")
+
+	# ax2 = ax1.twinx()
+	# line2 = ax2.plot(gen, size_avgs, "r-", label="Average Size")
+	# ax2.set_ylabel("Size", color="r")
+	# for tl in ax2.get_yticklabels():
+	#     tl.set_color("r")
+
+	lns = line1
+	# lns = line1 + line2
+	labs = [l.get_label() for l in lns]
+	ax1.legend(lns, labs, loc="center right")
+
+	plt.show()
 	return generatedModel

@@ -268,7 +268,7 @@ def convertArrayto2D(modelWithout, definitions):
 def convertFromListToData(observations,length):
 
     ret=model()
-    ret.bins=[0.0]*length
+    ret.bins=[0.00000000001]*length
 
     for gene in observations:    
         ret.bins[gene.index]=gene.prob

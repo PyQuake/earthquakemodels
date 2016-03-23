@@ -24,17 +24,10 @@ def equalObjects(x,y):
 def evaluationFunction(individual, modelOmega):
 
     logValue = float('Infinity')
-    lambdasBins=list()
-
-    for i in range(len(modelOmega)):        
-        modelLambda=type(modelOmega[0])
-        bins=models.model.convertFromListToData(individual,len(modelOmega[i].bins))    
-        lambdasBins.append(bins)
+    modelLambda=type(modelOmega[0])
+    modelLambda=models.model.convertFromListToData(individual,len(modelOmega[0].bins))    
 
     for i in range(len(modelOmega)):    
-        
-        modelLambda=models.model.convertFromListToData(individual,len(modelOmega[i].bins))    
-        modelLambda.bins=lambdasBins[i].bins
         tempValue=loglikelihood(modelLambda, modelOmega[i])
 
         if tempValue < logValue:
@@ -76,7 +69,7 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year, region, n_aval=50000):
 		tempValue+=lengthList[i]
 	global length 
 	length = int(tempValue/len(lengthList))
-
+	
 	toolbox.register("individual", tools.initRepeat, creator.Individual, genotype, n=length)
 
 	toolbox.register("population", tools.initRepeat, list, toolbox.individual)
@@ -90,9 +83,9 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year, region, n_aval=50000):
 	stats.register("std", numpy.std)
 	stats.register("min", numpy.min)
 	stats.register("max", numpy.max)
-
-	# logbook = tools.Logbook()
-	# logbook.header = "ngen","time","min","avg","max","std"
+	
+	logbook = tools.Logbook()
+	logbook.header = "ngen","time","min","avg","max","std"
 	starttime = time.time()
 
 	pop = toolbox.population(n)
@@ -103,7 +96,7 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year, region, n_aval=50000):
 	for ind, fit in zip(pop, fitnesses):
 		ind.fitness.values = fit
 	for g in range(NGEN):
-		print("NGEN: ", g)
+		
 		# Select the next generation individuals
 		offspring = toolbox.select(pop, len(pop))
 		# Clone the selected individuals
@@ -118,50 +111,43 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year, region, n_aval=50000):
 			if random.random() < MUTPB:
 				toolbox.mutate(mutant)
 				del mutant.fitness.values
-        
         # Evaluate the individuals with an invalid fitness
 		invalid_ind = [ind for ind in offspring if not ind.fitness.valid]
 
 		fitnesses = map(toolbox.evaluate, invalid_ind)
 
-
 		for ind, fit in zip(invalid_ind, fitnesses):
 			ind.fitness.values = fit
         # The population is entirely replaced by the offspring, but the last pop best_ind
         #Elitism
-		best_ind = tools.selBest(pop, 1)[0]
+		best_pop = tools.selBest(pop, 1)[0]
 		worst_ind = tools.selWorst(offspring, 1)[0]
-
+		
 		for i in range(len(offspring)):
 			result = list(map(equalObjects,offspring[i],worst_ind))
 			if all(result)==True:
-				offspring[i] = best_ind
+				offspring[i] = best_pop
 				break
 
-		best_ind = tools.selBest(pop, 1)[0]
-		generatedModel = type(modelOmega[0])
-		generatedModel.bins = [0.0]*len(modelOmega[0].bins)
-		generatedModel = models.model.convertFromListToData(best_ind,len(modelOmega[0].bins))
-		generatedModel.prob = generatedModel.bins
-		generatedModel.bins = calcNumberBins(generatedModel.bins, modelOmega[0].bins)
-		generatedModel.definitions = modelOmega[0].definitions
-		generatedModel.mag=True
-
-
-		#for pysmac
-		logValue = float('Infinity')
-		for i in range(len(modelOmega)):    
-			tempValue=loglikelihood(generatedModel, modelOmega[i])
-			if tempValue < logValue:
-				logValue = tempValue
-		generatedModel.loglikelihood = logValue
-		
 		pop[:] = offspring
 		record = stats.compile(pop)
+
 		logbook.record(gen=g,time=time.time()-starttime,**record)
-		print(logbook)
-		f = open('../Zona2/logbook_listaGA/'+region+'_'+str(year)+'_logbook.txt',"a")
-		f.write(str(logbook))
-		f.write('\n')
+
+	print(logbook)
+
+	f = open('../Zona2/logbook_listaGA/'+region+'_'+str(year)+'_logbook.txt',"a")
+	f.write(str(logbook))
+	f.write('\n')
+	generatedModel = type(modelOmega[0])
+	generatedModel.bins = [0.0]*len(modelOmega[0].bins)
+	generatedModel = models.model.convertFromListToData(best_ind,len(modelOmega[0].bins))
+	generatedModel.prob = generatedModel.bins
+	generatedModel.bins = calcNumberBins(generatedModel.bins, modelOmega[0].bins)
+	generatedModel.definitions = modelOmega[0].definitions
+	generatedModel.mag=True
+
+	#for pysmac
+	# logValue = best_pop.fitness.values
 	#return logValue
 	return generatedModel

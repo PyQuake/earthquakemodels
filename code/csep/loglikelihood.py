@@ -38,6 +38,7 @@ def calcLogLikelihood(modelLambda,modelOmega):
     index=0
     for lambda_i,omega_i in zip(modelLambda.bins,modelOmega.bins):
         if (lambda_i == 0 and omega_i != 0):
+            print(lambda_i, omega_i)
             return float('-inf') # invalid Model	
 
         if (lambda_i == 0 and omega_i == 0):
