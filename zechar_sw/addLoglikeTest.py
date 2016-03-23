@@ -51,13 +51,45 @@ def addingLoglike2Results(year):
 
 
 def testModels(year):
- 	subprocess.call(['java', '-jar', 'CORSSA Theme VI Tools.jar', 'gaModels'+str(year)+'/etasNP,R=gaModel-configFile.txt'])
- 	subprocess.call(['java', '-jar', 'CORSSA Theme VI Tools.jar', 'gaModels'+str(year)+'/gaModel,R=etasNP-configFile.txt'])
+	print(year)
+	region="Kansai"
+	print(region)
+	subprocess.call(['java', '-jar', 'CORSSA Theme VI Tools.jar', 'gaModels'+str(year)+'/'+region+'NP.txt'])
+	subprocess.call(['java', '-jar', 'CORSSA Theme VI Tools.jar', 'gaModels'+str(year)+'/'+region+'modelo.txt'])
+	region="Kanto"
+	print(region)
+	subprocess.call(['java', '-jar', 'CORSSA Theme VI Tools.jar', 'gaModels'+str(year)+'/'+region+'NP.txt'])
+	subprocess.call(['java', '-jar', 'CORSSA Theme VI Tools.jar', 'gaModels'+str(year)+'/'+region+'modelo.txt'])
+	region="Tohoku"
+	print(region)
+	subprocess.call(['java', '-jar', 'CORSSA Theme VI Tools.jar', 'gaModels'+str(year)+'/'+region+'NP.txt'])
+	subprocess.call(['java', '-jar', 'CORSSA Theme VI Tools.jar', 'gaModels'+str(year)+'/'+region+'modelo.txt'])
+	region="EastJapan"
+	print(region)
+	subprocess.call(['java', '-jar', 'CORSSA Theme VI Tools.jar', 'gaModels'+str(year)+'/'+region+'NP.txt'])
+	subprocess.call(['java', '-jar', 'CORSSA Theme VI Tools.jar', 'gaModels'+str(year)+'/'+region+'modelo.txt'])
+
+	region="Kansai"
+	print(region)
+	subprocess.call(['java', '-jar', 'CORSSA Theme VI Tools.jar', 'gaModels'+str(year)+'/'+region+'NP_Hybrid.txt'])
+	subprocess.call(['java', '-jar', 'CORSSA Theme VI Tools.jar', 'gaModels'+str(year)+'/'+region+'modelo_Hybrid.txt'])
+	region="Kanto"
+	print(region)
+	subprocess.call(['java', '-jar', 'CORSSA Theme VI Tools.jar', 'gaModels'+str(year)+'/'+region+'NP_Hybrid.txt'])
+	subprocess.call(['java', '-jar', 'CORSSA Theme VI Tools.jar', 'gaModels'+str(year)+'/'+region+'modelo_Hybrid.txt'])
+	region="Tohoku"
+	print(region)
+	subprocess.call(['java', '-jar', 'CORSSA Theme VI Tools.jar', 'gaModels'+str(year)+'/'+region+'NP_Hybrid.txt'])
+	subprocess.call(['java', '-jar', 'CORSSA Theme VI Tools.jar', 'gaModels'+str(year)+'/'+region+'modelo_Hybrid.txt'])
+	region="EastJapan"
+	print(region)
+	subprocess.call(['java', '-jar', 'CORSSA Theme VI Tools.jar', 'gaModels'+str(year)+'/'+region+'NP_Hybrid.txt'])
+	subprocess.call(['java', '-jar', 'CORSSA Theme VI Tools.jar', 'gaModels'+str(year)+'/'+region+'modelo_Hybrid.txt'])
  	
 
  	# subprocess.call(['java', '-jar', 'CORSSA Theme VI Tools.jar', 'gaModels'+str(year)+'\etasNP,R=gaModel-configFile.txt'])
  	# subprocess.call(['java', '-jar', 'CORSSA Theme VI Tools.jar', 'gaModels'+str(year)+'\gaModel,R=etasNP-configFile.txt'])
- 	addingLoglike2Results(year)
+ 	# addingLoglike2Results(year)
 
 
 def testControlModels(year):

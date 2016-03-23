@@ -136,7 +136,7 @@ def loadModelFromFile(filename, withMag=True):
         # with open(filename+"prob.txt", 'r') as f:
         #     ret.prob = eval(f.readline())
         # f.close()
-        ret.bins = numpy.loadtxt(filename, dtype="i")
+        ret.bins = numpy.loadtxt(filename, dtype="f")
 
     return ret
 
@@ -148,7 +148,7 @@ def simpleHibrid(model,fileMag,fileSaveCat):
     # modelo=etasGa.loadModelFromFile('../Zona/model/etasNP2000exec.txt')
 
     model.magnitudeValues = numpy.zeros(shape=(len(model.bins),model.definitions[2]['cells']), dtype='f')
-
+    finished = sum(model.bins)
     # f = open("../Zona/etasim1.txt", 'r')
     f = open(fileMag, 'r')
 
@@ -173,17 +173,15 @@ def simpleHibrid(model,fileMag,fileSaveCat):
         times.append(time)
 
         i, quakesCount, number = 0, 0, 1
-
-    while quakes != []:
+    # exit(0)
+    while quakes != [] and number<finished:
         if i >= len(model.bins):
             break
         j = 0 
         while j < len(quakes):
             if  model.bins[i] > quakesCount:
                 index = localizarIndex(model, quakes[j])
-
                 if model.magnitudeValues[i][index] == 0:
-                    
                     saveCatalog(fileSaveCat, model, i, number, quakes[j], times[j])
                     number += 1
 
@@ -192,13 +190,16 @@ def simpleHibrid(model,fileMag,fileSaveCat):
 
                     j = 0
                     quakesCount+=1
+                else:
+                    quakes[j]+=0.1
             else:
                 i+=1
                 quakesCount = 0  
                 break
             j+=1
     # print(len(quakes), quakesCount, modelo.bins[i], quakes, i)
-    
+    f.close()
+    g.close()
     return model
 
 def saveCatalog(fileSaveCat, modelo, index, number, mag, time):
@@ -309,7 +310,7 @@ def modelToZecharTests(model, filename, startDate, endDate):
     f.close()
 
 #TODO: it is incrising the number os quakes in line 344
-def ideaRIinMmodels(model,steps=5):
+def ideaRIinMmodels(model, nQuakes,steps=5):
 
 
     maxIndex = model.definitions[0]['bins']*model.definitions[1]['bins']*model.definitions[2]['bins']-1
@@ -331,11 +332,11 @@ def ideaRIinMmodels(model,steps=5):
         value = dataBins[i]
         index = dataIndex[j]
 
-        number=pdfOmoriUtsu(t2=2)
-        k=quakesTriggered(random.uniform(0,8.5),3)
-        nQuakes = int(number*k)
-        if nQuakes>12:
-            nQuakes=12
+        # number=pdfOmoriUtsu(t2=2)
+        # k=quakesTriggered(random.uniform(0,8.5),3)
+        # nQuakes = int(number*k)
+        # if nQuakes>12:
+        #     nQuakes=12
 
         for newTarget in range(steps):
             newTarget+=1
@@ -380,19 +381,17 @@ def quakesTriggered(magMain, magThreshold=3):
     k = A * math.exp(alpha*(magMain-magThreshold))
     return k
 
-def sumTriggeredByDaysWithRI(model, t2=30):
-    model=simpleHibrid(model,"../Zona/etasim1.txt","./testeModelCatalog.txt")
+def sumTriggeredByDaysWithRI(model, year, fileEtasim, t2=30):
+    limitTo12(model)
+    model=simpleHibrid(model,fileEtasim,"../Zona/paper_exp/testeModelCatalog.txt")
     for (binOfmagMain,index) in zip(model.magnitudeValues,range(len(model.magnitudeValues))):
         for magMain in binOfmagMain:
             aftershocks = 0
             if magMain > 0: 
                 for t in range(t2):
                     aftershocks += pdfOmoriUtsu(t2=t+1)*quakesTriggered(magMain)
-                    print(int(aftershocks), index, magMain,t)
-                model.bins[index]+=int(aftershocks)
-    ideaRIinMmodels(model)
-    limitTo12(model)
-
+                # model.bins[index]+=int(aftershocks)
+    ideaRIinMmodels(model, aftershocks)
     return model
 
 
