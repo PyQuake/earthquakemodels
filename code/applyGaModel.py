@@ -128,10 +128,10 @@ def main():
 	while(year<2012):
 		execGaModel(year, "EastJapan", save=True)
 		
-		# execEtasGaModel(year, "EastJapan", save=True)
-		break
+		execEtasGaModel(year, "EastJapan", save=True)
+		
 		# print(year)
-		# year+=1
+		year+=1
 
 if __name__ == "__main__":
 	main()

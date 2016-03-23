@@ -173,5 +173,5 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region,n_aval=50000):
 	labs = [l.get_label() for l in lns]
 	ax1.legend(lns, labs, loc="center right")
 
-	plt.show()
+	plt.savefig('../Zona2/logbook_gaModel/'+region+'_'+str(year)+'_convergencia_media.txt')
 	return generatedModel
