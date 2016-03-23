@@ -35,19 +35,21 @@ def initDEAP():
     # logbook.header = "gen","min","avg","max","std"
 
 def evaluationFunction(individual, modelOmega):
-    
-    logValue = float('Infinity')
-    modelLambda=type(modelOmega[0])
-    
-    for i in range(len(modelOmega)):
-        modelLambda.bins=list(individual)
-        modelLambda.bins=calcNumberBins(modelLambda.bins, modelOmega[i].bins)    
-        tempValue=loglikelihood(modelLambda, modelOmega[i])
+	
+	logValue = float('Infinity')
+	modelLambda=type(modelOmega[0])
 
-        if tempValue < logValue:
-            logValue = tempValue
+	for i in range(len(modelOmega)):
+		modelLambda.bins=list(individual)
+		modelLambda.bins=calcNumberBins(modelLambda.bins, modelOmega[i].bins)
+		print(modelOmega[i])
+		print(modelOmega[i].bins)
+		tempValue=loglikelihood(modelLambda, modelOmega[i])
 
-    return logValue,
+		if tempValue < logValue:
+			logValue = tempValue
+
+	return logValue,
 
 def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,n_aval=50000):
 
