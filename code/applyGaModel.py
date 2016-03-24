@@ -19,7 +19,7 @@ def execEtasGaModel(year, region, qntYears=5, times=10, save=True):
 	# definicao=model.loadModelDefinition('../params/KantoEtas.txt')
 
 	for i in range(times):
-		modelo=etasGaModelNP.gaModel(10,0.1,0.9,observations, year, region)
+		modelo=etasGaModelNP.gaModel(100,0.9,0.1,observations, year, region)
 		modelo.mag=True
 		if save==True:
 			etasGa.saveModelToFile(modelo, '../Zona2/listaGA/'+region+'_'+str(year+qntYears)+str(i)+'.txt')
@@ -34,7 +34,7 @@ def execGaModel(year, region, qntYears=5, times=10, save=True):
         observations.append(observation)
 
     for i in range(times):
-        modelo=ga.gaModel(100,0.1,0.9,observations,year,region)
+        modelo=ga.gaModel(100,0.9,0.1,observations,year,region)
         if save==True:
             model.saveModelToFile(modelo, '../Zona2/gaModel/'+region+'_'+str(year+qntYears)+str(i)+'.txt')
 
@@ -126,10 +126,9 @@ def main():
 	#execEtasGaModel(2005, "Kansai", save=True)
 	year=2005
 	while(year<2012):
-		#execGaModel(year, "EastJapan", save=True)
+		# execGaModel(year, "EastJapan", save=True)
 		
 		execEtasGaModel(year, "EastJapan", save=True)
-		break
 		# print(year)
 		year+=1
 

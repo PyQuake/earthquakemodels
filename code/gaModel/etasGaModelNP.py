@@ -47,7 +47,7 @@ def mutationFunction(individual, indpb, definitions, length):
     return individual
 
 
-def gaModel(NGEN,CXPB,MUTPB,modelOmega,year, region, n_aval=5):
+def gaModel(NGEN,CXPB,MUTPB,modelOmega,year, region, n_aval=50000):
 
 	y=int(n_aval/NGEN)
 	x=n_aval - y*NGEN
@@ -146,6 +146,7 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year, region, n_aval=5):
 	generatedModel.bins = calcNumberBins(generatedModel.bins, modelOmega[0].bins)
 	generatedModel.definitions = modelOmega[0].definitions
 	generatedModel.mag=True
+	generatedModel.loglikelihood = best_pop.fitness.values
 
 	#for pysmac
 	# logValue = best_pop.fitness.values
@@ -168,15 +169,15 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year, region, n_aval=5):
 	for tl in ax1.get_yticklabels():
 	    tl.set_color("b")
 
-	ax2 = ax1.twinx()
-	line2 = ax2.plot(gen, size_avgs, "r-", label="STD fitness")
-	ax2.set_ylabel("Size", color="r")
-	for tl in ax2.get_yticklabels():
-	     tl.set_color("r")
+	# ax2 = ax1.twinx()
+	# line2 = ax2.plot(gen, fit_std, "r-", label="STD fitness")
+	# ax2.set_ylabel("STD", color="r")
+	# for tl in ax2.get_yticklabels():
+	#      tl.set_color("r")
 
-	lns = line1 + line2
+	lns = line1
 	labs = [l.get_label() for l in lns]
 	ax1.legend(lns, labs, loc="center right")
 
-	plt.savefig('../Zona2/logbook_listaGA/'+region+'_'+str(year)+'_convergencia_media.txt')
+	plt.savefig('../Zona2/logbook_listaGA/'+region+'_'+str(year)+'_convergencia_media.png')
 	return generatedModel
