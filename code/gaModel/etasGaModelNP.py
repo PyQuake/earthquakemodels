@@ -10,13 +10,7 @@ import models.model
 import random
 import array
 
-global length
-length=0
 
-class genotype():
-    def __init__(self):
-        self.index=random.randint(0 ,length)
-        self.prob=random.random()
 
 def equalObjects(x,y):
     return x.prob==y.prob and x.index==y.index
@@ -41,14 +35,20 @@ def mutationFunction(individual, indpb, definitions, length):
     # while i<length:
     for i in range(length):
         if random.random()<indpb:
-            individual[i].index=random.randint(0 ,length)
+            individual[i].index=random.randint(0 ,length-1)
         # if random.random()<indpb:
             individual[i].prob=random.random()
     return individual
 
 
 def gaModel(NGEN,CXPB,MUTPB,modelOmega,year, region, n_aval=50000):
+	global length
+	length=0
 
+	class genotype():
+	    def __init__(self):
+	    	self.index = random.randint(0, length-1)
+	    	self.prob = random.random()
 	y=int(n_aval/NGEN)
 	x=n_aval - y*NGEN
 	n= x + y
@@ -58,28 +58,16 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year, region, n_aval=50000):
 	creator.create("FitnessFunction", base.Fitness, weights=(1.0,))
 	#TODO: Check if its posible to use it as obj, maybe, OFF
 	creator.create("Individual", numpy.ndarray, fitness=creator.FitnessFunction)
-	# numpy.ndarray((10,)
-	# Attribute generator
 
-	# Calculate the len of the gen by the mean of the Omegas size
+	# Calculate the len of the gen
 	lengthPos=dict()
 	tempValue=0
 	for i in range(len(modelOmega)):    
-		for j in range(len(modelOmega[i])):
-			if modelOmega[i].bins[j] != 0:
-				lengthPos[str(j)]==1
+		for j in range(len(modelOmega[i].bins)):
+			lengthPos[str(j)]=1
 
-	global length 
 	length=len(lengthPos)
 
-	# lengthList=list()
-	# tempValue=0
-	# for i in range(len(modelOmega)):    
-	# 	lengthList.append(len(modelOmega[i].bins)-1)
-	# 	tempValue+=lengthList[i]
-	# global length 
-	# length = int(tempValue/len(lengthList))
-	
 	toolbox.register("individual", tools.initRepeat, creator.Individual, genotype, n=length)
 
 	toolbox.register("population", tools.initRepeat, list, toolbox.individual)
@@ -100,7 +88,9 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year, region, n_aval=50000):
 
 	pop = toolbox.population(n)
 	# Evaluate the entire population
-
+	# for a in pop[0]:
+	# 	print(a.index, a.prob)
+	# exit()
 	fitnesses = list(map(toolbox.evaluate, pop))#need to pass 2 model.bins. One is the real data, the other de generated model
 
 	for ind, fit in zip(pop, fitnesses):

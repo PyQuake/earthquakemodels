@@ -271,6 +271,7 @@ def convertFromListToData(observations,length):
     ret.bins=[0.00000000001]*length
 
     for gene in observations:    
+        # print(length, len(observations), gene.index)
         ret.bins[gene.index]=gene.prob
     return ret
 
