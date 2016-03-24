@@ -31,12 +31,10 @@ def evaluationFunction(individual, modelOmega):
 
 
 def mutationFunction(individual, indpb, definitions, length):
-    # i=0
-    # while i<length:
+ 
     for i in range(length):
         if random.random()<indpb:
             individual[i].index=random.randint(0 ,length-1)
-        # if random.random()<indpb:
             individual[i].prob=random.random()
     return individual
 
@@ -87,10 +85,7 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year, region, n_aval=50000):
 	starttime = time.time()
 
 	pop = toolbox.population(n)
-	# Evaluate the entire population
-	# for a in pop[0]:
-	# 	print(a.index, a.prob)
-	# exit()
+
 	fitnesses = list(map(toolbox.evaluate, pop))#need to pass 2 model.bins. One is the real data, the other de generated model
 
 	for ind, fit in zip(pop, fitnesses):

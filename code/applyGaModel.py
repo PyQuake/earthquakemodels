@@ -125,11 +125,16 @@ def main():
 	#execEtasGaModel(2005, "Kanto", save=True)
 	#execEtasGaModel(2005, "Kansai", save=True)
 	year=2005
-	while(year<2012):
-		#execGaModel(year, "Tohoku", save=True)
-		
+	while(year<2010):
+		execGaModel(year, "Tohoku", save=True)
 		execEtasGaModel(year, "Tohoku", save=True)
-		# print(year)
+		execGaModel(year, "Kanto", save=True)
+		execEtasGaModel(year, "Kanto", save=True)
+		execGaModel(year, "EastJapan", save=True)
+		execEtasGaModel(year, "EastJapan", save=True)
+		execGaModel(year, "Kansai", save=True)
+		execEtasGaModel(year, "Kansai", save=True)
+		print(year)
 		year+=1
 
 if __name__ == "__main__":
