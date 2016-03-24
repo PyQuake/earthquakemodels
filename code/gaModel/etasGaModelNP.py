@@ -62,13 +62,23 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year, region, n_aval=50000):
 	# Attribute generator
 
 	# Calculate the len of the gen by the mean of the Omegas size
-	lengthList=list()
+	lengthPos=dict()
 	tempValue=0
 	for i in range(len(modelOmega)):    
-		lengthList.append(len(modelOmega[i].bins)-1)
-		tempValue+=lengthList[i]
+		for j in range(len(modelOmega[i])):
+			if modelOmega[i].bins[j] != 0:
+				lengthPos[str(j)]==1
+
 	global length 
-	length = int(tempValue/len(lengthList))
+	length=len(lengthPos)
+
+	# lengthList=list()
+	# tempValue=0
+	# for i in range(len(modelOmega)):    
+	# 	lengthList.append(len(modelOmega[i].bins)-1)
+	# 	tempValue+=lengthList[i]
+	# global length 
+	# length = int(tempValue/len(lengthList))
 	
 	toolbox.register("individual", tools.initRepeat, creator.Individual, genotype, n=length)
 
