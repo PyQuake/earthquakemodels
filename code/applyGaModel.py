@@ -126,9 +126,9 @@ def main():
 	#execEtasGaModel(2005, "Kansai", save=True)
 	year=2005
 	while(year<2012):
-		# execGaModel(year, "EastJapan", save=True)
+		#execGaModel(year, "Tohoku", save=True)
 		
-		execEtasGaModel(year, "EastJapan", save=True)
+		execEtasGaModel(year, "Tohoku", save=True)
 		# print(year)
 		year+=1
 
