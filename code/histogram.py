@@ -19,15 +19,9 @@ while(year<2012):
  plt.xticks(range(len(data)), b.keys(), rotation=25)
  #print(b)
  axes = plt.gca()
- plt.savefig('../Zona/histograms/Histogram of '+str(year)+" "+region+'.png')
+ plt.savefig('../Zona/histograms/Magnitude Histogram of '+str(year)+" "+region+'.png')
  del data
  year+=1
-
-
-import matplotlib.pyplot as plt
-import models.model as model
-import earthquake.catalog as catalog
-from collections import OrderedDict
 
 region="Kansai"
 definition=model.loadModelDefinition('../params/'+region+'.txt')
@@ -45,7 +39,7 @@ while(year<2012):
  plt.xticks(range(len(data)), b.keys(), rotation=25)
  #print(b)
  axes = plt.gca()
- plt.savefig('../Zona/histograms/Histogram of '+str(year)+" "+region+'.png')
+ plt.savefig('../Zona/histograms/Magnitude Histogram of '+str(year)+" "+region+'.png')
  del data
  year+=1
 
@@ -65,7 +59,7 @@ while(year<2012):
  plt.xticks(range(len(data)), b.keys(), rotation=25)
  #print(b)
  axes = plt.gca()
- plt.savefig('../Zona/histograms/Histogram of '+str(year)+" "+region+'.png')
+ plt.savefig('../Zona/histograms/Magnitude Histogram of '+str(year)+" "+region+'.png')
  del data
  year+=1
  
@@ -86,6 +80,6 @@ while(year<2012):
  plt.xticks(range(len(data)), b.keys(), rotation=25)
  #print(b)
  axes = plt.gca()
- plt.savefig('../Zona/histograms/Histogram of '+str(year)+" "+region+'.png')
+ plt.savefig('../Zona/histograms/Magnitude Histogram of '+str(year)+" "+region+'.png')
  del data
  year+=1

@@ -131,7 +131,7 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year, region, n_aval=50000):
 
 	print(logbook)
 
-	f = open('../Zona2/logbook_listaGA/'+region+'_'+str(year)+'_logbook.txt',"a")
+	f = open('../Zona2/logbook_listaGA_new/'+region+'_'+str(year)+'_logbook.txt',"a")
 	f.write(str(logbook))
 	f.write('\n')
 	generatedModel = type(modelOmega[0])
@@ -148,21 +148,21 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year, region, n_aval=50000):
 	#return logValue
 	
 	
-	#gen = logbook.select("gen")
-	#fit_mins=logbook.select("max")
-	#fit_std = logbook.select("std")
+	gen = logbook.select("ngen")
+	fit_max=logbook.select("max")
+	# fit_std = logbook.select("std")
+	# print(gen, fit_std, fit_max)
 
-	# print(gen, fit_mins, teste)
 
-	#import matplotlib.pyplot as plt
+	import matplotlib.pyplot as plt
 
-	#fig, ax1 = plt.subplots()
+	fig, ax1 = plt.subplots()
 
-	#line1 = ax1.plot(gen, fit_mins, "b-", label="Maximum Fitness")
-	#ax1.set_xlabel("Generation")
-	#ax1.set_ylabel("Fitness", color="b")
-	#for tl in ax1.get_yticklabels():
-	#    tl.set_color("b")
+	line1 = ax1.plot(gen, fit_max, "b-", label="Maximum Fitness")
+	ax1.set_xlabel("Generation")
+	ax1.set_ylabel("Fitness", color="b")
+	for tl in ax1.get_yticklabels():
+	   tl.set_color("b")
 
 	# ax2 = ax1.twinx()
 	# line2 = ax2.plot(gen, fit_std, "r-", label="STD fitness")
@@ -170,9 +170,9 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year, region, n_aval=50000):
 	# for tl in ax2.get_yticklabels():
 	#      tl.set_color("r")
 
-	#lns = line1
-	#labs = [l.get_label() for l in lns]
-	#ax1.legend(lns, labs, loc="center right")
+	# lns = line1
+	# labs = [l.get_label() for l in lns]
+	# ax1.legend(lns, labs, loc="center right")
 
-	#plt.savefig('../Zona2/logbook_listaGA/'+region+'_'+str(year)+'_convergencia_media.png')
+	plt.savefig('../Zona2/logbook_listaGA_new/'+region+'_'+str(year)+'_convergencia_media.png')
 	return generatedModel
