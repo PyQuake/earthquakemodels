@@ -129,7 +129,7 @@ def loadModelDefinition(filename):
     """
     f = open(filename, "r")
     ret = list()
-    keys = ['key','min','step','bins', 'cells']
+    keys = ['key','min','step','bins', 'cells', 'max']
     
     for line in f:
         if line[0] == '#':

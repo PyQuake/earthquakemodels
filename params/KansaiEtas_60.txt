@@ -1,0 +1,5 @@
+#key, min, step, bins, cells, max
+lat 34 0.05 40 1 36
+lon 134.5 0.05 40 1 136.5
+mag 3.0 0.1 1 70 10
+depth 0 0 1 1 60
