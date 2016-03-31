@@ -104,7 +104,7 @@ def main():
 		createRealModel(year, region="Kansai", depth=60, withMag=False, save=True)
 		year+=1
 		
-	year=2000
+	year=2002
 	while(year<2010):
 		execGaModel(year, "Tohoku", depth=25, save=True)
 		execEtasGaModel(year, "Tohoku", depth=25, save=True)
