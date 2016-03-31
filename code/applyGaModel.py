@@ -21,7 +21,7 @@ def execEtasGaModel(year, region, depth, qntYears=5, times=10, save=True):
 		modelo=etasGaModelNP.gaModel(100,0.9,0.1,observations, year, region)
 		modelo.mag=True
 		if save==True:
-			etasGa.saveModelToFile(modelo, '../Zona2/listaGA_new/'+region+'_'+str(depth)+"_"+str(year+qntYears)+str(i)+'.txt')
+			etasGa.saveModelToFile(modelo, '../Zona2/listaGA_New/'+region+'_'+str(depth)+"_"+str(year+qntYears)+str(i)+'.txt')
 
 def execGaModel(year, region,  depth, qntYears=5, times=10, save=True):
 
@@ -85,24 +85,24 @@ def createRealModelforEtas(year, region, depth, save=False):
 	return observation
 
 def main():
-	year=2000
-	while(year<2010):		
-		createRealModel(year, region="Tohoku", depth=100, withMag=False, save=True)
-		createRealModel(year, region="Tohoku", depth=25, withMag=False, save=True)
-		createRealModel(year, region="Tohoku", depth=60, withMag=False, save=True)
+#	year=2000
+#	while(year<2010):		
+#		createRealModel(year, region="Tohoku", depth=100, withMag=False, save=True)
+#		createRealModel(year, region="Tohoku", depth=25, withMag=False, save=True)
+#		createRealModel(year, region="Tohoku", depth=60, withMag=False, save=True)
 
-		createRealModel(year, region="Kanto", depth=100, withMag=False, save=True)
-		createRealModel(year, region="Kanto", depth=25, withMag=False, save=True)
-		createRealModel(year, region="Kanto", depth=60, withMag=False, save=True)
+#		createRealModel(year, region="Kanto", depth=100, withMag=False, save=True)
+#		createRealModel(year, region="Kanto", depth=25, withMag=False, save=True)
+#		createRealModel(year, region="Kanto", depth=60, withMag=False, save=True)
 
-		createRealModel(year, region="EastJapan", depth=100, withMag=False, save=True)
-		createRealModel(year, region="EastJapan", depth=25, withMag=False, save=True)
-		createRealModel(year, region="EastJapan", depth=60, withMag=False, save=True)
+#		createRealModel(year, region="EastJapan", depth=100, withMag=False, save=True)
+#		createRealModel(year, region="EastJapan", depth=25, withMag=False, save=True)
+#		createRealModel(year, region="EastJapan", depth=60, withMag=False, save=True)
 
-		createRealModel(year, region="Kansai", depth=100, withMag=False, save=True)
-		createRealModel(year, region="Kansai", depth=25, withMag=False, save=True)
-		createRealModel(year, region="Kansai", depth=60, withMag=False, save=True)
-		year+=1
+#		createRealModel(year, region="Kansai", depth=100, withMag=False, save=True)
+#		createRealModel(year, region="Kansai", depth=25, withMag=False, save=True)
+#		createRealModel(year, region="Kansai", depth=60, withMag=False, save=True)
+#		year+=1
 		
 	year=2002
 	while(year<2010):
