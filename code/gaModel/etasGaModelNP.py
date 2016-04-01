@@ -45,7 +45,7 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year, region, n_aval=50000):
 
 	class genotype():
 	    def __init__(self):
-	    	self.index = random.randint(0, length-1)
+	    	self.index = random.randint(0, len(modelOmega[0].bins))
 	    	self.prob = random.random()
 	y=int(n_aval/NGEN)
 	x=n_aval - y*NGEN
@@ -72,7 +72,7 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year, region, n_aval=50000):
 
 	toolbox.register("mate", tools.cxOnePoint)
 	toolbox.register("select", tools.selTournament, tournsize=3)
-	toolbox.register("mutate", mutationFunction,indpb=0.1, definitions=modelOmega[0].definitions, length=length)
+	toolbox.register("mutate", mutationFunction,indpb=0.1, definitions=modelOmega[0].definitions, length=len(modelOmega[0].bins))
 
 	stats = tools.Statistics(key=lambda ind: ind.fitness.values)
 	stats.register("avg", numpy.mean)
