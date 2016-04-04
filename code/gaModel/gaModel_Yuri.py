@@ -145,33 +145,31 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region,n_aval=50000):
 	# logValue = best_pop.fitness.values
 	#return logValue
 
-	#gen = logbook.select("gen")
-	#fit_mins=logbook.select("max")
-	# fit_mins = logbook.chapters["fitness"].select("min")
-	#size_avgs = logbook.chapters["size"].select("avg")
+	# gen = logbook.select("gen")
+	# fit_max=logbook.select("max")
+	# fit_std = logbook.select("std")
+	# print(gen, fit_std, fit_max)
 
-	# print(gen, fit_mins, teste)
 
-	#import matplotlib.pyplot as plt
+	# import matplotlib.pyplot as plt
 
-	#fig, ax1 = plt.subplots()
+	# fig, ax1 = plt.subplots()
 
-	#line1 = ax1.plot(gen, fit_mins, "b-", label="Maximum Fitness")
-	#ax1.set_xlabel("Generation")
-	#ax1.set_ylabel("Fitness", color="b")
-	#for tl in ax1.get_yticklabels():
+	# line1 = ax1.plot(gen, fit_max, "b-", label="Maximum Fitness")
+	# ax1.set_xlabel("Generation")
+	# ax1.set_ylabel("Fitness", color="b")
+	# for tl in ax1.get_yticklabels():
 	#    tl.set_color("b")
 
 	# ax2 = ax1.twinx()
-	# line2 = ax2.plot(gen, size_avgs, "r-", label="Average Size")
-	# ax2.set_ylabel("Size", color="r")
+	# line2 = ax2.plot(gen, fit_std, "r-", label="STD fitness")
+	# ax2.set_ylabel("STD", color="r")
 	# for tl in ax2.get_yticklabels():
-	#     tl.set_color("r")
+	#      tl.set_color("r")
 
-	#lns = line1
-	# lns = line1 + line2
-	#labs = [l.get_label() for l in lns]
-	#ax1.legend(lns, labs, loc="center right")
+	# lns = line1
+	# labs = [l.get_label() for l in lns]
+	# ax1.legend(lns, labs, loc="center right")
 
-	#plt.savefig('../Zona2/logbook_gaModel/'+region+'_'+str(year)+'_convergencia_media.png')
+	# plt.savefig('../Zona2/logbook_gaModel/'+region+'_'+str(year)+'_convergencia_media.png')
 	return generatedModel

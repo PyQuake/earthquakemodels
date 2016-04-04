@@ -6,37 +6,36 @@ import gaModel.gaModel_Yuri as ga
 import gaModel.gaModel_YuriWithMag as gaWithMag
 import gaModel.etasGaModelNP as etasGaModelNP
 import models.modelEtasGa as etasGa
-import sys
+# import sys
 
-def execEtasGaModel(year, region, qntYears=5, times=10, save=True):
+def execEtasGaModel(year, region, depth, qntYears=5, times=10, save=True):
 	
 	observations=list()
 
 	for i in range(qntYears):
-		observation=model.loadModelFromFile('../Zona/3.0'+region+'real'+str(year+i)+'.txt')
+		observation=model.loadModelFromFile('../Zona2/realData/3.0'+region+'real'+str(depth)+"_"+str(year+i)+'.txt')
 		observation.bins=observation.bins.tolist()
 		observations.append(observation)
-	# definicao=model.loadModelDefinition('../params/KantoEtas.txt')
 
 	for i in range(times):
 		modelo=etasGaModelNP.gaModel(100,0.9,0.1,observations, year, region)
 		modelo.mag=True
 		if save==True:
-			etasGa.saveModelToFile(modelo, '../Zona2/listaGA/'+region+'_'+str(year+qntYears)+str(i)+'.txt')
+			etasGa.saveModelToFile(modelo, '../Zona2/listaGA_New/'+region+'_'+str(depth)+"_"+str(year+qntYears)+str(i)+'.txt')
 
-def execGaModel(year, region, qntYears=5, times=10, save=True):
+def execGaModel(year, region,  depth, qntYears=5, times=10, save=True):
 
     observations=list()
     
     for i in range(qntYears):
-        observation=model.loadModelFromFile('../Zona/3.0'+region+'real'+str(year+i)+'.txt')
+        observation=model.loadModelFromFile('../Zona2/realData/3.0'+region+'real'+str(depth)+"_"+str(year+i)+'.txt')
         observation.bins=observation.bins.tolist()
         observations.append(observation)
 
     for i in range(times):
         modelo=ga.gaModel(100,0.9,0.1,observations,year,region)
         if save==True:
-            model.saveModelToFile(modelo, '../Zona2/gaModel/'+region+'_'+str(year+qntYears)+str(i)+'.txt')
+            model.saveModelToFile(modelo, '../Zona2/gaModel/'+region+'_'+str(depth)+"_"+str(year+qntYears)+str(i)+'.txt')
 
 #should not use this one
 def execGaModelWithMag(year, region, times, save=False):
@@ -51,28 +50,27 @@ def execGaModelWithMag(year, region, times, save=False):
 			model.saveModelToFile(model.convertArrayto2D(modelo,definicao), '../Zona/model/modeloWithMag'+str(year)+"exec"+str(i)+'.txt')
 
 
-def createRealModel(year, region, withMag=True, save=False):
-	# if (withMag==True):
-    definicao=model.loadModelDefinition('../params/'+region+'WithMag.txt')
-	# else:
-	# 	definicao=model.loadModelDefinition('../params/'+region+'.txt')
-    catalogo=catalog.readFromFile('../data/jmacat_2000_2013.dat')
-    catalogo=catalog.filter(catalogo,definicao)
-    observacao=model.newModel(definicao, mag=withMag)
-    observacao=model.addFromCatalog(observacao,catalogo,year)
-    print(observacao.bins)
-    if save==True:
-        if observacao.mag==False:
-            model.saveModelToFile(observacao, '../Zona/'+str(3.0)+region+'real'+str(year)+'.txt', real=True)
-        else:
-            model.saveModelToFile(observacao, '../Zona/'+region+'realWithMag'+str(year)+'.txt', real=True)
-    
-    return observacao
+def createRealModel(year, region, depth, withMag=True, save=False):
+	definicao=model.loadModelDefinition('../params/'+region+'Etas_'+str(depth)+'.txt')
+	catalogo=catalog.readFromFile('../data/jmacat_2000_2013.dat')
+	catalogo=catalog.filter(catalogo,definicao)
+	observacao=model.newModel(definicao, mag=withMag)
+	observacao=model.addFromCatalog(observacao,catalogo,year)
+
+	if save==True:
+		if observacao.mag==False:
+			model.saveModelToFile(observacao, '../Zona2/realData/'+str(3.0)+region+'real'+str(depth)+"_"+str(year)+'.txt', real=True)
+		else:
+			model.saveModelToFile(observacao, '../Zona/'+region+'realWithMag'+str(year)+'.txt', real=True)
+
+	# return observacao
 
 #Actually, in this case, its kind of a mix between withMag and withoutMag
 #Hence, we want info about mag, but we are not incorporating it to the data (maybe this will change)
 #we need to adapt from both versions
-def createRealModelforEtas(year, region, save=False):
+#Not in use, out of date
+#should not use this one
+def createRealModelforEtas(year, region, depth, save=False):
 	definition=model.loadModelDefinition('../params/'+region+'Etas.txt')
 	catalogo=catalog.readFromFile('../data/jmacat_2000_2013.dat')
 	catalogo=catalog.filter(catalogo,definition)
@@ -82,58 +80,60 @@ def createRealModelforEtas(year, region, save=False):
 
 	observation.mag=True
 	if save==True:
-		etasGa.saveModelToFile(observation, '../Zona/'+region+'realEtas'+str(year)+'.txt', real=True)
+		etasGa.saveModelToFile(observation, '../Zona2/'+region+'listaGA_new_'+str(depth)+"_"+str(year)+'.txt', real=True)
 	
 	return observation
 
 def main():
-	# region = sys.argv[1]
-	# year = int(sys.argv[2])
-	#year=2000
-	# region="Tohoku"
-	# while(year<2012):
-	# 	print(year)
-	# 	# createRealModelforEtas(year, region, save=True)
-	# 	createRealModel(year, region, withMag=False, save=True)
-	# 	year+=1	
 	# year=2000
-	# region="EastJapan"
-	# while(year<2012):
-	# 	print(year)
-	# 	# createRealModelforEtas(year, region, save=True)
-	# 	createRealModel(year, region, withMag=False, save=True)
-	# 	year+=1	
-	#year=2000
-	#region="Kanto"
-	#while(year<2012):
-		#print(year)
-	 	# createRealModelforEtas(year, region, save=True)
-	#	createRealModel(year, region, withMag=False, save=True)
-	#	year+=1	
-	# year=2005
-	# while(year<2012):
-	#	print(year)
-		# createRealModelforEtas(year, region, save=True)
-	#	createRealModel(year, region, withMag=False, save=True)
-	#	year+=1	
-	
-	#createRealModel(2005, "Kanto", withMag=False, save=True)
-	# execGaModel(2005, "Kanto",save=True)
-	# execGaModel(2005, "Kansai",save=True)
-	# execGaModel(2005, "EastJapan",save=True)
-	#execGaModel(2005, "Tohoku",save=True)
-	#execEtasGaModel(2005, "Kanto", save=True)
-	#execEtasGaModel(2005, "Kansai", save=True)
-	year=2005
+	# while(year<2010):		
+	# 	createRealModel(year, region="Tohoku", depth=100, withMag=False, save=True)
+	# 	createRealModel(year, region="Tohoku", depth=25, withMag=False, save=True)
+	# 	createRealModel(year, region="Tohoku", depth=60, withMag=False, save=True)
+
+	# 	createRealModel(year, region="Kanto", depth=100, withMag=False, save=True)
+	# 	createRealModel(year, region="Kanto", depth=25, withMag=False, save=True)
+	# 	createRealModel(year, region="Kanto", depth=60, withMag=False, save=True)
+
+	# 	createRealModel(year, region="EastJapan", depth=100, withMag=False, save=True)
+	# 	createRealModel(year, region="EastJapan", depth=25, withMag=False, save=True)
+	# 	createRealModel(year, region="EastJapan", depth=60, withMag=False, save=True)
+
+	# 	createRealModel(year, region="Kansai", depth=100, withMag=False, save=True)
+	# 	createRealModel(year, region="Kansai", depth=25, withMag=False, save=True)
+	# 	createRealModel(year, region="Kansai", depth=60, withMag=False, save=True)
+	# 	year+=1
+		
+	year=2000
 	while(year<2010):
-		execGaModel(year, "Tohoku", save=True)
-		execEtasGaModel(year, "Tohoku", save=True)
-		execGaModel(year, "Kanto", save=True)
-		execEtasGaModel(year, "Kanto", save=True)
-		execGaModel(year, "EastJapan", save=True)
-		execEtasGaModel(year, "EastJapan", save=True)
-		execGaModel(year, "Kansai", save=True)
-		execEtasGaModel(year, "Kansai", save=True)
+		execEtasGaModel(year, "Tohoku", depth=25, save=True)
+		execGaModel(year, "Tohoku", depth=25, save=True)
+		execGaModel(year, "Tohoku", depth=60, save=True)
+		execEtasGaModel(year, "Tohoku", depth=60, save=True)
+		execGaModel(year, "Tohoku", depth=100, save=True)
+		execEtasGaModel(year, "Tohoku", depth=100, save=True)
+		
+		execGaModel(year, "Kanto", depth=25, save=True)
+		execEtasGaModel(year, "Kanto", depth=25, save=True)
+		execGaModel(year, "Kanto", depth=60, save=True)
+		execEtasGaModel(year, "Kanto", depth=60, save=True)
+		execGaModel(year, "Kanto", depth=100, save=True)
+		execEtasGaModel(year, "Kanto", depth=100, save=True)
+		
+		execGaModel(year, "EastJapan", depth=25, save=True)
+		execEtasGaModel(year, "EastJapan", depth=25, save=True)
+		execGaModel(year, "EastJapan", depth=60, save=True)
+		execEtasGaModel(year, "EastJapan", depth=60, save=True)
+		execGaModel(year, "EastJapan", depth=100, save=True)
+		execEtasGaModel(year, "EastJapan", depth=100, save=True)
+		
+		execGaModel(year, "Kansai", depth=25, save=True)
+		execEtasGaModel(year, "Kansai", depth=25, save=True)
+		execGaModel(year, "Kansai", depth=60, save=True)
+		execEtasGaModel(year, "Kansai", depth=60, save=True)
+		execGaModel(year, "Kansai", depth=100, save=True)
+		execEtasGaModel(year, "Kansai", depth=100, save=True)
+
 		print(year)
 		year+=1
 
