@@ -18,7 +18,7 @@ def execEtasGaModel(year, region, depth, qntYears=5, times=10, save=True):
 		observations.append(observation)
 
 	for i in range(times):
-		modelo=etasGaModelNP.gaModel(100,0.9,0.1,observations, year, region)
+		modelo=etasGaModelNP.gaModel(100,0.9,0.1,observations, year+qntYears, region)
 		modelo.mag=True
 		if save==True:
 			etasGa.saveModelToFile(modelo, '../Zona2/listaGA_New/'+region+'_'+str(depth)+"_"+str(year+qntYears)+str(i)+'.txt')
@@ -33,7 +33,7 @@ def execGaModel(year, region,  depth, qntYears=5, times=10, save=True):
         observations.append(observation)
 
     for i in range(times):
-        modelo=ga.gaModel(100,0.9,0.1,observations,year,region)
+        modelo=ga.gaModel(100,0.9,0.1,observations,year+qntYears,region)
         if save==True:
             model.saveModelToFile(modelo, '../Zona2/gaModel/'+region+'_'+str(depth)+"_"+str(year+qntYears)+str(i)+'.txt')
 
