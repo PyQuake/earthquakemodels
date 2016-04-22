@@ -1,7 +1,6 @@
 import numpy as np
-import re
 
-def converter(region, year, type):
+def converter2means(region, year, type):
 	year=str(year)
 	filename =  "../Zona2/logbook_"+type+"/"+region+"_"+year+"_logbook.txt"
 	f = open(filename, "r")
@@ -78,14 +77,66 @@ def converter(region, year, type):
 			f.write(str(item))
 			f.write("\n")
 	  
+def converter2leastBest(region, year, type):
+	year=str(year)
+	filename =  "../Zona2/logbook_"+type+"/"+region+"_"+year+"_logbook.txt"
+	f = open(filename, "r")
+
+	data25=list()
+	data60=list()#1010
+	data100=list()#2020
+
+	for line in f:
+		info = line.split()
+		if info[4] != 'max':
+			if len(data25) < 1000:
+				data25.append(float(info[4]))
+			elif len(data60) < 1000:
+				data60.append(float(info[4]))
+			else:
+				data100.append(float(info[4]))
+	f.close()
+
+	
+	filename =  "../Zona2/dataForR/"+region+"_"+year+"_LastGen25"+type+".txt"
+	with open(filename, 'w') as f:
+		for i in range(10):
+			f.write(str(data25[99+100*i]))
+			f.write("\n")
+
+	filename =  "../Zona2/dataForR/"+region+"_"+year+"_LastGen60"+type+".txt"
+	with open(filename, 'w') as f:
+		for i in range(10):
+			f.write(str(data60[99+100*i]))
+			f.write("\n")
+
+	filename =  "../Zona2/dataForR/"+region+"_"+year+"_LastGen100"+type+".txt"
+	with open(filename, 'w') as f:
+		for i in range(10):
+			f.write(str(data100[99+100*i]))
+			f.write("\n")
+
+# year = 2000
+# while (year<=2005):
+	# converter2means(region='Kanto', year=year, type="gaModel")
+	# converter2means(region='Kanto', year=year, type='listaGA_New')
+	# converter2means(region='EastJapan', year=year, type="gaModel")
+	# converter2means(region='EastJapan', year=year, type='listaGA_New')
+	# converter2means(region='Tohoku', year=year, type="gaModel")
+	# converter2means(region='Tohoku', year=year, type='listaGA_New')
+	# converter2means(region='Kansai', year=year, type="gaModel")
+	# converter2means(region='Kansai', year=year, type='listaGA_New')
+	# year+=1
+
 year = 2000
 while (year<=2005):
-	converter(region='Kanto', year=year, type="gaModel")
-	converter(region='Kanto', year=year, type='listaGA_New')
-	converter(region='EastJapan', year=year, type="gaModel")
-	converter(region='EastJapan', year=year, type='listaGA_New')
-	converter(region='Tohoku', year=year, type="gaModel")
-	converter(region='Tohoku', year=year, type='listaGA_New')
-	converter(region='Kansai', year=year, type="gaModel")
-	converter(region='Kansai', year=year, type='listaGA_New')
+	print(year)
+	converter2leastBest(region='EastJapan', year=year, type="gaModel")
+	converter2leastBest(region='EastJapan', year=year, type="listaGA_New")
+	converter2leastBest(region='Kanto', year=year, type="gaModel")
+	converter2leastBest(region='Kanto', year=year, type="listaGA_New")
+	converter2leastBest(region='Kansai', year=year, type="gaModel")
+	converter2leastBest(region='Kansai', year=year, type="listaGA_New")
+	converter2leastBest(region='Tohoku', year=year, type="gaModel")
+	converter2leastBest(region='Tohoku', year=year, type="listaGA_New")
 	year+=1

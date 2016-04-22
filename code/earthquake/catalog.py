@@ -79,7 +79,8 @@ def filter(catalog,conditions):
             ret.append(event)
     return ret
     
-    
+#legacy
+#should not use this
 def saveCatalogPerYear(catalog,year):
     f = open("../zechar_sw/gaModels"+str(year)+"/"+str(year)+".dat", "w")
 

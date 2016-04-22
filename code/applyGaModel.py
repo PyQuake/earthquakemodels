@@ -63,7 +63,46 @@ def createRealModel(year, region, depth, withMag=True, save=False):
 		else:
 			model.saveModelToFile(observacao, '../Zona/'+region+'realWithMag'+str(year)+'.txt', real=True)
 
-	# return observacao
+def createRealModelClustered(year, region, depth, withMag=True, save=False):		
+	definicao=model.loadModelDefinition('../params/'+region+'Etas_'+str(depth)+'.txt')
+	catalogo=catalog.readFromFile('../data/clustered_quakes-M.dat')
+	catalogo=catalog.filter(catalogo,definicao)
+	observacao=model.newModel(definicao, mag=withMag)
+	observacao=model.addFromCatalog(observacao,catalogo,year)
+
+	if save==True:
+		if observacao.mag==False:
+			model.saveModelToFile(observacao, '../Zona2/clustered/'+str(3.0)+region+'real'+str(depth)+"_"+str(year)+'.txt', real=True)
+
+def execGaModelClustered(year, region,  depth, qntYears=5, times=10, save=True):
+
+    observations=list()
+    
+    for i in range(qntYears):
+        observation=model.loadModelFromFile('../Zona2/clustered/3.0'+region+'real'+str(depth)+"_"+str(year+i)+'.txt')
+        observation.bins=observation.bins.tolist()
+        observations.append(observation)
+
+    for i in range(times):
+        modelo=ga.gaModel(100,0.9,0.1,observations,year+qntYears,region)
+        if save==True:
+            model.saveModelToFile(modelo, '../Zona2/clustered_gaModel/'+region+'_'+str(depth)+"_"+str(year+qntYears)+str(i)+'.txt')
+
+def execEtasGaModelClustered(year, region, depth, qntYears=5, times=10, save=True):
+	
+	observations=list()
+
+	for i in range(qntYears):
+		observation=model.loadModelFromFile('../Zona2/clustered/3.0'+region+'real'+str(depth)+"_"+str(year+i)+'.txt')
+		observation.bins=observation.bins.tolist()
+		observations.append(observation)
+
+	for i in range(times):
+		modelo=etasGaModelNP.gaModel(100,0.9,0.1,observations, year+qntYears, region)
+		modelo.mag=True
+		if save==True:
+			etasGa.saveModelToFile(modelo, '../Zona2/clustered_listaGA_new/'+region+'_'+str(depth)+"_"+str(year+qntYears)+str(i)+'.txt')
+
 
 #Actually, in this case, its kind of a mix between withMag and withoutMag
 #Hence, we want info about mag, but we are not incorporating it to the data (maybe this will change)
@@ -76,7 +115,6 @@ def createRealModelforEtas(year, region, depth, save=False):
 	catalogo=catalog.filter(catalogo,definition)
 	observation=etasGa.newModel(definition)
 	observation=etasGa.addFromCatalog(observation,catalogo,year)
-	# observation.prob=mathUtil.normalize(observation.bins)
 
 	observation.mag=True
 	if save==True:
@@ -85,56 +123,60 @@ def createRealModelforEtas(year, region, depth, save=False):
 	return observation
 
 def main():
-	# year=2000
-	# while(year<2010):		
-	# 	createRealModel(year, region="Tohoku", depth=100, withMag=False, save=True)
-	# 	createRealModel(year, region="Tohoku", depth=25, withMag=False, save=True)
-	# 	createRealModel(year, region="Tohoku", depth=60, withMag=False, save=True)
+	year=2000
+	while(year<2010):		
+		# createRealModelClustered(year, region="Tohoku", depth=100, withMag=False, save=True)
+		# createRealModelClustered(year, region="Tohoku", depth=25, withMag=False, save=True)
+		# createRealModelClustered(year, region="Tohoku", depth=60, withMag=False, save=True)
 
-	# 	createRealModel(year, region="Kanto", depth=100, withMag=False, save=True)
-	# 	createRealModel(year, region="Kanto", depth=25, withMag=False, save=True)
-	# 	createRealModel(year, region="Kanto", depth=60, withMag=False, save=True)
+		# createRealModelClustered(year, region="Tohoku", depth=100, withMag=False, save=True)
+		# createRealModelClustered(year, region="Tohoku", depth=25, withMag=False, save=True)
+		# createRealModelClustered(year, region="Tohoku", depth=60, withMag=False, save=True)
 
-	# 	createRealModel(year, region="EastJapan", depth=100, withMag=False, save=True)
-	# 	createRealModel(year, region="EastJapan", depth=25, withMag=False, save=True)
-	# 	createRealModel(year, region="EastJapan", depth=60, withMag=False, save=True)
+		# createRealModelClustered(year, region="Kanto", depth=100, withMag=False, save=True)
+		# createRealModelClustered(year, region="Kanto", depth=25, withMag=False, save=True)
+		# createRealModelClustered(year, region="Kanto", depth=60, withMag=False, save=True)
 
-	# 	createRealModel(year, region="Kansai", depth=100, withMag=False, save=True)
-	# 	createRealModel(year, region="Kansai", depth=25, withMag=False, save=True)
-	# 	createRealModel(year, region="Kansai", depth=60, withMag=False, save=True)
-	# 	year+=1
+		# createRealModelClustered(year, region="EastJapan", depth=100, withMag=False, save=True)
+		# createRealModelClustered(year, region="EastJapan", depth=25, withMag=False, save=True)
+		# createRealModelClustered(year, region="EastJapan", depth=60, withMag=False, save=True)
+
+		# createRealModelClustered(year, region="Kansai", depth=100, withMag=False, save=True)
+		# createRealModelClustered(year, region="Kansai", depth=25, withMag=False, save=True)
+		# createRealModelClustered(year, region="Kansai", depth=60, withMag=False, save=True)
+		# year+=1
 		
 	year=2000
 	while(year<2010):
-		execEtasGaModel(year, "Tohoku", depth=25, save=True)
-		execGaModel(year, "Tohoku", depth=25, save=True)
-		execGaModel(year, "Tohoku", depth=60, save=True)
-		execEtasGaModel(year, "Tohoku", depth=60, save=True)
-		execGaModel(year, "Tohoku", depth=100, save=True)
-		execEtasGaModel(year, "Tohoku", depth=100, save=True)
+		execEtasGaModelClustered(year, "Tohoku", depth=25, save=True)
+		execGaModelClustered(year, "Tohoku", depth=25, save=True)
+		execGaModelClustered(year, "Tohoku", depth=60, save=True)
+		execEtasGaModelClustered(year, "Tohoku", depth=60, save=True)
+		execGaModelClustered(year, "Tohoku", depth=100, save=True)
+		execEtasGaModelClustered(year, "Tohoku", depth=100, save=True)
 		
-		execGaModel(year, "Kanto", depth=25, save=True)
-		execEtasGaModel(year, "Kanto", depth=25, save=True)
-		execGaModel(year, "Kanto", depth=60, save=True)
-		execEtasGaModel(year, "Kanto", depth=60, save=True)
-		execGaModel(year, "Kanto", depth=100, save=True)
-		execEtasGaModel(year, "Kanto", depth=100, save=True)
+	# 	execGaModel(year, "Kanto", depth=25, save=True)
+	# 	execEtasGaModel(year, "Kanto", depth=25, save=True)
+	# 	execGaModel(year, "Kanto", depth=60, save=True)
+	# 	execEtasGaModel(year, "Kanto", depth=60, save=True)
+	# 	execGaModel(year, "Kanto", depth=100, save=True)
+	# 	execEtasGaModel(year, "Kanto", depth=100, save=True)
 		
-		execGaModel(year, "EastJapan", depth=25, save=True)
-		execEtasGaModel(year, "EastJapan", depth=25, save=True)
-		execGaModel(year, "EastJapan", depth=60, save=True)
-		execEtasGaModel(year, "EastJapan", depth=60, save=True)
-		execGaModel(year, "EastJapan", depth=100, save=True)
-		execEtasGaModel(year, "EastJapan", depth=100, save=True)
+	# 	execGaModel(year, "EastJapan", depth=25, save=True)
+	# 	execEtasGaModel(year, "EastJapan", depth=25, save=True)
+	# 	execGaModel(year, "EastJapan", depth=60, save=True)
+	# 	execEtasGaModel(year, "EastJapan", depth=60, save=True)
+	# 	execGaModel(year, "EastJapan", depth=100, save=True)
+	# 	execEtasGaModel(year, "EastJapan", depth=100, save=True)
 		
-		execGaModel(year, "Kansai", depth=25, save=True)
-		execEtasGaModel(year, "Kansai", depth=25, save=True)
-		execGaModel(year, "Kansai", depth=60, save=True)
-		execEtasGaModel(year, "Kansai", depth=60, save=True)
-		execGaModel(year, "Kansai", depth=100, save=True)
-		execEtasGaModel(year, "Kansai", depth=100, save=True)
+	# 	execGaModel(year, "Kansai", depth=25, save=True)
+	# 	execEtasGaModel(year, "Kansai", depth=25, save=True)
+	# 	execGaModel(year, "Kansai", depth=60, save=True)
+	# 	execEtasGaModel(year, "Kansai", depth=60, save=True)
+	# 	execGaModel(year, "Kansai", depth=100, save=True)
+	# 	execEtasGaModel(year, "Kansai", depth=100, save=True)
 
-		print(year)
+		
 		year+=1
 
 if __name__ == "__main__":

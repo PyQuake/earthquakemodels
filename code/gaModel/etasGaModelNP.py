@@ -131,7 +131,7 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year, region, n_aval=50000):
 
 	print(logbook)
 
-	f = open('../Zona2/logbook_listaGA_new/'+region+'_'+str(year)+'_logbook.txt',"a")
+	f = open('../Zona2/logbook_listaGA_newClustered/'+region+'_'+str(year)+'_logbook.txt',"a")
 	f.write(str(logbook))
 	f.write('\n')
 	generatedModel = type(modelOmega[0])

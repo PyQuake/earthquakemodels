@@ -130,7 +130,7 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region,n_aval=50000):
 		record = stats.compile(pop)
 		logbook.record(gen=g,time=time.time()-starttime,**record)
 	print(logbook)
-	f = open('../Zona2/logbook_gaModel/'+region+'_'+str(year)+'_logbook.txt',"a")
+	f = open('../Zona2/logbook_gaModelClustered/'+region+'_'+str(year)+'_logbook.txt',"a")
 	f.write(str(logbook))
 	f.write('\n')
 

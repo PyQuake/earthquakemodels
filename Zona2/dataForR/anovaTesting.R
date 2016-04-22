@@ -1,0 +1,7 @@
+load("data.Rda")
+resultANOVA = aov(finalData$loglikeValues~finalData$model+finalData$depths+finalData$years+finalData$regions)
+summary(resultANOVA)
+resultANOVA = aov(finalData$loglikeValues~finalData$model+finalData$depths+finalData$regions)
+summary(resultANOVA)
+tuk = TukeyHSD(resultANOVA)
+plot(tuk)
