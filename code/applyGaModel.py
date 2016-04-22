@@ -163,12 +163,12 @@ def main():
 		execGaModelClustered(year, "Kanto", depth=100, save=True)
 		execEtasGaModelClustered(year, "Kanto", depth=100, save=True)
 
-		# execEtasGaModelClustered(year, "EastJapan", depth=25, save=True)
-		# execGaModelClustered(year, "EastJapan", depth=25, save=True)
-		# execGaModelClustered(year, "EastJapan", depth=60, save=True)
-		# execEtasGaModelClustered(year, "EastJapan", depth=60, save=True)
-		# execGaModelClustered(year, "EastJapan", depth=100, save=True)
-		# execEtasGaModelClustered(year, "EastJapan", depth=100, save=True)
+		execEtasGaModelClustered(year, "EastJapan", depth=25, save=True)
+		execGaModelClustered(year, "EastJapan", depth=25, save=True)
+		execGaModelClustered(year, "EastJapan", depth=60, save=True)
+		execEtasGaModelClustered(year, "EastJapan", depth=60, save=True)
+		execGaModelClustered(year, "EastJapan", depth=100, save=True)
+		execEtasGaModelClustered(year, "EastJapan", depth=100, save=True)
 		
 		# execEtasGaModelClustered(year, "Kansai", depth=25, save=True)
 		# execGaModelClustered(year, "Kansai", depth=25, save=True)
