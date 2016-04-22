@@ -1,0 +1,4 @@
+  File "applyGaModel.py", line 128
+    print(year)		
+        ^
+IndentationError: expected an indented block
