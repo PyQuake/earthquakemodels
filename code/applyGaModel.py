@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-print("as")
 import models.mathUtil as mathUtil
 import earthquake.catalog as catalog
 import models.model as model
@@ -143,19 +142,40 @@ def main():
 		# createRealModelClustered(year, region="EastJapan", depth=25, withMag=False, save=True)
 		# createRealModelClustered(year, region="EastJapan", depth=60, withMag=False, save=True)
 
-		# createRealModelClustered(year, region="Kansai", depth=100, withMag=False, save=True)
-		# createRealModelClustered(year, region="Kansai", depth=25, withMag=False, save=True)
-		# createRealModelClustered(year, region="Kansai", depth=60, withMag=False, save=True)
-		# year+=1
+		createRealModelClustered(year, region="Kansai", depth=100, withMag=False, save=True)
+		createRealModelClustered(year, region="Kansai", depth=25, withMag=False, save=True)
+		createRealModelClustered(year, region="Kansai", depth=60, withMag=False, save=True)
+		year+=1
 		
-	# year=2000
-	# while(year<2010):
-		execEtasGaModelClustered(year, "Tohoku", depth=25, save=True)
-		execGaModelClustered(year, "Tohoku", depth=25, save=True)
-		execGaModelClustered(year, "Tohoku", depth=60, save=True)
-		execEtasGaModelClustered(year, "Tohoku", depth=60, save=True)
-		execGaModelClustered(year, "Tohoku", depth=100, save=True)
-		execEtasGaModelClustered(year, "Tohoku", depth=100, save=True)
+	year=2000
+	while(year<2010):
+		# execEtasGaModelClustered(year, "Tohoku", depth=25, save=True)
+		# execGaModelClustered(year, "Tohoku", depth=25, save=True)
+		# execGaModelClustered(year, "Tohoku", depth=60, save=True)
+		# execEtasGaModelClustered(year, "Tohoku", depth=60, save=True)
+		# execGaModelClustered(year, "Tohoku", depth=100, save=True)
+		# execEtasGaModelClustered(year, "Tohoku", depth=100, save=True)
+		
+		# execEtasGaModelClustered(year, "Kanto", depth=25, save=True)
+		# execGaModelClustered(year, "Kanto", depth=25, save=True)
+		# execGaModelClustered(year, "Kanto", depth=60, save=True)
+		# execEtasGaModelClustered(year, "Kanto", depth=60, save=True)
+		# execGaModelClustered(year, "Kanto", depth=100, save=True)
+		# execEtasGaModelClustered(year, "Kanto", depth=100, save=True)
+
+		# execEtasGaModelClustered(year, "EastJapan", depth=25, save=True)
+		# execGaModelClustered(year, "EastJapan", depth=25, save=True)
+		# execGaModelClustered(year, "EastJapan", depth=60, save=True)
+		# execEtasGaModelClustered(year, "EastJapan", depth=60, save=True)
+		# execGaModelClustered(year, "EastJapan", depth=100, save=True)
+		# execEtasGaModelClustered(year, "EastJapan", depth=100, save=True)
+		
+		execEtasGaModelClustered(year, "Kansai", depth=25, save=True)
+		execGaModelClustered(year, "Kansai", depth=25, save=True)
+		execGaModelClustered(year, "Kansai", depth=60, save=True)
+		execEtasGaModelClustered(year, "Kansai", depth=60, save=True)
+		execGaModelClustered(year, "Kansai", depth=100, save=True)
+		execEtasGaModelClustered(year, "Kansai", depth=100, save=True)
 		
 	# 	execGaModel(year, "Kanto", depth=25, save=True)
 	# 	execEtasGaModel(year, "Kanto", depth=25, save=True)
