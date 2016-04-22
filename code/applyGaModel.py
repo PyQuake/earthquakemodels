@@ -149,19 +149,19 @@ def main():
 		
 	year=2000
 	while(year<2011):
-		execEtasGaModelClustered(year, "Tohoku", depth=25, save=True)
-		execGaModelClustered(year, "Tohoku", depth=25, save=True)
-		execGaModelClustered(year, "Tohoku", depth=60, save=True)
-		execEtasGaModelClustered(year, "Tohoku", depth=60, save=True)
-		execGaModelClustered(year, "Tohoku", depth=100, save=True)
-		execEtasGaModelClustered(year, "Tohoku", depth=100, save=True)
+		# execEtasGaModelClustered(year, "Tohoku", depth=25, save=True)
+		# execGaModelClustered(year, "Tohoku", depth=25, save=True)
+		# execGaModelClustered(year, "Tohoku", depth=60, save=True)
+		# execEtasGaModelClustered(year, "Tohoku", depth=60, save=True)
+		# execGaModelClustered(year, "Tohoku", depth=100, save=True)
+		# execEtasGaModelClustered(year, "Tohoku", depth=100, save=True)
 		
-		# execEtasGaModelClustered(year, "Kanto", depth=25, save=True)
-		# execGaModelClustered(year, "Kanto", depth=25, save=True)
-		# execGaModelClustered(year, "Kanto", depth=60, save=True)
-		# execEtasGaModelClustered(year, "Kanto", depth=60, save=True)
-		# execGaModelClustered(year, "Kanto", depth=100, save=True)
-		# execEtasGaModelClustered(year, "Kanto", depth=100, save=True)
+		execEtasGaModelClustered(year, "Kanto", depth=25, save=True)
+		execGaModelClustered(year, "Kanto", depth=25, save=True)
+		execGaModelClustered(year, "Kanto", depth=60, save=True)
+		execEtasGaModelClustered(year, "Kanto", depth=60, save=True)
+		execGaModelClustered(year, "Kanto", depth=100, save=True)
+		execEtasGaModelClustered(year, "Kanto", depth=100, save=True)
 
 		# execEtasGaModelClustered(year, "EastJapan", depth=25, save=True)
 		# execGaModelClustered(year, "EastJapan", depth=25, save=True)
