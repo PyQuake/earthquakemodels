@@ -146,8 +146,8 @@ def main():
 		# createRealModelClustered(year, region="Kansai", depth=60, withMag=False, save=True)
 		# year+=1
 		
-	year=2000
-	while(year<2010):
+	# year=2000
+	# while(year<2010):
 		execEtasGaModelClustered(year, "Tohoku", depth=25, save=True)
 		execGaModelClustered(year, "Tohoku", depth=25, save=True)
 		execGaModelClustered(year, "Tohoku", depth=60, save=True)
