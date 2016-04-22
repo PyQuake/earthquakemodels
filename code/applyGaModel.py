@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-print("as")
 import models.mathUtil as mathUtil
 import earthquake.catalog as catalog
 import models.model as model
@@ -150,12 +149,19 @@ def main():
 		
 	# year=2000
 	# while(year<2010):
-		execEtasGaModelClustered(year, "Tohoku", depth=25, save=True)
-		execGaModelClustered(year, "Tohoku", depth=25, save=True)
-		execGaModelClustered(year, "Tohoku", depth=60, save=True)
-		execEtasGaModelClustered(year, "Tohoku", depth=60, save=True)
-		execGaModelClustered(year, "Tohoku", depth=100, save=True)
-		execEtasGaModelClustered(year, "Tohoku", depth=100, save=True)
+		# execEtasGaModelClustered(year, "Tohoku", depth=25, save=True)
+		# execGaModelClustered(year, "Tohoku", depth=25, save=True)
+		# execGaModelClustered(year, "Tohoku", depth=60, save=True)
+		# execEtasGaModelClustered(year, "Tohoku", depth=60, save=True)
+		# execGaModelClustered(year, "Tohoku", depth=100, save=True)
+		# execEtasGaModelClustered(year, "Tohoku", depth=100, save=True)
+		
+		execEtasGaModelClustered(year, "Kanto", depth=25, save=True)
+		execGaModelClustered(year, "Kanto", depth=25, save=True)
+		execGaModelClustered(year, "Kanto", depth=60, save=True)
+		execEtasGaModelClustered(year, "Kanto", depth=60, save=True)
+		execGaModelClustered(year, "Kanto", depth=100, save=True)
+		execEtasGaModelClustered(year, "Kanto", depth=100, save=True)
 		
 	# 	execGaModel(year, "Kanto", depth=25, save=True)
 	# 	execEtasGaModel(year, "Kanto", depth=25, save=True)
