@@ -125,6 +125,7 @@ def createRealModelforEtas(year, region, depth, save=False):
 def main():
 	year=2000
 	while(year<2010):
+		print(year)
 		# createRealModelClustered(year, region="Tohoku", depth=100, withMag=False, save=True)
 		# createRealModelClustered(year, region="Tohoku", depth=25, withMag=False, save=True)
 		# createRealModelClustered(year, region="Tohoku", depth=60, withMag=False, save=True)
