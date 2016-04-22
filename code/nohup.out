@@ -1,4 +1,5 @@
 2000
+<<<<<<< HEAD
 2001
 2002
 2003
@@ -119,3 +120,15 @@ Traceback (most recent call last):
   File "/home/lara06/Documents/earthquakemodels/code/gaModel/etasGaModelNP.py", line 134, in gaModel
     f = open('../Zona2/logbook_listaGA_newClustered/'+region+'_'+str(year)+'_logbook.txt',"a")
 IOError: [Errno 2] No such file or directory: '../Zona2/logbook_listaGA_newClustered/EastJapan_2005_logbook.txt'
+=======
+Traceback (most recent call last):
+  File "applyGaModel.py", line 191, in <module>
+    main()
+  File "applyGaModel.py", line 159, in main
+    execEtasGaModelClustered(year, "Kanto", depth=25, save=True)
+  File "applyGaModel.py", line 96, in execEtasGaModelClustered
+    observation=model.loadModelFromFile('../Zona2/clustered/3.0'+region+'real'+str(depth)+"_"+str(year+i)+'.txt')
+  File "/Users/yclavinas/Documents/estudos/unb/earthquakemodels/code/models/model.py", line 176, in loadModelFromFile
+    with open(filename+"def.txt", 'r') as f:
+FileNotFoundError: [Errno 2] No such file or directory: '../Zona2/clustered/3.0Kantoreal25_2001.txtdef.txt'
+>>>>>>> e7a79b835a13502e9d034f691198f0c828fc6920
