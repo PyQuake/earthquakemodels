@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+print("as")
 import models.mathUtil as mathUtil
 import earthquake.catalog as catalog
 import models.model as model
