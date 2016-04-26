@@ -1,6 +1,5 @@
 #Need to fix the import section to use only need files
 
-import time
 from deap import base, creator, tools
 import numpy
 from csep.loglikelihood import calcLogLikelihood as loglikelihood
@@ -49,7 +48,7 @@ def evaluationFunction(individual, modelOmega):
 
 	return logValue,
 
-def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region,n_aval=50000):
+def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, depth, n_aval=50000):
 
 	y=int(n_aval/NGEN)
 	x=n_aval - y*NGEN
@@ -76,8 +75,7 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region,n_aval=50000):
 	stats.register("max", numpy.max)
 
 	logbook = tools.Logbook()
-	logbook.header = "gen","time","min","avg","max","std"
-	starttime = time.time()
+	logbook.header = "gen","min","avg","max","std", "depth"
 
 	pop = toolbox.population(n)
 	# Evaluate the entire population
@@ -128,9 +126,9 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region,n_aval=50000):
 		
 		#logBook
 		record = stats.compile(pop)
-		logbook.record(gen=g,time=time.time()-starttime,**record)
+		logbook.record(gen=g,**record, depth=depth)
 	print(logbook)
-	f = open('../Zona2/logbook_gaModelClustered/'+region+'_'+str(year)+'_logbook.txt',"a")
+	f = open('../Zona2/logbook_gaModelClustered/TESTE'+region+'_'+str(year)+'_logbook.txt',"a")
 	f.write(str(logbook))
 	f.write('\n')
 

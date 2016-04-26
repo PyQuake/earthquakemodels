@@ -1,6 +1,4 @@
 #Need to fix the import section to use only need files
-
-import time
 from deap import base, creator, tools
 import numpy
 from csep.loglikelihood import calcLogLikelihood as loglikelihood
@@ -39,7 +37,7 @@ def mutationFunction(individual, indpb, definitions, length):
     return individual
 
 
-def gaModel(NGEN,CXPB,MUTPB,modelOmega,year, region, n_aval=50000):
+def gaModel(NGEN,CXPB,MUTPB,modelOmega,year, region, depth, n_aval=50000):
 	global length
 	length=0
 
@@ -79,10 +77,9 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year, region, n_aval=50000):
 	stats.register("std", numpy.std)
 	stats.register("min", numpy.min)
 	stats.register("max", numpy.max)
-	
+
 	logbook = tools.Logbook()
-	logbook.header = "ngen","time","min","avg","max","std"
-	starttime = time.time()
+	logbook.header = "gen","min","avg","max","std", "depth"
 
 	pop = toolbox.population(n)
 
@@ -127,7 +124,7 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year, region, n_aval=50000):
 		pop[:] = offspring
 		record = stats.compile(pop)
 
-		logbook.record(ngen=g,time=time.time()-starttime,**record)
+		logbook.record(ngen=g,**record, depth=depth)
 
 	print(logbook)
 

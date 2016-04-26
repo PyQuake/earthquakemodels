@@ -18,7 +18,7 @@ def execEtasGaModel(year, region, depth, qntYears=5, times=10, save=True):
 		observations.append(observation)
 
 	for i in range(times):
-		modelo=etasGaModelNP.gaModel(100,0.9,0.1,observations, year+qntYears, region)
+		modelo=etasGaModelNP.gaModel(100,0.9,0.1,observations, year+qntYears, region, depth)
 		modelo.mag=True
 		if save==True:
 			etasGa.saveModelToFile(modelo, '../Zona2/listaGA_New/'+region+'_'+str(depth)+"_"+str(year+qntYears)+str(i)+'.txt')
@@ -33,7 +33,7 @@ def execGaModel(year, region,  depth, qntYears=5, times=10, save=True):
         observations.append(observation)
 
     for i in range(times):
-        modelo=ga.gaModel(100,0.9,0.1,observations,year+qntYears,region)
+        modelo=ga.gaModel(100,0.9,0.1,observations,year+qntYears,region, depth)
         if save==True:
             model.saveModelToFile(modelo, '../Zona2/gaModel/'+region+'_'+str(depth)+"_"+str(year+qntYears)+str(i)+'.txt')
 
@@ -68,7 +68,7 @@ def createRealModelClustered(year, region, depth, withMag=True, save=False):
 	catalogo=catalog.readFromFile('../data/clustered_quakes-M.dat')
 	catalogo=catalog.filter(catalogo,definicao)
 	observacao=model.newModel(definicao, mag=withMag)
-	observacao=model.addFromCatalog(observacao,catalogo,year)
+	observacao=model.addFromCatalog(observacao,catalogo,year,)
 
 	if save==True:
 		if observacao.mag==False:
@@ -84,7 +84,7 @@ def execGaModelClustered(year, region,  depth, qntYears=5, times=10, save=True):
         observations.append(observation)
 
     for i in range(times):
-        modelo=ga.gaModel(100,0.9,0.1,observations,year+qntYears,region)
+        modelo=ga.gaModel(100,0.9,0.1,observations,year+qntYears,region, depth)
         if save==True:
             model.saveModelToFile(modelo, '../Zona2/clustered_gaModel/'+region+'_'+str(depth)+"_"+str(year+qntYears)+str(i)+'.txt')
 
@@ -98,7 +98,7 @@ def execEtasGaModelClustered(year, region, depth, qntYears=5, times=10, save=Tru
 		observations.append(observation)
 
 	for i in range(times):
-		modelo=etasGaModelNP.gaModel(100,0.9,0.1,observations, year+qntYears, region)
+		modelo=etasGaModelNP.gaModel(100,0.9,0.1,observations, year+qntYears, region, depth)
 		modelo.mag=True
 		if save==True:
 			etasGa.saveModelToFile(modelo, '../Zona2/clustered_listaGA_new/'+region+'_'+str(depth)+"_"+str(year+qntYears)+str(i)+'.txt')
