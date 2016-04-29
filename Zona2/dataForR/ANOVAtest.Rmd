@@ -2,6 +2,9 @@
 title: "ANOVA test"
 author: "Yuri Cossich Lavinas"
 date: "April, 2016"
+header-includes:
+        - \usepackage{algorithm}
+        - \usepackage{algorithmic}
 output:
   pdf_document:
     fig_caption: yes
@@ -9,12 +12,31 @@ output:
     toc: yes
   html_document: default
   word_document: default
+  
 ---
 ```{r setup, include=FALSE}
 library(knitr)
 opts_chunk$set(dev='pdf')
 setwd("~/Documents/estudos/unb/earthquakemodels/Zona2/dataForR")
 ```
+
+
+\begin{algorithm}\label{inversePoisson}
+  \caption{Obtain a Poisson deviate from a $[0,1)$ value}
+  \label{InversePoisson}
+  \begin{algorithmic}
+    \STATE Parameters $0 \leq x < 1, \mu \geq 0$
+    \STATE $L \gets \exp{(-\mu)}, k \gets 0, prob \gets 1$
+    \REPEAT 
+    \STATE $\text{increment }k$
+    \STATE $prob \gets prob*x$
+    \UNTIL{$prob > L$}
+    \RETURN $k$
+  \end{algorithmic}
+\end{algorithm}
+
+
+
 ## Summary
   
 O objeto é descobrir se existem variações ente os métodos e quais são as variáveis mais influentes.
