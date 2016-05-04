@@ -123,32 +123,28 @@ def createRealModelforEtas(year, region, depth, save=False):
 	return observation
 
 def main():
-	# year=2000
+	# year=2008
 	# while(year<2011):
-	# 	print(year)
-	# 	createRealModelClustered(year, region="Tohoku", depth=100, withMag=False, save=True)
-	# 	createRealModelClustered(year, region="Tohoku", depth=25, withMag=False, save=True)
-	# 	createRealModelClustered(year, region="Tohoku", depth=60, withMag=False, save=True)
-
-	# 	createRealModelClustered(year, region="Tohoku", depth=100, withMag=False, save=True)
-	# 	createRealModelClustered(year, region="Tohoku", depth=25, withMag=False, save=True)
-	# 	createRealModelClustered(year, region="Tohoku", depth=60, withMag=False, save=True)
-
-	# 	createRealModelClustered(year, region="Kanto", depth=100, withMag=False, save=True)
-	# 	createRealModelClustered(year, region="Kanto", depth=25, withMag=False, save=True)
-	# 	createRealModelClustered(year, region="Kanto", depth=60, withMag=False, save=True)
-
-	# 	createRealModelClustered(year, region="EastJapan", depth=100, withMag=False, save=True)
-	# 	createRealModelClustered(year, region="EastJapan", depth=25, withMag=False, save=True)
-	# 	createRealModelClustered(year, region="EastJapan", depth=60, withMag=False, save=True)
-
-	# 	createRealModelClustered(year, region="Kansai", depth=100, withMag=False, save=True)
-	# 	createRealModelClustered(year, region="Kansai", depth=25, withMag=False, save=True)
-	# 	createRealModelClustered(year, region="Kansai", depth=60, withMag=False, save=True)
+	# 	print(year, 'Tohoku')
+	# 	createRealModel(year, region="Tohoku", depth=100, withMag=False, save=True)
+	# 	createRealModel(year, region="Tohoku", depth=25, withMag=False, save=True)
+	# 	createRealModel(year, region="Tohoku", depth=60, withMag=False, save=True)
+	# 	print('Kanto')
+	# 	createRealModel(year, region="Kanto", depth=100, withMag=False, save=True)
+	# 	createRealModel(year, region="Kanto", depth=25, withMag=False, save=True)
+	# 	createRealModel(year, region="Kanto", depth=60, withMag=False, save=True)
+	# 	print('eastjapan')
+	# 	createRealModel(year, region="EastJapan", depth=100, withMag=False, save=True)
+	# 	createRealModel(year, region="EastJapan", depth=25, withMag=False, save=True)
+	# 	createRealModel(year, region="EastJapan", depth=60, withMag=False, save=True)
+	# 	print('kansai')
+	# 	createRealModel(year, region="Kansai", depth=100, withMag=False, save=True)
+	# 	createRealModel(year, region="Kansai", depth=25, withMag=False, save=True)
+	# 	createRealModel(year, region="Kansai", depth=60, withMag=False, save=True)
 	# 	year+=1
 		
-	year=2000
-	while(year<2011):
+	# year=2000
+	# while(year<2011):
 		# execEtasGaModelClustered(year, "Tohoku", depth=25, save=True)
 		# execGaModelClustered(year, "Tohoku", depth=25, save=True)
 		# execGaModelClustered(year, "Tohoku", depth=60, save=True)
@@ -170,19 +166,19 @@ def main():
 		# execGaModelClustered(year, "EastJapan", depth=100, save=True)
 		# execEtasGaModelClustered(year, "EastJapan", depth=100, save=True)
 		
-		execEtasGaModelClustered(year, "Kansai", depth=25, save=True)
-		execGaModelClustered(year, "Kansai", depth=25, save=True)
-		execGaModelClustered(year, "Kansai", depth=60, save=True)
-		execEtasGaModelClustered(year, "Kansai", depth=60, save=True)
-		execGaModelClustered(year, "Kansai", depth=100, save=True)
-		execEtasGaModelClustered(year, "Kansai", depth=100, save=True)
+		# execEtasGaModelClustered(year, "Kansai", depth=25, save=True)
+		# execGaModelClustered(year, "Kansai", depth=25, save=True)
+		# execGaModelClustered(year, "Kansai", depth=60, save=True)
+		# execEtasGaModelClustered(year, "Kansai", depth=60, save=True)
+		# execGaModelClustered(year, "Kansai", depth=100, save=True)
+		# execEtasGaModelClustered(year, "Kansai", depth=100, save=True)
 		
-	# 	execGaModel(year, "Kanto", depth=25, save=True)
-	# 	execEtasGaModel(year, "Kanto", depth=25, save=True)
-	# 	execGaModel(year, "Kanto", depth=60, save=True)
-	# 	execEtasGaModel(year, "Kanto", depth=60, save=True)
-	# 	execGaModel(year, "Kanto", depth=100, save=True)
-	# 	execEtasGaModel(year, "Kanto", depth=100, save=True)
+		# execGaModel(year, "Kanto", depth=25, save=True)
+		execEtasGaModel(year, "Kanto", depth=25, save=True)
+		# execGaModel(year, "Kanto", depth=60, save=True)
+		execEtasGaModel(year, "Kanto", depth=60, save=True)
+		# execGaModel(year, "Kanto", depth=100, save=True)
+		execEtasGaModel(year, "Kanto", depth=100, save=True)
 		
 	# 	execGaModel(year, "EastJapan", depth=25, save=True)
 	# 	execEtasGaModel(year, "EastJapan", depth=25, save=True)
@@ -198,8 +194,15 @@ def main():
 	# 	execGaModel(year, "Kansai", depth=100, save=True)
 	# 	execEtasGaModel(year, "Kansai", depth=100, save=True)
 
+	# 	execGaModel(year, "Tohoku", depth=25, save=True)
+	# 	execEtasGaModel(year, "Tohoku", depth=25, save=True)
+	# 	execGaModel(year, "Tohoku", depth=60, save=True)
+	# 	execEtasGaModel(year, "Tohoku", depth=60, save=True)
+	# 	execGaModel(year, "Tohoku", depth=100, save=True)
+	# 	execEtasGaModel(year, "Kansai", depth=100, save=True)
+
 		
-		year+=1
+		# year+=1
 
 if __name__ == "__main__":
 	main()

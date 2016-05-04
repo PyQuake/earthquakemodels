@@ -75,7 +75,7 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, depth, n_aval=50000):
 	stats.register("max", numpy.max)
 
 	logbook = tools.Logbook()
-	logbook.header = "gen","min","avg","max","std", "depth"
+	logbook.header = "gen", "depth","min","avg","max","std"
 
 	pop = toolbox.population(n)
 	# Evaluate the entire population
@@ -126,7 +126,7 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, depth, n_aval=50000):
 		
 		#logBook
 		record = stats.compile(pop)
-		logbook.record(gen=g,**record, depth=depth)
+		logbook.record(gen=g,  depth=depth,**record)
 	print(logbook)
 	f = open('../Zona2/logbook_gaModelClustered/TESTE'+region+'_'+str(year)+'_logbook.txt',"a")
 	f.write(str(logbook))

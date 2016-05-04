@@ -79,7 +79,7 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year, region, depth, n_aval=50000):
 	stats.register("max", numpy.max)
 
 	logbook = tools.Logbook()
-	logbook.header = "gen","min","avg","max","std", "depth"
+	logbook.header = "gen", "depth","min","avg","max","std"
 
 	pop = toolbox.population(n)
 
@@ -124,7 +124,7 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year, region, depth, n_aval=50000):
 		pop[:] = offspring
 		record = stats.compile(pop)
 
-		logbook.record(ngen=g,**record, depth=depth)
+		logbook.record(ngen=g, depth=depth, **record)
 
 	print(logbook)
 

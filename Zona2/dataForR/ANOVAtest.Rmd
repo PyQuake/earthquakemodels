@@ -21,21 +21,6 @@ setwd("~/Documents/estudos/unb/earthquakemodels/Zona2/dataForR")
 ```
 
 
-\begin{algorithm}\label{inversePoisson}
-  \caption{Obtain a Poisson deviate from a $[0,1)$ value}
-  \label{InversePoisson}
-  \begin{algorithmic}
-    \STATE Parameters $0 \leq x < 1, \mu \geq 0$
-    \STATE $L \gets \exp{(-\mu)}, k \gets 0, prob \gets 1$
-    \REPEAT 
-    \STATE $\text{increment }k$
-    \STATE $prob \gets prob*x$
-    \UNTIL{$prob > L$}
-    \RETURN $k$
-  \end{algorithmic}
-\end{algorithm}
-
-
 
 ## Summary
   
