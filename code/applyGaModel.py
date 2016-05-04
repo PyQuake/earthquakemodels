@@ -173,11 +173,11 @@ def main():
 		# execGaModelClustered(year, "Kansai", depth=100, save=True)
 		# execEtasGaModelClustered(year, "Kansai", depth=100, save=True)
 		
-		# execGaModel(year, "Kanto", depth=25, save=True)
+		execGaModel(year, "Kanto", depth=25, save=True)
 		execEtasGaModel(year, "Kanto", depth=25, save=True)
-		# execGaModel(year, "Kanto", depth=60, save=True)
+		execGaModel(year, "Kanto", depth=60, save=True)
 		execEtasGaModel(year, "Kanto", depth=60, save=True)
-		# execGaModel(year, "Kanto", depth=100, save=True)
+		execGaModel(year, "Kanto", depth=100, save=True)
 		execEtasGaModel(year, "Kanto", depth=100, save=True)
 		
 	# 	execGaModel(year, "EastJapan", depth=25, save=True)
