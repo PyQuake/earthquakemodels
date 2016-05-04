@@ -187,19 +187,19 @@ def main():
 	# # 	execGaModel(year, "EastJapan", depth=100, save=True)
 	# 	execEtasGaModel(year, "EastJapan", depth=100, save=True)
 		
-	# 	execGaModel(year, "Kansai", depth=25, save=True)
-		execEtasGaModel(year, "Kansai", depth=25, save=True)
-	# 	execGaModel(year, "Kansai", depth=60, save=True)
-		execEtasGaModel(year, "Kansai", depth=60, save=True)
-	# 	execGaModel(year, "Kansai", depth=100, save=True)
-		execEtasGaModel(year, "Kansai", depth=100, save=True)
-
-	# # 	execGaModel(year, "Tohoku", depth=25, save=True)
-	# 	execEtasGaModel(year, "Tohoku", depth=25, save=True)
-	# # 	execGaModel(year, "Tohoku", depth=60, save=True)
-	# 	execEtasGaModel(year, "Tohoku", depth=60, save=True)
-	# # 	execGaModel(year, "Tohoku", depth=100, save=True)
+	# # 	execGaModel(year, "Kansai", depth=25, save=True)
+	# 	execEtasGaModel(year, "Kansai", depth=25, save=True)
+	# # 	execGaModel(year, "Kansai", depth=60, save=True)
+	# 	execEtasGaModel(year, "Kansai", depth=60, save=True)
+	# # 	execGaModel(year, "Kansai", depth=100, save=True)
 	# 	execEtasGaModel(year, "Kansai", depth=100, save=True)
+
+	# 	execGaModel(year, "Tohoku", depth=25, save=True)
+		execEtasGaModel(year, "Tohoku", depth=25, save=True)
+	# 	execGaModel(year, "Tohoku", depth=60, save=True)
+		execEtasGaModel(year, "Tohoku", depth=60, save=True)
+	# 	execGaModel(year, "Tohoku", depth=100, save=True)
+		execEtasGaModel(year, "Kansai", depth=100, save=True)
 
 		
 		# year+=1
