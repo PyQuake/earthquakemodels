@@ -181,6 +181,7 @@ def simpleHibrid(model,fileMag,fileSaveCat):
         while j < len(quakes):
             if  model.bins[i] > quakesCount:
                 index = localizarIndex(model, quakes[j])
+                print(index, quakes[j], i, j)
                 if model.magnitudeValues[i][index] == 0:
                     saveCatalog(fileSaveCat, model, i, number, quakes[j], times[j])
                     number += 1
@@ -239,16 +240,18 @@ def localizarIndex(modelo, mag):
 
     step_mag = modelo.definitions[2]['step']
     min_mag = modelo.definitions[2]['min']
-    max_mag = modelo.definitions[2]['min'] + (modelo.definitions[2]['cells'] * modelo.definitions[2]['step']) + 3
+    max_mag = modelo.definitions[2]['min'] + (modelo.definitions[2]['cells'] * modelo.definitions[2]['step'])
     cells_mag = modelo.definitions[2]['cells']
 
     for n in range(cells_mag):    
-        cell = (step_mag*n) + min_mag
-        if mag>=cell and mag < (cell+step_mag): 
-            if cell+step_mag >= max_mag + 3: #to avoid the last index to be out of limits
+        cell = (step_mag * n) + min_mag
+        print(min_mag, j, mag, cell, mag, cell+step_mag)
+        if mag >= cell and mag < (cell+step_mag): 
+            if (cell + step_mag) >= max_mag: #to avoid the last index to be out of limits
                 j -= 1
             break
         j += 1
+    exit()
     return j
 
 
