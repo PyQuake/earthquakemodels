@@ -49,13 +49,13 @@ finalData = data.frame(
 for (i in 1:4) {
     region = chooseRegion(i)    
   for (year in 2000:2005) {
-    gaModel25 = loadData(region, year, '25', 'gaModel')
-    gaModel60 = loadData(region, year, '60', 'gaModel')
-    gaModel100 = loadData(region, year, '100', 'gaModel')
+    gaModel25 = loadData(region, year+5, '25', 'gaModel')
+    gaModel60 = loadData(region, year+5, '60', 'gaModel')
+    gaModel100 = loadData(region, year+5, '100', 'gaModel')
 
-    lista25 = loadData(region, year, '25', 'listaGA_New')
-    lista60 = loadData(region, year, '60', 'listaGA_New')
-    lista100 = loadData(region, year, '100', 'listaGA_New')
+    lista25 = loadData(region, year+5, '25', 'listaGA_New')
+    lista60 = loadData(region, year+5, '60', 'listaGA_New')
+    lista100 = loadData(region, year+5, '100', 'listaGA_New')
     
     valuesGA25 = convertToNumeric(gaModel25)
     valuesGA60 = convertToNumeric(gaModel60)
@@ -92,7 +92,7 @@ for (i in 1:4) {
     gaModel60 = loadData(region, year+5, '60', 'gaModelClustered')
     gaModel100 = loadData(region, year+5, '100', 'gaModelClustered')
     
-    lista25 = loadData(region, year+5, '25', 'listaGA_NewClustered')
+    lista25 = loadData(region, +5, '25', 'listaGA_NewClustered')
     lista60 = loadData(region, year+5, '60', 'listaGA_NewClustered')
     lista100 = loadData(region, year+5, '100', 'listaGA_NewClustered')
     
@@ -149,5 +149,5 @@ for (i in 1:4) {
 #     rm(data)    
 # }
 
-save(finalData,file="data.Rda")
+# save(finalData,file="data.Rda")
   
