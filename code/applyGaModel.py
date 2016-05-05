@@ -33,7 +33,7 @@ def execGaModel(year, region,  depth, qntYears=5, times=10, save=True):
         observations.append(observation)
 
     for i in range(times):
-        modelo=ga.gaModel(100,0.9,0.1,observations,year+qntYears,region, depth)
+        modelo=ga.gaModel('non-clustered', 100,0.9,0.1,observations,year+qntYears,region, depth)
         if save==True:
             model.saveModelToFile(modelo, '../Zona2/gaModel/'+region+'_'+str(depth)+"_"+str(year+qntYears)+str(i)+'.txt')
 
@@ -45,7 +45,7 @@ def execGaModelWithMag(year, region, times, save=False):
 	auxModelo=model.convert2DToArray(modelo, modelo.definitions)
 	auxModelo.bins=auxModelo.bins.tolist()
 	for i in range(times):
-		modelo=ga.gaModel(100,0.9,0.1,auxModelo, year)
+		modelo=ga.gaModel('non-clustered', 100,0.9,0.1,auxModelo, year)
 		if save==True:
 			model.saveModelToFile(model.convertArrayto2D(modelo,definicao), '../Zona/model/modeloWithMag'+str(year)+"exec"+str(i)+'.txt')
 
@@ -84,7 +84,7 @@ def execGaModelClustered(year, region,  depth, qntYears=5, times=10, save=True):
         observations.append(observation)
 
     for i in range(times):
-        modelo=ga.gaModel(100,0.9,0.1,observations,year+qntYears,region, depth)
+        modelo=ga.gaModel('clustered', 100,0.9,0.1,observations,year+qntYears,region, depth)
         if save==True:
             model.saveModelToFile(modelo, '../Zona2/clustered_gaModel/'+region+'_'+str(depth)+"_"+str(year+qntYears)+str(i)+'.txt')
 
@@ -98,7 +98,7 @@ def execEtasGaModelClustered(year, region, depth, qntYears=5, times=10, save=Tru
 		observations.append(observation)
 
 	for i in range(times):
-		modelo=etasGaModelNP.gaModel(100,0.9,0.1,observations, year+qntYears, region, depth)
+		modelo=etasGaModelNP.gaModel('clustered', 100,0.9,0.1,observations, year+qntYears, region, depth)
 		modelo.mag=True
 		if save==True:
 			etasGa.saveModelToFile(modelo, '../Zona2/clustered_listaGA_new/'+region+'_'+str(depth)+"_"+str(year+qntYears)+str(i)+'.txt')
@@ -145,12 +145,19 @@ def main():
 		
 	year=2000
 	while(year<2011):
-		# execEtasGaModelClustered(year, "Tohoku", depth=25, save=True)
-		# execGaModelClustered(year, "Tohoku", depth=25, save=True)
-		# execGaModelClustered(year, "Tohoku", depth=60, save=True)
-		# execEtasGaModelClustered(year, "Tohoku", depth=60, save=True)
-		# execGaModelClustered(year, "Tohoku", depth=100, save=True)
-		# execEtasGaModelClustered(year, "Tohoku", depth=100, save=True)
+		execEtasGaModelClustered(year, "Tohoku", depth=25, save=True)
+		execGaModelClustered(year, "Tohoku", depth=25, save=True)
+		execGaModelClustered(year, "Tohoku", depth=60, save=True)
+		execEtasGaModelClustered(year, "Tohoku", depth=60, save=True)
+		execGaModelClustered(year, "Tohoku", depth=100, save=True)
+		execEtasGaModelClustered(year, "Tohoku", depth=100, save=True)
+
+		execGaModel(year, "Tohoku", depth=25, save=True)
+		execEtasGaModel(year, "Tohoku", depth=25, save=True)
+		execGaModel(year, "Tohoku", depth=60, save=True)
+		execEtasGaModel(year, "Tohoku", depth=60, save=True)
+		execGaModel(year, "Tohoku", depth=100, save=True)
+		execEtasGaModel(year, "Kansai", depth=100, save=True)
 		
 		# execEtasGaModelClustered(year, "Kanto", depth=25, save=True)
 		# execGaModelClustered(year, "Kanto", depth=25, save=True)
@@ -194,12 +201,7 @@ def main():
 	# # 	execGaModel(year, "Kansai", depth=100, save=True)
 	# 	execEtasGaModel(year, "Kansai", depth=100, save=True)
 
-	# 	execGaModel(year, "Tohoku", depth=25, save=True)
-		execEtasGaModel(year, "Tohoku", depth=25, save=True)
-	# 	execGaModel(year, "Tohoku", depth=60, save=True)
-		execEtasGaModel(year, "Tohoku", depth=60, save=True)
-	# 	execGaModel(year, "Tohoku", depth=100, save=True)
-		execEtasGaModel(year, "Kansai", depth=100, save=True)
+		
 
 		
 		# year+=1

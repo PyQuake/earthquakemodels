@@ -48,7 +48,7 @@ def evaluationFunction(individual, modelOmega):
 
 	return logValue,
 
-def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, depth, n_aval=50000):
+def gaModel(type_m, NGEN,CXPB,MUTPB,modelOmega,year,region, depth, n_aval=50000):
 
 	y=int(n_aval/NGEN)
 	x=n_aval - y*NGEN
@@ -128,10 +128,13 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, depth, n_aval=50000):
 		record = stats.compile(pop)
 		logbook.record(gen=g,  depth=depth,**record)
 	print(logbook)
-	f = open('../Zona2/logbook_gaModelClustered/TESTE'+region+'_'+str(year)+'_logbook.txt',"a")
+	if (type_m == 'clustered'):
+		f = open('../Zona2/logbook_gaModelClustered/'+region+'_'+str(year)+'_'+depth+'_logbook.txt',"a")
+	else:
+		f = open('../Zona2/logbook_gaModel/'+region+'_'+str(year)+'_'+depth+'_logbook.txt',"a")
 	f.write(str(logbook))
 	f.write('\n')
-
+	f.close()
 	
 	generatedModel = type(modelOmega[0])
 	generatedModel.prob = best_pop

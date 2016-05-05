@@ -127,10 +127,14 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year, region, depth, n_aval=50000):
 		logbook.record(ngen=g, depth=depth, **record)
 
 	print(logbook)
-
-	f = open('../Zona2/logbook_listaGA_newClustered/'+region+'_'+str(year)+'_logbook.txt',"a")
+	if (type_m == 'clustered'):
+		f = open('../Zona2/logbook_listaGA_newClustered/'+region+'_'+str(year)+'_'+depth+'_logbook.txt',"a")
+	else:
+		f = open('../Zona2/logbook_listaGA_new/'+region+'_'+str(year)+'_'+depth+'_logbook.txt',"a")
 	f.write(str(logbook))
 	f.write('\n')
+	f.close()
+	
 	generatedModel = type(modelOmega[0])
 	generatedModel.bins = [0.0]*len(modelOmega[0].bins)
 	generatedModel = models.model.convertFromListToData(best_pop,len(modelOmega[0].bins))
