@@ -37,7 +37,7 @@ def mutationFunction(individual, indpb, definitions, length):
     return individual
 
 
-def gaModel(NGEN,CXPB,MUTPB,modelOmega,year, region, depth, n_aval=50000):
+def gaModel(type_m, NGEN,CXPB,MUTPB,modelOmega,year, region, depth, n_aval=50000):
 	global length
 	length=0
 
