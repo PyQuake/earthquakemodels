@@ -5,7 +5,7 @@
 setwd("~/Documents/estudos/unb/earthquakemodels/Zona2/dataForR")
 
 loadData = function(region, year, depth, type){
-    file = paste(region,"_",year,"_LastGen",depth,type,".txt",sep="")
+    file = paste(type,'_',region,"_",depth,'_',year,".txt",sep="")
     data = read.csv2(file, sep='\n', header=F)
     return(data)
 }
@@ -52,7 +52,7 @@ for (i in 1:4) {
     gaModel25 = loadData(region, year+5, '25', 'gaModel')
     gaModel60 = loadData(region, year+5, '60', 'gaModel')
     gaModel100 = loadData(region, year+5, '100', 'gaModel')
-
+        
     lista25 = loadData(region, year+5, '25', 'listaGA_New')
     lista60 = loadData(region, year+5, '60', 'listaGA_New')
     lista100 = loadData(region, year+5, '100', 'listaGA_New')
