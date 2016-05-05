@@ -2,17 +2,16 @@
 title: "ANOVA test"
 author: "Yuri Cossich Lavinas"
 date: "April, 2016"
-header-includes:
-        - \usepackage{algorithm}
-        - \usepackage{algorithmic}
 output:
+  html_document: default
   pdf_document:
     fig_caption: yes
     fig_crop: no
     toc: yes
-  html_document: default
   word_document: default
-  
+header-includes:
+- \usepackage{algorithm}
+- \usepackage{algorithmic}
 ---
 ```{r setup, include=FALSE}
 library(knitr)
