@@ -145,19 +145,19 @@ def main():
 		
 	year=2000
 	while(year<2011):
-		execEtasGaModelClustered(year, "Tohoku", depth=25, save=True)
-		execGaModelClustered(year, "Tohoku", depth=25, save=True)
-		execGaModelClustered(year, "Tohoku", depth=60, save=True)
-		execEtasGaModelClustered(year, "Tohoku", depth=60, save=True)
-		execGaModelClustered(year, "Tohoku", depth=100, save=True)
-		execEtasGaModelClustered(year, "Tohoku", depth=100, save=True)
+		# execEtasGaModelClustered(year, "Tohoku", depth=25, save=True)
+		# execGaModelClustered(year, "Tohoku", depth=25, save=True)
+		# execGaModelClustered(year, "Tohoku", depth=60, save=True)
+		# execEtasGaModelClustered(year, "Tohoku", depth=60, save=True)
+		# execGaModelClustered(year, "Tohoku", depth=100, save=True)
+		# execEtasGaModelClustered(year, "Tohoku", depth=100, save=True)
 
-		execGaModel(year, "Tohoku", depth=25, save=True)
-		execEtasGaModel(year, "Tohoku", depth=25, save=True)
-		execGaModel(year, "Tohoku", depth=60, save=True)
-		execEtasGaModel(year, "Tohoku", depth=60, save=True)
-		execGaModel(year, "Tohoku", depth=100, save=True)
-		execEtasGaModel(year, "Kansai", depth=100, save=True)
+		# execGaModel(year, "Tohoku", depth=25, save=True)
+		# execEtasGaModel(year, "Tohoku", depth=25, save=True)
+		# execGaModel(year, "Tohoku", depth=60, save=True)
+		# execEtasGaModel(year, "Tohoku", depth=60, save=True)
+		# execGaModel(year, "Tohoku", depth=100, save=True)
+		# execEtasGaModel(year, "Kansai", depth=100, save=True)
 		
 		# execEtasGaModelClustered(year, "Kanto", depth=25, save=True)
 		# execGaModelClustered(year, "Kanto", depth=25, save=True)
@@ -187,19 +187,19 @@ def main():
 		# execGaModel(year, "EastJapan", depth=100, save=True)
 		# execEtasGaModel(year, "EastJapan", depth=100, save=True)
 		
-		# execEtasGaModelClustered(year, "Kansai", depth=25, save=True)
-		# execGaModelClustered(year, "Kansai", depth=25, save=True)
-		# execGaModelClustered(year, "Kansai", depth=60, save=True)
-		# execEtasGaModelClustered(year, "Kansai", depth=60, save=True)
-		# execGaModelClustered(year, "Kansai", depth=100, save=True)
-		# execEtasGaModelClustered(year, "Kansai", depth=100, save=True)
+		execEtasGaModelClustered(year, "Kansai", depth=25, save=True)
+		execGaModelClustered(year, "Kansai", depth=25, save=True)
+		execGaModelClustered(year, "Kansai", depth=60, save=True)
+		execEtasGaModelClustered(year, "Kansai", depth=60, save=True)
+		execGaModelClustered(year, "Kansai", depth=100, save=True)
+		execEtasGaModelClustered(year, "Kansai", depth=100, save=True)
 		
-		# execGaModel(year, "Kansai", depth=25, save=True)
-		# execEtasGaModel(year, "Kansai", depth=25, save=True)
-		# execGaModel(year, "Kansai", depth=60, save=True)
-		# execEtasGaModel(year, "Kansai", depth=60, save=True)
-		# execGaModel(year, "Kansai", depth=100, save=True)
-		# execEtasGaModel(year, "Kansai", depth=100, save=True)
+		execGaModel(year, "Kansai", depth=25, save=True)
+		execEtasGaModel(year, "Kansai", depth=25, save=True)
+		execGaModel(year, "Kansai", depth=60, save=True)
+		execEtasGaModel(year, "Kansai", depth=60, save=True)
+		execGaModel(year, "Kansai", depth=100, save=True)
+		execEtasGaModel(year, "Kansai", depth=100, save=True)
 
 		
 
