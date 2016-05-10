@@ -46,11 +46,9 @@ def execCreatingHybrid(region, depth, year_begin, year_end):
 
 #tem erro aqui
 def main():
-	# regions = ('Tohoku' ,'EastJapan', 'Kansai', 'Kanto')
-	# regions = ('')
-		depths = (60, 100)
-	# for region in regions:
-		region = 'Kanto'	
+	regions = ('Tohoku' ,'EastJapan', 'Kansai', 'Kanto')
+		depths = (25, 60, 100)
+	for region in regions:
 		print(region)
 		for depth in depths:
 	#the year here already is the target year
