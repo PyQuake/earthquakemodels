@@ -145,7 +145,7 @@ def main():
 		
 	year=2000
 	while(year<2011):
-		region = 'Kanto'
+		region = 'EastJapan'
 		depths = (25, 60, 100)
 		for depth in depths:
 			print(depth, year, region)
