@@ -1,7 +1,0 @@
-nohup: ignoring input
-Traceback (most recent call last):
-  File "applyGaModel.py", line 208, in <module>
-    main()
-  File "applyGaModel.py", line 177, in main
-    execEtasGaModel(year, "Kanto", depth=25, save=True)
-NameError: global name 'year' is not defined
