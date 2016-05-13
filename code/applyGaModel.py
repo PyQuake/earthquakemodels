@@ -145,14 +145,14 @@ def main():
 		
 	year=2000
 	while(year<2011):
-		region = 'Kanto'
+		region = 'Tohoku'
 		depths = (25, 60, 100)
 		for depth in depths:
 			print(depth, year, region)
-			execEtasGaModelClustered(year, region, depth=depth, save=True)
-			execGaModel(year, region, depth=depth, save=True)
-			execEtasGaModel(year, region, depth=depth, save=True)	
-
+			# execEtasGaModelClustered(year, region, depth=depth, save=True)
+			# execGaModel(year, region, depth=depth, save=True)
+			# execEtasGaModel(year, region, depth=depth, save=True)	
+			execGaModelClustered(year, region, depth=depth, save=True)
 		
 		year+=1
 
