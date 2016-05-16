@@ -36,14 +36,8 @@ def addFromCatalog(model,catalog, year):
     for m in range(len(catalog)):
         #kind of a filter, we should define how we are going to filter by year
         if catalog[m]['year'] == year:  
-            # print(catalog[m]['lon'], catalog[m]['lat'], "antes do teste de consitencia")
-            # input()
             if catalog[m]['lon']>min_lon and catalog[m]['lon']<max_lon:
-                # print(catalog[m]['lon'], "depois do lon")
-                # input()
                 if catalog[m]['lat']>min_lat and catalog[m]['lat']<max_lat:
-                        # print(catalog[m]['lat'], "depois do lat")
-                        # input()
                         #calculating the adequated bin for a coordinate of a earthquake
                         for i in range(bins_lon):    
                             index = (step_lon*i) + min_lon
@@ -146,13 +140,15 @@ def loadModelFromFile(filename, withMag=True):
 def simpleHibrid(model,fileMag,fileSaveCat):
 
     # modelo=etasGa.loadModelFromFile('../Zona/model/etasNP2000exec.txt')
-
+    print('antes?')
     model.magnitudeValues = numpy.zeros(shape=(len(model.bins),model.definitions[2]['cells']), dtype='f')
     finished = sum(model.bins)
+
     # f = open("../Zona/etasim1.txt", 'r')
     f = open(fileMag, 'r')
 
     # g = open("./testeModelCatalog.txt", 'w')
+
     g = open(fileSaveCat, 'w')
     g.write("#no.   longitude   latitude    magnitude   time    depth   year    month   days")
     g.write("\n")
@@ -173,7 +169,6 @@ def simpleHibrid(model,fileMag,fileSaveCat):
         times.append(time)
 
         i, quakesCount, number = 0, 0, 1
-    # exit(0)
     while quakes != [] and number<finished:
         if i >= len(model.bins):
             break
@@ -181,7 +176,6 @@ def simpleHibrid(model,fileMag,fileSaveCat):
         while j < len(quakes):
             if  model.bins[i] > quakesCount:
                 index = localizarIndex(model, quakes[j])
-                print(index, quakes[j], i, j)
                 if model.magnitudeValues[i][index] == 0:
                     saveCatalog(fileSaveCat, model, i, number, quakes[j], times[j])
                     number += 1
@@ -198,7 +192,6 @@ def simpleHibrid(model,fileMag,fileSaveCat):
                 quakesCount = 0  
                 break
             j+=1
-    # print(len(quakes), quakesCount, modelo.bins[i], quakes, i)
     f.close()
     g.close()
     return model
@@ -245,13 +238,11 @@ def localizarIndex(modelo, mag):
 
     for n in range(cells_mag):    
         cell = (step_mag * n) + min_mag
-        print(min_mag, j, mag, cell, mag, cell+step_mag)
         if mag >= cell and mag < (cell+step_mag): 
             if (cell + step_mag) >= max_mag: #to avoid the last index to be out of limits
                 j -= 1
             break
         j += 1
-    exit()
     return j
 
 
@@ -386,6 +377,8 @@ def quakesTriggered(magMain, magThreshold=3):
 
 def sumTriggeredByDaysWithRI(model, year, fileEtasim, t2=30):
     limitTo12(model)
+    print(model.bins, model.definitions)
+
     model=simpleHibrid(model,fileEtasim,"../Zona/paper_exp/testeModelCatalog.txt")
     for (binOfmagMain,index) in zip(model.magnitudeValues,range(len(model.magnitudeValues))):
         for magMain in binOfmagMain:
