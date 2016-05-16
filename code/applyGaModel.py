@@ -173,8 +173,8 @@ def main():
 		# for depth in depths:
 		depth = 60
 	# 	print(depth, year, region)
-		execEtasGaModelClustered(year, region, depth=depth, save=True)
-		# execGaModel(year, region, depth=depth, save=True)
+		# execEtasGaModelClustered(year, region, depth=depth, save=True)
+		execGaModel(year, region, depth=depth, save=True)
 		# execEtasGaModel(year, region, depth=depth, save=True)	
 		# execGaModelClustered(year, region, depth=depth, save=True)
 		
