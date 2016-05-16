@@ -141,11 +141,11 @@ def createAndExeGASynthetic(region, depth, year=1990,times=5):
 		etasGa.saveModelToFile(modelo, '../Zona2/synthetic/'+region+'_'+str(depth)+"_"+str(year)+str(i)+'.txt')
 
 def main():
-	createAndExeGASynthetic('Kanto', 100)
-	createAndExeGASynthetic('Kanto', 60)
-	createAndExeGASynthetic('Kanto', 25)
-	#exec real model
-	# year=2008
+	# createAndExeGASynthetic('Kanto', 100)
+	# createAndExeGASynthetic('Kanto', 60)
+	# createAndExeGASynthetic('Kanto', 25)
+	# exec real model
+	# year=2000
 	# while(year<2011):
 	# 	print(year, 'Tohoku')
 	# 	createRealModel(year, region="Tohoku", depth=100, withMag=False, save=True)
@@ -153,8 +153,8 @@ def main():
 	# 	createRealModel(year, region="Tohoku", depth=60, withMag=False, save=True)
 	# 	print('Kanto')
 	# 	createRealModel(year, region="Kanto", depth=100, withMag=False, save=True)
-	# 	createRealModel(year, region="Kanto", depth=25, withMag=False, save=True)
-	# 	createRealModel(year, region="Kanto", depth=60, withMag=False, save=True)
+		# createRealModel(year, region="Kanto", depth=25, withMag=False, save=True)
+		# createRealModel(year, region="Kanto", depth=60, withMag=False, save=True)
 	# 	print('eastjapan')
 	# 	createRealModel(year, region="EastJapan", depth=100, withMag=False, save=True)
 	# 	createRealModel(year, region="EastJapan", depth=25, withMag=False, save=True)
@@ -163,21 +163,22 @@ def main():
 	# 	createRealModel(year, region="Kansai", depth=100, withMag=False, save=True)
 	# 	createRealModel(year, region="Kansai", depth=25, withMag=False, save=True)
 	# 	createRealModel(year, region="Kansai", depth=60, withMag=False, save=True)
-	# 	year+=1
-		
-	#exec models
-	# year=2000
-	# while(year<2011):
-	# 	region = 'Kansai'
-	# 	depths = (25, 60, 100)
-	# 	for depth in depths:
-	# 		print(depth, year, region)
-	# 		# execEtasGaModelClustered(year, region, depth=depth, save=True)
-	# 		# execGaModel(year, region, depth=depth, save=True)
-	# 		# execEtasGaModel(year, region, depth=depth, save=True)	
-	# 		execGaModelClustered(year, region, depth=depth, save=True)
-		
 		# year+=1
+		
+	# #exec models
+	year=2000
+	while(year<2011):
+		region = 'Kanto'
+	# 	# depths = (25, 60, 100)
+		# for depth in depths:
+		depth = 60
+	# 	print(depth, year, region)
+		# execEtasGaModelClustered(year, region, depth=depth, save=True)
+		# execGaModel(year, region, depth=depth, save=True)
+		execEtasGaModel(year, region, depth=depth, save=True)	
+		# execGaModelClustered(year, region, depth=depth, save=True)
+		
+		year+=1
 
 if __name__ == "__main__":
 	main()

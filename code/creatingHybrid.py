@@ -13,7 +13,7 @@ def execCreatingHybrid(region, depth, year_begin, year_end):
 		#should be the data for next year
 		modelO=model.loadModelFromFile('../Zona2/realData/3.0'+region+'real'+str(depth)+"_"+str(year)+'.txt')
 		for i in range(10):
-			# print('executing:', i)
+			print('executing:', i)
 			#loading the list model to be hybrid(ed)...
 			modelo=etasGa.loadModelFromFile('../Zona2/listaGA_New/'+region+'_'+str(depth)+'_'+str(year)+str(i)+'.txt')
 			#loading mag file...
@@ -46,13 +46,16 @@ def execCreatingHybrid(region, depth, year_begin, year_end):
 
 #tem erro aqui
 def main():
-	regions = ('Tohoku' ,'EastJapan', 'Kansai', 'Kanto')
-		depths = (25, 60, 100)
-	for region in regions:
-		print(region)
-		for depth in depths:
-	#the year here already is the target year
-			execCreatingHybrid(region, depth, 2005, 2010)
+	# regions = ('Tohoku' ,'EastJapan', 'Kansai', 'Kanto')
+	region = 'Kanto'
+	# depths = (25, 60, 100)
+	depth = 60
+	# for region in regions:
+	print(region)
+	# for depth in depths:
+	print(depth)
+#the year here already is the target year
+	execCreatingHybrid(region, depth, 2005, 2010)
 
 
 
