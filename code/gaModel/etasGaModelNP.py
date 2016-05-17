@@ -124,7 +124,7 @@ def gaModel(type_m, NGEN,CXPB,MUTPB,modelOmega,year, region, depth, n_aval=50000
 		pop[:] = offspring
 		record = stats.compile(pop)
 
-		logbook.record(ngen=g, depth=depth, **record)
+		logbook.record(gen=g, depth=depth, **record)
 
 	print(logbook)
 	if (type_m == 'clustered'):
