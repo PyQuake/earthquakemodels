@@ -88,13 +88,52 @@ for (i in 1:4) {
     }
     rm(data)
     
-    gaModel25 = loadData(region, year+5, '25', 'gaModelClustered')
-    gaModel60 = loadData(region, year+5, '60', 'gaModelClustered')
-    gaModel100 = loadData(region, year+5, '100', 'gaModelClustered')
+    gaModel25 = loadData(region, year+5, '25', 'hybrid_gaModel')
+    gaModel60 = loadData(region, year+5, '60', 'hybrid_gaModel')
+    gaModel100 = loadData(region, year+5, '100', 'hybrid_gaModel')
     
-    lista25 = loadData(region, +5, '25', 'listaGA_NewClustered')
-    lista60 = loadData(region, year+5, '60', 'listaGA_NewClustered')
-    lista100 = loadData(region, year+5, '100', 'listaGA_NewClustered')
+    lista25 = loadData(region, year+5, '25', 'hybrid_listaGA_New')
+    lista60 = loadData(region, year+5, '60', 'hybrid_listaGA_New')
+    lista100 = loadData(region, year+5, '100', 'hybrid_listaGA_New')
+    
+    valuesGA25 = convertToNumeric(gaModel25)
+    valuesGA60 = convertToNumeric(gaModel60)
+    valuesGA100 = convertToNumeric(gaModel100)
+    
+    valuesLista25 = convertToNumeric(lista25)
+    valuesLista60 = convertToNumeric(lista60)
+    valuesLista100 = convertToNumeric(lista100)
+    
+    loglikeGA = c(valuesGA25, valuesGA60, valuesGA100)
+    loglikeLista = c(valuesLista25, valuesLista60, valuesLista100)
+    loglikeValues = c(loglikeGA, loglikeLista)
+    nameGa = c(rep("hybrid_gaModel",30))
+    nameLista = c(rep("hybrid_listaGA_New",30))
+    
+    years = c(rep(toString(year+5),60))
+    regions = c(rep(region, 60))
+    depth25 = c(rep('25',10))
+    depth60 = c(rep('60',10))
+    depth100 = c(rep('100',10))
+    depthsAmodel = c(depth25, depth60, depth100)
+    model = c(nameGa, nameLista)
+    depths= c(depthsAmodel, depthsAmodel)
+    data = data.frame(loglikeValues, model, depths, years, regions)
+    if (dim(finalData)[1]==0) {
+        finalData = merge(finalData, data, all.y=T)  
+    }
+    else{
+        finalData=rbind(finalData, data)
+    }
+    rm(data)
+    
+    gaModel25 = loadData(region, year+5, '25', 'clustered_gaModel')
+    gaModel60 = loadData(region, year+5, '60', 'clustered_gaModel')
+    gaModel100 = loadData(region, year+5, '100', 'clustered_gaModel')
+    
+    lista25 = loadData(region, year+5, '25', 'clustered_listaGA_New')
+    lista60 = loadData(region, year+5, '60', 'clustered_listaGA_New')
+    lista100 = loadData(region, year+5, '100', 'clustered_listaGA_New')
     
     valuesGA25 = convertToNumeric(gaModel25)
     valuesGA60 = convertToNumeric(gaModel60)
@@ -149,5 +188,5 @@ for (i in 1:4) {
 #     rm(data)    
 # }
 
-# save(finalData,file="data.Rda")
-  
+save(finalData,file="../DataFromR/data.Rda")
+summary(finalData)  

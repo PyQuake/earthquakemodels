@@ -140,7 +140,6 @@ def loadModelFromFile(filename, withMag=True):
 def simpleHibrid(model,fileMag,fileSaveCat):
 
     # modelo=etasGa.loadModelFromFile('../Zona/model/etasNP2000exec.txt')
-    print('antes?')
     model.magnitudeValues = numpy.zeros(shape=(len(model.bins),model.definitions[2]['cells']), dtype='f')
     finished = sum(model.bins)
 
@@ -377,7 +376,6 @@ def quakesTriggered(magMain, magThreshold=3):
 
 def sumTriggeredByDaysWithRI(model, year, fileEtasim, t2=30):
     limitTo12(model)
-    print(model.bins, model.definitions)
 
     model=simpleHibrid(model,fileEtasim,"../Zona/paper_exp/testeModelCatalog.txt")
     for (binOfmagMain,index) in zip(model.magnitudeValues,range(len(model.magnitudeValues))):

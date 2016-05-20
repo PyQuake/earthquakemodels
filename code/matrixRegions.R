@@ -6,7 +6,12 @@
   library(png)
   library(grDevices)
   library(RColorBrewer)
-  #display.brewer.all()
+  
+  loadData = function(region, year, depth, type){
+      file = paste(type,'_',region,"_",depth,'_',year,".txt",sep="")
+      data = read.csv2(file, sep='\n', header=F)
+      return(data)
+  }
   
   plotMatrixReal = function(modelData, fileToSave, r, c){
     # TODO -- hardcoded map is BAD
@@ -29,72 +34,54 @@
     print( p+ layer(grid.raster(as.raster(image)), under=T))
     dev.off()
   }
-  #years 5,6,8,9,10
-  #real
-  year=2006
-  while(year<=2010){
-    setwd("~/Documents/estudos/unb/earthquakemodels/Zona")
-    
-    region="EastJapan"
-    image <- readPNG("../data/coast.png")
-    file = paste("3.0",region,"real",year,".txt",sep="")
-    raw_data = read.csv2(file, sep='\n', header=F)
-    saveFile = paste("./paper_exp/heatMap/real",region,"_",year,".png",sep="")
-    plotMatrixReal(raw_data, saveFile, 40, 40) 
-    #20X40!
-    # a imagem tá uma merda
-    region="Tohoku"
-    image <- readPNG("../data/touhoku.png")
-    file = paste("3.0",region,"real",year,".txt",sep="")
-    raw_data = read.csv2(file, sep='\n', header=F)
-    saveFile = paste("./paper_exp/heatMap/real",region,"_",year,".png",sep="")
-    plotMatrixReal(raw_data, saveFile, 20, 40) 
-    region="Kansai"
-    image <- readPNG("../data/kansai.png")
-    file = paste("3.0",region,"real",year,".txt",sep="")
-    raw_data = read.csv2(file, sep='\n', header=F)
-    saveFile = paste("./paper_exp/heatMap/real",region,"_",year,".png",sep="")
-    plotMatrixReal(raw_data, saveFile, 40, 40) 
-    region="Kanto"
-    image <- readPNG("../data/kantomap.png")
-    file = paste("3.0",region,"real",year,".txt",sep="")
-    raw_data = read.csv2(file, sep='\n', header=F)
-    saveFile = paste("./paper_exp/heatMap/real",region,"_",year,".png",sep="")
-    plotMatrixReal(raw_data, saveFile, 45, 45)   
-    print(year)
-    year=year+1
-    
-  }
   
-  setwd("~/Documents/estudos/unb/earthquakemodels/Zona/paper_exp")
-  
-  calcMediaNP = function(year, region,r,c){
-    soma = rep(0, r*c)
-    setwd("~/Documents/estudos/unb/earthquakemodels/Zona/paper_exp")
-    for(i in 1:10){
-      file = paste(region,"paper_etasNP",year,i-1,".txt",sep="")
-      raw_data = read.csv2(file, sep='\n', header=F)
-      for (k in 1:length(raw_data$V1)){
-        value = as.numeric(levels(raw_data$V1[k]))[raw_data$V1[k]]
-        soma[k]=soma[k]+value
+  # tem que colocar depth antes de rodar
+  plotRealByYears = function(depth){
+      year=2005
+      while(year<=2010){
+        setwd("~/Documents/estudos/unb/earthquakemodels/Zona2/")
+        
+        region="EastJapan"
+        image <- readPNG("../data/coast.png")
+        file = paste("realData/3.0",region,"real",depth,'_', year,".txt",sep="")
+        raw_data = read.csv2(file, sep='\n', header=F)
+        saveFile = paste("./heatMap/real",region,"_",depth,'_',year,".png",sep="")
+        plotMatrixReal(raw_data, saveFile, 40, 40) 
+        #20X40!
+        # a imagem tá uma merda
+        region="Tohoku"
+        image <- readPNG("../data/touhoku.png")
+        file = paste("realData/3.0",region,"real",depth,'_', year,".txt",sep="")
+        raw_data = read.csv2(file, sep='\n', header=F)
+        saveFile = paste("./heatMap/real",region,"_",depth,'_',year,".png",sep="")
+        plotMatrixReal(raw_data, saveFile, 20, 40) 
+        region="Kansai"
+        image <- readPNG("../data/kansai.png")
+        file = paste("realData/3.0",region,"real",depth,'_', year,".txt",sep="")
+        raw_data = read.csv2(file, sep='\n', header=F)
+        saveFile = paste("./heatMap/real",region,"_",depth,'_',year,".png",sep="")
+        plotMatrixReal(raw_data, saveFile, 40, 40) 
+        region="Kanto"
+        image <- readPNG("../data/kantomap.png")
+        file = paste("realData/3.0",region,"real",depth,'_', year,".txt",sep="")
+        raw_data = read.csv2(file, sep='\n', header=F)
+        saveFile = paste("./heatMap/real",region,"_",depth,'_',year,".png",sep="")
+        plotMatrixReal(raw_data, saveFile, 45, 45)   
+        print(year)
+        year=year+1
       }
-    }
-    return(soma/10)
   }
+  plotRealByYears(25)
+  plotRealByYears(60)
+  plotRealByYears(100)
   
-  calcMediaModelo = function(year, region,r,c){
-    soma = rep(0, r*c)
-    setwd("~/Documents/estudos/unb/earthquakemodels/Zona/paper_exp")
-    for(i in 1:10){
-      file = paste(region,"paper_modelo",year,i-1,".txt",sep="")
-      raw_data = read.csv2(file, sep='\n', header=F)
-      for (k in 1:length(raw_data$V1)){
-        value = as.numeric(levels(raw_data$V1[k]))[raw_data$V1[k]]
-        soma[k]=soma[k]+value
-      }
-    }
-    return(soma/10)
+  calcMedia = function(region, year,depth, type){
+    setwd("~/Documents/estudos/unb/earthquakemodels/Zona2/dataForR")
+      raw_data=loadData(region, year, depth, type)
+      meanValue=mean(as.numeric(levels(raw_data$V1))[raw_data$V1])
+      return(meanValue)
   }
+
   
   plotMatrixModel = function(modelData, fileToSave, r, c){
     # TODO -- hardcoded map is BAD
@@ -124,130 +111,126 @@
     print( p+ layer(grid.raster(as.raster(image)), under=T))
     dev.off()
   }
-  year=2006
-  #modelo
-  while(year<=2010){
-    setwd("~/Documents/estudos/unb/earthquakemodels/Zona/paper_exp")
-    region="EastJapan"
-    image <- readPNG("../../data/coast.png")
-    saveFile = paste("heatMap/NP",region,"_",year,".png",sep="")
-    mediaEastJapan=calcMediaNP(year = year, region = region, r = 40, 40)
-    saveMedia = paste("./mediaNP",region,"_",year,".txt",sep="")
-    write.table(round(mediaEastJapan,0), saveMedia)
-    plotMatrixModel(mediaEastJapan, saveFile, 40, 40) 
-    saveFile = paste("heatMap/modelo",region,"_",year,".png",sep="")
-    mediaEastJapan=calcMediaModelo(year = year, region = region, r = 40, 40)
-    saveMedia = paste("./mediaModelo",region,"_",year,".txt",sep="")
-    write.table(round(mediaEastJapan,0), saveMedia)
-    plotMatrixModel(mediaEastJapan, saveFile, 40, 40) 
   
-    #20X40!
-    # a imagem tá uma merda
-    region="Tohoku"
-    image <- readPNG("../../data/touhoku.png")
-    saveFile = paste("heatMap/NP",region,"_",year,".png",sep="")
-    mediaTohoku=calcMediaNP(year = year, region = region, r = 20, 40)
-    saveMedia = paste("./mediaNP",region,"_",year,".txt",sep="")
-    write.table(round(mediaEastJapan,0), saveMedia)
-    plotMatrixModel(round(mediaTohoku,0), saveFile, 20, 40)
-    saveFile = paste("heatMap/modelo",region,"_",year,".png",sep="")
-    mediaTohoku=calcMediaModelo(year = year, region = region, r = 20, 40)
-    saveMedia = paste("./mediaModelo",region,"_",year,".txt",sep="")
-    write.table(round(mediaTohoku,0), saveMedia)
-    plotMatrixModel(round(mediaTohoku,0), saveFile, 20, 40)
+  plotModelsByYears= function(depth){
+      year=2005
+      #modelo
+      while(year<=2010){
+        setwd("~/Documents/estudos/unb/earthquakemodels/Zona2/")
+        region="EastJapan"
+        image <- readPNG("../data/coast.png")
+        saveFile = paste("./heatMap/lista",region,"_",depth,'_',year,".png",sep="")
+        mediaEastJapan=calcMedia(year = year, region = region,depth=depth, type='listaGA_New')
+        setwd("~/Documents/estudos/unb/earthquakemodels/Zona2/")
+        plotMatrixModel(mediaEastJapan, saveFile, 40, 40) 
+        saveFile = paste("./heatMap/gaModel",region,"_",depth,'_',year,".png",sep="")
+        mediaEastJapan=calcMedia(year = year, region = region,depth=depth, type='gaModel')
+        plotMatrixModel(mediaEastJapan, saveFile, 40, 40) 
     
-    region="Kansai"
-    image <- readPNG("../../data/kansai.png")
-    saveFile = paste("heatMap/NP",region,"_",year,".png",sep="")
-    mediaKansai=calcMediaNP(year = year, region = region, r = 40, 40)
-    saveMedia = paste("./mediaNP",region,"_",year,".txt",sep="")
-    write.table(round(mediaKansai,0), saveMedia)
-    plotMatrixModel(mediaKansai, saveFile, 40, 40)
-    saveFile = paste("heatMap/modelo",region,"_",year,".png",sep="")
-    mediaKansai=calcMediaModelo(year = year, region = region, r = 40, 40)
-    saveMedia = paste("./mediaModelo",region,"_",year,".txt",sep="")
-    write.table(round(mediaKansai,0), saveMedia)
-    plotMatrixModel(mediaKansai, saveFile, 40, 40)
-    
-    region="Kanto"
-    image <- readPNG("../../data/kantomap.png")
-    saveFile = paste("heatMap/NP",region,"_",year,".png",sep="")
-    mediaKanto=calcMediaNP(year = year, region = region, r = 45, 45)
-    saveMedia = paste("./mediaNP",region,"_",year,".txt",sep="")
-    write.table(round(mediaKanto,0), saveMedia)
-    plotMatrixModel(mediaKanto, saveFile, 45, 45)
-    saveFile = paste("heatMap/modelo",region,"_",year,".png",sep="")
-    mediaKanto=calcMediaModelo(year = year, region = region, r = 45, 45)
-    saveMedia = paste("./mediaModelo",region,"_",year,".txt",sep="")
-    write.table(round(mediaKanto,0), saveMedia)
-    plotMatrixModel(mediaKanto, saveFile, 45, 45)
-    year=year+1
-    print(year)
-  }
-  
-  calcMediaSimples = function(data){
-    soma = rep(0, 10)
-      for (k in 1:length(data)){
-        value = as.numeric(levels(data[[k]]))
-        soma[k]=soma[k]+value
+        #20X40!
+        # a imagem tá uma merda
+        region="Tohoku"
+        image <- readPNG("../../data/touhoku.png")
+        saveFile = paste("./heatMap/lista",region,"_",depth,'_',year,".png",sep="")
+        mediaEastJapan=calcMedia(year = year, region = region,depth=depth, type='listaGA_New')
+        setwd("~/Documents/estudos/unb/earthquakemodels/Zona2/")
+        plotMatrixModel(mediaEastJapan, saveFile, 20, 40) 
+        saveFile = paste("./heatMap/gaModel",region,"_",depth,'_',year,".png",sep="")
+        mediaEastJapan=calcMedia(year = year, region = region,depth=depth, type='gaModel')
+        plotMatrixModel(mediaEastJapan, saveFile, 20, 40) 
+        
+        region="Kansai"
+        image <- readPNG("../../data/kansai.png")
+        saveFile = paste("./heatMap/lista",region,"_",depth,'_',year,".png",sep="")
+        mediaEastJapan=calcMedia(year = year, region = region,depth=depth, type='listaGA_New')
+        setwd("~/Documents/estudos/unb/earthquakemodels/Zona2/")
+        plotMatrixModel(mediaEastJapan, saveFile, 40, 40) 
+        saveFile = paste("./heatMap/gaModel",region,"_",depth,'_',year,".png",sep="")
+        mediaEastJapan=calcMedia(year = year, region = region,depth=depth, type='gaModel')
+        plotMatrixModel(mediaEastJapan, saveFile, 40, 40) 
+        
+        region="Kanto"
+        image <- readPNG("../../data/kantomap.png")
+        saveFile = paste("./heatMap/lista",region,"_",depth,'_',year,".png",sep="")
+        mediaEastJapan=calcMedia(year = year, region = region,depth=depth, type='listaGA_New')
+        setwd("~/Documents/estudos/unb/earthquakemodels/Zona2/")
+        plotMatrixModel(mediaEastJapan, saveFile, 45, 45) 
+        saveFile = paste("./heatMap/gaModel",region,"_",depth,'_',year,".png",sep="")
+        mediaEastJapan=calcMedia(year = year, region = region,depth=depth, type='gaModel')
+        plotMatrixModel(mediaEastJapan, saveFile, 45, 45) 
+        
+        year=year+1
+        print(year)
       }
-    return(sum(soma)/10)
   }
   
-  converting = function(data){
-    soma = rep(0, 10)
-    for (k in 1:length(data)){
-      value = as.numeric(levels(data[[k]]))
-      soma[k]=soma[k]+value
-    }
-    return(soma)
-  }
-  
-  getingData = function(region, year){
-  setwd("~/Documents/estudos/unb/earthquakemodels/Zona/paper_exp/")
-   
-    for (i in 1:10){
-      file = paste(region,"paper_modelo",year,i-1,".txtloglikelihood.txt",sep="")
-      gaModel[i] <<- read.csv2(file, sep='\n', header=F)
-      file = paste(region,"paper_etasNP",year,i-1,".txtloglikelihood.txt",sep="")
-      NP[i] <<- read.csv2(file, sep='\n', header=F)
-    }
-  }
-  
-  year=2006
-  while(year<=2010){
-    gaModel=rep(0,10)
-    NP=rep(0,10)
-    getingData("Kanto", year)
-    mediaGAModel = calcMediaSimples(gaModel)
-    cat("mu é a media do GAModel", year, sep="")
-    cat("against the list method for same year. Region: Kanto")
-    print(t.test(mu=mediaGAModel, converting(NP)))
-    
-    gaModel=rep(0,10)
-    NP=rep(0,10)
-    getingData("EastJapan", year)
-    mediaGAModel = calcMediaSimples(gaModel)
-    cat("mu é a media do GAModel", year, sep="")
-    cat("against the list method for same year. Region: EastJapan") 
-    print(t.test(mu=mediaGAModel, converting(NP)))
-    
-    gaModel=rep(0,10)
-    NP=rep(0,10)
-    getingData("Tohoku", year)
-    mediaGAModel = calcMediaSimples(gaModel)
-    cat("mu é a media do GAModel", year, sep="")
-    cat("against the list method for same year. Region: Tohoku") 
-    print(t.test(mu=mediaGAModel, converting(NP)))
-    
-    gaModel=rep(0,10)
-    NP=rep(0,10)
-    getingData("Kansai", year)
-    mediaGAModel = calcMediaSimples(gaModel)
-    cat("mu é a media do GAModel", year, sep="")
-    cat("against the list method for same year. Region: Kansai") 
-    print(t.test(mu=mediaGAModel, converting(NP)))
-  
-    year=year+1
-  }
-  
+  plotModelsByYears(15)
+  plotModelsByYears(60)
+  plotModelsByYears(100)
+  #Acho que nao precisa 
+#   calcMediaSimples = function(data){
+#     soma = rep(0, 10)
+#       for (k in 1:length(data)){
+#         value = as.numeric(levels(data[[k]]))
+#         soma[k]=soma[k]+value
+#       }
+#     return(sum(soma)/10)
+#   }
+#   
+#   converting = function(data){
+#     soma = rep(0, 10)
+#     for (k in 1:length(data)){
+#       value = as.numeric(levels(data[[k]]))
+#       soma[k]=soma[k]+value
+#     }
+#     return(soma)
+#   }
+#   
+#   getingData = function(region, year){
+#   setwd("~/Documents/estudos/unb/earthquakemodels/Zona/paper_exp/")
+#    
+#     for (i in 1:10){
+#       file = paste(region,"paper_modelo",year,i-1,".txtloglikelihood.txt",sep="")
+#       gaModel[i] <<- read.csv2(file, sep='\n', header=F)
+#       file = paste(region,"paper_etasNP",year,i-1,".txtloglikelihood.txt",sep="")
+#       NP[i] <<- read.csv2(file, sep='\n', header=F)
+#     }
+#   }
+#   # t-test
+#   year=2005
+#   while(year<=2010){
+#     gaModel=rep(0,10)
+#     NP=rep(0,10)
+#     getingData("Kanto", year)
+#     mediaGAModel = calcMediaSimples(gaModel)
+#     cat("mu é a media do GAModel", year, sep="")
+#     cat("against the list method for same year. Region: Kanto")
+#     print(t.test(mu=mediaGAModel, converting(NP)))
+#     
+#     gaModel=rep(0,10)
+#     NP=rep(0,10)
+#     getingData("EastJapan", year)
+#     mediaGAModel = calcMediaSimples(gaModel)
+#     cat("mu é a media do GAModel", year, sep="")
+#     cat("against the list method for same year. Region: EastJapan") 
+#     print(t.test(mu=mediaGAModel, converting(NP)))
+#     
+#     gaModel=rep(0,10)
+#     NP=rep(0,10)
+#     getingData("Tohoku", year)
+#     mediaGAModel = calcMediaSimples(gaModel)
+#     cat("mu é a media do GAModel", year, sep="")
+#     cat("against the list method for same year. Region: Tohoku") 
+#     print(t.test(mu=mediaGAModel, converting(NP)))
+#     
+#     gaModel=rep(0,10)
+#     NP=rep(0,10)
+#     getingData("Kansai", year)
+#     mediaGAModel = calcMediaSimples(gaModel)
+#     cat("mu é a media do GAModel", year, sep="")
+#     cat("against the list method for same year. Region: Kansai") 
+#     print(t.test(mu=mediaGAModel, converting(NP)))
+#   
+#     year=year+1
+#   }
+#   

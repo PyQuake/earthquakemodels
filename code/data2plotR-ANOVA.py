@@ -119,78 +119,6 @@ def converter2leastBestClustered(region, year, type):
 			f.write("\n")
 
 	  
-def converter2leastBest(region, year, type):
-	year=str(year)
-	filename =  "../Zona2/logbook_"+type+"/"+region+"_"+year+"_logbook.txt"
-	f = open(filename, "r")
-
-	data25=list()
-	data60=list()#1010
-	data100=list()#2020
-
-	for line in f:
-		info = line.split()
-		if info[4] != 'max':
-			if len(data25) < 1000:
-				data25.append(float(info[4]))
-			elif len(data60) < 1000:
-				data60.append(float(info[4]))
-			else:
-				data100.append(float(info[4]))
-	f.close()
-
-	
-	filename =  "../Zona2/dataForR/"+region+"_"+year+"_LastGen25"+type+".txt"
-	with open(filename, 'w') as f:
-		for i in range(10):
-			f.write(str(data25[99+100*i]))
-			f.write("\n")
-
-	filename =  "../Zona2/dataForR/"+region+"_"+year+"_LastGen60"+type+".txt"
-	with open(filename, 'w') as f:
-		for i in range(10):
-			f.write(str(data60[99+100*i]))
-			f.write("\n")
-
-	filename =  "../Zona2/dataForR/"+region+"_"+year+"_LastGen100"+type+".txt"
-	with open(filename, 'w') as f:
-		for i in range(10):
-			f.write(str(data100[99+100*i]))
-			f.write("\n")
-
-# year = 2000
-# while (year<=2005):
-	# converter2means(region='Kanto', year=year, type="gaModel")
-	# converter2means(region='Kanto', year=year, type='listaGA_New')
-	# converter2means(region='EastJapan', year=year, type="gaModel")
-	# converter2means(region='EastJapan', year=year, type='listaGA_New')
-	# converter2means(region='Tohoku', year=year, type="gaModel")
-	# converter2means(region='Tohoku', year=year, type='listaGA_New')
-	# converter2means(region='Kansai', year=year, type="gaModel")
-	# converter2means(region='Kansai', year=year, type='listaGA_New')
-	# year+=1
-
-# year = 2005
-# while (year<=2011):
-# 	print(year)
-# 	converter2leastBestClustered(region='EastJapan', year=year, type="gaModel")
-# 	converter2leastBestClustered(region='EastJapan', year=year, type="listaGA_New")
-# 	converter2leastBestClustered(region='Kanto', year=year, type="gaModel")
-# 	converter2leastBestClustered(region='Kanto', year=year, type="listaGA_New")
-# 	converter2leastBestClustered(region='Kansai', year=year, type="gaModel")
-# 	converter2leastBestClustered(region='Kansai', year=year, type="listaGA_New")
-# 	converter2leastBestClustered(region='Tohoku', year=year, type="gaModel")
-# 	converter2leastBestClustered(region='Tohoku', year=year, type="listaGA_New")
-# # converter2leastBest(region='EastJapan', year=year, type="gaModel")
-# # 	converter2leastBest(region='EastJapan', year=year, type="listaGA_New")
-# # 	converter2leastBest(region='Kanto', year=year, type="gaModel")
-# # 	converter2leastBest(region='Kanto', year=year, type="listaGA_New")
-# # 	converter2leastBest(region='Kansai', year=year, type="gaModel")
-# # 	converter2leastBest(region='Kansai', year=year, type="listaGA_New")
-# # 	converter2leastBest(region='Tohoku', year=year, type="gaModel")
-# # 	converter2leastBest(region='Tohoku', year=year, type="listaGA_New")
-# 	year+=1
-
 def converter2leastBest(type, region, depth, year_begin, year_end):
 	
 	year=year_begin
@@ -237,14 +165,19 @@ def converter2leastBestHybrid(type, region, depth, year_begin, year_end):
 
 
 def main():
+	types = ('listaGA_New', 'gaModel', 'clustered_listaGA_new', 'clustered_gaModel')
 	regions = ('EastJapan', 'Kansai', 'Kanto', 'Tohoku')
 	depths = (25, 60, 100)
+	
 	for region in regions:
+		print(region)
 		for depth in depths:
+			print(depth)
 			converter2leastBestHybrid('hybrid_gaModel', region, depth, 2005, 2010)
 			converter2leastBestHybrid('hybrid_ListaGA_New', region, depth, 2005, 2010)
-			converter2leastBest('listaGA_New', region, depth, 2005, 2010)
-			converter2leastBest('gaModel', region, depth, 2005, 2010)
+			for t in types:
+				print(t)
+				converter2leastBest(t, region, depth, 2005, 2010)
 
 	
 
