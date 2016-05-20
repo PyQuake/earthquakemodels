@@ -302,43 +302,32 @@ def modelToZecharTests(model, filename, startDate, endDate):
 
     f.close()
 
-#TODO: it is incrising the number os quakes in line 344
-def ideaRIinMmodels(model, nQuakes,steps=5):
 
+def ideaRIinMmodels(model, nQuakes,steps=5):
 
     maxIndex = model.definitions[0]['bins']*model.definitions[1]['bins']*model.definitions[2]['bins']-1
     minIndex = 0
     row = model.definitions[0]['bins']
 
-    
-
     dataBins, dataIndex = [],[]
 
-    for bins,index in zip(model.bins, range(len(model.bins))):
-        if bins > 1:
-            dataBins.append(bins)
+    for binOfmagMain,index in zip(modelmodel.magnitudeValues,range(len(model.magnitudeValues))):
+        if sum(binOfmagMain) > 0: 
             dataIndex.append(index)
 
-
-
-    for i,j in zip(range(len(dataBins)), range(len(dataIndex))):
-        value = dataBins[i]
+    for i,j in zip(range(len(nQuakes)), range(len(dataIndex))):
+        # value = dataBins[i]
+        value = nQuakes[i]
         index = dataIndex[j]
-
-        # number=pdfOmoriUtsu(t2=2)
-        # k=quakesTriggered(random.uniform(0,8.5),3)
-        # nQuakes = int(number*k)
-        # if nQuakes>12:
-        #     nQuakes=12
 
         for newTarget in range(steps):
             newTarget+=1
             value -= 2
 
-            if nQuakes > value:
-                nQuakes -= value
+            if nQuakes[index] > value:
+                nQuakes[index] -= value
             else:
-                value = nQuakes
+                value = nQuakes[index]
 
             if value > 0:
                 if index-newTarget >= minIndex:
@@ -355,6 +344,8 @@ def ideaRIinMmodels(model, nQuakes,steps=5):
 
             else:
                 break
+    print('ideaRIinMmodels',j)
+    return model
 
 
 def pdfOmoriUtsu(t2=30, c=0.003, p=1.3):
@@ -377,15 +368,20 @@ def quakesTriggered(magMain, magThreshold=3):
 def sumTriggeredByDaysWithRI(model, year, fileEtasim, t2=30):
     limitTo12(model)
 
+    totalShocks = list()
+    j=0
     model=simpleHibrid(model,fileEtasim,"../Zona/paper_exp/testeModelCatalog.txt")
     for (binOfmagMain,index) in zip(model.magnitudeValues,range(len(model.magnitudeValues))):
-        for magMain in binOfmagMain:
+        for magMain in binOfmagMain:       
             aftershocks = 0
             if magMain > 0: 
                 for t in range(t2):
-                    aftershocks += pdfOmoriUtsu(t2=t+1)*quakesTriggered(magMain)
-                # model.bins[index]+=int(aftershocks)
-    ideaRIinMmodels(model, aftershocks)
+                    aftershocks += pdfOmoriUtsu(t2=t)*quakesTriggered(magMain)
+                    j+=1
+                    totalShocks[index]=aftershocks
+    print('sumTriggeredByDaysWithRI',j)
+    print(totalShocks, len(totalShocks))
+    model = ideaRIinMmodels(model, totalShocks)
     return model
 
 
