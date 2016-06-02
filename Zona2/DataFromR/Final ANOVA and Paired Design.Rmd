@@ -1,0 +1,136 @@
+---
+title: "Final ANOVA and Paired Design"
+author: "Yuri Lavinas"
+date: "May 31, 2016"
+output:
+  pdf_document:
+    fig_caption: yes
+    fig_crop: no
+    toc: yes
+---
+
+```{r setup, include=FALSE}
+library(knitr)
+opts_chunk$set(dev='pdf')
+setwd("~/Documents/estudos/unb/earthquakemodels/Zona2/dataFromR")
+#Loading data
+load("newdata.Rda")
+```
+
+## Summary
+ 
+O objeto é descobrir se existem variações ente os métodos e quais são as variáveis mais influentes.
+
+Os métodos utilizados para comparação são o gaModel,a versão com listas, os sistemas híbridos (hybrid_gaModel e hybrid_lista). Para cada um dos métodos temos algumas variações nas varíaveis utilizadas. Variamos os anos (2005-2010), as regiões (Kanto, EastJapan, Touhoku e Kansai), a profundidade ( <25km, <60km, <100km) e finalmente o catálogo utilizado (JMA X métodoJanelaJMA=>clustered).
+
+## Statistical Analysis
+###ANOVA test and HSD Tukey
+
+Vou utilizar o ANOVA para nos dados obtidos para verificar qual composição de variáveis e métodos mais influênciam no resultado final.
+
+Para isso executei o *gaModel*, *versão com Listas*, *hybrid_gaModel* e *hybrid_lista* para cada conjunto de variáveis 10 vezes. Cada grupo para um método é composto por: região, ano, profundidade e catálogo. Um grupo para um cenário será chamado cenário de execução.
+
+Após as execuções vou aplicar o ANOVA em uma data.frame composto pelos dados das **médias dos melhores indivíduos da última geração** para cada cenário de execução. 
+
+Caso uma variável esteja fora do intervalo de confiança (P < 0.05), vou aplicar novamente o ANOVA retirando essa variável do teste. 
+
+Aplico um teste post hoc nos resultados do ANOVO oara especificar quais são os grupos que diferem. O teste utilizado foi o Tukey teste.
+
+É importante resaltar que para todos os casos, aplico uma função de limite, que altera os valores do bins com mais que 12 ocorrências para 12.
+
+Começo a análise carregando o data.frame com os dados, seguindo para a aplicação do teste ANOVA e finalizando com o uso do Tukey teste.
+
+Começo a análise carregando o data.frame com os dados, seguindo para a aplicação do teste ANOVA e finalizando com o uso do Tukey teste.
+
+
+```{r}
+#Taking a look at the data
+summary(finalData)
+#Primeira vez aplicando ANOVA
+resultANOVA = aov(loglikeValues~model+depths+years+regions , data = finalData)
+summary(resultANOVA)
+#Segunda vez aplicando ANOVA, como a variável years influencia menos os dados foram removidos do teste ANOVA
+resultANOVA = aov(loglikeValues~model+regions , data = finalData)
+summary(resultANOVA)
+#Especificando quais são os grupos que diferem
+tuk = TukeyHSD(resultANOVA)
+#Variáveis para configuração do gráfico
+# par(mfrow=c(2,2))
+op <- par(mar = c(5,15,4,2) + 0.1)
+#Função para gerar o gráfico
+plot(tuk,las=1)
+#Mostrando os resultados também em texto
+print(tuk)
+```
+
+##ANOVA - Specific analysis somente com Cluster.
+
+Faço o ANOVA somente para os modelos "clusterizados"
+
+Primeiro crio o data frame somente com os modelos citados
+```{r}
+subTabela = finalData[finalData$model=='gaModelCluster'|finalData$model=='listaCluster',]
+summary(subTabela)
+```
+
+Aplico o anova, com a regressão para modelos, profundidades, anos e regiões.
+
+```{r}
+resultANOVA = aov(loglikeValues~model+depths+years+regions , data = subTabela)
+tuk = TukeyHSD(resultANOVA)
+op <- par(mar = c(5,15,4,2) + 0.1)
+plot(tuk,las=1)
+print(tuk)
+```
+
+### Paired Design - Student t-test
+
+Agora faço o Paired Design t.test aplicando para todas as combinações possíveis de modelos, em todas as regiões e profundidades, para todos os anos.
+
+Baseado nos arquivos que explicam o Paired Desing, escrevi o código a seguir. Porém não entendi porque ao fazer desta forma pode ser considerado um teste pareado. Os slides comparam duas formas de realizar este tipo de teste. Uma delas tem 
+*seta* um parametro da função com **True**, explicitando que é um teste pareado. Já para o outra forma, esse parametro fica com **False**.
+
+
+```{r}
+summary(finalData)
+# Summarize the n=30 repeated measures on each Problem:Algorithm combination by their mean value
+ttestPaired= function(region){
+    subTabela = finalData[finalData$depths==25&finalData$regions==region,]
+    aggfinaldata<-aggregate(loglikeValues~years:model, data=subTabela,FUN=mean)
+    # Perform paired t-test
+    cat('in', region, 'the t.test between the models gaModel and lista is: ')
+    difTimes<-with(aggfinaldata,loglikeValues[1:6]-loglikeValues[7:12])
+    print(t.test(difTimes))
+    cat('in', region, 'the t.test between the models gaModel and hybrid_gaModel is: ')
+    difTimes<-with(aggfinaldata,loglikeValues[1:6]-loglikeValues[13:18])
+    print(t.test(difTimes))
+    cat('in', region, 'the t.test between the models gaModel and hybrid_listaGA_New is: ')
+    difTimes<-with(aggfinaldata,loglikeValues[1:6]-loglikeValues[19:24])
+    print(t.test(difTimes))
+    cat('in', region, 'the t.test between the models gaModel and gaModelCluster is: ')
+    difTimes<-with(aggfinaldata,loglikeValues[1:6]-loglikeValues[25:30])
+    print(t.test(difTimes))
+    cat('in', region, 'the t.test between the models gaModel and listaCluster is: ')
+    difTimes<-with(aggfinaldata,loglikeValues[1:6]-loglikeValues[31:36])
+    print(t.test(difTimes))
+}
+
+    ttestPaired('Kansai')
+    ttestPaired('Tohoku')
+    ttestPaired('EastJapan')
+    ttestPaired('Kanto')
+```
+
+
+##Conclusion
+
+
+A one-way between subjects ANOVA was conducted to compare the effects of the models, the depths, the years and regions on the log-likelihood value. In this study there are 6 options for model: lista, gaModel, hybrid_gaModel, hybrid_list, gaModelCluster and listaCluster. Based on the results of the test, there was a not a significant effect of the depths or years variables. For both cases at the we obtaind p>0.05 level for the depths condition [F(2) = 2.072, p = 0.126] and we also obtained p>0.05 for the years condition  [F(5) = 0.050, p = 0.999]. There was a significant effect of the models condition (p>0.05 [F(5) = 9699.690, p<2e-16]) and regions condition (p>0.05 [F(3) = 764.220, p<2e-16]). Therefore, we conduct a new anova test, with only the last two variables to verify the influence of those conditions more accurately. The results only changed a little, maintaining the significant effect of both conditions, p>0.05 [F(5) = 9705.6, p<2e-16] and p>0.05 [F(3) = 764.7, p <2e-16], respectively.
+
+Because we found statistically significant result, we applied a Post hoc comparisons using the Tukey HSD test. It compared each condition with all others. For example, it compares the values from the gaModel with the gaModelClustered. It indicated that the gaModelCluster and the listaCluster, when comparared with all other models, achieve greater log-likelihood values. Furthermore, we noticed that the depths conditions show a greater influence when the depth in smaller or equal to 25 km.
+
+When comparing the models from the lista method and from the gaModel against themselves, with or without using clustering techniques, we found that there is no statistically significant result between the methods. That implies that it can be considered that the methods are obtain statistically equal results.
+
+Therefore, based on the result of the HSD test, we performed a new AVOVA test, considering only the gaModelClustered and the listaClustered. That was meant not only to verify the previous results but also to certify if the depth influence is preserved.
+
+Taken together, these results suggest that the using cluster and depth smaller or equal to 25km showed the best results. 
