@@ -68,7 +68,6 @@ library(RColorBrewer)
         raw_data = read.csv2(file, sep='\n', header=F)
         saveFile = paste("./heatMap/real/real",region,"_",depth,'_',year,".png",sep="")
         plotMatrixReal(raw_data, saveFile, 45, 45)   
-        print(year)
         year=year+1
       }
   }
@@ -118,7 +117,6 @@ library(RColorBrewer)
   
   plotMatrixModel = function(modelData, fileToSave, r, c){
       # TODO -- hardcoded map is BAD
-      print(imagePath)
       matrixData = matrix(nrow = r, ncol = c) 
       k = 1
       for (i in 1:r){

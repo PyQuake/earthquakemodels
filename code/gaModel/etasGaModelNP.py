@@ -129,6 +129,8 @@ def gaModel(type_m, NGEN,CXPB,MUTPB,modelOmega,year, region, depth, n_aval=50000
 	print(logbook)
 	if (type_m == 'clustered'):
 		f = open('../Zona2/logbook_listaGA_newClustered/'+region+'_'+str(year)+'_'+str(depth)+'_logbook.txt',"a")
+	elif (type_m == 'clusteredII'):
+		f = open('../Zona2/logbook_listaGA_newClusteredII/'+region+'_'+str(year)+'_'+str(depth)+'_logbook.txt',"a")
 	elif (type_m == 'non-clustered'):
 		f = open('../Zona2/logbook_listaGA_new/'+region+'_'+str(year)+'_'+str(depth)+'_logbook.txt',"a")
 	else:

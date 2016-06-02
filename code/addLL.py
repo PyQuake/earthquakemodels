@@ -15,8 +15,7 @@ def addLoglike2(type, region, depth, year_begin, year_end):
 			modelL.loglikelihood=0
 			modelL.mag=True
 			etasGa.saveModelToFile(modelL,'../Zona2/'+type+'/'+region+'_'+str(depth)+'_'+str(year)+str(i)+'.txt')
-
-			print(loglikeValue, i, sum(modelL.bins), sum(modelO.bins))
+			
 			with open('../Zona2/'+type+'/'+region+'_'+str(depth)+'_'+str(year)+str(i)+'.txtloglikelihood.txt', "w") as myfile:
 					myfile.write(str(loglikeValue))
 					myfile.write("\n")
@@ -35,12 +34,12 @@ def main():
 		#the year here already is the target year
 				addLoglike2(t, region, depth, 2005, 2010)
 
-def mainTESTE():
-	t = 'listaGA_New'
-	region = 'EastJapan'
-	depth = 100
-	#the year here already is the target year
-	addLoglike2(t, region, depth, 2005, 2010)
+# def mainTESTE():
+# 	t = 'listaGA_New'
+# 	region = 'EastJapan'
+# 	depth = 100
+# 	#the year here already is the target year
+# 	addLoglike2(t, region, depth, 2005, 2010)
 
 if __name__ == "__main__":
 	# mainTESTE()

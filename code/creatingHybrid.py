@@ -93,8 +93,8 @@ def main():
 		for depth in depths:
 			print(depth)
 	# the year here already is the target year
-			# execCreatingHybrid(region, depth, 2005, 2010)
-			execCreatingHybridCLUSTERED(region, depth, 2005, 2010)
+			execCreatingHybrid(region, depth, 2005, 2010)
+			# execCreatingHybridCLUSTERED(region, depth, 2005, 2010)
 
 
 

@@ -18,7 +18,8 @@ def readFromFile(filename, outFile):
 
 
 def main():
-	catalogo=readFromFile('../data/clustered_quakes-M+A.dat', '../data/clustered_quakes-M.dat')
+	# catalogo=readFromFile('../data/clustered_quakes-M+A.dat', '../data/clustered_quakes-M.dat')
+    catalogo=readFromFile('../data/regions_classified.dat', '../data/regions_classified-M.dat')
 
 if __name__ == "__main__":
 	main()

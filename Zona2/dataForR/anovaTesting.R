@@ -1,5 +1,5 @@
 setwd("~/Documents/estudos/unb/earthquakemodels/Zona2/DataFromR")
-load("TESTEdata.Rda")
+load("bewdata.Rda")
 summary(finalData)
 resultANOVA = aov(loglikeValues~model+depths+years+regions , data = finalData)
 summary(resultANOVA)

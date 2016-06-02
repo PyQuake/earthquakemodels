@@ -188,5 +188,5 @@ for (i in 1:4) {
 #     rm(data)    
 # }
 
-save(finalData,file="../DataFromR/data.Rda")
+save(finalData,file="../DataFromR/newdata.Rda")
 summary(finalData)  
