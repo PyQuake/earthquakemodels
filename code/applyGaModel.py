@@ -215,7 +215,7 @@ def main():
 	year=2000
 	while(year<2011):
 		# regions = ('Tohoku' ,'EastJapan', 'Kansai', 'Kanto')
-		region = 'EastJapan'
+		region = 'Kansai'
 		depths = (25, 60, 100)
 		# for region in regions:
 		for depth in depths:
