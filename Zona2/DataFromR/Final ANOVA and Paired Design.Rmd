@@ -40,7 +40,6 @@ Aplico um teste post hoc nos resultados do ANOVO oara especificar quais são os 
 
 Começo a análise carregando o data.frame com os dados, seguindo para a aplicação do teste ANOVA e finalizando com o uso do Tukey teste.
 
-Começo a análise carregando o data.frame com os dados, seguindo para a aplicação do teste ANOVA e finalizando com o uso do Tukey teste.
 
 
 ```{r}
@@ -48,9 +47,6 @@ Começo a análise carregando o data.frame com os dados, seguindo para a aplica�
 summary(finalData)
 #Primeira vez aplicando ANOVA
 resultANOVA = aov(loglikeValues~model+depths+years+regions , data = finalData)
-summary(resultANOVA)
-#Segunda vez aplicando ANOVA, como a variável years influencia menos os dados foram removidos do teste ANOVA
-resultANOVA = aov(loglikeValues~model+regions , data = finalData)
 summary(resultANOVA)
 #Especificando quais são os grupos que diferem
 tuk = TukeyHSD(resultANOVA)
@@ -77,6 +73,7 @@ Aplico o anova, com a regressão para modelos, profundidades, anos e regiões.
 
 ```{r}
 resultANOVA = aov(loglikeValues~model+depths+years+regions , data = subTabela)
+summary(resultANOVA)
 tuk = TukeyHSD(resultANOVA)
 op <- par(mar = c(5,15,4,2) + 0.1)
 plot(tuk,las=1)
