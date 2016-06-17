@@ -29,7 +29,7 @@ def calcLogLikelihood(modelLambda,modelOmega):
     If there is a pair of bins lambda/omega, where the lambda bin is 0, and the 
     omega bin is not zero, this function will return None
     """
-
+    i=0
     sumLogLikelihood = 0
     # FIXME: Exception thrown, if it needs a spefic name, we should create an exception class
     #Should abort execution, or sould we continue even after it?
@@ -37,6 +37,7 @@ def calcLogLikelihood(modelLambda,modelOmega):
         raise NameError("Tried to calculate log likelihood for models with different sizes")
     index=0
     for lambda_i,omega_i in zip(modelLambda.bins,modelOmega.bins):
+        i=+1
         if (lambda_i == 0 and omega_i != 0):
             print(lambda_i, omega_i)
             return float('-inf') # invalid Model	

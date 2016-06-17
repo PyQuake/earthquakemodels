@@ -317,23 +317,19 @@ def ideaRIinMmodels(model, nQuakes,steps=5):
             dataIndex.append(index)
 
     for i,j in zip(range(len(dataBins)), range(len(dataIndex))):
+
         value = dataBins[i]
         index = dataIndex[j]
 
-        # number=pdfOmoriUtsu(t2=2)
-        # k=quakesTriggered(random.uniform(0,8.5),3)
-        # nQuakes = int(number*k)
-        # if nQuakes>12:
-        #     nQuakes=12
-
         for newTarget in range(steps):
             newTarget+=1
-            value -= 2
+            value -= 1
 
             if nQuakes > value:
                 nQuakes -= value
             else:
                 value = nQuakes
+            
 
             if value > 0:
                 if index-newTarget >= minIndex:

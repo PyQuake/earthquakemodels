@@ -52,11 +52,11 @@ summary(resultANOVA)
 tuk = TukeyHSD(resultANOVA)
 #Variáveis para configuração do gráfico
 # par(mfrow=c(2,2))
-op <- par(mar = c(5,15,4,2) + 0.1)
+op <- par(mar = c(1,24,4,2) + 0.1)
 #Função para gerar o gráfico
 plot(tuk,las=1)
 #Mostrando os resultados também em texto
-print(tuk)
+# print(tuk)
 ```
 
 ##ANOVA - Specific analysis somente com Cluster.
@@ -65,27 +65,49 @@ Faço o ANOVA somente para os modelos "clusterizados"
 
 Primeiro crio o data frame somente com os modelos citados
 ```{r}
-subTabela = finalData[finalData$model=='gaModelCluster'|finalData$model=='listaCluster',]
+subTabela = finalData[finalData$depths==25&finalData$depths==60&finalData$depths==100,]
+subTabela = finalData[finalData$model=='EMP-GAModelWindow'|finalData$model=='GAModelWindow'|
+                          subTabela$model=='EMP-ReducedGAModelWindow'|finalData$model=='ReducedGAModelWindow'|
+                          finalData$model=='EMP-GAModelSLC'|subTabfinalDataela$model=='GAModelSLC'|
+                          subTabelfinalDataa$model=='EMP-ReducedGAModelSLC'|finalData$model=='ReducedGAModelSLC',]
 summary(subTabela)
 ```
 
-Aplico o anova, com a regressão para modelos, profundidades, anos e regiões.
+Aplico o anova, com a regressão para modelos, anos e regiões. mesma profundidade e só cluster.
 
 ```{r}
-resultANOVA = aov(loglikeValues~model+depths+years+regions , data = subTabela)
+resultANOVA = aov(loglikeValues~model+years+regions+depths , data = subTabela)
 summary(resultANOVA)
 tuk = TukeyHSD(resultANOVA)
-op <- par(mar = c(5,15,4,2) + 0.1)
+op <- par(mar = c(1,24,4,2) + 0.1)
 plot(tuk,las=1)
-print(tuk)
+# print(tuk)
 ```
 
-### Paired Design - Student t-test
+##ANOVA - Specific analysis ReducedGAModel X GAModel
+
+Faço o ANOVA somente para os modelos "clusterizados" e abaixo de 25km.
+
+Primeiro crio o data frame somente com os modelos citados
+```{r}
+subTabela = finalData[finalData$depths==25,]
+summary(subTabela)
+```
+
+Aplico o anova, com a regressão para modelos, anos e regiões. mesma profundidade e só cluster.
+
+```{r}
+resultANOVA = aov(loglikeValues~model+years+regions , data = subTabela)
+summary(resultANOVA)
+tuk = TukeyHSD(resultANOVA)
+op <- par(mar = c(1,24,4,2) + 0.1)
+plot(tuk,las=1)
+# print(tuk)
+```
+
+### Paired Design - Student t-test REDO
 
 Agora faço o Paired Design t.test aplicando para todas as combinações possíveis de modelos, em todas as regiões e profundidades, para todos os anos.
-
-Baseado nos arquivos que explicam o Paired Desing, escrevi o código a seguir. Porém não entendi porque ao fazer desta forma pode ser considerado um teste pareado. Os slides comparam duas formas de realizar este tipo de teste. Uma delas tem 
-*seta* um parametro da função com **True**, explicitando que é um teste pareado. Já para o outra forma, esse parametro fica com **False**.
 
 
 ```{r}
@@ -119,7 +141,7 @@ ttestPaired= function(region){
 ```
 
 
-##Conclusion
+##Conclusion REDO
 
 
 A one-way between subjects ANOVA was conducted to compare the effects of the models, the depths, the years and regions on the log-likelihood value. In this study there are 6 options for model: lista, gaModel, hybrid_gaModel, hybrid_list, gaModelCluster and listaCluster. Based on the results of the test, there was a not a significant effect of the depths or years variables. For both cases at the we obtaind p>0.05 level for the depths condition [F(2) = 2.072, p = 0.126] and we also obtained p>0.05 for the years condition  [F(5) = 0.050, p = 0.999]. There was a significant effect of the models condition (p>0.05 [F(5) = 9699.690, p<2e-16]) and regions condition (p>0.05 [F(3) = 764.220, p<2e-16]). Therefore, we conduct a new anova test, with only the last two variables to verify the influence of those conditions more accurately. The results only changed a little, maintaining the significant effect of both conditions, p>0.05 [F(5) = 9705.6, p<2e-16] and p>0.05 [F(3) = 764.7, p <2e-16], respectively.

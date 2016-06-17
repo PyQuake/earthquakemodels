@@ -68,8 +68,8 @@ for (i in 1:4) {
     loglikeGA = c(valuesGA25, valuesGA60, valuesGA100)
     loglikeLista = c(valuesLista25, valuesLista60, valuesLista100)
     loglikeValues = c(loglikeGA, loglikeLista)
-    nameGa = c(rep("gaModel",30))
-    nameLista = c(rep("lista",30))
+    nameGa = c(rep("GAModel",30))
+    nameLista = c(rep("ReducedGAModel",30))
     
     years = c(rep(toString(year+5),60))
     regions = c(rep(region, 60))
@@ -107,8 +107,86 @@ for (i in 1:4) {
     loglikeGA = c(valuesGA25, valuesGA60, valuesGA100)
     loglikeLista = c(valuesLista25, valuesLista60, valuesLista100)
     loglikeValues = c(loglikeGA, loglikeLista)
-    nameGa = c(rep("hybrid_gaModel",30))
-    nameLista = c(rep("hybrid_listaGA_New",30))
+    nameGa = c(rep("EMP-GAModel",30))
+    nameLista = c(rep("EMP-ReducedGAModel",30))
+    
+    years = c(rep(toString(year+5),60))
+    regions = c(rep(region, 60))
+    depth25 = c(rep('25',10))
+    depth60 = c(rep('60',10))
+    depth100 = c(rep('100',10))
+    depthsAmodel = c(depth25, depth60, depth100)
+    model = c(nameGa, nameLista)
+    depths= c(depthsAmodel, depthsAmodel)
+    data = data.frame(loglikeValues, model, depths, years, regions)
+    if (dim(finalData)[1]==0) {
+        finalData = merge(finalData, data, all.y=T)  
+    }
+    else{
+        finalData=rbind(finalData, data)
+    }
+    rm(data)
+    
+    gaModel25 = loadData(region, year+5, '25', 'clustered_hybrid_gaModel')
+    gaModel60 = loadData(region, year+5, '60', 'clustered_hybrid_gaModel')
+    gaModel100 = loadData(region, year+5, '100', 'clustered_hybrid_gaModel')
+    
+    lista25 = loadData(region, year+5, '25', 'clustered_hybrid_listaGA_New')
+    lista60 = loadData(region, year+5, '60', 'clustered_hybrid_listaGA_New')
+    lista100 = loadData(region, year+5, '100', 'clustered_hybrid_listaGA_New')
+    
+    valuesGA25 = convertToNumeric(gaModel25)
+    valuesGA60 = convertToNumeric(gaModel60)
+    valuesGA100 = convertToNumeric(gaModel100)
+    
+    valuesLista25 = convertToNumeric(lista25)
+    valuesLista60 = convertToNumeric(lista60)
+    valuesLista100 = convertToNumeric(lista100)
+    
+    loglikeGA = c(valuesGA25, valuesGA60, valuesGA100)
+    loglikeLista = c(valuesLista25, valuesLista60, valuesLista100)
+    loglikeValues = c(loglikeGA, loglikeLista)
+    nameGa = c(rep("EMP-GAModelWindow",30))
+    nameLista = c(rep("EMP-ReducedGAModelWindow",30))
+    
+    years = c(rep(toString(year+5),60))
+    regions = c(rep(region, 60))
+    depth25 = c(rep('25',10))
+    depth60 = c(rep('60',10))
+    depth100 = c(rep('100',10))
+    depthsAmodel = c(depth25, depth60, depth100)
+    model = c(nameGa, nameLista)
+    depths= c(depthsAmodel, depthsAmodel)
+    data = data.frame(loglikeValues, model, depths, years, regions)
+    if (dim(finalData)[1]==0) {
+        finalData = merge(finalData, data, all.y=T)  
+    }
+    else{
+        finalData=rbind(finalData, data)
+    }
+    rm(data)
+    
+    gaModel25 = loadData(region, year+5, '25', 'clusteredII_hybrid_gaModel')
+    gaModel60 = loadData(region, year+5, '60', 'clusteredII_hybrid_gaModel')
+    gaModel100 = loadData(region, year+5, '100', 'clusteredII_hybrid_gaModel')
+    
+    lista25 = loadData(region, year+5, '25', 'clusteredII_hybrid_listaGA_New')
+    lista60 = loadData(region, year+5, '60', 'clusteredII_hybrid_listaGA_New')
+    lista100 = loadData(region, year+5, '100', 'clusteredII_hybrid_listaGA_New')
+    
+    valuesGA25 = convertToNumeric(gaModel25)
+    valuesGA60 = convertToNumeric(gaModel60)
+    valuesGA100 = convertToNumeric(gaModel100)
+    
+    valuesLista25 = convertToNumeric(lista25)
+    valuesLista60 = convertToNumeric(lista60)
+    valuesLista100 = convertToNumeric(lista100)
+    
+    loglikeGA = c(valuesGA25, valuesGA60, valuesGA100)
+    loglikeLista = c(valuesLista25, valuesLista60, valuesLista100)
+    loglikeValues = c(loglikeGA, loglikeLista)
+    nameGa = c(rep("EMP-GAModelSLC",30))
+    nameLista = c(rep("EMP-ReducedGAModelSLC",30))
     
     years = c(rep(toString(year+5),60))
     regions = c(rep(region, 60))
@@ -147,8 +225,48 @@ for (i in 1:4) {
     loglikeLista = c(valuesLista25, valuesLista60, valuesLista100)
     loglikeValues = c(loglikeGA, loglikeLista)
     
-    nameGa = c(rep("gaModelCluster",30))
-    nameLista = c(rep("listaCluster",30))
+    nameGa = c(rep("GAModelWindow",30))
+    nameLista = c(rep("ReducedGAModelWindow",30))
+    years = c(rep(toString(year+5),60))
+    regions = c(rep(region, 60))
+    
+    depth25 = c(rep('25',10))
+    depth60 = c(rep('60',10))
+    depth100 = c(rep('100',10))
+    depthsAmodel = c(depth25, depth60, depth100)
+    model = c(nameGa, nameLista)
+    depths = c(depthsAmodel, depthsAmodel)
+    data = data.frame(loglikeValues, model,depths, years, regions)
+    if (dim(finalData)[1]==0) {
+        finalData = merge(finalData, data, all.y=T)  
+    }
+    else{
+        finalData=rbind(finalData, data)
+    }
+    rm(data)
+    
+    gaModel25 = loadData(region, year+5, '25', 'clusteredII_gaModel')
+    gaModel60 = loadData(region, year+5, '60', 'clusteredII_gaModel')
+    gaModel100 = loadData(region, year+5, '100', 'clusteredII_gaModel')
+    
+    lista25 = loadData(region, year+5, '25', 'clusteredII_listaGA_New')
+    lista60 = loadData(region, year+5, '60', 'clusteredII_listaGA_New')
+    lista100 = loadData(region, year+5, '100', 'clusteredII_listaGA_New')
+    
+    valuesGA25 = convertToNumeric(gaModel25)
+    valuesGA60 = convertToNumeric(gaModel60)
+    valuesGA100 = convertToNumeric(gaModel100)
+    
+    valuesLista25 = convertToNumeric(lista25)
+    valuesLista60 = convertToNumeric(lista60)
+    valuesLista100 = convertToNumeric(lista100)
+    
+    loglikeGA = c(valuesGA25, valuesGA60,valuesGA100)
+    loglikeLista = c(valuesLista25, valuesLista60, valuesLista100)
+    loglikeValues = c(loglikeGA, loglikeLista)
+    
+    nameGa = c(rep("GAModelSLC",30))
+    nameLista = c(rep("ReducedGAModelSLC",30))
     years = c(rep(toString(year+5),60))
     regions = c(rep(region, 60))
     
