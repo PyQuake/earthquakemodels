@@ -1,9 +1,7 @@
-
 #!/usr/bin/env python3
 import models.mathUtil as mathUtil
 import earthquake.catalog as catalog
 import models.model as model
-import gaModel.gaModel_Yuri as ga
 import gaModel.etasGaModelNP as etasGaModelNP
 import models.modelEtasGa as etasGa
 
@@ -16,14 +14,14 @@ def createRealModelClustered(year, region, depth, withMag=True, save=False):
 
 	if save==True:
 		if observacao.mag==False:
-			model.saveModelToFile(observacao, '../Zona3/clustered_gaModel_real/'+str(4.0)+region+'real'+str(depth)+"_"+str(year)+'.txt', real=True)
+			model.saveModelToFile(observacao, '../Zona3/clustered_listaGA_new_real/'+str(4.0)+region+'real'+str(depth)+"_"+str(year)+'.txt', real=True)
 
 def execEtasGaModelClustered(year, region, depth, qntYears=5, times=30, save=True):
 	
 	observations=list()
 
 	for i in range(qntYears):
-		observation=model.loadModelFromFile('../Zona3/clustered_gaModel_real/'+str(4.0)+region+'real'+str(depth)+"_"+str(year)+'.txt', real=True)
+		observation=model.loadModelFromFile('../Zona3/clustered_listaGA_new_real/'+str(4.0)+region+'real'+str(depth)+"_"+str(year)+'.txt', real=True)
 		observation.bins=observation.bins.tolist()
 		observations.append(observation)
 
@@ -36,10 +34,12 @@ def execEtasGaModelClustered(year, region, depth, qntYears=5, times=30, save=Tru
 def main():
 	depth=25
 	year=2000
-	while(year<2010):
+	while(year<2011):
 		regions = ('Tohoku' ,'EastJapan', 'Kansai', 'Kanto')
-		# createRealModelClustered(year, region=region, depth=25, withMag=False, save=True)
-		execEtasGaModelClustered(year, region, depth=depth, save=True)
+		for region in regions:
+			# print(region, year, depth)
+			# createRealModelClustered(year, region=region, depth=25, withMag=False, save=True)
+			execEtasGaModelClustered(year, region, depth=depth, save=True)
 		
 		year+=1
 
