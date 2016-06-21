@@ -1,3 +1,4 @@
+
 #!/usr/bin/env python3
 import models.mathUtil as mathUtil
 import earthquake.catalog as catalog
@@ -38,7 +39,7 @@ def main():
 	while(year<2010):
 		regions = ('Tohoku' ,'EastJapan', 'Kansai', 'Kanto')
 		# createRealModelClustered(year, region=region, depth=25, withMag=False, save=True)
-		execGaModelClustered(year, region, depth=depth, save=True)
+		execEtasGaModelClustered(year, region, depth=depth, save=True)
 		
 		year+=1
 
