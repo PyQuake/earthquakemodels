@@ -74,7 +74,7 @@ def createRealModelClustered(year, region, depth, withMag=True, save=False):
 	catalogo=catalog.readFromFile('../data/clustered_quakes-M.dat')
 	catalogo=catalog.filter(catalogo,definicao)
 	observacao=model.newModel(definicao, mag=withMag)
-	observacao=model.addFromCatalog(observacao,catalogo,year,)
+	observacao=model.addFromCatalog(observacao,catalogo,year)
 
 	if save==True:
 		if observacao.mag==False:

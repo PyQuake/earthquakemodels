@@ -106,7 +106,7 @@ def converter2leastBest(type, region, depth,minMag,maxMag, year_begin, year_end)
 
 
 def main():
-	# # t = 'clustered_hybrid_ListaGA_New'
+	t = 'clusteredII_hybrid_gaModel'
 	# # region = 'EastJapan'
 	# # print("1: 2 filter, 2: 2 data 2 R:")
 	# # x = input()
@@ -114,40 +114,40 @@ def main():
 	# # if int(x)==1:
 	print('filtering')
 	depth = 25
-	types = ('hybrid_ListaGA_New','hybrid_gaModel', 'clustered_hybrid_ListaGA_New', 'clusteredII_hybrid_ListaGA_New',
-	 'clustered_hybrid_gaModel', 'clustered_listaGA_new', 'clustered_hybrid_gaModel', 'clusteredII_listaGA_new', 
-	 'clustered_gaModel', 'clusteredII_gaModel','listaGA_New', 'gaModel')
+	# types = ('hybrid_ListaGA_New','hybrid_gaModel', 'clustered_hybrid_ListaGA_New', 'clusteredII_hybrid_ListaGA_New',
+	#  'clustered_hybrid_gaModel', 'clustered_listaGA_new', 'clustered_hybrid_gaModel', 'clusteredII_listaGA_new', 
+	#  'clustered_gaModel', 'clusteredII_gaModel','listaGA_New', 'gaModel')
 	regions = ('EastJapan', 'Kansai', 'Kanto', 'Tohoku')
 	year_end=2010
 	for region in regions:
-		for t in types:	
-			year=2005 
-			while(year<=year_end):						
-				minMag = 3.0
-				while minMag<= 9.0:
-					maxMag = minMag + 1.0
-					for numExec in range(10):		
-						print(t, region, year, minMag,maxMag,numExec)
-						modelo=loadModel(t, year, region, depth=depth, i=numExec)
-						modelo = filterMag(modelo, minMag=minMag, maxMag=maxMag)
-						modelo=calcLogLikelihoodMagInterval(region, year=year, year_end=year_end, modelL=modelo)
-						saveModel(modelo,t, year, region, depth, numExec, minMag, maxMag)
-					minMag=minMag+1.0
-				year+=1
-# # else:
-	print('converting')
-	depth = 25
-	types = ('hybrid_ListaGA_New','hybrid_gaModel', 'clustered_hybrid_ListaGA_New', 'clusteredII_hybrid_ListaGA_New',
-	 'clustered_hybrid_gaModel', 'clustered_listaGA_new', 'clustered_hybrid_gaModel', 'clusteredII_listaGA_new', 
-	 'clustered_gaModel', 'clusteredII_gaModel','listaGA_New', 'gaModel')
-	regions = ('EastJapan', 'Kansai', 'Kanto', 'Tohoku')
-	for region in regions:
-		for t in types:	
+		# for t in types:	
+		year=2005 
+		while(year<=year_end):						
 			minMag = 3.0
 			while minMag<= 9.0:
 				maxMag = minMag + 1.0
-				converter2leastBest(t, region, depth, minMag, maxMag, year_begin=2005, year_end=2010)
+				for numExec in range(10):		
+					print(t, region, year, minMag,maxMag,numExec)
+					modelo=loadModel(t, year, region, depth=depth, i=numExec)
+					modelo = filterMag(modelo, minMag=minMag, maxMag=maxMag)
+					modelo=calcLogLikelihoodMagInterval(region, year=year, year_end=year_end, modelL=modelo)
+					saveModel(modelo,t, year, region, depth, numExec, minMag, maxMag)
 				minMag=minMag+1.0
+			year+=1
+# # else:
+	print('converting')
+	# depth = 25
+	# types = ('hybrid_ListaGA_New','hybrid_gaModel', 'clustered_hybrid_ListaGA_New', 'clusteredII_hybrid_ListaGA_New',
+	#  'clustered_hybrid_gaModel', 'clustered_listaGA_new', 'clustered_hybrid_gaModel', 'clusteredII_listaGA_new', 
+	#  'clustered_gaModel', 'clusteredII_gaModel','listaGA_New', 'gaModel')
+	# regions = ('EastJapan', 'Kansai', 'Kanto', 'Tohoku')
+	for region in regions:
+		# for t in types:	
+		minMag = 3.0
+		while minMag<= 9.0:
+			maxMag = minMag + 1.0
+			converter2leastBest(t, region, depth, minMag, maxMag, year_begin=2005, year_end=2010)
+			minMag=minMag+1.0
 				
 if __name__ == "__main__":
 	main()

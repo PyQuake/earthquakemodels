@@ -128,17 +128,17 @@ def gaModel(type_m, NGEN,CXPB,MUTPB,modelOmega,year,region, depth, n_aval=50000)
 		record = stats.compile(pop)
 		logbook.record(gen=g,  depth=depth,**record)
 	print(logbook)
-	if (type_m == 'clustered'):
-		f = open('../Zona2/logbook_gaModelClustered/'+region+'_'+str(year)+'_'+str(depth)+'_logbook.txt',"a")
-	elif (type_m == 'clusteredII'):
-		f = open('../Zona2/logbook_gaModelClusteredII/'+region+'_'+str(year)+'_'+str(depth)+'_logbook.txt',"a")
-	elif (type_m == 'non-clustered'):
-		f = open('../Zona2/logbook_gaModel/'+region+'_'+str(year)+'_'+str(depth)+'_logbook.txt',"a")
-	else:
-		f = open('../Zona2/synthetic/'+region+'_'+str(year)+'_'+str(depth)+'_logbook.txt',"a")
-	f.write(str(logbook))
-	f.write('\n')
-	f.close()
+	# if (type_m == 'clustered'):
+	# 	f = open('../Zona2/logbook_gaModelClustered/'+region+'_'+str(year)+'_'+str(depth)+'_logbook.txt',"a")
+	# elif (type_m == 'clusteredII'):
+	# 	f = open('../Zona2/logbook_gaModelClusteredII/'+region+'_'+str(year)+'_'+str(depth)+'_logbook.txt',"a")
+	# elif (type_m == 'non-clustered'):
+	# 	f = open('../Zona2/logbook_gaModel/'+region+'_'+str(year)+'_'+str(depth)+'_logbook.txt',"a")
+	# else:
+	# 	f = open('../Zona2/synthetic/'+region+'_'+str(year)+'_'+str(depth)+'_logbook.txt',"a")
+	# f.write(str(logbook))
+	# f.write('\n')
+	# f.close()
 	
 	generatedModel = type(modelOmega[0])
 	generatedModel.prob = best_pop
