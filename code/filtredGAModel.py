@@ -34,7 +34,7 @@ def execGaModelClustered(year, region,  depth, qntYears=5, times=10, save=True):
 def main():
 	depth=25
 	year=2000
-	region = 'Kanto'
+	region = 'Kansai'
 	while(year<2011):
 		# regions = ('Tohoku' ,'EastJapan', 'Kansai', 'Kanto')
 		# for region in regions:
