@@ -2,7 +2,7 @@
 import models.mathUtil as mathUtil
 import earthquake.catalog as catalog
 import models.model as model
-import gaModel.etasGaModelNP as etasGaModelNP
+import gaModel.gaModel_Yuri as ga
 import models.modelEtasGa as etasGa
 
 def createRealModelClustered(year, region, depth, withMag=True, save=False):		
