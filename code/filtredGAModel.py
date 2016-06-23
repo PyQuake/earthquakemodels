@@ -21,7 +21,7 @@ def execEtasGaModelClustered(year, region, depth, qntYears=5, times=30, save=Tru
 	observations=list()
 
 	for i in range(qntYears):
-		observation=model.loadModelFromFile('../Zona3/clustered_listaGA_new_real/'+str(4.0)+region+'real'+str(depth)+"_"+str(year)+'.txt', real=True)
+		observation=model.loadModelFromFile('../Zona3/clustered_listaGA_new_real/'+str(4.0)+region+'real'+str(depth)+"_"+str(year)+'.txt')
 		observation.bins=observation.bins.tolist()
 		observations.append(observation)
 
