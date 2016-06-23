@@ -16,31 +16,31 @@ def createRealModelClustered(year, region, depth, withMag=True, save=False):
 		if observacao.mag==False:
 			model.saveModelToFile(observacao, '../Zona3/clustered_listaGA_new_real/'+str(4.0)+region+'real'+str(depth)+"_"+str(year)+'.txt', real=True)
 
-def execEtasGaModelClustered(year, region, depth, qntYears=5, times=30, save=True):
-	
-	observations=list()
 
-	for i in range(qntYears):
-		observation=model.loadModelFromFile('../Zona3/clustered_listaGA_new_real/'+str(4.0)+region+'real'+str(depth)+"_"+str(year)+'.txt')
-		observation.bins=observation.bins.tolist()
-		observations.append(observation)
+def execGaModelClustered(year, region,  depth, qntYears=5, times=10, save=True):
 
-	for i in range(times):
-		modelo=etasGaModelNP.gaModel('clustered',100,0.9,0.1,observations, year+qntYears, region, depth)
-		modelo.mag=True
-		if save==True:
-			etasGa.saveModelToFile(modelo, '../Zona2/clustered_listaGA_new/4.0'+region+'_'+str(depth)+"_"+str(year+qntYears)+str(i)+'.txt')
+    observations=list()
+    
+    for i in range(qntYears):
+        observation=model.loadModelFromFile('../Zona3/clustered_listaGA_new_real/'+str(4.0)+region+'real'+str(depth)+"_"+str(year)+'.txt')
+        observation.bins=observation.bins.tolist()
+        observations.append(observation)
+
+    for i in range(times):
+        modelo=ga.gaModel('clustered', 100,0.9,0.1,observations,year+qntYears,region, depth)
+        if save==True:
+            model.saveModelToFile(modelo, '../Zona3/clustered_gamodel/4.0'+region+'_'+str(depth)+"_"+str(year+qntYears)+str(i)+'.txt')
 
 def main():
 	depth=25
 	year=2000
-	region = 'EastJapan'
+	region = 'Kanto'
 	while(year<2011):
 		# regions = ('Tohoku' ,'EastJapan', 'Kansai', 'Kanto')
 		# for region in regions:
 			# print(region, year, depth)
-		createRealModelClustered(year, region=region, depth=25, withMag=False, save=True)
-		#execEtasGaModelClustered(year, region, depth=depth, save=True)
+		# createRealModelClustered(year, region=region, depth=25, withMag=False, save=True)
+		execGaModelClustered(year, region, depth=depth, save=True)
 		
 		year+=1
 
