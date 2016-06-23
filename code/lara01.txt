@@ -1,8 +1,8 @@
-nohup: ignoring input
-./filtredGAModel.py: 3: ./filtredGAModel.py: import: not found
-./filtredGAModel.py: 4: ./filtredGAModel.py: import: not found
-./filtredGAModel.py: 5: ./filtredGAModel.py: import: not found
-./filtredGAModel.py: 6: ./filtredGAModel.py: import: not found
-./filtredGAModel.py: 7: ./filtredGAModel.py: import: not found
-./filtredGAModel.py: 8: ./filtredGAModel.py: import: not found
-./filtredGAModel.py: 10: ./filtredGAModel.py: Syntax error: "(" unexpected
+Traceback (most recent call last):
+  File "./filtredGAModel.py", line 47, in <module>
+    main()
+  File "./filtredGAModel.py", line 42, in main
+    execEtasGaModelClustered(year, region, depth=depth, save=True)
+  File "./filtredGAModel.py", line 24, in execEtasGaModelClustered
+    observation=model.loadModelFromFile('../Zona3/clustered_listaGA_new_real/'+str(4.0)+region+'real'+str(depth)+"_"+str(year)+'.txt', real=True)
+TypeError: loadModelFromFile() got an unexpected keyword argument 'real'

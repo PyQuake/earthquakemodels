@@ -34,12 +34,13 @@ def execEtasGaModelClustered(year, region, depth, qntYears=5, times=30, save=Tru
 def main():
 	depth=25
 	year=2000
+	region = input()
 	while(year<2011):
-		regions = ('Tohoku' ,'EastJapan', 'Kansai', 'Kanto')
-		for region in regions:
+		# regions = ('Tohoku' ,'EastJapan', 'Kansai', 'Kanto')
+		# for region in regions:
 			# print(region, year, depth)
 			# createRealModelClustered(year, region=region, depth=25, withMag=False, save=True)
-			execEtasGaModelClustered(year, region, depth=depth, save=True)
+		execEtasGaModelClustered(year, region, depth=depth, save=True)
 		
 		year+=1
 
