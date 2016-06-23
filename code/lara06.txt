@@ -1,0 +1,11 @@
+nohup: ignoring input
+Traceback (most recent call last):
+  File "./filtredGAModel.py", line 48, in <module>
+    main()
+  File "./filtredGAModel.py", line 43, in main
+    execEtasGaModelClustered(year, region, depth=depth, save=True)
+  File "./filtredGAModel.py", line 24, in execEtasGaModelClustered
+    observation=model.loadModelFromFile('../Zona3/clustered_listaGA_new_real/'+str(4.0)+region+'real'+str(depth)+"_"+str(year)+'.txt')
+  File "/home/lara06/Documents/earthquakemodels/code/models/model.py", line 176, in loadModelFromFile
+    with open(filename+"def.txt", 'r') as f:
+IOError: [Errno 2] No such file or directory: '../Zona3/clustered_listaGA_new_real/4.0Eastjapanreal25_2000.txtdef.txt'
