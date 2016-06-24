@@ -124,7 +124,7 @@ library(RColorBrewer)
       else if (type=='clusteredII_hybrid_ListaGA_New') {
           soma = rep(0, r*c)
           for(i in 1:10){
-              file = paste(type,'/hybrid_ListaGA_New',region,'_',depth,'_',year,i-1,".txt",sep="")
+              file = paste(type,'/hybrid_listaGA_New',region,'_',depth,'_',year,'_',i-1,".txt",sep="")
               raw_data = read.csv2(file, sep='\n', header=F)
               for (k in 1:length(raw_data$V1)){
                   value = as.numeric(levels(raw_data$V1[k]))[raw_data$V1[k]]
@@ -250,23 +250,23 @@ library(RColorBrewer)
           
           #20X40!
           # a imagem tá uma merda
-#           region="Tohoku"
-#           saveFile = paste("./heatMap/",type,region,"_",depth,'_',year,".png",sep="")
-#           mediaTouhoku=calcMedia(type=type,year=year, region=region, depth=depth, 20,40)
-#           imagePath<<-"../data/touhoku.png"
-#           plotMatrixModel(mediaTouhoku, saveFile, 20, 40) 
-#           
-#           region="Kansai"
-#           saveFile = paste("./heatMap/",type,region,"_",depth,'_',year,".png",sep="")
-#           mediaKansai=calcMedia(type=type,year=year, region=region, depth=depth, 40,40)
-#           imagePath<<-"../data/kansai.png"
-#           plotMatrixModel(mediaKansai, saveFile, 40, 40)  
-#           
-#           region="Kanto"
-#           saveFile = paste("./heatMap/",type,region,"_",depth,'_',year,".png",sep="")
-#           mediaKanto=calcMedia(type=type,year=year, region=region, depth=depth, 45,45)
-#           imagePath<<-"../data/kantomap.png"
-#           plotMatrixModel(mediaKanto, saveFile, 45, 45) 
+          region="Tohoku"
+          saveFile = paste("./heatMap/",type,region,"_",depth,'_',year,".png",sep="")
+          mediaTouhoku=calcMedia(type=type,year=year, region=region, depth=depth, 20,40)
+          imagePath<<-"../data/touhoku.png"
+          plotMatrixModel(mediaTouhoku, saveFile, 20, 40) 
+          
+          region="Kansai"
+          saveFile = paste("./heatMap/",type,region,"_",depth,'_',year,".png",sep="")
+          mediaKansai=calcMedia(type=type,year=year, region=region, depth=depth, 40,40)
+          imagePath<<-"../data/kansai.png"
+          plotMatrixModel(mediaKansai, saveFile, 40, 40)  
+          
+          region="Kanto"
+          saveFile = paste("./heatMap/",type,region,"_",depth,'_',year,".png",sep="")
+          mediaKanto=calcMedia(type=type,year=year, region=region, depth=depth, 45,45)
+          imagePath<<-"../data/kantomap.png"
+          plotMatrixModel(mediaKanto, saveFile, 45, 45) 
           
           year=year+1
       }
@@ -275,20 +275,20 @@ library(RColorBrewer)
   plotRealByYears()
   # hybrid_ListaGA_New, hybrid_gaModel
   plotModelsByYears('gaModel',25)
-  plotModelsByYears('gaModel',60)
-  plotModelsByYears('gaModel',100)
+#   plotModelsByYears('gaModel',60)
+#   plotModelsByYears('gaModel',100)
   
   plotModelsByYears('listaGA_New',25)
-  plotModelsByYears('listaGA_New',60)
-  plotModelsByYears('listaGA_New',100)
+#   plotModelsByYears('listaGA_New',60)
+#   plotModelsByYears('listaGA_New',100)
   
   plotModelsByYears('hybrid_ListaGA_New',25)
-  plotModelsByYears('hybrid_ListaGA_New',60)
-  plotModelsByYears('hybrid_ListaGA_New',100)
+#   plotModelsByYears('hybrid_ListaGA_New',60)
+#   plotModelsByYears('hybrid_ListaGA_New',100)
   
   plotModelsByYears('hybrid_gaModel',25)
-  plotModelsByYears('hybrid_gaModel',60)
-  plotModelsByYears('hybrid_gaModel',100)
+#   plotModelsByYears('hybrid_gaModel',60)
+#   plotModelsByYears('hybrid_gaModel',100)
   
   # clusteredII_gaModel/hybrid_ListaGA_NewEastJapan_25_2005_0, esse e o reducedGAModelWindow
   # hybrid_gaModelEastJapan_25_2005_0, esse e o gamodelwindow

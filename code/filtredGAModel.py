@@ -17,7 +17,7 @@ def createRealModelClustered(year, region, depth, withMag=True, save=False):
 			model.saveModelToFile(observacao, '../Zona3/clustered_listaGA_new_real/'+str(4.0)+region+'real'+str(depth)+"_"+str(year)+'.txt', real=True)
 
 
-def execGaModelClustered(year, region,  depth, qntYears=5, times=10, save=True):
+def execGaModelClustered(year, region,  depth, qntYears=5, times=20, save=True):
 
     observations=list()
     
@@ -29,7 +29,7 @@ def execGaModelClustered(year, region,  depth, qntYears=5, times=10, save=True):
     for i in range(times):
         modelo=ga.gaModel('clustered', 100,0.9,0.1,observations,year+qntYears,region, depth)
         if save==True:
-            model.saveModelToFile(modelo, '../Zona3/clustered_gamodel/4.0'+region+'_'+str(depth)+"_"+str(year+qntYears)+str(i)+'.txt')
+            model.saveModelToFile(modelo, '../Zona3/clustered_gamodel/4.0'+region+'_'+str(depth)+"_"+str(year+qntYears)+str(i+10)+'.txt')
 
 def main():
 	depth=25
