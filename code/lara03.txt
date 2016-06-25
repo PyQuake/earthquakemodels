@@ -1,5 +1,1 @@
 nohup: ignoring input
-  File "./filtredGAModel.py", line 37
-    region = nohup 'Kanto'
-                         ^
-SyntaxError: invalid syntax
