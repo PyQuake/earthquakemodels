@@ -222,14 +222,11 @@ def main():
 	# exec real model
 	year=2000
 	depth=100
-	while(year<2011):
-		regions = ('EastJapan', 'Kanto')
-		for region in regions:
-	# 		createRealModelClusteredII(year, region=region, depth=60, withMag=False, save=True)
+	while(year<2011):	# 		createRealModelClusteredII(year, region=region, depth=60, withMag=False, save=True)
 	# 		createRealModelClusteredII(year, region=region, depth=100, withMag=False, save=True)
 	# 		createRealModelClusteredII(year, region=region, depth=25, withMag=False, save=True)
 			print(year, region)
-			execGaModelSC(year, region, depth=depth, save=True)
+			execGaModelSC(year, region='Kanto', depth=depth, save=True)
 			# createRealModelSC(year, region=region, depth=100, withMag=False, save=True)
 			# createRealModel(year, region=region, depth=0, withMag=False, save=True)
 		# createRealModel(year, region="Tohoku", depth=100, withMag=False, save=True)
