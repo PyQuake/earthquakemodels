@@ -187,20 +187,51 @@ def createAndExeGASynthetic(region, depth, year=1990,times=5):
 		modelo.mag=True
 		etasGa.saveModelToFile(modelo, '../Zona2/synthetic/'+region+'_'+str(depth)+"_"+str(year)+str(i)+'.txt')
 
+def createRealModelSC(year, region, depth, withMag=True, save=False):		
+	definicao=model.loadModelDefinition('../params/'+region+'Etas_'+str(depth)+'.txt')
+	catalogo=catalog.readFromFile('../data/SC-catalog.dat')
+	catalogo=catalog.filter(catalogo,definicao)
+	observacao=model.newModel(definicao, mag=withMag)
+	observacao=model.addFromCatalog(observacao,catalogo,year)
+
+	if save==True:
+		if observacao.mag==False:
+			model.saveModelToFile(observacao, '../Zona3/sc/'+str(3.0)+region+'real'+str(depth)+"_"+str(year)+'.txt', real=True)
+
+#not done yet
+def execGaModelSC(year, region,  depth, qntYears=5, times=10, save=True):
+
+    observations=list()
+    
+    for i in range(qntYears):
+        observation=model.loadModelFromFile('../Zona3/sc/3.0'+region+'real'+str(depth)+"_"+str(year+i)+'.txt')
+        observation.bins=observation.bins.tolist()
+        observations.append(observation)
+
+    for i in range(times):
+        modelo=ga.gaModel('sc', 100,0.9,0.1,observations,year+qntYears,region, depth)
+        if save==True:
+            model.saveModelToFile(modelo, '../Zona3/scModel/'+region+'_'+str(depth)+"_"+str(year+qntYears)+str(i)+'.txt')
+
+
+
 def main():
 	# createAndExeGASynthetic('Kanto', 100)
 	# createAndExeGASynthetic('Kanto', 60)
 	# createAndExeGASynthetic('Kanto', 25)
 	# exec real model
 	year=2000
+	depth=100
 	while(year<2011):
-		regions = ('Tohoku' ,'EastJapan', 'Kansai', 'Kanto')
+		regions = ('EastJapan', 'Kanto')
 		for region in regions:
 	# 		createRealModelClusteredII(year, region=region, depth=60, withMag=False, save=True)
 	# 		createRealModelClusteredII(year, region=region, depth=100, withMag=False, save=True)
 	# 		createRealModelClusteredII(year, region=region, depth=25, withMag=False, save=True)
 			print(year, region)
-			createRealModel(year, region=region, depth=0, withMag=False, save=True)
+			execGaModelSC(year, region, depth=depth, save=True)
+			# createRealModelSC(year, region=region, depth=100, withMag=False, save=True)
+			# createRealModel(year, region=region, depth=0, withMag=False, save=True)
 		# createRealModel(year, region="Tohoku", depth=100, withMag=False, save=True)
 		# createRealModel(year, region="Tohoku", depth=25, withMag=False, save=True)
 		# createRealModel(year, region="Tohoku", depth=60, withMag=False, save=True)
