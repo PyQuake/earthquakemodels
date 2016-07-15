@@ -226,7 +226,7 @@ def main():
 	# 		createRealModelClusteredII(year, region=region, depth=100, withMag=False, save=True)
 	# 		createRealModelClusteredII(year, region=region, depth=25, withMag=False, save=True)
 			print(year, region)
-			execGaModelSC(year, region='Kanto', depth=depth, save=True)
+			execGaModelSC(year, region='EastJapan', depth=depth, save=True)
 			# createRealModelSC(year, region=region, depth=100, withMag=False, save=True)
 			# createRealModel(year, region=region, depth=0, withMag=False, save=True)
 		# createRealModel(year, region="Tohoku", depth=100, withMag=False, save=True)
