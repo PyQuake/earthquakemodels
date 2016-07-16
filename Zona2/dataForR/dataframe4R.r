@@ -83,7 +83,7 @@ for (i in 1:4) {
     if (dim(finalData)[1]==0) {
       finalData = merge(finalData, data, all.y=T)  
     }
-    else{
+    if (dim(finalData)[1]!=0) {
       finalData=rbind(finalData, data)
     }
     rm(data)

@@ -51,7 +51,7 @@ summary(resultANOVA)
 #Especificando quais são os grupos que diferem
 tuk = TukeyHSD(resultANOVA)
 #Variáveis para configuração do gráfico
-par(mfrow=c(2,2))
+# par(mfrow=c(2,2))
 op <- par(mar = c(1,17,4,2) + 0.1)
 #Função para gerar o gráfico
 plot(tuk,las=1)

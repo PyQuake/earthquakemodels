@@ -198,7 +198,7 @@ def createRealModelSC(year, region, depth, withMag=True, save=False):
 		if observacao.mag==False:
 			model.saveModelToFile(observacao, '../Zona3/sc/'+str(3.0)+region+'real'+str(depth)+"_"+str(year)+'.txt', real=True)
 
-#not done yet
+
 def execGaModelSC(year, region,  depth, qntYears=5, times=10, save=True):
 
     observations=list()
@@ -211,7 +211,22 @@ def execGaModelSC(year, region,  depth, qntYears=5, times=10, save=True):
     for i in range(times):
         modelo=ga.gaModel('sc', 100,0.9,0.1,observations,year+qntYears,region, depth)
         if save==True:
-            model.saveModelToFile(modelo, '../Zona3/scModel/'+region+'_'+str(depth)+"_"+str(year+qntYears)+str(i)+'.txt')
+            model.saveModelToFile(modelo, '../Zona3/scModel/gamodel'+region+'_'+str(depth)+"_"+str(year+qntYears)+str(i)+'.txt')
+
+def execEtasGaModelSC(year, region, depth, qntYears=5, times=10, save=True):
+	
+	observations=list()
+
+	for i in range(qntYears):
+		observation=model.loadModelFromFile('../Zona3/sc/3.0'+region+'real'+str(depth)+"_"+str(year+i)+'.txt')
+		observation.bins=observation.bins.tolist()
+		observations.append(observation)
+
+	for i in range(times):
+		modelo=etasGaModelNP.gaModel('sc', 100,0.9,0.1,observations, year+qntYears, region, depth)
+		modelo.mag=True
+		if save==True:
+			model.saveModelToFile(modelo, '../Zona3/scModel/eastgamodel'+region+'_'+str(depth)+"_"+str(year+qntYears)+str(i)+'.txt')
 
 
 
@@ -227,6 +242,7 @@ def main():
 	# 		createRealModelClusteredII(year, region=region, depth=25, withMag=False, save=True)
 			print(year, region)
 			execGaModelSC(year, region='EastJapan', depth=depth, save=True)
+			execEtasGaModelSC(year, region='EastJapan', depth=depth, save=True)
 			# createRealModelSC(year, region=region, depth=100, withMag=False, save=True)
 			# createRealModel(year, region=region, depth=0, withMag=False, save=True)
 		# createRealModel(year, region="Tohoku", depth=100, withMag=False, save=True)
