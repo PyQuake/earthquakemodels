@@ -106,17 +106,20 @@ def converter2leastBest(type, region, depth,minMag,maxMag, year_begin, year_end)
 
 
 def main():
-	t = 'clusteredII_hybrid_gaModel'
+	# t = 'clusteredII_hybrid_gaModel'
 	# # region = 'EastJapan'
 	# # print("1: 2 filter, 2: 2 data 2 R:")
 	# # x = input()
 	# # x=1
 	# # if int(x)==1:
 	print('filtering')
-	depth = 25
-	# types = ('hybrid_ListaGA_New','hybrid_gaModel', 'clustered_hybrid_ListaGA_New', 'clusteredII_hybrid_ListaGA_New',
+	depth = 100
+	# types = ('clustered_hybrid_ListaGA_New', 'clusteredII_hybrid_ListaGA_New',
 	#  'clustered_hybrid_gaModel', 'clustered_listaGA_new', 'clustered_hybrid_gaModel', 'clusteredII_listaGA_new', 
-	#  'clustered_gaModel', 'clusteredII_gaModel','listaGA_New', 'gaModel')
+	#  'clustered_gaModel', 'clusteredII_gaModel','listaGA_New', 'gaModel')clusteredII_hybrid_gaModel_Kanto_100_2005_3.0
+	# types = ('hybrid_ListaGA_New','hybrid_gaModel')
+	t = 'clusteredII_hybrid_gaModel'
+
 	regions = ('EastJapan', 'Kansai', 'Kanto', 'Tohoku')
 	year_end=2010
 	for region in regions:

@@ -373,7 +373,7 @@ def sumTriggeredByDaysWithRI(model, year, fileEtasim, t2=30):
             for magMain in binOfmagMain:
                 if magMain > 0: 
                     for t in range(t2):
-                        aftershocks += pdfOmoriUtsu(t2=t+1)*quakesTriggered(magMain)
+                        aftershocks += pdfOmoriUtsu(t2=t)*quakesTriggered(magMain)
     ideaRIinMmodels(model, aftershocks)
     aftershocks = 0
     return model

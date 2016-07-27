@@ -44,6 +44,8 @@ def main():
     while(year<2011):
         catalogo=readFromFileSC('../data/results/east'+str(year)+'.txt', '../data/SC-catalog.dat')
         catalogo=readFromFileSC('../data/results/kanto'+str(year)+'.txt', '../data/SC-catalog.dat')
+        catalogo=readFromFileSC('../data/results/sendai'+str(year)+'.txt', '../data/SC-catalog.dat')
+        catalogo=readFromFileSC('../data/results/Touhoku'+str(year)+'.txt', '../data/SC-catalog.dat')
         year+=1
 
 if __name__ == "__main__":

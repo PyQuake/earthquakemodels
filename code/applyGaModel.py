@@ -226,7 +226,7 @@ def execEtasGaModelSC(year, region, depth, qntYears=5, times=10, save=True):
 		modelo=etasGaModelNP.gaModel('sc', 100,0.9,0.1,observations, year+qntYears, region, depth)
 		modelo.mag=True
 		if save==True:
-			model.saveModelToFile(modelo, '../Zona3/scModel/eastgamodel'+region+'_'+str(depth)+"_"+str(year+qntYears)+str(i)+'.txt')
+			model.saveModelToFile(modelo, '../Zona3/scModel/listgamodel'+region+'_'+str(depth)+"_"+str(year+qntYears)+str(i)+'.txt')
 
 
 
@@ -240,9 +240,12 @@ def main():
 	while(year<2011):	# 		createRealModelClusteredII(year, region=region, depth=60, withMag=False, save=True)
 	# 		createRealModelClusteredII(year, region=region, depth=100, withMag=False, save=True)
 	# 		createRealModelClusteredII(year, region=region, depth=25, withMag=False, save=True)
-		execGaModelSC(year, region='Kanto', depth=depth, save=True)
-		execEtasGaModelSC(year, region='Kanto', depth=depth, save=True)
-			# createRealModelSC(year, region=region, depth=100, withMag=False, save=True)
+		# execGaModelSC(year, region='Kanto', depth=depth, save=True)
+		# execEtasGaModelSC(year, region='Kanto', depth=depth, save=True)
+		createRealModelSC(year, region="Kansai", depth=100, withMag=False, save=True)
+		# createRealModelSC(year, region="EastJapan", depth=100, withMag=False, save=True)
+		# createRealModelSC(year, region="Tohoku", depth=100, withMag=False, save=True)
+		# createRealModelSC(year, region="Kansai", depth=100, withMag=False, save=True)
 			# createRealModel(year, region=region, depth=0, withMag=False, save=True)
 		# createRealModel(year, region="Tohoku", depth=100, withMag=False, save=True)
 		# createRealModel(year, region="Tohoku", depth=25, withMag=False, save=True)

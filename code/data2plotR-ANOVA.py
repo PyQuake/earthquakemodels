@@ -57,11 +57,9 @@ def converter2leastBestHybridWindow(type, region, depth, year_begin, year_end):
 		for i in range(10):
 			# hybrid_ListaGA_NewEastJapan_25_2005_0
 			if len(file) == 4:#new
-				filename =  "../Zona2/"+type+'/'+file[1]+'_'+file[2]+'_'+file[3]+region+"_"+str(depth)+"_"+str(year)+'_'+str(i)+
-				".txtloglikelihood.txt"
+				filename =  "../Zona2/"+type+'/'+file[1]+'_'+file[2]+'_'+file[3]+region+"_"+str(depth)+"_"+str(year)+'_'+str(i)+".txtloglikelihood.txt"
 			else:
-				filename =  "../Zona2/"+type+'/'+file[1]+'_'+file[2]+region+"_"+str(depth)+"_"+str(year)+'_'+str(i)+
-				".txtloglikelihood.txt"
+				filename =  "../Zona2/"+type+'/'+file[1]+'_'+file[2]+region+"_"+str(depth)+"_"+str(year)+'_'+str(i)+".txtloglikelihood.txt"
 			f = open(filename, "r")
 			for line in f:
 				info = line.split()
@@ -99,24 +97,54 @@ def converter2leastBestHybridSLC(type, region, depth, year_begin, year_end):
 				f.write("\n")
 		year+=1
 
+def converter2leastSC(type, region, depth, year_begin, year_end):
+	file = type.split('_')
+	year=year_begin
+	while(year<=year_end):
+		print(year)
+		data = list()
+		for i in range(10):
+			if type == 'gaModel' or type == 'listaGA_New':
+				filename =  '../Zona3/'+type+'/SC'+region+'_'+str(depth)+'_'+str(year)+str(i)+'.txtloglikelihood.txt'
+			elif len(file) == 4:#new
+				filename =  '../Zona2/'+type+'/'+file[1]+'_'+file[2]+"_New"+region+'_'+str(depth)+'_'+str(year)+'_'+str(i)+'.txtloglikelihood.txt'
+			else:
+				filename =  '../Zona2/'+type+'/'+file[1]+'_'+file[2]+region+'_'+str(depth)+'_'+str(year)+'_'+str(i)+'.txtloglikelihood.txt'
+			'../Zona2/'+type+'/SC'+region+'_'+str(depth)+'_'+str(year)+str(i)+'.txtloglikelihood.txt'
+			f = open(filename, "r")
+			for line in f:
+				info = line.split()
+				data.append(float(info[0]))
+			f.close()
+
+		
+		filename =  "../Zona2/dataForR/SC"+type+"_"+region+"_"+str(depth)+"_"+str(year)+".txt"
+		with open(filename, 'w') as f:
+			for i in range(10):
+				f.write(str(data[i]))
+				f.write("\n")
+		year+=1
+
 
 
 
 def main():
-	types = ('listaGA_New', 'gaModel', 'clustered_listaGA_new','clusteredII_listaGA_new', 'clustered_gaModel', 'clusteredII_gaModel')
-	regions = ('EastJapan', 'Kansai', 'Kanto', 'Tohoku')
-	depths = (25, 60, 100)
+	# types = ('listaGA_New', 'gaModel', 'clustered_listaGA_new','clusteredII_listaGA_new', 'clustered_gaModel', 'clusteredII_gaModel')
+	regions = ('EastJapan', 'Kanto')
+	depth = 100
 	
 	for region in regions:
 		print(region)
-		for depth in depths:
-			print(depth)
 			# converter2leastBestHybrid('hybrid_gaModel', region, depth, 2005, 2010)
 			# converter2leastBestHybrid('hybrid_ListaGA_New', region, depth, 2005, 2010)
-			converter2leastBestHybridWindow('clustered_hybrid_gaModel', region, depth, 2005, 2010)
-			converter2leastBestHybridWindow('clustered_hybrid_ListaGA_New', region, depth, 2005, 2010)
-			converter2leastBestHybridWindow('clusteredII_hybrid_gaModel', region, depth, 2005, 2010)
-			converter2leastBestHybridWindow('clusteredII_hybrid_ListaGA_New', region, depth, 2005, 2010)
+		# converter2leastSC('gaModel', region, depth, 2005, 2010)
+		# converter2leastSC('ListaGA_New', region, depth, 2005, 2010)
+		converter2leastSC('sc_hybrid_ListaGA_New', region, depth, 2005, 2010)
+		converter2leastSC('sc_hybrid_gaModel', region, depth, 2005, 2010)
+			# converter2leastBestHybridWindow('clustered_hybrid_gaModel', region, depth, 2005, 2010)
+			# converter2leastBestHybridWindow('clustered_hybrid_ListaGA_New', region, depth, 2005, 2010)
+			# converter2leastBestHybridWindow('clusteredII_hybrid_gaModel', region, depth, 2005, 2010)
+			# converter2leastBestHybridWindow('clusteredII_hybrid_ListaGA_New', region, depth, 2005, 2010)
 			# converter2leastBestHybridSLC('clusteredII_hybrid_gaModel', region, depth, 2005, 2010)
 			# converter2leastBestHybridSLC('clusteredII_hybrid_ListaGA_New', region, depth, 2005, 2010)
 			# for t in types:

@@ -79,9 +79,10 @@ c = a.mean()
 c = float("{0:.2f}".format(c))
 d = a.std()
 d = float("{0:.2f}".format(d))
-plt.bar(5, b['150-...'], align='center', color='blue', label='mean:'+str(c)+' std:'+str(d))
+plt.bar(5, b['150-...'], align='center', color='c', label='mean:'+str(c)+' std:'+str(d))
 plt.xticks(range(len(data)), b.keys(), size=20)
-
+plt.ylabel('Number of earthquake with magnitude > 3.0', size =27)
+plt.xlabel('Depth', size =30)
 plt.legend()
 
 plt.savefig('../Zona2/histograms/Depth Histogram of earthquakes.png')
