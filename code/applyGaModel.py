@@ -240,8 +240,8 @@ def main():
 	while(year<2011):	# 		createRealModelClusteredII(year, region=region, depth=60, withMag=False, save=True)
 	# 		createRealModelClusteredII(year, region=region, depth=100, withMag=False, save=True)
 	# 		createRealModelClusteredII(year, region=region, depth=25, withMag=False, save=True)
-		execGaModelSC(year, region='Kansai', depth=depth, save=True)
-		execEtasGaModelSC(year, region='Kansai', depth=depth, save=True)
+		execGaModelSC(year, region='Tohoku', depth=depth, save=True)
+		execEtasGaModelSC(year, region='Tohoku', depth=depth, save=True)
 		year+=1
 		#createRealModelSC(year, region="Kansai", depth=100, withMag=False, save=True)
 		# createRealModelSC(year, region="EastJapan", depth=100, withMag=False, save=True)
