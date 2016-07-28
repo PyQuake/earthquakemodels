@@ -129,7 +129,11 @@ def execCreatingHybridSC(region, depth, year_begin, year_end):
 		for i in range(10):
 			print('executing:', i)
 			#loading the list model to be hybrid(ed)...
-			modelo=etasGa.loadModelFromFile('../Zona3/scModel/eastgamodel'+region+'_'+str(depth)+'_'+str(year)+str(i)+'.txt')
+			if region == 'EastJapan':
+				modelo=etasGa.loadModelFromFile('../Zona3/scModel/eastgamodel'+region+'_'+str(depth)+'_'+str(year)+str(i)+'.txt')	
+			else:
+				modelo=etasGa.loadModelFromFile('../Zona3/scModel/listgamodel'+region+'_'+str(depth)+'_'+str(year)+str(i)+'.txt')
+			# modelo=etasGa.loadModelFromFile('../Zona3/scModel/eastgamodel'+region+'_'+str(depth)+'_'+str(year)+str(i)+'.txt')
 			#loading mag file...
 			fileEtasim="../Zona/paper_exp/etasim1.txt"
 			#creating hybrid
@@ -162,7 +166,7 @@ def execCreatingHybridSC(region, depth, year_begin, year_end):
 
 def main():
 
-	regions = ('EastJapan', 'Kanto')
+	regions = ('EastJapan', 'Kanto', 'Kansai', 'Tohoku')
 	# region = 'EastJapan'
 	depth = 100
 	for region in regions:

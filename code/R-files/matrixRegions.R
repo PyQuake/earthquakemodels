@@ -70,7 +70,7 @@ library(RColorBrewer)
       }
   }
 
- plotRealByYearsSLC()
+ # plotRealByYearsSLC()
  
  plotRealByYearsWIN = function(){
      year=2005
@@ -106,7 +106,7 @@ library(RColorBrewer)
      }
  }
  
- plotRealByYearsWIN()
+ # plotRealByYearsWIN()
  
  plotRealByYearsSC = function(){
      year=2005
@@ -120,18 +120,18 @@ library(RColorBrewer)
          plotMatrixReal(raw_data, saveFile, 40, 40) 
          #           #20X40!
          # a imagem tá uma merda
-#          region="Tohoku"
-#          imagem <<- readPNG("../data/touhoku.png")
-#          file = paste("sc/3.0",region,"real", '100',"_", year,".txt",sep="")
-#          raw_data = read.csv2(file, sep='\n', header=F)
-#          saveFile = paste("../Zona2/heatMap/real/SC",region,"_",year,".png",sep="")
-#          plotMatrixReal(raw_data, saveFile, 20, 40) 
-#          region="Kansai"
-#          imagem <<- readPNG("../data/kansai.png")
-#          file = paste("sc/3.0",region,"real", '100',"_", year,".txt",sep="")
-#          raw_data = read.csv2(file, sep='\n', header=F)
-#          saveFile = paste("../Zona2/heatMap/real/SC",region,"_",year,".png",sep="")
-#          plotMatrixReal(raw_data, saveFile, 40, 40) 
+         region="Tohoku"
+         imagem <<- readPNG("../data/touhoku.png")
+         file = paste("sc/3.0",region,"real", '100',"_", year,".txt",sep="")
+         raw_data = read.csv2(file, sep='\n', header=F)
+         saveFile = paste("../Zona2/heatMap/real/SC",region,"_",year,".png",sep="")
+         plotMatrixReal(raw_data, saveFile, 20, 40) 
+         region="Kansai"
+         imagem <<- readPNG("../data/kansai.png")
+         file = paste("sc/3.0",region,"real", '100',"_", year,".txt",sep="")
+         raw_data = read.csv2(file, sep='\n', header=F)
+         saveFile = paste("../Zona2/heatMap/real/SC",region,"_",year,".png",sep="")
+         plotMatrixReal(raw_data, saveFile, 40, 40) 
          region="Kanto"
          imagem <<- readPNG("../data/kantomap.png")
          file = paste("sc/3.0",region,"real", '100',"_", year,".txt",sep="")
@@ -142,7 +142,7 @@ library(RColorBrewer)
      }
  }
  
- plotRealByYearsSC()
+ # plotRealByYearsSC()
  
  
   plotRealByYears = function(){
@@ -301,6 +301,62 @@ library(RColorBrewer)
           }
           return(soma/10)
       }
+#       sc_hybrid_ListaGA_New
+#       sc_hybrid_gaModel
+#       scModel
+      else if (type=='sc_hybrid_ListaGA_New'){
+          soma = rep(0, r*c)
+          for(i in 1:10){
+              file = paste(type,'/hybrid_ListaGA_New',region,'_',depth,'_',year,'_',i-1,".txt",sep="")
+              raw_data = read.csv2(file, sep='\n', header=F)
+              for (k in 1:length(raw_data$V1)){
+                  value = as.numeric(levels(raw_data$V1[k]))[raw_data$V1[k]]
+                  soma[k]=soma[k]+value
+              }
+          }
+          return(soma/10)   
+      }
+      else if (type=='sc_hybrid_gaModel'){
+          soma = rep(0, r*c)
+          for(i in 1:10){
+              file = paste(type,'/hybrid_gaModel',region,'_',depth,'_',year,'_',i-1,".txt",sep="")
+              raw_data = read.csv2(file, sep='\n', header=F)
+              for (k in 1:length(raw_data$V1)){
+                  value = as.numeric(levels(raw_data$V1[k]))[raw_data$V1[k]]
+                  soma[k]=soma[k]+value
+              }
+          }
+          return(soma/10)
+      }
+      else if (type=='listgamodel'){
+          soma = rep(0, r*c)
+          for(i in 1:10){
+              if (region== 'EastJapan'){
+                  file = paste('../Zona3/scModel/eastgamodel',region,'_',depth,'_',year,i-1,".txt",sep="")
+              }
+              else{
+                  file = paste( '../Zona3/scModel/listgamodel',region,'_',depth,'_',year,i-1,".txt",sep="")    
+              }
+              raw_data = read.csv2(file, sep='\n', header=F)
+              for (k in 1:length(raw_data$V1)){
+                  value = as.numeric(levels(raw_data$V1[k]))[raw_data$V1[k]]
+                  soma[k]=soma[k]+value
+              }
+          }
+          return(soma/10)
+      }
+      else if (type=='gaModel'){
+          soma = rep(0, r*c)
+          for(i in 1:10){
+              file = paste('../Zona3/scModel/gamodel',region,'_',depth,'_',year,i-1,".txt",sep="")
+              raw_data = read.csv2(file, sep='\n', header=F)
+              for (k in 1:length(raw_data$V1)){
+                  value = as.numeric(levels(raw_data$V1[k]))[raw_data$V1[k]]
+                  soma[k]=soma[k]+value
+              }
+          }
+          return(soma/10)
+      }
       else{
           soma = rep(0, r*c)
           for(i in 1:10){
@@ -380,58 +436,64 @@ library(RColorBrewer)
       }
   }
   
-  plotRealByYears()
+  plotModelsByYears('sc_hybrid_gaModel',100)
+  plotModelsByYears('listgamodel',100)
+  plotModelsByYears('gamodel',100)
+  plotModelsByYears('sc_hybrid_ListaGA_New',100)
+  
+  # plotRealByYears()
   # hybrid_ListaGA_New, hybrid_gaModel
   # plotModelsByYears('gaModel',25)
 #   plotModelsByYears('gaModel',60)
   # plotModelsByYears('gaModel',100)
   
-  plotModelsByYears('listaGA_New',25)
+  # plotModelsByYears('listaGA_New',25)
 #   plotModelsByYears('listaGA_New',60)
   # plotModelsByYears('listaGA_New',100)
   
-  plotModelsByYears('hybrid_ListaGA_New',25)
+  # plotModelsByYears('hybrid_ListaGA_New',25)
 #   plotModelsByYears('hybrid_ListaGA_New',60)
   # plotModelsByYears('hybrid_ListaGA_New',100)
   
-  plotModelsByYears('hybrid_gaModel',25)
+  # plotModelsByYears('hybrid_gaModel',25)
 #   plotModelsByYears('hybrid_gaModel',60)
   # plotModelsByYears('hybrid_gaModel',100)
   
   # clusteredII_gaModel/hybrid_ListaGA_NewEastJapan_25_2005_0, esse e o reducedGAModelWindow
   # hybrid_gaModelEastJapan_25_2005_0, esse e o gamodelwindow
   # tem os dois tirando o hybrid
-  plotModelsByYears('clusteredII_gaModel',25)#nao ta certo, nao ta hybrid
+  # plotModelsByYears('clusteredII_gaModel',25)#nao ta certo, nao ta hybrid
 #   plotModelsByYears('clusteredII_gaModel',60)
   # plotModelsByYears('clusteredII_gaModel',100)
   
-  plotModelsByYears('clusteredII_hybrid_gaModel',25)#nao ta certo, nao ta hybrid
-#   plotModelsByYears('clusteredII_hybrid_gaModel',60)
+  # plotModelsByYears('clusteredII_hybrid_gaModel',25)#nao ta certo, nao ta hybrid
+  # plotModelsByYears('clusteredII_hybrid_gaModel',60)
   # plotModelsByYears('clusteredII_hybrid_gaModel',100)
   
-  plotModelsByYears('clusteredII_hybrid_ListaGA_New',25)#nao ta certo, nao ta hybrid
+  # plotModelsByYears('clusteredII_hybrid_ListaGA_New',25)#nao ta certo, nao ta hybrid
 #   plotModelsByYears('clusteredII_hybrid_ListaGA_New',60)
   # plotModelsByYears('clusteredII_hybrid_ListaGA_New',100)
   
-  plotModelsByYears('clusteredII_listaGA_new',25)#nao ta certo, nao ta hybridclusteredII_hybrid_ListaGA_New
+  # plotModelsByYears('clusteredII_listaGA_new',25)#nao ta certo, nao ta hybridclusteredII_hybrid_ListaGA_New
 #   plotModelsByYears('clusteredII_listaGA_new',60)
   # plotModelsByYears('clusteredII_listaGA_new',100)
 #   
   
-  plotModelsByYears('clustered_gaModel',25)#nao ta certo, nao ta hybrid
+  # plotModelsByYears('clustered_gaModel',25)#nao ta certo, nao ta hybrid
 #   plotModelsByYears('clustered_gaModel',60)
   # plotModelsByYears('clustered_gaModel',100)
   
-  plotModelsByYears('clustered_hybrid_gaModel',25)#nao ta certo, nao ta hybrid
+  # plotModelsByYears('clustered_hybrid_gaModel',25)#nao ta certo, nao ta hybrid
 #   plotModelsByYears('clustered_hybrid_gaModel',60)
   # plotModelsByYears('clustered_hybrid_gaModel',100)
   
-  plotModelsByYears('clustered_hybrid_ListaGA_New',25)#ta ok
+  # plotModelsByYears('clustered_hybrid_ListaGA_New',25)#ta ok
 #   plotModelsByYears('clustered_hybrid_ListaGA_New',60)
   # plotModelsByYears('clustered_hybrid_ListaGA_New',100)
 #   
-  plotModelsByYears('clustered_listaGA_new',25)#nao ta certo, nao ta hybrid
+  # plotModelsByYears('clustered_listaGA_new',25)#nao ta certo, nao ta hybrid
 #   plotModelsByYears('clustered_listaGA_new',60)
   # plotModelsByYears('clustered_listaGA_new',100)
 #   
  
+  

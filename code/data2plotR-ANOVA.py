@@ -104,13 +104,12 @@ def converter2leastSC(type, region, depth, year_begin, year_end):
 		print(year)
 		data = list()
 		for i in range(10):
-			if type == 'gaModel' or type == 'listaGA_New':
-				filename =  '../Zona3/'+type+'/SC'+region+'_'+str(depth)+'_'+str(year)+str(i)+'.txtloglikelihood.txt'
-			elif len(file) == 4:#new
-				filename =  '../Zona2/'+type+'/'+file[1]+'_'+file[2]+"_New"+region+'_'+str(depth)+'_'+str(year)+'_'+str(i)+'.txtloglikelihood.txt'
+			if type == 'gaModel':
+				filename =  '../Zona3/scModel/gamodel'+region+'_'+str(depth)+'_'+str(year)+str(i)+'.txtloglikelihood.txt'
+			elif region == 'EastJapan':
+				filename =  '../Zona3/scModel/eastgamodel'+region+'_'+str(depth)+'_'+str(year)+str(i)+'.txtloglikelihood.txt'
 			else:
-				filename =  '../Zona2/'+type+'/'+file[1]+'_'+file[2]+region+'_'+str(depth)+'_'+str(year)+'_'+str(i)+'.txtloglikelihood.txt'
-			'../Zona2/'+type+'/SC'+region+'_'+str(depth)+'_'+str(year)+str(i)+'.txtloglikelihood.txt'
+				filename =  '../Zona3/scModel/listgamodel'+region+'_'+str(depth)+'_'+str(year)+str(i)+'.txtloglikelihood.txt'
 			f = open(filename, "r")
 			for line in f:
 				info = line.split()
@@ -130,15 +129,15 @@ def converter2leastSC(type, region, depth, year_begin, year_end):
 
 def main():
 	# types = ('listaGA_New', 'gaModel', 'clustered_listaGA_new','clusteredII_listaGA_new', 'clustered_gaModel', 'clusteredII_gaModel')
-	regions = ('EastJapan', 'Kanto')
+	regions = ('EastJapan', 'Kanto', 'Kansai', 'Tohoku')
 	depth = 100
 	
 	for region in regions:
 		print(region)
-			# converter2leastBestHybrid('hybrid_gaModel', region, depth, 2005, 2010)
+		# converter2leastBestHybrid('hybrid_gaModel', region, depth, 2005, 2010)
 			# converter2leastBestHybrid('hybrid_ListaGA_New', region, depth, 2005, 2010)
-		# converter2leastSC('gaModel', region, depth, 2005, 2010)
-		# converter2leastSC('ListaGA_New', region, depth, 2005, 2010)
+		converter2leastSC('gaModel', region, depth, 2005, 2010)
+		converter2leastSC('ListaGA_New', region, depth, 2005, 2010)
 		converter2leastSC('sc_hybrid_ListaGA_New', region, depth, 2005, 2010)
 		converter2leastSC('sc_hybrid_gaModel', region, depth, 2005, 2010)
 			# converter2leastBestHybridWindow('clustered_hybrid_gaModel', region, depth, 2005, 2010)

@@ -55,11 +55,10 @@ summary(subTabela)
 Seleciono somente as áreas com dados do SC e os modelos apropriados.
 
 ```{r}
-subTabela3 = subTabela[subTabela$region=='Kanto'|subTabela$region=='EastJapan',]
-subTabela3 = subTabela3[subTabela3$model=='ReducedGAModelSC'|subTabela3$model=='GAModelSC'|
-                            subTabela3$model=='EMP-ReducedGAModelSC'|subTabela3$model=='EMP-GAModelSC'|
-                            subTabela3$model=='ReducedGAModel'|subTabela3$model=='GAModel'|
-                            subTabela3$model=='EMP-ReducedGAModel'|subTabela3$model=='EMP-GAModel',]
+subTabela3 = subTabela[subTabela$model=='ReducedGAModelSC'|subTabela$model=='GAModelSC'|
+                            subTabela$model=='EMP-ReducedGAModelSC'|subTabela$model=='EMP-GAModelSC'|
+                            subTabela$model=='ReducedGAModel'|subTabela$model=='GAModel'|
+                            subTabela$model=='EMP-ReducedGAModel'|subTabela$model=='EMP-GAModel',]
 summary(subTabela3)
 
 resultANOVA = aov(loglikeValues~model+years+regions , data = subTabela3)
@@ -73,7 +72,6 @@ plot(tuk,las=1)
 
 Retiro o o EMP-ReducedGAModele e o emp-gamodel pelo desempenho ruim e refaço as análises sem eles.
 ```{r}
-subTabela3 = subTabela[subTabela$region=='Kanto'|subTabela$region=='EastJapan',]
 subTabela3 = subTabela3[subTabela3$model=='ReducedGAModelSC'|subTabela3$model=='GAModelSC'|
                             subTabela3$model=='EMP-ReducedGAModelSC'|subTabela3$model=='EMP-GAModelSC'|
                             subTabela3$model=='GAModel'|subTabela3$model=='EMP-GAModel',]
