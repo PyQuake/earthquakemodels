@@ -159,25 +159,5 @@ def gaModel(type_m, NGEN,CXPB,MUTPB,modelOmega,year, region, depth, n_aval=50000
 	# print(gen, fit_std, fit_max)
 
 
-	# import matplotlib.pyplot as plt
-
-	# fig, ax1 = plt.subplots()
-
-	# line1 = ax1.plot(gen, fit_max, "b-", label="Maximum Fitness")
-	# ax1.set_xlabel("Generation")
-	# ax1.set_ylabel("Fitness", color="b")
-	# for tl in ax1.get_yticklabels():
-	   # tl.set_color("b")
-
-	# ax2 = ax1.twinx()
-	# line2 = ax2.plot(gen, fit_std, "r-", label="STD fitness")
-	# ax2.set_ylabel("STD", color="r")
-	# for tl in ax2.get_yticklabels():
-	#      tl.set_color("r")
-
-	# lns = line1
-	# labs = [l.get_label() for l in lns]
-	# ax1.legend(lns, labs, loc="center right")
-
-	# plt.savefig('../Zona2/logbook_listaGA_new/'+region+'_'+str(year)+'_convergencia_media.png')
+	
 	return generatedModel

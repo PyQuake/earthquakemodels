@@ -441,59 +441,59 @@ library(RColorBrewer)
   plotModelsByYears('gamodel',100)
   plotModelsByYears('sc_hybrid_ListaGA_New',100)
   
-  # plotRealByYears()
+  plotRealByYears()
   # hybrid_ListaGA_New, hybrid_gaModel
   # plotModelsByYears('gaModel',25)
 #   plotModelsByYears('gaModel',60)
-  # plotModelsByYears('gaModel',100)
+  plotModelsByYears('gaModel',100)
   
   # plotModelsByYears('listaGA_New',25)
 #   plotModelsByYears('listaGA_New',60)
-  # plotModelsByYears('listaGA_New',100)
+  plotModelsByYears('listaGA_New',100)
   
   # plotModelsByYears('hybrid_ListaGA_New',25)
 #   plotModelsByYears('hybrid_ListaGA_New',60)
-  # plotModelsByYears('hybrid_ListaGA_New',100)
+  plotModelsByYears('hybrid_ListaGA_New',100)
   
   # plotModelsByYears('hybrid_gaModel',25)
 #   plotModelsByYears('hybrid_gaModel',60)
-  # plotModelsByYears('hybrid_gaModel',100)
+  plotModelsByYears('hybrid_gaModel',100)
   
   # clusteredII_gaModel/hybrid_ListaGA_NewEastJapan_25_2005_0, esse e o reducedGAModelWindow
   # hybrid_gaModelEastJapan_25_2005_0, esse e o gamodelwindow
   # tem os dois tirando o hybrid
   # plotModelsByYears('clusteredII_gaModel',25)#nao ta certo, nao ta hybrid
 #   plotModelsByYears('clusteredII_gaModel',60)
-  # plotModelsByYears('clusteredII_gaModel',100)
+  plotModelsByYears('clusteredII_gaModel',100)
   
   # plotModelsByYears('clusteredII_hybrid_gaModel',25)#nao ta certo, nao ta hybrid
   # plotModelsByYears('clusteredII_hybrid_gaModel',60)
-  # plotModelsByYears('clusteredII_hybrid_gaModel',100)
+  plotModelsByYears('clusteredII_hybrid_gaModel',100)
   
   # plotModelsByYears('clusteredII_hybrid_ListaGA_New',25)#nao ta certo, nao ta hybrid
 #   plotModelsByYears('clusteredII_hybrid_ListaGA_New',60)
-  # plotModelsByYears('clusteredII_hybrid_ListaGA_New',100)
+  plotModelsByYears('clusteredII_hybrid_ListaGA_New',100)
   
   # plotModelsByYears('clusteredII_listaGA_new',25)#nao ta certo, nao ta hybridclusteredII_hybrid_ListaGA_New
 #   plotModelsByYears('clusteredII_listaGA_new',60)
-  # plotModelsByYears('clusteredII_listaGA_new',100)
+  plotModelsByYears('clusteredII_listaGA_new',100)
 #   
   
   # plotModelsByYears('clustered_gaModel',25)#nao ta certo, nao ta hybrid
 #   plotModelsByYears('clustered_gaModel',60)
-  # plotModelsByYears('clustered_gaModel',100)
+  plotModelsByYears('clustered_gaModel',100)
   
   # plotModelsByYears('clustered_hybrid_gaModel',25)#nao ta certo, nao ta hybrid
 #   plotModelsByYears('clustered_hybrid_gaModel',60)
-  # plotModelsByYears('clustered_hybrid_gaModel',100)
+  plotModelsByYears('clustered_hybrid_gaModel',100)
   
   # plotModelsByYears('clustered_hybrid_ListaGA_New',25)#ta ok
 #   plotModelsByYears('clustered_hybrid_ListaGA_New',60)
-  # plotModelsByYears('clustered_hybrid_ListaGA_New',100)
+  plotModelsByYears('clustered_hybrid_ListaGA_New',100)
 #   
   # plotModelsByYears('clustered_listaGA_new',25)#nao ta certo, nao ta hybrid
 #   plotModelsByYears('clustered_listaGA_new',60)
-  # plotModelsByYears('clustered_listaGA_new',100)
+  plotModelsByYears('clustered_listaGA_new',100)
 #   
  
   

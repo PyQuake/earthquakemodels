@@ -237,12 +237,13 @@ def main():
 	# exec real model
 	year=2000
 	depth=100
-	while(year<2011):	# 		createRealModelClusteredII(year, region=region, depth=60, withMag=False, save=True)
+	execGaModel(year, region='Kanto', depth=depth, save=True)
+	# while(year<2011):	# 		createRealModelClusteredII(year, region=region, depth=60, withMag=False, save=True)
 	# 		createRealModelClusteredII(year, region=region, depth=100, withMag=False, save=True)
 	# 		createRealModelClusteredII(year, region=region, depth=25, withMag=False, save=True)
-		execGaModelSC(year, region='Kanto', depth=depth, save=True)
-		execEtasGaModelSC(year, region='Kanto', depth=depth, save=True)
-		year+=1
+		# execGaModelSC(year, region='Kanto', depth=depth, save=True)
+		# execEtasGaModelSC(year, region='Kanto', depth=depth, save=True)
+		# year+=1
 		#createRealModelSC(year, region="Kansai", depth=100, withMag=False, save=True)
 		# createRealModelSC(year, region="EastJapan", depth=100, withMag=False, save=True)
 		# createRealModelSC(year, region="Tohoku", depth=100, withMag=False, save=True)

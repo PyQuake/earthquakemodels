@@ -12,6 +12,30 @@ import array
 from scoop import futures
 from time import time
 
+
+import models.mathUtil as mathUtil
+import earthquake.catalog as catalog
+import models.model as model
+import gaModel.gaModel_Yuri as ga
+import gaModel.gaModel_YuriWithMag as gaWithMag
+import gaModel.etasGaModelNP as etasGaModelNP
+import models.modelEtasGa as etasGa
+import models.randomModel as randomModel
+
+def execGaModel(year, region,  depth, qntYears=5, times=10, save=True):
+
+    observations=list()
+    
+    for i in range(qntYears):
+        observation=model.loadModelFromFile('../Zona2/realData/3.0'+region+'real'+str(depth)+"_"+str(year+i)+'.txt')
+        observation.bins=observation.bins.tolist()
+        observations.append(observation)
+
+    for i in range(times):
+        modelo=ga.gaModel('non-clustered', 100,0.9,0.1,observations,year+qntYears,region, depth)
+        if save==True:
+            model.saveModelToFile(modelo, '../Zona2/gaModel/'+region+'_'+str(depth)+"_"+str(year+qntYears)+str(i)+'.txt')
+
 def initDEAP():
     toolbox = base.Toolbox()
     toolbox.register("evaluate", evaluationFunction, modelOmega=modelOmega)
@@ -52,12 +76,10 @@ def evaluationFunction(individual, modelOmega):
 	return logValue,
 
 def gaModel(type_m, NGEN,CXPB,MUTPB,modelOmega,year,region, depth, n_aval=50000):
-	bt = time()
+
 	y=int(n_aval/NGEN)
 	x=n_aval - y*NGEN
 	n= x + y
-
-
 
 	toolbox = base.Toolbox()
 	toolbox.register("evaluate", evaluationFunction, modelOmega=modelOmega)
@@ -162,6 +184,9 @@ def gaModel(type_m, NGEN,CXPB,MUTPB,modelOmega,year,region, depth, n_aval=50000)
 	# fit_max=logbook.select("max")
 	# fit_std = logbook.select("std")
 	# print(gen, fit_std, fit_max)
-	totalTime = time() - bt
-	print("total time: " + str(totalTime))
+
+
 	return generatedModel
+
+if __name__ == "__main__":
+    execGaModel(year=2005, region='Kanto', depth=100, save=False)
