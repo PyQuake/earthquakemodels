@@ -102,7 +102,7 @@ def gaModel(NGEN, n, modelOmega,year,region, depth, FREQ = 10):
 	#creating comm and island model not fixed
 	from mpi4py import MPI
 	mpi_info = MPI.Info.Create()
-	mpi_info.Set("add-hostfile", "hosts")
+	mpi_info.Set("add-hostfile", "hosts.txt")
 	print(MPI.Get_processor_name())
 	target = 0
 	info = MPI.Status()
