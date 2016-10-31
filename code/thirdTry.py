@@ -101,6 +101,7 @@ def gaModel(NGEN, n, modelOmega,year,region, depth, FREQ = 10):
 	#1 to NGEN
 	#creating comm and island model not fixed
 	from mpi4py import MPI
+	print(MPI.Get_processor_name())
 	target = 0
 	info = MPI.Status()
 	comm = MPI.COMM_WORLD
@@ -218,7 +219,7 @@ if __name__ == "__main__":
 	region='Kanto'
 	depth=100
 	qntYears=5
-	times=9
+	times=10
 	save=True
 	
 	observations=list()
@@ -229,8 +230,8 @@ if __name__ == "__main__":
 			observations.append(observation)
 
 		for i in range(times):
-			GSIZE = 100
-			POPSIZE = 500
+			GSIZE = 10
+			POPSIZE = 50
 			modelo = gaModel(GSIZE, POPSIZE, observations,year+qntYears,region, depth, FREQ = 10)
 			modelo.mag=True
 			if save==True:
