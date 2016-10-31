@@ -101,6 +101,7 @@ def gaModel(NGEN, n, modelOmega,year,region, depth, FREQ = 10):
 	#1 to NGEN
 	#creating comm and island model not fixed
 	from mpi4py import MPI
+	mpi_info.Set("add-hostfile", "hosts")
 	print(MPI.Get_processor_name())
 	target = 0
 	info = MPI.Status()
