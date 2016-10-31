@@ -11,10 +11,30 @@ import array
 #Parallel
 from scoop import futures
 from time import time
+import scoop
+
+import models.mathUtil as mathUtil
+import earthquake.catalog as catalog
+import models.model as model
+import multiprocessing
+
+
+
+observations=list()
+qntYears=5
+# times=1
+year=2005
+region= 'Kanto'
+depth=100
+
+for i in range(qntYears):
+    observation=model.loadModelFromFile('../Zona2/realData/3.0'+region+'real'+str(depth)+"_"+str(year+i)+'.txt')
+    observation.bins=observation.bins.tolist()
+    observations.append(observation)
+
 
 
 def evaluationFunction(individual, modelOmega):
-	
 	logValue = float('Infinity')
 	modelLambda=type(modelOmega[0])
 
@@ -28,54 +48,58 @@ def evaluationFunction(individual, modelOmega):
 
 	return logValue,
 
+creator.create("FitnessFunction", base.Fitness, weights=(1.0,))
+
+
+#scoop parallel
 toolbox = base.Toolbox()
 
 creator.create("FitnessFunction", base.Fitness, weights=(1.0,))
 creator.create("Individual", array.array, typecode='d', fitness=creator.FitnessFunction)
 # Attribute generator
 toolbox.register("attr_float", random.random)
-
-
+toolbox.register("evaluate", evaluationFunction, modelOmega=observations)
+toolbox.register("individual", tools.initRepeat, creator.Individual, toolbox.attr_float, len(observations[0].bins))
+toolbox.register("population", tools.initRepeat, list, toolbox.individual)
 
 
 toolbox.register("mate", tools.cxOnePoint)
 toolbox.register("select", tools.selTournament, tournsize=3)
 toolbox.register("mutate", tools.mutPolynomialBounded,indpb=0.1, eta = 1, low = 0, up = 1)
 
-stats = tools.Statistics(key=lambda ind: ind.fitness.values)
-stats.register("avg", numpy.mean)
-stats.register("std", numpy.std)
-stats.register("min", numpy.min)
-stats.register("max", numpy.max)
 
-#scoop parallel
 toolbox.register("map", futures.map)
 
 
-def gaModel(type_m, NGEN,CXPB,MUTPB,modelOmega,year,region, depth, n_aval=50000):
+def gaModel(type_m, NGEN,CXPB,MUTPB,modelOmega,year,region, depth, n_aval=500):
 	bt = time()
 	y=int(n_aval/NGEN)
 	x=n_aval - y*NGEN
 	n= x + y
 
-	toolbox.register("evaluate", evaluationFunction, modelOmega=modelOmega)
-	toolbox.register("individual", tools.initRepeat, creator.Individual, toolbox.attr_float, len(modelOmega[0].bins))
-	toolbox.register("population", tools.initRepeat, list, toolbox.individual)
-
-	logbook = tools.Logbook()
-	logbook.header = "gen", "depth","min","avg","max","std"
-
 	pop = toolbox.population(n)
+
+	stats = tools.Statistics(key=lambda ind: ind.fitness.values)
+	stats.register("avg", numpy.mean)
+	stats.register("std", numpy.std)
+	stats.register("min", numpy.min)
+	stats.register("max", numpy.max)
+
 	# Evaluate the entire population
 
+	#aui tem list na frente
 	fitnesses = list(map(toolbox.evaluate, pop))#need to pass 2 model.bins. One is the real data, the other de generated model
+
 	for ind, fit in zip(pop, fitnesses):
 		ind.fitness.values = fit
 
+	#1 to NGEB
 	for g in range(NGEN):
 		# Select the next generation individuals
+		#nao tem
 		offspring = toolbox.select(pop, len(pop))
-		# Clone the selected individuals
+		# Clone the selected individuals{}
+		# offspring = [toolbox.clone(ind) for ind in population]
 		offspring = list(map(toolbox.clone, offspring))
 		# Apply crossover and mutation on the offspring
 		for child1, child2 in zip(offspring[::2], offspring[1::2]):
@@ -97,7 +121,9 @@ def gaModel(type_m, NGEN,CXPB,MUTPB,modelOmega,year,region, depth, n_aval=50000)
 				if(invalid_ind[i][j] > 1):
 					invalid_ind[i][j] = random.random()
 
+    
 		fitnesses = toolbox.map(toolbox.evaluate, invalid_ind)
+		# fitnesses = map(toolbox.evaluate, invalid_ind)
 		for ind, fit in zip(invalid_ind, fitnesses):
 			ind.fitness.values = fit
 
@@ -111,40 +137,10 @@ def gaModel(type_m, NGEN,CXPB,MUTPB,modelOmega,year,region, depth, n_aval=50000)
 				break
 
 		pop[:] = offspring
-		
-		#logBook
-		record = stats.compile(pop)
-		logbook.record(gen=g,  depth=depth,**record)
-	# print(logbook)
-	# if (type_m == 'clustered'):
-	# 	f = open('../Zona2/logbook_gaModelClustered/'+region+'_'+str(year)+'_'+str(depth)+'_logbook.txt',"a")
-	# elif (type_m == 'clusteredII'):
-	# 	f = open('../Zona2/logbook_gaModelClusteredII/'+region+'_'+str(year)+'_'+str(depth)+'_logbook.txt',"a")
-	# elif (type_m == 'non-clustered'):
-	# 	f = open('../Zona2/logbook_gaModel/'+region+'_'+str(year)+'_'+str(depth)+'_logbook.txt',"a")
-	# else:
-	# 	f = open('../Zona2/synthetic/'+region+'_'+str(year)+'_'+str(depth)+'_logbook.txt',"a")
-	# f.write(str(logbook))
-	# f.write('\n')
-	# f.close()
-	
-	generatedModel = type(modelOmega[0])
-	generatedModel.prob = best_pop
-	generatedModel.bins = calcNumberBins(best_pop, modelOmega[0].bins)
-	generatedModel.loglikelihood = best_pop.fitness.values
-	generatedModel.definitions = modelOmega[0].definitions
-	generatedModel.mag=True
-	#for pysmac
-	# logValue = best_pop.fitness.values
-	#return logValue
 
-	# gen = logbook.select("gen")
-	# fit_max=logbook.select("max")
-	# fit_std = logbook.select("std")
-	# print(gen, fit_std, fit_max)
+	
 	totalTime = time() - bt
 	print("total time: " + str(totalTime))
-	return generatedModel
 
 if __name__ == "__main__":
-	gaModel()
+	gaModel('non-clustered', 100,0.9,0.1,observations,year+qntYears,region, depth)

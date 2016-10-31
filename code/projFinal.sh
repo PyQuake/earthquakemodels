@@ -1,0 +1,10 @@
+mpiexec -n 8 python3 -m scoop -n 4 thirdTry.py 
+mpiexec -n 8 python3 -m scoop -n 4 thirdTry.py 
+mpiexec -n 8 python3 -m scoop -n 4 thirdTry.py 
+mpiexec -n 8 python3 -m scoop -n 4 thirdTry.py 
+mpiexec -n 8 python3 -m scoop -n 4 thirdTry.py 
+mpiexec -n 8 python3 -m scoop -n 4 thirdTry.py 
+mpiexec -n 8 python3 -m scoop -n 4 thirdTry.py 
+mpiexec -n 8 python3 -m scoop -n 4 thirdTry.py 
+mpiexec -n 8 python3 -m scoop -n 4 thirdTry.py 
+mpiexec -n 8 python3 -m scoop -n 4 thirdTry.py 

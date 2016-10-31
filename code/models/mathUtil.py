@@ -5,6 +5,7 @@ def invertPoisson(x,mi):
     value X
     """
     if(mi >= 0):
+        # print(x, type(x))
         if(x >= 0):
             if(x < 1):
                 l = math.exp(-mi)

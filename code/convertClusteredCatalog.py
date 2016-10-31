@@ -12,7 +12,7 @@ def readFromFileSC(filename, outFile):
             continue
         tokens = line.split()
         # print(tokens)
-        if tokens[0] == str(1): 
+        if float(tokens[0]) == 1: 
             text = ' '.join(tokens[2:12])
             g.write(text)
             g.write('\n')
