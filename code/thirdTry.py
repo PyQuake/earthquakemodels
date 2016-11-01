@@ -109,9 +109,9 @@ def gaModel(NGEN, n, modelOmega,year,region, depth, FREQ = 10):
 	origin = (rank - (target+1)) % size
 	dest = (rank + ((target+1) + size)) % size
 
-	# mpi_info = MPI.Info.Create()
-	# mpi_info.Set("add-hostfile", "hosts.txt")
-	# print(MPI.Get_processor_name())
+	mpi_info = MPI.Info.Create()
+	mpi_info.Set("add-hostfile", "hosts.txt")
+	print(MPI.Get_processor_name())
 
 	CXPB = random.random()
 	MUTPB = 1 - CXPB
