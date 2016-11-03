@@ -368,6 +368,7 @@ def quakesTriggered(magMain, magThreshold=3):
 def sumTriggeredByDaysWithRI(model, year, fileEtasim, t2=30):
     limitTo12(model)
     aftershocks = 0
+    #vinculo da magnitude via SAPP com os terremotos do modelo      
     model=simpleHibrid(model,fileEtasim,"../Zona/paper_exp/testeModelCatalog.txt")
     for (binOfmagMain,index) in zip(model.magnitudeValues,range(len(model.magnitudeValues))):
             for magMain in binOfmagMain:

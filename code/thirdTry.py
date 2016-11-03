@@ -1,4 +1,5 @@
 #Need to fix the import section to use only need files
+
 import sys
 from deap import base, creator, tools
 import numpy
@@ -9,8 +10,7 @@ import models.model
 import random
 import array
 #Parallel
-# from scoop import futures
-# import scoop
+from mpi4py import MPI
 import multiprocessing
 
 import models.mathUtil as mathUtil
@@ -100,7 +100,6 @@ def gaModel(NGEN, n, modelOmega,year,region, depth, FREQ = 10):
 
 	#1 to NGEN
 	#creating comm and island model not fixed
-	from mpi4py import MPI
 	target = 0
 	info = MPI.Status()
 	comm = MPI.COMM_WORLD
@@ -233,8 +232,8 @@ if __name__ == "__main__":
 			observations.append(observation)
 
 		for i in range(times):
-			GSIZE = 100
-			POPSIZE = 500
+			GSIZE = 10
+			POPSIZE = 5
 			modelo = gaModel(GSIZE, POPSIZE, observations,year+qntYears,region, depth, FREQ = 10)
 			modelo.mag=True
 			if save==True:
