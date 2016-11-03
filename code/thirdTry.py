@@ -109,7 +109,6 @@ def gaModel(NGEN, n, modelOmega,year,region, depth, FREQ = 10):
 	dest = (rank + ((target+1) + size)) % size
 
 	mpi_info = MPI.Info.Create()
-	mpi_info.Set("add-hostfile", "hosts.txt")
 	print(MPI.Get_processor_name())
 
 	CXPB = random.random()
@@ -232,8 +231,8 @@ if __name__ == "__main__":
 			observations.append(observation)
 
 		for i in range(times):
-			GSIZE = 10
-			POPSIZE = 5
+			GSIZE = 100
+			POPSIZE = 300
 			modelo = gaModel(GSIZE, POPSIZE, observations,year+qntYears,region, depth, FREQ = 10)
 			modelo.mag=True
 			if save==True:
