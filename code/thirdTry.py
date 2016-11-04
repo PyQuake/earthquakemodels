@@ -218,7 +218,7 @@ def gaModel(NGEN, n, modelOmega,year,region, depth, FREQ = 10):
 if __name__ == "__main__":
 
 	year=2000
-	regions = ('Tohoku' ,'EastJapan', 'Kansai', 'Kanto')
+	regions = ('EastJapan', 'Kansai', 'Kanto')
 	depth=100
 	qntYears=5
 	times=30
@@ -241,7 +241,7 @@ if __name__ == "__main__":
 				if save==True:
 					etasGa.saveModelToFile(modelo, './parallel/'+region+'_'+str(depth)+"_"+str(year+qntYears)+str(i)+'.txt')
 			year+=1
-		
+		yser=2000
 			
 
 
