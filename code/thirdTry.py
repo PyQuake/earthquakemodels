@@ -217,7 +217,6 @@ def gaModel(NGEN, n, modelOmega,year,region, depth, FREQ = 10):
 
 if __name__ == "__main__":
 
-	year=2000
 	regions = ('EastJapan', 'Kansai', 'Kanto')
 	depth=100
 	qntYears=5
@@ -226,6 +225,7 @@ if __name__ == "__main__":
 	
 	for region in regions:
 		observations=list()
+		year=2000
 		while (year <= 2010):
 			for i in range(qntYears):
 				# observation=model.loadModelFromFile('../Zona2/realData/3.0'+region+'real'+str(depth)+"_"+str(year+i)+'.txt')
@@ -241,7 +241,7 @@ if __name__ == "__main__":
 				if save==True:
 					etasGa.saveModelToFile(modelo, './parallel/'+region+'_'+str(depth)+"_"+str(year+qntYears)+str(i)+'.txt')
 			year+=1
-		yser=2000
+		
 			
 
 
