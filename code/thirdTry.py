@@ -123,6 +123,7 @@ def gaModel(NGEN, n, modelOmega,year,region, depth, FREQ = 10):
 	stats.register("max", numpy.max)
 
 	for g in range(NGEN):
+		print(g)
 		# Select the next generation individuals
 		#nao tem
 		offspring = toolbox.select(pop, len(pop))
