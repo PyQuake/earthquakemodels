@@ -19,19 +19,6 @@ import models.model as model
 import models.modelEtasGa as etasGa
 
 
-observations=list()
-qntYears=5
-# times=1
-year=2005
-region= 'Kanto'
-depth=100
-
-for i in range(qntYears):
-    observation=model.loadModelFromFile('../Zona3/sc/3.0'+region+'real'+str(depth)+"_"+str(year+i)+'.txt')
-    observation.bins=observation.bins.tolist()
-    observations.append(observation)
-
-
 
 def evaluationFunction(individual, modelOmega):
 	logValue = float('Infinity')
@@ -47,28 +34,7 @@ def evaluationFunction(individual, modelOmega):
 
 	return logValue,
 
-creator.create("FitnessFunction2", base.Fitness, weights=(1.0,))
 
-
-
-toolbox = base.Toolbox()
-
-creator.create("Individual", array.array, typecode='d', fitness=creator.FitnessFunction2)
-# Attribute generator
-toolbox.register("attr_float", random.random)
-toolbox.register("evaluate", evaluationFunction, modelOmega=observations)
-toolbox.register("individual", tools.initRepeat, creator.Individual, toolbox.attr_float, len(observations[0].bins))
-toolbox.register("population", tools.initRepeat, list, toolbox.individual)
-
-
-toolbox.register("mate", tools.cxOnePoint)
-toolbox.register("select", tools.selTournament, tournsize=3)
-toolbox.register("mutate", tools.mutPolynomialBounded,indpb=0.1, eta = 1, low = 0, up = 1)
-
-
-#multiprocessing parallel
-pool = multiprocessing.Pool(4)
-toolbox.register("map", pool.map)
 
 # toolbox.register("map", futures.map)
 
@@ -82,6 +48,28 @@ def save2file(logbook, rank):
 
 
 def gaModel(NGEN, n, modelOmega,year,region, depth, FREQ = 10):
+	creator.create("FitnessFunction2", base.Fitness, weights=(1.0,))
+
+
+
+	toolbox = base.Toolbox()
+
+	creator.create("Individual", array.array, typecode='d', fitness=creator.FitnessFunction2)
+	# Attribute generator
+	toolbox.register("attr_float", random.random)
+	toolbox.register("evaluate", evaluationFunction, modelOmega=modelOmega)
+	toolbox.register("individual", tools.initRepeat, creator.Individual, toolbox.attr_float, len(observations[0].bins))
+	toolbox.register("population", tools.initRepeat, list, toolbox.individual)
+
+
+	toolbox.register("mate", tools.cxOnePoint)
+	toolbox.register("select", tools.selTournament, tournsize=3)
+	toolbox.register("mutate", tools.mutPolynomialBounded,indpb=0.1, eta = 1, low = 0, up = 1)
+
+	#multiprocessing parallel
+	pool = multiprocessing.Pool()
+	toolbox.register("map", pool.map)
+
 
 	pop = toolbox.population(n)
 
@@ -109,7 +97,6 @@ def gaModel(NGEN, n, modelOmega,year,region, depth, FREQ = 10):
 	dest = (rank + ((target+1) + size)) % size
 
 	mpi_info = MPI.Info.Create()
-	print(MPI.Get_processor_name())
 
 	CXPB = random.random()
 	MUTPB = 1 - CXPB
@@ -123,7 +110,6 @@ def gaModel(NGEN, n, modelOmega,year,region, depth, FREQ = 10):
 	stats.register("max", numpy.max)
 
 	for g in range(NGEN):
-		print(g)
 		# Select the next generation individuals
 		#nao tem
 		offspring = toolbox.select(pop, len(pop))
@@ -217,31 +203,32 @@ def gaModel(NGEN, n, modelOmega,year,region, depth, FREQ = 10):
 
 if __name__ == "__main__":
 
-	regions = 'EastJapan'
+	regions = ('Tohoku' ,'EastJapan', 'Kansai', 'Kanto')
 	depth=100
 	qntYears=5
 	times=30
 	save=True
 	
 	observations=list()
-	year=2010
-	while (year <= 2010):
-		for i in range(qntYears):
-			# observation=model.loadModelFromFile('../Zona2/realData/3.0'+region+'real'+str(depth)+"_"+str(year+i)+'.txt')
-			observation=model.loadModelFromFile('../Zona3/sc/3.0'+region+'real'+str(depth)+"_"+str(year+i)+'.txt')
-			observation.bins=observation.bins.tolist()
-			observations.append(observation)
+	for region in regions:
+		year=2000
+		while (year <= 2010):
+			for i in range(qntYears):
+				# observation=model.loadModelFromFile('../Zona2/realData/3.0'+region+'real'+str(depth)+"_"+str(year+i)+'.txt')
+				observation=model.loadModelFromFile('../Zona3/sc/3.0'+region+'real'+str(depth)+"_"+str(year+i)+'.txt')
+				observation.bins=observation.bins.tolist()
+				observations.append(observation)
 
-		for i in range(times):
-			GSIZE = 100
-			POPSIZE = 300
-			modelo = gaModel(GSIZE, POPSIZE, observations,year+qntYears,region, depth, FREQ = 10)
-			modelo.mag=True
-			if save==True:
-				etasGa.saveModelToFile(modelo, './parallel/'+region+'_'+str(depth)+"_"+str(year+qntYears)+str(i)+'.txt')
-		year+=1
-		
+			for i in range(times):
+				GSIZE = 100
+				POPSIZE = 300
+				modelo = gaModel(GSIZE, POPSIZE, observations,year+qntYears,region, depth, FREQ = 10)
+				modelo.mag=True
+				if save==True:
+					etasGa.saveModelToFile(modelo, './parallel/'+region+'_'+str(depth)+"_"+str(year+qntYears)+str(i)+'.txt')
+			year+=1
 			
+				
 
 
 
