@@ -217,7 +217,7 @@ def gaModel(NGEN, n, modelOmega,year,region, depth, FREQ = 10):
 
 if __name__ == "__main__":
 
-	regions = 'Kansai'
+	regions = 'Kanto'
 	depth=100
 	qntYears=5
 	times=30
