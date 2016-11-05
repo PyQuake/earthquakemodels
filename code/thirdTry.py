@@ -217,14 +217,14 @@ def gaModel(NGEN, n, modelOmega,year,region, depth, FREQ = 10):
 
 if __name__ == "__main__":
 
-	regions = 'Kanto'
+	regions = 'EastJapan'
 	depth=100
 	qntYears=5
 	times=30
 	save=True
 	
 	observations=list()
-	year=2000
+	year=2010
 	while (year <= 2010):
 		for i in range(qntYears):
 			# observation=model.loadModelFromFile('../Zona2/realData/3.0'+region+'real'+str(depth)+"_"+str(year+i)+'.txt')
