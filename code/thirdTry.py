@@ -203,7 +203,7 @@ def gaModel(NGEN, n, modelOmega,year,region, depth, FREQ = 10):
 
 if __name__ == "__main__":
 
-	regions = 'Tohoku' 
+	region = 'Tohoku' 
 	depth=100
 	qntYears=5
 	times=30
