@@ -203,31 +203,32 @@ def gaModel(NGEN, n, modelOmega,year,region, depth, FREQ = 10):
 
 if __name__ == "__main__":
 
-	region = 'EastJapan' 
+	regions = ('Tohoku' ,'EastJapan', 'Kansai', 'Kanto')
 	depth=100
 	qntYears=5
 	times=30
 	save=True
 	
-	observations=list()
-	year=2000
-	while ((year+qntYears) <= 2010):
-		for i in range(qntYears):
-			# observation=model.loadModelFromFile('../Zona2/realData/3.0'+region+'real'+str(depth)+"_"+str(year+i)+'.txt')
-			observation=model.loadModelFromFile('../Zona3/sc/3.0'+region+'real'+str(depth)+"_"+str(year+i)+'.txt')
-			observation.bins=observation.bins.tolist()
-			observations.append(observation)
+	for region in regions:
+		observations=list()
+		year=2000
+		while ((year+qntYears) <= 2010):
+			for i in range(qntYears):
+				# observation=model.loadModelFromFile('../Zona2/realData/3.0'+region+'real'+str(depth)+"_"+str(year+i)+'.txt')
+				observation=model.loadModelFromFile('../Zona3/sc/3.0'+region+'real'+str(depth)+"_"+str(year+i)+'.txt')
+				observation.bins=observation.bins.tolist()
+				observations.append(observation)
 
-		for i in range(times):
-			GSIZE = 100
-			POPSIZE = 500
-			modelo = gaModel(GSIZE, POPSIZE, observations,year+qntYears,region, depth, FREQ = 10)
-			modelo.mag=True
-			if save==True:
-				etasGa.saveModelToFile(modelo, './parallel/'+region+'_'+str(depth)+"_"+str(year+qntYears)+str(i)+'.txt')
-		year+=1
-			
+			for i in range(times):
+				GSIZE = 100
+				POPSIZE = 500
+				modelo = gaModel(GSIZE, POPSIZE, observations,year+qntYears,region, depth, FREQ = 10)
+				modelo.mag=True
+				if save==True:
+					etasGa.saveModelToFile(modelo, './parallel/'+region+'_'+str(depth)+"_"+str(year+qntYears)+str(i)+'.txt')
+			year+=1
 				
+					
 
 
 
