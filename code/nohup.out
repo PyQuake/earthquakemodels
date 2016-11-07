@@ -1,0 +1,20 @@
+Traceback (most recent call last):
+  File "thirdTry.py", line 225, in <module>
+    modelo = gaModel(GSIZE, POPSIZE, observations,year+qntYears,region, depth, FREQ = 10)
+  File "thirdTry.py", line 70, in gaModel
+    pool = multiprocessing.Pool()
+  File "/usr/local/lib/python3.5/multiprocessing/context.py", line 118, in Pool
+    context=self.get_context())
+  File "/usr/local/lib/python3.5/multiprocessing/pool.py", line 168, in __init__
+    self._repopulate_pool()
+  File "/usr/local/lib/python3.5/multiprocessing/pool.py", line 233, in _repopulate_pool
+    w.start()
+  File "/usr/local/lib/python3.5/multiprocessing/process.py", line 105, in start
+    self._popen = self._Popen(self)
+  File "/usr/local/lib/python3.5/multiprocessing/context.py", line 267, in _Popen
+    return Popen(process_obj)
+  File "/usr/local/lib/python3.5/multiprocessing/popen_fork.py", line 20, in __init__
+    self._launch(process_obj)
+  File "/usr/local/lib/python3.5/multiprocessing/popen_fork.py", line 66, in _launch
+    parent_r, child_w = os.pipe()
+OSError: [Errno 24] Too many open files
