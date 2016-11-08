@@ -199,7 +199,7 @@ def gaModel(NGEN, n, modelOmega,year,region, depth, FREQ = 10):
 	generatedModel.definitions = modelOmega[0].definitions
 	generatedModel.mag=True
 
-	MPI_Finalize() 
+	#MPI_Finalize() 
 	return generatedModel
 
 
@@ -231,6 +231,7 @@ if __name__ == "__main__":
 		year+=1
 			
 				
+
 
 
 
