@@ -211,8 +211,8 @@ if __name__ == "__main__":
 	
 	# for region in regions:
 	observations=list()
-	year=2004
-	while ((year+qntYears) <= 2010):
+	year=2000
+	while ((year+qntYears) <= 2008):
 		for i in range(qntYears):
 			# observation=model.loadModelFromFile('../Zona2/realData/3.0'+region+'real'+str(depth)+"_"+str(year+i)+'.txt')
 			observation=model.loadModelFromFile('../Zona3/sc/3.0'+region+'real'+str(depth)+"_"+str(year+i)+'.txt')
