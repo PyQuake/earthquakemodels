@@ -198,12 +198,13 @@ def gaModel(NGEN, n, modelOmega,year,region, depth, FREQ = 10):
 	generatedModel.definitions = modelOmega[0].definitions
 	generatedModel.mag=True
 
+	MPI_Finalize() 
 	return generatedModel
 
 
 if __name__ == "__main__":
 
-	region = 'EastJapan'
+	region = 'Kanto'
 	depth=100
 	qntYears=5
 	times=30
@@ -212,7 +213,7 @@ if __name__ == "__main__":
 	# for region in regions:
 	observations=list()
 	year=2000
-	while ((year+qntYears) <= 2008):
+	while ((year+qntYears) <= 2010):
 		for i in range(qntYears):
 			# observation=model.loadModelFromFile('../Zona2/realData/3.0'+region+'real'+str(depth)+"_"+str(year+i)+'.txt')
 			observation=model.loadModelFromFile('../Zona3/sc/3.0'+region+'real'+str(depth)+"_"+str(year+i)+'.txt')
