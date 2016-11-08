@@ -12,3 +12,10 @@
 [mpiexec@cluster0.local] parse_args (ui/mpich/utils.c:1596): error parsing input array
 [mpiexec@cluster0.local] HYD_uii_mpx_get_parameters (ui/mpich/utils.c:1648): unable to parse user arguments
 [mpiexec@cluster0.local] main (ui/mpich/mpiexec.c:153): error parsing parameters
+[mpiexec@cluster0.local] HYDU_parse_hostfile (utils/args/args.c:319): unable to open host file: ../../hosts.txt
+[mpiexec@cluster0.local] mfile_fn (ui/mpich/utils.c:336): error parsing hostfile
+[mpiexec@cluster0.local] match_arg (utils/args/args.c:152): match handler returned error
+[mpiexec@cluster0.local] HYDU_parse_array (utils/args/args.c:174): argument matching returned error
+[mpiexec@cluster0.local] parse_args (ui/mpich/utils.c:1596): error parsing input array
+[mpiexec@cluster0.local] HYD_uii_mpx_get_parameters (ui/mpich/utils.c:1648): unable to parse user arguments
+[mpiexec@cluster0.local] main (ui/mpich/mpiexec.c:153): error parsing parameters
