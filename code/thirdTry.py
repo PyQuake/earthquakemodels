@@ -10,7 +10,7 @@ import models.model
 import random
 import array
 #Parallel
-from mpi4py import MPI
+
 import multiprocessing
 
 import models.mathUtil as mathUtil
@@ -88,6 +88,7 @@ def gaModel(NGEN, n, modelOmega,year,region, depth, FREQ = 10):
 
 	#1 to NGEN
 	#creating comm and island model not fixed
+	from mpi4py import MPI
 	target = 0
 	info = MPI.Status()
 	comm = MPI.COMM_WORLD
@@ -198,7 +199,7 @@ def gaModel(NGEN, n, modelOmega,year,region, depth, FREQ = 10):
 	generatedModel.definitions = modelOmega[0].definitions
 	generatedModel.mag=True
 
-	#MPI_Finalize() 
+	MPI_Finalize() 
 	return generatedModel
 
 
@@ -212,7 +213,7 @@ if __name__ == "__main__":
 	
 	# for region in regions:
 	observations=list()
-	year=2000
+	year=2001
 	while ((year+qntYears) <= 2010):
 		for i in range(qntYears):
 			# observation=model.loadModelFromFile('../Zona2/realData/3.0'+region+'real'+str(depth)+"_"+str(year+i)+'.txt')
