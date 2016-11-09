@@ -34,10 +34,6 @@ def evaluationFunction(individual, modelOmega):
 	return logValue,
 
 
-
-pool = multiprocessing.Pool()
-toolbox.register("map", pool.map)
-
 def save2file(logbook, rank):
 # def save2file(logbook, cx, mut, g, rank):
 	f = open('parallel2/'+str(rank)+region+'_'+str(year)+'_'+str(depth)+'_logboo8-2.txt',"a")
@@ -211,26 +207,26 @@ if __name__ == "__main__":
 	times=10
 	save=True
 	
-	# for region in regions:
-	observations=list()
-	year=2000
-	while ((year+qntYears) <= 2010):
-		for i in range(qntYears):
-			# observation=model.loadModelFromFile('../Zona2/realData/3.0'+region+'real'+str(depth)+"_"+str(year+i)+'.txt')
-			observation=model.loadModelFromFile('../Zona3/sc/3.0'+region+'real'+str(depth)+"_"+str(year+i)+'.txt')
-			observation.bins=observation.bins.tolist()
-			observations.append(observation)
+	for region in regions:
+		observations=list()
+		year=2000
+		while ((year+qntYears) <= 2010):
+			for i in range(qntYears):
+				# observation=model.loadModelFromFile('../Zona2/realData/3.0'+region+'real'+str(depth)+"_"+str(year+i)+'.txt')
+				observation=model.loadModelFromFile('../Zona3/sc/3.0'+region+'real'+str(depth)+"_"+str(year+i)+'.txt')
+				observation.bins=observation.bins.tolist()
+				observations.append(observation)
 
-		for i in range(times):
-			GSIZE = 100
-			POPSIZE = 500
-			modelo = gaModel(GSIZE, POPSIZE, observations,year+qntYears,region, depth, FREQ = 10)
-			modelo.mag=True
-			if save==True:
-				etasGa.saveModelToFile(modelo, './parallel2/'+region+'_'+str(depth)+"_"+str(year+qntYears)+str(i)+'.txt', 'a')
-		year+=1
-			
+			for i in range(times):
+				GSIZE = 10
+				POPSIZE = 50
+				modelo = gaModel(GSIZE, POPSIZE, observations,year+qntYears,region, depth, FREQ = 10)
+				modelo.mag=True
+				if save==True:
+					etasGa.saveModelToFile(modelo, './parallel2/'+region+'_'+str(depth)+"_"+str(year+qntYears)+str(i)+'.txt', year=str(year+qntYears), type='a')
+			year+=1
 				
+					
 
 
 

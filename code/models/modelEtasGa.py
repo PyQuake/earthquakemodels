@@ -84,7 +84,7 @@ def newModel(definitions,initialvalue=0):
 
     return ret
 
-def saveModelToFile(model, filename,real=False, type = 'w'):
+def saveModelToFile(model, filename,real=False, year=-1, type = 'w'):
     """ 
     It saves the model to a specific file, both passed as arg
     """
@@ -102,6 +102,10 @@ def saveModelToFile(model, filename,real=False, type = 'w'):
             f.write("\n")
         f.close()  
         if real==False:
+            if (year != -1):
+                print('entrou')
+                aux= str.rpartition(filename, year)
+                filename = aux[0]
             with open(filename+"loglikelihood.txt", type) as f:
                 f.write(str(model.loglikelihood))
                 f.write("\n")
