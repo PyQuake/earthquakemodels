@@ -1,5 +1,5 @@
 #Need to fix the import section to use only need files
-
+from mpi4py import MPI
 import sys
 from deap import base, creator, tools
 import numpy
@@ -46,8 +46,6 @@ def save2file(logbook, rank):
 def gaModel(NGEN, n, modelOmega,year,region, depth, FREQ = 10):
 	creator.create("FitnessFunction2", base.Fitness, weights=(1.0,))
 
-
-
 	toolbox = base.Toolbox()
 
 	creator.create("Individual", array.array, typecode='d', fitness=creator.FitnessFunction2)
@@ -84,7 +82,6 @@ def gaModel(NGEN, n, modelOmega,year,region, depth, FREQ = 10):
 
 	#1 to NGEN
 	#creating comm and island model not fixed
-	from mpi4py import MPI
 	target = 0
 	info = MPI.Status()
 	comm = MPI.COMM_WORLD
@@ -95,8 +92,10 @@ def gaModel(NGEN, n, modelOmega,year,region, depth, FREQ = 10):
 
 	mpi_info = MPI.Info.Create()
 
-	CXPB = random.random()
-	MUTPB = 1 - CXPB
+	# CXPB = random.random()
+	# MUTPB = 1 - CXPB
+	CXPB = 0.9
+	MUTPB = 0.1
 
 	logbook = tools.Logbook()
 	logbook.header = "rank","gen", "depth","min","avg","max","std"
@@ -218,12 +217,12 @@ if __name__ == "__main__":
 				observations.append(observation)
 
 			for i in range(times):
-				GSIZE = 10
-				POPSIZE = 50
+				GSIZE = 100
+				POPSIZE = 500
 				modelo = gaModel(GSIZE, POPSIZE, observations,year+qntYears,region, depth, FREQ = 10)
 				modelo.mag=True
 				if save==True:
-					etasGa.saveModelToFile(modelo, './parallel2/'+region+'_'+str(depth)+"_"+str(year+qntYears)+str(i)+'.txt', year=str(year+qntYears), type='a')
+					etasGa.saveModelToFile(modelo, './parallel/'+region+'_'+str(depth)+"_"+str(year+qntYears)+str(i)+'.txt', year=str(year+qntYears), type='a')
 			year+=1
 				
 					

@@ -347,24 +347,24 @@
       } 
     }
     
-#     for (year in 2005:2010){
-#         riData = loadRI(year)
-#         loglikeRI = as.numeric(as.character(riData[9,9]))
-#         model = c("RI")
-#         depths= c('RI')
-#         years = year
-#         regions = region
-#         data = data.frame(loglikeValues, model, depths, years, regions)
-#         print(data)
-#         finalData=rbind(finalData, data)
-#         if (dim(finalData)[1]==0) {
-#             finalData = merge(finalData, data, all.y=T)  
-#         }
-#         else{
-#             finalData=rbind(finalData, data)
-#         }
-#         rm(data)    
-#     }
+    for (year in 2005:2010){
+        riData = loadRI(year)
+        loglikeRI = as.numeric(as.character(riData[9,9]))
+        model = c("RI")
+        depths= c('RI')
+        years = year
+        regions = region
+        data = data.frame(loglikeValues, model, depths, years, regions)
+        print(data)
+        finalData=rbind(finalData, data)
+        if (dim(finalData)[1]==0) {
+            finalData = merge(finalData, data, all.y=T)  
+        }
+        else{
+            finalData=rbind(finalData, data)
+        }
+        rm(data)    
+    }
     
 save(finalData,file="../DataFromR/newdata.Rda")
 summary(finalData)  
