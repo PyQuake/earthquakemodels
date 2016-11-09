@@ -204,7 +204,7 @@ if __name__ == "__main__":
 	regions = ('EastJapan', 'Kanto', 'Kansai', 'Tohoku')
 	depth=100
 	qntYears=5
-	times=10
+	times=30
 	save=True
 	
 	for region in regions:
