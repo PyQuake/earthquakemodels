@@ -9,7 +9,7 @@ import models.model
 import random
 import array
 #Parallel
-from scoop import futures
+import multiprocessing
 from time import time
 
 
@@ -48,9 +48,9 @@ stats.register("std", numpy.std)
 stats.register("min", numpy.min)
 stats.register("max", numpy.max)
 
-#scoop parallel
-toolbox.register("map", futures.map)
-
+#parallel
+pool = multiprocessing.Pool()
+toolbox.register("map", pool.map)
 
 def gaModel(type_m, NGEN,CXPB,MUTPB,modelOmega,year,region, depth, n_aval=50000):
 	bt = time()

@@ -235,36 +235,36 @@ def main():
 	# createAndExeGASynthetic('Kanto', 60)
 	# createAndExeGASynthetic('Kanto', 25)
 	# exec real model
-	year=2000
-	depth=100
-	execGaModel(year, region='Kanto', depth=depth, save=True)
-	# while(year<2011):	# 		createRealModelClusteredII(year, region=region, depth=60, withMag=False, save=True)
-	# 		createRealModelClusteredII(year, region=region, depth=100, withMag=False, save=True)
-	# 		createRealModelClusteredII(year, region=region, depth=25, withMag=False, save=True)
-		# execGaModelSC(year, region='Kanto', depth=depth, save=True)
-		# execEtasGaModelSC(year, region='Kanto', depth=depth, save=True)
-		# year+=1
-		#createRealModelSC(year, region="Kansai", depth=100, withMag=False, save=True)
-		# createRealModelSC(year, region="EastJapan", depth=100, withMag=False, save=True)
-		# createRealModelSC(year, region="Tohoku", depth=100, withMag=False, save=True)
-		# createRealModelSC(year, region="Kansai", depth=100, withMag=False, save=True)
-			# createRealModel(year, region=region, depth=0, withMag=False, save=True)
-		# createRealModel(year, region="Tohoku", depth=100, withMag=False, save=True)
-		# createRealModel(year, region="Tohoku", depth=25, withMag=False, save=True)
-		# createRealModel(year, region="Tohoku", depth=60, withMag=False, save=True)
-	# # 	print('Kanto')
-	# # 	createRealModel(year, region="Kanto", depth=100, withMag=False, save=True)
-	# 	# createRealModel(year, region="Kanto", depth=25, withMag=False, save=True)
-	# 	# createRealModel(year, region="Kanto", depth=60, withMag=False, save=True)
-	# # 	print('eastjapan')
-	# # 	createRealModel(year, region="EastJapan", depth=100, withMag=False, save=True)
-	# # 	createRealModel(year, region="EastJapan", depth=25, withMag=False, save=True)
-	# # 	createRealModel(year, region="EastJapan", depth=60, withMag=False, save=True)
-	# # 	print('kansai')
-	# # 	createRealModel(year, region="Kansai", depth=100, withMag=False, save=True)
-	# # 	createRealModel(year, region="Kansai", depth=25, withMag=False, save=True)
-	# # 	createRealModel(year, region="Kansai", depth=60, withMag=False, save=True)
-		
+	
+	regions = ('Kanto', 'Kansai', 'Tohoku')
+	for region in regions:
+		year=2000	
+	# execGaModel(year, region='Kanto', depth=depth, save=True)
+		while(year<2011):	# 		createRealModelClusteredII(year, region=region, depth=60, withMag=False, save=True)
+		# 		createRealModelClusteredII(year, region=region, depth=100, withMag=False, save=True)
+		# 		createRealModelClusteredII(year, region=region, depth=25, withMag=False, save=True)
+			# execGaModelSC(year, region='Kanto', depth=depth, save=True)
+			# execEtasGaModelSC(year, region='Kanto', depth=depth, save=True)
+			# year+=1
+			#createRealModelSC(year, region="Kansai", depth=100, withMag=False, save=True)
+			# createRealModelSC(year, region="EastJapan", depth=100, withMag=False, save=True)
+			# createRealModelSC(year, region="Tohoku", depth=100, withMag=False, save=True)
+			# createRealModelSC(year, region="Kansai", depth=100, withMag=False, save=True)
+				# createRealModel(year, region=region, depth=0, withMag=False, save=True)
+			# createRealModel(year, region="Tohoku", depth=100, withMag=False, save=True)
+			# createRealModel(year, region="Tohoku", depth=25, withMag=False, save=True)
+			# createRealModel(year, region="Tohoku", depth=60, withMag=False, save=True)
+		# # 	print('Kanto')
+		# # 	createRealModel(year, region="Kanto", depth=100, withMag=False, save=True)
+		# 	# createRealModel(year, region="Kanto", depth=25, withMag=False, save=True)
+		# 	# createRealModel(year, region="Kanto", depth=60, withMag=False, save=True)
+		# # 	print('eastjapan')
+			createRealModel(year, region=region, depth=100, withMag=False, save=True)
+		# # 	print('kansai')
+		# # 	createRealModel(year, region="Kansai", depth=100, withMag=False, save=True)
+		# # 	createRealModel(year, region="Kansai", depth=25, withMag=False, save=True)
+		# # 	createRealModel(year, region="Kansai", depth=60, withMag=False, save=True)
+			year+=1
 		
 	# #exec models
 	# year=2000
