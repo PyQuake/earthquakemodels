@@ -1,0 +1,83 @@
+---
+title: "ANOVA test"
+author: "Yuri Cossich Lavinas"
+date: "May, 2016"
+output:
+  pdf_document:
+    fig_caption: yes
+    fig_crop: no
+    toc: yes
+  html_document: default
+  word_document: default
+header-includes:
+---
+```{r setup, include=FALSE}
+library(knitr)
+opts_chunk$set(dev='pdf')
+setwd("~/Documents/estudos/unb/earthquakemodels/Zona2/dataFromR")
+```
+
+
+
+## Summary
+
+O objeto é descobrir se existem variações ente os métodos e quais são as variáveis mais influentes.
+
+Os métodos utilizados para comparação são o gaModel,a versão com listas, os sistemas híbridos (hybrid_gaModel e hybrid_lista). Para cada um dos métodos temos algumas variações nas varíaveis utilizadas. Variamos os anos (2005-2010), as regiões (Kanto, EastJapan, Touhoku e Kansai), a profundidade ( <25km, <60km, <100km) e finalmente o catálogo utilizado (JMA X métodoJanelaJMA=>clustered).
+
+## Experimental design
+Vou utilizar o ANOVA para nos dados obtidos para verificar qual composição de variáveis e métodos mais influênciam no resultado final.
+
+Para isso executei o *gaModel*, *versão com Listas*, *hybrid_gaModel* e *hybrid_lista* para cada conjunto de variáveis 10 vezes. Cada grupo para um método é composto por: região, ano, profundidade e catálogo. Um grupo para um cenário será chamado cenário de execução.
+
+Após as execuções vou aplicar o ANOVA em uma data.frame composto pelos dados das **médias dos melhores indivíduos da última geração** para cada cenário de execução. 
+
+Caso uma variável esteja fora do intervalo de confiança (P < 0.05), vou aplicar novamente o ANOVA retirando essa variável do teste. 
+
+Aplico um teste post hoc nos resultados do ANOVO oara especificar quais são os grupos que diferem. O teste utilizado foi o Tukey teste.
+
+É importante resaltar que para todos os casos, aplico uma função de limite, que altera os valores do bins com mais que 12 ocorrências para 12.
+## Statistical Analysis
+Começo a análise carregando o data.frame com os dados, seguindo para a aplicação do teste ANOVA e finalizando com o uso do Tukey teste.
+
+```{r}
+#Loading data
+load("data.Rda")
+#Taking a look at the data
+summary(finalData)
+#Primeira vez aplicando ANOVA
+resultANOVA = aov(loglikeValues~model+depths+years+regions, data = finalData)
+summary(resultANOVA)
+#Especificando quais são os grupos que diferem
+tuk = TukeyHSD(resultANOVA)
+#Variáveis para configuração do gráfico
+# par(mfrow=c(2,2))
+op <- par(mar = c(5,16,4,2) + 0.1)
+#Função para gerar o gráfico
+plot(tuk,las=1)
+#Mostrando os resultados também em texto
+print(tuk)
+```
+
+Dado que para os primeiros resultados, temos que todas as variáveis estão dentro do intervalo de confiança. Porém, entendo que tanto para os anos quanto para as regiões, essas variações já era previstas e poucom acrescentam ao estudo.
+
+Baseado nisso, refiz os cálculos, seguindo o mesmo processo feito anteriormente, a fim de simplificar a análise dos resultados.
+
+```{r}
+#Segunda vez aplicando ANOVA, como a variável years e region tem incluência esperada, foram retiradas
+resultANOVA = aov(loglikeValues~model+depths, data = finalData)
+summary(resultANOVA)
+#Especificando quais são os grupos que diferem
+tuk = TukeyHSD(resultANOVA)
+#Variáveis para configuração do gráfico
+# par(mfrow=c(2,2))
+op <- par(mar = c(5,16,4,2) + 0.1)
+#Função para gerar o gráfico
+plot(tuk,las=1)
+#Mostrando os resultados também em texto
+print(tuk)
+```
+
+
+## Conclusions
+

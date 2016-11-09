@@ -1,3 +1,0 @@
-n_generations integer [50, 250] [100]
-mutation real [0, 1] [0.1]
-crossover real [0, 1] [0.9]

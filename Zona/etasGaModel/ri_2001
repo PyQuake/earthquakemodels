@@ -1,0 +1,18 @@
+Printing map with train and test data: kantomini_trainmodel.png and kantomini_testmodel.png
+Executing for area kantomini_
+************** Random Model ************
+Log Likelihood for model RandomModel against train data: -2418.1455190008232
+Log Likelihood for model RandomModel against test data: -2412.79756613368
+Ass Score for model RandomModel against test data: 0.19807732497387665
+Drawing Forecast map at file kantomini_RandomModel.png
+************** RI Model ************
+Log Likelihood for model RIModel against train data: -2103.194671235923
+Log Likelihood for model RIModel against test data: -2094.4330984671187
+Ass Score for model RIModel against test data: 0.15793800069662134
+Drawing Forecast map at file kantomini_RIModel.png
+************** GA Model ************
+Running GA:
+Log Likelihood for model GAModel against train data: -2939.9370042974074
+Log Likelihood for model GAModel against test data: -2954.76191331969
+Ass Score for model GAModel against test data: 0.21107473199427218
+Drawing Forecast map at file kantomini_GAModel.png

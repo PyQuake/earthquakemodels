@@ -12,13 +12,13 @@ def addLoglike2(region, depth, year_begin, year_end):
 
 			modelL=etasGa.loadModelFromFile(region+'_'+str(depth)+'_'+str(year)+str(i)+'.txt')
 			modelL = etasGa.limitTo12(modelL)
-			modelO=model.loadModelFromFile('../../Zona2/realData/'+str(depth)+region+'real'+str(depth)+"_"+str(year)+'.txt')
+			modelO=model.loadModelFromFile('../../Zona2/realData/'+region+'real_'+str(year)+'.txt')
 			loglikeValue=csep.loglikelihood.calcLogLikelihood(modelL,modelO)
-			modelL.loglikelihood=0
+			modelL.loglikelihood=loglikeValue
 			modelL.mag=True
 			etasGa.saveModelToFile(modelL,region+'_'+str(depth)+'_'+str(year)+str(i)+'.txt')
 			
-			with open(region+'_'+str(depth)+'_'+str(year)+str(i)+'.txtloglikelihood.txt', "w") as myfile:
+			with open('loglikelihood'+region+'_'+str(depth)+'_'+str(year)+'.txt', "a") as myfile:
 					myfile.write(str(loglikeValue))
 					myfile.write("\n")
 			print(year, depth, region,i, loglikeValue)
