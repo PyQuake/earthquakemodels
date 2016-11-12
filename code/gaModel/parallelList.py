@@ -41,6 +41,17 @@ def mutationFunction(individual, indpb, definitions, length):
 
 
 def gaModel(NGEN, n, CXPB,MUTPB, modelOmega,year,region, depth, FREQ = 10):
+
+	target = 0
+	info = MPI.Status()
+	comm = MPI.COMM_WORLD
+	size = comm.Get_size()
+	rank = comm.Get_rank()
+	origin = (rank - (target+1)) % size
+	dest = (rank + ((target+1) + size)) % size
+
+	mpi_info = MPI.Info.Create()
+
 	global length
 	length=0
 
@@ -78,8 +89,8 @@ def gaModel(NGEN, n, CXPB,MUTPB, modelOmega,year,region, depth, FREQ = 10):
 	stats.register("min", numpy.min)
 	stats.register("max", numpy.max)
 
-	logbook = tools.Logbook()
-	logbook.header = "gen", "depth","min","avg","max","std"
+	# logbook = tools.Logbook()
+	# logbook.header = "gen", "depth","min","avg","max","std"
 
 	#parallel loop	
 	pool = multiprocessing.Pool()
@@ -125,9 +136,22 @@ def gaModel(NGEN, n, CXPB,MUTPB, modelOmega,year,region, depth, FREQ = 10):
 				break
 
 		pop[:] = offspring
-		record = stats.compile(pop)
+		#migrastion
+			
+		if g % (FREQ-1) == 0 and g > 0:
+			best_inds = tools.selBest(pop, 1)[0]
+			data = comm.sendrecv(sendobj=best_inds,dest=dest,source=origin)
+			#rotation
+			target+=1
+			origin = (rank - (target+1)) % size
+			dest = (rank + ((target+1) + size)) % size
 
-		logbook.record(gen=g, depth=depth, **record)
+			pop[random.randint(0, len(pop)-1)] = ind
+			del best_pop
+			del data
+		# record = stats.compile(pop)
+
+		# logbook.record(gen=g, depth=depth, **record)
 
 	# choose the best value
 	if rank == 0:

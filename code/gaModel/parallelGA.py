@@ -58,8 +58,8 @@ def gaModel(NGEN, n, CXPB,MUTPB, modelOmega,year,region, depth, FREQ = 10):
 
 	pop = toolbox.population(n)
 
-	logbook = tools.Logbook()
-	logbook.header = "min","avg","max","std"
+	# logbook = tools.Logbook()
+	# logbook.header = "min","avg","max","std"
 	stats = tools.Statistics(key=lambda ind: ind.fitness.values)
 	stats.register("avg", numpy.mean)
 	stats.register("std", numpy.std)
@@ -83,13 +83,13 @@ def gaModel(NGEN, n, CXPB,MUTPB, modelOmega,year,region, depth, FREQ = 10):
 
 	mpi_info = MPI.Info.Create()
 
-	logbook = tools.Logbook()
-	logbook.header = "rank","gen", "depth","min","avg","max","std"
-	stats = tools.Statistics(key=lambda ind: ind.fitness.values)
-	stats.register("avg", numpy.mean)
-	stats.register("std", numpy.std)
-	stats.register("min", numpy.min)
-	stats.register("max", numpy.max)
+	# logbook = tools.Logbook()
+	# logbook.header = "rank","gen", "depth","min","avg","max","std"
+	# stats = tools.Statistics(key=lambda ind: ind.fitness.values)
+	# stats.register("avg", numpy.mean)
+	# stats.register("std", numpy.std)
+	# stats.register("min", numpy.min)
+	# stats.register("max", numpy.max)
 
 	for g in range(NGEN):
 		# Select the next generation individuals
@@ -149,8 +149,8 @@ def gaModel(NGEN, n, CXPB,MUTPB, modelOmega,year,region, depth, FREQ = 10):
 			del data
 			
 
-		record = stats.compile(pop)		
-		logbook.record(rank=rank, gen=g,  depth=depth,**record)
+		# record = stats.compile(pop)		
+		# logbook.record(rank=rank, gen=g,  depth=depth,**record)
 	# choose the best value
 	if rank == 0:
 		best_pop=tools.selBest(pop, 1)[0]
