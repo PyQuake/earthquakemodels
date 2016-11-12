@@ -25,8 +25,9 @@ def evaluationFunction(individual, modelOmega):
 
 		if tempValue < logValue:
 			logValue = tempValue
-
 	return logValue,
+
+	
 
 toolbox = base.Toolbox()
 

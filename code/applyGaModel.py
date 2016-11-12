@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+import random
 import models.mathUtil as mathUtil
 import earthquake.catalog as catalog
 import models.model as model
@@ -7,6 +8,111 @@ import gaModel.gaModel_YuriWithMag as gaWithMag
 import gaModel.etasGaModelNP as etasGaModelNP
 import models.modelEtasGa as etasGa
 import models.randomModel as randomModel
+import gaModel.parallelGA as parallelGA
+import gaModel.parallelList as parallelList
+
+
+def execParallelGARandomParSC(year, region, depth, qntYears=5, times=10, save=True):
+	
+	observations=list()
+
+	for i in range(qntYears):
+		observation=model.loadModelFromFile('../Zona3/sc/3.0'+region+'real'+str(depth)+"_"+str(year+i)+'.txt')
+		observation.bins=observation.bins.tolist()
+		observations.append(observation)
+
+	for i in range(times):
+		CXPB = random.random()
+		MUTPB = 1 - CXPB
+		modelo=parallelGA.gaModel(100,500,CXPB,MUTPB,observations, year+qntYears, region, depth)
+		modelo.mag=True
+		if save==True:
+			etasGa.saveModelToFile(modelo, 'sc-parallel-random/'+region+'_'+str(depth)+"_"+str(year+qntYears)+str(i)+'.txt')
+
+def execParallelListGARandomParSC(year, region, depth, qntYears=5, times=10, save=True):
+	
+	observations=list()
+
+	for i in range(qntYears):
+		observation=model.loadModelFromFile('../Zona3/sc/3.0'+region+'real'+str(depth)+"_"+str(year+i)+'.txt')
+		observation.bins=observation.bins.tolist()
+		observations.append(observation)
+
+	for i in range(times):
+		CXPB = random.random()
+		MUTPB = 1 - CXPB
+		modelo=parallelList.gaModel(100,500,CXPB,MUTPB,observations, year+qntYears, region, depth)
+		modelo.mag=True
+		if save==True:
+			etasGa.saveModelToFile(modelo, 'sc-parallelList-random/'+region+'_'+str(depth)+"_"+str(year+qntYears)+str(i)+'.txt')
+
+def execParallelListGARandomPar(year, region, depth, qntYears=5, times=10, save=True):
+	
+	observations=list()
+
+	for i in range(qntYears):
+		observation=model.loadModelFromFile('../Zona2/realData/3.0'+region+'real'+str(depth)+"_"+str(year+i)+'.txt')
+		observation.bins=observation.bins.tolist()
+		observations.append(observation)
+
+	for i in range(times):
+		CXPB = random.random()
+		MUTPB = 1 - CXPB
+		modelo=parallelList.gaModel(100,500,CXPB,MUTPB,observations, year+qntYears, region, depth)
+		modelo.mag=True
+		if save==True:
+			etasGa.saveModelToFile(modelo, 'parallelList-random/'+region+'_'+str(depth)+"_"+str(year+qntYears)+str(i)+'.txt')
+
+
+def execParallelGARandomPar(year, region, depth, qntYears=5, times=10, save=True):
+	
+	observations=list()
+
+	for i in range(qntYears):
+		observation=model.loadModelFromFile('../Zona2/realData/3.0'+region+'real'+str(depth)+"_"+str(year+i)+'.txt')
+		observation.bins=observation.bins.tolist()
+		observations.append(observation)
+
+	for i in range(times):
+		CXPB = random.random()
+		MUTPB = 1 - CXPB
+		modelo=parallelGA.gaModel(100,500,CXPB,MUTPB,observations, year+qntYears, region, depth)
+		modelo.mag=True
+		if save==True:
+			etasGa.saveModelToFile(modelo, 'parallel-random/'+region+'_'+str(depth)+"_"+str(year+qntYears)+str(i)+'.txt')
+
+
+def execParallelGA(year, region, depth, qntYears=5, times=10, save=True):
+	
+	observations=list()
+
+	for i in range(qntYears):
+		observation=model.loadModelFromFile('../Zona2/realData/3.0'+region+'real'+str(depth)+"_"+str(year+i)+'.txt')
+		observation.bins=observation.bins.tolist()
+		observations.append(observation)
+
+	for i in range(times):
+		modelo=parallelGA.gaModel(100,500,0.9,0.1,observations, year+qntYears, region, depth)
+		modelo.mag=True
+		if save==True:
+			etasGa.saveModelToFile(modelo, 'parallel-fixcxmt/'+region+'_'+str(depth)+"_"+str(year+qntYears)+str(i)+'.txt')
+
+def execParallelListGA(year, region, depth, qntYears=5, times=10, save=True):
+	
+	observations=list()
+
+	for i in range(qntYears):
+		observation=model.loadModelFromFile('../Zona2/realData/3.0'+region+'real'+str(depth)+"_"+str(year+i)+'.txt')
+		observation.bins=observation.bins.tolist()
+		observations.append(observation)
+
+	for i in range(times):
+		modelo=parallelList.gaModel(100,500,0.9,0.1,observations, year+qntYears, region, depth)
+		modelo.mag=True
+		if save==True:
+			etasGa.saveModelToFile(modelo, 'parallelList-fixcxmt/'+region+'_'+str(depth)+"_"+str(year+qntYears)+str(i)+'.txt')
+
+
 
 def execEtasGaModel(year, region, depth, qntYears=5, times=10, save=True):
 	
@@ -231,57 +337,17 @@ def execEtasGaModelSC(year, region, depth, qntYears=5, times=10, save=True):
 
 
 def main():
-	# createAndExeGASynthetic('Kanto', 100)
-	# createAndExeGASynthetic('Kanto', 60)
-	# createAndExeGASynthetic('Kanto', 25)
-	# exec real model
-	
-	regions = ('Kanto', 'Kansai', 'Tohoku')
-	for region in regions:
-		year=2000	
-	# execGaModel(year, region='Kanto', depth=depth, save=True)
-		while(year<2011):	# 		createRealModelClusteredII(year, region=region, depth=60, withMag=False, save=True)
-		# 		createRealModelClusteredII(year, region=region, depth=100, withMag=False, save=True)
-		# 		createRealModelClusteredII(year, region=region, depth=25, withMag=False, save=True)
-			# execGaModelSC(year, region='Kanto', depth=depth, save=True)
-			# execEtasGaModelSC(year, region='Kanto', depth=depth, save=True)
-			# year+=1
-			#createRealModelSC(year, region="Kansai", depth=100, withMag=False, save=True)
-			# createRealModelSC(year, region="EastJapan", depth=100, withMag=False, save=True)
-			# createRealModelSC(year, region="Tohoku", depth=100, withMag=False, save=True)
-			# createRealModelSC(year, region="Kansai", depth=100, withMag=False, save=True)
-				# createRealModel(year, region=region, depth=0, withMag=False, save=True)
-			# createRealModel(year, region="Tohoku", depth=100, withMag=False, save=True)
-			# createRealModel(year, region="Tohoku", depth=25, withMag=False, save=True)
-			# createRealModel(year, region="Tohoku", depth=60, withMag=False, save=True)
-		# # 	print('Kanto')
-		# # 	createRealModel(year, region="Kanto", depth=100, withMag=False, save=True)
-		# 	# createRealModel(year, region="Kanto", depth=25, withMag=False, save=True)
-		# 	# createRealModel(year, region="Kanto", depth=60, withMag=False, save=True)
-		# # 	print('eastjapan')
-			createRealModel(year, region=region, depth=100, withMag=False, save=True)
-		# # 	print('kansai')
-		# # 	createRealModel(year, region="Kansai", depth=100, withMag=False, save=True)
-		# # 	createRealModel(year, region="Kansai", depth=25, withMag=False, save=True)
-		# # 	createRealModel(year, region="Kansai", depth=60, withMag=False, save=True)
-			year+=1
 		
 	# #exec models
-	# year=2000
-	# while(year<2011):
-	# 	# regions = ('Tohoku' ,'EastJapan', 'Kansai', 'Kanto')
-	# 	region = 'Kanto'
-	# 	depths = (25, 60, 100)
-	# 	# for region in regions:
-	# 	for depth in depths:
-	# 	# depth = 60
-	# 		print(depth, year, region)
-	# 		execEtasGaModelClusteredII(year, region, depth=depth, save=True)
-	# 		# execGaModel(year, region, depth=depth, save=True)
-	# 		# execEtasGaModel(year, region, depth=depth, save=True)	
-	# 		execGaModelClusteredII(year, region, depth=depth, save=True)
-		
-	# 	year+=1
+	region = 'Kanto'
+	year=2000
+	depth = 100
+	while(year<2011):
+		execParallelListGARandomParSC(year, region, depth=depth, save=True)
+		execParallelGARandomPar(year, region, depth=depth, save=True)
+		execParallelListGARandomPar(year, region, depth=depth, save=True)
+
+		year+=1
 
 if __name__ == "__main__":
 	main()
