@@ -11,10 +11,9 @@ import array
 import multiprocessing
 from mpi4py import MPI
 
-
 class genotype():
     def __init__(self):
-    	self.index = random.randint(0, len(modelOmega[0].bins)-1)
+    	self.index = random.randint(0, 2024)
     	self.prob = random.random()
 
 
@@ -59,8 +58,6 @@ def gaModel(NGEN, n, CXPB,MUTPB, modelOmega,year,region, depth, FREQ = 10):
 
 	global length
 	length=0
-
-
 
 	toolbox = base.Toolbox()
 	toolbox.register("evaluate", evaluationFunction, modelOmega=modelOmega)
