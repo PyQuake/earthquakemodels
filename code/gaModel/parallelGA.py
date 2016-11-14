@@ -43,7 +43,7 @@ def gaModel(NGEN, n, CXPB,MUTPB, modelOmega,year,region, depth, FREQ = 10):
 	# Attribute generator
 	toolbox.register("attr_float", random.random)
 	toolbox.register("evaluate", evaluationFunction, modelOmega=modelOmega)
-	toolbox.register("individual", tools.initRepeat, creator.Individual, toolbox.attr_float, len(observations[0].bins))
+	toolbox.register("individual", tools.initRepeat, creator.Individual, toolbox.attr_float, len(modelOmega[0].bins))
 	toolbox.register("population", tools.initRepeat, list, toolbox.individual)
 
 

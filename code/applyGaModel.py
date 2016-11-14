@@ -343,7 +343,7 @@ def main():
 	year=2000
 	depth = 100
 	while(year<2011):
-		execParallelListGARandomParSC(year, region, depth=depth, save=True)
+		# execParallelListGARandomParSC(year, region, depth=depth, save=True)
 		execParallelGARandomPar(year, region, depth=depth, save=True)
 		execParallelListGARandomPar(year, region, depth=depth, save=True)
 
