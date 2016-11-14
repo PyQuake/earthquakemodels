@@ -159,8 +159,9 @@ def gaModel(NGEN, n, CXPB,MUTPB, modelOmega,year,region, depth, FREQ = 10):
 		lista.append(best_pop)
 		for thread in range(size):
 			if (thread != 0):
-				req = comm.irecv(source=thread)
-				data = req.wait()
+				data = comm.irecv(source=thread)
+				# req = comm.irecv(source=thread)
+				# data = req.wait()
 				lista.append(data)
 		maximo =  float('-inf')
 		for value, index in zip(lista, range(len(lista))):
