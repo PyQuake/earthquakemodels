@@ -165,7 +165,7 @@ def gaModel(NGEN, n, CXPB,MUTPB, modelOmega,year,region, depth, FREQ = 10):
 				lista.append(data)
 		maximo =  float('-inf')
 		for value, index in zip(lista, range(len(lista))):
-			maximo_local = evaluationFunction(value, observations)
+			maximo_local = evaluationFunction(value, modelOmega)
 			if maximo < maximo_local[0]:
 				theBestIndex = index
 				maximo = maximo_local[0]
