@@ -375,10 +375,10 @@ def sumTriggeredByDaysWithRI(model, year, fileEtasim, t2=30):
     #vinculo da magnitude via SAPP com os terremotos do modelo      
     model=simpleHibrid(model,fileEtasim,"../Zona/paper_exp/testeModelCatalog.txt")
     for (binOfmagMain,index) in zip(model.magnitudeValues,range(len(model.magnitudeValues))):
-            for magMain in binOfmagMain:
-                if magMain > 0: 
-                    for t in range(t2):
-                        aftershocks += pdfOmoriUtsu(t2=t)*quakesTriggered(magMain)
+        for magMain in binOfmagMain:
+            if magMain > 0: 
+                for t in range(t2):
+                    aftershocks += pdfOmoriUtsu(t2=t)*quakesTriggered(magMain)
     ideaRIinMmodels(model, aftershocks)
     aftershocks = 0
     return model
