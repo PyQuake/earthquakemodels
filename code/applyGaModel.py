@@ -340,21 +340,13 @@ def main():
 		
 	# #exec models
 	region = 'Kanto'
-	year=2001
+	year=2004
 	depth = 100
 	while(year<2011):
 		execParallelListGARandomParSC(year, region, depth=depth, save=True)
 		# execParallelGARandomPar(year, region, depth=depth, save=True)
-		# execParallelListGARandomPar(year, region, depth=depth, save=True)
-
-		year+=1
-	year=2004
-	while(year<2011):
-		# execParallelListGARandomParSC(year, region, depth=depth, save=True)
-		# execParallelGARandomPar(year, region, depth=depth, save=True)
 		execParallelListGARandomPar(year, region, depth=depth, save=True)
 
 		year+=1
-
 if __name__ == "__main__":
 	main()
