@@ -364,13 +364,13 @@ def main():
 		
 	# #exec models
 	region = 'Kanto'
-	year=2000
+	year=2005
 	depth = 100
-	while((year)<2005):
-		execParallelListGARandomParSC(year, region, depth=depth, save=False)
-		execParallelGARandomParSC(year, region, depth=depth, save=False)
-		execParallelGARandomPar(year, region, depth=depth, save=False)
-		execParallelListGARandomPar(year, region, depth=depth, save=False)
+	# while((year)<2005):
+	execParallelListGARandomParSC(year, region, depth=depth, save=False)
+	execParallelGARandomParSC(year, region, depth=depth, save=False)
+	execParallelGARandomPar(year, region, depth=depth, save=False)
+	execParallelListGARandomPar(year, region, depth=depth, save=False)
 		year+=1
 
 if __name__ == "__main__":
