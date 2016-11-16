@@ -340,7 +340,7 @@ def main():
 		
 	# #exec models
 	region = 'Kanto'
-	year=2004
+	year=2005
 	depth = 100
 	while(year<2011):
 		# execParallelListGARandomParSC(year, region, depth=depth, save=True)
