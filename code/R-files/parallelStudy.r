@@ -1,4 +1,4 @@
-setwd("~/Documents/estudos/unb/earthquakemodels/code/parallel")
+setwd("~/Documents/estudos/unb/earthquakemodels/code/")
 options(scipen=999)
 library(grid)
 library(latticeExtra)
@@ -8,17 +8,24 @@ library(RColorBrewer)
 
 
 
-loadData = function(region, year, depth, type){
-    file = paste(region,'_',depth,'_',year,i-1,".txt",sep="")
+loadData = function(type, region, year, depth){
+    file = paste('loglike/',type,region,'_',depth,'_',year,".txt",sep="")
     data = read.csv2(file, sep='\n', header=F)
     return(data)
 }
 
+convertToNumeric = function(model){
+    values = rep(0, length(model$V1))
+    for (k in 1:length(model$V1)){
+        values[k] = as.numeric(levels(model$V1[k]))[model$V1[k]]
+    }
+    return(values)
+}
 
 calcMedia = function(type, year, depth, region,r,c){
     soma = rep(0, r*c)
     for(i in 1:10){
-        file = paste(region,'_',depth,'_',year,i-1,".txt",sep="")
+        file = paste(type,'/',region,'_',depth,'_',year,i-1,".txt",sep="")
         raw_data = read.csv2(file, sep='\n', header=F)
         for (k in 1:length(raw_data$V1)){
             value = as.numeric(levels(raw_data$V1[k]))[raw_data$V1[k]]
@@ -59,45 +66,23 @@ plotMatrixModel = function(modelData, fileToSave, r, c){
 plotModelsByYears= function(type, depth){
     year=2005
     #modelo
-    while(year<=2010){
-        
-        region="EastJapan"
-        saveFile = paste("./heatMap/",depth,region,"_",depth,'_',year,".png",sep="")
-        mediaEastJapan=calcMedia(type=type,year=year, region=region, depth=depth, 40,40)
-        imagePath<<-"../../data/coast.png"
-        plotMatrixModel(mediaEastJapan, saveFile, 40, 40) 
-        
-        #20X40!
-        # a imagem tá uma merda
-        region="Tohoku"
-        saveFile = paste("./heatMap/",depth,region,"_",depth,'_',year,".png",sep="")
-        mediaTouhoku=calcMedia(type=type,year=year, region=region, depth=depth, 20,40)
-        imagePath<<-"../../data/touhoku.png"
-        plotMatrixModel(mediaTouhoku, saveFile, 20, 40) 
-        
-        region="Kansai"
-        saveFile = paste("./heatMap/",depth,region,"_",depth,'_',year,".png",sep="")
-        mediaKansai=calcMedia(type=type,year=year, region=region, depth=depth, 40,40)
-        imagePath<<-"../../data/kansai.png"
-        plotMatrixModel(mediaKansai, saveFile, 40, 40)  
+    while(year<=2008){
         
         region="Kanto"
-        saveFile = paste("./heatMap/",depth,region,"_",depth,'_',year,".png",sep="")
+        saveFile = paste("./heatMap/",type,region,"_",depth,'_',year,".png",sep="")
         mediaKanto=calcMedia(type=type,year=year, region=region, depth=depth, 45,45)
-        imagePath<<-"../../data/kantomap.png"
+        imagePath<<-"../data/kantomap.png"
         plotMatrixModel(mediaKanto, saveFile, 45, 45) 
         
         year=year+1
     }
 }
 
-plotModelsByYears('sc_hybrid_gaModel',100)
-
 
 setwd("~/Documents/estudos/unb/earthquakemodels/Zona2/DataFromR")
 load("newdata.Rda")
 summary(finalData)
-setwd("~/Documents/estudos/unb/earthquakemodels/code/parallel")
+setwd("~/Documents/estudos/unb/earthquakemodels/code/")
 chooseRegion = function(i){
     if (i==1) {
         region="Kanto"
@@ -114,39 +99,119 @@ chooseRegion = function(i){
     return(region)
 }
 
-loadData = function(region, year, depth, type){
-    file = paste('loglikelihood',region,'_',depth,'_',year,".txt",sep="")
-    data = read.csv2(file, sep='\n', header=F)
-    return(data)
+region = chooseRegion(1)
+for (year in 2005:2008){
+    #gamodelpar
+    gaModelPar100 = loadData('parallel-random', region, year, '100')
+    valuesGAPar100 = convertToNumeric(gaModelPar100)
+    
+    loglikeValues = c(valuesGAPar100)
+    nameGa = c(rep("GAModelPar",10))
+    years = c(rep(toString(year),10))
+    regions = c(rep(region, 10))
+    depth100 = c(rep('100',10))
+    depthsAmodel = c(depth100)
+    
+    model = c(nameGa)
+    depths = c(depthsAmodel, depthsAmodel)
+    data = data.frame(loglikeValues, model,depths, years, regions)
+    finalData=rbind(finalData, data)
+    rm(data) 
+    #parallelList
+    gaModelPar100 = loadData('parallelList-random', region, year, '100')
+    valuesGAPar100 = convertToNumeric(gaModelPar100)
+    
+    loglikeValues = c(valuesGAPar100)
+    nameGa = c(rep("ReducedGAModelPar",10))
+    years = c(rep(toString(year),10))
+    regions = c(rep(region, 10))
+    depth100 = c(rep('100',10))
+    depthsAmodel = c(depth100)
+    
+    model = c(nameGa)
+    depths = c(depthsAmodel, depthsAmodel)
+    data = data.frame(loglikeValues, model,depths, years, regions)
+    finalData=rbind(finalData, data)
+    rm(data) 
+    #sc-parallel-random
+    gaModelPar100 = loadData('sc-parallel-random', region, year, '100')
+    valuesGAPar100 = convertToNumeric(gaModelPar100)
+    
+    loglikeValues = c(valuesGAPar100)
+    nameGa = c(rep("GAModelParSC",10))
+    years = c(rep(toString(year),10))
+    regions = c(rep(region, 10))
+    depth100 = c(rep('100',10))
+    depthsAmodel = c(depth100)
+    
+    model = c(nameGa)
+    depths = c(depthsAmodel, depthsAmodel)
+    data = data.frame(loglikeValues, model,depths, years, regions)
+    finalData=rbind(finalData, data)
+    rm(data) 
+    #sc-parallelList-
+    gaModelPar100 = loadData('sc-parallelList-random', region, year, '100')
+    valuesGAPar100 = convertToNumeric(gaModelPar100)
+    
+    loglikeValues = c(valuesGAPar100)
+    nameGa = c(rep("ReducedGAModelParSC",10))
+    years = c(rep(toString(year),10))
+    regions = c(rep(region, 10))
+    depth100 = c(rep('100',10))
+    depthsAmodel = c(depth100)
+    
+    model = c(nameGa)
+    depths = c(depthsAmodel, depthsAmodel)
+    data = data.frame(loglikeValues, model,depths, years, regions)
+    finalData=rbind(finalData, data)
+    rm(data) 
 }
+summary(finalData)
 
-for (i in 1:4) {
-    region = chooseRegion(i)
-    for (year in 2005:2010){
-        gaModelPar100 = loadData(region, year, '100', 'SCsc_hybrid_gaModel')
-        valuesGAPar100 = convertToNumeric(gaModelPar100)
-        
-        loglikeValues = c(valuesGAPar100)
-        nameGa = c(rep("GAModelPar",10))
-        years = c(rep(toString(year),10))
-        regions = c(rep(region, 10))
-        depth100 = c(rep('100',10))
-        depthsAmodel = c(depth100)
-        
-        model = c(nameGa)
-        depths = c(depthsAmodel, depthsAmodel)
-        data = data.frame(loglikeValues, model,depths, years, regions)
-        finalData=rbind(finalData, data)
-        rm(data) 
-    }
-}
-summary(teste)
+subTabela = finalData[finalData$regions=='Kanto',]
+subTabela = subTabela[subTabela$years!='2009'&subTabela$years!='2010',]
+subTabela = subTabela[subTabela$model=='GAModelSC'&subTabela$model=='ReducedGAModelSC'&
+                      subTabela$model!='Emp-GAModelWindow'&subTabela$model!='Emp-ReducedGAModelWindow'&
+                      subTabela$model!='Emp-GAModelSLC'&subTabela$model!='Emp-ReducedGAModelSLC'
+                      ,]
+summary(subTabela)
+#
+mean(finalData$loglikeValues[finalData$model=='GAModelPar'&finalData$year=='2005'])
+mean(finalData$loglikeValues[finalData$model=='ReducedGAModelPar'&finalData$year=='2005'])
+mean(finalData$loglikeValues[finalData$model=='GAModelParSC'&finalData$year=='2005'])
+mean(finalData$loglikeValues[finalData$model=='ReducedGAModelParSC'&finalData$year=='2005'])
+
+mean(finalData$loglikeValues[finalData$model=='GAModelPar'&finalData$year=='2006'])
+mean(finalData$loglikeValues[finalData$model=='ReducedGAModelPar'&finalData$year=='2006'])
+mean(finalData$loglikeValues[finalData$model=='GAModelParSC'&finalData$year=='2006'])
+mean(finalData$loglikeValues[finalData$model=='ReducedGAModelParSC'&finalData$year=='2006'])
+
+mean(finalData$loglikeValues[finalData$model=='GAModelPar'&finalData$year=='2007'])
+mean(finalData$loglikeValues[finalData$model=='ReducedGAModelPar'&finalData$year=='2007'])
+mean(finalData$loglikeValues[finalData$model=='GAModelParSC'&finalData$year=='2007'])
+mean(finalData$loglikeValues[finalData$model=='ReducedGAModelParSC'&finalData$year=='2007'])
+
+mean(finalData$loglikeValues[finalData$model=='GAModelPar'&finalData$year=='2008'])
+mean(finalData$loglikeValues[finalData$model=='ReducedGAModelPar'&finalData$year=='2008'])
+mean(finalData$loglikeValues[finalData$model=='GAModelParSC'&finalData$year=='2008'])
+mean(finalData$loglikeValues[finalData$model=='ReducedGAModelParSC'&finalData$year=='2008'])
 
 
 
-resultANOVA = aov(loglikeValues~model+depths+years+regions , data = finalData)
-summary(resultANOVA)
-tuk = TukeyHSD(resultANOVA)
-op <- par(mar = c(5,15,4,2) + 0.1)
-plot(tuk,las=1)
-print(tuk)
+
+
+
+
+
+
+
+# resultANOVA = aov(loglikeValues~model+depths+years+regions , data = finalData)
+# summary(resultANOVA)
+# tuk = TukeyHSD(resultANOVA)
+# op <- par(mar = c(5,15,4,2) + 0.1)
+# plot(tuk,las=1)
+# print(tuk)
+# plotModelsByYears('parallel-random', depth)
+# plotModelsByYears('sc-parallel-random', depth)
+# plotModelsByYears('sc-parallelList-random', depth)
+# plotModelsByYears('parallelList-random', depth)
