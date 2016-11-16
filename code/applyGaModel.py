@@ -31,7 +31,7 @@ def execParallelGARandomParSC(year, region, depth, qntYears=5, times=10, save=Tr
 		if save==True:
 			etasGa.saveModelToFile(modelo, 'sc-parallel-random/'+region+'_'+str(depth)+"_"+str(year+qntYears)+str(i)+'.txt')
 			
-		with open('time/sc-parallel-random'+region+'_'+str(depth)+"_"+str(year+qntYears)+'.txt', "a") as myfile:
+		with open('time_exec/sc-parallel-random'+region+'_'+str(depth)+"_"+str(year+qntYears)+'.txt', "a") as myfile:
 			myfile.write(str(end-start))
 			myfile.write("\n")
 
@@ -55,7 +55,7 @@ def execParallelListGARandomParSC(year, region, depth, qntYears=5, times=10, sav
 			start = time.clock()
 			etasGa.saveModelToFile(modelo, 'sc-parallelList-random/'+region+'_'+str(depth)+"_"+str(year+qntYears)+str(i)+'.txt')
 			
-		with open('time/sc-parallelList-random'+region+'_'+str(depth)+"_"+str(year+qntYears)+'.txt', "a") as myfile:
+		with open('time_exec/sc-parallelList-random'+region+'_'+str(depth)+"_"+str(year+qntYears)+'.txt', "a") as myfile:
 			myfile.write(str(end-start))
 			myfile.write("\n")
 
@@ -79,7 +79,7 @@ def execParallelListGARandomPar(year, region, depth, qntYears=5, times=10, save=
 			start = time.clock()
 			etasGa.saveModelToFile(modelo, 'parallelList-random/'+region+'_'+str(depth)+"_"+str(year+qntYears)+str(i)+'.txt')
 
-		with open('time/parallelList-random'+region+'_'+str(depth)+"_"+str(year+qntYears)+'.txt', "a") as myfile:
+		with open('time_exec/parallelList-random'+region+'_'+str(depth)+"_"+str(year+qntYears)+'.txt', "a") as myfile:
 			myfile.write(str(end-start))
 			myfile.write("\n")
 
@@ -102,7 +102,7 @@ def execParallelGARandomPar(year, region, depth, qntYears=5, times=10, save=True
 		if save==True:
 			etasGa.saveModelToFile(modelo, 'parallel-random/'+region+'_'+str(depth)+"_"+str(year+qntYears)+str(i)+'.txt')
 			
-		with open('time/parallel-random'+region+'_'+str(depth)+"_"+str(year+qntYears)+'.txt', "a") as myfile:
+		with open('time_exec/parallel-random'+region+'_'+str(depth)+"_"+str(year+qntYears)+'.txt', "a") as myfile:
 			myfile.write(str(end-start))
 			myfile.write("\n")
 
@@ -372,6 +372,6 @@ def main():
 		execParallelGARandomPar(year, region, depth=depth, save=False)
 		execParallelListGARandomPar(year, region, depth=depth, save=False)
 		year+=1
-		
+
 if __name__ == "__main__":
 	main()
