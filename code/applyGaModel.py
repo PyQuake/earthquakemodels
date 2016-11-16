@@ -10,7 +10,7 @@ import models.modelEtasGa as etasGa
 import models.randomModel as randomModel
 import gaModel.parallelGA as parallelGA
 import gaModel.parallelList as parallelList
-
+import time
 
 def execParallelGARandomParSC(year, region, depth, qntYears=5, times=10, save=True):
 	
@@ -24,10 +24,16 @@ def execParallelGARandomParSC(year, region, depth, qntYears=5, times=10, save=Tr
 	for i in range(times):
 		CXPB = random.random()
 		MUTPB = 1 - CXPB
+		start = time.clock()
 		modelo=parallelGA.gaModel(100,500,CXPB,MUTPB,observations, year+qntYears, region, depth)
+		end = time.clock()
 		modelo.mag=True
 		if save==True:
 			etasGa.saveModelToFile(modelo, 'sc-parallel-random/'+region+'_'+str(depth)+"_"+str(year+qntYears)+str(i)+'.txt')
+			
+		with open('time/sc-parallel-random'+region+'_'+str(depth)+"_"+str(year+qntYears)+'.txt', "a") as myfile:
+			myfile.write(str(end-start))
+			myfile.write("\n")
 
 def execParallelListGARandomParSC(year, region, depth, qntYears=5, times=10, save=True):
 	
@@ -41,10 +47,17 @@ def execParallelListGARandomParSC(year, region, depth, qntYears=5, times=10, sav
 	for i in range(times):
 		CXPB = random.random()
 		MUTPB = 1 - CXPB
+		start = time.clock()
 		modelo=parallelList.gaModel(100,500,CXPB,MUTPB,observations, year+qntYears, region, depth)
+		end = time.clock()
 		modelo.mag=True
 		if save==True:
+			start = time.clock()
 			etasGa.saveModelToFile(modelo, 'sc-parallelList-random/'+region+'_'+str(depth)+"_"+str(year+qntYears)+str(i)+'.txt')
+			
+		with open('time/sc-parallelList-random'+region+'_'+str(depth)+"_"+str(year+qntYears)+'.txt', "a") as myfile:
+			myfile.write(str(end-start))
+			myfile.write("\n")
 
 def execParallelListGARandomPar(year, region, depth, qntYears=5, times=10, save=True):
 	
@@ -58,11 +71,17 @@ def execParallelListGARandomPar(year, region, depth, qntYears=5, times=10, save=
 	for i in range(times):
 		CXPB = random.random()
 		MUTPB = 1 - CXPB
+		start = time.clock()
 		modelo=parallelList.gaModel(100,500,CXPB,MUTPB,observations, year+qntYears, region, depth)
+		end = time.clock()
 		modelo.mag=True
 		if save==True:
+			start = time.clock()
 			etasGa.saveModelToFile(modelo, 'parallelList-random/'+region+'_'+str(depth)+"_"+str(year+qntYears)+str(i)+'.txt')
 
+		with open('time/parallelList-random'+region+'_'+str(depth)+"_"+str(year+qntYears)+'.txt', "a") as myfile:
+			myfile.write(str(end-start))
+			myfile.write("\n")
 
 def execParallelGARandomPar(year, region, depth, qntYears=5, times=10, save=True):
 	
@@ -76,11 +95,16 @@ def execParallelGARandomPar(year, region, depth, qntYears=5, times=10, save=True
 	for i in range(times):
 		CXPB = random.random()
 		MUTPB = 1 - CXPB
+		start = time.clock()
 		modelo=parallelGA.gaModel(100,500,CXPB,MUTPB,observations, year+qntYears, region, depth)
+		end = time.clock()
 		modelo.mag=True
 		if save==True:
 			etasGa.saveModelToFile(modelo, 'parallel-random/'+region+'_'+str(depth)+"_"+str(year+qntYears)+str(i)+'.txt')
-
+			
+		with open('time/parallel-random'+region+'_'+str(depth)+"_"+str(year+qntYears)+'.txt', "a") as myfile:
+			myfile.write(str(end-start))
+			myfile.write("\n")
 
 def execParallelGA(year, region, depth, qntYears=5, times=10, save=True):
 	
@@ -340,13 +364,14 @@ def main():
 		
 	# #exec models
 	region = 'Kanto'
-	year=2005
+	year=2000
 	depth = 100
-	while(year<2011):
-		# execParallelListGARandomParSC(year, region, depth=depth, save=True)
-		execParallelGARandomPar(year, region, depth=depth, save=True)
-		# execParallelListGARandomPar(year, region, depth=depth, save=True)
-
+	while((year+5)<2011):
+		execParallelListGARandomParSC(year, region, depth=depth, save=False)
+		execParallelGARandomParSC(year, region, depth=depth, save=False)
+		execParallelGARandomPar(year, region, depth=depth, save=False)
+		execParallelListGARandomPar(year, region, depth=depth, save=False)
 		year+=1
+		
 if __name__ == "__main__":
 	main()

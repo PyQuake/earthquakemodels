@@ -100,7 +100,7 @@ chooseRegion = function(i){
 }
 
 region = chooseRegion(1)
-for (year in 2005:2008){
+for (year in 2005:2010){
     #gamodelpar
     gaModelPar100 = loadData('parallel-random', region, year, '100')
     valuesGAPar100 = convertToNumeric(gaModelPar100)
@@ -195,6 +195,16 @@ mean(finalData$loglikeValues[finalData$model=='GAModelPar'&finalData$year=='2008
 mean(finalData$loglikeValues[finalData$model=='ReducedGAModelPar'&finalData$year=='2008'])
 mean(finalData$loglikeValues[finalData$model=='GAModelParSC'&finalData$year=='2008'])
 mean(finalData$loglikeValues[finalData$model=='ReducedGAModelParSC'&finalData$year=='2008'])
+
+mean(finalData$loglikeValues[finalData$model=='GAModelPar'&finalData$year=='2009'])
+mean(finalData$loglikeValues[finalData$model=='ReducedGAModelPar'&finalData$year=='2009'])
+mean(finalData$loglikeValues[finalData$model=='GAModelParSC'&finalData$year=='2009'])
+mean(finalData$loglikeValues[finalData$model=='ReducedGAModelParSC'&finalData$year=='2009'])
+
+mean(finalData$loglikeValues[finalData$model=='GAModelPar'&finalData$year=='2010'])
+mean(finalData$loglikeValues[finalData$model=='ReducedGAModelPar'&finalData$year=='2010'])
+mean(finalData$loglikeValues[finalData$model=='GAModelParSC'&finalData$year=='2010'])
+mean(finalData$loglikeValues[finalData$model=='ReducedGAModelParSC'&finalData$year=='2010'])
 
 
 
