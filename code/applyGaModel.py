@@ -366,7 +366,7 @@ def main():
 	region = 'Kanto'
 	year=2000
 	depth = 100
-	while((year+5)<2011):
+	while((year)<2005):
 		execParallelListGARandomParSC(year, region, depth=depth, save=False)
 		execParallelGARandomParSC(year, region, depth=depth, save=False)
 		execParallelGARandomPar(year, region, depth=depth, save=False)
