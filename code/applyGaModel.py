@@ -366,12 +366,12 @@ def main():
 	region = 'Kanto'
 	year=2005
 	depth = 100
-	# while((year)<2005):
+#	while(year<2003):
 	execParallelListGARandomParSC(year, region, depth=depth, save=False)
 	execParallelGARandomParSC(year, region, depth=depth, save=False)
 	execParallelGARandomPar(year, region, depth=depth, save=False)
 	execParallelListGARandomPar(year, region, depth=depth, save=False)
-		year+=1
+#		year+=1
 
 if __name__ == "__main__":
 	main()
