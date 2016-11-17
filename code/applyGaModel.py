@@ -321,7 +321,7 @@ def createRealModelSC(year, region, depth, withMag=True, save=False):
 	definicao=model.loadModelDefinition('../params/'+region+'Etas_'+str(depth)+'.txt')
 	catalogo=catalog.readFromFile('../data/SC-catalog.dat')
 	catalogo=catalog.filter(catalogo,definicao)
-	observacao=model.newModel(definicao, mag=withMag)
+	observacao=model.newModel(definicao)
 	observacao=model.addFromCatalog(observacao,catalogo,year)
 
 	if save==True:

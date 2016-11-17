@@ -9,6 +9,7 @@
 import datetime
 import numpy
 from models.mathUtil import invertPoisson
+from collections import Counter
 
 class model(object):
     pass
@@ -180,16 +181,6 @@ def loadModelFromFile(filename):
 
     return ret
 
-def createImageFromModel(modelToDraw,fileToSave):
-    robjects.r('''source("models/createMatrix.R")''')
-    r_myfunction = robjects.globalenv['plotMatrixModel']
-    modeldata = robjects.IntVector(modelToDraw.bins)
-    r_myfunction(modeldata, fileToSave)   
-
-
-
-
-
 #TODO: Check if this function really is obslote...
 def convertMagtoNoMag(modelMag):
     """
@@ -273,4 +264,88 @@ def convertFromListToData(observations,length):
     for gene in observations:    
         ret.bins[gene.index]=gene.prob
     return ret
+
+
+
+def addFromCatalogWithRiskMap(model,catalog, riskMap, year):
+
+    k, l, index, cell, cell_i = 0, 0, 0, 0, 0
+
+    values4poisson = [None] * (len(model.bins)-1)
+
+    # TODO: nao usar key como nome de variavel aqui (criar um dicionario se necessario)
+    # TODO: calcular o numero de keys in definition
+    for definition in model.definitions:
+        if definition['key'] == 'lon':
+            range_lon = definition['step'] * definition['bins']
+            step_lon = definition['step']
+            min_lon = definition['min']
+            max_lon = definition['min'] + (definition['bins'] * definition['step'])
+            bins_lon = definition['bins']
+        if definition['key'] == 'lat':
+            range_lat = definition['step'] * definition['bins']
+            step_lat = definition['step']
+            min_lat = definition['min']
+            max_lat = definition['min'] + (definition['bins'] * definition['step'])
+            bins_lat = definition['bins']
+        if definition['key'] == 'mag':
+            range_mag = definition['step'] * definition['cells']
+            step_mag = definition['step']
+            min_mag = definition['min']
+            max_mag = definition['min'] + (definition['cells'] * definition['step'])
+            cells_mag = definition['cells']
+    # TODO: limpar isto um pouco
+    for m in range(len(catalog)):
+        #kind of a filter, we should define how we are going to filter by year
+        if catalog[m]['year'] == year:  
+            if catalog[m]['lon']>min_lon and catalog[m]['lon']<max_lon:
+                if catalog[m]['lat']>min_lat and catalog[m]['lat']<max_lat:
+                    
+                    #calculating the adequated bin for a coordinate of a earthquake
+                    for i in range(bins_lon):    
+                        index = (step_lon*i) + min_lon
+                        if catalog[m]['lon']>=index and catalog[m]['lon']<(index+step_lon): 
+                            if index+step_lon>max_lon: #to avoid the last index to be out of limits
+                                k -= 1
+                            break
+                        k += 1
+                    for j in range(bins_lat):
+                        index = (step_lat*j) + min_lat
+                        if catalog[m]['lat']>=index and catalog[m]['lat']<(index+step_lat):
+                            if index+step_lat>max_lat: #to avoid the last index to be out of limits
+                                l -= 1
+                            break
+                        l += 1
+                    index = k*bins_lon+l #matriz[i,j] -> vetor[i*45+j], i=lon, j=lat, i=k, j=l
+                    
+                    
+                    model.bins[index] += 1
+                    k,l,cell_i = 0,0,0
+
+                    event = list()
+                    
+                    for element in riskMap:
+                        if element['lon']>=(step_lon*i) + min_lon and element['lon']<((step_lon*i) + min_lon)+step_lon:
+                            if element['lat']>=(step_lat*j) + min_lat and element['lat']<((step_lat*j) + min_lat)+step_lat:
+                                event.append(element['prop'])
+                    aux = Counter (event)
+                    prob = aux.most_common(1)
+                    if event != []:
+                        values4poisson.insert(index, prob[0][0])
+                    del event
+
+        model.values4poisson = values4poisson
+    return model
+
+
+
+
+
+
+
+
+
+
+
+
 
