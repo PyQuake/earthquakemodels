@@ -4,6 +4,7 @@ import models.mathUtil as mathUtil
 import earthquake.catalog as catalog
 import models.model as model
 import gaModel.gaModel_Yuri as ga
+import gaModel.GAModelP_AVR as gaModelP_AVR
 import gaModel.gaModel_YuriWithMag as gaWithMag
 import gaModel.etasGaModelNP as etasGaModelNP
 import models.modelEtasGa as etasGa
@@ -11,6 +12,7 @@ import models.randomModel as randomModel
 import gaModel.parallelGA as parallelGA
 import gaModel.parallelList as parallelList
 import time
+
 
 def execParallelGARandomParSC(year, region, depth, qntYears=5, times=10, save=True):
 	
@@ -244,7 +246,7 @@ def createRealModelClusteredII(year, region, depth, withMag=True, save=False):
 	catalogo=catalog.readFromFile('../data/regions_classified-M.dat')
 	catalogo=catalog.filter(catalogo,definicao)
 	observacao=model.newModel(definicao, mag=withMag)
-	observacao=model.addFromCatalog(observacao,catalogo,year,)
+	observacao=model.addFromCatalog(observacao,catalogo,year)
 
 	if save==True:
 		if observacao.mag==False:
@@ -321,13 +323,33 @@ def createRealModelSC(year, region, depth, withMag=True, save=False):
 	definicao=model.loadModelDefinition('../params/'+region+'Etas_'+str(depth)+'.txt')
 	catalogo=catalog.readFromFile('../data/SC-catalog.dat')
 	catalogo=catalog.filter(catalogo,definicao)
-	observacao=model.newModel(definicao)
+	observacao=model.newModel(definicao, mag=False)
 	observacao=model.addFromCatalog(observacao,catalogo,year)
 
 	if save==True:
 		if observacao.mag==False:
-			model.saveModelToFile(observacao, '../Zona3/sc/'+str(3.0)+region+'real'+str(depth)+"_"+str(year)+'.txt', real=True)
+			model.saveModelToFile(observacao, '../Zona3/sc-weights/'+str(3.0)+region+'real'+str(depth)+"_"+str(year)+'.txt', real=True)
 
+
+def createandExecRealModelSCwithP_AVR(year, region, qntYears=5, depth=100, withMag=True, save=True):		
+	observations=list()
+	for i in range(qntYears):
+		definicao=model.loadModelDefinition('../params/'+region+'Etas_'+str(depth)+'.txt')
+		catalogo=catalog.readFromFile('../data/SC-catalog.dat')
+		catalogo=catalog.filter(catalogo,definicao)
+		observacao=model.newModel(definicao, mag=False)
+		riskMap=catalog.readFromFileP_AVR('../data/P_AVR-MAP_T30-TTL_TTL_TTL_TOTAL_I55_PS.csv')
+		# riskMap=catalog.filter(riskMap,definicao)
+		observacao=model.addFromCatalogP_AVR(observacao, catalogo, riskMap, year+i)
+		model.saveModelToFile(observacao, '../Zona3/sc-weights/'+str(3.0)+region+'real'+str(depth)+"_"+str(year+i)+'.txt', real=True)
+		observation=model.loadModelFromFile('../Zona3/sc-weights/3.0'+region+'real'+str(depth)+"_"+str(year+i)+'.txt')
+		observation.bins = observation.bins.tolist()
+		observations.append(observation)
+	times=10
+	for i in range(times):
+		modelo=gaModelP_AVR.gaModel('sc', 100,0.9,0.1,observations,year+qntYears,region, depth)
+	if save==True:
+            model.saveModelToFile(modelo, '../Zona3/sc-weights/gamodel'+region+'_'+str(depth)+"_"+str(year+qntYears)+str(i)+'.txt')
 
 def execGaModelSC(year, region,  depth, qntYears=5, times=10, save=True):
 
@@ -364,8 +386,11 @@ def main():
 		
 	# #exec models
 	region = 'Kanto'
-	year=2005
+	year=2000
 	depth = 100
+	# execGaModelSC(year, region, depth, save=False)
+	# createRealModelSC(year, region, depth, save=True)
+	# createandExecRealModelSCwithP_AVR(year, region)
 #	while(year<2003):
 	execParallelListGARandomParSC(year, region, depth=depth, save=False)
 	execParallelGARandomParSC(year, region, depth=depth, save=False)

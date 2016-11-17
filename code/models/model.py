@@ -267,11 +267,11 @@ def convertFromListToData(observations,length):
 
 
 
-def addFromCatalogWithRiskMap(model,catalog, riskMap, year):
-
+def addFromCatalogP_AVR(model,catalog, riskMap, year):
+    
     k, l, index, cell, cell_i = 0, 0, 0, 0, 0
 
-    values4poisson = [None] * (len(model.bins)-1)
+    values4poisson = [1] * (len(model.bins)-1)
 
     # TODO: nao usar key como nome de variavel aqui (criar um dicionario se necessario)
     # TODO: calcular o numero de keys in definition
@@ -323,11 +323,10 @@ def addFromCatalogWithRiskMap(model,catalog, riskMap, year):
                     k,l,cell_i = 0,0,0
 
                     event = list()
-                    
                     for element in riskMap:
-                        if element['lon']>=(step_lon*i) + min_lon and element['lon']<((step_lon*i) + min_lon)+step_lon:
-                            if element['lat']>=(step_lat*j) + min_lat and element['lat']<((step_lat*j) + min_lat)+step_lat:
-                                event.append(element['prop'])
+                        if element['lon']>=(step_lon*i) + min_lon and element['lon']<=((step_lon*i) + min_lon)+step_lon:
+                            if element['lat']>=(step_lat*j) + min_lat and element['lat']<=((step_lat*j) + min_lat)+step_lat:
+                                event.append(1+element['prob'])
                     aux = Counter (event)
                     prob = aux.most_common(1)
                     if event != []:

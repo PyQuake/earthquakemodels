@@ -143,30 +143,3 @@ def readFromFileP_AVR(filename):
     f.close()
     return ret
 
-def filterP_AVR(catalog,conditions):
-    """ Returns a new catalog by removing events of the old one that do not 
-    match the conditions. The conditions is a list of dictionaries in 
-    the following form:
-
-    {"key":'name',"min":value,"max":value}
-    
-    an element in the catalog will be discarded if every field with key "condition" is not 
-    between the minimum and maximum values. If max or min is None, that limit is not tested.
-    
-    WARNING: remember that the "datetime" key requires a datetime object
-    """
-    
-    ret = []
-    for event in catalog:
-        discarded = False
-        for condition in conditions:
-            if condition['key']!='mag' and condition['key']!='depth':
-                if 'min' in condition:
-                    discarded = discarded or (event[condition['key']] < condition['min'])
-                if 'max' in condition:
-                    discarded = discarded or (event[condition['key']] > condition['max'])
-                if discarded:
-                    break
-            if not discarded:
-                ret.append(event)
-    return ret
