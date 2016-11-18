@@ -10,7 +10,6 @@ import random
 import array
 #Parallel
 import multiprocessing
-from time import time
 
 
 def evaluationFunction(individual, modelOmega):
@@ -21,15 +20,12 @@ def evaluationFunction(individual, modelOmega):
 	for i in range(len(modelOmega)):
 		modelLambda.bins=list(individual)
 
-		if hasattr(modelOmega, 'values4poisson'):
-			modelLambda.bins=calcNumberBins(modelLambda.bins, modelOmega[i].bins, modelOmega.values4poisson)
-		else:
-			modelLambda.bins=calcNumberBins(modelLambda.bins, modelOmega[i].bins)
-
+		modelLambda.bins=calcNumberBins(modelLambda.bins, modelOmega[i].bins, modelOmega[i].values4poisson)
 		tempValue=loglikelihood(modelLambda, modelOmega[i])
 
 		if tempValue < logValue:
 			logValue = tempValue
+
 	return logValue,
 
 	
@@ -58,17 +54,14 @@ stats.register("max", numpy.max)
 pool = multiprocessing.Pool()
 toolbox.register("map", pool.map)
 
-def gaModel(type_m, NGEN,CXPB,MUTPB,modelOmega,year,region, depth, n_aval=500):
-	y=int(n_aval/NGEN)
-	x=n_aval - y*NGEN
-	n= x + y
+def gaModel(NGEN, n, CXPB,MUTPB, modelOmega,year,region, depth=100):
 
 	toolbox.register("evaluate", evaluationFunction, modelOmega=modelOmega)
 	toolbox.register("individual", tools.initRepeat, creator.Individual, toolbox.attr_float, len(modelOmega[0].bins))
 	toolbox.register("population", tools.initRepeat, list, toolbox.individual)
 
-	logbook = tools.Logbook()
-	logbook.header = "gen", "depth","min","avg","max","std"
+	# logbook = tools.Logbook()
+	# logbook.header = "gen", "depth","min","avg","max","std"
 
 	pop = toolbox.population(n)
 	# Evaluate the entire population
@@ -78,6 +71,7 @@ def gaModel(type_m, NGEN,CXPB,MUTPB,modelOmega,year,region, depth, n_aval=500):
 		ind.fitness.values = fit
 
 	for g in range(NGEN):
+		print('g in P_AVR',g)
 		# Select the next generation individuals
 		offspring = toolbox.select(pop, len(pop))
 		# Clone the selected individuals
@@ -118,16 +112,16 @@ def gaModel(type_m, NGEN,CXPB,MUTPB,modelOmega,year,region, depth, n_aval=500):
 		pop[:] = offspring
 		
 		#logBook
-		record = stats.compile(pop)
-		logbook.record(gen=g,  depth=depth,**record)
+		# record = stats.compile(pop)
+		# logbook.record(gen=g,  depth=depth,**record)
 
 	
 	generatedModel = type(modelOmega[0])
 	generatedModel.prob = best_pop
 	generatedModel.bins = calcNumberBins(best_pop, modelOmega[0].bins)
 	generatedModel.loglikelihood = best_pop.fitness.values
-	generatedModel.definitions = modelOmega[0].definitions
-	generatedModel.mag=True
+	# generatedModel.definitions = modelOmega[0].definitions
+	# generatedModel.mag=True
 	#for pysmac
 	# logValue = best_pop.fitness.values
 	#return logValue
@@ -136,7 +130,7 @@ def gaModel(type_m, NGEN,CXPB,MUTPB,modelOmega,year,region, depth, n_aval=500):
 	# fit_max=logbook.select("max")
 	# fit_std = logbook.select("std")
 	# print(gen, fit_std, fit_max)
-	return generatedModel
+	return generatedModel.loglikelihood
 
 if __name__ == "__main__":
 	gaModel()

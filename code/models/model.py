@@ -271,8 +271,7 @@ def addFromCatalogP_AVR(model,catalog, riskMap, year):
     
     k, l, index, cell, cell_i = 0, 0, 0, 0, 0
 
-    values4poisson = [1] * (len(model.bins)-1)
-
+    values4poisson = [1] * (len(model.bins))
     # TODO: nao usar key como nome de variavel aqui (criar um dicionario se necessario)
     # TODO: calcular o numero de keys in definition
     for definition in model.definitions:
@@ -321,7 +320,7 @@ def addFromCatalogP_AVR(model,catalog, riskMap, year):
                     
                     model.bins[index] += 1
                     k,l,cell_i = 0,0,0
-
+                    
                     event = list()
                     for element in riskMap:
                         if element['lon']>=(step_lon*i) + min_lon and element['lon']<=((step_lon*i) + min_lon)+step_lon:
@@ -330,10 +329,9 @@ def addFromCatalogP_AVR(model,catalog, riskMap, year):
                     aux = Counter (event)
                     prob = aux.most_common(1)
                     if event != []:
-                        values4poisson.insert(index, prob[0][0])
+                        values4poisson[index]= prob[0][0]
                     del event
-
-        model.values4poisson = values4poisson
+    model.values4poisson = values4poisson
     return model
 
 
