@@ -386,7 +386,7 @@ def main():
 		
 	# #exec models
 	region = 'Kanto'
-	year=2000
+	year=2005
 	depth = 100
 	# execGaModelSC(year, region, depth, save=False)
 	# createRealModelSC(year, region, depth, save=True)
