@@ -71,7 +71,6 @@ def gaModel(NGEN, n, CXPB,MUTPB, modelOmega,year,region, depth=100):
 		ind.fitness.values = fit
 
 	for g in range(NGEN):
-		print('g in P_AVR',g)
 		# Select the next generation individuals
 		offspring = toolbox.select(pop, len(pop))
 		# Clone the selected individuals
@@ -130,7 +129,7 @@ def gaModel(NGEN, n, CXPB,MUTPB, modelOmega,year,region, depth=100):
 	# fit_max=logbook.select("max")
 	# fit_std = logbook.select("std")
 	# print(gen, fit_std, fit_max)
-	return generatedModel.loglikelihood
+	return generatedModel
 
 if __name__ == "__main__":
 	gaModel()

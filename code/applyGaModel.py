@@ -345,9 +345,9 @@ def createandExecRealModelSCwithP_AVR(year, region, qntYears=5, depth=100, withM
 	observacao.bins = observacao.bins.tolist()
 	observations.append(observacao)
 	
-	times = 10
+	times = 1
 	for i in range(times):
-		modelo=gaModelWeights.gaModel(20,100, 0.9, 0.1,observations,year+qntYears,region, depth)
+		modelo=gaModelWeights.gaModel(2,2, 0.9, 0.1,observations,year+qntYears,region, depth)
 	if save==True:
             model.saveModelToFile(modelo, '../Zona3/sc-weights/gamodel'+region+'_'+str(depth)+"_"+str(year+qntYears)+str(i)+'.txt')
 
