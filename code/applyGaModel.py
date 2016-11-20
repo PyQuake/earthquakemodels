@@ -4,8 +4,8 @@ import models.mathUtil as mathUtil
 import earthquake.catalog as catalog
 import models.model as model
 import gaModel.gaModel_Yuri as ga
-import gaModel.GAModelP_AVR as gaModelP_AVR
-import gaModel.gaModelWeights as gaModelWeights
+#import gaModel.GAModelP_AVR as gaModelP_AVR
+#import gaModel.gaModelWeights as gaModelWeights
 import gaModel.gaModel_YuriWithMag as gaWithMag
 import gaModel.etasGaModelNP as etasGaModelNP
 import models.modelEtasGa as etasGa
@@ -390,12 +390,12 @@ def main():
 	depth = 100
 	# execGaModelSC(year, region, depth, save=False)
 	# createRealModelSC(year, region, depth, save=True)
-	createandExecRealModelSCwithP_AVR(year, region)
+#	createandExecRealModelSCwithP_AVR(year, region)
 #	while(year<2003):
-	# execParallelListGARandomParSC(year, region, depth=depth, save=False)
-	# execParallelGARandomParSC(year, region, depth=depth, save=False)
-	# execParallelGARandomPar(year, region, depth=depth, save=False)
-	# execParallelListGARandomPar(year, region, depth=depth, save=False)
+	execParallelListGARandomParSC(year, region, depth=depth, save=False)
+	execParallelGARandomParSC(year, region, depth=depth, save=False)
+	execParallelGARandomPar(year, region, depth=depth, save=False)
+	execParallelListGARandomPar(year, region, depth=depth, save=False)
 #		year+=1
 
 if __name__ == "__main__":
