@@ -29,7 +29,7 @@ def evaluationFunction(individual, year, catalogo, region):
 		# observacao.bins = observacao.bins.tolist()
 		observacao.values4poisson = list(individual)
 		observations.append(observacao)
-	modelo=gaModelP_AVR.gaModel(2,2,0.9,0.1,observations,year+qntYears,region, depth)
+	modelo=gaModelP_AVR.gaModel(20,50,0.9,0.1,observations,year+qntYears,region, depth)
 	modelo.values4poisson= list(individual)
 	global bins
 	bins = modelo.bins
