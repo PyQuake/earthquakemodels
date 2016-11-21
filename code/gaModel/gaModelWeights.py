@@ -10,23 +10,31 @@ import random
 import array
 #Parallel
 import multiprocessing
+from time import time
+import gaModel.GAModelP_AVR as gaModelP_AVR
 
+import earthquake.catalog as catalog
 
-def evaluationFunction(individual, modelOmega):
-	
-	logValue = float('Infinity')
-	modelLambda=type(modelOmega[0])
+bins = list()
 
-	for i in range(len(modelOmega)):
-		modelLambda.bins=list(individual)
+def evaluationFunction(individual, year, catalogo, region):
+	qntYears=5
+	depth = 100
 
-		modelLambda.bins=calcNumberBins(modelLambda.bins, modelOmega[i].bins, modelOmega[i].values4poisson)
-		tempValue=loglikelihood(modelLambda, modelOmega[i])
+	definicao=models.model.loadModelDefinition('../params/'+region+'Etas_'+str(depth)+'.txt')
+	for i in range(qntYears):
+		observations=list()
+		observacao=models.model.newModel(definicao, mag=False)
+		observacao=models.model.addFromCatalog(observacao, catalogo, year)
+		# observacao.bins = observacao.bins.tolist()
+		observacao.values4poisson = list(individual)
+		observations.append(observacao)
+	modelo=gaModelP_AVR.gaModel(2,2,0.9,0.1,observations,year+qntYears,region, depth)
+	modelo.values4poisson= list(individual)
+	global bins
+	bins = modelo.bins
+	return modelo.loglikelihood[0],
 
-		if tempValue < logValue:
-			logValue = tempValue
-
-	return logValue,
 
 	
 
@@ -35,42 +43,43 @@ toolbox = base.Toolbox()
 creator.create("FitnessFunction", base.Fitness, weights=(1.0,))
 creator.create("Individual", array.array, typecode='d', fitness=creator.FitnessFunction)
 # Attribute generator
+# TODO: mudar aqui pra receber os pesos ja
+# talvez nao seja esse
 toolbox.register("attr_float", random.random)
-
-
 
 
 toolbox.register("mate", tools.cxOnePoint)
 toolbox.register("select", tools.selTournament, tournsize=3)
 toolbox.register("mutate", tools.mutPolynomialBounded,indpb=0.1, eta = 1, low = 0, up = 1)
 
-stats = tools.Statistics(key=lambda ind: ind.fitness.values)
-stats.register("avg", numpy.mean)
-stats.register("std", numpy.std)
-stats.register("min", numpy.min)
-stats.register("max", numpy.max)
-
 #parallel
-pool = multiprocessing.Pool()
-toolbox.register("map", pool.map)
+# pool = multiprocessing.Pool()
+# toolbox.register("map", pool.map)
 
 def gaModel(NGEN, n, CXPB,MUTPB, modelOmega,year,region, depth=100):
 
-	toolbox.register("evaluate", evaluationFunction, modelOmega=modelOmega)
-	toolbox.register("individual", tools.initRepeat, creator.Individual, toolbox.attr_float, len(modelOmega[0].bins))
+	
+	definicao=models.model.loadModelDefinition('../params/'+region+'Etas_'+str(depth)+'.txt')
+	catalogo=catalog.readFromFile('../data/SC-catalog.dat')
+	catalogo=catalog.filter(catalogo,definicao)
+	toolbox.register("evaluate", evaluationFunction, year=year, catalogo=catalogo, region=region)
+	# toolbox.register("individual", modelOmega[0].values4poisson)
+	toolbox.register("individual", tools.initRepeat, creator.Individual, toolbox.attr_float, len(modelOmega[0].values4poisson))
 	toolbox.register("population", tools.initRepeat, list, toolbox.individual)
-
-	# logbook = tools.Logbook()
-	# logbook.header = "gen", "depth","min","avg","max","std"
-
+	
 	pop = toolbox.population(n)
-	# Evaluate the entire population
 
+	for ind in pop:
+		for i in range(len(ind)):
+			ind[i] = modelOmega[0].values4poisson[i]
+
+	# Evaluate the entire population
 	fitnesses = list(map(toolbox.evaluate, pop))#need to pass 2 model.bins. One is the real data, the other de generated model
 	for ind, fit in zip(pop, fitnesses):
 		ind.fitness.values = fit
 
 	for g in range(NGEN):
+		print(g)
 		# Select the next generation individuals
 		offspring = toolbox.select(pop, len(pop))
 		# Clone the selected individuals
@@ -109,27 +118,16 @@ def gaModel(NGEN, n, CXPB,MUTPB, modelOmega,year,region, depth=100):
 				break
 
 		pop[:] = offspring
-		
-		#logBook
-		# record = stats.compile(pop)
-		# logbook.record(gen=g,  depth=depth,**record)
 
-	
 	generatedModel = type(modelOmega[0])
-	generatedModel.prob = best_pop
-	generatedModel.bins = calcNumberBins(best_pop, modelOmega[0].bins)
-	generatedModel.loglikelihood = best_pop.fitness.values
-	generatedModel.definitions = modelOmega[0].definitions
-	generatedModel.mag=True
-	#for pysmac
-	# logValue = best_pop.fitness.values
-	#return logValue
-
-	# gen = logbook.select("gen")
-	# fit_max=logbook.select("max")
-	# fit_std = logbook.select("std")
-	# print(gen, fit_std, fit_max)
+	generatedModel.loglikelihood = evaluationFunction(best_pop, year, catalogo, region)
+	generatedModel.values4poisson = best_pop
+	
+	generatedModel.bins = bins
+	print(generatedModel.bins)
+	input()
 	return generatedModel
+
 
 if __name__ == "__main__":
 	gaModel()
