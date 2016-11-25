@@ -56,7 +56,7 @@ toolbox.register("mutate", tools.mutPolynomialBounded,indpb=0.1, eta = 1, low = 
 # pool = multiprocessing.Pool()
 # toolbox.register("map", pool.map)
 
-def gaModel(NGEN, n, CXPB,MUTPB, modelOmega,year,region, depth=100):
+def gaModel(NGEN, n, CXPB,MUTPB, modelOmega,year,region, mean, depth=100):
 
 	
 	definicao=models.model.loadModelDefinition('../params/'+region+'Etas_'+str(depth)+'.txt')
@@ -79,7 +79,6 @@ def gaModel(NGEN, n, CXPB,MUTPB, modelOmega,year,region, depth=100):
 		ind.fitness.values = fit
 
 	for g in range(NGEN):
-		print(g)
 		# Select the next generation individuals
 		offspring = toolbox.select(pop, len(pop))
 		# Clone the selected individuals
@@ -124,8 +123,6 @@ def gaModel(NGEN, n, CXPB,MUTPB, modelOmega,year,region, depth=100):
 	generatedModel.values4poisson = best_pop
 	
 	generatedModel.bins = bins
-	print(generatedModel.bins)
-	input()
 	return generatedModel
 
 

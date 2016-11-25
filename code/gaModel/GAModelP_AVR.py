@@ -54,7 +54,7 @@ stats.register("max", numpy.max)
 pool = multiprocessing.Pool()
 toolbox.register("map", pool.map)
 
-def gaModel(NGEN, n, CXPB,MUTPB, modelOmega,year,region, depth=100):
+def gaModel(NGEN, n, CXPB,MUTPB, modelOmega,year,region, mean, depth=100):
 
 	toolbox.register("evaluate", evaluationFunction, modelOmega=modelOmega)
 	toolbox.register("individual", tools.initRepeat, creator.Individual, toolbox.attr_float, len(modelOmega[0].bins))

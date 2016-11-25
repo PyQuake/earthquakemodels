@@ -34,7 +34,7 @@ def evaluationFunction(individual, modelOmega):
 	return logValue,
 
 
-def gaModel(NGEN, n, CXPB,MUTPB, modelOmega,year,region, depth, FREQ = 10):
+def gaModel(NGEN, n, CXPB,MUTPB, modelOmega,year,region, mean, depth=100, FREQ = 10):
 	creator.create("FitnessFunction2", base.Fitness, weights=(1.0,))
 
 	toolbox = base.Toolbox()

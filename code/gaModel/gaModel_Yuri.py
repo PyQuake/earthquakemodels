@@ -35,10 +35,6 @@ creator.create("FitnessFunction", base.Fitness, weights=(1.0,))
 creator.create("Individual", array.array, typecode='d', fitness=creator.FitnessFunction)
 # Attribute generator
 toolbox.register("attr_float", random.random)
-
-
-
-
 toolbox.register("mate", tools.cxOnePoint)
 toolbox.register("select", tools.selTournament, tournsize=3)
 toolbox.register("mutate", tools.mutPolynomialBounded,indpb=0.1, eta = 1, low = 0, up = 1)
@@ -53,7 +49,7 @@ stats.register("max", numpy.max)
 pool = multiprocessing.Pool()
 toolbox.register("map", pool.map)
 
-def gaModel(type_m, NGEN,CXPB,MUTPB,modelOmega,year,region, depth, n_aval=50000):
+def gaModel(type_m, NGEN,CXPB,MUTPB,modelOmega,year,region, mean, depth=100, n_aval=50000):
 	bt = time()
 	y=int(n_aval/NGEN)
 	x=n_aval - y*NGEN

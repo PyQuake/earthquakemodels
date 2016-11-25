@@ -44,7 +44,7 @@ def mutationFunction(individual, indpb, definitions, length):
     return individual
 
 
-def gaModel(NGEN, n, CXPB,MUTPB, modelOmega,year,region, depth, FREQ = 10):
+def gaModel(NGEN, n, CXPB,MUTPB, modelOmega,year,region, mean, depth=100, FREQ = 10):
 
 	target = 0
 	info = MPI.Status()
