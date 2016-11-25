@@ -181,19 +181,19 @@ def execEtasGaModel(year, region, depth, qntYears=5, times=10, save=True):
 def execGaModel(year, region,  depth, qntYears=5, times=10, save=True):
 
     observations=list()
-	means = list()
+    means = list()
 
-	for i in range(qntYears):
-		observation=model.loadModelFromFile('../Zona3/sc/3.0'+region+'real'+str(depth)+"_"+str(year+i)+'.txt')
-		observation.bins=observation.bins.tolist()
-		observations.append(observation)
-		means.append(observation.bins)
-	mean = np.mean(means)
+    for i in range(qntYears):
+    	observation=model.loadModelFromFile('../Zona3/sc/3.0'+region+'real'+str(depth)+"_"+str(year+i)+'.txt')
+    	observation.bins=observation.bins.tolist()
+    	observations.append(observation)
+    	means.append(observation.bins)
+    mean = np.mean(means)
 
     for i in range(times):
-        modelo=ga.gaModel('non-clustered', 100,0.9,0.1,observations,year+qntYears,region, mean)
-        if save==True:
-            model.saveModelToFile(modelo, '../Zona3/gaModel/'+region+'_'+str(depth)+"_"+str(year+qntYears)+str(i)+'.txt')
+    	modelo=ga.gaModel('non-clustered', 100,0.9,0.1,observations,year+qntYears,region, mean)
+    	if save==True:
+    		model.saveModelToFile(modelo, '../Zona3/gaModel/'+region+'_'+str(depth)+"_"+str(year+qntYears)+str(i)+'.txt')
 
 #should not use this one
 def execGaModelWithMag(year, region, times, save=False):
