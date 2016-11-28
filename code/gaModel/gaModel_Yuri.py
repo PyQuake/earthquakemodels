@@ -50,7 +50,7 @@ pool = multiprocessing.Pool()
 toolbox.register("map", pool.map)
 
 def gaModel(type_m, NGEN,CXPB,MUTPB,modelOmega,year,region, mean, depth=100, n_aval=50000):
-	bt = time()
+
 	y=int(n_aval/NGEN)
 	x=n_aval - y*NGEN
 	n= x + y
@@ -139,8 +139,7 @@ def gaModel(type_m, NGEN,CXPB,MUTPB,modelOmega,year,region, mean, depth=100, n_a
 	# fit_max=logbook.select("max")
 	# fit_std = logbook.select("std")
 	# print(gen, fit_std, fit_max)
-	totalTime = time() - bt
-	print("total time: " + str(totalTime))
+	
 	return generatedModel
 
 if __name__ == "__main__":

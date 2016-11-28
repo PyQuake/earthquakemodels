@@ -191,7 +191,7 @@ def execGaModel(year, region,  depth, qntYears=5, times=10, save=True):
     mean = np.mean(means)
 
     for i in range(times):
-    	modelo=ga.gaModel('non-clustered', 100,0.9,0.1,observations,year+qntYears,region, mean)
+    	modelo=ga.gaModel('non-clustered', 10,0.9,0.1,observations,year+qntYears,region, mean, n_aval=50)
     	if save==True:
     		model.saveModelToFile(modelo, '../Zona3/gaModel/'+region+'_'+str(depth)+"_"+str(year+qntYears)+str(i)+'.txt')
 
@@ -371,7 +371,7 @@ def createandExecRealModelSCwithP_AVR(year, region, qntYears=5, depth=100, withM
 		observacao=model.addFromCatalogP_AVR(observacao, catalogo, riskMap, year)
 		observacao.bins = observacao.bins.tolist()
 		observations.append(observacao)
-		means.append(observation.bins)
+		means.append(observacao.bins)
 	mean = np.mean(means)
 	
 	times = 10
@@ -443,7 +443,7 @@ def main():
 	while(year<=2005):
 	# execParallelListGARandomParSC(year, region, depth=depth, save=False)
 	# execParallelGARandomParSC(year, region, depth=depth, save=False)
-		execGaModel(year, region, depth=depth, save=False)
+		execGaModel(year, region, depth=depth, save=True)
 		createandExecRealModelSCwithP_AVR(year, region)
 	# execParallelListGARandomPar(year, region, depth=depth, save=False)
 		year+=1

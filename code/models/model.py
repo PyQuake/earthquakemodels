@@ -345,7 +345,7 @@ def addFromCatalogP_AVR(model,catalog, riskMap, year):
 
                 if values4poisson[index] == None:
                     values4poisson[index] = list()
-                if len(riskMap[0]!=11):
+                if len(riskMap[0])!=11:
                     values4poisson[index].append(1 + element['prob'])
                 else:
                     values4poisson[index].append(element['prob'])
