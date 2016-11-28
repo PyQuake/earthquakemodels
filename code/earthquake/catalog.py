@@ -12,6 +12,8 @@ from datetime import datetime
 JMA_keys = ("lon","lat","year","month","day","mag","depth","hour",
             "min","sec")
 P_AVR_keys = ("CODE", "lon", "lat", "WLON", "WLAT", "prob")
+VS400_keys = ("CODE", "lon", "lat", "WLON", "WLAT", "JCODE", "HEIGHT",
+            "DISTANCE", "AVS", "prob", "ACODE", "HCODE")
 FNET_keys = ("year","month","day","hour","min","sec","lat","lon",
              "depth","mag","s1","s2","d1","d2","r1","r2","depth2",
              "mag2","var")
@@ -127,10 +129,12 @@ def readFromFileP_AVR(filename):
         if line[0] == '#':
             continue
         tokens = line.split(',')
-        
         # test the file type if still undefined
         if keys == None:
-            keys = P_AVR_keys
+            if len(tokens)==6:
+                keys = P_AVR_keys
+            else:
+                keys = VS400_keys
 
         event = dict()
         for key,value in zip(keys,tokens):

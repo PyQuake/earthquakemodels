@@ -271,7 +271,8 @@ def addFromCatalogP_AVR(model,catalog, riskMap, year):
     
     k, l, index, cell, cell_i = 0, 0, 0, 0, 0
 
-    values4poisson = [1] * (len(model.bins))
+    values4poisson = [None] * (len(model.bins))
+
     # TODO: nao usar key como nome de variavel aqui (criar um dicionario se necessario)
     # TODO: calcular o numero de keys in definition
     for definition in model.definitions:
@@ -321,16 +322,91 @@ def addFromCatalogP_AVR(model,catalog, riskMap, year):
                     model.bins[index] += 1
                     k,l,cell_i = 0,0,0
                     
-                    event = list()
-                    for element in riskMap:
-                        if element['lon']>=(step_lon*i) + min_lon and element['lon']<=((step_lon*i) + min_lon)+step_lon:
-                            if element['lat']>=(step_lat*j) + min_lat and element['lat']<=((step_lat*j) + min_lat)+step_lat:
-                                event.append(1+element['prob'])
-                    aux = Counter (event)
-                    prob = aux.most_common(1)
-                    if event != []:
-                        values4poisson[index]= prob[0][0]
-                    del event
+    
+    k,l,cell_i, index = 0,0,0 ,0
+    for element in riskMap:
+        if element['lon'] > min_lon and element['lon'] < max_lon:
+            if element['lat'] > min_lat and element['lat'] < max_lat:
+                for i in range(bins_lon):    
+                    index = (step_lon*i) + min_lon
+                    if element['lon']>=index and element['lon']<(index+step_lon): 
+                        if index+step_lon>max_lon: #to avoid the last index to be out of limits
+                            k -= 1
+                        break
+                    k += 1
+                for j in range(bins_lat):
+                    index = (step_lat*j) + min_lat
+                    if element['lat']>=index and element['lat']<(index+step_lat):
+                        if index+step_lat>max_lat: #to avoid the last index to be out of limits
+                            l -= 1
+                        break
+                    l += 1
+                index = k*bins_lon+l #matriz[i,j] -> vetor[i*45+j], i=lon, j=lat, i=k, j=l
+
+                if values4poisson[index] == None:
+                    values4poisson[index] = list()
+                if len(riskMap[0]!=11):
+                    values4poisson[index].append(1 + element['prob'])
+                else:
+                    values4poisson[index].append(element['prob'])
+                # values4poisson[index].append(1 + element['prob'])
+                k,l,cell_i = 0,0,0
+
+                # event.append(1+element['prob'])
+
+    for value, index in zip(values4poisson, range(len(values4poisson))):    
+        if type(value) == type(list()):
+            aux = Counter (value)
+            prob = aux.most_common(1)
+            values4poisson[index]= prob[0][0]
+
+    for value, index in zip(values4poisson, range(len(values4poisson))):    
+        if value == None: 
+            j = bins_lon 
+            i = bins_lat 
+            neighbourVal = list()
+            queue = list()
+            queue.append(index)
+            while True:
+                pos = queue.pop()
+                if pos < len(model.bins):
+                    if (((pos+1) % j)!=0): #right
+                        if values4poisson[pos+1] != None:
+                            neighbourVal.append(values4poisson[pos+1])
+                    if (pos >= j): #up
+                        if values4poisson[pos-j] != None:
+                            neighbourVal.append(values4poisson[pos-j])
+                    if (pos < ((i*j)-j) and ((pos) % j)!=0): # dowm right
+                        if values4poisson[(pos+j)+1] != None:
+                            neighbourVal.append(values4poisson[(pos+j)+1])
+                    if (pos < ((i*j)-j) and ((pos+1) % j)!=0): # down left 
+                        if values4poisson[(pos+j) - 1] != None:
+                            neighbourVal.append(values4poisson[(pos+j) - 1])
+                    if (pos >= j and ((pos) % j)!=0): #up left
+                        if values4poisson[(pos-j)-1] != None:
+                            neighbourVal.append(values4poisson[(pos-j)-1])
+                    if (pos >= j and ((pos+1) % j)!=0): # up right
+                        if values4poisson[(pos-j)+1] != None:
+                            neighbourVal.append(values4poisson[(pos-j)+1])
+                    if (pos < (i*j)-j): #down
+                        if values4poisson[pos+j] != None:
+                            neighbourVal.append(values4poisson[pos+j])
+                    if (((pos) % j)!=0): #left
+                        if values4poisson[pos-1] != None:
+                            neighbourVal.append(values4poisson[pos-1])
+                    if neighbourVal != list() and queue == list():
+                        values4poisson[index] = numpy.mean(neighbourVal)
+                        break
+                    elif queue == list():
+                        queue.append(pos-j)
+                        queue.append(pos-1)
+                        queue.append(pos+1)
+                        queue.append(pos+j)
+                        
+                    del queue
+                    del neighbourVal
+
+
     model.values4poisson = values4poisson
     return model
 

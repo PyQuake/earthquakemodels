@@ -365,7 +365,7 @@ def createandExecRealModelSCwithP_AVR(year, region, qntYears=5, depth=100, withM
 		catalogo=catalog.readFromFile('../data/SC-catalog.dat')
 		catalogo=catalog.filter(catalogo,definicao)
 		observacao=model.newModel(definicao, mag=False)
-		riskMap=catalog.readFromFileP_AVR('../data/P_AVR-MAP_T30-TTL_TTL_TTL_TOTAL_I55_PS.csv')
+		riskMap=catalog.readFromFileP_AVR('../data/P_AVR-MAP_T30-TTL_TTL_TTL_TOTAL_I45_PS.csv')
 		riskMap=catalog.filterP_AVR(riskMap,definicao)
 
 		observacao=model.addFromCatalogP_AVR(observacao, catalogo, riskMap, year)
@@ -376,9 +376,29 @@ def createandExecRealModelSCwithP_AVR(year, region, qntYears=5, depth=100, withM
 	
 	times = 10
 	for i in range(times):
-		modelo=gaModelWeights.gaModel(50,150, 0.9, 0.1,observations,year+qntYears,region, mean)
+		modelo=gaModelP_AVR.gaModel(100,500,0.9,0.1,observations,year+qntYears,region, depth)
 	if save==True:
-            model.saveModelToFile(modelo, '../Zona3/sc-weights/gamodel'+region+'_'+str(depth)+"_"+str(year+qntYears)+str(i)+'.txt')
+            model.saveModelToFile(modelo, '../Zona3/sc-weights/gamodel'+'PSHM'+region+'_'+str(depth)+"_"+str(year+qntYears)+str(i)+'.txt')
+
+	for i in range(qntYears):
+		definicao=model.loadModelDefinition('../params/'+region+'Etas_'+str(depth)+'.txt')
+		catalogo=catalog.readFromFile('../data/SC-catalog.dat')
+		catalogo=catalog.filter(catalogo,definicao)
+		observacao=model.newModel(definicao, mag=False)
+		riskMap=catalog.readFromFileP_AVR('../data/Z_JAPAN-AMP-VS400.csv')
+		riskMap=catalog.filterP_AVR(riskMap,definicao)
+
+		observacao=model.addFromCatalogP_AVR(observacao, catalogo, riskMap, year)
+		observacao.bins = observacao.bins.tolist()
+		observations.append(observacao)
+		means.append(observation.bins)
+	mean = np.mean(means)
+
+	times = 10
+	for i in range(times):
+		modelo=gaModelP_AVR.gaModel(100,500,0.9,0.1,observations,year+qntYears,region, depth)
+	if save==True:
+		model.saveModelToFile(modelo, '../Zona3/sc-weights/gamodel'+'AF'+region+'_'+str(depth)+"_"+str(year+qntYears)+str(i)+'.txt')
 
 def execGaModelSC(year, region,  depth, qntYears=5, times=10, save=True):
 
@@ -419,11 +439,12 @@ def main():
 	depth = 100
 	# execGaModelSC(year, region, depth, save=False)
 	# createRealModelSC(year, region, depth, save=True)
-	# createandExecRealModelSCwithP_AVR(year, region)
+	# 
 	while(year<=2005):
 	# execParallelListGARandomParSC(year, region, depth=depth, save=False)
 	# execParallelGARandomParSC(year, region, depth=depth, save=False)
 		execGaModel(year, region, depth=depth, save=False)
+		createandExecRealModelSCwithP_AVR(year, region)
 	# execParallelListGARandomPar(year, region, depth=depth, save=False)
 		year+=1
 
