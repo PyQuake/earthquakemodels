@@ -1,1 +1,0 @@
-[{'cells': 1, 'max': 37.5, 'min': 34.8, 'key': 'lat', 'step': 0.05, 'bins': 45}, {'cells': 1, 'max': 141.05, 'min': 138.8, 'key': 'lon', 'step': 0.05, 'bins': 45}, {'cells': 70, 'max': 10.0, 'min': 3.0, 'key': 'mag', 'step': 0.1, 'bins': 1}, {'cells': 1, 'max': 100.0, 'min': 0.0, 'key': 'depth', 'step': 0.0, 'bins': 1}]
