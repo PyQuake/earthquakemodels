@@ -191,7 +191,7 @@ def execGaModel(year, region,  depth, qntYears=5, times=10, save=True):
     mean = np.mean(means)
 
     for i in range(times):
-    	modelo=ga.gaModel('non-clustered', 10,0.9,0.1,observations,year+qntYears,region, mean, n_aval=50)
+    	modelo=ga.gaModel('non-clustered', 100,0.9,0.1,observations,year+qntYears,region, mean)
     	if save==True:
     		model.saveModelToFile(modelo, '../Zona3/gaModel/'+region+'_'+str(depth)+"_"+str(year+qntYears)+str(i)+'.txt')
 
