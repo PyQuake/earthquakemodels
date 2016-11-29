@@ -391,7 +391,7 @@ def createandExecRealModelSCwithP_AVR(year, region, qntYears=5, depth=100, withM
 		observacao=model.addFromCatalogP_AVR(observacao, catalogo, riskMap, year)
 		observacao.bins = observacao.bins.tolist()
 		observations.append(observacao)
-		means.append(observation.bins)
+		means.append(observacao.bins)
 	mean = np.mean(means)
 
 	times = 10
