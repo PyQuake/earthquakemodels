@@ -53,8 +53,8 @@ toolbox.register("select", tools.selTournament, tournsize=3)
 toolbox.register("mutate", tools.mutPolynomialBounded,indpb=0.1, eta = 1, low = 0, up = 1)
 
 #parallel
-# pool = multiprocessing.Pool()
-# toolbox.register("map", pool.map)
+pool = multiprocessing.Pool()
+toolbox.register("map", pool.map)
 
 def gaModel(NGEN, n, CXPB,MUTPB, modelOmega,year,region, mean, depth=100):
 
