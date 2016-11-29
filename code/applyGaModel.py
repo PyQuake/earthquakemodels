@@ -360,27 +360,25 @@ def createRealModelSC(year, region, depth, withMag=True, save=False):
 def createandExecRealModelSCwithP_AVR(year, region, qntYears=5, depth=100, withMag=True, save=True):		
 	observations=list()
 	means = list()
-	# for i in range(qntYears):
-	# 	definicao=model.loadModelDefinition('../params/'+region+'Etas_'+str(depth)+'.txt')
-	# 	catalogo=catalog.readFromFile('../data/SC-catalog.dat')
-	# 	catalogo=catalog.filter(catalogo,definicao)
-	# 	observacao=model.newModel(definicao, mag=False)
-	# 	riskMap=catalog.readFromFileP_AVR('../data/P_AVR-MAP_T30-TTL_TTL_TTL_TOTAL_I45_PS.csv')
-	# 	riskMap=catalog.filterP_AVR(riskMap,definicao)
+	for i in range(qntYears):
+		definicao=model.loadModelDefinition('../params/'+region+'Etas_'+str(depth)+'.txt')
+		catalogo=catalog.readFromFile('../data/SC-catalog.dat')
+		catalogo=catalog.filter(catalogo,definicao)
+		observacao=model.newModel(definicao, mag=False)
+		riskMap=catalog.readFromFileP_AVR('../data/P_AVR-MAP_T30-TTL_TTL_TTL_TOTAL_I45_PS.csv')
+		riskMap=catalog.filterP_AVR(riskMap,definicao)
 
-	# 	observacao=model.addFromCatalogP_AVR(observacao, catalogo, riskMap, year)
-	# 	observacao.bins = observacao.bins.tolist()
-	# 	observations.append(observacao)
-	# 	means.append(observacao.bins)
-	# mean = np.mean(means)
+		observacao=model.addFromCatalogP_AVR(observacao, catalogo, riskMap, year)
+		observacao.bins = observacao.bins.tolist()
+		observations.append(observacao)
+		means.append(observacao.bins)
+	mean = np.mean(means)
 	
-	# times = 10
-	# for i in range(times):
-	# 	modelo=gaModelP_AVR.gaModel(10,50,0.9,0.1,observations,year+qntYears,region, depth)
-	# 	print(modelo.bins, modelo.loglikelihood)
-	# 	exit(0)
-	# 	if save==True:
- #            model.saveModelToFile(modelo, '../Zona3/sc-weights/gamodelPSHM'+region+'_'+str(depth)+"_"+str(year+qntYears)+str(i)+'.txt')
+	times = 10
+	for i in range(times):
+		modelo=gaModelP_AVR.gaModel(10,50,0.9,0.1,observations,year+qntYears,region, depth)
+		if save==True:
+            model.saveModelToFile(modelo, '../Zona3/sc-weights/gamodelPSHM'+region+'_'+str(depth)+"_"+str(year+qntYears)+str(i)+'.txt')
 
 	for i in range(qntYears):
 		definicao=model.loadModelDefinition('../params/'+region+'Etas_'+str(depth)+'.txt')
