@@ -443,7 +443,7 @@ def main():
 	while(year<=2005):
 	# execParallelListGARandomParSC(year, region, depth=depth, save=False)
 	# execParallelGARandomParSC(year, region, depth=depth, save=False)
-		execGaModel(year, region, depth=depth, save=True)
+		# execGaModel(year, region, depth=depth, save=True)
 		createandExecRealModelSCwithP_AVR(year, region)
 	# execParallelListGARandomPar(year, region, depth=depth, save=False)
 		year+=1
