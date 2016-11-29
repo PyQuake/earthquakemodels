@@ -378,7 +378,7 @@ def createandExecRealModelSCwithP_AVR(year, region, qntYears=5, depth=100, withM
 	for i in range(times):
 		modelo=gaModelP_AVR.gaModel(10,50,0.9,0.1,observations,year+qntYears,region, depth)
 		if save==True:
-            model.saveModelToFile(modelo, '../Zona3/sc-weights/gamodelPSHM'+region+'_'+str(depth)+"_"+str(year+qntYears)+str(i)+'.txt')
+			model.saveModelToFile(modelo, '../Zona3/sc-weights/gamodelPSHM'+region+'_'+str(depth)+"_"+str(year+qntYears)+str(i)+'.txt')
 
 	for i in range(qntYears):
 		definicao=model.loadModelDefinition('../params/'+region+'Etas_'+str(depth)+'.txt')
@@ -444,7 +444,7 @@ def main():
 	# execParallelListGARandomParSC(year, region, depth=depth, save=False)
 	# execParallelGARandomParSC(year, region, depth=depth, save=False)
 		# execGaModel(year, region, depth=depth, save=True)
-		createandExecRealModelSCwithP_AVR(year, region, save = False)
+		createandExecRealModelSCwithP_AVR(year, region, save = True)
 	# execParallelListGARandomPar(year, region, depth=depth, save=False)
 		year+=1
 
