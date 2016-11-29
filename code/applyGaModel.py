@@ -376,9 +376,11 @@ def createandExecRealModelSCwithP_AVR(year, region, qntYears=5, depth=100, withM
 	
 	# times = 10
 	# for i in range(times):
-	# 	modelo=gaModelP_AVR.gaModel(100,500,0.9,0.1,observations,year+qntYears,region, depth)
+	# 	modelo=gaModelP_AVR.gaModel(10,50,0.9,0.1,observations,year+qntYears,region, depth)
+	# 	print(modelo.bins, modelo.loglikelihood)
+	# 	exit(0)
 	# 	if save==True:
-	#             model.saveModelToFile(modelo, '../Zona3/sc-weights/gamodel'+'PSHM'+region+'_'+str(depth)+"_"+str(year+qntYears)+str(i)+'.txt')
+ #            model.saveModelToFile(modelo, '../Zona3/sc-weights/gamodelPSHM'+region+'_'+str(depth)+"_"+str(year+qntYears)+str(i)+'.txt')
 
 	for i in range(qntYears):
 		definicao=model.loadModelDefinition('../params/'+region+'Etas_'+str(depth)+'.txt')
@@ -397,8 +399,8 @@ def createandExecRealModelSCwithP_AVR(year, region, qntYears=5, depth=100, withM
 	times = 10
 	for i in range(times):
 		modelo=gaModelP_AVR.gaModel(100,500,0.9,0.1,observations,year+qntYears,region, depth)
-	if save==True:
-		model.saveModelToFile(modelo, '../Zona3/sc-weights/gamodel'+'AF'+region+'_'+str(depth)+"_"+str(year+qntYears)+str(i)+'.txt')
+		if save==True:
+			model.saveModelToFile(modelo, '../Zona3/sc-weights/gamodel'+'AF'+region+'_'+str(depth)+"_"+str(year+qntYears)+str(i)+'.txt')
 
 def execGaModelSC(year, region,  depth, qntYears=5, times=10, save=True):
 
@@ -435,7 +437,7 @@ def main():
 		
 	# #exec models
 	region = 'Kanto'
-	year=2002
+	year=2000
 	depth = 100
 	# execGaModelSC(year, region, depth, save=False)
 	# createRealModelSC(year, region, depth, save=True)
@@ -444,7 +446,7 @@ def main():
 	# execParallelListGARandomParSC(year, region, depth=depth, save=False)
 	# execParallelGARandomParSC(year, region, depth=depth, save=False)
 		# execGaModel(year, region, depth=depth, save=True)
-		createandExecRealModelSCwithP_AVR(year, region)
+		createandExecRealModelSCwithP_AVR(year, region, save = False)
 	# execParallelListGARandomPar(year, region, depth=depth, save=False)
 		year+=1
 

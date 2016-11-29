@@ -25,7 +25,7 @@ def evaluationFunction(individual, modelOmega):
 
 		if tempValue < logValue:
 			logValue = tempValue
-
+	print(logValue)
 	return logValue,
 
 	
