@@ -434,14 +434,13 @@ def execEtasGaModelSC(year, region, depth, qntYears=5, times=10, save=True):
 def main():
 		
 	# #exec models
-	regions = 'Kansai'
+	region = 'Kansai'
 	year=2000
 	depth = 100
 	# execGaModelSC(year, region, depth, save=False)
 	# createRealModelSC(year, region, depth, save=True)
 	# 
 	while(year<=2005):
-		print(region, year)
 	# execParallelListGARandomParSC(year, region, depth=depth, save=False)
 	# execParallelGARandomParSC(year, region, depth=depth, save=False)
 #		execGaModel(year, region, depth=depth, save=True)
@@ -449,14 +448,13 @@ def main():
 	# execParallelListGARandomPar(year, region, depth=depth, save=False)
 		year+=1
 
-	regions = 'Kanto'
+	region = 'Kanto'
 	year=2000
 	depth = 100
 	# execGaModelSC(year, region, depth, save=False)
 	# createRealModelSC(year, region, depth, save=True)
 	# 
 	while(year<=2005):
-		print(region, year)
 	# execParallelListGARandomParSC(year, region, depth=depth, save=False)
 	# execParallelGARandomParSC(year, region, depth=depth, save=False)
 #		execGaModel(year, region, depth=depth, save=True)
@@ -464,14 +462,13 @@ def main():
 	# execParallelListGARandomPar(year, region, depth=depth, save=False)
 		year+=1
 
-	regions = 'Tohoku'
+	region = 'Tohoku'
 	year=2000
 	depth = 100
 	# execGaModelSC(year, region, depth, save=False)
 	# createRealModelSC(year, region, depth, save=True)
 	# 
 	while(year<=2005):
-		print(region, year)
 	# execParallelListGARandomParSC(year, region, depth=depth, save=False)
 	# execParallelGARandomParSC(year, region, depth=depth, save=False)
 #		execGaModel(year, region, depth=depth, save=True)
