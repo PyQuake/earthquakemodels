@@ -376,7 +376,7 @@ def addFromCatalogP_AVR(model,catalog, riskMap, year):
                     if (pos >= j): #up
                         if values4poisson[pos-j] != None:
                             neighbourVal.append(values4poisson[pos-j])
-                    if (pos < ((i*j)-j) and ((pos) % j)!=0): # dowm right
+                    if (pos < ((i*j)-j) and ((pos+1) % j)!=0): # dowm right
                         if values4poisson[(pos+j)+1] != None:
                             neighbourVal.append(values4poisson[(pos+j)+1])
                     if (pos < ((i*j)-j) and ((pos+1) % j)!=0): # down left 

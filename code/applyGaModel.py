@@ -434,7 +434,7 @@ def execEtasGaModelSC(year, region, depth, qntYears=5, times=10, save=True):
 def main():
 		
 	# #exec models
-	regions = ('EastJapan', 'Kansai', 'Tohoku')
+	regions = ('EastJapan', 'Kansai', 'Tohoku', 'Kanto')
 	year=2000
 	depth = 100
 	# execGaModelSC(year, region, depth, save=False)
