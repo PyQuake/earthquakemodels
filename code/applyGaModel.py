@@ -449,7 +449,7 @@ def main():
 	# execParallelListGARandomPar(year, region, depth=depth, save=False)
 		year+=1
 
-regions = 'Kanto'
+	regions = 'Kanto'
 	year=2000
 	depth = 100
 	# execGaModelSC(year, region, depth, save=False)
@@ -464,7 +464,7 @@ regions = 'Kanto'
 	# execParallelListGARandomPar(year, region, depth=depth, save=False)
 		year+=1
 
-regions = 'Tohoku'
+	regions = 'Tohoku'
 	year=2000
 	depth = 100
 	# execGaModelSC(year, region, depth, save=False)
