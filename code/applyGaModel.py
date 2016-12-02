@@ -376,10 +376,13 @@ def createandExecRealModelSCwithP_AVR(year, region, qntYears=5, depth=100, withM
 	
 	times = 10
 	for i in range(times):
-		modelo=gaModelP_AVR.gaModel(100,500,0.9,0.1,observations,year+qntYears,region, depth)
+		modelo=gaModelP_AVR.gaModel(10,50,0.9,0.1,observations,year+qntYears, region, mean = mean)
+		exit()
 		if save==True:
 			model.saveModelToFile(modelo, '../Zona3/sc-weights/gamodelPSHM'+region+'_'+str(depth)+"_"+str(year+qntYears)+str(i)+'.txt')
-#
+
+	observations=list()
+	means = list()
 	for i in range(qntYears):
 		definicao=model.loadModelDefinition('../params/'+region+'Etas_'+str(depth)+'.txt')
 		catalogo=catalog.readFromFile('../data/SC-catalog.dat')
@@ -393,10 +396,10 @@ def createandExecRealModelSCwithP_AVR(year, region, qntYears=5, depth=100, withM
 		observations.append(observacao)
 		means.append(observacao.bins)
 	mean = np.mean(means)
-
+	
 	times = 10
 	for i in range(times):
-		modelo=gaModelP_AVR.gaModel(100,500,0.9,0.1,observations,year+qntYears,region, depth)
+		modelo=gaModelP_AVR.gaModel(100,500,0.9,0.1,observations,year+qntYears,region, mean = mean)
 		if save==True:
 			model.saveModelToFile(modelo, '../Zona3/sc-weights/gamodel'+'AF'+region+'_'+str(depth)+"_"+str(year+qntYears)+str(i)+'.txt')
 
@@ -432,37 +435,8 @@ def execEtasGaModelSC(year, region, depth, qntYears=5, times=10, save=True):
 
 
 def main():
-		
-	# #exec models
-	#region = 'Kansai'
-	#year=2000
-	#depth = 100
-	# execGaModelSC(year, region, depth, save=False)
-	# createRealModelSC(year, region, depth, save=True)
-	# 
-	#while(year<=2005):
-	# execParallelListGARandomParSC(year, region, depth=depth, save=False)
-	# execParallelGARandomParSC(year, region, depth=depth, save=False)
-#		execGaModel(year, region, depth=depth, save=True)
-	#	createandExecRealModelSCwithP_AVR(year, region, save = True)
-	# execParallelListGARandomPar(year, region, depth=depth, save=False)
-	#	year+=1
+	region = input('Enter region:')
 
-	#region = 'Kanto'
-	#year=2000
-	#depth = 100
-	# execGaModelSC(year, region, depth, save=False)
-	# createRealModelSC(year, region, depth, save=True)
-	# 
-	#while(year<=2005):
-	# execParallelListGARandomParSC(year, region, depth=depth, save=False)
-	# execParallelGARandomParSC(year, region, depth=depth, save=False)
-#		execGaModel(year, region, depth=depth, save=True)
-		#createandExecRealModelSCwithP_AVR(year, region, save = True)
-	# execParallelListGARandomPar(year, region, depth=depth, save=False)
-	#		year+=1
-
-	region = 'Tohoku'
 	year=2000
 	depth = 100
 	# execGaModelSC(year, region, depth, save=False)

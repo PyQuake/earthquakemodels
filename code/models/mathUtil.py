@@ -25,8 +25,8 @@ def calcNumberBins(lambda_i, omega_i, weights=None, adjusting=0):
         for lam,om in zip(lambda_i,omega_i):
             bin.append(invertPoisson(lam,om)-adjusting)
     else: 
-        for lam,om, weight in zip(lambda_i,omega_i, weights):
-            bin.append(invertPoisson(lam,om*weight)-adjusting)
+        for lam, weight in zip(lambda_i, weights):
+            bin.append(invertPoisson(lam,omega_i*weight)-adjusting)
     return bin
 
 def normalize(auxList):

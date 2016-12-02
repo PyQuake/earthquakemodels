@@ -12,7 +12,7 @@ import array
 import multiprocessing
 
 
-def evaluationFunction(individual, modelOmega):
+def evaluationFunction(individual, modelOmega, mean):
 	
 	logValue = float('Infinity')
 	modelLambda=type(modelOmega[0])
@@ -20,7 +20,7 @@ def evaluationFunction(individual, modelOmega):
 	for i in range(len(modelOmega)):
 		modelLambda.bins=list(individual)
 
-		modelLambda.bins=calcNumberBins(modelLambda.bins, modelOmega[i].bins, modelOmega[i].values4poisson)
+		modelLambda.bins=calcNumberBins(modelLambda.bins, mean, modelOmega[i].values4poisson)
 		tempValue=loglikelihood(modelLambda, modelOmega[i])
 
 		if tempValue < logValue:
@@ -54,8 +54,7 @@ pool = multiprocessing.Pool()
 toolbox.register("map", pool.map)
 
 def gaModel(NGEN, n, CXPB,MUTPB, modelOmega,year,region, mean, depth=100):
-
-	toolbox.register("evaluate", evaluationFunction, modelOmega=modelOmega)
+	toolbox.register("evaluate", evaluationFunction, modelOmega=modelOmega, mean= mean)
 	toolbox.register("individual", tools.initRepeat, creator.Individual, toolbox.attr_float, len(modelOmega[0].bins))
 	toolbox.register("population", tools.initRepeat, list, toolbox.individual)
 
