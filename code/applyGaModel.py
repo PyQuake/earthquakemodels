@@ -454,7 +454,7 @@ def main():
 	# execGaModelSC(year, region, depth, save=False)
 	# createRealModelSC(year, region, depth, save=True)
 	# 
-	while(year<=2005):
+	#while(year<=2005):
 	# execParallelListGARandomParSC(year, region, depth=depth, save=False)
 	# execParallelGARandomParSC(year, region, depth=depth, save=False)
 #		execGaModel(year, region, depth=depth, save=True)
