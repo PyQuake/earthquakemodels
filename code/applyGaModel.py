@@ -377,7 +377,6 @@ def createandExecRealModelSCwithP_AVR(year, region, qntYears=5, depth=100, withM
 	times = 10
 	for i in range(times):
 		modelo=gaModelP_AVR.gaModel(10,50,0.9,0.1,observations,year+qntYears, region, mean = mean)
-		exit()
 		if save==True:
 			model.saveModelToFile(modelo, '../Zona3/sc-weights/gamodelPSHM'+region+'_'+str(depth)+"_"+str(year+qntYears)+str(i)+'.txt')
 
