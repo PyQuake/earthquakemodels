@@ -439,6 +439,7 @@ def main():
 	year=2000
 	depth = 100
 	while(year<=2005):
+		print(year, region)
 		createandExecRealModelSCwithP_AVR(year, region, save = True)
 		year+=1
 
@@ -446,13 +447,15 @@ def main():
 	year=2000
 	depth = 100
 	while(year<=2005):
+		print(year, region)
 		createandExecRealModelSCwithP_AVR(year, region, save = True)
 		year+=1
 
 	region = 'Tohoku'
-	year=2000
+	year=2003
 	depth = 100
 	while(year<=2005):
+		print(year, region)
 		createandExecRealModelSCwithP_AVR(year, region, save = True)
 		year+=1
 
@@ -460,6 +463,7 @@ def main():
 	year=2000
 	depth = 100
 	while(year<=2005):
+		print(year, region)
 		createandExecRealModelSCwithP_AVR(year, region, save = True)
 		year+=1
 
