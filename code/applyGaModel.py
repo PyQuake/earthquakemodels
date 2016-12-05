@@ -442,21 +442,21 @@ def main():
 		createandExecRealModelSCwithP_AVR(year, region, save = True)
 		year+=1
 
-region = 'EastJapan'
+	region = 'EastJapan'
 	year=2000
 	depth = 100
 	while(year<=2005):
 		createandExecRealModelSCwithP_AVR(year, region, save = True)
 		year+=1
 
-region = 'Tohoku'
+	region = 'Tohoku'
 	year=2000
 	depth = 100
 	while(year<=2005):
 		createandExecRealModelSCwithP_AVR(year, region, save = True)
 		year+=1
 
-region = 'Kansai'
+	region = 'Kansai'
 	year=2000
 	depth = 100
 	while(year<=2005):
