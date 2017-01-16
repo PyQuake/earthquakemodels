@@ -411,35 +411,35 @@ library(RColorBrewer)
           mediaEastJapan=calcMedia(type=type,year=year, region=region, depth=depth, 40,40)
           imagePath<<-"../data/coast.png"
           plotMatrixModel(mediaEastJapan, saveFile, 40, 40) 
-          
-          #20X40!
-          # a imagem tá uma merda
-          region="Tohoku"
-          saveFile = paste("./heatMap/",depth,'/',type,region,"_",depth,'_',year,".png",sep="")
-          mediaTouhoku=calcMedia(type=type,year=year, region=region, depth=depth, 20,40)
-          imagePath<<-"../data/touhoku.png"
-          plotMatrixModel(mediaTouhoku, saveFile, 20, 40) 
-          
-          region="Kansai"
-          saveFile = paste("./heatMap/",depth,'/',type,region,"_",depth,'_',year,".png",sep="")
-          mediaKansai=calcMedia(type=type,year=year, region=region, depth=depth, 40,40)
-          imagePath<<-"../data/kansai.png"
-          plotMatrixModel(mediaKansai, saveFile, 40, 40)  
-          
-          region="Kanto"
-          saveFile = paste("./heatMap/",depth,'/',type,region,"_",depth,'_',year,".png",sep="")
-          mediaKanto=calcMedia(type=type,year=year, region=region, depth=depth, 45,45)
-          imagePath<<-"../data/kantomap.png"
-          plotMatrixModel(mediaKanto, saveFile, 45, 45) 
-          
+#           
+#           #20X40!
+#           # a imagem tá uma merda
+#           region="Tohoku"
+#           saveFile = paste("./heatMap/",depth,'/',type,region,"_",depth,'_',year,".png",sep="")
+#           mediaTouhoku=calcMedia(type=type,year=year, region=region, depth=depth, 20,40)
+#           imagePath<<-"../data/touhoku.png"
+#           plotMatrixModel(mediaTouhoku, saveFile, 20, 40) 
+#           
+#           region="Kansai"
+#           saveFile = paste("./heatMap/",depth,'/',type,region,"_",depth,'_',year,".png",sep="")
+#           mediaKansai=calcMedia(type=type,year=year, region=region, depth=depth, 40,40)
+#           imagePath<<-"../data/kansai.png"
+#           plotMatrixModel(mediaKansai, saveFile, 40, 40)  
+#           
+#           region="Kanto"
+#           saveFile = paste("./heatMap/",depth,'/',type,region,"_",depth,'_',year,".png",sep="")
+#           mediaKanto=calcMedia(type=type,year=year, region=region, depth=depth, 45,45)
+#           imagePath<<-"../data/kantomap.png"
+#           plotMatrixModel(mediaKanto, saveFile, 45, 45) 
+#           
           year=year+1
       }
   }
   
-  plotModelsByYears('sc_hybrid_gaModel',100)
-  plotModelsByYears('listgamodel',100)
-  plotModelsByYears('gamodel',100)
-  plotModelsByYears('sc_hybrid_ListaGA_New',100)
+#   plotModelsByYears('sc_hybrid_gaModel',100)
+#   plotModelsByYears('listgamodel',100)
+#   plotModelsByYears('gamodel',100)
+#   plotModelsByYears('sc_hybrid_ListaGA_New',100)
   
   plotRealByYears()
   # hybrid_ListaGA_New, hybrid_gaModel
@@ -449,51 +449,51 @@ library(RColorBrewer)
   
   # plotModelsByYears('listaGA_New',25)
 #   plotModelsByYears('listaGA_New',60)
-  plotModelsByYears('listaGA_New',100)
+  # plotModelsByYears('listaGA_New',100)
   
   # plotModelsByYears('hybrid_ListaGA_New',25)
 #   plotModelsByYears('hybrid_ListaGA_New',60)
-  plotModelsByYears('hybrid_ListaGA_New',100)
+  # plotModelsByYears('hybrid_ListaGA_New',100)
   
   # plotModelsByYears('hybrid_gaModel',25)
 #   plotModelsByYears('hybrid_gaModel',60)
-  plotModelsByYears('hybrid_gaModel',100)
+  # plotModelsByYears('hybrid_gaModel',100)
   
   # clusteredII_gaModel/hybrid_ListaGA_NewEastJapan_25_2005_0, esse e o reducedGAModelWindow
   # hybrid_gaModelEastJapan_25_2005_0, esse e o gamodelwindow
   # tem os dois tirando o hybrid
   # plotModelsByYears('clusteredII_gaModel',25)#nao ta certo, nao ta hybrid
 #   plotModelsByYears('clusteredII_gaModel',60)
-  plotModelsByYears('clusteredII_gaModel',100)
+  # plotModelsByYears('clusteredII_gaModel',100)
   
   # plotModelsByYears('clusteredII_hybrid_gaModel',25)#nao ta certo, nao ta hybrid
   # plotModelsByYears('clusteredII_hybrid_gaModel',60)
-  plotModelsByYears('clusteredII_hybrid_gaModel',100)
+  # plotModelsByYears('clusteredII_hybrid_gaModel',100)
   
   # plotModelsByYears('clusteredII_hybrid_ListaGA_New',25)#nao ta certo, nao ta hybrid
 #   plotModelsByYears('clusteredII_hybrid_ListaGA_New',60)
-  plotModelsByYears('clusteredII_hybrid_ListaGA_New',100)
+  # plotModelsByYears('clusteredII_hybrid_ListaGA_New',100)
   
   # plotModelsByYears('clusteredII_listaGA_new',25)#nao ta certo, nao ta hybridclusteredII_hybrid_ListaGA_New
 #   plotModelsByYears('clusteredII_listaGA_new',60)
-  plotModelsByYears('clusteredII_listaGA_new',100)
+  # plotModelsByYears('clusteredII_listaGA_new',100)
 #   
   
   # plotModelsByYears('clustered_gaModel',25)#nao ta certo, nao ta hybrid
 #   plotModelsByYears('clustered_gaModel',60)
-  plotModelsByYears('clustered_gaModel',100)
+  # plotModelsByYears('clustered_gaModel',100)
   
   # plotModelsByYears('clustered_hybrid_gaModel',25)#nao ta certo, nao ta hybrid
 #   plotModelsByYears('clustered_hybrid_gaModel',60)
-  plotModelsByYears('clustered_hybrid_gaModel',100)
+  # plotModelsByYears('clustered_hybrid_gaModel',100)
   
   # plotModelsByYears('clustered_hybrid_ListaGA_New',25)#ta ok
 #   plotModelsByYears('clustered_hybrid_ListaGA_New',60)
-  plotModelsByYears('clustered_hybrid_ListaGA_New',100)
+  # plotModelsByYears('clustered_hybrid_ListaGA_New',100)
 #   
   # plotModelsByYears('clustered_listaGA_new',25)#nao ta certo, nao ta hybrid
 #   plotModelsByYears('clustered_listaGA_new',60)
-  plotModelsByYears('clustered_listaGA_new',100)
+  # plotModelsByYears('clustered_listaGA_new',100)
 #   
  
   

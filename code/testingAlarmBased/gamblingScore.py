@@ -29,7 +29,6 @@ def gain(modelLambda, modelOmega, reference):
         else:
             raise NameError("Tried to calculate log likelihood for models with different sizes")
     else:
-        #TODO: Is there need to use another model as reference?
         raise NameError("gambling Score test with another model as reference is in deveopment...")
 
 def convertToProb(modelLambda, modelOmega):

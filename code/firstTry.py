@@ -1,14 +1,14 @@
-#Need to fix the import section to use only need files
+# Need to fix the import section to use only need files
 
 from deap import base, creator, tools
 import numpy
 from csep.loglikelihood import calcLogLikelihood as loglikelihood
 from models.mathUtil import calcNumberBins
-#TODO: change this line to import only needed files
+# TODO: change this line to import only needed files
 import models.model
 import random
 import array
-#Parallel
+# Parallel
 from scoop import futures
 from time import time
 import scoop
@@ -19,29 +19,28 @@ import models.model as model
 import multiprocessing
 
 
-
-observations=list()
-qntYears=5
+observations = list()
+qntYears = 5
 # times=1
-year=2005
-region= 'Kanto'
-depth=100
+year = 2005
+region = 'Kanto'
+depth = 100
 
 for i in range(qntYears):
-    observation=model.loadModelFromFile('../Zona3/sc/3.0'+region+'real'+str(depth)+"_"+str(year+i)+'.txt')
-    observation.bins=observation.bins.tolist()
+    observation = model.loadModelFromFile(
+        '../Zona3/sc/3.0' + region + 'real' + str(depth) + "_" + str(year + i) + '.txt')
+    observation.bins = observation.bins.tolist()
     observations.append(observation)
-
 
 
 def evaluationFunction(individual, modelOmega):
 	logValue = float('Infinity')
-	modelLambda=type(modelOmega[0])
+	modelLambda = type(modelOmega[0])
 
 	for i in range(len(modelOmega)):
-		modelLambda.bins=list(individual)
-		modelLambda.bins=calcNumberBins(modelLambda.bins, modelOmega[i].bins)
-		tempValue=loglikelihood(modelLambda, modelOmega[i])
+		modelLambda.bins = list(individual)
+		modelLambda.bins = calcNumberBins(modelLambda.bins, modelOmega[i].bins)
+		tempValue = loglikelihood(modelLambda, modelOmega[i])
 
 		if tempValue < logValue:
 			logValue = tempValue
@@ -51,31 +50,44 @@ def evaluationFunction(individual, modelOmega):
 creator.create("FitnessFunction2", base.Fitness, weights=(1.0,))
 
 
-
 toolbox = base.Toolbox()
 
 # pool = multiprocessing.Pool()
 # toolbox.register("map", pool.map)
 
 creator.create("FitnessFunction2", base.Fitness, weights=(1.0,))
-creator.create("Individual", array.array, typecode='d', fitness=creator.FitnessFunction2)
+creator.create(
+    "Individual",
+    array.array,
+    typecode='d',
+     fitness=creator.FitnessFunction2)
 # Attribute generator
 toolbox.register("attr_float", random.random)
 toolbox.register("evaluate", evaluationFunction, modelOmega=observations)
-toolbox.register("individual", tools.initRepeat, creator.Individual, toolbox.attr_float, len(observations[0].bins))
+toolbox.register("individual",
+    tools.initRepeat,
+    creator.Individual,
+    toolbox.attr_float,
+     len(observations[0].bins))
 toolbox.register("population", tools.initRepeat, list, toolbox.individual)
 
 
 toolbox.register("mate", tools.cxOnePoint)
 toolbox.register("select", tools.selTournament, tournsize=3)
-toolbox.register("mutate", tools.mutPolynomialBounded,indpb=0.1, eta = 1, low = 0, up = 1)
+toolbox.register(
+    "mutate",
+    tools.mutPolynomialBounded,
+    indpb=0.1,
+    eta=1,
+    low=0,
+     up=1)
 
 
-#scoop parallel
+# scoop parallel
 toolbox.register("map", futures.map)
 
 
-def gaModel(pop, NGEN,CXPB,MUTPB,modelOmega,year,region, depth, rank):
+def gaModel(pop, NGEN, CXPB, MUTPB, modelOmega, year, region, depth, rank):
 	# Evaluate the entire population
 
 	stats = tools.Statistics(key=lambda ind: ind.fitness.values)
@@ -84,18 +96,20 @@ def gaModel(pop, NGEN,CXPB,MUTPB,modelOmega,year,region, depth, rank):
 	stats.register("min", numpy.min)
 	stats.register("max", numpy.max)
 
-	#aui tem list na frente
-	fitnesses = list(map(toolbox.evaluate, pop))#need to pass 2 model.bins. One is the real data, the other de generated model
+	# aui tem list na frente
+	# need to pass 2 model.bins. One is the real data, the other de generated
+	# model
+	fitnesses = list(map(toolbox.evaluate, pop))
 	for ind, fit in zip(pop, fitnesses):
 		ind.fitness.values = fit
 
-	#1 to NGEN
+	# 1 to NGEN
 	toolbox.unregister("attr_float")
     toolbox.unregister("individual")
     toolbox.unregister("population")
 	for g in range(NGEN):
 		# Select the next generation individuals
-		#nao tem
+		# nao tem
 		offspring = toolbox.select(pop, len(pop))
 		# Clone the selected individuals{}
 		# offspring = [toolbox.clone(ind) for ind in population]
@@ -127,7 +141,7 @@ def gaModel(pop, NGEN,CXPB,MUTPB,modelOmega,year,region, depth, rank):
 			ind.fitness.values = fit
 
         # The population is entirely replaced by the offspring, but the last pop best_pop
-        #Elitism
+        # Elitism
 		best_pop = tools.selBest(pop, 1)[0]
 		worst_ind = tools.selWorst(offspring, 1)[0]
 		for i in range(len(offspring)):
@@ -154,8 +168,8 @@ def migrator():
 
 	pop = toolbox.population(n=250)
 
-	#send the pop + the best from the other thread, run for 10 gen then mingration
-	#TODO: var the par cx an mut
+	# send the pop + the best from the other thread, run for 10 gen then mingration
+	# TODO: var the par cx an mut
 	listMigrators = [None] * size
 	for times in range(10):
 

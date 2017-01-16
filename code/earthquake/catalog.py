@@ -4,6 +4,10 @@ of floats containing, in order, the following information:
 
 Year, Month, Day, Hour, Minute, Second, Latitude, Longitude,
 Magnitude, Depth
+
+This file also reads and filter data from catalog files
+that are used to produce hazard map based purely on geophysic
+knowledge. This information is used within the models
 """
 
 import math
@@ -60,7 +64,7 @@ def filter(catalog,conditions):
     match the conditions. The conditions is a list of dictionaries in 
     the following form:
 
-    {"key":'name',"min":value,"max":value}
+    {"key":'name',"min":value,"max":value, "step":value, "bins":value, "cells":value} 
     
     an element in the catalog will be discarded if every field with key "condition" is not 
     between the minimum and maximum values. If max or min is None, that limit is not tested.
@@ -82,44 +86,11 @@ def filter(catalog,conditions):
             ret.append(event)
     return ret
     
-#legacy
-#should not use this
-def saveCatalogPerYear(catalog,year):
-    f = open("../zechar_sw/gaModels"+str(year)+"/"+str(year)+".dat", "w")
-
-    for i in range(len(catalog)):
-
-        time = catalog[i]['datetime']
-        timeSplit = time.timetuple()
-
-        if timeSplit[0] == year:
-            f.write(str(catalog[i]['lat']))
-            f.write(" ")
-            f.write(str(catalog[i]['lon']))
-            f.write(" ")
-            f.write(str(year))
-            f.write(" ")
-            f.write(str(timeSplit[1]))#moth
-            f.write(" ")
-            f.write(str(timeSplit[2]))#day
-            f.write(" ")
-            f.write(str(catalog[i]['mag']))
-            f.write(" ")
-            f.write(str(catalog[i]['depth']))
-            f.write(" ")
-            f.write(str(timeSplit[3]))#hour
-            f.write(" ")
-            f.write(str(timeSplit[4]))#minute
-            f.write(" ")
-            f.write(str(timeSplit[5]))#sec
-            f.write(" ")
-            f.write("\n")
-    f.close()
-
-
-
 def readFromFileP_AVR(filename):
-    """ 
+    """ Returns data created from a purely geophysics hazard map
+    The data here is a probabilty. 
+        In the case of a PSHM file -> its a hazard data: chance of quake
+        In the case of a AMP file -> its a amp factor data: weights for region
     """
     f = open(filename,"r")
     keys = None
@@ -149,16 +120,15 @@ def readFromFileP_AVR(filename):
 
 
 def filterP_AVR(catalog,conditions):
-    """ Returns a new catalog by removing events of the old one that do not 
+    """ Returns a new catalog (geophysics data (PHSM or AMP file)) by removing events of the old one that do not 
     match the conditions. The conditions is a list of dictionaries in 
     the following form:
 
-    {"key":'name',"min":value,"max":value}
+    {"key":'name',"min":value,"max":value, "step":value, "bins":value, "cells":value} 
     
     an element in the catalog will be discarded if every field with key "condition" is not 
     between the minimum and maximum values. If max or min is None, that limit is not tested.
     
-    WARNING: remember that the "datetime" key requires a datetime object
     """
     
     ret = []

@@ -5,7 +5,6 @@
 # step - is the size of the bin
 # bins - is the number of bins in this dimension
 
-#import rpy2.robjects as robjects
 import datetime
 import numpy
 from models.mathUtil import invertPoisson
@@ -14,6 +13,7 @@ from collections import Counter
 class model(object):
     pass
 
+#TODO: Remove this .mag== true thing
 def newModel(definitions,mag=True,initialvalue=0):
     """ Creates an empty model based on a set of definitions. 
     The initialvalue parameter determines the initial value of 
@@ -55,6 +55,7 @@ def newModel(definitions,mag=True,initialvalue=0):
 
 # This considers the catalog has passed a filter before
 # TODO: Use datetime instead of year
+# TODO: Redo this, this is terrible
 def addFromCatalog(model,catalog, year):
 
     k, l, index, cell, cell_i = 0, 0, 0, 0, 0
@@ -151,9 +152,10 @@ def loadModelDefinition(filename):
     f.close()
     return ret
 
+#TODO: choose better ways to save info
 def saveModelToFile(model, filename, real=False):
     """ 
-    It saves the model to a specific file, both passed as arg
+    It saves the model to a specific file, both passed as args
     """
     numpy.savetxt(filename, model.bins)
     with open(filename+"def.txt", 'w') as f:
@@ -181,82 +183,15 @@ def loadModelFromFile(filename):
 
     return ret
 
-#TODO: Check if this function really is obslote...
-def convertMagtoNoMag(modelMag):
-    """
-    At first, you should use convert2DToArray
-    Convert model (matrix) with mag array to a temporary model (array) without mag array
-    It is important to use a different model to receive the return of this function
-    """
-    ret=model()
-
-    ret.bins=[0]*len(modelMag.bins)
-    for cell, i in zip(modelMag.bins, range(len(modelMag.bins))):
-        ret.bins[i]=sum(cell)
-
-    return ret
-
-#TODO:Check if I sould add model.definitions to the returned model
-def convert2DToArray(modelMag, definitions):
-    """
-    Convert model (matrix) with mag array to a model (array) with mag
-    The new model is a 1D array
-    It is important to use a different model to receive the return of this function
-
-    IMPORTANT: The definition used here should be with Mag definitions
-    """
-    ret=model()
-
-    ret.bins = numpy.ndarray(shape=(len(modelMag.bins)*len(modelMag.bins[0])), dtype='i')
-    ret.bins.fill(0)
-
-    ret.definitions=definitions
-     
-    i=0
-    for bin in modelMag.bins:
-        j=0
-        while j<len(bin):
-            ret.bins[i*j]=bin[j]
-            j+=1
-        i+=1
-    return ret
-
-def convertArrayto2D(modelWithout, definitions):
-    """
-    Convert model (array) with mag array to a model (matrix) with mag
-    The new model is a 2D array
-    It is important to use a different model to receive the return of this function
-
-    IMPORTANT: The definition used here should be with Mag definitions
-    """
-    ret=model()
-     
-    totalbins,totalcells = 1, 1
-    for i in definitions:
-        totalbins *= i['bins']
-        totalcells *= i['cells']
-    ret.bins = numpy.ndarray(shape=(totalbins,totalcells), dtype='i')
-    ret.bins.fill(0)
-
-    ret.definitions=definitions
-    ret.mag=True
-
-    i,j=0,0
-    for bin in modelWithout.bins:
-        ret.bins[i,j]=bin
-        j+=1
-        i+=1
-        if j==totalcells:
-            j=0
-        if i==totalbins:
-            i=0
-
-    return ret
-
-
 #TODO:choose a better name
+#TODO: is used?This is used
+#TODO: I do think theres a way to do this more phytonic
 #Gen to Fen
 def convertFromListToData(observations,length):
+    """
+    Function used to convert list model to GAModel configuration
+    It finds the vinculates the list model positions in a bin and atribute a probability value to it
+    """
 
     ret=model()
     ret.bins=[0.00000000001]*length
@@ -268,7 +203,9 @@ def convertFromListToData(observations,length):
 
 
 def addFromCatalogP_AVR(model,catalog, riskMap, year):
-    
+    """
+    This function adds the data from the geophysics models to the format used for the ga models.
+    """
     k, l, index, cell, cell_i = 0, 0, 0, 0, 0
 
     values4poisson = [None] * (len(model.bins))
@@ -349,10 +286,7 @@ def addFromCatalogP_AVR(model,catalog, riskMap, year):
                     values4poisson[index].append(1 + element['prob'])
                 else:
                     values4poisson[index].append(element['prob'])
-                # values4poisson[index].append(1 + element['prob'])
                 k,l,cell_i = 0,0,0
-
-                # event.append(1+element['prob'])
 
     for value, index in zip(values4poisson, range(len(values4poisson))):    
         if type(value) == type(list()):

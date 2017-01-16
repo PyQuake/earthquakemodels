@@ -1,19 +1,32 @@
-#Need to fix the import section to use only need files
+"""
+This GA code uses a simplified version of the gaModel where only some bins are considered.
+
+"""
 from deap import base, creator, tools
 import numpy
 from csep.loglikelihood import calcLogLikelihood as loglikelihood
 from models.mathUtil import calcNumberBins
-#TODO: change this line to import only needed files
 import models.model
 import random
 import array
 
 
 
+
 def equalObjects(x,y):
+	"""
+	This function compares two individuals (models)
+	The inds compared are x and y
+	"""
     return x.prob==y.prob and x.index==y.index
         
 def evaluationFunction(individual, modelOmega):
+	"""
+	This function calculates the loglikelihood of a model (individual) with 
+	the real data from the prior X years (modelOmega, with length X).
+	It selects the smallest loglikelihood value.
+	"""
+
 
     logValue = float('Infinity')
     modelLambda=type(modelOmega[0])
@@ -28,8 +41,13 @@ def evaluationFunction(individual, modelOmega):
     return logValue,
 
 
-def mutationFunction(individual, indpb, definitions, length):
- 
+def mutationFunction(individual, indpb, length):
+ 	"""
+ 	This function changes a ind (individual) by selecting new values given a probabilistic value (indpb).
+ 	The new values are random values. It may change a ind more than once
+
+ 	It uses the length of the ind to cover all of its bins.
+	"""
     for i in range(length):
         if random.random()<indpb:
             individual[i].index=random.randint(0 ,length-1)
@@ -38,6 +56,11 @@ def mutationFunction(individual, indpb, definitions, length):
 
 
 def gaModel(type_m, NGEN,CXPB,MUTPB,modelOmega,year, region, main, depth=100, n_aval=50000):
+	"""
+	The main function. It evolves models, namely modelLamba or individual. 
+
+	"""
+
 	global length
 	length=0
 
@@ -52,7 +75,6 @@ def gaModel(type_m, NGEN,CXPB,MUTPB,modelOmega,year, region, main, depth=100, n_
 	toolbox = base.Toolbox()
 	toolbox.register("evaluate", evaluationFunction, modelOmega=modelOmega)
 	creator.create("FitnessFunction", base.Fitness, weights=(1.0,))
-	#TODO: Check if its posible to use it as obj, maybe, OFF
 	creator.create("Individual", numpy.ndarray, fitness=creator.FitnessFunction)
 
 	# Calculate the len of the gen
@@ -70,7 +92,7 @@ def gaModel(type_m, NGEN,CXPB,MUTPB,modelOmega,year, region, main, depth=100, n_
 
 	toolbox.register("mate", tools.cxOnePoint)
 	toolbox.register("select", tools.selTournament, tournsize=3)
-	toolbox.register("mutate", mutationFunction,indpb=0.1, definitions=modelOmega[0].definitions, length=len(modelOmega[0].bins)-1)
+	toolbox.register("mutate", mutationFunction,indpb=0.1, length=len(modelOmega[0].bins)-1)
 
 	stats = tools.Statistics(key=lambda ind: ind.fitness.values)
 	stats.register("avg", numpy.mean)
