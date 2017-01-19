@@ -262,7 +262,6 @@ def execGaModel(year, region, depth, qntYears=5, times=10, save=True):
     mean = np.mean(means)
     for i in range(times):
         modelo = ga.gaModel(
-            'non-clustered',
             100,
             0.9,
             0.1,

@@ -14,12 +14,12 @@ def loadModel(type, year, region, depth, i):
         if len(file) == 4:  # new
             filename = "../Zona2/" + type + '/' + file[1] + '_' + file[2] + '_' + file[
                 3] + region + "_" + str(depth) + "_" + str(year) + '_' + str(i) + ".txt"
-            modelo = etasGa.loadModelFromFile(filename)
+            model_ = etasGa.loadModelFromFile(filename)
         elif file[1] == 'hybrid':
             filename = "../Zona2/" + type + '/' + \
                 file[1] + '_' + file[2] + region + "_" + \
                 str(depth) + "_" + str(year) + '_' + str(i) + ".txt"
-            modelo = etasGa.loadModelFromFile(filename)
+            model_ = etasGa.loadModelFromFile(filename)
         else:
             filename = "../Zona2/" + type + '/' + region + "_" + \
                 str(depth) + "_" + str(year) + str(i) + ".txt"
@@ -27,19 +27,19 @@ def loadModel(type, year, region, depth, i):
     elif (file[0] == 'hybrid'):
         filename = "../Zona2/" + type + '/' + type + region + "_" + \
             str(depth) + "_" + str(year) + '_' + str(i) + ".txt"
-        modelo = model.loadModelFromFile(filename)
+        model_ = model.loadModelFromFile(filename)
     else:
         filename = "../Zona2/" + type + '/' + region + "_" + \
             str(depth) + "_" + str(year) + str(i) + ".txt"
-        modelo = model.loadModelFromFile(filename)
+        model_ = model.loadModelFromFile(filename)
 
     fileEtasim = "../Zona/paper_exp/etasim1.txt"
-    modelo = etasGa.simpleHibrid(
-        modelo,
+    model_ = etasGa.simpleHibrid(
+        model_,
         fileEtasim,
         "../Zona/paper_exp/testeModelCatalog.txt")
 
-    return modelo
+    return model_
 
 
 def saveModel(modelL, type, year, region, depth, i, minMag, maxMag):

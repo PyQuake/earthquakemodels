@@ -10,9 +10,6 @@ import models.model
 import random
 import array
 
-
-
-
 def equalObjects(x,y):
 	"""
 	This function compares two individuals (models)
@@ -58,12 +55,18 @@ def mutationFunction(individual, indpb, length):
 def gaModel(type_m, NGEN,CXPB,MUTPB,modelOmega,year, region, main, depth=100, n_aval=50000):
 	"""
 	The main function. It evolves models, namely modelLamba or individual. 
-
+	This version of the GA simplifies the ga using a list of bins with occurences
+	It uses 1 parallel system: 1, simple, that splits the ga evolution between cores
 	"""
+	#parallel
+	pool = multiprocessing.Pool()
+	toolbox.register("map", pool.map)
+
 
 	global length
 	length=0
 
+	#defining the class (list) that will compose an individual
 	class genotype():
 	    def __init__(self):
 	    	self.index = random.randint(0, len(modelOmega[0].bins)-1)
@@ -91,6 +94,10 @@ def gaModel(type_m, NGEN,CXPB,MUTPB,modelOmega,year, region, main, depth=100, n_
 	toolbox.register("population", tools.initRepeat, list, toolbox.individual)
 
 	toolbox.register("mate", tools.cxOnePoint)
+	# operator for selecting individuals for breeding the next
+	# generation: each individual of the current generation
+	# is replaced by the 'fittest' (best) of three individuals
+	# drawn randomly from the current generation.
 	toolbox.register("select", tools.selTournament, tournsize=3)
 	toolbox.register("mutate", mutationFunction,indpb=0.1, length=len(modelOmega[0].bins)-1)
 
@@ -144,22 +151,11 @@ def gaModel(type_m, NGEN,CXPB,MUTPB,modelOmega,year, region, main, depth=100, n_
 				break
 
 		pop[:] = offspring
+		#logBook
 		record = stats.compile(pop)
-
 		logbook.record(gen=g, depth=depth, **record)
-
 	print(logbook)
-	if (type_m == 'clustered'):
-		f = open('../Zona2/logbook_listaGA_newClustered/'+region+'_'+str(year)+'_'+str(depth)+'_logbook.txt',"a")
-	elif (type_m == 'clusteredII'):
-		f = open('../Zona2/logbook_listaGA_newClusteredII/'+region+'_'+str(year)+'_'+str(depth)+'_logbook.txt',"a")
-	elif (type_m == 'non-clustered'):
-		f = open('../Zona2/logbook_listaGA_new/'+region+'_'+str(year)+'_'+str(depth)+'_logbook.txt',"a")
-	else:
-		f = open('../Zona2/synthetic/'+region+'_'+str(year)+'_'+str(depth)+'_logbook.txt',"a")
-	f.write(str(logbook))
-	f.write('\n')
-	f.close()
+	
 	
 	generatedModel = type(modelOmega[0])
 	generatedModel.bins = [0.0]*len(modelOmega[0].bins)
@@ -183,3 +179,6 @@ def gaModel(type_m, NGEN,CXPB,MUTPB,modelOmega,year, region, main, depth=100, n_
 
 	
 	return generatedModel
+
+if __name__ == "__main__":
+	gaModel()

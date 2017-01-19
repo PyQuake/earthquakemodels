@@ -20,6 +20,11 @@ import models.modelEtasGa as etasGa
 
 
 def evaluationFunction(individual, modelOmega):
+	"""
+	This function calculates the loglikelihood of a model (individual) with 
+	the real data from the prior X years (modelOmega, with length X).
+	It selects the smallest loglikelihood value.
+	"""
 	logValue = float('Infinity')
 	modelLambda=type(modelOmega[0])
 
@@ -35,6 +40,14 @@ def evaluationFunction(individual, modelOmega):
 
 
 def gaModel(NGEN, n, CXPB,MUTPB, modelOmega,year,region, mean, depth=100, FREQ = 10):
+	"""
+	The main function. It evolves models, namely modelLamba or individual. 
+	This applies the gaModel with a circular island model
+	It uses two parallel system: 1, simple, that splits the ga evolution between cores
+	and 2, that distributes the islands
+	"""
+	
+
 	creator.create("FitnessFunction2", base.Fitness, weights=(1.0,))
 
 	toolbox = base.Toolbox()
@@ -48,6 +61,10 @@ def gaModel(NGEN, n, CXPB,MUTPB, modelOmega,year,region, mean, depth=100, FREQ =
 
 
 	toolbox.register("mate", tools.cxOnePoint)
+	# operator for selecting individuals for breeding the next
+	# generation: each individual of the current generation
+	# is replaced by the 'fittest' (best) of three individuals
+	# drawn randomly from the current generation.
 	toolbox.register("select", tools.selTournament, tournsize=3)
 	toolbox.register("mutate", tools.mutPolynomialBounded,indpb=0.1, eta = 1, low = 0, up = 1)
 
@@ -148,9 +165,11 @@ def gaModel(NGEN, n, CXPB,MUTPB, modelOmega,year,region, mean, depth=100, FREQ =
 			del best_pop
 			del data
 			
+		#logBook
+		record = stats.compile(pop)
+		logbook.record(gen=g,  depth=depth,**record)
+	print(logbook)
 
-		# record = stats.compile(pop)		
-		# logbook.record(rank=rank, gen=g,  depth=depth,**record)
 	# choose the best value
 	if rank == 0:
 		best_pop=tools.selBest(pop, 1)[0]
@@ -179,8 +198,8 @@ def gaModel(NGEN, n, CXPB,MUTPB, modelOmega,year,region, mean, depth=100, FREQ =
 	generatedModel.definitions = modelOmega[0].definitions
 	generatedModel.mag=True
 
-	#MPI_Finalize() 
+
 	return generatedModel
 
 if __name__ == "__main__":
-	parallelGA()
+	gaModel()

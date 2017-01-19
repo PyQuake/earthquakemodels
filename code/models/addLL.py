@@ -6,7 +6,6 @@ import csep.loglikelihood
 
 def addLoglike2(filename, region, depth, year, i, loglikelihoodFile):
 		
-		# modelL=etasGa.loadModelFromFile(region+'_'+str(depth)+'_'+str(year)+str(i)+'.txt')
 		modelL=etasGa.loadModelFromFile(filename)
 		modelL = etasGa.limitTo12(modelL)
 		modelO=model.loadModelFromFile('../../Zona2/realData/'+region+'real_'+str(year)+'.txt')

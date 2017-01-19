@@ -7,6 +7,9 @@ from math import isinf, exp
 #nao sao probabilidades, entao preciso arrumar!
 #Arrumando o catalog, o do modeloGerado como farei?
 def gain(modelLambda, modelOmega, reference):
+    """
+    Returns the gain for the gamblingScore test of a model compared to a refrence model.
+    """
     gain=0
 
     if reference==[]:
@@ -32,7 +35,10 @@ def gain(modelLambda, modelOmega, reference):
         raise NameError("gambling Score test with another model as reference is in deveopment...")
 
 def convertToProb(modelLambda, modelOmega):
-
+    """
+    Function needed to calculated the gain of a model.
+    It converts the number of occurances to a probability value
+    """
     probLambda=[]
     probOmega=[]
     for i in range(len(modelLambda.bins)):
@@ -41,6 +47,9 @@ def convertToProb(modelLambda, modelOmega):
     return probLambda, probOmega
 
 def calcGamblingScore(modelLambda, modelOmega, reference=[]):
+    """
+    Calculates the Gambling score value
+    """
     gainForecast=gain(modelLambda, modelOmega, reference)
     
     return gainForecast

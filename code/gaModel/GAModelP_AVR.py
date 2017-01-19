@@ -13,7 +13,12 @@ import multiprocessing
 
 
 def evaluationFunction(individual, modelOmega, mean):
-	
+	"""
+ 	This function changes a ind (individual) by selecting new values given a probabilistic value (indpb).
+ 	The new values are random values. It may change a ind more than once
+
+ 	It uses the length of the ind to cover all of its bins.
+	"""
 	logValue = float('Infinity')
 	modelLambda=type(modelOmega[0])
 
@@ -54,6 +59,10 @@ pool = multiprocessing.Pool()
 toolbox.register("map", pool.map)
 
 def gaModel(NGEN, n, CXPB,MUTPB, modelOmega,year,region, mean, depth=100):
+	"""
+	The main function. It evolves models, namely modelLamba or individual. 
+	"""
+	
 	toolbox.register("evaluate", evaluationFunction, modelOmega=modelOmega, mean= mean)
 	toolbox.register("individual", tools.initRepeat, creator.Individual, toolbox.attr_float, len(modelOmega[0].bins))
 	toolbox.register("population", tools.initRepeat, list, toolbox.individual)

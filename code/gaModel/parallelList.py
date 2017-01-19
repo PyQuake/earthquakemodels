@@ -18,9 +18,17 @@ class genotype():
 
 
 def equalObjects(x,y):
+	"""
+	Compares if two inds are equal
+	"""
     return x.prob==y.prob and x.index==y.index
         
 def evaluationFunction(individual, modelOmega):
+	"""
+	This function calculates the loglikelihood of a model (individual) with 
+	the real data from the prior X years (modelOmega, with length X).
+	It selects the smallest loglikelihood value.
+	"""
 
     logValue = float('Infinity')
     modelLambda=type(modelOmega[0])
@@ -36,7 +44,12 @@ def evaluationFunction(individual, modelOmega):
 
 
 def mutationFunction(individual, indpb, definitions, length):
- 
+ 	"""
+ 	This function changes a ind (individual) by selecting new values given a probabilistic value (indpb).
+ 	The new values are random values. It may change a ind more than once
+
+ 	It uses the length of the ind to cover all of its bins.
+	"""
     for i in range(length):
         if random.random()<indpb:
             individual[i].index=random.randint(0 ,length-1)
@@ -45,6 +58,13 @@ def mutationFunction(individual, indpb, definitions, length):
 
 
 def gaModel(NGEN, n, CXPB,MUTPB, modelOmega,year,region, mean, depth=100, FREQ = 10):
+	"""
+	The main function. It evolves models, namely modelLamba or individual. 
+	This version of the GA simplifies the ga using a list of bins with occurences
+	It uses two parallel system: 1, simple, that splits the ga evolution between cores
+	and 2, that distributes the islands
+	"""
+	
 
 	target = 0
 	info = MPI.Status()
@@ -75,10 +95,13 @@ def gaModel(NGEN, n, CXPB,MUTPB, modelOmega,year,region, mean, depth=100, FREQ =
 	length=len(lengthPos)
 
 	toolbox.register("individual", tools.initRepeat, creator.Individual, genotype, n=length)
-
 	toolbox.register("population", tools.initRepeat, list, toolbox.individual)
-
 	toolbox.register("mate", tools.cxOnePoint)
+
+	# operator for selecting individuals for breeding the next
+	# generation: each individual of the current generation
+	# is replaced by the 'fittest' (best) of three individuals
+	# drawn randomly from the current generation.
 	toolbox.register("select", tools.selTournament, tournsize=3)
 	toolbox.register("mutate", mutationFunction,indpb=0.1, definitions=modelOmega[0].definitions, length=len(modelOmega[0].bins)-1)
 
@@ -148,9 +171,11 @@ def gaModel(NGEN, n, CXPB,MUTPB, modelOmega,year,region, mean, depth=100, FREQ =
 			pop[random.randint(0, len(pop)-1)] = ind
 			del best_pop
 			del data
-		# record = stats.compile(pop)
-
-		# logbook.record(gen=g, depth=depth, **record)
+	
+	#logBook
+		record = stats.compile(pop)
+		logbook.record(gen=g,  depth=depth,**record)
+	print(logbook)
 
 	# choose the best value
 	if rank == 0:
@@ -160,8 +185,6 @@ def gaModel(NGEN, n, CXPB,MUTPB, modelOmega,year,region, mean, depth=100, FREQ =
 		for thread in range(size):
 			if (thread != 0):
 				data = comm.recv(source=thread)
-				# req = comm.irecv(source=thread)
-				# data = req.wait()
 				lista.append(data)
 		maximo =  float('-inf')
 		for value, index in zip(lista, range(len(lista))):
@@ -188,4 +211,4 @@ def gaModel(NGEN, n, CXPB,MUTPB, modelOmega,year,region, mean, depth=100, FREQ =
 	return generatedModel
 
 if __name__ == "__main__":
-	parallelList()
+	gaModel()

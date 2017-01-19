@@ -18,6 +18,11 @@ import earthquake.catalog as catalog
 bins = list()
 
 def evaluationFunction(individual, year, catalogo, region):
+	"""
+	This function calculates the loglikelihood of a model (individual) with 
+	the real data from the prior X years (modelOmega, with length X).
+	It selects the smallest loglikelihood value.
+	"""
 	qntYears=5
 	depth = 100
 
@@ -26,7 +31,6 @@ def evaluationFunction(individual, year, catalogo, region):
 		observations=list()
 		observacao=models.model.newModel(definicao, mag=False)
 		observacao=models.model.addFromCatalog(observacao, catalogo, year)
-		# observacao.bins = observacao.bins.tolist()
 		observacao.values4poisson = list(individual)
 		observations.append(observacao)
 	modelo=gaModelP_AVR.gaModel(20,50,0.9,0.1,observations,year+qntYears,region, depth)
@@ -49,6 +53,10 @@ toolbox.register("attr_float", random.random)
 
 
 toolbox.register("mate", tools.cxOnePoint)
+# operator for selecting individuals for breeding the next
+# generation: each individual of the current generation
+# is replaced by the 'fittest' (best) of three individuals
+# drawn randomly from the current generation.
 toolbox.register("select", tools.selTournament, tournsize=3)
 toolbox.register("mutate", tools.mutPolynomialBounded,indpb=0.1, eta = 1, low = 0, up = 1)
 
@@ -57,13 +65,15 @@ pool = multiprocessing.Pool()
 toolbox.register("map", pool.map)
 
 def gaModel(NGEN, n, CXPB,MUTPB, modelOmega,year,region, mean, depth=100):
-
+	"""
+	The main function. It evolves models, namely modelLamba or individual. 
+	This version adds the hazard map data purely based on geophisycs as a 
+	"""
 	
 	definicao=models.model.loadModelDefinition('../params/'+region+'Etas_'+str(depth)+'.txt')
 	catalogo=catalog.readFromFile('../data/SC-catalog.dat')
 	catalogo=catalog.filter(catalogo,definicao)
 	toolbox.register("evaluate", evaluationFunction, year=year, catalogo=catalogo, region=region)
-	# toolbox.register("individual", modelOmega[0].values4poisson)
 	toolbox.register("individual", tools.initRepeat, creator.Individual, toolbox.attr_float, len(modelOmega[0].values4poisson))
 	toolbox.register("population", tools.initRepeat, list, toolbox.individual)
 	
@@ -117,6 +127,11 @@ def gaModel(NGEN, n, CXPB,MUTPB, modelOmega,year,region, mean, depth=100):
 				break
 
 		pop[:] = offspring
+
+		#logBook
+		record = stats.compile(pop)
+		logbook.record(gen=g,  depth=depth,**record)
+	print(logbook)
 
 	generatedModel = type(modelOmega[0])
 	generatedModel.loglikelihood = evaluationFunction(best_pop, year, catalogo, region)

@@ -57,6 +57,9 @@ def newModel(definitions,mag=True,initialvalue=0):
 # TODO: Use datetime instead of year
 # TODO: Redo this, this is terrible
 def addFromCatalog(model,catalog, year):
+    """
+    Adds data from a catalog var to a model
+    """
 
     k, l, index, cell, cell_i = 0, 0, 0, 0, 0
 

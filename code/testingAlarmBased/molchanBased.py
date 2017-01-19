@@ -1,15 +1,10 @@
-#TODO: Check the comments
-#TODO: Normalizing in areaUnder, why????
-
 import random
 import models.mathUtil as mathUtil
 
-#In this case the catalog is the bins/earthquake in the region studied and filtred already
-#they sould have the same len
-
-#Arguments are their bins, should it be changed???
 def molchan(modelLambda, modelOmega):
-
+    """
+    Calculates the Molchan test of a model against a reference model
+    """
     if len(modelLambda.bins)==len(modelOmega.bins):
     	referenceValues=[]
     	referenceValues[:]=[x+1 for x in modelOmega.bins]
@@ -55,7 +50,9 @@ def molchan(modelLambda, modelOmega):
     	return trajectory
 
 def whichLegAreWeOn(molchanTrajectory, tau):
-	
+	"""
+    Function needed as part of the areaUnderTrajectory function
+    """
 	n=0
 	for i in range(len(molchanTrajectory)):
 		if molchanTrajectory[i]<tau:
@@ -66,7 +63,9 @@ def whichLegAreWeOn(molchanTrajectory, tau):
 
 
 def areaUnderTrajectory(molchanTrajectory, tau):
-
+    """
+    Function needed to calculate the areaUnderTrajectory for the ASS test
+    """
     n=whichLegAreWeOn(molchanTrajectory, tau)
 
     N = len(molchanTrajectory)-1

@@ -14,7 +14,11 @@ from time import time
 
 
 def evaluationFunction(individual, modelOmega):
-	
+	"""
+	This function calculates the loglikelihood of a model (individual) with 
+	the real data from the prior X years (modelOmega, with length X).
+	It selects the smallest loglikelihood value.
+	"""
 	logValue = float('Infinity')
 	modelLambda=type(modelOmega[0])
 
@@ -29,27 +33,37 @@ def evaluationFunction(individual, modelOmega):
 
 	
 
-toolbox = base.Toolbox()
 
-creator.create("FitnessFunction", base.Fitness, weights=(1.0,))
-creator.create("Individual", array.array, typecode='d', fitness=creator.FitnessFunction)
-# Attribute generator
-toolbox.register("attr_float", random.random)
-toolbox.register("mate", tools.cxOnePoint)
-toolbox.register("select", tools.selTournament, tournsize=3)
-toolbox.register("mutate", tools.mutPolynomialBounded,indpb=0.1, eta = 1, low = 0, up = 1)
 
-stats = tools.Statistics(key=lambda ind: ind.fitness.values)
-stats.register("avg", numpy.mean)
-stats.register("std", numpy.std)
-stats.register("min", numpy.min)
-stats.register("max", numpy.max)
+def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, depth=100, n_aval=50000):
+	"""
+	The main function. It evolves models, namely modelLamba or individual. 
+	It uses 1 parallel system: 1, simple, that splits the ga evolution between cores
+	"""
 
-#parallel
-pool = multiprocessing.Pool()
-toolbox.register("map", pool.map)
+	toolbox = base.Toolbox()
 
-def gaModel(type_m, NGEN,CXPB,MUTPB,modelOmega,year,region, mean, depth=100, n_aval=50000):
+	creator.create("FitnessFunction", base.Fitness, weights=(1.0,))
+	creator.create("Individual", array.array, typecode='d', fitness=creator.FitnessFunction)
+	# Attribute generator
+	toolbox.register("attr_float", random.random)
+	toolbox.register("mate", tools.cxOnePoint)
+	# operator for selecting individuals for breeding the next
+	# generation: each individual of the current generation
+	# is replaced by the 'fittest' (best) of three individuals
+	# drawn randomly from the current generation.
+	toolbox.register("select", tools.selTournament, tournsize=3)
+	toolbox.register("mutate", tools.mutPolynomialBounded,indpb=0.1, eta = 1, low = 0, up = 1)
+
+	stats = tools.Statistics(key=lambda ind: ind.fitness.values)
+	stats.register("avg", numpy.mean)
+	stats.register("std", numpy.std)
+	stats.register("min", numpy.min)
+	stats.register("max", numpy.max)
+
+	#parallel
+	pool = multiprocessing.Pool()
+	toolbox.register("map", pool.map)
 
 	y=int(n_aval/NGEN)
 	x=n_aval - y*NGEN
@@ -112,18 +126,7 @@ def gaModel(type_m, NGEN,CXPB,MUTPB,modelOmega,year,region, mean, depth=100, n_a
 		#logBook
 		record = stats.compile(pop)
 		logbook.record(gen=g,  depth=depth,**record)
-	# print(logbook)
-	# if (type_m == 'clustered'):
-	# 	f = open('../Zona2/logbook_gaModelClustered/'+region+'_'+str(year)+'_'+str(depth)+'_logbook.txt',"a")
-	# elif (type_m == 'clusteredII'):
-	# 	f = open('../Zona2/logbook_gaModelClusteredII/'+region+'_'+str(year)+'_'+str(depth)+'_logbook.txt',"a")
-	# elif (type_m == 'non-clustered'):
-	# 	f = open('../Zona2/logbook_gaModel/'+region+'_'+str(year)+'_'+str(depth)+'_logbook.txt',"a")
-	# else:
-	# 	f = open('../Zona2/synthetic/'+region+'_'+str(year)+'_'+str(depth)+'_logbook.txt',"a")
-	# f.write(str(logbook))
-	# f.write('\n')
-	# f.close()
+	print(logbook)
 	
 	generatedModel = type(modelOmega[0])
 	generatedModel.prob = best_pop
