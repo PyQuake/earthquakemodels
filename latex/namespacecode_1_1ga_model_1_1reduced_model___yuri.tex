@@ -1,0 +1,154 @@
+\hypertarget{namespacecode_1_1ga_model_1_1reduced_model___yuri}{}\section{code.\+ga\+Model.\+reduced\+Model\+\_\+\+Yuri Namespace Reference}
+\label{namespacecode_1_1ga_model_1_1reduced_model___yuri}\index{code.\+ga\+Model.\+reduced\+Model\+\_\+\+Yuri@{code.\+ga\+Model.\+reduced\+Model\+\_\+\+Yuri}}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{namespacecode_1_1ga_model_1_1reduced_model___yuri_ae7bad5e83a55b1cf2866cf0ba552a6e5}{equal\+Objects} (x, y)
+\item 
+def \hyperlink{namespacecode_1_1ga_model_1_1reduced_model___yuri_a8260255d22c11bcb56267899e732bb25}{evaluation\+Function} (individual, model\+Omega, mean)
+\item 
+def \hyperlink{namespacecode_1_1ga_model_1_1reduced_model___yuri_a7c2776b17691500596d78ef2fa34cee9}{mutation\+Function} (individual, indpb, length)
+\item 
+def \hyperlink{namespacecode_1_1ga_model_1_1reduced_model___yuri_a8122076cc02bd20a75442fe3231de4b4}{ga\+Model} (N\+G\+EN, C\+X\+PB, M\+U\+T\+PB, model\+Omega, year, region, mean, n\+\_\+aval=50000)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{namespacecode_1_1ga_model_1_1reduced_model___yuri_ad9761943e77a96a38cbdeb410b2344aa}{toolbox} = base.\+Toolbox()
+\item 
+\hyperlink{namespacecode_1_1ga_model_1_1reduced_model___yuri_abfbab5bb7a845a1ce6e9b7286b0119ab}{ndarray}
+\item 
+\hyperlink{namespacecode_1_1ga_model_1_1reduced_model___yuri_acf335d8330ee303ad3fb0eef5943ebcd}{fitness}
+\item 
+\hyperlink{namespacecode_1_1ga_model_1_1reduced_model___yuri_a294764fd71c26599a42af686a36851a7}{pool} = multiprocessing.\+Pool()
+\item 
+\hyperlink{namespacecode_1_1ga_model_1_1reduced_model___yuri_a45d8e7477fd825ec883e666f62c7adb8}{index}
+\item 
+\hyperlink{namespacecode_1_1ga_model_1_1reduced_model___yuri_a1e6723a22f2d3cdf04cb44218b7eb745}{prob}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}This GA code uses a simplified version of the gaModel where only some bins are considered.
+\end{DoxyVerb}
+ 
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{namespacecode_1_1ga_model_1_1reduced_model___yuri_ae7bad5e83a55b1cf2866cf0ba552a6e5}\label{namespacecode_1_1ga_model_1_1reduced_model___yuri_ae7bad5e83a55b1cf2866cf0ba552a6e5}} 
+\index{code\+::ga\+Model\+::reduced\+Model\+\_\+\+Yuri@{code\+::ga\+Model\+::reduced\+Model\+\_\+\+Yuri}!equal\+Objects@{equal\+Objects}}
+\index{equal\+Objects@{equal\+Objects}!code\+::ga\+Model\+::reduced\+Model\+\_\+\+Yuri@{code\+::ga\+Model\+::reduced\+Model\+\_\+\+Yuri}}
+\subsubsection{\texorpdfstring{equal\+Objects()}{equalObjects()}}
+{\footnotesize\ttfamily def code.\+ga\+Model.\+reduced\+Model\+\_\+\+Yuri.\+equal\+Objects (\begin{DoxyParamCaption}\item[{}]{x,  }\item[{}]{y }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This function compares two individuals (models)
+The inds compared are x and y
+\end{DoxyVerb}
+ 
+
+Definition at line 14 of file reduced\+Model\+\_\+\+Yuri.\+py.
+
+\mbox{\Hypertarget{namespacecode_1_1ga_model_1_1reduced_model___yuri_a8260255d22c11bcb56267899e732bb25}\label{namespacecode_1_1ga_model_1_1reduced_model___yuri_a8260255d22c11bcb56267899e732bb25}} 
+\index{code\+::ga\+Model\+::reduced\+Model\+\_\+\+Yuri@{code\+::ga\+Model\+::reduced\+Model\+\_\+\+Yuri}!evaluation\+Function@{evaluation\+Function}}
+\index{evaluation\+Function@{evaluation\+Function}!code\+::ga\+Model\+::reduced\+Model\+\_\+\+Yuri@{code\+::ga\+Model\+::reduced\+Model\+\_\+\+Yuri}}
+\subsubsection{\texorpdfstring{evaluation\+Function()}{evaluationFunction()}}
+{\footnotesize\ttfamily def code.\+ga\+Model.\+reduced\+Model\+\_\+\+Yuri.\+evaluation\+Function (\begin{DoxyParamCaption}\item[{}]{individual,  }\item[{}]{model\+Omega,  }\item[{}]{mean }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This function calculates the loglikelihood of a model (individual) with 
+the real data from the prior X years (modelOmega, with length X).
+It selects the smallest loglikelihood value.
+\end{DoxyVerb}
+ 
+
+Definition at line 21 of file reduced\+Model\+\_\+\+Yuri.\+py.
+
+\mbox{\Hypertarget{namespacecode_1_1ga_model_1_1reduced_model___yuri_a8122076cc02bd20a75442fe3231de4b4}\label{namespacecode_1_1ga_model_1_1reduced_model___yuri_a8122076cc02bd20a75442fe3231de4b4}} 
+\index{code\+::ga\+Model\+::reduced\+Model\+\_\+\+Yuri@{code\+::ga\+Model\+::reduced\+Model\+\_\+\+Yuri}!ga\+Model@{ga\+Model}}
+\index{ga\+Model@{ga\+Model}!code\+::ga\+Model\+::reduced\+Model\+\_\+\+Yuri@{code\+::ga\+Model\+::reduced\+Model\+\_\+\+Yuri}}
+\subsubsection{\texorpdfstring{ga\+Model()}{gaModel()}}
+{\footnotesize\ttfamily def code.\+ga\+Model.\+reduced\+Model\+\_\+\+Yuri.\+ga\+Model (\begin{DoxyParamCaption}\item[{}]{N\+G\+EN,  }\item[{}]{C\+X\+PB,  }\item[{}]{M\+U\+T\+PB,  }\item[{}]{model\+Omega,  }\item[{}]{year,  }\item[{}]{region,  }\item[{}]{mean,  }\item[{}]{n\+\_\+aval = {\ttfamily 50000} }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}The main function. It evolves models, namely modelLamba or individual. 
+This version of the GA simplifies the ga using a list of bins with occurences
+It uses 1 parallel system: 1, simple, that splits the ga evolution between cores
+\end{DoxyVerb}
+ 
+
+Definition at line 56 of file reduced\+Model\+\_\+\+Yuri.\+py.
+
+\mbox{\Hypertarget{namespacecode_1_1ga_model_1_1reduced_model___yuri_a7c2776b17691500596d78ef2fa34cee9}\label{namespacecode_1_1ga_model_1_1reduced_model___yuri_a7c2776b17691500596d78ef2fa34cee9}} 
+\index{code\+::ga\+Model\+::reduced\+Model\+\_\+\+Yuri@{code\+::ga\+Model\+::reduced\+Model\+\_\+\+Yuri}!mutation\+Function@{mutation\+Function}}
+\index{mutation\+Function@{mutation\+Function}!code\+::ga\+Model\+::reduced\+Model\+\_\+\+Yuri@{code\+::ga\+Model\+::reduced\+Model\+\_\+\+Yuri}}
+\subsubsection{\texorpdfstring{mutation\+Function()}{mutationFunction()}}
+{\footnotesize\ttfamily def code.\+ga\+Model.\+reduced\+Model\+\_\+\+Yuri.\+mutation\+Function (\begin{DoxyParamCaption}\item[{}]{individual,  }\item[{}]{indpb,  }\item[{}]{length }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This function changes a ind (individual) by selecting new values given a probabilistic value (indpb).
+The new values are random values. It may change a ind more than once
+It uses the length of the ind to cover all of its bins.
+\end{DoxyVerb}
+ 
+
+Definition at line 38 of file reduced\+Model\+\_\+\+Yuri.\+py.
+
+
+
+\subsection{Variable Documentation}
+\mbox{\Hypertarget{namespacecode_1_1ga_model_1_1reduced_model___yuri_acf335d8330ee303ad3fb0eef5943ebcd}\label{namespacecode_1_1ga_model_1_1reduced_model___yuri_acf335d8330ee303ad3fb0eef5943ebcd}} 
+\index{code\+::ga\+Model\+::reduced\+Model\+\_\+\+Yuri@{code\+::ga\+Model\+::reduced\+Model\+\_\+\+Yuri}!fitness@{fitness}}
+\index{fitness@{fitness}!code\+::ga\+Model\+::reduced\+Model\+\_\+\+Yuri@{code\+::ga\+Model\+::reduced\+Model\+\_\+\+Yuri}}
+\subsubsection{\texorpdfstring{fitness}{fitness}}
+{\footnotesize\ttfamily code.\+ga\+Model.\+reduced\+Model\+\_\+\+Yuri.\+fitness}
+
+
+
+Definition at line 52 of file reduced\+Model\+\_\+\+Yuri.\+py.
+
+\mbox{\Hypertarget{namespacecode_1_1ga_model_1_1reduced_model___yuri_a45d8e7477fd825ec883e666f62c7adb8}\label{namespacecode_1_1ga_model_1_1reduced_model___yuri_a45d8e7477fd825ec883e666f62c7adb8}} 
+\index{code\+::ga\+Model\+::reduced\+Model\+\_\+\+Yuri@{code\+::ga\+Model\+::reduced\+Model\+\_\+\+Yuri}!index@{index}}
+\index{index@{index}!code\+::ga\+Model\+::reduced\+Model\+\_\+\+Yuri@{code\+::ga\+Model\+::reduced\+Model\+\_\+\+Yuri}}
+\subsubsection{\texorpdfstring{index}{index}}
+{\footnotesize\ttfamily code.\+ga\+Model.\+reduced\+Model\+\_\+\+Yuri.\+index}
+
+
+
+Definition at line 69 of file reduced\+Model\+\_\+\+Yuri.\+py.
+
+\mbox{\Hypertarget{namespacecode_1_1ga_model_1_1reduced_model___yuri_abfbab5bb7a845a1ce6e9b7286b0119ab}\label{namespacecode_1_1ga_model_1_1reduced_model___yuri_abfbab5bb7a845a1ce6e9b7286b0119ab}} 
+\index{code\+::ga\+Model\+::reduced\+Model\+\_\+\+Yuri@{code\+::ga\+Model\+::reduced\+Model\+\_\+\+Yuri}!ndarray@{ndarray}}
+\index{ndarray@{ndarray}!code\+::ga\+Model\+::reduced\+Model\+\_\+\+Yuri@{code\+::ga\+Model\+::reduced\+Model\+\_\+\+Yuri}}
+\subsubsection{\texorpdfstring{ndarray}{ndarray}}
+{\footnotesize\ttfamily code.\+ga\+Model.\+reduced\+Model\+\_\+\+Yuri.\+ndarray}
+
+
+
+Definition at line 52 of file reduced\+Model\+\_\+\+Yuri.\+py.
+
+\mbox{\Hypertarget{namespacecode_1_1ga_model_1_1reduced_model___yuri_a294764fd71c26599a42af686a36851a7}\label{namespacecode_1_1ga_model_1_1reduced_model___yuri_a294764fd71c26599a42af686a36851a7}} 
+\index{code\+::ga\+Model\+::reduced\+Model\+\_\+\+Yuri@{code\+::ga\+Model\+::reduced\+Model\+\_\+\+Yuri}!pool@{pool}}
+\index{pool@{pool}!code\+::ga\+Model\+::reduced\+Model\+\_\+\+Yuri@{code\+::ga\+Model\+::reduced\+Model\+\_\+\+Yuri}}
+\subsubsection{\texorpdfstring{pool}{pool}}
+{\footnotesize\ttfamily code.\+ga\+Model.\+reduced\+Model\+\_\+\+Yuri.\+pool = multiprocessing.\+Pool()}
+
+
+
+Definition at line 53 of file reduced\+Model\+\_\+\+Yuri.\+py.
+
+\mbox{\Hypertarget{namespacecode_1_1ga_model_1_1reduced_model___yuri_a1e6723a22f2d3cdf04cb44218b7eb745}\label{namespacecode_1_1ga_model_1_1reduced_model___yuri_a1e6723a22f2d3cdf04cb44218b7eb745}} 
+\index{code\+::ga\+Model\+::reduced\+Model\+\_\+\+Yuri@{code\+::ga\+Model\+::reduced\+Model\+\_\+\+Yuri}!prob@{prob}}
+\index{prob@{prob}!code\+::ga\+Model\+::reduced\+Model\+\_\+\+Yuri@{code\+::ga\+Model\+::reduced\+Model\+\_\+\+Yuri}}
+\subsubsection{\texorpdfstring{prob}{prob}}
+{\footnotesize\ttfamily code.\+ga\+Model.\+reduced\+Model\+\_\+\+Yuri.\+prob}
+
+
+
+Definition at line 70 of file reduced\+Model\+\_\+\+Yuri.\+py.
+
+\mbox{\Hypertarget{namespacecode_1_1ga_model_1_1reduced_model___yuri_ad9761943e77a96a38cbdeb410b2344aa}\label{namespacecode_1_1ga_model_1_1reduced_model___yuri_ad9761943e77a96a38cbdeb410b2344aa}} 
+\index{code\+::ga\+Model\+::reduced\+Model\+\_\+\+Yuri@{code\+::ga\+Model\+::reduced\+Model\+\_\+\+Yuri}!toolbox@{toolbox}}
+\index{toolbox@{toolbox}!code\+::ga\+Model\+::reduced\+Model\+\_\+\+Yuri@{code\+::ga\+Model\+::reduced\+Model\+\_\+\+Yuri}}
+\subsubsection{\texorpdfstring{toolbox}{toolbox}}
+{\footnotesize\ttfamily code.\+ga\+Model.\+reduced\+Model\+\_\+\+Yuri.\+toolbox = base.\+Toolbox()}
+
+
+
+Definition at line 51 of file reduced\+Model\+\_\+\+Yuri.\+py.
+

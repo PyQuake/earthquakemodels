@@ -1,0 +1,22 @@
+cluster0.local
+cluster1.local
+cluster2.local
+cluster3.local
+cluster4.local
+cluster5.local
+cluster6.local
+cluster7.local
+cluster9.local
+cluster11.local
+
+580e084c81bfbf1a07c7ffc4
+ssh root@164.41.209.150 -p 8080 'cd mpi_projects/earthquakemodels/code; nohup mpiexec -n 1 -hostfile ../../hosts.txt python3 applyGAModel.py &'
+
+
+ /usr/local/mysql/bin/mysql -u root -p 
+ /Applications/MySQLWorkbench.app/Contents/MacOS/mysqldump  -u root -p -h localhost earthquakemodelsDB > todos.sql
+/usr/local/mysql/bin/mysql -u root -p earthquakemodelsDB < todos.sql
+
+
+ sudo yum install mysql-server
+ sudo /sbin/service mysqld start
