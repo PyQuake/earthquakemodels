@@ -1,0 +1,134 @@
+\hypertarget{namespacecode_1_1_g_a_model_p___a_v_r}{}\section{code.\+G\+A\+Model\+P\+\_\+\+A\+VR Namespace Reference}
+\label{namespacecode_1_1_g_a_model_p___a_v_r}\index{code.\+G\+A\+Model\+P\+\_\+\+A\+VR@{code.\+G\+A\+Model\+P\+\_\+\+A\+VR}}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{namespacecode_1_1_g_a_model_p___a_v_r_ae008eef98ea5f21ea46b555bff16501b}{evaluation\+Function} (individual, model\+Omega)
+\item 
+def \hyperlink{namespacecode_1_1_g_a_model_p___a_v_r_a922bf40c33ff02ee40ad28ccb7122b83}{ga\+Model} (type\+\_\+m, N\+G\+EN, C\+X\+PB, M\+U\+T\+PB, model\+Omega, year, region, depth, n\+\_\+aval=500)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{namespacecode_1_1_g_a_model_p___a_v_r_aada4f2b1955c75829ce7666b65f1d64c}{toolbox} = base.\+Toolbox()
+\item 
+\hyperlink{namespacecode_1_1_g_a_model_p___a_v_r_ad0e24db7e538c760b931674cd964d42b}{Fitness}
+\item 
+\hyperlink{namespacecode_1_1_g_a_model_p___a_v_r_a23500f115cb36eb62f05a9b6ce845e33}{weights}
+\item 
+\hyperlink{namespacecode_1_1_g_a_model_p___a_v_r_a8ba332ee0d895afa17012d1a732a762f}{typecode}
+\item 
+\hyperlink{namespacecode_1_1_g_a_model_p___a_v_r_ac71f9f1415378acbbe9bf8f11e8427ea}{fitness}
+\item 
+\hyperlink{namespacecode_1_1_g_a_model_p___a_v_r_af4c5b1064ae8cb3088ebc679a252f668}{sel\+Tournament}
+\item 
+\hyperlink{namespacecode_1_1_g_a_model_p___a_v_r_a065641ff21adefe5c007d82b9ceee55a}{tournsize}
+\item 
+\hyperlink{namespacecode_1_1_g_a_model_p___a_v_r_ac5158b72a11a8d5d8496b7345ae71b81}{indpb}
+\item 
+\hyperlink{namespacecode_1_1_g_a_model_p___a_v_r_a6464be2da11db3ebe3986118deaa9be5}{eta}
+\item 
+\hyperlink{namespacecode_1_1_g_a_model_p___a_v_r_a8b4c4e4544bfe7c568aedaaafc79febc}{low}
+\item 
+\hyperlink{namespacecode_1_1_g_a_model_p___a_v_r_ace90f84537fcabf735ceb1680716dee9}{up}
+\item 
+\hyperlink{namespacecode_1_1_g_a_model_p___a_v_r_a07fc233c6cd1acf2183ae25f4b3b0b1f}{stats} = tools.\+Statistics(key=lambda ind\+: ind.\+fitness.\+values)
+\item 
+\hyperlink{namespacecode_1_1_g_a_model_p___a_v_r_a12e12e88bbdbb6d15879d3bd0302ab39}{pool} = multiprocessing.\+Pool()
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{namespacecode_1_1_g_a_model_p___a_v_r_ae008eef98ea5f21ea46b555bff16501b}\label{namespacecode_1_1_g_a_model_p___a_v_r_ae008eef98ea5f21ea46b555bff16501b}} 
+\index{code\+::\+G\+A\+Model\+P\+\_\+\+A\+VR@{code\+::\+G\+A\+Model\+P\+\_\+\+A\+VR}!evaluation\+Function@{evaluation\+Function}}
+\index{evaluation\+Function@{evaluation\+Function}!code\+::\+G\+A\+Model\+P\+\_\+\+A\+VR@{code\+::\+G\+A\+Model\+P\+\_\+\+A\+VR}}
+\subsubsection{\texorpdfstring{evaluation\+Function()}{evaluationFunction()}}
+{\footnotesize\ttfamily def code.\+G\+A\+Model\+P\+\_\+\+A\+V\+R.\+evaluation\+Function (\begin{DoxyParamCaption}\item[{}]{individual,  }\item[{}]{model\+Omega }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{namespacecode_1_1_g_a_model_p___a_v_r_a922bf40c33ff02ee40ad28ccb7122b83}\label{namespacecode_1_1_g_a_model_p___a_v_r_a922bf40c33ff02ee40ad28ccb7122b83}} 
+\index{code\+::\+G\+A\+Model\+P\+\_\+\+A\+VR@{code\+::\+G\+A\+Model\+P\+\_\+\+A\+VR}!ga\+Model@{ga\+Model}}
+\index{ga\+Model@{ga\+Model}!code\+::\+G\+A\+Model\+P\+\_\+\+A\+VR@{code\+::\+G\+A\+Model\+P\+\_\+\+A\+VR}}
+\subsubsection{\texorpdfstring{ga\+Model()}{gaModel()}}
+{\footnotesize\ttfamily def code.\+G\+A\+Model\+P\+\_\+\+A\+V\+R.\+ga\+Model (\begin{DoxyParamCaption}\item[{}]{type\+\_\+m,  }\item[{}]{N\+G\+EN,  }\item[{}]{C\+X\+PB,  }\item[{}]{M\+U\+T\+PB,  }\item[{}]{model\+Omega,  }\item[{}]{year,  }\item[{}]{region,  }\item[{}]{depth,  }\item[{}]{n\+\_\+aval = {\ttfamily 500} }\end{DoxyParamCaption})}
+
+
+
+\subsection{Variable Documentation}
+\mbox{\Hypertarget{namespacecode_1_1_g_a_model_p___a_v_r_a6464be2da11db3ebe3986118deaa9be5}\label{namespacecode_1_1_g_a_model_p___a_v_r_a6464be2da11db3ebe3986118deaa9be5}} 
+\index{code\+::\+G\+A\+Model\+P\+\_\+\+A\+VR@{code\+::\+G\+A\+Model\+P\+\_\+\+A\+VR}!eta@{eta}}
+\index{eta@{eta}!code\+::\+G\+A\+Model\+P\+\_\+\+A\+VR@{code\+::\+G\+A\+Model\+P\+\_\+\+A\+VR}}
+\subsubsection{\texorpdfstring{eta}{eta}}
+{\footnotesize\ttfamily code.\+G\+A\+Model\+P\+\_\+\+A\+V\+R.\+eta}
+
+\mbox{\Hypertarget{namespacecode_1_1_g_a_model_p___a_v_r_ad0e24db7e538c760b931674cd964d42b}\label{namespacecode_1_1_g_a_model_p___a_v_r_ad0e24db7e538c760b931674cd964d42b}} 
+\index{code\+::\+G\+A\+Model\+P\+\_\+\+A\+VR@{code\+::\+G\+A\+Model\+P\+\_\+\+A\+VR}!Fitness@{Fitness}}
+\index{Fitness@{Fitness}!code\+::\+G\+A\+Model\+P\+\_\+\+A\+VR@{code\+::\+G\+A\+Model\+P\+\_\+\+A\+VR}}
+\subsubsection{\texorpdfstring{Fitness}{Fitness}}
+{\footnotesize\ttfamily code.\+G\+A\+Model\+P\+\_\+\+A\+V\+R.\+Fitness}
+
+\mbox{\Hypertarget{namespacecode_1_1_g_a_model_p___a_v_r_ac71f9f1415378acbbe9bf8f11e8427ea}\label{namespacecode_1_1_g_a_model_p___a_v_r_ac71f9f1415378acbbe9bf8f11e8427ea}} 
+\index{code\+::\+G\+A\+Model\+P\+\_\+\+A\+VR@{code\+::\+G\+A\+Model\+P\+\_\+\+A\+VR}!fitness@{fitness}}
+\index{fitness@{fitness}!code\+::\+G\+A\+Model\+P\+\_\+\+A\+VR@{code\+::\+G\+A\+Model\+P\+\_\+\+A\+VR}}
+\subsubsection{\texorpdfstring{fitness}{fitness}}
+{\footnotesize\ttfamily code.\+G\+A\+Model\+P\+\_\+\+A\+V\+R.\+fitness}
+
+\mbox{\Hypertarget{namespacecode_1_1_g_a_model_p___a_v_r_ac5158b72a11a8d5d8496b7345ae71b81}\label{namespacecode_1_1_g_a_model_p___a_v_r_ac5158b72a11a8d5d8496b7345ae71b81}} 
+\index{code\+::\+G\+A\+Model\+P\+\_\+\+A\+VR@{code\+::\+G\+A\+Model\+P\+\_\+\+A\+VR}!indpb@{indpb}}
+\index{indpb@{indpb}!code\+::\+G\+A\+Model\+P\+\_\+\+A\+VR@{code\+::\+G\+A\+Model\+P\+\_\+\+A\+VR}}
+\subsubsection{\texorpdfstring{indpb}{indpb}}
+{\footnotesize\ttfamily code.\+G\+A\+Model\+P\+\_\+\+A\+V\+R.\+indpb}
+
+\mbox{\Hypertarget{namespacecode_1_1_g_a_model_p___a_v_r_a8b4c4e4544bfe7c568aedaaafc79febc}\label{namespacecode_1_1_g_a_model_p___a_v_r_a8b4c4e4544bfe7c568aedaaafc79febc}} 
+\index{code\+::\+G\+A\+Model\+P\+\_\+\+A\+VR@{code\+::\+G\+A\+Model\+P\+\_\+\+A\+VR}!low@{low}}
+\index{low@{low}!code\+::\+G\+A\+Model\+P\+\_\+\+A\+VR@{code\+::\+G\+A\+Model\+P\+\_\+\+A\+VR}}
+\subsubsection{\texorpdfstring{low}{low}}
+{\footnotesize\ttfamily code.\+G\+A\+Model\+P\+\_\+\+A\+V\+R.\+low}
+
+\mbox{\Hypertarget{namespacecode_1_1_g_a_model_p___a_v_r_a12e12e88bbdbb6d15879d3bd0302ab39}\label{namespacecode_1_1_g_a_model_p___a_v_r_a12e12e88bbdbb6d15879d3bd0302ab39}} 
+\index{code\+::\+G\+A\+Model\+P\+\_\+\+A\+VR@{code\+::\+G\+A\+Model\+P\+\_\+\+A\+VR}!pool@{pool}}
+\index{pool@{pool}!code\+::\+G\+A\+Model\+P\+\_\+\+A\+VR@{code\+::\+G\+A\+Model\+P\+\_\+\+A\+VR}}
+\subsubsection{\texorpdfstring{pool}{pool}}
+{\footnotesize\ttfamily code.\+G\+A\+Model\+P\+\_\+\+A\+V\+R.\+pool = multiprocessing.\+Pool()}
+
+\mbox{\Hypertarget{namespacecode_1_1_g_a_model_p___a_v_r_af4c5b1064ae8cb3088ebc679a252f668}\label{namespacecode_1_1_g_a_model_p___a_v_r_af4c5b1064ae8cb3088ebc679a252f668}} 
+\index{code\+::\+G\+A\+Model\+P\+\_\+\+A\+VR@{code\+::\+G\+A\+Model\+P\+\_\+\+A\+VR}!sel\+Tournament@{sel\+Tournament}}
+\index{sel\+Tournament@{sel\+Tournament}!code\+::\+G\+A\+Model\+P\+\_\+\+A\+VR@{code\+::\+G\+A\+Model\+P\+\_\+\+A\+VR}}
+\subsubsection{\texorpdfstring{sel\+Tournament}{selTournament}}
+{\footnotesize\ttfamily code.\+G\+A\+Model\+P\+\_\+\+A\+V\+R.\+sel\+Tournament}
+
+\mbox{\Hypertarget{namespacecode_1_1_g_a_model_p___a_v_r_a07fc233c6cd1acf2183ae25f4b3b0b1f}\label{namespacecode_1_1_g_a_model_p___a_v_r_a07fc233c6cd1acf2183ae25f4b3b0b1f}} 
+\index{code\+::\+G\+A\+Model\+P\+\_\+\+A\+VR@{code\+::\+G\+A\+Model\+P\+\_\+\+A\+VR}!stats@{stats}}
+\index{stats@{stats}!code\+::\+G\+A\+Model\+P\+\_\+\+A\+VR@{code\+::\+G\+A\+Model\+P\+\_\+\+A\+VR}}
+\subsubsection{\texorpdfstring{stats}{stats}}
+{\footnotesize\ttfamily code.\+G\+A\+Model\+P\+\_\+\+A\+V\+R.\+stats = tools.\+Statistics(key=lambda ind\+: ind.\+fitness.\+values)}
+
+\mbox{\Hypertarget{namespacecode_1_1_g_a_model_p___a_v_r_aada4f2b1955c75829ce7666b65f1d64c}\label{namespacecode_1_1_g_a_model_p___a_v_r_aada4f2b1955c75829ce7666b65f1d64c}} 
+\index{code\+::\+G\+A\+Model\+P\+\_\+\+A\+VR@{code\+::\+G\+A\+Model\+P\+\_\+\+A\+VR}!toolbox@{toolbox}}
+\index{toolbox@{toolbox}!code\+::\+G\+A\+Model\+P\+\_\+\+A\+VR@{code\+::\+G\+A\+Model\+P\+\_\+\+A\+VR}}
+\subsubsection{\texorpdfstring{toolbox}{toolbox}}
+{\footnotesize\ttfamily code.\+G\+A\+Model\+P\+\_\+\+A\+V\+R.\+toolbox = base.\+Toolbox()}
+
+\mbox{\Hypertarget{namespacecode_1_1_g_a_model_p___a_v_r_a065641ff21adefe5c007d82b9ceee55a}\label{namespacecode_1_1_g_a_model_p___a_v_r_a065641ff21adefe5c007d82b9ceee55a}} 
+\index{code\+::\+G\+A\+Model\+P\+\_\+\+A\+VR@{code\+::\+G\+A\+Model\+P\+\_\+\+A\+VR}!tournsize@{tournsize}}
+\index{tournsize@{tournsize}!code\+::\+G\+A\+Model\+P\+\_\+\+A\+VR@{code\+::\+G\+A\+Model\+P\+\_\+\+A\+VR}}
+\subsubsection{\texorpdfstring{tournsize}{tournsize}}
+{\footnotesize\ttfamily code.\+G\+A\+Model\+P\+\_\+\+A\+V\+R.\+tournsize}
+
+\mbox{\Hypertarget{namespacecode_1_1_g_a_model_p___a_v_r_a8ba332ee0d895afa17012d1a732a762f}\label{namespacecode_1_1_g_a_model_p___a_v_r_a8ba332ee0d895afa17012d1a732a762f}} 
+\index{code\+::\+G\+A\+Model\+P\+\_\+\+A\+VR@{code\+::\+G\+A\+Model\+P\+\_\+\+A\+VR}!typecode@{typecode}}
+\index{typecode@{typecode}!code\+::\+G\+A\+Model\+P\+\_\+\+A\+VR@{code\+::\+G\+A\+Model\+P\+\_\+\+A\+VR}}
+\subsubsection{\texorpdfstring{typecode}{typecode}}
+{\footnotesize\ttfamily code.\+G\+A\+Model\+P\+\_\+\+A\+V\+R.\+typecode}
+
+\mbox{\Hypertarget{namespacecode_1_1_g_a_model_p___a_v_r_ace90f84537fcabf735ceb1680716dee9}\label{namespacecode_1_1_g_a_model_p___a_v_r_ace90f84537fcabf735ceb1680716dee9}} 
+\index{code\+::\+G\+A\+Model\+P\+\_\+\+A\+VR@{code\+::\+G\+A\+Model\+P\+\_\+\+A\+VR}!up@{up}}
+\index{up@{up}!code\+::\+G\+A\+Model\+P\+\_\+\+A\+VR@{code\+::\+G\+A\+Model\+P\+\_\+\+A\+VR}}
+\subsubsection{\texorpdfstring{up}{up}}
+{\footnotesize\ttfamily code.\+G\+A\+Model\+P\+\_\+\+A\+V\+R.\+up}
+
+\mbox{\Hypertarget{namespacecode_1_1_g_a_model_p___a_v_r_a23500f115cb36eb62f05a9b6ce845e33}\label{namespacecode_1_1_g_a_model_p___a_v_r_a23500f115cb36eb62f05a9b6ce845e33}} 
+\index{code\+::\+G\+A\+Model\+P\+\_\+\+A\+VR@{code\+::\+G\+A\+Model\+P\+\_\+\+A\+VR}!weights@{weights}}
+\index{weights@{weights}!code\+::\+G\+A\+Model\+P\+\_\+\+A\+VR@{code\+::\+G\+A\+Model\+P\+\_\+\+A\+VR}}
+\subsubsection{\texorpdfstring{weights}{weights}}
+{\footnotesize\ttfamily code.\+G\+A\+Model\+P\+\_\+\+A\+V\+R.\+weights}
+

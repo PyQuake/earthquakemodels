@@ -1,0 +1,47 @@
+\hypertarget{namespacecode_1_1ga_model_1_1parallel_g_a}{}\section{code.\+ga\+Model.\+parallel\+GA Namespace Reference}
+\label{namespacecode_1_1ga_model_1_1parallel_g_a}\index{code.\+ga\+Model.\+parallel\+GA@{code.\+ga\+Model.\+parallel\+GA}}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{namespacecode_1_1ga_model_1_1parallel_g_a_aa9d1048007f567adaa88457299a1069e}{evaluation\+Function} (individual, model\+Omega)
+\item 
+def \hyperlink{namespacecode_1_1ga_model_1_1parallel_g_a_a703bc172bcc6b29b3e7d5853daaf547c}{ga\+Model} (N\+G\+EN, n, C\+X\+PB, M\+U\+T\+PB, model\+Omega, year, region, mean, depth=100, F\+R\+EQ=10)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{namespacecode_1_1ga_model_1_1parallel_g_a_aa9d1048007f567adaa88457299a1069e}\label{namespacecode_1_1ga_model_1_1parallel_g_a_aa9d1048007f567adaa88457299a1069e}} 
+\index{code\+::ga\+Model\+::parallel\+GA@{code\+::ga\+Model\+::parallel\+GA}!evaluation\+Function@{evaluation\+Function}}
+\index{evaluation\+Function@{evaluation\+Function}!code\+::ga\+Model\+::parallel\+GA@{code\+::ga\+Model\+::parallel\+GA}}
+\subsubsection{\texorpdfstring{evaluation\+Function()}{evaluationFunction()}}
+{\footnotesize\ttfamily def code.\+ga\+Model.\+parallel\+G\+A.\+evaluation\+Function (\begin{DoxyParamCaption}\item[{}]{individual,  }\item[{}]{model\+Omega }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This function calculates the loglikelihood of a model (individual) with 
+the real data from the prior X years (modelOmega, with length X).
+It selects the smallest loglikelihood value.
+\end{DoxyVerb}
+ 
+
+Definition at line 22 of file parallel\+G\+A.\+py.
+
+Here is the call graph for this function\+:
+% FIG 0
+Here is the caller graph for this function\+:
+% FIG 1
+\mbox{\Hypertarget{namespacecode_1_1ga_model_1_1parallel_g_a_a703bc172bcc6b29b3e7d5853daaf547c}\label{namespacecode_1_1ga_model_1_1parallel_g_a_a703bc172bcc6b29b3e7d5853daaf547c}} 
+\index{code\+::ga\+Model\+::parallel\+GA@{code\+::ga\+Model\+::parallel\+GA}!ga\+Model@{ga\+Model}}
+\index{ga\+Model@{ga\+Model}!code\+::ga\+Model\+::parallel\+GA@{code\+::ga\+Model\+::parallel\+GA}}
+\subsubsection{\texorpdfstring{ga\+Model()}{gaModel()}}
+{\footnotesize\ttfamily def code.\+ga\+Model.\+parallel\+G\+A.\+ga\+Model (\begin{DoxyParamCaption}\item[{}]{N\+G\+EN,  }\item[{}]{n,  }\item[{}]{C\+X\+PB,  }\item[{}]{M\+U\+T\+PB,  }\item[{}]{model\+Omega,  }\item[{}]{year,  }\item[{}]{region,  }\item[{}]{mean,  }\item[{}]{depth = {\ttfamily 100},  }\item[{}]{F\+R\+EQ = {\ttfamily 10} }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}The main function. It evolves models, namely modelLamba or individual. 
+This applies the gaModel with a circular island model
+It uses two parallel system: 1, simple, that splits the ga evolution between cores
+and 2, that distributes the islands
+\end{DoxyVerb}
+ 
+
+Definition at line 42 of file parallel\+G\+A.\+py.
+
+Here is the call graph for this function\+:
+% FIG 2

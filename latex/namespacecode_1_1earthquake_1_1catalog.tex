@@ -1,0 +1,166 @@
+\hypertarget{namespacecode_1_1earthquake_1_1catalog}{}\section{code.\+earthquake.\+catalog Namespace Reference}
+\label{namespacecode_1_1earthquake_1_1catalog}\index{code.\+earthquake.\+catalog@{code.\+earthquake.\+catalog}}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{namespacecode_1_1earthquake_1_1catalog_a73f93e3c5cd169e910d81499d024f15e}{read\+From\+File} (filename)
+\item 
+def \hyperlink{namespacecode_1_1earthquake_1_1catalog_aa2c0bb457e5d0aa805231889df01e584}{filter} (catalog, conditions)
+\item 
+def \hyperlink{namespacecode_1_1earthquake_1_1catalog_aa3246dbaba4b4ad94b343d1f47dd62c6}{read\+From\+File\+P\+\_\+\+A\+VR} (filename)
+\item 
+def \hyperlink{namespacecode_1_1earthquake_1_1catalog_a5f5f312808f59fead17e8a240c6babe5}{filter\+P\+\_\+\+A\+VR} (catalog, conditions)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+tuple \hyperlink{namespacecode_1_1earthquake_1_1catalog_a44170f2ae9a3da309e934ece234c1294}{J\+M\+A\+\_\+keys}
+\item 
+tuple \hyperlink{namespacecode_1_1earthquake_1_1catalog_ac679c311493ec4df9d1d045a572b10d8}{P\+\_\+\+A\+V\+R\+\_\+keys} = (\char`\"{}C\+O\+DE\char`\"{}, \char`\"{}lon\char`\"{}, \char`\"{}lat\char`\"{}, \char`\"{}W\+L\+ON\char`\"{}, \char`\"{}W\+L\+AT\char`\"{}, \char`\"{}prob\char`\"{})
+\item 
+tuple \hyperlink{namespacecode_1_1earthquake_1_1catalog_a652468120d0f5522e4cf3c98f6674b31}{V\+S400\+\_\+keys}
+\item 
+tuple \hyperlink{namespacecode_1_1earthquake_1_1catalog_abc746f43da50a4fa624e73eb53490484}{F\+N\+E\+T\+\_\+keys}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}This module reads and filter data from catalog files
+A catalog is defined as a list of events. Each event is a list
+of floats containing, in order, the following information:
+
+Year, Month, Day, Hour, Minute, Second, Latitude, Longitude,
+Magnitude, Depth
+
+This file also reads and filter data from catalog files
+that are used to produce hazard map based purely on geophysic
+knowledge. This information is used within the models
+\end{DoxyVerb}
+ 
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{namespacecode_1_1earthquake_1_1catalog_aa2c0bb457e5d0aa805231889df01e584}\label{namespacecode_1_1earthquake_1_1catalog_aa2c0bb457e5d0aa805231889df01e584}} 
+\index{code\+::earthquake\+::catalog@{code\+::earthquake\+::catalog}!filter@{filter}}
+\index{filter@{filter}!code\+::earthquake\+::catalog@{code\+::earthquake\+::catalog}}
+\subsubsection{\texorpdfstring{filter()}{filter()}}
+{\footnotesize\ttfamily def code.\+earthquake.\+catalog.\+filter (\begin{DoxyParamCaption}\item[{}]{catalog,  }\item[{}]{conditions }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Returns a new catalog by removing events of the old one that do not 
+match the conditions. The conditions is a list of dictionaries in 
+the following form:
+
+{"key":'name',"min":value,"max":value, "step":value, "bins":value, "cells":value} 
+
+an element in the catalog will be discarded if every field with key "condition" is not 
+between the minimum and maximum values. If max or min is None, that limit is not tested.
+
+WARNING: remember that the "datetime" key requires a datetime object
+\end{DoxyVerb}
+ 
+
+Definition at line 62 of file catalog.\+py.
+
+\mbox{\Hypertarget{namespacecode_1_1earthquake_1_1catalog_a5f5f312808f59fead17e8a240c6babe5}\label{namespacecode_1_1earthquake_1_1catalog_a5f5f312808f59fead17e8a240c6babe5}} 
+\index{code\+::earthquake\+::catalog@{code\+::earthquake\+::catalog}!filter\+P\+\_\+\+A\+VR@{filter\+P\+\_\+\+A\+VR}}
+\index{filter\+P\+\_\+\+A\+VR@{filter\+P\+\_\+\+A\+VR}!code\+::earthquake\+::catalog@{code\+::earthquake\+::catalog}}
+\subsubsection{\texorpdfstring{filter\+P\+\_\+\+A\+V\+R()}{filterP\_AVR()}}
+{\footnotesize\ttfamily def code.\+earthquake.\+catalog.\+filter\+P\+\_\+\+A\+VR (\begin{DoxyParamCaption}\item[{}]{catalog,  }\item[{}]{conditions }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Returns a new catalog (geophysics data (PHSM or AMP file)) by removing events of the old one that do not 
+match the conditions. The conditions is a list of dictionaries in 
+the following form:
+
+{"key":'name',"min":value,"max":value, "step":value, "bins":value, "cells":value} 
+
+an element in the catalog will be discarded if every field with key "condition" is not 
+between the minimum and maximum values. If max or min is None, that limit is not tested.\end{DoxyVerb}
+ 
+
+Definition at line 122 of file catalog.\+py.
+
+\mbox{\Hypertarget{namespacecode_1_1earthquake_1_1catalog_a73f93e3c5cd169e910d81499d024f15e}\label{namespacecode_1_1earthquake_1_1catalog_a73f93e3c5cd169e910d81499d024f15e}} 
+\index{code\+::earthquake\+::catalog@{code\+::earthquake\+::catalog}!read\+From\+File@{read\+From\+File}}
+\index{read\+From\+File@{read\+From\+File}!code\+::earthquake\+::catalog@{code\+::earthquake\+::catalog}}
+\subsubsection{\texorpdfstring{read\+From\+File()}{readFromFile()}}
+{\footnotesize\ttfamily def code.\+earthquake.\+catalog.\+read\+From\+File (\begin{DoxyParamCaption}\item[{}]{filename }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Returns a catalog created from a JMA or FNET text file
+\end{DoxyVerb}
+ 
+
+Definition at line 29 of file catalog.\+py.
+
+\mbox{\Hypertarget{namespacecode_1_1earthquake_1_1catalog_aa3246dbaba4b4ad94b343d1f47dd62c6}\label{namespacecode_1_1earthquake_1_1catalog_aa3246dbaba4b4ad94b343d1f47dd62c6}} 
+\index{code\+::earthquake\+::catalog@{code\+::earthquake\+::catalog}!read\+From\+File\+P\+\_\+\+A\+VR@{read\+From\+File\+P\+\_\+\+A\+VR}}
+\index{read\+From\+File\+P\+\_\+\+A\+VR@{read\+From\+File\+P\+\_\+\+A\+VR}!code\+::earthquake\+::catalog@{code\+::earthquake\+::catalog}}
+\subsubsection{\texorpdfstring{read\+From\+File\+P\+\_\+\+A\+V\+R()}{readFromFileP\_AVR()}}
+{\footnotesize\ttfamily def code.\+earthquake.\+catalog.\+read\+From\+File\+P\+\_\+\+A\+VR (\begin{DoxyParamCaption}\item[{}]{filename }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Returns data created from a purely geophysics hazard map
+The data here is a probabilty. 
+    In the case of a PSHM file -> its a hazard data: chance of quake
+    In the case of a AMP file -> its a amp factor data: weights for region
+\end{DoxyVerb}
+ 
+
+Definition at line 89 of file catalog.\+py.
+
+
+
+\subsection{Variable Documentation}
+\mbox{\Hypertarget{namespacecode_1_1earthquake_1_1catalog_abc746f43da50a4fa624e73eb53490484}\label{namespacecode_1_1earthquake_1_1catalog_abc746f43da50a4fa624e73eb53490484}} 
+\index{code\+::earthquake\+::catalog@{code\+::earthquake\+::catalog}!F\+N\+E\+T\+\_\+keys@{F\+N\+E\+T\+\_\+keys}}
+\index{F\+N\+E\+T\+\_\+keys@{F\+N\+E\+T\+\_\+keys}!code\+::earthquake\+::catalog@{code\+::earthquake\+::catalog}}
+\subsubsection{\texorpdfstring{F\+N\+E\+T\+\_\+keys}{FNET\_keys}}
+{\footnotesize\ttfamily tuple code.\+earthquake.\+catalog.\+F\+N\+E\+T\+\_\+keys}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+1 =  (\textcolor{stringliteral}{"year"},\textcolor{stringliteral}{"month"},\textcolor{stringliteral}{"day"},\textcolor{stringliteral}{"hour"},\textcolor{stringliteral}{"min"},\textcolor{stringliteral}{"sec"},\textcolor{stringliteral}{"lat"},\textcolor{stringliteral}{"lon"},
+2              \textcolor{stringliteral}{"depth"},\textcolor{stringliteral}{"mag"},\textcolor{stringliteral}{"s1"},\textcolor{stringliteral}{"s2"},\textcolor{stringliteral}{"d1"},\textcolor{stringliteral}{"d2"},\textcolor{stringliteral}{"r1"},\textcolor{stringliteral}{"r2"},\textcolor{stringliteral}{"depth2"},
+3              \textcolor{stringliteral}{"mag2"},\textcolor{stringliteral}{"var"})
+\end{DoxyCode}
+
+
+Definition at line 21 of file catalog.\+py.
+
+\mbox{\Hypertarget{namespacecode_1_1earthquake_1_1catalog_a44170f2ae9a3da309e934ece234c1294}\label{namespacecode_1_1earthquake_1_1catalog_a44170f2ae9a3da309e934ece234c1294}} 
+\index{code\+::earthquake\+::catalog@{code\+::earthquake\+::catalog}!J\+M\+A\+\_\+keys@{J\+M\+A\+\_\+keys}}
+\index{J\+M\+A\+\_\+keys@{J\+M\+A\+\_\+keys}!code\+::earthquake\+::catalog@{code\+::earthquake\+::catalog}}
+\subsubsection{\texorpdfstring{J\+M\+A\+\_\+keys}{JMA\_keys}}
+{\footnotesize\ttfamily tuple code.\+earthquake.\+catalog.\+J\+M\+A\+\_\+keys}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+1 =  (\textcolor{stringliteral}{"lon"},\textcolor{stringliteral}{"lat"},\textcolor{stringliteral}{"year"},\textcolor{stringliteral}{"month"},\textcolor{stringliteral}{"day"},\textcolor{stringliteral}{"mag"},\textcolor{stringliteral}{"depth"},\textcolor{stringliteral}{"hour"},
+2             \textcolor{stringliteral}{"min"},\textcolor{stringliteral}{"sec"})
+\end{DoxyCode}
+
+
+Definition at line 16 of file catalog.\+py.
+
+\mbox{\Hypertarget{namespacecode_1_1earthquake_1_1catalog_ac679c311493ec4df9d1d045a572b10d8}\label{namespacecode_1_1earthquake_1_1catalog_ac679c311493ec4df9d1d045a572b10d8}} 
+\index{code\+::earthquake\+::catalog@{code\+::earthquake\+::catalog}!P\+\_\+\+A\+V\+R\+\_\+keys@{P\+\_\+\+A\+V\+R\+\_\+keys}}
+\index{P\+\_\+\+A\+V\+R\+\_\+keys@{P\+\_\+\+A\+V\+R\+\_\+keys}!code\+::earthquake\+::catalog@{code\+::earthquake\+::catalog}}
+\subsubsection{\texorpdfstring{P\+\_\+\+A\+V\+R\+\_\+keys}{P\_AVR\_keys}}
+{\footnotesize\ttfamily tuple code.\+earthquake.\+catalog.\+P\+\_\+\+A\+V\+R\+\_\+keys = (\char`\"{}C\+O\+DE\char`\"{}, \char`\"{}lon\char`\"{}, \char`\"{}lat\char`\"{}, \char`\"{}W\+L\+ON\char`\"{}, \char`\"{}W\+L\+AT\char`\"{}, \char`\"{}prob\char`\"{})}
+
+
+
+Definition at line 18 of file catalog.\+py.
+
+\mbox{\Hypertarget{namespacecode_1_1earthquake_1_1catalog_a652468120d0f5522e4cf3c98f6674b31}\label{namespacecode_1_1earthquake_1_1catalog_a652468120d0f5522e4cf3c98f6674b31}} 
+\index{code\+::earthquake\+::catalog@{code\+::earthquake\+::catalog}!V\+S400\+\_\+keys@{V\+S400\+\_\+keys}}
+\index{V\+S400\+\_\+keys@{V\+S400\+\_\+keys}!code\+::earthquake\+::catalog@{code\+::earthquake\+::catalog}}
+\subsubsection{\texorpdfstring{V\+S400\+\_\+keys}{VS400\_keys}}
+{\footnotesize\ttfamily tuple code.\+earthquake.\+catalog.\+V\+S400\+\_\+keys}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+1 =  (\textcolor{stringliteral}{"CODE"}, \textcolor{stringliteral}{"lon"}, \textcolor{stringliteral}{"lat"}, \textcolor{stringliteral}{"WLON"}, \textcolor{stringliteral}{"WLAT"}, \textcolor{stringliteral}{"JCODE"}, \textcolor{stringliteral}{"HEIGHT"},
+2             \textcolor{stringliteral}{"DISTANCE"}, \textcolor{stringliteral}{"AVS"}, \textcolor{stringliteral}{"prob"}, \textcolor{stringliteral}{"ACODE"}, \textcolor{stringliteral}{"HCODE"})
+\end{DoxyCode}
+
+
+Definition at line 19 of file catalog.\+py.
+

@@ -1,0 +1,92 @@
+\hypertarget{namespacecode_1_1models_1_1model}{}\section{code.\+models.\+model Namespace Reference}
+\label{namespacecode_1_1models_1_1model}\index{code.\+models.\+model@{code.\+models.\+model}}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classcode_1_1models_1_1model_1_1model}{model}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{namespacecode_1_1models_1_1model_ad4cd9f5c3ee9cb21283e98f1dcd9d81b}{new\+Model} (definitions, initialvalue=0)
+\item 
+def \hyperlink{namespacecode_1_1models_1_1model_aa5b70c0dbb95cdcca3fae1082f4b4a93}{add\+From\+Catalog} (\hyperlink{classcode_1_1models_1_1model_1_1model}{model}, catalog, year)
+\item 
+def \hyperlink{namespacecode_1_1models_1_1model_a516aba6a18e97e9ca010b3b8ce66d033}{load\+Model\+Definition} (filename)
+\item 
+def \hyperlink{namespacecode_1_1models_1_1model_aff45090e2bdcb7f7a6dcc6ae34007cb2}{convert\+From\+List\+To\+Data} (observations, length)
+\item 
+def \hyperlink{namespacecode_1_1models_1_1model_ad191be2a9a695565c7e247a98bb0a795}{add\+From\+Catalog\+P\+\_\+\+A\+VR} (\hyperlink{classcode_1_1models_1_1model_1_1model}{model}, catalog, risk\+Map, year)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{namespacecode_1_1models_1_1model_aa5b70c0dbb95cdcca3fae1082f4b4a93}\label{namespacecode_1_1models_1_1model_aa5b70c0dbb95cdcca3fae1082f4b4a93}} 
+\index{code\+::models\+::model@{code\+::models\+::model}!add\+From\+Catalog@{add\+From\+Catalog}}
+\index{add\+From\+Catalog@{add\+From\+Catalog}!code\+::models\+::model@{code\+::models\+::model}}
+\subsubsection{\texorpdfstring{add\+From\+Catalog()}{addFromCatalog()}}
+{\footnotesize\ttfamily def code.\+models.\+model.\+add\+From\+Catalog (\begin{DoxyParamCaption}\item[{}]{model,  }\item[{}]{catalog,  }\item[{}]{year }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Adds data from a catalog var to a model
+\end{DoxyVerb}
+ 
+
+Definition at line 52 of file model.\+py.
+
+\mbox{\Hypertarget{namespacecode_1_1models_1_1model_ad191be2a9a695565c7e247a98bb0a795}\label{namespacecode_1_1models_1_1model_ad191be2a9a695565c7e247a98bb0a795}} 
+\index{code\+::models\+::model@{code\+::models\+::model}!add\+From\+Catalog\+P\+\_\+\+A\+VR@{add\+From\+Catalog\+P\+\_\+\+A\+VR}}
+\index{add\+From\+Catalog\+P\+\_\+\+A\+VR@{add\+From\+Catalog\+P\+\_\+\+A\+VR}!code\+::models\+::model@{code\+::models\+::model}}
+\subsubsection{\texorpdfstring{add\+From\+Catalog\+P\+\_\+\+A\+V\+R()}{addFromCatalogP\_AVR()}}
+{\footnotesize\ttfamily def code.\+models.\+model.\+add\+From\+Catalog\+P\+\_\+\+A\+VR (\begin{DoxyParamCaption}\item[{}]{model,  }\item[{}]{catalog,  }\item[{}]{risk\+Map,  }\item[{}]{year }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This function adds the data from the geophysics models to the format used for the ga models.
+\end{DoxyVerb}
+ 
+
+Definition at line 198 of file model.\+py.
+
+\mbox{\Hypertarget{namespacecode_1_1models_1_1model_aff45090e2bdcb7f7a6dcc6ae34007cb2}\label{namespacecode_1_1models_1_1model_aff45090e2bdcb7f7a6dcc6ae34007cb2}} 
+\index{code\+::models\+::model@{code\+::models\+::model}!convert\+From\+List\+To\+Data@{convert\+From\+List\+To\+Data}}
+\index{convert\+From\+List\+To\+Data@{convert\+From\+List\+To\+Data}!code\+::models\+::model@{code\+::models\+::model}}
+\subsubsection{\texorpdfstring{convert\+From\+List\+To\+Data()}{convertFromListToData()}}
+{\footnotesize\ttfamily def code.\+models.\+model.\+convert\+From\+List\+To\+Data (\begin{DoxyParamCaption}\item[{}]{observations,  }\item[{}]{length }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Function used to convert list model to GAModel configuration
+It finds the vinculates the list model positions in a bin and atribute a probability value to it
+\end{DoxyVerb}
+ 
+
+Definition at line 183 of file model.\+py.
+
+\mbox{\Hypertarget{namespacecode_1_1models_1_1model_a516aba6a18e97e9ca010b3b8ce66d033}\label{namespacecode_1_1models_1_1model_a516aba6a18e97e9ca010b3b8ce66d033}} 
+\index{code\+::models\+::model@{code\+::models\+::model}!load\+Model\+Definition@{load\+Model\+Definition}}
+\index{load\+Model\+Definition@{load\+Model\+Definition}!code\+::models\+::model@{code\+::models\+::model}}
+\subsubsection{\texorpdfstring{load\+Model\+Definition()}{loadModelDefinition()}}
+{\footnotesize\ttfamily def code.\+models.\+model.\+load\+Model\+Definition (\begin{DoxyParamCaption}\item[{}]{filename }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Creates a dictionary list with the definitions for a model from a file.
+The file is defined as multiple lines, with each line containing:
+key min step bins
+\end{DoxyVerb}
+ 
+
+Definition at line 119 of file model.\+py.
+
+\mbox{\Hypertarget{namespacecode_1_1models_1_1model_ad4cd9f5c3ee9cb21283e98f1dcd9d81b}\label{namespacecode_1_1models_1_1model_ad4cd9f5c3ee9cb21283e98f1dcd9d81b}} 
+\index{code\+::models\+::model@{code\+::models\+::model}!new\+Model@{new\+Model}}
+\index{new\+Model@{new\+Model}!code\+::models\+::model@{code\+::models\+::model}}
+\subsubsection{\texorpdfstring{new\+Model()}{newModel()}}
+{\footnotesize\ttfamily def code.\+models.\+model.\+new\+Model (\begin{DoxyParamCaption}\item[{}]{definitions,  }\item[{}]{initialvalue = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Creates an empty model based on a set of definitions. 
+The initialvalue parameter determines the initial value of 
+the bins contained in the model, and can be used to create 
+"neutral" models (containing 1 in all bins)
+
+bins are the dimensional size for lat and long
+cells are the dimensional size for mag
+\end{DoxyVerb}
+ 
+
+Definition at line 24 of file model.\+py.
+

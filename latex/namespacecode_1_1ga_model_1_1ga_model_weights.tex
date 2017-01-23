@@ -1,0 +1,229 @@
+\hypertarget{namespacecode_1_1ga_model_1_1ga_model_weights}{}\section{code.\+ga\+Model.\+ga\+Model\+Weights Namespace Reference}
+\label{namespacecode_1_1ga_model_1_1ga_model_weights}\index{code.\+ga\+Model.\+ga\+Model\+Weights@{code.\+ga\+Model.\+ga\+Model\+Weights}}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{namespacecode_1_1ga_model_1_1ga_model_weights_a391a75f316a29e0dfba1b8adda65c526}{evaluation\+Function} (individual, year, catalogo, region)
+\item 
+def \hyperlink{namespacecode_1_1ga_model_1_1ga_model_weights_ad5f42777ce1e884bfb1cc58fa17e432b}{ga\+Model} (N\+G\+EN, n, C\+X\+PB, M\+U\+T\+PB, model\+Omega, year, region, mean, depth=100)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{namespacecode_1_1ga_model_1_1ga_model_weights_a0939fb49f49f263b0f1b897dcb1ef2b6}{bins} = list()
+\item 
+\hyperlink{namespacecode_1_1ga_model_1_1ga_model_weights_a5ab01f05781fcd46d0cf0601942b4062}{toolbox} = base.\+Toolbox()
+\item 
+\hyperlink{namespacecode_1_1ga_model_1_1ga_model_weights_a76e32761c4a2322338781fb9f8ef2fb7}{Fitness}
+\item 
+\hyperlink{namespacecode_1_1ga_model_1_1ga_model_weights_ab35ccd893150a2e64b8e4282c06e208c}{weights}
+\item 
+\hyperlink{namespacecode_1_1ga_model_1_1ga_model_weights_abeccb66239bf188f8bbad7ed63e3a4e1}{array}
+\item 
+\hyperlink{namespacecode_1_1ga_model_1_1ga_model_weights_a92b4a575d52e2de18414a49d9ded2a9f}{typecode}
+\item 
+\hyperlink{namespacecode_1_1ga_model_1_1ga_model_weights_abfb5dfea2e767cb34d80eb353a327870}{fitness}
+\item 
+\hyperlink{namespacecode_1_1ga_model_1_1ga_model_weights_a7fce0e441e755346732041135501d4c2}{sel\+Tournament}
+\item 
+\hyperlink{namespacecode_1_1ga_model_1_1ga_model_weights_af2087b353eff071373c11ae14af40d9a}{tournsize}
+\item 
+\hyperlink{namespacecode_1_1ga_model_1_1ga_model_weights_a7ec95bf83ee291f6601b6f1dc1c52cf6}{mut\+Polynomial\+Bounded}
+\item 
+\hyperlink{namespacecode_1_1ga_model_1_1ga_model_weights_af86f476a10ac573ef8ff4b89a07c009e}{indpb}
+\item 
+\hyperlink{namespacecode_1_1ga_model_1_1ga_model_weights_a97d0b5f7792b42e02e54b15ece09e86f}{eta}
+\item 
+\hyperlink{namespacecode_1_1ga_model_1_1ga_model_weights_aebcf39fb03789be03694d4c2ace80e75}{low}
+\item 
+\hyperlink{namespacecode_1_1ga_model_1_1ga_model_weights_a8cd9c8a4db73ef8984b3c7b6c3cfdf9c}{up}
+\item 
+\hyperlink{namespacecode_1_1ga_model_1_1ga_model_weights_a6999b3960cc864e03f174b06511ffe4d}{pool} = multiprocessing.\+Pool()
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{namespacecode_1_1ga_model_1_1ga_model_weights_a391a75f316a29e0dfba1b8adda65c526}\label{namespacecode_1_1ga_model_1_1ga_model_weights_a391a75f316a29e0dfba1b8adda65c526}} 
+\index{code\+::ga\+Model\+::ga\+Model\+Weights@{code\+::ga\+Model\+::ga\+Model\+Weights}!evaluation\+Function@{evaluation\+Function}}
+\index{evaluation\+Function@{evaluation\+Function}!code\+::ga\+Model\+::ga\+Model\+Weights@{code\+::ga\+Model\+::ga\+Model\+Weights}}
+\subsubsection{\texorpdfstring{evaluation\+Function()}{evaluationFunction()}}
+{\footnotesize\ttfamily def code.\+ga\+Model.\+ga\+Model\+Weights.\+evaluation\+Function (\begin{DoxyParamCaption}\item[{}]{individual,  }\item[{}]{year,  }\item[{}]{catalogo,  }\item[{}]{region }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This function calculates the loglikelihood of a model (individual) with 
+the real data from the prior X years (modelOmega, with length X).
+It selects the smallest loglikelihood value.
+\end{DoxyVerb}
+ 
+
+Definition at line 20 of file ga\+Model\+Weights.\+py.
+
+Here is the caller graph for this function\+:
+% FIG 0
+\mbox{\Hypertarget{namespacecode_1_1ga_model_1_1ga_model_weights_ad5f42777ce1e884bfb1cc58fa17e432b}\label{namespacecode_1_1ga_model_1_1ga_model_weights_ad5f42777ce1e884bfb1cc58fa17e432b}} 
+\index{code\+::ga\+Model\+::ga\+Model\+Weights@{code\+::ga\+Model\+::ga\+Model\+Weights}!ga\+Model@{ga\+Model}}
+\index{ga\+Model@{ga\+Model}!code\+::ga\+Model\+::ga\+Model\+Weights@{code\+::ga\+Model\+::ga\+Model\+Weights}}
+\subsubsection{\texorpdfstring{ga\+Model()}{gaModel()}}
+{\footnotesize\ttfamily def code.\+ga\+Model.\+ga\+Model\+Weights.\+ga\+Model (\begin{DoxyParamCaption}\item[{}]{N\+G\+EN,  }\item[{}]{n,  }\item[{}]{C\+X\+PB,  }\item[{}]{M\+U\+T\+PB,  }\item[{}]{model\+Omega,  }\item[{}]{year,  }\item[{}]{region,  }\item[{}]{mean,  }\item[{}]{depth = {\ttfamily 100} }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}The main function. It evolves models, namely modelLamba or individual. 
+This version adds the hazard map data purely based on geophisycs as a 
+\end{DoxyVerb}
+ 
+
+Definition at line 67 of file ga\+Model\+Weights.\+py.
+
+Here is the call graph for this function\+:
+% FIG 1
+
+
+\subsection{Variable Documentation}
+\mbox{\Hypertarget{namespacecode_1_1ga_model_1_1ga_model_weights_abeccb66239bf188f8bbad7ed63e3a4e1}\label{namespacecode_1_1ga_model_1_1ga_model_weights_abeccb66239bf188f8bbad7ed63e3a4e1}} 
+\index{code\+::ga\+Model\+::ga\+Model\+Weights@{code\+::ga\+Model\+::ga\+Model\+Weights}!array@{array}}
+\index{array@{array}!code\+::ga\+Model\+::ga\+Model\+Weights@{code\+::ga\+Model\+::ga\+Model\+Weights}}
+\subsubsection{\texorpdfstring{array}{array}}
+{\footnotesize\ttfamily code.\+ga\+Model.\+ga\+Model\+Weights.\+array}
+
+
+
+Definition at line 48 of file ga\+Model\+Weights.\+py.
+
+\mbox{\Hypertarget{namespacecode_1_1ga_model_1_1ga_model_weights_a0939fb49f49f263b0f1b897dcb1ef2b6}\label{namespacecode_1_1ga_model_1_1ga_model_weights_a0939fb49f49f263b0f1b897dcb1ef2b6}} 
+\index{code\+::ga\+Model\+::ga\+Model\+Weights@{code\+::ga\+Model\+::ga\+Model\+Weights}!bins@{bins}}
+\index{bins@{bins}!code\+::ga\+Model\+::ga\+Model\+Weights@{code\+::ga\+Model\+::ga\+Model\+Weights}}
+\subsubsection{\texorpdfstring{bins}{bins}}
+{\footnotesize\ttfamily code.\+ga\+Model.\+ga\+Model\+Weights.\+bins = list()}
+
+
+
+Definition at line 18 of file ga\+Model\+Weights.\+py.
+
+\mbox{\Hypertarget{namespacecode_1_1ga_model_1_1ga_model_weights_a97d0b5f7792b42e02e54b15ece09e86f}\label{namespacecode_1_1ga_model_1_1ga_model_weights_a97d0b5f7792b42e02e54b15ece09e86f}} 
+\index{code\+::ga\+Model\+::ga\+Model\+Weights@{code\+::ga\+Model\+::ga\+Model\+Weights}!eta@{eta}}
+\index{eta@{eta}!code\+::ga\+Model\+::ga\+Model\+Weights@{code\+::ga\+Model\+::ga\+Model\+Weights}}
+\subsubsection{\texorpdfstring{eta}{eta}}
+{\footnotesize\ttfamily code.\+ga\+Model.\+ga\+Model\+Weights.\+eta}
+
+
+
+Definition at line 61 of file ga\+Model\+Weights.\+py.
+
+\mbox{\Hypertarget{namespacecode_1_1ga_model_1_1ga_model_weights_a76e32761c4a2322338781fb9f8ef2fb7}\label{namespacecode_1_1ga_model_1_1ga_model_weights_a76e32761c4a2322338781fb9f8ef2fb7}} 
+\index{code\+::ga\+Model\+::ga\+Model\+Weights@{code\+::ga\+Model\+::ga\+Model\+Weights}!Fitness@{Fitness}}
+\index{Fitness@{Fitness}!code\+::ga\+Model\+::ga\+Model\+Weights@{code\+::ga\+Model\+::ga\+Model\+Weights}}
+\subsubsection{\texorpdfstring{Fitness}{Fitness}}
+{\footnotesize\ttfamily code.\+ga\+Model.\+ga\+Model\+Weights.\+Fitness}
+
+
+
+Definition at line 47 of file ga\+Model\+Weights.\+py.
+
+\mbox{\Hypertarget{namespacecode_1_1ga_model_1_1ga_model_weights_abfb5dfea2e767cb34d80eb353a327870}\label{namespacecode_1_1ga_model_1_1ga_model_weights_abfb5dfea2e767cb34d80eb353a327870}} 
+\index{code\+::ga\+Model\+::ga\+Model\+Weights@{code\+::ga\+Model\+::ga\+Model\+Weights}!fitness@{fitness}}
+\index{fitness@{fitness}!code\+::ga\+Model\+::ga\+Model\+Weights@{code\+::ga\+Model\+::ga\+Model\+Weights}}
+\subsubsection{\texorpdfstring{fitness}{fitness}}
+{\footnotesize\ttfamily code.\+ga\+Model.\+ga\+Model\+Weights.\+fitness}
+
+
+
+Definition at line 48 of file ga\+Model\+Weights.\+py.
+
+\mbox{\Hypertarget{namespacecode_1_1ga_model_1_1ga_model_weights_af86f476a10ac573ef8ff4b89a07c009e}\label{namespacecode_1_1ga_model_1_1ga_model_weights_af86f476a10ac573ef8ff4b89a07c009e}} 
+\index{code\+::ga\+Model\+::ga\+Model\+Weights@{code\+::ga\+Model\+::ga\+Model\+Weights}!indpb@{indpb}}
+\index{indpb@{indpb}!code\+::ga\+Model\+::ga\+Model\+Weights@{code\+::ga\+Model\+::ga\+Model\+Weights}}
+\subsubsection{\texorpdfstring{indpb}{indpb}}
+{\footnotesize\ttfamily code.\+ga\+Model.\+ga\+Model\+Weights.\+indpb}
+
+
+
+Definition at line 61 of file ga\+Model\+Weights.\+py.
+
+\mbox{\Hypertarget{namespacecode_1_1ga_model_1_1ga_model_weights_aebcf39fb03789be03694d4c2ace80e75}\label{namespacecode_1_1ga_model_1_1ga_model_weights_aebcf39fb03789be03694d4c2ace80e75}} 
+\index{code\+::ga\+Model\+::ga\+Model\+Weights@{code\+::ga\+Model\+::ga\+Model\+Weights}!low@{low}}
+\index{low@{low}!code\+::ga\+Model\+::ga\+Model\+Weights@{code\+::ga\+Model\+::ga\+Model\+Weights}}
+\subsubsection{\texorpdfstring{low}{low}}
+{\footnotesize\ttfamily code.\+ga\+Model.\+ga\+Model\+Weights.\+low}
+
+
+
+Definition at line 61 of file ga\+Model\+Weights.\+py.
+
+\mbox{\Hypertarget{namespacecode_1_1ga_model_1_1ga_model_weights_a7ec95bf83ee291f6601b6f1dc1c52cf6}\label{namespacecode_1_1ga_model_1_1ga_model_weights_a7ec95bf83ee291f6601b6f1dc1c52cf6}} 
+\index{code\+::ga\+Model\+::ga\+Model\+Weights@{code\+::ga\+Model\+::ga\+Model\+Weights}!mut\+Polynomial\+Bounded@{mut\+Polynomial\+Bounded}}
+\index{mut\+Polynomial\+Bounded@{mut\+Polynomial\+Bounded}!code\+::ga\+Model\+::ga\+Model\+Weights@{code\+::ga\+Model\+::ga\+Model\+Weights}}
+\subsubsection{\texorpdfstring{mut\+Polynomial\+Bounded}{mutPolynomialBounded}}
+{\footnotesize\ttfamily code.\+ga\+Model.\+ga\+Model\+Weights.\+mut\+Polynomial\+Bounded}
+
+
+
+Definition at line 61 of file ga\+Model\+Weights.\+py.
+
+\mbox{\Hypertarget{namespacecode_1_1ga_model_1_1ga_model_weights_a6999b3960cc864e03f174b06511ffe4d}\label{namespacecode_1_1ga_model_1_1ga_model_weights_a6999b3960cc864e03f174b06511ffe4d}} 
+\index{code\+::ga\+Model\+::ga\+Model\+Weights@{code\+::ga\+Model\+::ga\+Model\+Weights}!pool@{pool}}
+\index{pool@{pool}!code\+::ga\+Model\+::ga\+Model\+Weights@{code\+::ga\+Model\+::ga\+Model\+Weights}}
+\subsubsection{\texorpdfstring{pool}{pool}}
+{\footnotesize\ttfamily code.\+ga\+Model.\+ga\+Model\+Weights.\+pool = multiprocessing.\+Pool()}
+
+
+
+Definition at line 64 of file ga\+Model\+Weights.\+py.
+
+\mbox{\Hypertarget{namespacecode_1_1ga_model_1_1ga_model_weights_a7fce0e441e755346732041135501d4c2}\label{namespacecode_1_1ga_model_1_1ga_model_weights_a7fce0e441e755346732041135501d4c2}} 
+\index{code\+::ga\+Model\+::ga\+Model\+Weights@{code\+::ga\+Model\+::ga\+Model\+Weights}!sel\+Tournament@{sel\+Tournament}}
+\index{sel\+Tournament@{sel\+Tournament}!code\+::ga\+Model\+::ga\+Model\+Weights@{code\+::ga\+Model\+::ga\+Model\+Weights}}
+\subsubsection{\texorpdfstring{sel\+Tournament}{selTournament}}
+{\footnotesize\ttfamily code.\+ga\+Model.\+ga\+Model\+Weights.\+sel\+Tournament}
+
+
+
+Definition at line 60 of file ga\+Model\+Weights.\+py.
+
+\mbox{\Hypertarget{namespacecode_1_1ga_model_1_1ga_model_weights_a5ab01f05781fcd46d0cf0601942b4062}\label{namespacecode_1_1ga_model_1_1ga_model_weights_a5ab01f05781fcd46d0cf0601942b4062}} 
+\index{code\+::ga\+Model\+::ga\+Model\+Weights@{code\+::ga\+Model\+::ga\+Model\+Weights}!toolbox@{toolbox}}
+\index{toolbox@{toolbox}!code\+::ga\+Model\+::ga\+Model\+Weights@{code\+::ga\+Model\+::ga\+Model\+Weights}}
+\subsubsection{\texorpdfstring{toolbox}{toolbox}}
+{\footnotesize\ttfamily code.\+ga\+Model.\+ga\+Model\+Weights.\+toolbox = base.\+Toolbox()}
+
+
+
+Definition at line 45 of file ga\+Model\+Weights.\+py.
+
+\mbox{\Hypertarget{namespacecode_1_1ga_model_1_1ga_model_weights_af2087b353eff071373c11ae14af40d9a}\label{namespacecode_1_1ga_model_1_1ga_model_weights_af2087b353eff071373c11ae14af40d9a}} 
+\index{code\+::ga\+Model\+::ga\+Model\+Weights@{code\+::ga\+Model\+::ga\+Model\+Weights}!tournsize@{tournsize}}
+\index{tournsize@{tournsize}!code\+::ga\+Model\+::ga\+Model\+Weights@{code\+::ga\+Model\+::ga\+Model\+Weights}}
+\subsubsection{\texorpdfstring{tournsize}{tournsize}}
+{\footnotesize\ttfamily code.\+ga\+Model.\+ga\+Model\+Weights.\+tournsize}
+
+
+
+Definition at line 60 of file ga\+Model\+Weights.\+py.
+
+\mbox{\Hypertarget{namespacecode_1_1ga_model_1_1ga_model_weights_a92b4a575d52e2de18414a49d9ded2a9f}\label{namespacecode_1_1ga_model_1_1ga_model_weights_a92b4a575d52e2de18414a49d9ded2a9f}} 
+\index{code\+::ga\+Model\+::ga\+Model\+Weights@{code\+::ga\+Model\+::ga\+Model\+Weights}!typecode@{typecode}}
+\index{typecode@{typecode}!code\+::ga\+Model\+::ga\+Model\+Weights@{code\+::ga\+Model\+::ga\+Model\+Weights}}
+\subsubsection{\texorpdfstring{typecode}{typecode}}
+{\footnotesize\ttfamily code.\+ga\+Model.\+ga\+Model\+Weights.\+typecode}
+
+
+
+Definition at line 48 of file ga\+Model\+Weights.\+py.
+
+\mbox{\Hypertarget{namespacecode_1_1ga_model_1_1ga_model_weights_a8cd9c8a4db73ef8984b3c7b6c3cfdf9c}\label{namespacecode_1_1ga_model_1_1ga_model_weights_a8cd9c8a4db73ef8984b3c7b6c3cfdf9c}} 
+\index{code\+::ga\+Model\+::ga\+Model\+Weights@{code\+::ga\+Model\+::ga\+Model\+Weights}!up@{up}}
+\index{up@{up}!code\+::ga\+Model\+::ga\+Model\+Weights@{code\+::ga\+Model\+::ga\+Model\+Weights}}
+\subsubsection{\texorpdfstring{up}{up}}
+{\footnotesize\ttfamily code.\+ga\+Model.\+ga\+Model\+Weights.\+up}
+
+
+
+Definition at line 61 of file ga\+Model\+Weights.\+py.
+
+\mbox{\Hypertarget{namespacecode_1_1ga_model_1_1ga_model_weights_ab35ccd893150a2e64b8e4282c06e208c}\label{namespacecode_1_1ga_model_1_1ga_model_weights_ab35ccd893150a2e64b8e4282c06e208c}} 
+\index{code\+::ga\+Model\+::ga\+Model\+Weights@{code\+::ga\+Model\+::ga\+Model\+Weights}!weights@{weights}}
+\index{weights@{weights}!code\+::ga\+Model\+::ga\+Model\+Weights@{code\+::ga\+Model\+::ga\+Model\+Weights}}
+\subsubsection{\texorpdfstring{weights}{weights}}
+{\footnotesize\ttfamily code.\+ga\+Model.\+ga\+Model\+Weights.\+weights}
+
+
+
+Definition at line 47 of file ga\+Model\+Weights.\+py.
+

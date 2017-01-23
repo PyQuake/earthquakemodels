@@ -1,0 +1,66 @@
+\hypertarget{namespacecode_1_1calcloglikelihood2model}{}\section{code.\+calcloglikelihood2model Namespace Reference}
+\label{namespacecode_1_1calcloglikelihood2model}\index{code.\+calcloglikelihood2model@{code.\+calcloglikelihood2model}}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{namespacecode_1_1calcloglikelihood2model_a3918a0cd82882d542a7998c6731026a4}{year} = 2010
+\item 
+string \hyperlink{namespacecode_1_1calcloglikelihood2model_a17e943beb802f581617c85f011b9864f}{region} = \char`\"{}East\+Japan\char`\"{}
+\item 
+int \hyperlink{namespacecode_1_1calcloglikelihood2model_a1a573048714f1c94f6e93564807769d3}{i} = 0
+\item 
+\hyperlink{namespacecode_1_1calcloglikelihood2model_a5aaa93097dbdcb0c7e0489a15713ba4b}{modelL}
+\item 
+\hyperlink{namespacecode_1_1calcloglikelihood2model_a925ea1bdbcc96295bcb651978a42ee9b}{modelO}
+\item 
+\hyperlink{namespacecode_1_1calcloglikelihood2model_a5b4c8d5b3315c97624599ed80527ae4c}{loglike\+Value} = \hyperlink{namespacecode_1_1csep_1_1loglikelihood_a4210aa6f0234a558dc10b7d9efbce3d7}{csep.\+loglikelihood.\+calc\+Log\+Likelihood}(\hyperlink{namespacecode_1_1calcloglikelihood2model_a5aaa93097dbdcb0c7e0489a15713ba4b}{modelL}, \hyperlink{namespacecode_1_1calcloglikelihood2model_a925ea1bdbcc96295bcb651978a42ee9b}{modelO})
+\end{DoxyCompactItemize}
+
+
+\subsection{Variable Documentation}
+\mbox{\Hypertarget{namespacecode_1_1calcloglikelihood2model_a1a573048714f1c94f6e93564807769d3}\label{namespacecode_1_1calcloglikelihood2model_a1a573048714f1c94f6e93564807769d3}} 
+\index{code\+::calcloglikelihood2model@{code\+::calcloglikelihood2model}!i@{i}}
+\index{i@{i}!code\+::calcloglikelihood2model@{code\+::calcloglikelihood2model}}
+\subsubsection{\texorpdfstring{i}{i}}
+{\footnotesize\ttfamily int code.\+calcloglikelihood2model.\+i = 0}
+
+\mbox{\Hypertarget{namespacecode_1_1calcloglikelihood2model_a5b4c8d5b3315c97624599ed80527ae4c}\label{namespacecode_1_1calcloglikelihood2model_a5b4c8d5b3315c97624599ed80527ae4c}} 
+\index{code\+::calcloglikelihood2model@{code\+::calcloglikelihood2model}!loglike\+Value@{loglike\+Value}}
+\index{loglike\+Value@{loglike\+Value}!code\+::calcloglikelihood2model@{code\+::calcloglikelihood2model}}
+\subsubsection{\texorpdfstring{loglike\+Value}{loglikeValue}}
+{\footnotesize\ttfamily code.\+calcloglikelihood2model.\+loglike\+Value = \hyperlink{namespacecode_1_1csep_1_1loglikelihood_a4210aa6f0234a558dc10b7d9efbce3d7}{csep.\+loglikelihood.\+calc\+Log\+Likelihood}(\hyperlink{namespacecode_1_1calcloglikelihood2model_a5aaa93097dbdcb0c7e0489a15713ba4b}{modelL}, \hyperlink{namespacecode_1_1calcloglikelihood2model_a925ea1bdbcc96295bcb651978a42ee9b}{modelO})}
+
+\mbox{\Hypertarget{namespacecode_1_1calcloglikelihood2model_a5aaa93097dbdcb0c7e0489a15713ba4b}\label{namespacecode_1_1calcloglikelihood2model_a5aaa93097dbdcb0c7e0489a15713ba4b}} 
+\index{code\+::calcloglikelihood2model@{code\+::calcloglikelihood2model}!modelL@{modelL}}
+\index{modelL@{modelL}!code\+::calcloglikelihood2model@{code\+::calcloglikelihood2model}}
+\subsubsection{\texorpdfstring{modelL}{modelL}}
+{\footnotesize\ttfamily code.\+calcloglikelihood2model.\+modelL}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+1 =  etasGa.loadModelFromFile(
+2     \textcolor{stringliteral}{'../Zona/paper\_exp\_2011/'} + region + \textcolor{stringliteral}{'paper\_etasNP'} + str(year) + str(i) + \textcolor{stringliteral}{'.txt'})
+\end{DoxyCode}
+\mbox{\Hypertarget{namespacecode_1_1calcloglikelihood2model_a925ea1bdbcc96295bcb651978a42ee9b}\label{namespacecode_1_1calcloglikelihood2model_a925ea1bdbcc96295bcb651978a42ee9b}} 
+\index{code\+::calcloglikelihood2model@{code\+::calcloglikelihood2model}!modelO@{modelO}}
+\index{modelO@{modelO}!code\+::calcloglikelihood2model@{code\+::calcloglikelihood2model}}
+\subsubsection{\texorpdfstring{modelO}{modelO}}
+{\footnotesize\ttfamily code.\+calcloglikelihood2model.\+modelO}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+1 =  etasGa.loadModelFromFile(
+2     \textcolor{stringliteral}{'../Zona/'} + region + \textcolor{stringliteral}{'realEtas'} + str(year) + \textcolor{stringliteral}{'.txt'})
+\end{DoxyCode}
+\mbox{\Hypertarget{namespacecode_1_1calcloglikelihood2model_a17e943beb802f581617c85f011b9864f}\label{namespacecode_1_1calcloglikelihood2model_a17e943beb802f581617c85f011b9864f}} 
+\index{code\+::calcloglikelihood2model@{code\+::calcloglikelihood2model}!region@{region}}
+\index{region@{region}!code\+::calcloglikelihood2model@{code\+::calcloglikelihood2model}}
+\subsubsection{\texorpdfstring{region}{region}}
+{\footnotesize\ttfamily string code.\+calcloglikelihood2model.\+region = \char`\"{}East\+Japan\char`\"{}}
+
+\mbox{\Hypertarget{namespacecode_1_1calcloglikelihood2model_a3918a0cd82882d542a7998c6731026a4}\label{namespacecode_1_1calcloglikelihood2model_a3918a0cd82882d542a7998c6731026a4}} 
+\index{code\+::calcloglikelihood2model@{code\+::calcloglikelihood2model}!year@{year}}
+\index{year@{year}!code\+::calcloglikelihood2model@{code\+::calcloglikelihood2model}}
+\subsubsection{\texorpdfstring{year}{year}}
+{\footnotesize\ttfamily int code.\+calcloglikelihood2model.\+year = 2010}
+

@@ -1,0 +1,73 @@
+\hypertarget{namespaceapply_create_a_m_p_models}{}\section{apply\+Create\+A\+M\+P\+Models Namespace Reference}
+\label{namespaceapply_create_a_m_p_models}\index{apply\+Create\+A\+M\+P\+Models@{apply\+Create\+A\+M\+P\+Models}}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{namespaceapply_create_a_m_p_models_abf328c55862138dc2a32af58c28de8d1}{create\+Real\+Model\+S\+Cwith\+A\+MP} (year, region, qnt\+Years=5, depth=100, with\+Mag=True, save=True)
+\item 
+def \hyperlink{namespaceapply_create_a_m_p_models_a338707b5b3fbd706fbb599ff60145d77}{exec\+Etas\+Ga\+Modelwith\+A\+MP} (year, region, depth, qnt\+Years=5, times=10, save=True)
+\item 
+def \hyperlink{namespaceapply_create_a_m_p_models_a1500ee676e5aada8983e02f2fa52d546}{call\+Etas\+G\+A\+Modelwith\+A\+MP} (region, depth)
+\item 
+def \hyperlink{namespaceapply_create_a_m_p_models_a97988a79aa6236281d12488f40740402}{main} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{namespaceapply_create_a_m_p_models_a1500ee676e5aada8983e02f2fa52d546}\label{namespaceapply_create_a_m_p_models_a1500ee676e5aada8983e02f2fa52d546}} 
+\index{apply\+Create\+A\+M\+P\+Models@{apply\+Create\+A\+M\+P\+Models}!call\+Etas\+G\+A\+Modelwith\+A\+MP@{call\+Etas\+G\+A\+Modelwith\+A\+MP}}
+\index{call\+Etas\+G\+A\+Modelwith\+A\+MP@{call\+Etas\+G\+A\+Modelwith\+A\+MP}!apply\+Create\+A\+M\+P\+Models@{apply\+Create\+A\+M\+P\+Models}}
+\subsubsection{\texorpdfstring{call\+Etas\+G\+A\+Modelwith\+A\+M\+P()}{callEtasGAModelwithAMP()}}
+{\footnotesize\ttfamily def apply\+Create\+A\+M\+P\+Models.\+call\+Etas\+G\+A\+Modelwith\+A\+MP (\begin{DoxyParamCaption}\item[{}]{region,  }\item[{}]{depth }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}It is a wrapper to the function that generates the list model SC data
+It cover the years of 2000 to 2005, and the models are from 2005 to 2010
+\end{DoxyVerb}
+ 
+
+Definition at line 66 of file apply\+Create\+A\+M\+P\+Models.\+py.
+
+Here is the call graph for this function\+:
+% FIG 0
+Here is the caller graph for this function\+:
+% FIG 1
+\mbox{\Hypertarget{namespaceapply_create_a_m_p_models_abf328c55862138dc2a32af58c28de8d1}\label{namespaceapply_create_a_m_p_models_abf328c55862138dc2a32af58c28de8d1}} 
+\index{apply\+Create\+A\+M\+P\+Models@{apply\+Create\+A\+M\+P\+Models}!create\+Real\+Model\+S\+Cwith\+A\+MP@{create\+Real\+Model\+S\+Cwith\+A\+MP}}
+\index{create\+Real\+Model\+S\+Cwith\+A\+MP@{create\+Real\+Model\+S\+Cwith\+A\+MP}!apply\+Create\+A\+M\+P\+Models@{apply\+Create\+A\+M\+P\+Models}}
+\subsubsection{\texorpdfstring{create\+Real\+Model\+S\+Cwith\+A\+M\+P()}{createRealModelSCwithAMP()}}
+{\footnotesize\ttfamily def apply\+Create\+A\+M\+P\+Models.\+create\+Real\+Model\+S\+Cwith\+A\+MP (\begin{DoxyParamCaption}\item[{}]{year,  }\item[{}]{region,  }\item[{}]{qnt\+Years = {\ttfamily 5},  }\item[{}]{depth = {\ttfamily 100},  }\item[{}]{with\+Mag = {\ttfamily True},  }\item[{}]{save = {\ttfamily True} }\end{DoxyParamCaption})}
+
+
+
+Definition at line 11 of file apply\+Create\+A\+M\+P\+Models.\+py.
+
+Here is the caller graph for this function\+:
+% FIG 2
+\mbox{\Hypertarget{namespaceapply_create_a_m_p_models_a338707b5b3fbd706fbb599ff60145d77}\label{namespaceapply_create_a_m_p_models_a338707b5b3fbd706fbb599ff60145d77}} 
+\index{apply\+Create\+A\+M\+P\+Models@{apply\+Create\+A\+M\+P\+Models}!exec\+Etas\+Ga\+Modelwith\+A\+MP@{exec\+Etas\+Ga\+Modelwith\+A\+MP}}
+\index{exec\+Etas\+Ga\+Modelwith\+A\+MP@{exec\+Etas\+Ga\+Modelwith\+A\+MP}!apply\+Create\+A\+M\+P\+Models@{apply\+Create\+A\+M\+P\+Models}}
+\subsubsection{\texorpdfstring{exec\+Etas\+Ga\+Modelwith\+A\+M\+P()}{execEtasGaModelwithAMP()}}
+{\footnotesize\ttfamily def apply\+Create\+A\+M\+P\+Models.\+exec\+Etas\+Ga\+Modelwith\+A\+MP (\begin{DoxyParamCaption}\item[{}]{year,  }\item[{}]{region,  }\item[{}]{depth,  }\item[{}]{qnt\+Years = {\ttfamily 5},  }\item[{}]{times = {\ttfamily 10},  }\item[{}]{save = {\ttfamily True} }\end{DoxyParamCaption})}
+
+
+
+Definition at line 29 of file apply\+Create\+A\+M\+P\+Models.\+py.
+
+Here is the caller graph for this function\+:
+% FIG 3
+\mbox{\Hypertarget{namespaceapply_create_a_m_p_models_a97988a79aa6236281d12488f40740402}\label{namespaceapply_create_a_m_p_models_a97988a79aa6236281d12488f40740402}} 
+\index{apply\+Create\+A\+M\+P\+Models@{apply\+Create\+A\+M\+P\+Models}!main@{main}}
+\index{main@{main}!apply\+Create\+A\+M\+P\+Models@{apply\+Create\+A\+M\+P\+Models}}
+\subsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily def apply\+Create\+A\+M\+P\+Models.\+main (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This function creates the needed enviroment needed to generate both GAModel and List Model with SC
+for the regions: EastJapan, Kanto, Kansai, Tohoku
+from 2000 to 2005 to create models from 2005 to 2010
+\end{DoxyVerb}
+ 
+
+Definition at line 76 of file apply\+Create\+A\+M\+P\+Models.\+py.
+
+Here is the call graph for this function\+:
+% FIG 4

@@ -1,0 +1,76 @@
+\hypertarget{namespacecode_1_1testing_alarm_based_1_1molchan_based}{}\section{code.\+testing\+Alarm\+Based.\+molchan\+Based Namespace Reference}
+\label{namespacecode_1_1testing_alarm_based_1_1molchan_based}\index{code.\+testing\+Alarm\+Based.\+molchan\+Based@{code.\+testing\+Alarm\+Based.\+molchan\+Based}}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{namespacecode_1_1testing_alarm_based_1_1molchan_based_a58209ab6fe99f49980840a862f96ee5a}{molchan} (model\+Lambda, model\+Omega)
+\item 
+def \hyperlink{namespacecode_1_1testing_alarm_based_1_1molchan_based_acdd42a8c19feb0de5a9f993908a8f2d6}{which\+Leg\+Are\+We\+On} (molchan\+Trajectory, tau)
+\item 
+def \hyperlink{namespacecode_1_1testing_alarm_based_1_1molchan_based_aff91d35a8e1f80f4f7b540f7b3fd6295}{area\+Under\+Trajectory} (molchan\+Trajectory, tau)
+\item 
+def \hyperlink{namespacecode_1_1testing_alarm_based_1_1molchan_based_a1963447bb2c467f0bbeb68c24474f548}{ass\+Test} (model\+Lambda, model\+Omega, tau\+Steps=0.\+01)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{namespacecode_1_1testing_alarm_based_1_1molchan_based_aff91d35a8e1f80f4f7b540f7b3fd6295}\label{namespacecode_1_1testing_alarm_based_1_1molchan_based_aff91d35a8e1f80f4f7b540f7b3fd6295}} 
+\index{code\+::testing\+Alarm\+Based\+::molchan\+Based@{code\+::testing\+Alarm\+Based\+::molchan\+Based}!area\+Under\+Trajectory@{area\+Under\+Trajectory}}
+\index{area\+Under\+Trajectory@{area\+Under\+Trajectory}!code\+::testing\+Alarm\+Based\+::molchan\+Based@{code\+::testing\+Alarm\+Based\+::molchan\+Based}}
+\subsubsection{\texorpdfstring{area\+Under\+Trajectory()}{areaUnderTrajectory()}}
+{\footnotesize\ttfamily def code.\+testing\+Alarm\+Based.\+molchan\+Based.\+area\+Under\+Trajectory (\begin{DoxyParamCaption}\item[{}]{molchan\+Trajectory,  }\item[{}]{tau }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Function needed to calculate the areaUnderTrajectory for the ASS test
+\end{DoxyVerb}
+ 
+
+Definition at line 65 of file molchan\+Based.\+py.
+
+Here is the call graph for this function\+:
+% FIG 0
+Here is the caller graph for this function\+:
+% FIG 1
+\mbox{\Hypertarget{namespacecode_1_1testing_alarm_based_1_1molchan_based_a1963447bb2c467f0bbeb68c24474f548}\label{namespacecode_1_1testing_alarm_based_1_1molchan_based_a1963447bb2c467f0bbeb68c24474f548}} 
+\index{code\+::testing\+Alarm\+Based\+::molchan\+Based@{code\+::testing\+Alarm\+Based\+::molchan\+Based}!ass\+Test@{ass\+Test}}
+\index{ass\+Test@{ass\+Test}!code\+::testing\+Alarm\+Based\+::molchan\+Based@{code\+::testing\+Alarm\+Based\+::molchan\+Based}}
+\subsubsection{\texorpdfstring{ass\+Test()}{assTest()}}
+{\footnotesize\ttfamily def code.\+testing\+Alarm\+Based.\+molchan\+Based.\+ass\+Test (\begin{DoxyParamCaption}\item[{}]{model\+Lambda,  }\item[{}]{model\+Omega,  }\item[{}]{tau\+Steps = {\ttfamily 0.01} }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Calculates the ASS alarm test function defined by Zechar. 
+Its as alarm based test that considers regions, threshold, miss rate and hits.
+The param should be an model with bins that divides one region, and every bin should contain the quatity of earthquakes
+\end{DoxyVerb}
+ 
+
+Definition at line 88 of file molchan\+Based.\+py.
+
+Here is the call graph for this function\+:
+% FIG 2
+\mbox{\Hypertarget{namespacecode_1_1testing_alarm_based_1_1molchan_based_a58209ab6fe99f49980840a862f96ee5a}\label{namespacecode_1_1testing_alarm_based_1_1molchan_based_a58209ab6fe99f49980840a862f96ee5a}} 
+\index{code\+::testing\+Alarm\+Based\+::molchan\+Based@{code\+::testing\+Alarm\+Based\+::molchan\+Based}!molchan@{molchan}}
+\index{molchan@{molchan}!code\+::testing\+Alarm\+Based\+::molchan\+Based@{code\+::testing\+Alarm\+Based\+::molchan\+Based}}
+\subsubsection{\texorpdfstring{molchan()}{molchan()}}
+{\footnotesize\ttfamily def code.\+testing\+Alarm\+Based.\+molchan\+Based.\+molchan (\begin{DoxyParamCaption}\item[{}]{model\+Lambda,  }\item[{}]{model\+Omega }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Calculates the Molchan test of a model against a reference model
+\end{DoxyVerb}
+ 
+
+Definition at line 4 of file molchan\+Based.\+py.
+
+Here is the caller graph for this function\+:
+% FIG 3
+\mbox{\Hypertarget{namespacecode_1_1testing_alarm_based_1_1molchan_based_acdd42a8c19feb0de5a9f993908a8f2d6}\label{namespacecode_1_1testing_alarm_based_1_1molchan_based_acdd42a8c19feb0de5a9f993908a8f2d6}} 
+\index{code\+::testing\+Alarm\+Based\+::molchan\+Based@{code\+::testing\+Alarm\+Based\+::molchan\+Based}!which\+Leg\+Are\+We\+On@{which\+Leg\+Are\+We\+On}}
+\index{which\+Leg\+Are\+We\+On@{which\+Leg\+Are\+We\+On}!code\+::testing\+Alarm\+Based\+::molchan\+Based@{code\+::testing\+Alarm\+Based\+::molchan\+Based}}
+\subsubsection{\texorpdfstring{which\+Leg\+Are\+We\+On()}{whichLegAreWeOn()}}
+{\footnotesize\ttfamily def code.\+testing\+Alarm\+Based.\+molchan\+Based.\+which\+Leg\+Are\+We\+On (\begin{DoxyParamCaption}\item[{}]{molchan\+Trajectory,  }\item[{}]{tau }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Function needed as part of the areaUnderTrajectory function
+\end{DoxyVerb}
+ 
+
+Definition at line 52 of file molchan\+Based.\+py.
+
+Here is the caller graph for this function\+:
+% FIG 4

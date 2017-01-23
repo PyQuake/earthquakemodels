@@ -1,4 +1,3 @@
-#key, min, step, bins, cells
-lat 34.8 0.05 45 1
-lon 138.8 0.05 45 1
-mag 0.0 0.1 1 70 100
+#key, min, step, bins
+lat 34.8 0.05 45
+lon 138.8 0.05 45

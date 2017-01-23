@@ -1,0 +1,75 @@
+\hypertarget{namespacecode_1_1models_1_1math_util}{}\section{code.\+models.\+math\+Util Namespace Reference}
+\label{namespacecode_1_1models_1_1math_util}\index{code.\+models.\+math\+Util@{code.\+models.\+math\+Util}}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{namespacecode_1_1models_1_1math_util_ac0f6efe45f2da086c1225392a228983e}{invert\+Poisson} (x, mi)
+\item 
+def \hyperlink{namespacecode_1_1models_1_1math_util_ac76d9979aa6ab0cd5be96f5935939528}{calc\+Number\+Bins} (lambda\+\_\+i, omega\+\_\+i, weights=None, adjusting=0)
+\item 
+def \hyperlink{namespacecode_1_1models_1_1math_util_aaef089b43b3c89bcacb91765ef2b878a}{normalize} (aux\+List)
+\item 
+def \hyperlink{namespacecode_1_1models_1_1math_util_a2415ab497b8fa691c2755ca022d77c48}{percentile} (value, sample)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{namespacecode_1_1models_1_1math_util_ac76d9979aa6ab0cd5be96f5935939528}\label{namespacecode_1_1models_1_1math_util_ac76d9979aa6ab0cd5be96f5935939528}} 
+\index{code\+::models\+::math\+Util@{code\+::models\+::math\+Util}!calc\+Number\+Bins@{calc\+Number\+Bins}}
+\index{calc\+Number\+Bins@{calc\+Number\+Bins}!code\+::models\+::math\+Util@{code\+::models\+::math\+Util}}
+\subsubsection{\texorpdfstring{calc\+Number\+Bins()}{calcNumberBins()}}
+{\footnotesize\ttfamily def code.\+models.\+math\+Util.\+calc\+Number\+Bins (\begin{DoxyParamCaption}\item[{}]{lambda\+\_\+i,  }\item[{}]{omega\+\_\+i,  }\item[{}]{weights = {\ttfamily None},  }\item[{}]{adjusting = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Transform a set of real valued bins (0..1) into 
+a set of integer bins, using the value of real data 
+(omega) as the mean for the poisson distribution\end{DoxyVerb}
+ 
+
+Definition at line 19 of file math\+Util.\+py.
+
+Here is the call graph for this function\+:
+% FIG 0
+Here is the caller graph for this function\+:
+% FIG 1
+\mbox{\Hypertarget{namespacecode_1_1models_1_1math_util_ac0f6efe45f2da086c1225392a228983e}\label{namespacecode_1_1models_1_1math_util_ac0f6efe45f2da086c1225392a228983e}} 
+\index{code\+::models\+::math\+Util@{code\+::models\+::math\+Util}!invert\+Poisson@{invert\+Poisson}}
+\index{invert\+Poisson@{invert\+Poisson}!code\+::models\+::math\+Util@{code\+::models\+::math\+Util}}
+\subsubsection{\texorpdfstring{invert\+Poisson()}{invertPoisson()}}
+{\footnotesize\ttfamily def code.\+models.\+math\+Util.\+invert\+Poisson (\begin{DoxyParamCaption}\item[{}]{x,  }\item[{}]{mi }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Calculates the value that would be found in a 
+poisson distribution with lambda = mi at probability
+value X
+\end{DoxyVerb}
+ 
+
+Definition at line 2 of file math\+Util.\+py.
+
+Here is the caller graph for this function\+:
+% FIG 2
+\mbox{\Hypertarget{namespacecode_1_1models_1_1math_util_aaef089b43b3c89bcacb91765ef2b878a}\label{namespacecode_1_1models_1_1math_util_aaef089b43b3c89bcacb91765ef2b878a}} 
+\index{code\+::models\+::math\+Util@{code\+::models\+::math\+Util}!normalize@{normalize}}
+\index{normalize@{normalize}!code\+::models\+::math\+Util@{code\+::models\+::math\+Util}}
+\subsubsection{\texorpdfstring{normalize()}{normalize()}}
+{\footnotesize\ttfamily def code.\+models.\+math\+Util.\+normalize (\begin{DoxyParamCaption}\item[{}]{aux\+List }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Normalize the number of observations, to a value between 0 and 1\end{DoxyVerb}
+ 
+
+Definition at line 32 of file math\+Util.\+py.
+
+\mbox{\Hypertarget{namespacecode_1_1models_1_1math_util_a2415ab497b8fa691c2755ca022d77c48}\label{namespacecode_1_1models_1_1math_util_a2415ab497b8fa691c2755ca022d77c48}} 
+\index{code\+::models\+::math\+Util@{code\+::models\+::math\+Util}!percentile@{percentile}}
+\index{percentile@{percentile}!code\+::models\+::math\+Util@{code\+::models\+::math\+Util}}
+\subsubsection{\texorpdfstring{percentile()}{percentile()}}
+{\footnotesize\ttfamily def code.\+models.\+math\+Util.\+percentile (\begin{DoxyParamCaption}\item[{}]{value,  }\item[{}]{sample }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Defines how many observations are less or igual to the sample
+    It sorts the vector sample, and advances it until we find a value in it that is bigger than the sample
+\end{DoxyVerb}
+ 
+
+Definition at line 43 of file math\+Util.\+py.
+
+Here is the caller graph for this function\+:
+% FIG 3

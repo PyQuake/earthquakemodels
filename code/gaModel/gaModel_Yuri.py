@@ -1,19 +1,21 @@
-#Need to fix the import section to use only need files
+"""
+This GA code creates the gaModel 
+
+"""
 
 from deap import base, creator, tools
 import numpy
 from csep.loglikelihood import calcLogLikelihood as loglikelihood
 from models.mathUtil import calcNumberBins
-#TODO: change this line to import only needed files
 import models.model
 import random
 import array
-#Parallel
 import multiprocessing
-from time import time
+import time 
 
 
-def evaluationFunction(individual, modelOmega):
+
+def evaluationFunction(individual, modelOmega, mean):
 	"""
 	This function calculates the loglikelihood of a model (individual) with 
 	the real data from the prior X years (modelOmega, with length X).
@@ -25,26 +27,26 @@ def evaluationFunction(individual, modelOmega):
 	for i in range(len(modelOmega)):
 		modelLambda.bins=list(individual)
 		modelLambda.bins=calcNumberBins(modelLambda.bins, modelOmega[i].bins)
+		# modelLambda.bins=calcNumberBins(modelLambda.bins, modelOmega[i].bins, mean)
 		tempValue=loglikelihood(modelLambda, modelOmega[i])
 
 		if tempValue < logValue:
 			logValue = tempValue
 	return logValue,
 
-	
+#parallel
+toolbox = base.Toolbox()
+creator.create("FitnessFunction", base.Fitness, weights=(1.0,))
+creator.create("Individual", array.array, typecode='d', fitness=creator.FitnessFunction)
+pool = multiprocessing.Pool()
+toolbox.register("map", pool.map)
 
-
-
-def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, depth=100, n_aval=50000):
+def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval=50000):
 	"""
 	The main function. It evolves models, namely modelLamba or individual. 
 	It uses 1 parallel system: 1, simple, that splits the ga evolution between cores
 	"""
-
-	toolbox = base.Toolbox()
-
-	creator.create("FitnessFunction", base.Fitness, weights=(1.0,))
-	creator.create("Individual", array.array, typecode='d', fitness=creator.FitnessFunction)
+	start = time.clock()  
 	# Attribute generator
 	toolbox.register("attr_float", random.random)
 	toolbox.register("mate", tools.cxOnePoint)
@@ -61,20 +63,17 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, depth=100, n_aval=5000
 	stats.register("min", numpy.min)
 	stats.register("max", numpy.max)
 
-	#parallel
-	pool = multiprocessing.Pool()
-	toolbox.register("map", pool.map)
-
+	#calculating the number of individuals of the populations based on the number of executions
 	y=int(n_aval/NGEN)
 	x=n_aval - y*NGEN
 	n= x + y
 
-	toolbox.register("evaluate", evaluationFunction, modelOmega=modelOmega)
+	toolbox.register("evaluate", evaluationFunction, modelOmega=modelOmega, mean= mean)
 	toolbox.register("individual", tools.initRepeat, creator.Individual, toolbox.attr_float, len(modelOmega[0].bins))
 	toolbox.register("population", tools.initRepeat, list, toolbox.individual)
 
 	logbook = tools.Logbook()
-	logbook.header = "gen", "depth","min","avg","max","std"
+	logbook.header = "gen","min","avg","max","std"
 
 	pop = toolbox.population(n)
 	# Evaluate the entire population
@@ -125,15 +124,16 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, depth=100, n_aval=5000
 		
 		#logBook
 		record = stats.compile(pop)
-		logbook.record(gen=g,  depth=depth,**record)
-	print(logbook)
-	
+		logbook.record(gen=g, **record)
+
+	end = time.clock()  
 	generatedModel = type(modelOmega[0])
 	generatedModel.prob = best_pop
-	generatedModel.bins = calcNumberBins(best_pop, modelOmega[0].bins)
+	generatedModel.bins = calcNumberBins(best_pop, modelOmega[0].bins, mean)
 	generatedModel.loglikelihood = best_pop.fitness.values
 	generatedModel.definitions = modelOmega[0].definitions
-	generatedModel.mag=True
+	generatedModel.time = start - end
+	generatedModel.logbook = logbook
 	#for pysmac
 	# logValue = best_pop.fitness.values
 	#return logValue

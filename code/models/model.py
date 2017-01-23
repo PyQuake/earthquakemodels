@@ -4,52 +4,44 @@
 # min - is the minimum value used
 # step - is the size of the bin
 # bins - is the number of bins in this dimension
-
+import pymysql.cursors
 import datetime
 import numpy
 from models.mathUtil import invertPoisson
 from collections import Counter
 
 class model(object):
-    pass
+    def __init__(self):
+        self.prob = None
+        self.bins = None
+        self.time = 0
+        self.definitions = None
+        self.logbook = None
+        self.loglikelihood = 0
+        self.year = None
+        self.modelName = None
+        self.executionNumber = 0
 
-#TODO: Remove this .mag== true thing
-def newModel(definitions,mag=True,initialvalue=0):
+
+def newModel(definitions,initialvalue=0):
     """ Creates an empty model based on a set of definitions. 
     The initialvalue parameter determines the initial value of 
     the bins contained in the model, and can be used to create 
     "neutral" models (containing 1 in all bins)
-
     bins are the dimensional size for lat and long
     cells are the dimensional size for mag
     """
     ret = model()
     totalbins,totalcells = 1, 1
-    if mag==True:
-        ret.mag=True
-    else:
-        ret.mag=False
-    
+
     for i in definitions:
         totalbins *= i['bins']
-        if ret.mag==True:
-            totalcells *= i['cells']
-        else:
-            totalcells *= 1
-
     ret.definitions = definitions
-    if ret.mag==True:
-        ret.bins = numpy.ndarray(shape=(totalbins,totalcells), dtype='i')
-        ret.bins.fill(initialvalue)
-        ret.prob = numpy.ndarray(shape=(totalbins), dtype='i')
-        ret.prob.fill(0.0)
-    else:
-        #This is how was done before
-        # ret.bins = [initialvalue]*totalbins
-        ret.bins = numpy.ndarray(shape=(totalbins), dtype='i')
-        ret.bins.fill(initialvalue)
-        ret.prob = numpy.ndarray(shape=(totalbins), dtype='i')
-        ret.prob.fill(0.0)
+    
+    ret.bins = numpy.ndarray(shape=(totalbins), dtype='i')
+    ret.bins.fill(initialvalue)
+    ret.prob = numpy.ndarray(shape=(totalbins), dtype='i')
+    ret.prob.fill(0.0)
     return ret
     
 
@@ -78,51 +70,31 @@ def addFromCatalog(model,catalog, year):
             min_lat = definition['min']
             max_lat = definition['min'] + (definition['bins'] * definition['step'])
             bins_lat = definition['bins']
-        if definition['key'] == 'mag':
-            range_mag = definition['step'] * definition['cells']
-            step_mag = definition['step']
-            min_mag = definition['min']
-            max_mag = definition['min'] + (definition['cells'] * definition['step'])
-            cells_mag = definition['cells']
     # TODO: limpar isto um pouco
     for m in range(len(catalog)):
         #kind of a filter, we should define how we are going to filter by year
         if catalog[m]['year'] == year:  
             if catalog[m]['lon']>min_lon and catalog[m]['lon']<max_lon:
                 if catalog[m]['lat']>min_lat and catalog[m]['lat']<max_lat:
+                    for i in range(bins_lon):    
+                        index = (step_lon*i) + min_lon
+                        if catalog[m]['lon']>=index and catalog[m]['lon']<(index+step_lon): 
+                            if index+step_lon>max_lon: #to avoid the last index to be out of limits
+                                k -= 1
+                            break
+                        k += 1
+                    for j in range(bins_lat):
+                        index = (step_lat*j) + min_lat
+                        if catalog[m]['lat']>=index and catalog[m]['lat']<(index+step_lat):
+                            if index+step_lat>max_lat: #to avoid the last index to be out of limits
+                                l -= 1
+                            break
+                        l += 1
+                    index = k*bins_lon+l #matriz[i,j] -> vetor[i*45+j], i=lon, j=lat, i=k, j=l
                     
-                        #calculating the adequated bin for a coordinate of a earthquake
-                        for i in range(bins_lon):    
-                            index = (step_lon*i) + min_lon
-                            if catalog[m]['lon']>=index and catalog[m]['lon']<(index+step_lon): 
-                                if index+step_lon>max_lon: #to avoid the last index to be out of limits
-                                    k -= 1
-                                break
-                            k += 1
-                        for j in range(bins_lat):
-                            index = (step_lat*j) + min_lat
-                            if catalog[m]['lat']>=index and catalog[m]['lat']<(index+step_lat):
-                                if index+step_lat>max_lat: #to avoid the last index to be out of limits
-                                    l -= 1
-                                break
-                            l += 1
-                        index = k*bins_lon+l #matriz[i,j] -> vetor[i*45+j], i=lon, j=lat, i=k, j=l
-                        
-                        if model.mag==True:
-                            if catalog[m]['mag']>min_mag and catalog[m]['mag']<max_mag:
-                                #calculating the adequated bin for a coordinate of the mag of the quake
-                                for n in range(cells_mag):    
-                                    cell = (step_mag*n) + min_mag
-                                    if catalog[m]['mag']>=cell and catalog[m]['mag']<(cell+step_mag): 
-                                        if cell+step_mag>max_mag: #to avoid the last index to be out of limits
-                                            cell_i -= 1
-                                        break
-                                    cell_i += 1
-
-                                model.bins[index,cell_i] += 1
-                        else:
-                            model.bins[index] += 1
-                        k,l,cell_i = 0,0,0
+                    model.bins[index] += 1
+                    k,l,cell_i = 0,0,0
+    model.year=year
     return model
     
 
@@ -155,36 +127,6 @@ def loadModelDefinition(filename):
     f.close()
     return ret
 
-#TODO: choose better ways to save info
-def saveModelToFile(model, filename, real=False):
-    """ 
-    It saves the model to a specific file, both passed as args
-    """
-    numpy.savetxt(filename, model.bins)
-    with open(filename+"def.txt", 'w') as f:
-        f.write(str(model.definitions))
-        f.write("\n")
-    if real==False:
-        with open(filename+"loglikelihood.txt", 'w') as f:
-            f.write(str(model.loglikelihood))
-            f.write("\n")
-        f.close()   
-
-#TODO: FIX THIS!!! For the mag=False situation
-# Use something safer than Eval (someday)
-def loadModelFromFile(filename):
-    """
-    It Load the model to a specific file,  passed as arg
-    """
-
-    ret = model()
-
-    with open(filename+"def.txt", 'r') as f:
-        ret.definitions = eval(f.readline())
-    f.close()
-    ret.bins = numpy.loadtxt(filename, dtype="i")
-
-    return ret
 
 #TODO:choose a better name
 #TODO: is used?This is used
@@ -347,15 +289,137 @@ def addFromCatalogP_AVR(model,catalog, riskMap, year):
     model.values4poisson = values4poisson
     return model
 
+def is_number(s):
+    try:
+        float(s)
+        return True
+    except ValueError:
+        return False
+
+def saveModelDB(model):
+    """ 
+    It saves the model to a common database
+    It is important to give a name to the model-> it will be used to load the model feom the db
+    eg jmaData; GAModelKanto2000
+    """
+    # Connect to the database
+    bins  = ','.join(str(x) for x in model.bins)
+    definitions = str(model.definitions)
+    modelName = model.modelName
+    executionNumber = str(model.executionNumber)
+    year = str(model.year)
+    time = str(model.time)
+    logbook = str(model.logbook)
+    loglikelihood = str(model.loglikelihood)
+    probability  = ','.join(str(x) for x in model.prob)
+    connection = pymysql.connect(host='localhost',
+                                 user='root',
+                                 password='Fails158@featureless',
+                                 db='earthquakemodelsDB',
+                                 charset='utf8mb4',
+                                 cursorclass=pymysql.cursors.DictCursor)
+    try:
+        with connection.cursor() as cursor:
+            # Create a new record
+
+            sql = "INSERT INTO `earthquakeModels` (`bins`, `definitions`, `modelName`, `year`, `time`, `logbook`, `loglikelihood` , `probability`, `executionNumber`) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)"
+            cursor.execute(sql, (bins, definitions, modelName, year, time, logbook, loglikelihood, probability, executionNumber))
+
+        # connection is not autocommit by default. So you must commit to save
+        # your changes.
+        connection.commit()
+        print('Model saved...')
+    except:
+       # Rollback in case there is any error
+       connection.rollback()
+       print ("Error: unable to save model...")       
+
+def loadModelDB(modelName, year, executionNumber=0):
+    """ 
+    It loads a model to a common database, using its name-> a variable indicanting what is this model
+    eg jmaData; GAModelKanto2000
+    """
+    connection = pymysql.connect(host='localhost',
+                                 user='root',
+                                 password='Fails158@featureless',
+                                 db='earthquakemodelsDB',
+                                 charset='utf8mb4',
+                                 cursorclass=pymysql.cursors.DictCursor)
+    model_=model()
+    try:
+        with connection.cursor() as cursor:
+            # Read a single record
+            sql = "SELECT * FROM earthquakeModels WHERE modelName = '%s' AND executionNumber = '%s' AND year= '%s'" % (modelName, str(executionNumber), str(year))
+            cursor.execute(sql)
+            result = cursor.fetchall()
+            for data in result:
+                model_.bins = list(map(int, data['bins'].split(',')))
+                model_.definitions = eval(data['definitions'])
+                model_.modelName = data['modelName']
+                model_.year = int(data['year'])
+                model_.time = float(data['time'])
+                model_.logbook = data['logbook']
+                model_.loglikelihood = (data['loglikelihood'])
+                model_.executionNumber = int(data['executionNumber'])
+                model_.prob = list(map(float, data['probability'].split(',')))
+                model_.bins=numpy.asarray(model_.bins, dtype='i')
+                model_.prob=numpy.asarray(model_.prob, dtype='f')
+    except:
+        print ("Error: unable to fecth data")
+    
+    return model_
+
+def showModelsDB(alldata=False):
+    """ 
+    It show all models to a common database, using its name-> a variable indicanting what is this model
+    eg jmaData; GAModelKanto2000
+    """
+    connection = pymysql.connect(host='localhost',
+                                 user='root',
+                                 password='Fails158@featureless',
+                                 db='earthquakemodelsDB',
+                                 charset='utf8mb4',
+                                 cursorclass=pymysql.cursors.DictCursor)
+
+    try:
+        with connection.cursor() as cursor:
+            # Read a single record
+            sql = "SELECT * FROM earthquakeModels "
+            cursor.execute(sql)
+            result = cursor.fetchall()
+            for data in result:
+                if alldata==True:
+                    print(data)
+                    print('')
+                else:
+                    print("ModelName: %s and executionNumber: %s and year: %s" % (data['modelName'], data['executionNumber'], data['year']))
+
+             
+    except:
+        print ("Error: unable to fecth data")
 
 
-
-
-
-
-
-
-
-
-
+def removeModelDB(modelName, year, executionNumber):
+    """ 
+    It removes a model to a common database, using its name-> a variable indicanting what is this model
+    eg jmaData; GAModelKanto2000
+    """
+    connection = pymysql.connect(host='localhost',
+                                 user='root',
+                                 password='Fails158@featureless',
+                                 db='earthquakemodelsDB',
+                                 charset='utf8mb4',
+                                 cursorclass=pymysql.cursors.DictCursor)
+    try:
+        with connection.cursor() as cursor:
+            sql = "DELETE FROM earthquakeModels WHERE modelName = '%s' AND executionNumber = '%s' AND year = '%s'" % (modelName, str(executionNumber), str(year))
+            # Execute the SQL command
+            cursor.execute(sql)
+            # Commit your changes in the database
+            connection.commit()
+            print ("Model deleted...")
+    except:
+       # Rollback in case there is any error
+       connection.rollback()
+       print ("Error: unable to delete data")
 

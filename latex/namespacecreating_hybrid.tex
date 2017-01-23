@@ -1,0 +1,64 @@
+\hypertarget{namespacecreating_hybrid}{}\section{creating\+Hybrid Namespace Reference}
+\label{namespacecreating_hybrid}\index{creating\+Hybrid@{creating\+Hybrid}}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{namespacecreating_hybrid_a972d794629c5e11adce0e01abcf7f5bd}{exec\+Creating\+Hybrid\+S\+Cwith\+G\+A\+Model} (region, depth, year\+\_\+begin, year\+\_\+end)
+\item 
+def \hyperlink{namespacecreating_hybrid_a494fec3281195003a2830c2ee78f63f5}{exec\+Creating\+Hybrid\+S\+Cwith\+List\+Model} (region, depth, year\+\_\+begin, year\+\_\+end)
+\item 
+def \hyperlink{namespacecreating_hybrid_af775563b0fc8f5b99a72d0d323956802}{main} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{namespacecreating_hybrid_a972d794629c5e11adce0e01abcf7f5bd}\label{namespacecreating_hybrid_a972d794629c5e11adce0e01abcf7f5bd}} 
+\index{creating\+Hybrid@{creating\+Hybrid}!exec\+Creating\+Hybrid\+S\+Cwith\+G\+A\+Model@{exec\+Creating\+Hybrid\+S\+Cwith\+G\+A\+Model}}
+\index{exec\+Creating\+Hybrid\+S\+Cwith\+G\+A\+Model@{exec\+Creating\+Hybrid\+S\+Cwith\+G\+A\+Model}!creating\+Hybrid@{creating\+Hybrid}}
+\subsubsection{\texorpdfstring{exec\+Creating\+Hybrid\+S\+Cwith\+G\+A\+Model()}{execCreatingHybridSCwithGAModel()}}
+{\footnotesize\ttfamily def creating\+Hybrid.\+exec\+Creating\+Hybrid\+S\+Cwith\+G\+A\+Model (\begin{DoxyParamCaption}\item[{}]{region,  }\item[{}]{depth,  }\item[{}]{year\+\_\+begin,  }\item[{}]{year\+\_\+end }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Create a hybrid between the GAModel + SC with the equations from ETAS + Ideas from RI
+It saves the hybrid in: ./code/Zona2/sc_hybrid_gaModel/hybrid_gaModel"+region +'_' +str(depth) +'_' +str(year) +'_' +str(i) +".txt"
+year_begin is the year from where to start creating the hybrid
+year_end is the year from where to end creating the hybrid
+\end{DoxyVerb}
+ 
+
+Definition at line 8 of file creating\+Hybrid.\+py.
+
+Here is the caller graph for this function\+:
+% FIG 0
+\mbox{\Hypertarget{namespacecreating_hybrid_a494fec3281195003a2830c2ee78f63f5}\label{namespacecreating_hybrid_a494fec3281195003a2830c2ee78f63f5}} 
+\index{creating\+Hybrid@{creating\+Hybrid}!exec\+Creating\+Hybrid\+S\+Cwith\+List\+Model@{exec\+Creating\+Hybrid\+S\+Cwith\+List\+Model}}
+\index{exec\+Creating\+Hybrid\+S\+Cwith\+List\+Model@{exec\+Creating\+Hybrid\+S\+Cwith\+List\+Model}!creating\+Hybrid@{creating\+Hybrid}}
+\subsubsection{\texorpdfstring{exec\+Creating\+Hybrid\+S\+Cwith\+List\+Model()}{execCreatingHybridSCwithListModel()}}
+{\footnotesize\ttfamily def creating\+Hybrid.\+exec\+Creating\+Hybrid\+S\+Cwith\+List\+Model (\begin{DoxyParamCaption}\item[{}]{region,  }\item[{}]{depth,  }\item[{}]{year\+\_\+begin,  }\item[{}]{year\+\_\+end }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Create a hybrid between the List Model + SC with the equations from ETAS + Ideas from RI
+It saves the hybrid in: ./code/Zona2/sc_hybrid_ListaGA_New/hybrid_ListaGA_New" + region + '_' + str(depth) + '_' + str(year) + '_' + str(i) +".txt"
+year_begin is the year from where to start creating the hybrid
+year_end is the year from where to end creating the hybrid
+\end{DoxyVerb}
+ 
+
+Definition at line 53 of file creating\+Hybrid.\+py.
+
+Here is the caller graph for this function\+:
+% FIG 1
+\mbox{\Hypertarget{namespacecreating_hybrid_af775563b0fc8f5b99a72d0d323956802}\label{namespacecreating_hybrid_af775563b0fc8f5b99a72d0d323956802}} 
+\index{creating\+Hybrid@{creating\+Hybrid}!main@{main}}
+\index{main@{main}!creating\+Hybrid@{creating\+Hybrid}}
+\subsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily def creating\+Hybrid.\+main (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Calls the functions to create hybrids.
+It calls the functions for regions: EastJpan, Kanto, Kansai, Tohoku
+From years 2005 to 2010
+\end{DoxyVerb}
+ 
+
+Definition at line 110 of file creating\+Hybrid.\+py.
+
+Here is the call graph for this function\+:
+% FIG 2

@@ -33,35 +33,34 @@ def evaluationFunction(individual, modelOmega, mean):
 	return logValue,
 
 	
-
-toolbox = base.Toolbox()
-
-creator.create("FitnessFunction", base.Fitness, weights=(1.0,))
-creator.create("Individual", array.array, typecode='d', fitness=creator.FitnessFunction)
-# Attribute generator
-toolbox.register("attr_float", random.random)
-
-
-
-
-toolbox.register("mate", tools.cxOnePoint)
-toolbox.register("select", tools.selTournament, tournsize=3)
-toolbox.register("mutate", tools.mutPolynomialBounded,indpb=0.1, eta = 1, low = 0, up = 1)
-
-stats = tools.Statistics(key=lambda ind: ind.fitness.values)
-stats.register("avg", numpy.mean)
-stats.register("std", numpy.std)
-stats.register("min", numpy.min)
-stats.register("max", numpy.max)
-
-#parallel
-pool = multiprocessing.Pool()
-toolbox.register("map", pool.map)
-
 def gaModel(NGEN, n, CXPB,MUTPB, modelOmega,year,region, mean, depth=100):
 	"""
 	The main function. It evolves models, namely modelLamba or individual. 
 	"""
+
+	toolbox = base.Toolbox()
+
+	creator.create("FitnessFunction", base.Fitness, weights=(1.0,))
+	creator.create("Individual", array.array, typecode='d', fitness=creator.FitnessFunction)
+	# Attribute generator
+	toolbox.register("attr_float", random.random)
+
+
+
+
+	toolbox.register("mate", tools.cxOnePoint)
+	toolbox.register("select", tools.selTournament, tournsize=3)
+	toolbox.register("mutate", tools.mutPolynomialBounded,indpb=0.1, eta = 1, low = 0, up = 1)
+
+	stats = tools.Statistics(key=lambda ind: ind.fitness.values)
+	stats.register("avg", numpy.mean)
+	stats.register("std", numpy.std)
+	stats.register("min", numpy.min)
+	stats.register("max", numpy.max)
+
+	#parallel
+	pool = multiprocessing.Pool()
+	toolbox.register("map", pool.map)
 	
 	toolbox.register("evaluate", evaluationFunction, modelOmega=modelOmega, mean= mean)
 	toolbox.register("individual", tools.initRepeat, creator.Individual, toolbox.attr_float, len(modelOmega[0].bins))
@@ -118,8 +117,8 @@ def gaModel(NGEN, n, CXPB,MUTPB, modelOmega,year,region, mean, depth=100):
 		pop[:] = offspring
 		
 		#logBook
-		# record = stats.compile(pop)
-		# logbook.record(gen=g,  depth=depth,**record)
+		record = stats.compile(pop)
+		logbook.record(gen=g,  depth=depth,**record)
 
 	
 	generatedModel = type(modelOmega[0])
@@ -127,7 +126,6 @@ def gaModel(NGEN, n, CXPB,MUTPB, modelOmega,year,region, mean, depth=100):
 	generatedModel.bins = calcNumberBins(best_pop, modelOmega[0].bins)
 	generatedModel.loglikelihood = best_pop.fitness.values
 	generatedModel.definitions = modelOmega[0].definitions
-	generatedModel.mag=True
 	#for pysmac
 	# logValue = best_pop.fitness.values
 	#return logValue

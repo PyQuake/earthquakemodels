@@ -1,0 +1,19 @@
+digraph "code.models.modelEtasGa.sumTriggeredByDaysWithRI"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node24 [label="code.models.modelEtasGa.sum\lTriggeredByDaysWithRI",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node24 -> Node25 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node25 [label="code.models.modelEtasGa.limitTo12",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$namespacecode_1_1models_1_1model_etas_ga.html#a600e69e5c6d90c92ad6406ede3f60318"];
+  Node24 -> Node26 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node26 [label="code.models.modelEtasGa.simple\lHibrid",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$namespacecode_1_1models_1_1model_etas_ga.html#a99b0b810e490c2d38b6cb198e87b85d3"];
+  Node26 -> Node27 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node27 [label="code.models.modelEtasGa.find\lIndex",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$namespacecode_1_1models_1_1model_etas_ga.html#a1033b39b8da7b8221b627e93fd63f4be"];
+  Node24 -> Node28 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node28 [label="code.models.modelEtasGa.pdf\lOmoriUtsu",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$namespacecode_1_1models_1_1model_etas_ga.html#a85ce3a0d8bc6fb5485191e374bf24356"];
+  Node24 -> Node29 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node29 [label="code.models.modelEtasGa.quakes\lTriggered",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$namespacecode_1_1models_1_1model_etas_ga.html#a7692aca39690ae67f96a2ba603e5f23c"];
+  Node24 -> Node30 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node30 [label="code.models.modelEtasGa.idea\lRIinMmodels",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$namespacecode_1_1models_1_1model_etas_ga.html#ae9c1d72d1b1daea004e956e14b12ae0e"];
+}

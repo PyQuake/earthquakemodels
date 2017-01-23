@@ -1,0 +1,43 @@
+\hypertarget{namespacecode_1_1ga_model_1_1ga_model___yuri}{}\section{code.\+ga\+Model.\+ga\+Model\+\_\+\+Yuri Namespace Reference}
+\label{namespacecode_1_1ga_model_1_1ga_model___yuri}\index{code.\+ga\+Model.\+ga\+Model\+\_\+\+Yuri@{code.\+ga\+Model.\+ga\+Model\+\_\+\+Yuri}}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{namespacecode_1_1ga_model_1_1ga_model___yuri_ac3d4d6d1e77c40f783c7ca57c88a3731}{evaluation\+Function} (individual, model\+Omega)
+\item 
+def \hyperlink{namespacecode_1_1ga_model_1_1ga_model___yuri_a358c4a2cdf3f30fc75df90095a4b8355}{ga\+Model} (N\+G\+EN, C\+X\+PB, M\+U\+T\+PB, model\+Omega, year, region, mean, depth=100, n\+\_\+aval=50000)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{namespacecode_1_1ga_model_1_1ga_model___yuri_ac3d4d6d1e77c40f783c7ca57c88a3731}\label{namespacecode_1_1ga_model_1_1ga_model___yuri_ac3d4d6d1e77c40f783c7ca57c88a3731}} 
+\index{code\+::ga\+Model\+::ga\+Model\+\_\+\+Yuri@{code\+::ga\+Model\+::ga\+Model\+\_\+\+Yuri}!evaluation\+Function@{evaluation\+Function}}
+\index{evaluation\+Function@{evaluation\+Function}!code\+::ga\+Model\+::ga\+Model\+\_\+\+Yuri@{code\+::ga\+Model\+::ga\+Model\+\_\+\+Yuri}}
+\subsubsection{\texorpdfstring{evaluation\+Function()}{evaluationFunction()}}
+{\footnotesize\ttfamily def code.\+ga\+Model.\+ga\+Model\+\_\+\+Yuri.\+evaluation\+Function (\begin{DoxyParamCaption}\item[{}]{individual,  }\item[{}]{model\+Omega }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This function calculates the loglikelihood of a model (individual) with 
+the real data from the prior X years (modelOmega, with length X).
+It selects the smallest loglikelihood value.
+\end{DoxyVerb}
+ 
+
+Definition at line 16 of file ga\+Model\+\_\+\+Yuri.\+py.
+
+Here is the call graph for this function\+:
+% FIG 0
+\mbox{\Hypertarget{namespacecode_1_1ga_model_1_1ga_model___yuri_a358c4a2cdf3f30fc75df90095a4b8355}\label{namespacecode_1_1ga_model_1_1ga_model___yuri_a358c4a2cdf3f30fc75df90095a4b8355}} 
+\index{code\+::ga\+Model\+::ga\+Model\+\_\+\+Yuri@{code\+::ga\+Model\+::ga\+Model\+\_\+\+Yuri}!ga\+Model@{ga\+Model}}
+\index{ga\+Model@{ga\+Model}!code\+::ga\+Model\+::ga\+Model\+\_\+\+Yuri@{code\+::ga\+Model\+::ga\+Model\+\_\+\+Yuri}}
+\subsubsection{\texorpdfstring{ga\+Model()}{gaModel()}}
+{\footnotesize\ttfamily def code.\+ga\+Model.\+ga\+Model\+\_\+\+Yuri.\+ga\+Model (\begin{DoxyParamCaption}\item[{}]{N\+G\+EN,  }\item[{}]{C\+X\+PB,  }\item[{}]{M\+U\+T\+PB,  }\item[{}]{model\+Omega,  }\item[{}]{year,  }\item[{}]{region,  }\item[{}]{mean,  }\item[{}]{depth = {\ttfamily 100},  }\item[{}]{n\+\_\+aval = {\ttfamily 50000} }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}The main function. It evolves models, namely modelLamba or individual. 
+It uses 1 parallel system: 1, simple, that splits the ga evolution between cores
+\end{DoxyVerb}
+ 
+
+Definition at line 38 of file ga\+Model\+\_\+\+Yuri.\+py.
+
+Here is the call graph for this function\+:
+% FIG 1

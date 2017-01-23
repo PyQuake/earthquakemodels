@@ -1,5 +1,9 @@
 # earthquakemodels
 
+GitHub code source:
+
+https://github.com/PyQuake/earthquakemodels
+
 Here is the code for generating Earthquake Risk Models using Genetic Algorithms. 
 
 # Some Background
@@ -88,27 +92,3 @@ execGamblingScore(year).
 ```
 
 You may run he tests by their methods by themselves and all of them are or in ./testingAlarmBased/ or in ./loglikelihood/
-
-#Using Zechar files
-Zechar implemetated most of the tests in Java. We suggest using the his code, available in 
-
-http://www.corssa.org/articles/themevi/zechar
-
-because we are not sure about the correctness of our implemetation.
-
-```bash
-For convertion a one of our models to a struture capable of being used
-in Zechar's, you should first:
-
-import models.modelEtasGa.py and call the method 
-
-modelToZecharTests(model, filename, startDate, endDate)
-
-which has 4 parameters. The first two are the most important ones. 
-Model is the model that you want to convert and filename is the
-full path for where you want to save the new structured model.
-startDate and endDate are str values for the period, in years,
-of the model. 
-````
-
-    

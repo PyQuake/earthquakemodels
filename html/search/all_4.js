@@ -1,0 +1,7 @@
+var searchData=
+[
+  ['data2plotr_2danova',['data2plotR-ANOVA',['../namespacedata2plot_r-_a_n_o_v_a.html',1,'']]],
+  ['data2plotr_2danova_2epy',['data2plotR-ANOVA.py',['../data2plot_r-_a_n_o_v_a_8py.html',1,'']]],
+  ['dbtest_2epy',['dbTest.py',['../db_test_8py.html',1,'']]],
+  ['definitions',['definitions',['../classcode_1_1models_1_1model_1_1model.html#a3ce7471348562b088db1143e57f9acc3',1,'code.models.model.model.definitions()'],['../classcode_1_1models_1_1model_etas_ga_1_1model.html#a35593cb4b1d88f9bc177c29c66c966f6',1,'code.models.modelEtasGa.model.definitions()'],['../namespacecode_1_1db_test.html#a18a56fcf49697eac62112214eac2cfc9',1,'code.dbTest.definitions()']]]
+];

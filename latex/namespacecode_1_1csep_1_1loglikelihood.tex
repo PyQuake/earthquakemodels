@@ -1,0 +1,103 @@
+\hypertarget{namespacecode_1_1csep_1_1loglikelihood}{}\section{code.\+csep.\+loglikelihood Namespace Reference}
+\label{namespacecode_1_1csep_1_1loglikelihood}\index{code.\+csep.\+loglikelihood@{code.\+csep.\+loglikelihood}}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{namespacecode_1_1csep_1_1loglikelihood_a4210aa6f0234a558dc10b7d9efbce3d7}{calc\+Log\+Likelihood} (model\+Lambda, model\+Omega)
+\item 
+def \hyperlink{namespacecode_1_1csep_1_1loglikelihood_ab524a28d5897863d3f87a5a12c00ab7a}{calc\+L\+Test} (model\+Lambda, model\+Omega)
+\item 
+def \hyperlink{namespacecode_1_1csep_1_1loglikelihood_ae9b5785a731104c5cee5016f4dece75f}{simulated\+Per\+Bin} (model\+Lambda)
+\item 
+def \hyperlink{namespacecode_1_1csep_1_1loglikelihood_a377ff5c5859d06ae6dfd50da425ab508}{calc\+N\+Test} (model\+Lambda, model\+Omega)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}Module loglikelihood
+
+performs calculations of Log likelihood of models, following the
+definition by Schorlemmer et al. 2007
+
+It also performs the calculations of the LTest and Ntest. Not sure how they work
+\end{DoxyVerb}
+ 
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{namespacecode_1_1csep_1_1loglikelihood_a4210aa6f0234a558dc10b7d9efbce3d7}\label{namespacecode_1_1csep_1_1loglikelihood_a4210aa6f0234a558dc10b7d9efbce3d7}} 
+\index{code\+::csep\+::loglikelihood@{code\+::csep\+::loglikelihood}!calc\+Log\+Likelihood@{calc\+Log\+Likelihood}}
+\index{calc\+Log\+Likelihood@{calc\+Log\+Likelihood}!code\+::csep\+::loglikelihood@{code\+::csep\+::loglikelihood}}
+\subsubsection{\texorpdfstring{calc\+Log\+Likelihood()}{calcLogLikelihood()}}
+{\footnotesize\ttfamily def code.\+csep.\+loglikelihood.\+calc\+Log\+Likelihood (\begin{DoxyParamCaption}\item[{}]{model\+Lambda,  }\item[{}]{model\+Omega }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Calculates the log likelihood between two RELM models. Lambda is usually
+the forecast model, and Omega is usually the real data model. Both models
+are defined as lists of integers representing earthquake amounts.
+
+Lambda and Omega must be of the same size.
+
+If there is a pair of bins lambda/omega, where the lambda bin is 0, and the
+omega bin is not zero, this function will return None
+\end{DoxyVerb}
+ 
+
+Definition at line 23 of file loglikelihood.\+py.
+
+Here is the caller graph for this function\+:
+% FIG 0
+\mbox{\Hypertarget{namespacecode_1_1csep_1_1loglikelihood_ab524a28d5897863d3f87a5a12c00ab7a}\label{namespacecode_1_1csep_1_1loglikelihood_ab524a28d5897863d3f87a5a12c00ab7a}} 
+\index{code\+::csep\+::loglikelihood@{code\+::csep\+::loglikelihood}!calc\+L\+Test@{calc\+L\+Test}}
+\index{calc\+L\+Test@{calc\+L\+Test}!code\+::csep\+::loglikelihood@{code\+::csep\+::loglikelihood}}
+\subsubsection{\texorpdfstring{calc\+L\+Test()}{calcLTest()}}
+{\footnotesize\ttfamily def code.\+csep.\+loglikelihood.\+calc\+L\+Test (\begin{DoxyParamCaption}\item[{}]{model\+Lambda,  }\item[{}]{model\+Omega }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Calculates the LTest between the model generated and the model to be compared to.
+The bins of Lambda and Omega must be integer values
+It returns the LTest score between the models Lambda and Omega
+
+Pros: widely applicable, tests entire forecast
+Cons: blends effects of spatial forecast, rate forecast, magnitude forecast
+\end{DoxyVerb}
+ 
+
+Definition at line 56 of file loglikelihood.\+py.
+
+Here is the call graph for this function\+:
+% FIG 1
+\mbox{\Hypertarget{namespacecode_1_1csep_1_1loglikelihood_a377ff5c5859d06ae6dfd50da425ab508}\label{namespacecode_1_1csep_1_1loglikelihood_a377ff5c5859d06ae6dfd50da425ab508}} 
+\index{code\+::csep\+::loglikelihood@{code\+::csep\+::loglikelihood}!calc\+N\+Test@{calc\+N\+Test}}
+\index{calc\+N\+Test@{calc\+N\+Test}!code\+::csep\+::loglikelihood@{code\+::csep\+::loglikelihood}}
+\subsubsection{\texorpdfstring{calc\+N\+Test()}{calcNTest()}}
+{\footnotesize\ttfamily def code.\+csep.\+loglikelihood.\+calc\+N\+Test (\begin{DoxyParamCaption}\item[{}]{model\+Lambda,  }\item[{}]{model\+Omega }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Calculates the NTest between the model generated and the model to be compared to.
+The bins of Lambda and Omega must be integer values
+It returns the NTest score between the models Lambda and Omega
+
+Pros: isolates rate forecast, widely applicable
+Cons: ignores spatial component, ignores magnitude component
+\end{DoxyVerb}
+ 
+
+Definition at line 99 of file loglikelihood.\+py.
+
+Here is the call graph for this function\+:
+% FIG 2
+\mbox{\Hypertarget{namespacecode_1_1csep_1_1loglikelihood_ae9b5785a731104c5cee5016f4dece75f}\label{namespacecode_1_1csep_1_1loglikelihood_ae9b5785a731104c5cee5016f4dece75f}} 
+\index{code\+::csep\+::loglikelihood@{code\+::csep\+::loglikelihood}!simulated\+Per\+Bin@{simulated\+Per\+Bin}}
+\index{simulated\+Per\+Bin@{simulated\+Per\+Bin}!code\+::csep\+::loglikelihood@{code\+::csep\+::loglikelihood}}
+\subsubsection{\texorpdfstring{simulated\+Per\+Bin()}{simulatedPerBin()}}
+{\footnotesize\ttfamily def code.\+csep.\+loglikelihood.\+simulated\+Per\+Bin (\begin{DoxyParamCaption}\item[{}]{model\+Lambda }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Generates integer numbers of earthquake from the model Lambda.
+It uses one random value to be used with the probability found at an especific bin of Lambda.
+It should be used to create the simulations need for the loglikelihood based tests.
+\end{DoxyVerb}
+ 
+
+Definition at line 85 of file loglikelihood.\+py.
+
+Here is the call graph for this function\+:
+% FIG 3
+Here is the caller graph for this function\+:
+% FIG 4

@@ -1,0 +1,105 @@
+\hypertarget{namespacecode_1_1ga_model_1_1etas_ga_model_n_p}{}\section{code.\+ga\+Model.\+etas\+Ga\+Model\+NP Namespace Reference}
+\label{namespacecode_1_1ga_model_1_1etas_ga_model_n_p}\index{code.\+ga\+Model.\+etas\+Ga\+Model\+NP@{code.\+ga\+Model.\+etas\+Ga\+Model\+NP}}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{namespacecode_1_1ga_model_1_1etas_ga_model_n_p_a55347c3a6b9ba79bbafaea3eb0e01d02}{equal\+Objects} (x, y)
+\item 
+def \hyperlink{namespacecode_1_1ga_model_1_1etas_ga_model_n_p_ac4293bc9b34c59edb160dd415aab67d4}{evaluation\+Function} (individual, model\+Omega)
+\item 
+def \hyperlink{namespacecode_1_1ga_model_1_1etas_ga_model_n_p_a42e39f20622d00169bd4349e4c047585}{mutation\+Function} (individual, indpb, length)
+\item 
+def \hyperlink{namespacecode_1_1ga_model_1_1etas_ga_model_n_p_a1198db0e4034344a65eee6f236b13628}{ga\+Model} (type\+\_\+m, N\+G\+EN, C\+X\+PB, M\+U\+T\+PB, model\+Omega, year, region, main, depth=100, n\+\_\+aval=50000)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{namespacecode_1_1ga_model_1_1etas_ga_model_n_p_a225f0565f9551cdcb54367b68b43f0a9}{index}
+\item 
+\hyperlink{namespacecode_1_1ga_model_1_1etas_ga_model_n_p_ab1c9e9d1bd611153aa796cef8982c6f6}{prob}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}This GA code uses a simplified version of the gaModel where only some bins are considered.\end{DoxyVerb}
+ 
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{namespacecode_1_1ga_model_1_1etas_ga_model_n_p_a55347c3a6b9ba79bbafaea3eb0e01d02}\label{namespacecode_1_1ga_model_1_1etas_ga_model_n_p_a55347c3a6b9ba79bbafaea3eb0e01d02}} 
+\index{code\+::ga\+Model\+::etas\+Ga\+Model\+NP@{code\+::ga\+Model\+::etas\+Ga\+Model\+NP}!equal\+Objects@{equal\+Objects}}
+\index{equal\+Objects@{equal\+Objects}!code\+::ga\+Model\+::etas\+Ga\+Model\+NP@{code\+::ga\+Model\+::etas\+Ga\+Model\+NP}}
+\subsubsection{\texorpdfstring{equal\+Objects()}{equalObjects()}}
+{\footnotesize\ttfamily def code.\+ga\+Model.\+etas\+Ga\+Model\+N\+P.\+equal\+Objects (\begin{DoxyParamCaption}\item[{}]{x,  }\item[{}]{y }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This function compares two individuals (models)
+The inds compared are x and y
+\end{DoxyVerb}
+ 
+
+Definition at line 13 of file etas\+Ga\+Model\+N\+P.\+py.
+
+\mbox{\Hypertarget{namespacecode_1_1ga_model_1_1etas_ga_model_n_p_ac4293bc9b34c59edb160dd415aab67d4}\label{namespacecode_1_1ga_model_1_1etas_ga_model_n_p_ac4293bc9b34c59edb160dd415aab67d4}} 
+\index{code\+::ga\+Model\+::etas\+Ga\+Model\+NP@{code\+::ga\+Model\+::etas\+Ga\+Model\+NP}!evaluation\+Function@{evaluation\+Function}}
+\index{evaluation\+Function@{evaluation\+Function}!code\+::ga\+Model\+::etas\+Ga\+Model\+NP@{code\+::ga\+Model\+::etas\+Ga\+Model\+NP}}
+\subsubsection{\texorpdfstring{evaluation\+Function()}{evaluationFunction()}}
+{\footnotesize\ttfamily def code.\+ga\+Model.\+etas\+Ga\+Model\+N\+P.\+evaluation\+Function (\begin{DoxyParamCaption}\item[{}]{individual,  }\item[{}]{model\+Omega }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This function calculates the loglikelihood of a model (individual) with 
+the real data from the prior X years (modelOmega, with length X).
+It selects the smallest loglikelihood value.
+\end{DoxyVerb}
+ 
+
+Definition at line 20 of file etas\+Ga\+Model\+N\+P.\+py.
+
+\mbox{\Hypertarget{namespacecode_1_1ga_model_1_1etas_ga_model_n_p_a1198db0e4034344a65eee6f236b13628}\label{namespacecode_1_1ga_model_1_1etas_ga_model_n_p_a1198db0e4034344a65eee6f236b13628}} 
+\index{code\+::ga\+Model\+::etas\+Ga\+Model\+NP@{code\+::ga\+Model\+::etas\+Ga\+Model\+NP}!ga\+Model@{ga\+Model}}
+\index{ga\+Model@{ga\+Model}!code\+::ga\+Model\+::etas\+Ga\+Model\+NP@{code\+::ga\+Model\+::etas\+Ga\+Model\+NP}}
+\subsubsection{\texorpdfstring{ga\+Model()}{gaModel()}}
+{\footnotesize\ttfamily def code.\+ga\+Model.\+etas\+Ga\+Model\+N\+P.\+ga\+Model (\begin{DoxyParamCaption}\item[{}]{type\+\_\+m,  }\item[{}]{N\+G\+EN,  }\item[{}]{C\+X\+PB,  }\item[{}]{M\+U\+T\+PB,  }\item[{}]{model\+Omega,  }\item[{}]{year,  }\item[{}]{region,  }\item[{}]{main,  }\item[{}]{depth = {\ttfamily 100},  }\item[{}]{n\+\_\+aval = {\ttfamily 50000} }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}The main function. It evolves models, namely modelLamba or individual. 
+This version of the GA simplifies the ga using a list of bins with occurences
+It uses 1 parallel system: 1, simple, that splits the ga evolution between cores
+\end{DoxyVerb}
+ 
+
+Definition at line 49 of file etas\+Ga\+Model\+N\+P.\+py.
+
+\mbox{\Hypertarget{namespacecode_1_1ga_model_1_1etas_ga_model_n_p_a42e39f20622d00169bd4349e4c047585}\label{namespacecode_1_1ga_model_1_1etas_ga_model_n_p_a42e39f20622d00169bd4349e4c047585}} 
+\index{code\+::ga\+Model\+::etas\+Ga\+Model\+NP@{code\+::ga\+Model\+::etas\+Ga\+Model\+NP}!mutation\+Function@{mutation\+Function}}
+\index{mutation\+Function@{mutation\+Function}!code\+::ga\+Model\+::etas\+Ga\+Model\+NP@{code\+::ga\+Model\+::etas\+Ga\+Model\+NP}}
+\subsubsection{\texorpdfstring{mutation\+Function()}{mutationFunction()}}
+{\footnotesize\ttfamily def code.\+ga\+Model.\+etas\+Ga\+Model\+N\+P.\+mutation\+Function (\begin{DoxyParamCaption}\item[{}]{individual,  }\item[{}]{indpb,  }\item[{}]{length }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This function changes a ind (individual) by selecting new values given a probabilistic value (indpb).
+The new values are random values. It may change a ind more than once
+It uses the length of the ind to cover all of its bins.
+\end{DoxyVerb}
+ 
+
+Definition at line 36 of file etas\+Ga\+Model\+N\+P.\+py.
+
+
+
+\subsection{Variable Documentation}
+\mbox{\Hypertarget{namespacecode_1_1ga_model_1_1etas_ga_model_n_p_a225f0565f9551cdcb54367b68b43f0a9}\label{namespacecode_1_1ga_model_1_1etas_ga_model_n_p_a225f0565f9551cdcb54367b68b43f0a9}} 
+\index{code\+::ga\+Model\+::etas\+Ga\+Model\+NP@{code\+::ga\+Model\+::etas\+Ga\+Model\+NP}!index@{index}}
+\index{index@{index}!code\+::ga\+Model\+::etas\+Ga\+Model\+NP@{code\+::ga\+Model\+::etas\+Ga\+Model\+NP}}
+\subsubsection{\texorpdfstring{index}{index}}
+{\footnotesize\ttfamily code.\+ga\+Model.\+etas\+Ga\+Model\+N\+P.\+index}
+
+
+
+Definition at line 66 of file etas\+Ga\+Model\+N\+P.\+py.
+
+\mbox{\Hypertarget{namespacecode_1_1ga_model_1_1etas_ga_model_n_p_ab1c9e9d1bd611153aa796cef8982c6f6}\label{namespacecode_1_1ga_model_1_1etas_ga_model_n_p_ab1c9e9d1bd611153aa796cef8982c6f6}} 
+\index{code\+::ga\+Model\+::etas\+Ga\+Model\+NP@{code\+::ga\+Model\+::etas\+Ga\+Model\+NP}!prob@{prob}}
+\index{prob@{prob}!code\+::ga\+Model\+::etas\+Ga\+Model\+NP@{code\+::ga\+Model\+::etas\+Ga\+Model\+NP}}
+\subsubsection{\texorpdfstring{prob}{prob}}
+{\footnotesize\ttfamily code.\+ga\+Model.\+etas\+Ga\+Model\+N\+P.\+prob}
+
+
+
+Definition at line 67 of file etas\+Ga\+Model\+N\+P.\+py.
+

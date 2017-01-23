@@ -1,23 +1,18 @@
-#Need to fix the import section to use only need files
+"""
+This GA code creates the gaModel with a circular island model
+
+"""
 import sys
 from deap import base, creator, tools
 import numpy
 from csep.loglikelihood import calcLogLikelihood as loglikelihood
 from models.mathUtil import calcNumberBins
-#TODO: change this line to import only needed files
 import models.model
 import random
 import array
-#Parallel
 import multiprocessing
 from mpi4py import MPI
-
-import models.mathUtil as mathUtil
-import earthquake.catalog as catalog
-import models.model as model
-import models.modelEtasGa as etasGa
-
-
+import time 
 
 def evaluationFunction(individual, modelOmega):
 	"""
@@ -38,21 +33,21 @@ def evaluationFunction(individual, modelOmega):
 
 	return logValue,
 
+#parallel
+toolbox = base.Toolbox()
+creator.create("FitnessFunction", base.Fitness, weights=(1.0,))
+creator.create("Individual", array.array, typecode='d', fitness=creator.FitnessFunction)
+pool = multiprocessing.Pool()
+toolbox.register("map", pool.map)
 
-def gaModel(NGEN, n, CXPB,MUTPB, modelOmega,year,region, mean, depth=100, FREQ = 10):
+def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, FREQ = 10, n_aval=50000):
 	"""
 	The main function. It evolves models, namely modelLamba or individual. 
 	This applies the gaModel with a circular island model
 	It uses two parallel system: 1, simple, that splits the ga evolution between cores
 	and 2, that distributes the islands
 	"""
-	
-
-	creator.create("FitnessFunction2", base.Fitness, weights=(1.0,))
-
-	toolbox = base.Toolbox()
-
-	creator.create("Individual", array.array, typecode='d', fitness=creator.FitnessFunction2)
+	start = time.clock()  
 	# Attribute generator
 	toolbox.register("attr_float", random.random)
 	toolbox.register("evaluate", evaluationFunction, modelOmega=modelOmega)
@@ -68,15 +63,15 @@ def gaModel(NGEN, n, CXPB,MUTPB, modelOmega,year,region, mean, depth=100, FREQ =
 	toolbox.register("select", tools.selTournament, tournsize=3)
 	toolbox.register("mutate", tools.mutPolynomialBounded,indpb=0.1, eta = 1, low = 0, up = 1)
 
-	#multiprocessing parallel
-	pool = multiprocessing.Pool()
-	toolbox.register("map", pool.map)
-
+	#calculating the number of individuals of the populations based on the number of executions
+	y=int(n_aval/NGEN)
+	x=n_aval - y*NGEN
+	n= x + y
 
 	pop = toolbox.population(n)
 
-	# logbook = tools.Logbook()
-	# logbook.header = "min","avg","max","std"
+	logbook = tools.Logbook()
+	logbook.header = "min","avg","max","std"
 	stats = tools.Statistics(key=lambda ind: ind.fitness.values)
 	stats.register("avg", numpy.mean)
 	stats.register("std", numpy.std)
@@ -100,20 +95,18 @@ def gaModel(NGEN, n, CXPB,MUTPB, modelOmega,year,region, mean, depth=100, FREQ =
 
 	mpi_info = MPI.Info.Create()
 
-	# logbook = tools.Logbook()
-	# logbook.header = "rank","gen", "depth","min","avg","max","std"
-	# stats = tools.Statistics(key=lambda ind: ind.fitness.values)
-	# stats.register("avg", numpy.mean)
-	# stats.register("std", numpy.std)
-	# stats.register("min", numpy.min)
-	# stats.register("max", numpy.max)
+	logbook = tools.Logbook()
+	logbook.header = "rank","gen","min","avg","max","std"
+	stats = tools.Statistics(key=lambda ind: ind.fitness.values)
+	stats.register("avg", numpy.mean)
+	stats.register("std", numpy.std)
+	stats.register("min", numpy.min)
+	stats.register("max", numpy.max)
 
 	for g in range(NGEN):
 		# Select the next generation individuals
-		#nao tem
 		offspring = toolbox.select(pop, len(pop))
 		# Clone the selected individuals{}
-		# offspring = [toolbox.clone(ind) for ind in population]
 		offspring = list(map(toolbox.clone, offspring))
 		# Apply crossover and mutation on the offspring
 		for child1, child2 in zip(offspring[::2], offspring[1::2]):
@@ -135,7 +128,6 @@ def gaModel(NGEN, n, CXPB,MUTPB, modelOmega,year,region, mean, depth=100, FREQ =
 				if(invalid_ind[i][j] > 1):
 					invalid_ind[i][j] = random.random()
 
-    
 		fitnesses = toolbox.map(toolbox.evaluate, invalid_ind)
 		for ind, fit in zip(invalid_ind, fitnesses):
 			ind.fitness.values = fit
@@ -152,7 +144,6 @@ def gaModel(NGEN, n, CXPB,MUTPB, modelOmega,year,region, mean, depth=100, FREQ =
 		pop[:] = offspring
 
 		#migrastion
-			
 		if g % (FREQ-1) == 0 and g > 0:
 			best_inds = tools.selBest(pop, 1)[0]
 			data = comm.sendrecv(sendobj=best_inds,dest=dest,source=origin)
@@ -167,8 +158,7 @@ def gaModel(NGEN, n, CXPB,MUTPB, modelOmega,year,region, mean, depth=100, FREQ =
 			
 		#logBook
 		record = stats.compile(pop)
-		logbook.record(gen=g,  depth=depth,**record)
-	print(logbook)
+		logbook.record(gen=g, **record)
 
 	# choose the best value
 	if rank == 0:
@@ -191,13 +181,14 @@ def gaModel(NGEN, n, CXPB,MUTPB, modelOmega,year,region, mean, depth=100, FREQ =
 		best_pop=tools.selBest(pop, 1)[0]
 		comm.send(best_pop, dest=0)
 
+	end = time.clock()  
 	generatedModel = type(modelOmega[0])
 	generatedModel.prob = best_pop
-	generatedModel.bins = calcNumberBins(best_pop, modelOmega[0].bins)
+	generatedModel.bins = calcNumberBins(best_pop, modelOmega[0].bins, mean)
 	generatedModel.loglikelihood = best_pop.fitness.values
 	generatedModel.definitions = modelOmega[0].definitions
-	generatedModel.mag=True
-
+	generatedModel.time = start - end
+	generatedModel.logbook = logbook
 
 	return generatedModel
 

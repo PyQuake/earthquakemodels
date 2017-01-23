@@ -1,0 +1,81 @@
+\hypertarget{namespacecode_1_1ga_model_1_1parallel_list}{}\section{code.\+ga\+Model.\+parallel\+List Namespace Reference}
+\label{namespacecode_1_1ga_model_1_1parallel_list}\index{code.\+ga\+Model.\+parallel\+List@{code.\+ga\+Model.\+parallel\+List}}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classcode_1_1ga_model_1_1parallel_list_1_1genotype}{genotype}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{namespacecode_1_1ga_model_1_1parallel_list_a56c838f0ac5cda7811a2ccb7f1ff0a3b}{equal\+Objects} (x, y)
+\item 
+def \hyperlink{namespacecode_1_1ga_model_1_1parallel_list_a81a9ac8cf875307d1e367fb559d57ec0}{evaluation\+Function} (individual, model\+Omega)
+\item 
+def \hyperlink{namespacecode_1_1ga_model_1_1parallel_list_a89410c99c222011f45e18b728f2f1d7e}{mutation\+Function} (individual, indpb, definitions, length)
+\item 
+def \hyperlink{namespacecode_1_1ga_model_1_1parallel_list_a56992cede06ab5b5142f054b0a6a04dd}{ga\+Model} (N\+G\+EN, n, C\+X\+PB, M\+U\+T\+PB, model\+Omega, year, region, mean, depth=100, F\+R\+EQ=10)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{namespacecode_1_1ga_model_1_1parallel_list_a56c838f0ac5cda7811a2ccb7f1ff0a3b}\label{namespacecode_1_1ga_model_1_1parallel_list_a56c838f0ac5cda7811a2ccb7f1ff0a3b}} 
+\index{code\+::ga\+Model\+::parallel\+List@{code\+::ga\+Model\+::parallel\+List}!equal\+Objects@{equal\+Objects}}
+\index{equal\+Objects@{equal\+Objects}!code\+::ga\+Model\+::parallel\+List@{code\+::ga\+Model\+::parallel\+List}}
+\subsubsection{\texorpdfstring{equal\+Objects()}{equalObjects()}}
+{\footnotesize\ttfamily def code.\+ga\+Model.\+parallel\+List.\+equal\+Objects (\begin{DoxyParamCaption}\item[{}]{x,  }\item[{}]{y }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Compares if two inds are equal
+\end{DoxyVerb}
+ 
+
+Definition at line 20 of file parallel\+List.\+py.
+
+\mbox{\Hypertarget{namespacecode_1_1ga_model_1_1parallel_list_a81a9ac8cf875307d1e367fb559d57ec0}\label{namespacecode_1_1ga_model_1_1parallel_list_a81a9ac8cf875307d1e367fb559d57ec0}} 
+\index{code\+::ga\+Model\+::parallel\+List@{code\+::ga\+Model\+::parallel\+List}!evaluation\+Function@{evaluation\+Function}}
+\index{evaluation\+Function@{evaluation\+Function}!code\+::ga\+Model\+::parallel\+List@{code\+::ga\+Model\+::parallel\+List}}
+\subsubsection{\texorpdfstring{evaluation\+Function()}{evaluationFunction()}}
+{\footnotesize\ttfamily def code.\+ga\+Model.\+parallel\+List.\+evaluation\+Function (\begin{DoxyParamCaption}\item[{}]{individual,  }\item[{}]{model\+Omega }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This function calculates the loglikelihood of a model (individual) with 
+the real data from the prior X years (modelOmega, with length X).
+It selects the smallest loglikelihood value.
+\end{DoxyVerb}
+ 
+
+Definition at line 26 of file parallel\+List.\+py.
+
+Here is the caller graph for this function\+:
+% FIG 0
+\mbox{\Hypertarget{namespacecode_1_1ga_model_1_1parallel_list_a56992cede06ab5b5142f054b0a6a04dd}\label{namespacecode_1_1ga_model_1_1parallel_list_a56992cede06ab5b5142f054b0a6a04dd}} 
+\index{code\+::ga\+Model\+::parallel\+List@{code\+::ga\+Model\+::parallel\+List}!ga\+Model@{ga\+Model}}
+\index{ga\+Model@{ga\+Model}!code\+::ga\+Model\+::parallel\+List@{code\+::ga\+Model\+::parallel\+List}}
+\subsubsection{\texorpdfstring{ga\+Model()}{gaModel()}}
+{\footnotesize\ttfamily def code.\+ga\+Model.\+parallel\+List.\+ga\+Model (\begin{DoxyParamCaption}\item[{}]{N\+G\+EN,  }\item[{}]{n,  }\item[{}]{C\+X\+PB,  }\item[{}]{M\+U\+T\+PB,  }\item[{}]{model\+Omega,  }\item[{}]{year,  }\item[{}]{region,  }\item[{}]{mean,  }\item[{}]{depth = {\ttfamily 100},  }\item[{}]{F\+R\+EQ = {\ttfamily 10} }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}The main function. It evolves models, namely modelLamba or individual. 
+This version of the GA simplifies the ga using a list of bins with occurences
+It uses two parallel system: 1, simple, that splits the ga evolution between cores
+and 2, that distributes the islands
+\end{DoxyVerb}
+ 
+
+Definition at line 60 of file parallel\+List.\+py.
+
+Here is the call graph for this function\+:
+% FIG 1
+\mbox{\Hypertarget{namespacecode_1_1ga_model_1_1parallel_list_a89410c99c222011f45e18b728f2f1d7e}\label{namespacecode_1_1ga_model_1_1parallel_list_a89410c99c222011f45e18b728f2f1d7e}} 
+\index{code\+::ga\+Model\+::parallel\+List@{code\+::ga\+Model\+::parallel\+List}!mutation\+Function@{mutation\+Function}}
+\index{mutation\+Function@{mutation\+Function}!code\+::ga\+Model\+::parallel\+List@{code\+::ga\+Model\+::parallel\+List}}
+\subsubsection{\texorpdfstring{mutation\+Function()}{mutationFunction()}}
+{\footnotesize\ttfamily def code.\+ga\+Model.\+parallel\+List.\+mutation\+Function (\begin{DoxyParamCaption}\item[{}]{individual,  }\item[{}]{indpb,  }\item[{}]{definitions,  }\item[{}]{length }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This function changes a ind (individual) by selecting new values given a probabilistic value (indpb).
+The new values are random values. It may change a ind more than once
+
+It uses the length of the ind to cover all of its bins.
+\end{DoxyVerb}
+ 
+
+Definition at line 46 of file parallel\+List.\+py.
+
