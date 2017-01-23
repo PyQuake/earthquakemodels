@@ -199,8 +199,11 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval=50000):
 	else: 
 		best_pop=tools.selBest(pop, 1)[0]
 		comm.send(best_pop, dest=0)
-	with open('../../../reducedTest.txt', 'w') as outfile:
-		outfile.write('teste')
+	with open('teste.txt', 'w') as outfile:
+		out1 = str(MPI.Get_processor_name())
+		out2 = str(best_pop)
+		outfile.write(out1)
+		outfile.write(best_pop)
 	exit()
 	generatedModel = type(modelOmega[0])
 	generatedModel.bins = [0.0]*len(modelOmega[0].bins)
