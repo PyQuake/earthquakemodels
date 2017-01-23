@@ -4,8 +4,6 @@ sys.path.insert(0, '../code')
 import earthquake.catalog as catalog
 import models.model as model
 import gaModel.gaModel_Yuri as ga
-import gaModel.etasGaModelNP as etasGaModelNP
-import models.modelEtasGa as etasGa
 import gaModel.parallelGA as parallelGA
 import gaModel.parallelReducedModel as parallelReducedModel
 import time
