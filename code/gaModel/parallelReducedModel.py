@@ -24,15 +24,15 @@ def evaluationFunction(individual, modelOmega, mean):
 	the real data from the prior X years (modelOmega, with length X).
 	It selects the smallest loglikelihood value.
 	"""
-    logValue = float('Infinity')
-    modelLambda=type(modelOmega[0])
-    modelLambda=models.model.convertFromListToData(individual,len(modelOmega[0].bins))    
-    for i in range(len(modelOmega)):    
-    	# modelLambda.bins=calcNumberBins(modelLambda.bins, modelOmega[i].bins, mean)
-        tempValue=loglikelihood(modelLambda, modelOmega[i])
-        if tempValue < logValue:
-            logValue = tempValue
-    return logValue,
+	logValue = float('Infinity')
+	modelLambda=type(modelOmega[0])
+	modelLambda=models.model.convertFromListToData(individual,len(modelOmega[0].bins))    
+	for i in range(len(modelOmega)):    
+		# modelLambda.bins=calcNumberBins(modelLambda.bins, modelOmega[i].bins, mean)
+		tempValue=loglikelihood(modelLambda, modelOmega[i])
+		if tempValue < logValue:
+			logValue = tempValue
+	return logValue,
 
 
 def mutationFunction(individual, indpb, length):
