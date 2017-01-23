@@ -82,14 +82,14 @@ def callParallelGA(region):
         execParalleGA(year, region)
         year+=1
 
-def callParallelListGA(region):
+def callParallelReducedGA(region):
     """
     It is a wrapper to the function that generates the parallel  list model
     It cover the years of 2000 to 2005, and the models are from 2005 to 2010
     """
     year = 2000
     while(year <= 2005):
-        execParallelListGA(year, region)
+        execParallelReducedGAModel(year, region)
         year+=1
 
 
@@ -102,24 +102,24 @@ def main():
     """
     region = 'Kanto'
     year = 2000
-    callParallelListGA(region)
+    callParallelReducedGA(region)
     callParallelGA(region)
     exit()
     region = 'EastJapan'
     year = 2000
-    callParallelListGA(region)
+    callParallelReducedGA(region)
     callParallelGA(region)
 
 
     region = 'Tohoku'
     year = 2000
-    callParallelListGA(region)
+    callParallelReducedGA(region)
     callParallelGA(region)
 
         
     region = 'Kansai'
     year = 2000
-    callParallelListGA(region)
+    callParallelReducedGA(region)
     callParallelGA(region)
 
 

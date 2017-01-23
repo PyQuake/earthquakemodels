@@ -36,17 +36,16 @@ def evaluationFunction(individual, modelOmega, mean):
 
 
 def mutationFunction(individual, indpb, length):
- 	"""
- 	This function changes a ind (individual) by selecting new values given a probabilistic value (indpb).
- 	The new values are random values. It may change a ind more than once
-
- 	It uses the length of the ind to cover all of its bins.
 	"""
-    for i in range(length):
-        if random.random()<indpb:
-            individual[i].index=random.randint(0 ,length-1)
-            individual[i].prob=random.random()
-    return individual
+	This function changes a ind (individual) by selecting new values given a probabilistic value (indpb).
+	The new values are random values. It may change a ind more than once
+	It uses the length of the ind to cover all of its bins. 
+	"""
+	for i in range(length):
+		if random.random()<indpb:
+			individual[i].index=random.randint(0 ,length-1)
+			individual[i].prob=random.random()
+	return individual
 
 #parallel 
 toolbox = base.Toolbox()
@@ -61,7 +60,7 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval=50000):
 	It uses two parallel system: 1, simple, that splits the ga evolution between cores
 	and 2, that distributes the islands
 	"""
-	
+	exit()
 
 	target = 0
 	info = MPI.Status()
