@@ -26,23 +26,23 @@ def main():
         createRealModel(year, region)
         year += 1
 
-    # region = 'EastJapan'
-    # year = 2000
-    # while(year <= 2013):
-    #     createRealModel(year, region)
-    #     year += 1
+    region = 'EastJapan'
+    year = 2000
+    while(year <= 2013):
+        createRealModel(year, region)
+        year += 1
 
-    # region = 'Kansai'
-    # year = 2000
-    # while(year <= 2013):
-    #     createRealModel(year, region)
-    #     year += 1
+    region = 'Kansai'
+    year = 2000
+    while(year <= 2013):
+        createRealModel(year, region)
+        year += 1
 
-    # region = 'Tohoku'
-    # year = 2000
-    # while(year <= 2013):
-    #     createRealModel(year, region)
-    #     year += 1
+    region = 'Tohoku'
+    year = 2000
+    while(year <= 2013):
+        createRealModel(year, region)
+        year += 1
 
 
 if __name__ == "__main__":
