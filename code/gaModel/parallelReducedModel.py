@@ -16,7 +16,7 @@ def equalObjects(x,y):
 	"""
 	Compares if two inds are equal
 	"""
-    return x.prob==y.prob and x.index==y.index
+	return x.prob==y.prob and x.index==y.index
         
 def evaluationFunction(individual, modelOmega, mean):
 	"""
