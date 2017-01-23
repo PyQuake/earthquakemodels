@@ -14,9 +14,6 @@ def execParallelGA(year, region, qntYears=5, times=10):
     """
     Creates the GAModel with SC catalog with parallel and distributed island model
     """
-     """
-    Creates the GAModel with JMA catalog
-    """
     observations = list()
     means = list()
     for i in range(qntYears):
