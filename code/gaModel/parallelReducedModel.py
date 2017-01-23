@@ -200,7 +200,7 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval=50000):
 		best_pop=tools.selBest(pop, 1)[0]
 		comm.send(best_pop, dest=0)
 	with open('../../../reducedTest.txt', 'w') as outfile:
-		infale.write('teste')
+		outfile.write('teste')
 	exit()
 	generatedModel = type(modelOmega[0])
 	generatedModel.bins = [0.0]*len(modelOmega[0].bins)
