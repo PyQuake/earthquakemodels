@@ -95,11 +95,32 @@ $(document).ready(function(){initNavTree('md__r_e_a_d_m_e.html','');});
 <p><a href="https://github.com/stat157/background/issues/26">https://github.com/stat157/background/issues/26</a></p>
 <p><a href="http://www.jstor.org/stable/3085650?seq=2#page_scan_tab_contents">http://www.jstor.org/stable/3085650?seq=2#page_scan_tab_contents</a></p>
 <h2>List of packages </h2>
-<p>The project uses the programming language Python, version 3.X.X. The python libraries used are: sys math array numpy datetime time random deap</p>
+<p>The project uses the programming language Python, version 3.X.X. The python libraries used are: sys math array numpy datetime time random deap pymysql multiprocessing mysql (and, sql)</p>
 <h2>Getting Started </h2>
 <h1>Get the latest version</h1>
-<p>To get the last version you should clone the repository from gitHub to your local files. </p><div class="fragment"><div class="line">git clone https://github.com/PyQuake/earthquakemodels.git</div><div class="line"></div><div class="line"># How is the code organized</div><div class="line">Most of the code were develop to be run in a python3 interpreter. </div><div class="line">You may find that some files can be bash executed.</div><div class="line">In most cases, you can call the most important methods in two ways. </div><div class="line">The direct approach and the self-structured way. </div><div class="line"></div><div class="line">What we mean from direct approach: It is possible to simply call, </div><div class="line">for example, the method to genarate a model by GA. That method needs</div><div class="line">some arguments and you would have to provide them to be able to run the method. </div><div class="line"></div><div class="line">The self-structured way is an aprroach that allows you to call the</div><div class="line">method in the right sequence making it easier to run the methods.</div></div><!-- fragment --><p># Executing the main GA methods - self-structured way </p><div class="fragment"><div class="line">in applyGaModel.py you can generate some different kinds of GA models.</div><div class="line">All similar methods follows the same parttern: </div><div class="line">  in case you want to create the GA model based on some ETAS ideas,</div><div class="line">  the you should run the following method:</div><div class="line">    execEtasGaModel(year, times, save=False)</div><div class="line">  you have to specify the year for the model and how many times you</div><div class="line">  would like to execute the GA. Also, you may chose to save the model</div><div class="line">  in a file. But first, you have to create the reference model for</div><div class="line">  comparison (in most cases it is the resulting data after filtering</div><div class="line">  the catalog by the year) by calling:</div><div class="line">    createRealModelforEtas(year, save=False)</div><div class="line">  with the same parameters, but times.</div></div><!-- fragment --><p>#Executing the main GA methods - The direct approach </p><div class="fragment"><div class="line">in the models.etasGaModelNP you can call the GA model method by itself.</div><div class="line">You may do it by:</div><div class="line">  gaModel(NGEN,CXPB,MUTPB,modelOmega, year, n=500)</div><div class="line">in which NGEN, CXPB, MUTPB and n are the GA parameters. modelOmega</div><div class="line">is the reference model to be comapared (in most cases it is the</div><div class="line">resulting data after filtering the catalog by the year). You should</div><div class="line">choose the year parameter as well.</div></div><!-- fragment --><p>#Executing the the testing methods Some tests were implemented. For those, the same idea above is applyed, we both have the The direct approach and the self-structured way. But in this case, the self-structured way is recommended. This may be out of date.</p>
-<div class="fragment"><div class="line">in applyTests, it is possible to call the tests in two ways. The first</div><div class="line">one, execTests(year), executes all tests available for a group of</div><div class="line">comparesing models. Or it is possible to run the tests by itself as in</div><div class="line">execGamblingScore(year).</div></div><!-- fragment --><p>You may run he tests by their methods by themselves and all of them are or in ./testingAlarmBased/ or in ./loglikelihood/ </p>
+<p>To get the last version you should clone the repository from gitHub to your local files. ```bash git clone <a href="https://github.com/PyQuake/earthquakemodels.git">https://github.com/PyQuake/earthquakemodels.git</a></p>
+<h1>How is the code organized</h1>
+<p>Most of the code were develop to be run in a python3 interpreter. You may find that some files can be bash executed.</p>
+<p>The most important files are divided into three types of files: [1] the Genetic Algorithm (GA) files that create earthquake risk models, [2] the files that are the base to the GA files and [3] the files that connect them.</p>
+<p>The files in [1] can be found, mostly, at ./code/gaModel. The files in [2] can be found, mostly, at ./code/csep or ./code/earthquake The files in [3] can be found, mostly, at ./code/models</p>
+<p>It is possible to use the code that I used in most of my experiments. They are located at ./code/runExperiments </p><h1>Executing the main GA methods</h1>
+<p>```bash First you need to install all packages and download the source code from GitHub.</p>
+<p>Then you may need run the following sql script to save/load models</p>
+<p>SET =@UNIQUE_CHECKS, UNIQUE_CHECKS=0; SET =@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0; SET =@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';</p>
+<hr/>
+<p> &ndash; Schema earthquakemodelsDB </p><hr/>
+<hr/>
+<p> &ndash; Schema earthquakemodelsDB </p><hr/>
+<p> CREATE SCHEMA IF NOT EXISTS <code>earthquakemodelsDB</code> ; USE <code>earthquakemodelsDB</code> ;</p>
+<hr/>
+<p> &ndash; Table <code>earthquakemodelsDB</code>.<code>earthquakeModels</code> </p><hr/>
+<p> CREATE TABLE IF NOT EXISTS <code>earthquakemodelsDB</code>.<code>earthquakeModels</code> ( <code>id</code> INT NOT NULL AUTO_INCREMENT, <code>modelName</code> TEXT NULL, <code>bins</code> TEXT NULL, <code>year</code> TEXT NULL, <code>loglikelihood</code> TEXT NULL, <code>definitions</code> TEXT NULL, <code>logbook</code> TEXT NULL, <code>time</code> TEXT NULL, <code>probability</code> TEXT NULL, <code>executionNumber</code> TEXT NULL, PRIMARY KEY (<code>id</code>)) ENGINE = InnoDB;</p>
+<p>SET SQL_MODE=; SET FOREIGN_KEY_CHECKS=; SET UNIQUE_CHECKS=;</p>
+<p>After running it and solving all dependencies, you may run a script in ./code/runExperiments</p>
+<p>For example (assuming that your working directory is ./code/):</p>
+<p>python3 <a class="el" href="apply_ga_model_8py.html">runExperiments/applyGaModel.py</a></p>
+<p>To see the models results and analyse, it is possible to load them and/or retrieve them with some functions that are in ./code/model, mainly:</p>
+<p>./code/model/model.showModelsDB ./code/model/model.removeModelDB ./code/model/model.loadModelDB ``` </p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

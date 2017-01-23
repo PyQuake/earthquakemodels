@@ -100,9 +100,9 @@ def main():
     from 2000 to 2005 to create models from 2005 to 2010
     """
     region = 'Kanto'
-    # callGAModel(region)
+    callGAModel(region)
     callReducedGAModel(region)
-    exit()
+
     region = 'EastJapan'
     year = 2000
     callGAModel(region)
