@@ -17,6 +17,16 @@ def \hyperlink{namespacecode_1_1models_1_1model_a516aba6a18e97e9ca010b3b8ce66d03
 def \hyperlink{namespacecode_1_1models_1_1model_aff45090e2bdcb7f7a6dcc6ae34007cb2}{convert\+From\+List\+To\+Data} (observations, length)
 \item 
 def \hyperlink{namespacecode_1_1models_1_1model_ad191be2a9a695565c7e247a98bb0a795}{add\+From\+Catalog\+P\+\_\+\+A\+VR} (\hyperlink{classcode_1_1models_1_1model_1_1model}{model}, catalog, risk\+Map, year)
+\item 
+def \hyperlink{namespacecode_1_1models_1_1model_aea26030520874960047c9aa8ef2e00a0}{is\+\_\+number} (s)
+\item 
+def \hyperlink{namespacecode_1_1models_1_1model_a6b534b3e2781503a4de7e2e594df0e11}{save\+Model\+DB} (\hyperlink{classcode_1_1models_1_1model_1_1model}{model})
+\item 
+def \hyperlink{namespacecode_1_1models_1_1model_af416cfbe0575d995dc58ec43631223bf}{load\+Model\+DB} (model\+Name, year, execution\+Number=0)
+\item 
+def \hyperlink{namespacecode_1_1models_1_1model_afbaa3eda93515aef72fbc2d65ed86ddb}{show\+Models\+DB} (alldata=False)
+\item 
+def \hyperlink{namespacecode_1_1models_1_1model_af176247b55143d08b3c6ea471845f330}{remove\+Model\+DB} (model\+Name, year, execution\+Number)
 \end{DoxyCompactItemize}
 
 
@@ -31,7 +41,7 @@ def \hyperlink{namespacecode_1_1models_1_1model_ad191be2a9a695565c7e247a98bb0a79
 \end{DoxyVerb}
  
 
-Definition at line 52 of file model.\+py.
+Definition at line 51 of file model.\+py.
 
 \mbox{\Hypertarget{namespacecode_1_1models_1_1model_ad191be2a9a695565c7e247a98bb0a795}\label{namespacecode_1_1models_1_1model_ad191be2a9a695565c7e247a98bb0a795}} 
 \index{code\+::models\+::model@{code\+::models\+::model}!add\+From\+Catalog\+P\+\_\+\+A\+VR@{add\+From\+Catalog\+P\+\_\+\+A\+VR}}
@@ -43,7 +53,7 @@ Definition at line 52 of file model.\+py.
 \end{DoxyVerb}
  
 
-Definition at line 198 of file model.\+py.
+Definition at line 150 of file model.\+py.
 
 \mbox{\Hypertarget{namespacecode_1_1models_1_1model_aff45090e2bdcb7f7a6dcc6ae34007cb2}\label{namespacecode_1_1models_1_1model_aff45090e2bdcb7f7a6dcc6ae34007cb2}} 
 \index{code\+::models\+::model@{code\+::models\+::model}!convert\+From\+List\+To\+Data@{convert\+From\+List\+To\+Data}}
@@ -56,7 +66,30 @@ It finds the vinculates the list model positions in a bin and atribute a probabi
 \end{DoxyVerb}
  
 
-Definition at line 183 of file model.\+py.
+Definition at line 135 of file model.\+py.
+
+\mbox{\Hypertarget{namespacecode_1_1models_1_1model_aea26030520874960047c9aa8ef2e00a0}\label{namespacecode_1_1models_1_1model_aea26030520874960047c9aa8ef2e00a0}} 
+\index{code\+::models\+::model@{code\+::models\+::model}!is\+\_\+number@{is\+\_\+number}}
+\index{is\+\_\+number@{is\+\_\+number}!code\+::models\+::model@{code\+::models\+::model}}
+\subsubsection{\texorpdfstring{is\+\_\+number()}{is\_number()}}
+{\footnotesize\ttfamily def code.\+models.\+model.\+is\+\_\+number (\begin{DoxyParamCaption}\item[{}]{s }\end{DoxyParamCaption})}
+
+
+
+Definition at line 292 of file model.\+py.
+
+\mbox{\Hypertarget{namespacecode_1_1models_1_1model_af416cfbe0575d995dc58ec43631223bf}\label{namespacecode_1_1models_1_1model_af416cfbe0575d995dc58ec43631223bf}} 
+\index{code\+::models\+::model@{code\+::models\+::model}!load\+Model\+DB@{load\+Model\+DB}}
+\index{load\+Model\+DB@{load\+Model\+DB}!code\+::models\+::model@{code\+::models\+::model}}
+\subsubsection{\texorpdfstring{load\+Model\+D\+B()}{loadModelDB()}}
+{\footnotesize\ttfamily def code.\+models.\+model.\+load\+Model\+DB (\begin{DoxyParamCaption}\item[{}]{model\+Name,  }\item[{}]{year,  }\item[{}]{execution\+Number = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}It loads a model to a common database, using its name-> a variable indicanting what is this model
+eg jmaData; GAModelKanto2000
+\end{DoxyVerb}
+ 
+
+Definition at line 337 of file model.\+py.
 
 \mbox{\Hypertarget{namespacecode_1_1models_1_1model_a516aba6a18e97e9ca010b3b8ce66d033}\label{namespacecode_1_1models_1_1model_a516aba6a18e97e9ca010b3b8ce66d033}} 
 \index{code\+::models\+::model@{code\+::models\+::model}!load\+Model\+Definition@{load\+Model\+Definition}}
@@ -70,7 +103,7 @@ key min step bins
 \end{DoxyVerb}
  
 
-Definition at line 119 of file model.\+py.
+Definition at line 101 of file model.\+py.
 
 \mbox{\Hypertarget{namespacecode_1_1models_1_1model_ad4cd9f5c3ee9cb21283e98f1dcd9d81b}\label{namespacecode_1_1models_1_1model_ad4cd9f5c3ee9cb21283e98f1dcd9d81b}} 
 \index{code\+::models\+::model@{code\+::models\+::model}!new\+Model@{new\+Model}}
@@ -82,11 +115,50 @@ Definition at line 119 of file model.\+py.
 The initialvalue parameter determines the initial value of 
 the bins contained in the model, and can be used to create 
 "neutral" models (containing 1 in all bins)
-
 bins are the dimensional size for lat and long
 cells are the dimensional size for mag
 \end{DoxyVerb}
  
 
-Definition at line 24 of file model.\+py.
+Definition at line 26 of file model.\+py.
+
+\mbox{\Hypertarget{namespacecode_1_1models_1_1model_af176247b55143d08b3c6ea471845f330}\label{namespacecode_1_1models_1_1model_af176247b55143d08b3c6ea471845f330}} 
+\index{code\+::models\+::model@{code\+::models\+::model}!remove\+Model\+DB@{remove\+Model\+DB}}
+\index{remove\+Model\+DB@{remove\+Model\+DB}!code\+::models\+::model@{code\+::models\+::model}}
+\subsubsection{\texorpdfstring{remove\+Model\+D\+B()}{removeModelDB()}}
+{\footnotesize\ttfamily def code.\+models.\+model.\+remove\+Model\+DB (\begin{DoxyParamCaption}\item[{}]{model\+Name,  }\item[{}]{year,  }\item[{}]{execution\+Number }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}It removes a model to a common database, using its name-> a variable indicanting what is this model
+eg jmaData; GAModelKanto2000
+\end{DoxyVerb}
+ 
+
+Definition at line 402 of file model.\+py.
+
+\mbox{\Hypertarget{namespacecode_1_1models_1_1model_a6b534b3e2781503a4de7e2e594df0e11}\label{namespacecode_1_1models_1_1model_a6b534b3e2781503a4de7e2e594df0e11}} 
+\index{code\+::models\+::model@{code\+::models\+::model}!save\+Model\+DB@{save\+Model\+DB}}
+\index{save\+Model\+DB@{save\+Model\+DB}!code\+::models\+::model@{code\+::models\+::model}}
+\subsubsection{\texorpdfstring{save\+Model\+D\+B()}{saveModelDB()}}
+{\footnotesize\ttfamily def code.\+models.\+model.\+save\+Model\+DB (\begin{DoxyParamCaption}\item[{}]{model }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}It saves the model to a common database
+It is important to give a name to the model-> it will be used to load the model feom the db
+eg jmaData; GAModelKanto2000
+\end{DoxyVerb}
+ 
+
+Definition at line 299 of file model.\+py.
+
+\mbox{\Hypertarget{namespacecode_1_1models_1_1model_afbaa3eda93515aef72fbc2d65ed86ddb}\label{namespacecode_1_1models_1_1model_afbaa3eda93515aef72fbc2d65ed86ddb}} 
+\index{code\+::models\+::model@{code\+::models\+::model}!show\+Models\+DB@{show\+Models\+DB}}
+\index{show\+Models\+DB@{show\+Models\+DB}!code\+::models\+::model@{code\+::models\+::model}}
+\subsubsection{\texorpdfstring{show\+Models\+D\+B()}{showModelsDB()}}
+{\footnotesize\ttfamily def code.\+models.\+model.\+show\+Models\+DB (\begin{DoxyParamCaption}\item[{}]{alldata = {\ttfamily False} }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}It show all models to a common database, using its name-> a variable indicanting what is this model
+eg jmaData; GAModelKanto2000
+\end{DoxyVerb}
+ 
+
+Definition at line 372 of file model.\+py.
 

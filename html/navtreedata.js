@@ -29,7 +29,7 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "____init_____8py.html",
-"namespacecode_1_1ga_model_1_1ga_model___yuri.html"
+"parallel_g_a_8py.html#a7755e12a4252f1d98a695e94f5bd9488"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

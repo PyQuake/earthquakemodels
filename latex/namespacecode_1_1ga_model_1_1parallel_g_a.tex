@@ -5,9 +5,30 @@
 \item 
 def \hyperlink{namespacecode_1_1ga_model_1_1parallel_g_a_aa9d1048007f567adaa88457299a1069e}{evaluation\+Function} (individual, model\+Omega)
 \item 
-def \hyperlink{namespacecode_1_1ga_model_1_1parallel_g_a_a703bc172bcc6b29b3e7d5853daaf547c}{ga\+Model} (N\+G\+EN, n, C\+X\+PB, M\+U\+T\+PB, model\+Omega, year, region, mean, depth=100, F\+R\+EQ=10)
+def \hyperlink{namespacecode_1_1ga_model_1_1parallel_g_a_a287be72055dc127ce0c97fdf02db9e04}{ga\+Model} (N\+G\+EN, C\+X\+PB, M\+U\+T\+PB, model\+Omega, year, region, mean, F\+R\+EQ=10, n\+\_\+aval=50000)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{namespacecode_1_1ga_model_1_1parallel_g_a_a10750472daab47d438b55c8acc9d1ae7}{toolbox} = base.\+Toolbox()
+\item 
+\hyperlink{namespacecode_1_1ga_model_1_1parallel_g_a_a7755e12a4252f1d98a695e94f5bd9488}{Fitness}
+\item 
+\hyperlink{namespacecode_1_1ga_model_1_1parallel_g_a_ae9e3d434ef9c732e94671f9edeccfc28}{weights}
+\item 
+\hyperlink{namespacecode_1_1ga_model_1_1parallel_g_a_a39d5b5a2692ac279d7dd14176f89b2b1}{array}
+\item 
+\hyperlink{namespacecode_1_1ga_model_1_1parallel_g_a_abfa9d1ff6b30551c6dc5fef8f293eae0}{typecode}
+\item 
+\hyperlink{namespacecode_1_1ga_model_1_1parallel_g_a_af7c1add0868b0cc53a3bf25bb8f60bd1}{fitness}
+\item 
+\hyperlink{namespacecode_1_1ga_model_1_1parallel_g_a_a57e5094d347bdbee07a41fe72a846b17}{pool} = multiprocessing.\+Pool()
 \end{DoxyCompactItemize}
 
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}This GA code creates the gaModel with a circular island model\end{DoxyVerb}
+ 
 
 \subsection{Function Documentation}
 \mbox{\Hypertarget{namespacecode_1_1ga_model_1_1parallel_g_a_aa9d1048007f567adaa88457299a1069e}\label{namespacecode_1_1ga_model_1_1parallel_g_a_aa9d1048007f567adaa88457299a1069e}} 
@@ -22,17 +43,17 @@ It selects the smallest loglikelihood value.
 \end{DoxyVerb}
  
 
-Definition at line 22 of file parallel\+G\+A.\+py.
+Definition at line 17 of file parallel\+G\+A.\+py.
 
 Here is the call graph for this function\+:
 % FIG 0
 Here is the caller graph for this function\+:
 % FIG 1
-\mbox{\Hypertarget{namespacecode_1_1ga_model_1_1parallel_g_a_a703bc172bcc6b29b3e7d5853daaf547c}\label{namespacecode_1_1ga_model_1_1parallel_g_a_a703bc172bcc6b29b3e7d5853daaf547c}} 
+\mbox{\Hypertarget{namespacecode_1_1ga_model_1_1parallel_g_a_a287be72055dc127ce0c97fdf02db9e04}\label{namespacecode_1_1ga_model_1_1parallel_g_a_a287be72055dc127ce0c97fdf02db9e04}} 
 \index{code\+::ga\+Model\+::parallel\+GA@{code\+::ga\+Model\+::parallel\+GA}!ga\+Model@{ga\+Model}}
 \index{ga\+Model@{ga\+Model}!code\+::ga\+Model\+::parallel\+GA@{code\+::ga\+Model\+::parallel\+GA}}
 \subsubsection{\texorpdfstring{ga\+Model()}{gaModel()}}
-{\footnotesize\ttfamily def code.\+ga\+Model.\+parallel\+G\+A.\+ga\+Model (\begin{DoxyParamCaption}\item[{}]{N\+G\+EN,  }\item[{}]{n,  }\item[{}]{C\+X\+PB,  }\item[{}]{M\+U\+T\+PB,  }\item[{}]{model\+Omega,  }\item[{}]{year,  }\item[{}]{region,  }\item[{}]{mean,  }\item[{}]{depth = {\ttfamily 100},  }\item[{}]{F\+R\+EQ = {\ttfamily 10} }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily def code.\+ga\+Model.\+parallel\+G\+A.\+ga\+Model (\begin{DoxyParamCaption}\item[{}]{N\+G\+EN,  }\item[{}]{C\+X\+PB,  }\item[{}]{M\+U\+T\+PB,  }\item[{}]{model\+Omega,  }\item[{}]{year,  }\item[{}]{region,  }\item[{}]{mean,  }\item[{}]{F\+R\+EQ = {\ttfamily 10},  }\item[{}]{n\+\_\+aval = {\ttfamily 50000} }\end{DoxyParamCaption})}
 
 \begin{DoxyVerb}The main function. It evolves models, namely modelLamba or individual. 
 This applies the gaModel with a circular island model
@@ -41,7 +62,80 @@ and 2, that distributes the islands
 \end{DoxyVerb}
  
 
-Definition at line 42 of file parallel\+G\+A.\+py.
+Definition at line 43 of file parallel\+G\+A.\+py.
 
 Here is the call graph for this function\+:
 % FIG 2
+
+
+\subsection{Variable Documentation}
+\mbox{\Hypertarget{namespacecode_1_1ga_model_1_1parallel_g_a_a39d5b5a2692ac279d7dd14176f89b2b1}\label{namespacecode_1_1ga_model_1_1parallel_g_a_a39d5b5a2692ac279d7dd14176f89b2b1}} 
+\index{code\+::ga\+Model\+::parallel\+GA@{code\+::ga\+Model\+::parallel\+GA}!array@{array}}
+\index{array@{array}!code\+::ga\+Model\+::parallel\+GA@{code\+::ga\+Model\+::parallel\+GA}}
+\subsubsection{\texorpdfstring{array}{array}}
+{\footnotesize\ttfamily code.\+ga\+Model.\+parallel\+G\+A.\+array}
+
+
+
+Definition at line 39 of file parallel\+G\+A.\+py.
+
+\mbox{\Hypertarget{namespacecode_1_1ga_model_1_1parallel_g_a_a7755e12a4252f1d98a695e94f5bd9488}\label{namespacecode_1_1ga_model_1_1parallel_g_a_a7755e12a4252f1d98a695e94f5bd9488}} 
+\index{code\+::ga\+Model\+::parallel\+GA@{code\+::ga\+Model\+::parallel\+GA}!Fitness@{Fitness}}
+\index{Fitness@{Fitness}!code\+::ga\+Model\+::parallel\+GA@{code\+::ga\+Model\+::parallel\+GA}}
+\subsubsection{\texorpdfstring{Fitness}{Fitness}}
+{\footnotesize\ttfamily code.\+ga\+Model.\+parallel\+G\+A.\+Fitness}
+
+
+
+Definition at line 38 of file parallel\+G\+A.\+py.
+
+\mbox{\Hypertarget{namespacecode_1_1ga_model_1_1parallel_g_a_af7c1add0868b0cc53a3bf25bb8f60bd1}\label{namespacecode_1_1ga_model_1_1parallel_g_a_af7c1add0868b0cc53a3bf25bb8f60bd1}} 
+\index{code\+::ga\+Model\+::parallel\+GA@{code\+::ga\+Model\+::parallel\+GA}!fitness@{fitness}}
+\index{fitness@{fitness}!code\+::ga\+Model\+::parallel\+GA@{code\+::ga\+Model\+::parallel\+GA}}
+\subsubsection{\texorpdfstring{fitness}{fitness}}
+{\footnotesize\ttfamily code.\+ga\+Model.\+parallel\+G\+A.\+fitness}
+
+
+
+Definition at line 39 of file parallel\+G\+A.\+py.
+
+\mbox{\Hypertarget{namespacecode_1_1ga_model_1_1parallel_g_a_a57e5094d347bdbee07a41fe72a846b17}\label{namespacecode_1_1ga_model_1_1parallel_g_a_a57e5094d347bdbee07a41fe72a846b17}} 
+\index{code\+::ga\+Model\+::parallel\+GA@{code\+::ga\+Model\+::parallel\+GA}!pool@{pool}}
+\index{pool@{pool}!code\+::ga\+Model\+::parallel\+GA@{code\+::ga\+Model\+::parallel\+GA}}
+\subsubsection{\texorpdfstring{pool}{pool}}
+{\footnotesize\ttfamily code.\+ga\+Model.\+parallel\+G\+A.\+pool = multiprocessing.\+Pool()}
+
+
+
+Definition at line 40 of file parallel\+G\+A.\+py.
+
+\mbox{\Hypertarget{namespacecode_1_1ga_model_1_1parallel_g_a_a10750472daab47d438b55c8acc9d1ae7}\label{namespacecode_1_1ga_model_1_1parallel_g_a_a10750472daab47d438b55c8acc9d1ae7}} 
+\index{code\+::ga\+Model\+::parallel\+GA@{code\+::ga\+Model\+::parallel\+GA}!toolbox@{toolbox}}
+\index{toolbox@{toolbox}!code\+::ga\+Model\+::parallel\+GA@{code\+::ga\+Model\+::parallel\+GA}}
+\subsubsection{\texorpdfstring{toolbox}{toolbox}}
+{\footnotesize\ttfamily code.\+ga\+Model.\+parallel\+G\+A.\+toolbox = base.\+Toolbox()}
+
+
+
+Definition at line 37 of file parallel\+G\+A.\+py.
+
+\mbox{\Hypertarget{namespacecode_1_1ga_model_1_1parallel_g_a_abfa9d1ff6b30551c6dc5fef8f293eae0}\label{namespacecode_1_1ga_model_1_1parallel_g_a_abfa9d1ff6b30551c6dc5fef8f293eae0}} 
+\index{code\+::ga\+Model\+::parallel\+GA@{code\+::ga\+Model\+::parallel\+GA}!typecode@{typecode}}
+\index{typecode@{typecode}!code\+::ga\+Model\+::parallel\+GA@{code\+::ga\+Model\+::parallel\+GA}}
+\subsubsection{\texorpdfstring{typecode}{typecode}}
+{\footnotesize\ttfamily code.\+ga\+Model.\+parallel\+G\+A.\+typecode}
+
+
+
+Definition at line 39 of file parallel\+G\+A.\+py.
+
+\mbox{\Hypertarget{namespacecode_1_1ga_model_1_1parallel_g_a_ae9e3d434ef9c732e94671f9edeccfc28}\label{namespacecode_1_1ga_model_1_1parallel_g_a_ae9e3d434ef9c732e94671f9edeccfc28}} 
+\index{code\+::ga\+Model\+::parallel\+GA@{code\+::ga\+Model\+::parallel\+GA}!weights@{weights}}
+\index{weights@{weights}!code\+::ga\+Model\+::parallel\+GA@{code\+::ga\+Model\+::parallel\+GA}}
+\subsubsection{\texorpdfstring{weights}{weights}}
+{\footnotesize\ttfamily code.\+ga\+Model.\+parallel\+G\+A.\+weights}
+
+
+
+Definition at line 38 of file parallel\+G\+A.\+py.
+

@@ -1,9 +1,12 @@
 This package uses the following python libraries:
-
-rpy2
+sys
+math
+array
 numpy
-deap
-scoop
-
-mysql
-pyodbc
+datetime
+time
+random
+deap 
+pymysql
+multiprocessing
+mysql (and, sql)

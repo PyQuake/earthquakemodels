@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['jma_5fkeys',['JMA_keys',['../namespacecode_1_1earthquake_1_1catalog.html#a44170f2ae9a3da309e934ece234c1294',1,'code::earthquake::catalog']]]
+  ['index',['index',['../namespacecode_1_1ga_model_1_1parallel_reduced_model.html#a83a1e905cdec62ce256ac99f2c629ec0',1,'code.gaModel.parallelReducedModel.index()'],['../namespacecode_1_1ga_model_1_1reduced_model___yuri.html#a45d8e7477fd825ec883e666f62c7adb8',1,'code.gaModel.reducedModel_Yuri.index()']]]
 ];

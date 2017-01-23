@@ -106,6 +106,16 @@ Functions</h2></td></tr>
 <tr class="separator:aff45090e2bdcb7f7a6dcc6ae34007cb2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad191be2a9a695565c7e247a98bb0a795"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecode_1_1models_1_1model.html#ad191be2a9a695565c7e247a98bb0a795">addFromCatalogP_AVR</a> (<a class="el" href="classcode_1_1models_1_1model_1_1model.html">model</a>, catalog, riskMap, year)</td></tr>
 <tr class="separator:ad191be2a9a695565c7e247a98bb0a795"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aea26030520874960047c9aa8ef2e00a0"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecode_1_1models_1_1model.html#aea26030520874960047c9aa8ef2e00a0">is_number</a> (s)</td></tr>
+<tr class="separator:aea26030520874960047c9aa8ef2e00a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6b534b3e2781503a4de7e2e594df0e11"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecode_1_1models_1_1model.html#a6b534b3e2781503a4de7e2e594df0e11">saveModelDB</a> (<a class="el" href="classcode_1_1models_1_1model_1_1model.html">model</a>)</td></tr>
+<tr class="separator:a6b534b3e2781503a4de7e2e594df0e11"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af416cfbe0575d995dc58ec43631223bf"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecode_1_1models_1_1model.html#af416cfbe0575d995dc58ec43631223bf">loadModelDB</a> (modelName, year, executionNumber=0)</td></tr>
+<tr class="separator:af416cfbe0575d995dc58ec43631223bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afbaa3eda93515aef72fbc2d65ed86ddb"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecode_1_1models_1_1model.html#afbaa3eda93515aef72fbc2d65ed86ddb">showModelsDB</a> (alldata=False)</td></tr>
+<tr class="separator:afbaa3eda93515aef72fbc2d65ed86ddb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af176247b55143d08b3c6ea471845f330"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecode_1_1models_1_1model.html#af176247b55143d08b3c6ea471845f330">removeModelDB</a> (modelName, year, executionNumber)</td></tr>
+<tr class="separator:af176247b55143d08b3c6ea471845f330"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="aa5b70c0dbb95cdcca3fae1082f4b4a93"></a>
@@ -141,7 +151,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <pre class="fragment">Adds data from a catalog var to a model
 </pre> 
-<p class="definition">Definition at line <a class="el" href="model_8py_source.html#l00052">52</a> of file <a class="el" href="model_8py_source.html">model.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="model_8py_source.html#l00051">51</a> of file <a class="el" href="model_8py_source.html">model.py</a>.</p>
 
 </div>
 </div>
@@ -184,7 +194,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <pre class="fragment">This function adds the data from the geophysics models to the format used for the ga models.
 </pre> 
-<p class="definition">Definition at line <a class="el" href="model_8py_source.html#l00198">198</a> of file <a class="el" href="model_8py_source.html">model.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="model_8py_source.html#l00150">150</a> of file <a class="el" href="model_8py_source.html">model.py</a>.</p>
 
 </div>
 </div>
@@ -216,7 +226,65 @@ Functions</h2></td></tr>
 <pre class="fragment">Function used to convert list model to GAModel configuration
 It finds the vinculates the list model positions in a bin and atribute a probability value to it
 </pre> 
-<p class="definition">Definition at line <a class="el" href="model_8py_source.html#l00183">183</a> of file <a class="el" href="model_8py_source.html">model.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="model_8py_source.html#l00135">135</a> of file <a class="el" href="model_8py_source.html">model.py</a>.</p>
+
+</div>
+</div>
+<a id="aea26030520874960047c9aa8ef2e00a0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aea26030520874960047c9aa8ef2e00a0">&#9670;&nbsp;</a></span>is_number()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def code.models.model.is_number </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>s</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="model_8py_source.html#l00292">292</a> of file <a class="el" href="model_8py_source.html">model.py</a>.</p>
+
+</div>
+</div>
+<a id="af416cfbe0575d995dc58ec43631223bf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af416cfbe0575d995dc58ec43631223bf">&#9670;&nbsp;</a></span>loadModelDB()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def code.models.model.loadModelDB </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>modelName</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>year</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>executionNumber</em> = <code>0</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<pre class="fragment">It loads a model to a common database, using its name-&gt; a variable indicanting what is this model
+eg jmaData; GAModelKanto2000
+</pre> 
+<p class="definition">Definition at line <a class="el" href="model_8py_source.html#l00337">337</a> of file <a class="el" href="model_8py_source.html">model.py</a>.</p>
 
 </div>
 </div>
@@ -239,7 +307,7 @@ It finds the vinculates the list model positions in a bin and atribute a probabi
 The file is defined as multiple lines, with each line containing:
 key min step bins
 </pre> 
-<p class="definition">Definition at line <a class="el" href="model_8py_source.html#l00119">119</a> of file <a class="el" href="model_8py_source.html">model.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="model_8py_source.html#l00101">101</a> of file <a class="el" href="model_8py_source.html">model.py</a>.</p>
 
 </div>
 </div>
@@ -272,11 +340,93 @@ key min step bins
 The initialvalue parameter determines the initial value of 
 the bins contained in the model, and can be used to create 
 "neutral" models (containing 1 in all bins)
-
 bins are the dimensional size for lat and long
 cells are the dimensional size for mag
 </pre> 
-<p class="definition">Definition at line <a class="el" href="model_8py_source.html#l00024">24</a> of file <a class="el" href="model_8py_source.html">model.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="model_8py_source.html#l00026">26</a> of file <a class="el" href="model_8py_source.html">model.py</a>.</p>
+
+</div>
+</div>
+<a id="af176247b55143d08b3c6ea471845f330"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af176247b55143d08b3c6ea471845f330">&#9670;&nbsp;</a></span>removeModelDB()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def code.models.model.removeModelDB </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>modelName</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>year</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>executionNumber</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<pre class="fragment">It removes a model to a common database, using its name-&gt; a variable indicanting what is this model
+eg jmaData; GAModelKanto2000
+</pre> 
+<p class="definition">Definition at line <a class="el" href="model_8py_source.html#l00402">402</a> of file <a class="el" href="model_8py_source.html">model.py</a>.</p>
+
+</div>
+</div>
+<a id="a6b534b3e2781503a4de7e2e594df0e11"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6b534b3e2781503a4de7e2e594df0e11">&#9670;&nbsp;</a></span>saveModelDB()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def code.models.model.saveModelDB </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>model</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<pre class="fragment">It saves the model to a common database
+It is important to give a name to the model-&gt; it will be used to load the model feom the db
+eg jmaData; GAModelKanto2000
+</pre> 
+<p class="definition">Definition at line <a class="el" href="model_8py_source.html#l00299">299</a> of file <a class="el" href="model_8py_source.html">model.py</a>.</p>
+
+</div>
+</div>
+<a id="afbaa3eda93515aef72fbc2d65ed86ddb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afbaa3eda93515aef72fbc2d65ed86ddb">&#9670;&nbsp;</a></span>showModelsDB()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def code.models.model.showModelsDB </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>alldata</em> = <code>False</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<pre class="fragment">It show all models to a common database, using its name-&gt; a variable indicanting what is this model
+eg jmaData; GAModelKanto2000
+</pre> 
+<p class="definition">Definition at line <a class="el" href="model_8py_source.html#l00372">372</a> of file <a class="el" href="model_8py_source.html">model.py</a>.</p>
 
 </div>
 </div>

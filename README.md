@@ -30,6 +30,9 @@ datetime
 time
 random
 deap 
+pymysql
+multiprocessing
+mysql (and, sql)
 
 Getting Started
 ---------------
@@ -43,52 +46,66 @@ git clone https://github.com/PyQuake/earthquakemodels.git
 # How is the code organized
 Most of the code were develop to be run in a python3 interpreter. 
 You may find that some files can be bash executed.
-In most cases, you can call the most important methods in two ways. 
-The direct approach and the self-structured way. 
 
-What we mean from direct approach: It is possible to simply call, 
-for example, the method to genarate a model by GA. That method needs
-some arguments and you would have to provide them to be able to run the method. 
+The most important files are divided into three types of files: [1] the Genetic Algorithm (GA) files that create earthquake risk models, [2] the files that are the base to the GA files and [3] the files that connect them.
 
-The self-structured way is an aprroach that allows you to call the
-method in the right sequence making it easier to run the methods.
-```
+The files in [1] can be found, mostly, at ./code/gaModel.
+The files in [2] can be found, mostly, at ./code/csep or ./code/earthquake
+The files in [3] can be found, mostly, at ./code/models
 
-# Executing the main GA methods - self-structured way
+It is possible to use the code that I used in most of my experiments. They are located at ./code/runExperiments
+# Executing the main GA methods 
 ```bash
-in applyGaModel.py you can generate some different kinds of GA models.
-All similar methods follows the same parttern: 
-  in case you want to create the GA model based on some ETAS ideas,
-  the you should run the following method:
-    execEtasGaModel(year, times, save=False)
-  you have to specify the year for the model and how many times you
-  would like to execute the GA. Also, you may chose to save the model
-  in a file. But first, you have to create the reference model for
-  comparison (in most cases it is the resulting data after filtering
-  the catalog by the year) by calling:
-    createRealModelforEtas(year, save=False)
-  with the same parameters, but times.
+First you need to install all packages and download the source code from GitHub.
+
+Then you may need run the following sql script to save/load models
+
+
+SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
+
+-- -----------------------------------------------------
+-- Schema earthquakemodelsDB
+-- -----------------------------------------------------
+
+-- -----------------------------------------------------
+-- Schema earthquakemodelsDB
+-- -----------------------------------------------------
+CREATE SCHEMA IF NOT EXISTS `earthquakemodelsDB` ;
+USE `earthquakemodelsDB` ;
+
+-- -----------------------------------------------------
+-- Table `earthquakemodelsDB`.`earthquakeModels`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `earthquakemodelsDB`.`earthquakeModels` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `modelName` TEXT NULL,
+  `bins` TEXT NULL,
+  `year` TEXT NULL,
+  `loglikelihood` TEXT NULL,
+  `definitions` TEXT NULL,
+  `logbook` TEXT NULL,
+  `time` TEXT NULL,
+  `probability` TEXT NULL,
+  `executionNumber` TEXT NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB;
+
+
+SET SQL_MODE=@OLD_SQL_MODE;
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
+After running it and solving all dependencies, you may run a script in ./code/runExperiments
+
+For example (assuming that your working directory is ./code/):
+
+  python3 runExperiments/applyGaModel.py 
+
+To see the models results and analyse, it is possible to load them and/or retrieve them with some functions that are in ./code/model, mainly:
+
+  ./code/model/model.showModelsDB
+  ./code/model/model.removeModelDB
+  ./code/model/model.loadModelDB
 ```
-
-#Executing the main GA methods - The direct approach 
-```bash
-in the models.etasGaModelNP you can call the GA model method by itself.
-You may do it by:
-  gaModel(NGEN,CXPB,MUTPB,modelOmega, year, n=500)
-in which NGEN, CXPB, MUTPB and n are the GA parameters. modelOmega
-is the reference model to be comapared (in most cases it is the
-resulting data after filtering the catalog by the year). You should
-choose the year parameter as well.
-```
-
-#Executing the the testing methods
-Some tests were implemented. For those, the same idea above is applyed, we both have the The direct approach and the self-structured way. But in this case, the self-structured way is recommended. This may be out of date. 
-
-```bash
-in applyTests, it is possible to call the tests in two ways. The first
-one, execTests(year), executes all tests available for a group of
-comparesing models. Or it is possible to run the tests by itself as in
-execGamblingScore(year).
-```
-
-You may run he tests by their methods by themselves and all of them are or in ./testingAlarmBased/ or in ./loglikelihood/

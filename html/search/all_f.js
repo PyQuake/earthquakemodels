@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['quakestriggered',['quakesTriggered',['../namespacecode_1_1models_1_1model_etas_ga.html#a7692aca39690ae67f96a2ba603e5f23c',1,'code::models::modelEtasGa']]]
+  ['quakestriggered',['quakesTriggered',['../namespacecode_1_1models_1_1reduced_model.html#a7fdeffd40e64b70f475e1c244c8ff5e8',1,'code::models::reducedModel']]]
 ];

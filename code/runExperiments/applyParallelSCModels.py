@@ -10,7 +10,7 @@ import time
 import numpy as np
 
 
-def execParallelGA(year, region, qntYears=5, times=10, save=True):
+def execParallelGA(year, region, qntYears=5, times=10):
     """
     Creates the GAModel with SC catalog with parallel and distributed island model
     """

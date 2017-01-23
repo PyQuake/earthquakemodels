@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['etasgamodelnp_2epy',['etasGaModelNP.py',['../etas_ga_model_n_p_8py.html',1,'']]]
+  ['faults_5fjapan_2em',['faults_japan.m',['../faults__japan_8m.html',1,'']]]
 ];

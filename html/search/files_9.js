@@ -1,8 +1,5 @@
 var searchData=
 [
-  ['magstudy_2epy',['magStudy.py',['../mag_study_8py.html',1,'']]],
-  ['mathutil_2epy',['mathUtil.py',['../math_util_8py.html',1,'']]],
-  ['model_2epy',['model.py',['../model_8py.html',1,'']]],
-  ['modeletasga_2epy',['modelEtasGa.py',['../model_etas_ga_8py.html',1,'']]],
-  ['molchanbased_2epy',['molchanBased.py',['../molchan_based_8py.html',1,'']]]
+  ['parallelga_2epy',['parallelGA.py',['../parallel_g_a_8py.html',1,'']]],
+  ['parallelreducedmodel_2epy',['parallelReducedModel.py',['../parallel_reduced_model_8py.html',1,'']]]
 ];

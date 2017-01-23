@@ -3,18 +3,39 @@
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-def \hyperlink{namespacecode_1_1ga_model_1_1ga_model___yuri_ac3d4d6d1e77c40f783c7ca57c88a3731}{evaluation\+Function} (individual, model\+Omega)
+def \hyperlink{namespacecode_1_1ga_model_1_1ga_model___yuri_a9c1c78cf1b81c95dc2e477391409be13}{evaluation\+Function} (individual, model\+Omega, mean)
 \item 
-def \hyperlink{namespacecode_1_1ga_model_1_1ga_model___yuri_a358c4a2cdf3f30fc75df90095a4b8355}{ga\+Model} (N\+G\+EN, C\+X\+PB, M\+U\+T\+PB, model\+Omega, year, region, mean, depth=100, n\+\_\+aval=50000)
+def \hyperlink{namespacecode_1_1ga_model_1_1ga_model___yuri_a4863c0a39df647a724c38d9a9a022c0b}{ga\+Model} (N\+G\+EN, C\+X\+PB, M\+U\+T\+PB, model\+Omega, year, region, mean, n\+\_\+aval=50000)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{namespacecode_1_1ga_model_1_1ga_model___yuri_ada3b1ea87dc90764c0682c880eb74eeb}{toolbox} = base.\+Toolbox()
+\item 
+\hyperlink{namespacecode_1_1ga_model_1_1ga_model___yuri_a4487ad90b1629e57496b29d77a0bf9f0}{Fitness}
+\item 
+\hyperlink{namespacecode_1_1ga_model_1_1ga_model___yuri_acd232135ed3116e17c88067961e65262}{weights}
+\item 
+\hyperlink{namespacecode_1_1ga_model_1_1ga_model___yuri_a479efbc9c9aa7dff9879559ce585a81c}{array}
+\item 
+\hyperlink{namespacecode_1_1ga_model_1_1ga_model___yuri_a977bf210ec34d4e7e9dd592a08b0d233}{typecode}
+\item 
+\hyperlink{namespacecode_1_1ga_model_1_1ga_model___yuri_a335cc5facfef462127df381b968df2ea}{fitness}
+\item 
+\hyperlink{namespacecode_1_1ga_model_1_1ga_model___yuri_a5687b52b4160bf55d1dbf2c4e8a2ff52}{pool} = multiprocessing.\+Pool()
 \end{DoxyCompactItemize}
 
 
+\subsection{Detailed Description}
+\begin{DoxyVerb}This GA code creates the gaModel \end{DoxyVerb}
+ 
+
 \subsection{Function Documentation}
-\mbox{\Hypertarget{namespacecode_1_1ga_model_1_1ga_model___yuri_ac3d4d6d1e77c40f783c7ca57c88a3731}\label{namespacecode_1_1ga_model_1_1ga_model___yuri_ac3d4d6d1e77c40f783c7ca57c88a3731}} 
+\mbox{\Hypertarget{namespacecode_1_1ga_model_1_1ga_model___yuri_a9c1c78cf1b81c95dc2e477391409be13}\label{namespacecode_1_1ga_model_1_1ga_model___yuri_a9c1c78cf1b81c95dc2e477391409be13}} 
 \index{code\+::ga\+Model\+::ga\+Model\+\_\+\+Yuri@{code\+::ga\+Model\+::ga\+Model\+\_\+\+Yuri}!evaluation\+Function@{evaluation\+Function}}
 \index{evaluation\+Function@{evaluation\+Function}!code\+::ga\+Model\+::ga\+Model\+\_\+\+Yuri@{code\+::ga\+Model\+::ga\+Model\+\_\+\+Yuri}}
 \subsubsection{\texorpdfstring{evaluation\+Function()}{evaluationFunction()}}
-{\footnotesize\ttfamily def code.\+ga\+Model.\+ga\+Model\+\_\+\+Yuri.\+evaluation\+Function (\begin{DoxyParamCaption}\item[{}]{individual,  }\item[{}]{model\+Omega }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily def code.\+ga\+Model.\+ga\+Model\+\_\+\+Yuri.\+evaluation\+Function (\begin{DoxyParamCaption}\item[{}]{individual,  }\item[{}]{model\+Omega,  }\item[{}]{mean }\end{DoxyParamCaption})}
 
 \begin{DoxyVerb}This function calculates the loglikelihood of a model (individual) with 
 the real data from the prior X years (modelOmega, with length X).
@@ -22,22 +43,95 @@ It selects the smallest loglikelihood value.
 \end{DoxyVerb}
  
 
-Definition at line 16 of file ga\+Model\+\_\+\+Yuri.\+py.
+Definition at line 18 of file ga\+Model\+\_\+\+Yuri.\+py.
 
 Here is the call graph for this function\+:
 % FIG 0
-\mbox{\Hypertarget{namespacecode_1_1ga_model_1_1ga_model___yuri_a358c4a2cdf3f30fc75df90095a4b8355}\label{namespacecode_1_1ga_model_1_1ga_model___yuri_a358c4a2cdf3f30fc75df90095a4b8355}} 
+\mbox{\Hypertarget{namespacecode_1_1ga_model_1_1ga_model___yuri_a4863c0a39df647a724c38d9a9a022c0b}\label{namespacecode_1_1ga_model_1_1ga_model___yuri_a4863c0a39df647a724c38d9a9a022c0b}} 
 \index{code\+::ga\+Model\+::ga\+Model\+\_\+\+Yuri@{code\+::ga\+Model\+::ga\+Model\+\_\+\+Yuri}!ga\+Model@{ga\+Model}}
 \index{ga\+Model@{ga\+Model}!code\+::ga\+Model\+::ga\+Model\+\_\+\+Yuri@{code\+::ga\+Model\+::ga\+Model\+\_\+\+Yuri}}
 \subsubsection{\texorpdfstring{ga\+Model()}{gaModel()}}
-{\footnotesize\ttfamily def code.\+ga\+Model.\+ga\+Model\+\_\+\+Yuri.\+ga\+Model (\begin{DoxyParamCaption}\item[{}]{N\+G\+EN,  }\item[{}]{C\+X\+PB,  }\item[{}]{M\+U\+T\+PB,  }\item[{}]{model\+Omega,  }\item[{}]{year,  }\item[{}]{region,  }\item[{}]{mean,  }\item[{}]{depth = {\ttfamily 100},  }\item[{}]{n\+\_\+aval = {\ttfamily 50000} }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily def code.\+ga\+Model.\+ga\+Model\+\_\+\+Yuri.\+ga\+Model (\begin{DoxyParamCaption}\item[{}]{N\+G\+EN,  }\item[{}]{C\+X\+PB,  }\item[{}]{M\+U\+T\+PB,  }\item[{}]{model\+Omega,  }\item[{}]{year,  }\item[{}]{region,  }\item[{}]{mean,  }\item[{}]{n\+\_\+aval = {\ttfamily 50000} }\end{DoxyParamCaption})}
 
 \begin{DoxyVerb}The main function. It evolves models, namely modelLamba or individual. 
 It uses 1 parallel system: 1, simple, that splits the ga evolution between cores
 \end{DoxyVerb}
  
 
-Definition at line 38 of file ga\+Model\+\_\+\+Yuri.\+py.
+Definition at line 44 of file ga\+Model\+\_\+\+Yuri.\+py.
 
 Here is the call graph for this function\+:
 % FIG 1
+
+
+\subsection{Variable Documentation}
+\mbox{\Hypertarget{namespacecode_1_1ga_model_1_1ga_model___yuri_a479efbc9c9aa7dff9879559ce585a81c}\label{namespacecode_1_1ga_model_1_1ga_model___yuri_a479efbc9c9aa7dff9879559ce585a81c}} 
+\index{code\+::ga\+Model\+::ga\+Model\+\_\+\+Yuri@{code\+::ga\+Model\+::ga\+Model\+\_\+\+Yuri}!array@{array}}
+\index{array@{array}!code\+::ga\+Model\+::ga\+Model\+\_\+\+Yuri@{code\+::ga\+Model\+::ga\+Model\+\_\+\+Yuri}}
+\subsubsection{\texorpdfstring{array}{array}}
+{\footnotesize\ttfamily code.\+ga\+Model.\+ga\+Model\+\_\+\+Yuri.\+array}
+
+
+
+Definition at line 40 of file ga\+Model\+\_\+\+Yuri.\+py.
+
+\mbox{\Hypertarget{namespacecode_1_1ga_model_1_1ga_model___yuri_a4487ad90b1629e57496b29d77a0bf9f0}\label{namespacecode_1_1ga_model_1_1ga_model___yuri_a4487ad90b1629e57496b29d77a0bf9f0}} 
+\index{code\+::ga\+Model\+::ga\+Model\+\_\+\+Yuri@{code\+::ga\+Model\+::ga\+Model\+\_\+\+Yuri}!Fitness@{Fitness}}
+\index{Fitness@{Fitness}!code\+::ga\+Model\+::ga\+Model\+\_\+\+Yuri@{code\+::ga\+Model\+::ga\+Model\+\_\+\+Yuri}}
+\subsubsection{\texorpdfstring{Fitness}{Fitness}}
+{\footnotesize\ttfamily code.\+ga\+Model.\+ga\+Model\+\_\+\+Yuri.\+Fitness}
+
+
+
+Definition at line 39 of file ga\+Model\+\_\+\+Yuri.\+py.
+
+\mbox{\Hypertarget{namespacecode_1_1ga_model_1_1ga_model___yuri_a335cc5facfef462127df381b968df2ea}\label{namespacecode_1_1ga_model_1_1ga_model___yuri_a335cc5facfef462127df381b968df2ea}} 
+\index{code\+::ga\+Model\+::ga\+Model\+\_\+\+Yuri@{code\+::ga\+Model\+::ga\+Model\+\_\+\+Yuri}!fitness@{fitness}}
+\index{fitness@{fitness}!code\+::ga\+Model\+::ga\+Model\+\_\+\+Yuri@{code\+::ga\+Model\+::ga\+Model\+\_\+\+Yuri}}
+\subsubsection{\texorpdfstring{fitness}{fitness}}
+{\footnotesize\ttfamily code.\+ga\+Model.\+ga\+Model\+\_\+\+Yuri.\+fitness}
+
+
+
+Definition at line 40 of file ga\+Model\+\_\+\+Yuri.\+py.
+
+\mbox{\Hypertarget{namespacecode_1_1ga_model_1_1ga_model___yuri_a5687b52b4160bf55d1dbf2c4e8a2ff52}\label{namespacecode_1_1ga_model_1_1ga_model___yuri_a5687b52b4160bf55d1dbf2c4e8a2ff52}} 
+\index{code\+::ga\+Model\+::ga\+Model\+\_\+\+Yuri@{code\+::ga\+Model\+::ga\+Model\+\_\+\+Yuri}!pool@{pool}}
+\index{pool@{pool}!code\+::ga\+Model\+::ga\+Model\+\_\+\+Yuri@{code\+::ga\+Model\+::ga\+Model\+\_\+\+Yuri}}
+\subsubsection{\texorpdfstring{pool}{pool}}
+{\footnotesize\ttfamily code.\+ga\+Model.\+ga\+Model\+\_\+\+Yuri.\+pool = multiprocessing.\+Pool()}
+
+
+
+Definition at line 41 of file ga\+Model\+\_\+\+Yuri.\+py.
+
+\mbox{\Hypertarget{namespacecode_1_1ga_model_1_1ga_model___yuri_ada3b1ea87dc90764c0682c880eb74eeb}\label{namespacecode_1_1ga_model_1_1ga_model___yuri_ada3b1ea87dc90764c0682c880eb74eeb}} 
+\index{code\+::ga\+Model\+::ga\+Model\+\_\+\+Yuri@{code\+::ga\+Model\+::ga\+Model\+\_\+\+Yuri}!toolbox@{toolbox}}
+\index{toolbox@{toolbox}!code\+::ga\+Model\+::ga\+Model\+\_\+\+Yuri@{code\+::ga\+Model\+::ga\+Model\+\_\+\+Yuri}}
+\subsubsection{\texorpdfstring{toolbox}{toolbox}}
+{\footnotesize\ttfamily code.\+ga\+Model.\+ga\+Model\+\_\+\+Yuri.\+toolbox = base.\+Toolbox()}
+
+
+
+Definition at line 38 of file ga\+Model\+\_\+\+Yuri.\+py.
+
+\mbox{\Hypertarget{namespacecode_1_1ga_model_1_1ga_model___yuri_a977bf210ec34d4e7e9dd592a08b0d233}\label{namespacecode_1_1ga_model_1_1ga_model___yuri_a977bf210ec34d4e7e9dd592a08b0d233}} 
+\index{code\+::ga\+Model\+::ga\+Model\+\_\+\+Yuri@{code\+::ga\+Model\+::ga\+Model\+\_\+\+Yuri}!typecode@{typecode}}
+\index{typecode@{typecode}!code\+::ga\+Model\+::ga\+Model\+\_\+\+Yuri@{code\+::ga\+Model\+::ga\+Model\+\_\+\+Yuri}}
+\subsubsection{\texorpdfstring{typecode}{typecode}}
+{\footnotesize\ttfamily code.\+ga\+Model.\+ga\+Model\+\_\+\+Yuri.\+typecode}
+
+
+
+Definition at line 40 of file ga\+Model\+\_\+\+Yuri.\+py.
+
+\mbox{\Hypertarget{namespacecode_1_1ga_model_1_1ga_model___yuri_acd232135ed3116e17c88067961e65262}\label{namespacecode_1_1ga_model_1_1ga_model___yuri_acd232135ed3116e17c88067961e65262}} 
+\index{code\+::ga\+Model\+::ga\+Model\+\_\+\+Yuri@{code\+::ga\+Model\+::ga\+Model\+\_\+\+Yuri}!weights@{weights}}
+\index{weights@{weights}!code\+::ga\+Model\+::ga\+Model\+\_\+\+Yuri@{code\+::ga\+Model\+::ga\+Model\+\_\+\+Yuri}}
+\subsubsection{\texorpdfstring{weights}{weights}}
+{\footnotesize\ttfamily code.\+ga\+Model.\+ga\+Model\+\_\+\+Yuri.\+weights}
+
+
+
+Definition at line 39 of file ga\+Model\+\_\+\+Yuri.\+py.
+

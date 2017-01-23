@@ -2,8 +2,7 @@ var searchData=
 [
   ['gain',['gain',['../namespacecode_1_1testing_alarm_based_1_1gambling_score.html#a1b976a411bf64f4dd4e11bda62fdb183',1,'code::testingAlarmBased::gamblingScore']]],
   ['gamblingscore_2epy',['gamblingScore.py',['../gambling_score_8py.html',1,'']]],
-  ['gamodel',['gaModel',['../namespacecode_1_1ga_model_1_1etas_ga_model_n_p.html#a1198db0e4034344a65eee6f236b13628',1,'code.gaModel.etasGaModelNP.gaModel()'],['../namespacecode_1_1ga_model_1_1ga_model___yuri.html#a358c4a2cdf3f30fc75df90095a4b8355',1,'code.gaModel.gaModel_Yuri.gaModel()'],['../namespacecode_1_1ga_model_1_1_g_a_model_p___a_v_r.html#a54a6aa539f4e7f9dd54b74a1a808662f',1,'code.gaModel.GAModelP_AVR.gaModel()'],['../namespacecode_1_1ga_model_1_1parallel_g_a.html#a703bc172bcc6b29b3e7d5853daaf547c',1,'code.gaModel.parallelGA.gaModel()'],['../namespacecode_1_1ga_model_1_1parallel_list.html#a56992cede06ab5b5142f054b0a6a04dd',1,'code.gaModel.parallelList.gaModel()']]],
+  ['gamodel',['gaModel',['../namespacecode_1_1ga_model_1_1ga_model___yuri.html#a4863c0a39df647a724c38d9a9a022c0b',1,'code.gaModel.gaModel_Yuri.gaModel()'],['../namespacecode_1_1ga_model_1_1_g_a_model_p___a_v_r.html#a54a6aa539f4e7f9dd54b74a1a808662f',1,'code.gaModel.GAModelP_AVR.gaModel()'],['../namespacecode_1_1ga_model_1_1parallel_g_a.html#a287be72055dc127ce0c97fdf02db9e04',1,'code.gaModel.parallelGA.gaModel()'],['../namespacecode_1_1ga_model_1_1parallel_reduced_model.html#a897e7048ecbba7fd1155868a9b8858f9',1,'code.gaModel.parallelReducedModel.gaModel()'],['../namespacecode_1_1ga_model_1_1reduced_model___yuri.html#a8122076cc02bd20a75442fe3231de4b4',1,'code.gaModel.reducedModel_Yuri.gaModel()']]],
   ['gamodel_5fyuri_2epy',['gaModel_Yuri.py',['../ga_model___yuri_8py.html',1,'']]],
-  ['gamodelp_5favr_2epy',['GAModelP_AVR.py',['../_g_a_model_p___a_v_r_8py.html',1,'']]],
-  ['genotype',['genotype',['../classcode_1_1ga_model_1_1parallel_list_1_1genotype.html',1,'code::gaModel::parallelList']]]
+  ['gamodelp_5favr_2epy',['GAModelP_AVR.py',['../_g_a_model_p___a_v_r_8py.html',1,'']]]
 ];

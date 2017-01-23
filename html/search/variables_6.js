@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['logbook',['logbook',['../classcode_1_1models_1_1model_1_1model.html#a1475e43d95e81a0d425eeade8e65f9f7',1,'code.models.model.model.logbook()'],['../classcode_1_1models_1_1model_etas_ga_1_1model.html#a391b0c1c8aa0c8b9d589836086c3a0d1',1,'code.models.modelEtasGa.model.logbook()']]]
+  ['jma_5fkeys',['JMA_keys',['../namespacecode_1_1earthquake_1_1catalog.html#a44170f2ae9a3da309e934ece234c1294',1,'code::earthquake::catalog']]]
 ];

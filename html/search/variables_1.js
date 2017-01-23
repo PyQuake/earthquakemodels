@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['connection',['connection',['../namespacecode_1_1db_test.html#adb7cfea0c26c75be85f5b69f5f614495',1,'code::dbTest']]]
+  ['bins',['bins',['../classcode_1_1models_1_1model_1_1model.html#a848482cacf97b2087e82ca4004af20b3',1,'code::models::model::model']]]
 ];
