@@ -345,6 +345,7 @@ def loadModelDB(modelName, year, executionNumber=0):
                                  password='Fails158@featureless',
                                  db='earthquakemodelsDB',
                                  charset='utf8mb4',
+                                 unix_socket="/tmp/mysql.sock",
                                  cursorclass=pymysql.cursors.DictCursor)
     model_=model()
     try:
@@ -380,6 +381,7 @@ def showModelsDB(alldata=False):
                                  password='Fails158@featureless',
                                  db='earthquakemodelsDB',
                                  charset='utf8mb4',
+                                 unix_socket="/tmp/mysql.sock",
                                  cursorclass=pymysql.cursors.DictCursor)
 
     try:
@@ -410,6 +412,7 @@ def removeModelDB(modelName, year, executionNumber):
                                  password='Fails158@featureless',
                                  db='earthquakemodelsDB',
                                  charset='utf8mb4',
+                                 unix_socket="/tmp/mysql.sock",
                                  cursorclass=pymysql.cursors.DictCursor)
     try:
         with connection.cursor() as cursor:
