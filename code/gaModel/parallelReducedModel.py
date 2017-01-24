@@ -11,7 +11,9 @@ import array
 import multiprocessing
 import time 
 from mpi4py import MPI
-
+import inspect, os
+print inspect.getfile(inspect.currentframe()) # script filename (usually with path)
+print os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe()))) 
 def equalObjects(x,y):
 	"""
 	Compares if two inds are equal
@@ -200,7 +202,6 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval=50000):
 		best_pop=tools.selBest(pop, 1)[0]
 		comm.send(best_pop, dest=0)
 	with open('teste.txt', 'w') as outfile:
-		
 		out1 = str(MPI.Get_processor_name())
 		out2 = str(best_pop)
 		print(out1, out2)
