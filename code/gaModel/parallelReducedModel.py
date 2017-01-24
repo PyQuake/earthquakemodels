@@ -87,7 +87,7 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval=50000):
 	n= x + y
 
 	
-	toolbox.register("evaluate", evaluationFunction, modelOmega=modelOmega, mean)
+	toolbox.register("evaluate", evaluationFunction, modelOmega=modelOmega, mean=mean)
 	creator.create("FitnessFunction", base.Fitness, weights=(1.0,))
 	#TODO: Check if its posible to use it as obj, maybe, OFF
 	
