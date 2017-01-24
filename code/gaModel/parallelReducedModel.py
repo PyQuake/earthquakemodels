@@ -62,6 +62,15 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, FREQ = 10, n_aval=5000
 	It uses two parallel system: 1, simple, that splits the ga evolution between cores
 	and 2, that distributes the islands
 	"""
+	#defining the class (list) that will compose an individual
+	class genotype():
+	    def __init__(self):
+	    	self.index = random.randint(0, len(modelOmega[0].bins)-1)
+	    	self.prob = random.random()
+	
+	y=int(n_aval/NGEN)
+	x=n_aval - y*NGEN
+	n= x + y
 
 	target = 0
 	info = MPI.Status()
@@ -76,15 +85,7 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, FREQ = 10, n_aval=5000
 	global length
 	length=0
 
-	#defining the class (list) that will compose an individual
-	class genotype():
-	    def __init__(self):
-	    	self.index = random.randint(0, len(modelOmega[0].bins)-1)
-	    	self.prob = random.random()
 	
-	y=int(n_aval/NGEN)
-	x=n_aval - y*NGEN
-	n= x + y
 
 	
 	toolbox.register("evaluate", evaluationFunction, modelOmega=modelOmega, mean=mean)
