@@ -317,7 +317,7 @@ def saveModelDB(model):
                                  password='Fails158@featureless',
                                  db='earthquakemodelsDB',
                                  charset='utf8mb4',
-                                 unix_socket="/tmp/mysql.sock",
+                                 unix_socket="/var/lib/mysql/mysql.sock",
                                  port=3306,
                                  cursorclass=pymysql.cursors.DictCursor)
     try:
@@ -346,7 +346,7 @@ def loadModelDB(modelName, year, executionNumber=0):
                                  password='Fails158@featureless',
                                  db='earthquakemodelsDB',
                                  charset='utf8mb4',
-                                 unix_socket="/tmp/mysql.sock",
+                                 unix_socket="/var/lib/mysql/mysql.sock",
                                  port=3306,
                                  cursorclass=pymysql.cursors.DictCursor)
     model_=model()
@@ -383,7 +383,7 @@ def showModelsDB(alldata=False):
                                  password='Fails158@featureless',
                                  db='earthquakemodelsDB',
                                  charset='utf8mb4',
-                                 unix_socket="/tmp/mysql.sock",
+                                 unix_socket="/var/lib/mysql/mysql.sock",
                                  port=3306,
                                  cursorclass=pymysql.cursors.DictCursor)
 
@@ -415,7 +415,7 @@ def removeModelDB(modelName, year, executionNumber):
                                  password='Fails158@featureless',
                                  db='earthquakemodelsDB',
                                  charset='utf8mb4',
-                                 unix_socket="/tmp/mysql.sock",
+                                 unix_socket="/var/lib/mysql/mysql.sock",
                                  port=3306,
                                  cursorclass=pymysql.cursors.DictCursor)
     try:
