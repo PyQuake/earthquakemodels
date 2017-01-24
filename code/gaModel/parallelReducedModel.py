@@ -50,15 +50,7 @@ def mutationFunction(individual, indpb, length):
 			individual[i].prob=random.random()
 	return individual
 
-#parallel 
-toolbox = base.Toolbox()
-creator.create("Individual", numpy.ndarray, fitness=creator.FitnessFunction)
-pool = multiprocessing.Pool()
-toolbox.register("map", pool.map)
-class genotype():
-    def __init__(self):
-    	self.index = random.randint(0, len(modelOmega[0].bins)-1)
-    	self.prob = random.random()
+
 
 def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, FREQ = 10, n_aval=50000):
 	"""
@@ -69,6 +61,15 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, FREQ = 10, n_aval=5000
 	"""
 	#defining the class (list) that will compose an individual
 	
+	#parallel 
+	toolbox = base.Toolbox()
+	creator.create("Individual", numpy.ndarray, fitness=creator.FitnessFunction)
+	pool = multiprocessing.Pool()
+	toolbox.register("map", pool.map)
+	class genotype():
+	    def __init__(self):
+	    	self.index = random.randint(0, len(modelOmega[0].bins)-1)
+	    	self.prob = random.random()
 	
 	y=int(n_aval/NGEN)
 	x=n_aval - y*NGEN
