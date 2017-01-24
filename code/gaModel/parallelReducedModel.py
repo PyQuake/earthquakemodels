@@ -62,7 +62,6 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval=50000):
 	It uses two parallel system: 1, simple, that splits the ga evolution between cores
 	and 2, that distributes the islands
 	"""
-	exit()
 
 	target = 0
 	info = MPI.Status()
