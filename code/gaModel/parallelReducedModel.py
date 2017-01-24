@@ -50,7 +50,12 @@ def mutationFunction(individual, indpb, length):
 			individual[i].prob=random.random()
 	return individual
 
-
+#parallel 
+toolbox = base.Toolbox()
+creator.create("FitnessFunction", base.Fitness, weights=(1.0,))
+creator.create("Individual", numpy.ndarray, fitness=creator.FitnessFunction)
+pool = multiprocessing.Pool()
+toolbox.register("map", pool.map)
 
 def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, FREQ = 10, n_aval=50000):
 	"""
@@ -60,12 +65,6 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, FREQ = 10, n_aval=5000
 	and 2, that distributes the islands
 	"""
 	#defining the class (list) that will compose an individual
-	
-	#parallel 
-	toolbox = base.Toolbox()
-	creator.create("Individual", numpy.ndarray, fitness=creator.FitnessFunction)
-	pool = multiprocessing.Pool()
-	toolbox.register("map", pool.map)
 	class genotype():
 	    def __init__(self):
 	    	self.index = random.randint(0, len(modelOmega[0].bins)-1)
@@ -88,11 +87,7 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, FREQ = 10, n_aval=5000
 	global length
 	length=0
 
-	
-	toolbox.register("evaluate", evaluationFunction, modelOmega=modelOmega, mean=mean)
-	creator.create("FitnessFunction", base.Fitness, weights=(1.0,))
-	#TODO: Check if its posible to use it as obj, maybe, OFF
-	
+	toolbox.register("evaluate", evaluationFunction, modelOmega=modelOmega, mean=mean)	
 
 	# Calculate the len of the gen
 	lengthPos=dict()
@@ -166,18 +161,28 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, FREQ = 10, n_aval=5000
 
 		pop[:] = offspring
 		#migrastion
-			
 		if g % (FREQ-1) == 0 and g > 0:
 			best_inds = tools.selBest(pop, 1)[0]
-			data = comm.sendrecv(sendobj=best_inds,dest=dest,source=origin)
-			#rotation
+			indexesSend = list()
+			probsSend = list()
+			for gene in best_inds:
+				indexesSend.append(gene.index)
+				probsSend.append(gene.prob)
+			indexesRecv = comm.sendrecv(sendobj=indexesSend, dest=dest,source=origin)
+			probsRecv = comm.sendrecv(sendobj=probsSend, dest=dest,source=origin)
+			i=0
+			for index,prob in zip(indexesSend, probsRecv):
+				best_inds[i].index=index
+				best_inds[i].prob=prob
+				i+=1
 			target+=1
 			origin = (rank - (target+1)) % size
 			dest = (rank + ((target+1) + size)) % size
 
-			pop[random.randint(0, len(pop)-1)] = ind
+			pop[random.randint(0, len(pop)-1)] = best_inds
 			del best_pop
-			del data
+			del indexesRecv
+			del probsRecv
 	
 	#logBook
 		record = stats.compile(pop)
@@ -190,24 +195,37 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, FREQ = 10, n_aval=5000
 		lista.append(best_pop)
 		for thread in range(size):
 			if (thread != 0):
-				data = comm.recv(source=thread)
-				lista.append(data)
+				indexesSend = comm.recv(source=thread)
+				probsRecv = comm.recv(source=thread)
+				i=0
+				for index,prob in zip(indexesSend, probsRecv):
+					best_pop[i].index=index
+					best_pop[i].prob=prob
+					i+=1
+				lista.append(best_pop)
 		maximo =  float('-inf')
 		for value, index in zip(lista, range(len(lista))):
-			maximo_local = evaluationFunction(value, modelOmega)
+			maximo_local = evaluationFunction(value, modelOmega, mean)
 			if maximo < maximo_local[0]:
 				theBestIndex = index
 				maximo = maximo_local[0]
 				best_pop = value
 	else: 
 		best_pop=tools.selBest(pop, 1)[0]
-		comm.send(best_pop, dest=0)
-	with open('teste.txt', 'w') as outfile:
+		indexesSend = list()
+		probsSend = list()
+		for gene in best_pop:
+			indexesSend.append(gene.index)
+			probsSend.append(gene.prob)
+		comm.send(indexesSend, dest=0)
+		comm.send(probsSend, dest=0)
+
+
+	with open('teste.txt', 'a') as outfile:
 		out1 = str(MPI.Get_processor_name())
 		out2 = str(best_pop)
-		print(out1, out2)
 		outfile.write(out1)
-		outfile.write(best_pop)
+		outfile.write('\n')
 	exit()
 	generatedModel = type(modelOmega[0])
 	generatedModel.bins = [0.0]*len(modelOmega[0].bins)
