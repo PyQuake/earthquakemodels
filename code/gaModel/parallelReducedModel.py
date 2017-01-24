@@ -14,6 +14,7 @@ from mpi4py import MPI
 import inspect, os
 print (inspect.getfile(inspect.currentframe()) )# script filename (usually with path)
 print (os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe()))) )
+
 def equalObjects(x,y):
 	"""
 	Compares if two inds are equal
@@ -54,6 +55,10 @@ toolbox = base.Toolbox()
 creator.create("Individual", numpy.ndarray, fitness=creator.FitnessFunction)
 pool = multiprocessing.Pool()
 toolbox.register("map", pool.map)
+class genotype():
+    def __init__(self):
+    	self.index = random.randint(0, len(modelOmega[0].bins)-1)
+    	self.prob = random.random()
 
 def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, FREQ = 10, n_aval=50000):
 	"""
@@ -63,10 +68,7 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, FREQ = 10, n_aval=5000
 	and 2, that distributes the islands
 	"""
 	#defining the class (list) that will compose an individual
-	class genotype():
-	    def __init__(self):
-	    	self.index = random.randint(0, len(modelOmega[0].bins)-1)
-	    	self.prob = random.random()
+	
 	
 	y=int(n_aval/NGEN)
 	x=n_aval - y*NGEN
@@ -84,8 +86,6 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, FREQ = 10, n_aval=5000
 
 	global length
 	length=0
-
-	
 
 	
 	toolbox.register("evaluate", evaluationFunction, modelOmega=modelOmega, mean=mean)
