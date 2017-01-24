@@ -110,7 +110,7 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, FREQ = 10, n_aval=5000
 	# is replaced by the 'fittest' (best) of three individuals
 	# drawn randomly from the current generation.
 	toolbox.register("select", tools.selTournament, tournsize=3)
-	toolbox.register("mutate", mutationFunction,indpb=0.1, definitions=modelOmega[0].definitions, length=len(modelOmega[0].bins)-1)
+	toolbox.register("mutate", mutationFunction,indpb=0.1, length=len(modelOmega[0].bins)-1)
 
 	stats = tools.Statistics(key=lambda ind: ind.fitness.values)
 	stats.register("avg", numpy.mean)
