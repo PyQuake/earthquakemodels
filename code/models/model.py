@@ -318,6 +318,7 @@ def saveModelDB(model):
                                  db='earthquakemodelsDB',
                                  charset='utf8mb4',
                                  unix_socket="/tmp/mysql.sock",
+                                 port=3306,
                                  cursorclass=pymysql.cursors.DictCursor)
     try:
         with connection.cursor() as cursor:
@@ -346,6 +347,7 @@ def loadModelDB(modelName, year, executionNumber=0):
                                  db='earthquakemodelsDB',
                                  charset='utf8mb4',
                                  unix_socket="/tmp/mysql.sock",
+                                 port=3306,
                                  cursorclass=pymysql.cursors.DictCursor)
     model_=model()
     try:
@@ -382,6 +384,7 @@ def showModelsDB(alldata=False):
                                  db='earthquakemodelsDB',
                                  charset='utf8mb4',
                                  unix_socket="/tmp/mysql.sock",
+                                 port=3306,
                                  cursorclass=pymysql.cursors.DictCursor)
 
     try:
@@ -413,6 +416,7 @@ def removeModelDB(modelName, year, executionNumber):
                                  db='earthquakemodelsDB',
                                  charset='utf8mb4',
                                  unix_socket="/tmp/mysql.sock",
+                                 port=3306,
                                  cursorclass=pymysql.cursors.DictCursor)
     try:
         with connection.cursor() as cursor:
