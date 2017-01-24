@@ -317,6 +317,7 @@ def saveModelDB(model):
                                  password='Fails158@featureless',
                                  db='earthquakemodelsDB',
                                  charset='utf8mb4',
+                                 port=8080,
                                  cursorclass=pymysql.cursors.DictCursor)
     try:
         with connection.cursor() as cursor:
