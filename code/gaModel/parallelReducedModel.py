@@ -55,7 +55,7 @@ creator.create("Individual", numpy.ndarray, fitness=creator.FitnessFunction)
 pool = multiprocessing.Pool()
 toolbox.register("map", pool.map)
 
-def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval=50000):
+def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, FREQ = 10, n_aval=50000):
 	"""
 	The main function. It evolves models, namely modelLamba or individual. 
 	This version of the GA simplifies the ga using a list of bins with occurences
