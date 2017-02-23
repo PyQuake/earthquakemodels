@@ -11,9 +11,6 @@ import array
 import multiprocessing
 import time 
 from mpi4py import MPI
-import inspect, os
-print (inspect.getfile(inspect.currentframe()) )# script filename (usually with path)
-print (os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe()))) )
 
 def equalObjects(x,y):
 	"""

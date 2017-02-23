@@ -104,7 +104,7 @@ def main():
     year = 2000
     callParallelReducedGA(region)
     callParallelGA(region)
-    exit()
+
     region = 'EastJapan'
     year = 2000
     callParallelReducedGA(region)
