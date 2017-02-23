@@ -218,12 +218,6 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, FREQ = 10, n_aval=5000
 		comm.send(probsSend, dest=0)
 
 
-	with open('teste.txt', 'a') as outfile:
-		out1 = str(MPI.Get_processor_name())
-		out2 = str(best_pop)
-		outfile.write(out1)
-		outfile.write('\n')
-	exit()
 	generatedModel = type(modelOmega[0])
 	generatedModel.bins = [0.0]*len(modelOmega[0].bins)
 	generatedModel = models.model.convertFromListToData(best_pop,len(modelOmega[0].bins))

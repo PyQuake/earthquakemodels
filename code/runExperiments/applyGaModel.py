@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 import sys
-sys.path.insert(0, '../code')
+sys.path.insert(0, '..')
 import models.model as model
 import gaModel.gaModel_Yuri as ga
 import gaModel.reducedModel_Yuri as reducedGA

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 import sys
-sys.path.insert(0, '../code')
+sys.path.insert(0, '..')
 import random
 import earthquake.catalog as catalog
 import models.model as model

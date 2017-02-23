@@ -143,7 +143,7 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, FREQ = 10, n_aval=5000
 
 		pop[:] = offspring
 
-		#migrastion
+		#migration
 		if g % (FREQ-1) == 0 and g > 0:
 			best_inds = tools.selBest(pop, 1)[0]
 			data = comm.sendrecv(sendobj=best_inds,dest=dest,source=origin)

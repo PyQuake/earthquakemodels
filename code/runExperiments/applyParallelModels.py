@@ -1,12 +1,9 @@
 #!/usr/bin/env python3
 import sys
-sys.path.insert(0, '../code')
-import earthquake.catalog as catalog
+sys.path.insert(0, '..')
 import models.model as model
-import gaModel.gaModel_Yuri as ga
 import gaModel.parallelGA as parallelGA
 import gaModel.parallelReducedModel as parallelReducedModel
-import time
 import numpy as np
 
 
