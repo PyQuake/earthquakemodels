@@ -7,6 +7,7 @@ from models.mathUtil import calcNumberBins
 #TODO: change this line to import only needed files
 import models.model
 import random
+from operator import attrgetter
 import array
 #Parallel
 import multiprocessing
@@ -25,7 +26,7 @@ def evaluationFunction(individual, modelOmega, mean):
 	for i in range(len(modelOmega)):
 		modelLambda.bins=list(individual)
 
-		modelLambda.bins=calcNumberBins(modelLambda.bins, mean, modelOmega[i].values4poisson)
+		modelLambda.bins=calcNumberBins(modelLambda.bins, modelOmega[i].bins, modelOmega[i].values4poisson)
 		tempValue=loglikelihood(modelLambda, modelOmega[i])
 
 		if tempValue < logValue:
@@ -33,7 +34,7 @@ def evaluationFunction(individual, modelOmega, mean):
 	return logValue,
 
 	
-def gaModel(NGEN, n, CXPB,MUTPB, modelOmega,year,region, mean, depth=100):
+def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval=50000):
 	"""
 	The main function. It evolves models, namely modelLamba or individual. 
 	"""
@@ -45,7 +46,10 @@ def gaModel(NGEN, n, CXPB,MUTPB, modelOmega,year,region, mean, depth=100):
 	# Attribute generator
 	toolbox.register("attr_float", random.random)
 
-
+	#calculating the number of individuals of the populations based on the number of executions
+	y=int(n_aval/NGEN)
+	x=n_aval - y*NGEN
+	n= x + y
 
 
 	toolbox.register("mate", tools.cxOnePoint)
@@ -94,13 +98,6 @@ def gaModel(NGEN, n, CXPB,MUTPB, modelOmega,year,region, mean, depth=100):
     
         # Evaluate the individuals with an invalid fitness
 		invalid_ind = [ind for ind in offspring if not ind.fitness.valid]
-		for i in range(len(invalid_ind)):
-			for j in range(len(invalid_ind[i])):
-				if(invalid_ind[i][j] < 0):
-					invalid_ind[i][j] = -invalid_ind[i][j]
-				if(invalid_ind[i][j] > 1):
-					invalid_ind[i][j] = random.random()
-
 		fitnesses = toolbox.map(toolbox.evaluate, invalid_ind)
 		for ind, fit in zip(invalid_ind, fitnesses):
 			ind.fitness.values = fit
@@ -108,17 +105,14 @@ def gaModel(NGEN, n, CXPB,MUTPB, modelOmega,year,region, mean, depth=100):
         # The population is entirely replaced by the offspring, but the last pop best_pop
         #Elitism
 		best_pop = tools.selBest(pop, 1)[0]
-		worst_ind = tools.selWorst(offspring, 1)[0]
-		for i in range(len(offspring)):
-			if offspring[i] == worst_ind:
-				offspring[i] = best_pop
-				break
+		offspring = sorted(offspring, key=attrgetter("fitness"), reverse = True)
+		offspring[len(offspring)-1]=best_pop
 
 		pop[:] = offspring
 		
 		#logBook
 		record = stats.compile(pop)
-		logbook.record(gen=g,  depth=depth,**record)
+		logbook.record(gen=g,**record)
 
 	
 	generatedModel = type(modelOmega[0])

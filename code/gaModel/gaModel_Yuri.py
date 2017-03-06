@@ -12,6 +12,7 @@ import random
 import array
 import multiprocessing
 import time 
+from operator import attrgetter
 
 
 
@@ -99,14 +100,8 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval=50000):
 				del mutant.fitness.values
     
         # Evaluate the individuals with an invalid fitness
-		invalid_ind = [ind for ind in offspring if not ind.fitness.valid]
-		for i in range(len(invalid_ind)):
-			for j in range(len(invalid_ind[i])):
-				if(invalid_ind[i][j] < 0):
-					invalid_ind[i][j] = -invalid_ind[i][j]
-				if(invalid_ind[i][j] > 1):
-					invalid_ind[i][j] = random.random()
 
+		invalid_ind = [ind for ind in offspring if not ind.fitness.valid]
 		fitnesses = toolbox.map(toolbox.evaluate, invalid_ind)
 		for ind, fit in zip(invalid_ind, fitnesses):
 			ind.fitness.values = fit
@@ -114,11 +109,8 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval=50000):
         # The population is entirely replaced by the offspring, but the last pop best_pop
         #Elitism
 		best_pop = tools.selBest(pop, 1)[0]
-		worst_ind = tools.selWorst(offspring, 1)[0]
-		for i in range(len(offspring)):
-			if offspring[i] == worst_ind:
-				offspring[i] = best_pop
-				break
+		offspring = sorted(offspring, key=attrgetter("fitness"), reverse = True)
+		offspring[len(offspring)-1]=best_pop
 
 		pop[:] = offspring
 		
@@ -128,6 +120,7 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval=50000):
 
 	end = time.clock()  
 	generatedModel = type(modelOmega[0])
+	#conferir se e bins o best_pop
 	generatedModel.prob = best_pop
 	generatedModel.bins = calcNumberBins(best_pop, modelOmega[0].bins, mean)
 	generatedModel.loglikelihood = best_pop.fitness.values

@@ -1,6 +1,7 @@
 """
 This GA code uses a simplified version of the gaModel where only some bins are considered with island model
 """
+from operator import attrgetter
 from deap import base, creator, tools
 import numpy
 from csep.loglikelihood import calcLogLikelihood as loglikelihood
@@ -147,14 +148,17 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, FREQ = 10, n_aval=5000
 			ind.fitness.values = fit
         # The population is entirely replaced by the offspring, but the last pop best_ind
         #Elitism
-		best_pop = tools.selBest(pop, 1)[0]
-		worst_ind = tools.selWorst(offspring, 1)[0]
+		# best_pop = tools.selBest(pop, 1)[0]
+		# worst_ind = tools.selWorst(offspring, 1)[0]
 		
-		for i in range(len(offspring)):
-			result = list(map(equalObjects,offspring[i],worst_ind))
-			if all(result)==True:
-				offspring[i] = best_pop
-				break
+		# for i in range(len(offspring)):
+		# 	result = list(map(equalObjects,offspring[i],worst_ind))
+		# 	if all(result)==True:
+		# 		offspring[i] = best_pop
+		# 		break
+		best_pop = tools.selBest(pop, 1)[0]
+		offspring = sorted(offspring, key=attrgetter("fitness"), reverse = True)
+		offspring[len(offspring)-1]=best_pop
 
 		pop[:] = offspring
 		#migrastion
@@ -188,25 +192,26 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, FREQ = 10, n_aval=5000
 	# choose the best value
 	if rank == 0:
 		best_pop=tools.selBest(pop, 1)[0]
-		lista = list()
-		lista.append(best_pop)
+		best_all_pop = list()
+		best_all_pop.append(best_pop)
 		for thread in range(size):
 			if (thread != 0):
-				indexesSend = comm.recv(source=thread)
+				indexesRecv = comm.recv(source=thread)
 				probsRecv = comm.recv(source=thread)
 				i=0
-				for index,prob in zip(indexesSend, probsRecv):
+				for index,prob in zip(indexesRecv, probsRecv):
 					best_pop[i].index=index
 					best_pop[i].prob=prob
 					i+=1
-				lista.append(best_pop)
-		maximo =  float('-inf')
-		for value, index in zip(lista, range(len(lista))):
-			maximo_local = evaluationFunction(value, modelOmega, mean)
-			if maximo < maximo_local[0]:
-				theBestIndex = index
-				maximo = maximo_local[0]
-				best_pop = value
+				best_all_pop.append(best_pop)
+		maximum =  float('-inf')
+		# for value, index in zip(lista, range(len(lista))):
+		for local_best in best_all_pop:
+			local_maximum = evaluationFunction(local_best, modelOmega, mean)
+			if maximum < local_maximum[0]:
+				# theBestIndex = index
+				maximum = local_maximum[0]
+				best_pop = local_best
 	else: 
 		best_pop=tools.selBest(pop, 1)[0]
 		indexesSend = list()

@@ -2,7 +2,8 @@
 This GA code creates the gaModel with a circular island model
 
 """
-import sys
+from operator import attrgetter
+# import sys
 from deap import base, creator, tools
 import numpy
 from csep.loglikelihood import calcLogLikelihood as loglikelihood
@@ -121,13 +122,6 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, FREQ = 10, n_aval=5000
     
         # Evaluate the individuals with an invalid fitness
 		invalid_ind = [ind for ind in offspring if not ind.fitness.valid]
-		for i in range(len(invalid_ind)):
-			for j in range(len(invalid_ind[i])):
-				if(invalid_ind[i][j] < 0):
-					invalid_ind[i][j] = -invalid_ind[i][j]
-				if(invalid_ind[i][j] > 1):
-					invalid_ind[i][j] = random.random()
-
 		fitnesses = toolbox.map(toolbox.evaluate, invalid_ind)
 		for ind, fit in zip(invalid_ind, fitnesses):
 			ind.fitness.values = fit
@@ -135,11 +129,8 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, FREQ = 10, n_aval=5000
         # The population is entirely replaced by the offspring, but the last island[rank] best_pop
         #Elitism
 		best_pop = tools.selBest(pop, 1)[0]
-		worst_ind = tools.selWorst(offspring, 1)[0]
-		for i in range(len(offspring)):
-			if offspring[i] == worst_ind:
-				offspring[i] = best_pop
-				break
+		offspring = sorted(offspring, key=attrgetter("fitness"), reverse = True)
+		offspring[len(offspring)-1]=best_pop
 
 		pop[:] = offspring
 
@@ -163,20 +154,22 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, FREQ = 10, n_aval=5000
 	# choose the best value
 	if rank == 0:
 		best_pop=tools.selBest(pop, 1)[0]
-		lista = list()
-		lista.append(best_pop)
+		best_all_pop = list()
+		best_all_pop.append(best_pop)
 		for thread in range(size):
 			if (thread != 0):
+				# local_best = comm.recv(source=thread)
 				req = comm.irecv(source=thread)
-				data = req.wait()
-				lista.append(data)
-		maximo =  float('-inf')
-		for value, index in zip(lista, range(len(lista))):
-			maximo_local = evaluationFunction(value, modelOmega)
-			if maximo < maximo_local[0]:
-				theBestIndex = index
-				maximo = maximo_local[0]
-				best_pop = value
+				local_best = req.wait()
+				best_all_pop.append(local_best)
+		maximum =  float('-inf')
+		# for value, index in zip(best_all_pop, range(len(best_all_pop))):
+		for local_best in best_all_pop:
+			local_maximum = evaluationFunction(local_best, modelOmega)
+			if maximum < local_maximum[0]:
+				# theBestIndex = index
+				maximum = local_maximum[0]
+				best_pop = local_best
 	else: 
 		best_pop=tools.selBest(pop, 1)[0]
 		comm.send(best_pop, dest=0)
@@ -186,7 +179,7 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, FREQ = 10, n_aval=5000
 	end = time.clock()  
 	generatedModel = type(modelOmega[0])
 	generatedModel.prob = best_pop
-	generatedModel.bins = calcNumberBins(best_pop, modelOmega[0].bins, mean)
+	generatedModel.bins = calcNumberBins(best_pop, modelOmega[0].bins)
 	generatedModel.loglikelihood = best_pop.fitness.values
 	generatedModel.definitions = modelOmega[0].definitions
 	generatedModel.time = start - end

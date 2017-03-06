@@ -1,6 +1,7 @@
 """
 This GA code uses a simplified version of the gaModel where only some bins are considered.
 """
+from operator import attrgetter
 from deap import base, creator, tools
 import numpy
 from csep.loglikelihood import calcLogLikelihood as loglikelihood
@@ -126,21 +127,23 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval=50000):
 				del mutant.fitness.values
         # Evaluate the individuals with an invalid fitness
 		invalid_ind = [ind for ind in offspring if not ind.fitness.valid]
-
 		fitnesses = map(toolbox.evaluate, invalid_ind)
-
 		for ind, fit in zip(invalid_ind, fitnesses):
 			ind.fitness.values = fit
+			
         # The population is entirely replaced by the offspring, but the last pop best_ind
         #Elitism
-		best_pop = tools.selBest(pop, 1)[0]
-		worst_ind = tools.selWorst(offspring, 1)[0]
+		# best_pop = tools.selBest(pop, 1)[0]
+		# worst_ind = tools.selWorst(offspring, 1)[0]
 		
-		for i in range(len(offspring)):
-			result = list(map(equalObjects,offspring[i],worst_ind))
-			if all(result)==True:
-				offspring[i] = best_pop
-				break
+		# for i in range(len(offspring)):
+		# 	result = list(map(equalObjects,offspring[i],worst_ind))
+		# 	if all(result)==True:
+		# 		offspring[i] = best_pop
+		# 		break
+		best_pop = tools.selBest(pop, 1)[0]
+		offspring = sorted(offspring, key=attrgetter("fitness"), reverse = True)
+		offspring[len(offspring)-1]=best_pop
 
 		pop[:] = offspring
 		#logBook

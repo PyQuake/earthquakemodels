@@ -35,8 +35,8 @@ def execParallelGA(year, region, qntYears=5, times=10):
         model_.year=year+qntYears
         model_.modelName = region+'parallelGA' 
         parallelGA_ = model.loadModelDB(region+'parallelGA', year)
-        if (parallelGA_.definitions==None):    
-            model.saveModelDB(model_)
+        # if (parallelGA_.definitions==None):    
+        #     model.saveModelDB(model_)
 
 
 def execParallelReducedGAModel(year, region, qntYears=5, times=10):
@@ -48,8 +48,8 @@ def execParallelReducedGAModel(year, region, qntYears=5, times=10):
     for i in range(qntYears):
         observation = model.loadModelDB(region+'jmaData', year+i)
         observation.bins = observation.bins.tolist()
-        observations.append(observation)
-        means.append(np.mean(observation.bins))
+        observations.append(observation.bins)
+    mean = np.mean(observations, axis=0)
     mean = np.mean(means)
     for i in range(times):
         model_ = parallelReducedModel.gaModel(
@@ -66,8 +66,8 @@ def execParallelReducedGAModel(year, region, qntYears=5, times=10):
         model_.year=year+qntYears
         model_.modelName = region+'parallelreducedModel' 
         parallelreducedModel_ = model.loadModelDB(region+'ReducedGAModel', year)
-        if (parallelreducedModel_.definitions==None):    
-            model.saveModelDB(model_)
+        # if (parallelreducedModel_.definitions==None):    
+            # model.saveModelDB(model_)
 
 def callParallelGA(region):
     """
@@ -76,7 +76,7 @@ def callParallelGA(region):
     """
     year = 2000
     while(year <= 2005):
-        execParalleGA(year, region)
+        execParallelGA(year, region)
         year+=1
 
 def callParallelReducedGA(region):
@@ -99,8 +99,9 @@ def main():
     """
     region = 'Kanto'
     year = 2000
+    # callParallelGA(region)
     callParallelReducedGA(region)
-    callParallelGA(region)
+    
 
     region = 'EastJapan'
     year = 2000
