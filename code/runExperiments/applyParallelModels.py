@@ -99,8 +99,8 @@ def main():
     """
     region = 'Kanto'
     year = 2000
-    # callParallelGA(region)
-    callParallelReducedGA(region)
+    callParallelGA(region)
+    # callParallelReducedGA(region)
     
 
     region = 'EastJapan'
