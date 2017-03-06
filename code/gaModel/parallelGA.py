@@ -159,8 +159,10 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, FREQ = 10, n_aval=5000
 		for thread in range(size):
 			if (thread != 0):
 				# local_best = comm.recv(source=thread)
-				req = comm.irecv(source=thread)
-				local_best = req.wait()
+
+				local_best = comm.recv(source=thread)
+				# req = comm.irecv(source=thread)
+				# local_best = req.wait()
 				best_all_pop.append(local_best)
 		maximum =  float('-inf')
 		# for value, index in zip(best_all_pop, range(len(best_all_pop))):
