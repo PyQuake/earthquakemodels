@@ -18,7 +18,7 @@ def execReducedGAModel(year, region, qntYears=5, times=10):
         observation.bins = observation.bins.tolist()
         observations.append(observation)
         means.append(observation.bins)
-    mean = np.mean(observations, axis=0)
+    mean = np.mean(means, axis=0)
     for i in range(times):
         model_ = reducedGA.gaModel(
             NGEN=10,

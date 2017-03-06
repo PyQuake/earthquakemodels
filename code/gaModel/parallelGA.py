@@ -176,6 +176,7 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, FREQ = 10, n_aval=5000
 		best_pop=tools.selBest(pop, 1)[0]
 		comm.send(best_pop, dest=0)
 
+	exit()
 	end = time.clock()  
 	generatedModel = type(modelOmega[0])
 	generatedModel.prob = best_pop
