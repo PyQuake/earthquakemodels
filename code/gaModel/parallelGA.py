@@ -119,7 +119,7 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, FREQ = 10, n_aval=5000
 			if random.random() < MUTPB:
 				toolbox.mutate(mutant)
 				del mutant.fitness.values
-    
+    	
         # Evaluate the individuals with an invalid fitness
 		invalid_ind = [ind for ind in offspring if not ind.fitness.valid]
 		fitnesses = toolbox.map(toolbox.evaluate, invalid_ind)
@@ -133,7 +133,7 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, FREQ = 10, n_aval=5000
 		offspring[len(offspring)-1]=best_pop
 
 		pop[:] = offspring
-		exit()
+		
 		#migration
 		if g % (FREQ-1) == 0 and g > 0:
 			best_inds = tools.selBest(pop, 1)[0]
