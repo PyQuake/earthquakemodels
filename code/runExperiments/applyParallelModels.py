@@ -1,11 +1,12 @@
 #!/usr/bin/env python3
+#!/usr/bin/env python3
 import sys
 sys.path.insert(0, '..')
 import models.model as model
 import gaModel.parallelGA as parallelGA
 import gaModel.parallelReducedModel as parallelReducedModel
 import numpy as np
-
+#from mpi4py import MPI
 
 def execParallelGA(year, region, qntYears=5, times=10):
     """
