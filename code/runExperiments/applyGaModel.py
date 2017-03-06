@@ -16,7 +16,8 @@ def execReducedGAModel(year, region, qntYears=5, times=10):
     for i in range(qntYears):
         observation = model.loadModelDB(region+'jmaData', year+i)
         observation.bins = observation.bins.tolist()
-        observations.append(observation.bins)
+        observations.append(observation)
+        means.append(observation.bins)
     mean = np.mean(observations, axis=0)
     for i in range(times):
         model_ = reducedGA.gaModel(
@@ -46,8 +47,9 @@ def execGaModel(year, region, qntYears=5, times=10):
     for i in range(qntYears):
         observation = model.loadModelDB(region+'jmaData', year+i)
         observation.bins = observation.bins.tolist()
-        observations.append(observation.bins)
-    mean = np.mean(observations, axis=0)
+        observations.append(observation)
+        means.append(observation.bins)
+    mean = np.mean(means, axis=0)
     for i in range(times):
         model_=model.model()
         model_ = ga.gaModel(

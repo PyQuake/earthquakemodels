@@ -1,6 +1,6 @@
 import models.model as model
 
-def main:
+def main():
     """
     Count the number of earthquakes in the regions of: EastJapan, Kanto, Kansai, Tohoku  with mag>3.0 or mag>5.0
     """

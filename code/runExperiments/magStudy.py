@@ -165,21 +165,21 @@ def main():
         'gaModel',
         'listaGA_new')
     regions = ('EastJapan', 'Kansai', 'Kanto', 'Tohoku')
-	year_end=2010
-	for region in regions:
-		for t in types:
-			year=2005
-			while(year<=year_end):
-				minMag = 3.0
-				while minMag<= 9.0:
-					maxMag = minMag + 1.0
-					for numExec in range(10):
-						modelo=loadModelSC(t, year, region, depth=depth, i=numExec)
-						modelo = filterMag(modelo, minMag=minMag, maxMag=maxMag)
-						modelo=calcLogLikelihoodMagInterval(region, year=year, year_end=year_end, modelL=modelo)
-						saveModelSC(modelo,t, year, region, depth, numExec, minMag, maxMag)
-					minMag=minMag+1.0
-				year+=1
+    year_end=2010
+    for region in regions:
+        for t in types:
+            year=2005
+            while(year<=year_end):
+                minMag = 3.0
+                while minMag<= 9.0:
+                    maxMag = minMag + 1.0
+                    for numExec in range(10):
+                        modelo=loadModelSC(t, year, region, depth=depth, i=numExec)
+                        modelo = filterMag(modelo, minMag=minMag, maxMag=maxMag)
+                        modelo=calcLogLikelihoodMagInterval(region, year=year, year_end=year_end, modelL=modelo)
+                        saveModelSC(modelo,t, year, region, depth, numExec, minMag, maxMag)
+                    minMag=minMag+1.0
+                year+=1
     print('converting')
     types = (
         'sc_hybrid_gaModel',

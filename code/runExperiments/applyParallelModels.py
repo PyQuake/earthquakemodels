@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-#!/usr/bin/env python3
 import sys
 sys.path.insert(0, '..')
 import models.model as model
@@ -18,8 +17,8 @@ def execParallelGA(year, region, qntYears=5, times=10):
         observation = model.loadModelDB(region+'jmaData', year+i)
         observation.bins = observation.bins.tolist()
         observations.append(observation)
-        means.append(np.mean(observation.bins))
-    mean = np.mean(means)
+        means.append(observation.bins)
+    mean = np.mean(observations, axis=0)
     for i in range(times):
         model_=model.model()
         model_ = parallelGA.gaModel(
@@ -48,10 +47,9 @@ def execParallelReducedGAModel(year, region, qntYears=5, times=10):
     means = list()
     for i in range(qntYears):
         observation = model.loadModelDB(region+'jmaData', year+i)
-        observation.bins = observation.bins.tolist()
-        observations.append(observation.bins)
+        observations.append(observation)
+        means.append(observation.bins)
     mean = np.mean(observations, axis=0)
-    mean = np.mean(means)
     for i in range(times):
         model_ = parallelReducedModel.gaModel(
             NGEN=10,

@@ -34,17 +34,17 @@ def main():
     catalog_ = catalog.readFromFile('../data/jmacat_2000_2013.dat')
     
     region = "Kanto"
-    histogramEarthquakes(catalog_, region):
+    histogramEarthquakes(catalog_, region)
     
     region = "Kansai"
-    histogramEarthquakes(catalog_, region):
+    histogramEarthquakes(catalog_, region)
 
     region = "Tohoku"
-    histogramEarthquakes(catalog_, region):
+    histogramEarthquakes(catalog_, region)
 
 
     region = "EastJapan"
-    histogramEarthquakes(catalog_, region):
+    histogramEarthquakes(catalog_, region)
 
 if __name__ == "__main__":
     main()

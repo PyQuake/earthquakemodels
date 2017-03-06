@@ -131,7 +131,7 @@ def main():
     region = 'Kanto'
     year = 2000
     while(year <= 2005):
-        createRealModelSC(year, region, depth, withMag=True, save=False):
+        # createRealModelSC(year, region, depth, withMag=True, save=False):
         year += 1
     callEtasGAModelSynthetic(region, depth)
     callGAModelSynthetic(region, depth)
@@ -139,7 +139,7 @@ def main():
     region = 'EastJapan'
     year = 2000
     while(year <= 2005):
-        createRealModelSC(year, region, depth, withMag=True, save=False):
+        # createRealModelSC(year, region, depth, withMag=True, save=False):
         year += 1
     callEtasGAModelSynthetic(region, depth)
     callGAModelSynthetic(region, depth)
@@ -148,7 +148,7 @@ def main():
     region = 'Tohoku'
     year = 2000
     while(year <= 2005):
-        createRealModelSC(year, region, depth, withMag=True, save=False):
+        # createRealModelSC(year, region, depth, withMag=True, save=False):
         year += 1
     callEtasGAModelSynthetic(region, depth)
     callGAModelSynthetic(region, depth)
@@ -157,7 +157,7 @@ def main():
     region = 'Kansai'
     year = 2000
     while(year <= 2005):
-        createRealModelSC(year, region, depth, withMag=True, save=False):
+        # createRealModelSC(year, region, depth, withMag=True, save=False):
         year += 1
     callEtasGAModelSynthetic(region, depth)
     callGAModelSynthetic(region, depth)
