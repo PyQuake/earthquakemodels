@@ -63,7 +63,7 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, FREQ = 10, n_aval=5000
 	and 2, that distributes the islands
 	"""
 	#defining the class (list) that will compose an individual
-	exit()
+
 	class genotype():
 	    def __init__(self):
 	    	self.index = random.randint(0, len(modelOmega[0].bins)-1)
