@@ -12,7 +12,6 @@ import math
 import array
 import numpy
 import random
-
 from models.mathUtil import invertPoisson, normalize, percentile
 
 

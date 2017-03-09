@@ -1,11 +1,15 @@
 import math
+from numba import jit
+
+# jit decorator tells Numba to compile this function.
+# The argument types will be inferred by Numba when function is called.
+@jit
 def invertPoisson(x,mi):
     """ Calculates the value that would be found in a 
     poisson distribution with lambda = mi at probability
     value X
     """
     if(mi >= 0):
-        # print(x, type(x))
         if(x >= 0):
             if(x < 1):
                 l = math.exp(-mi)
@@ -15,17 +19,18 @@ def invertPoisson(x,mi):
                     k += 1
                     prob = prob * x
                 return k
-
+# @jit
 def calcNumberBins(lambda_i, omega_i, weights=None, adjusting=0):
     """ Transform a set of real valued bins (0..1) into 
     a set of integer bins, using the value of real data 
     (omega) as the mean for the poisson distribution"""
     bin=[]
-    if weights == None:
+    if weights is None:
         for lam,om in zip(lambda_i,omega_i):
             bin.append(invertPoisson(lam,om)-adjusting)
+
     else: 
-        for lam, om, weight in zip(lambda_i, om, weights):
+        for lam, om, weight in zip(lambda_i, omega_i, weights):
             bin.append(invertPoisson(lam,om*weight)-adjusting)
     return bin
 

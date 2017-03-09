@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python
 import sys
 sys.path.insert(0, '..')
 import models.model as model
@@ -34,8 +34,8 @@ def execReducedGAModel(year, region, qntYears=5, times=10):
         model_.year=year+qntYears
         model_.modelName = region+'ReducedGAModel' 
         reducedGA_ = model.loadModelDB(region+'ReducedGAModel', year)
-        if (reducedGA_.definitions==None):    
-            model.saveModelDB(model_)
+        # if (reducedGA_.definitions==None):    
+        #     model.saveModelDB(model_)
 
 
 def execGaModel(year, region, qntYears=5, times=10):
@@ -60,14 +60,14 @@ def execGaModel(year, region, qntYears=5, times=10):
             year=year +
             qntYears,
             region=region,
-            mean=mean,
+            mean=mean, 
             n_aval=50)
         model_.executionNumber=i
         model_.year=year+qntYears
         model_.modelName = region+'GAModel' 
         gaModel_ = model.loadModelDB(region+'GAModel', year)
-        if (gaModel_.definitions==None):    
-            model.saveModelDB(model_)
+        # if (gaModel_.definitions==None):    
+        #     model.saveModelDB(model_)
 
 
 
@@ -76,10 +76,13 @@ def callGAModel(region):
     It is a wrapper to the function that generates the GAModel with JMA data
     It cover the years of 2000 to 2005, and the models are from 2005 to 2010
     """
+    # execGaModel(2000, region)
+    # exit()
     year = 2000
     while(year <= 2005):
         execGaModel(year, region)
         year+=1
+        exit()
 
 
 def callReducedGAModel(region):
@@ -87,11 +90,11 @@ def callReducedGAModel(region):
     It is a wrapper to the function that generates the list model with JMA data
     It cover the years of 2000 to 2005, and the models are from 2005 to 2010
     """
+    # execReducedGAModel(2000, region)
     year = 2000
     while(year <= 2005):
         execReducedGAModel(year, region)
         year+=1
-
 
 def main():
     """
@@ -100,23 +103,23 @@ def main():
     from 2000 to 2005 to create models from 2005 to 2010
     """
     region = 'Kanto'
-    callGAModel(region)
+    # callGAModel(region)
     callReducedGAModel(region)
 
     region = 'EastJapan'
     year = 2000
     callGAModel(region)
-    callReducedGAModel(region)
+    # callReducedGAModel(region)
 
     region = 'Tohoku'
     year = 2000
     callGAModel(region)
-    callReducedGAModel(region)
+    # callReducedGAModel(region)
 
     region = 'Kansai'
     year = 2000
     callGAModel(region)
-    callReducedGAModel(region)
+    # callReducedGAModel(region)
 
 
 if __name__ == "__main__":

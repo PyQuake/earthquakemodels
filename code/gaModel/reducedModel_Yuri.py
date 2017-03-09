@@ -9,15 +9,8 @@ from models.mathUtil import calcNumberBins
 import models.model
 import random
 import array
-import multiprocessing
+from pathos.multiprocessing import ProcessingPool as Pool
 import time 
-
-def equalObjects(x,y):
-	"""
-	This function compares two individuals (models)
-	The inds compared are x and y
-	"""
-	return x.prob==y.prob and x.index==y.index
         
 def evaluationFunction(individual, modelOmega, mean):
 	"""
@@ -26,10 +19,11 @@ def evaluationFunction(individual, modelOmega, mean):
 	It selects the smallest loglikelihood value.
 	"""
 	logValue = float('Infinity')
-	modelLambda=type(modelOmega[0])
-	modelLambda=models.model.convertFromListToData(individual,len(modelOmega[0].bins))
+	genomeModel=type(modelOmega[0])
+	genomeModel=models.model.convertFromListToData(individual,len(modelOmega[0].bins))
 	for i in range(len(modelOmega)):    
-		# modelLambda.bins=calcNumberBins(modelLambda.bins, modelOmega[i].bins, mean)
+		modelLambda=type(modelOmega[0])
+		modelLambda.bins=calcNumberBins(genomeModel.bins, mean)
 		tempValue=loglikelihood(modelLambda, modelOmega[i])
 		if tempValue < logValue:
 			logValue = tempValue
@@ -51,7 +45,7 @@ def mutationFunction(individual, indpb, length):
 #parallel
 toolbox = base.Toolbox()
 creator.create("Individual", numpy.ndarray, fitness=creator.FitnessFunction)
-pool = multiprocessing.Pool()
+pool = Pool()
 toolbox.register("map", pool.map)
 
 def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval=50000):
@@ -144,7 +138,7 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval=50000):
 		best_pop = tools.selBest(pop, 1)[0]
 		offspring = sorted(offspring, key=attrgetter("fitness"), reverse = True)
 		offspring[len(offspring)-1]=best_pop
-
+		random.shuffle(offspring)
 		pop[:] = offspring
 		#logBook
 		record = stats.compile(pop)

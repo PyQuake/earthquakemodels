@@ -10,10 +10,9 @@ from models.mathUtil import calcNumberBins
 import models.model
 import random
 import array
-import multiprocessing
+# %load_ext cythonmagic
 import time 
 from operator import attrgetter
-
 
 
 def evaluationFunction(individual, modelOmega, mean):
@@ -23,12 +22,12 @@ def evaluationFunction(individual, modelOmega, mean):
 	It selects the smallest loglikelihood value.
 	"""
 	logValue = float('Infinity')
-	modelLambda=type(modelOmega[0])
+	genomeModel=type(modelOmega[0])
 
 	for i in range(len(modelOmega)):
-		modelLambda.bins=list(individual)
-		modelLambda.bins=calcNumberBins(modelLambda.bins, modelOmega[i].bins)
-		# modelLambda.bins=calcNumberBins(modelLambda.bins, modelOmega[i].bins, mean)
+		genomeModel.bins=list(individual)
+		modelLambda=type(modelOmega[0])
+		modelLambda.bins=calcNumberBins(modelLambda.bins, mean)
 		tempValue=loglikelihood(modelLambda, modelOmega[i])
 
 		if tempValue < logValue:
@@ -36,12 +35,14 @@ def evaluationFunction(individual, modelOmega, mean):
 	return logValue,
 
 #parallel
+
 toolbox = base.Toolbox()
 creator.create("FitnessFunction", base.Fitness, weights=(1.0,))
 creator.create("Individual", array.array, typecode='d', fitness=creator.FitnessFunction)
-pool = multiprocessing.Pool()
-toolbox.register("map", pool.map)
+# pool = Pool()
+# toolbox.register("map", pool.map)
 
+# %%cython
 def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval=50000):
 	"""
 	The main function. It evolves models, namely modelLamba or individual. 
@@ -111,7 +112,7 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval=50000):
 		best_pop = tools.selBest(pop, 1)[0]
 		offspring = sorted(offspring, key=attrgetter("fitness"), reverse = True)
 		offspring[len(offspring)-1]=best_pop
-
+		random.shuffle(offspring)
 		pop[:] = offspring
 		
 		#logBook

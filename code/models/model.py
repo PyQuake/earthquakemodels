@@ -427,3 +427,36 @@ def removeModelDB(modelName, year, executionNumber):
        connection.rollback()
        print ("Error: unable to delete data")
 
+
+def saveModelToFile(model, filename, real=False):
+    """ 
+    It saves the model to a specific file, both passed as arg
+    """
+    numpy.savetxt(filename, model.bins)
+    with open(filename+"def.txt", 'w') as f:
+        f.write(str(model.definitions))
+        f.write("\n")
+    if real==False:
+        with open(filename+"loglikelihood.txt", 'w') as f:
+            f.write(str(model.loglikelihood))
+            f.write("\n")
+        f.close()   
+
+#TODO: FIX THIS!!! For the mag=False situation
+# Use something safer than Eval (someday)
+def loadModelFromFile(filename):
+    """
+    It Load the model to a specific file,  passed as arg
+    """
+
+    ret = model()
+
+    with open(filename+"def.txt", 'r') as f:
+        ret.definitions = eval(f.readline())
+    f.close()
+    ret.bins = numpy.loadtxt(filename, dtype="i")
+
+    return ret
+
+
+    

@@ -21,12 +21,12 @@ def evaluationFunction(individual, modelOmega, mean):
  	It uses the length of the ind to cover all of its bins.
 	"""
 	logValue = float('Infinity')
-	modelLambda=type(modelOmega[0])
+	genomeModel=type(modelOmega[0])
 
 	for i in range(len(modelOmega)):
-		modelLambda.bins=list(individual)
-
-		modelLambda.bins=calcNumberBins(modelLambda.bins, modelOmega[i].bins, modelOmega[i].values4poisson)
+		genomeModel.bins=list(individual)
+		modelLambda=type(modelOmega[0])
+		modelLambda.bins=calcNumberBins(genomeModel.bins, mean, modelOmega[i].values4poisson)
 		tempValue=loglikelihood(modelLambda, modelOmega[i])
 
 		if tempValue < logValue:
@@ -107,7 +107,7 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval=50000):
 		best_pop = tools.selBest(pop, 1)[0]
 		offspring = sorted(offspring, key=attrgetter("fitness"), reverse = True)
 		offspring[len(offspring)-1]=best_pop
-
+		random.shuffle(offspring)
 		pop[:] = offspring
 		
 		#logBook
