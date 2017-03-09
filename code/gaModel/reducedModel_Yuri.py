@@ -9,7 +9,7 @@ from models.mathUtil import calcNumberBins
 import models.model
 import random
 import array
-from pathos.multiprocessing import ProcessingPool as Pool
+# from pathos.multiprocessing import ProcessingPool as Pool
 import time 
         
 def evaluationFunction(individual, modelOmega, mean):
