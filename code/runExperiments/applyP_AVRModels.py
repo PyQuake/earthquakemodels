@@ -79,41 +79,33 @@ def callGAModelwithP_AVR(region ,depth):
 
 def main():
     """
-    This function creates the needed enviroment needed to generate both GAModel and List Model with SC
+    This function creates the needed enviroment needed to generate both, in parallel and distrituded,
+     GAModel and List Model  with SC catalog
     for the regions: EastJapan, Kanto, Kansai, Tohoku
     from 2000 to 2005 to create models from 2005 to 2010
     """
     region = 'Kanto'
     year = 2000
-    depth = 100
-    while(year <= 2005):
-        createRealModelSCwithP_AVR(year, region, save=True)
-        year += 1
-    callGAModelwithP_AVR(region ,depth)
+    callParallelGAwithAVR(region)
+    # callParallelReducedGAwithAVR(region)
+    
 
     region = 'EastJapan'
     year = 2000
-    depth = 100
-    while(year <= 2005):
-        createRealModelSCwithP_AVR(year, region, save=True)
-        year += 1
-    callGAModelwithP_AVR(region ,depth)
+    # callParallelReducedGAwithAVR(region)
+    callParallelGAwithAVR(region)
+
 
     region = 'Tohoku'
-    year = 2003
-    depth = 100
-    while(year <= 2005):
-        createRealModelSCwithP_AVR(year, region, save=True)
-        year += 1
-    callGAModelwithP_AVR(region ,depth)
+    year = 2000
+    # callParallelReducedGAwithAVR(region)
+    callParallelGAwithAVR(region)
 
+        
     region = 'Kansai'
     year = 2000
-    depth = 100
-    while(year <= 2005):
-        createRealModelSCwithP_AVR(year, region, save=True)
-        year += 1
-    callGAModelwithP_AVR(region ,depth)
+    # callParallelReducedGAwithAVR(region)
+    callParallelGAwithAVR(region)
 
 if __name__ == "__main__":
     main()
