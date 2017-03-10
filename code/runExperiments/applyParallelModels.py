@@ -99,24 +99,24 @@ def main():
     region = 'Kanto'
     year = 2000
     callParallelGA(region)
-    callParallelReducedGA(region)
+    # callParallelReducedGA(region)
     
 
     region = 'EastJapan'
     year = 2000
-    callParallelReducedGA(region)
+    # callParallelReducedGA(region)
     callParallelGA(region)
 
 
     region = 'Tohoku'
     year = 2000
-    callParallelReducedGA(region)
+    # callParallelReducedGA(region)
     callParallelGA(region)
 
         
     region = 'Kansai'
     year = 2000
-    callParallelReducedGA(region)
+    # callParallelReducedGA(region)
     callParallelGA(region)
 
 

@@ -76,13 +76,10 @@ def callGAModel(region):
     It is a wrapper to the function that generates the GAModel with JMA data
     It cover the years of 2000 to 2005, and the models are from 2005 to 2010
     """
-    # execGaModel(2000, region)
-    # exit()
     year = 2000
     while(year <= 2005):
         execGaModel(year, region)
         year+=1
-        exit()
 
 
 def callReducedGAModel(region):
@@ -103,8 +100,8 @@ def main():
     from 2000 to 2005 to create models from 2005 to 2010
     """
     region = 'Kanto'
-    # callGAModel(region)
-    callReducedGAModel(region)
+    callGAModel(region)
+    # callReducedGAModel(region)
 
     region = 'EastJapan'
     year = 2000
