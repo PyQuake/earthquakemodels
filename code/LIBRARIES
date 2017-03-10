@@ -8,7 +8,7 @@ time
 random
 deap 
 pymysql
-multiprocessing
 mysql (and, sql)
 IPython - profiling
-Numba? pathos, conda
+Numba
+conda
