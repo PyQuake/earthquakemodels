@@ -21,7 +21,7 @@ class model(object):
         self.year = None
         self.modelName = None
         self.executionNumber = 0
-
+        self.values4poisson = None
 
 def newModel(definitions,initialvalue=0):
     """ Creates an empty model based on a set of definitions. 

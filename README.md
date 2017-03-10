@@ -40,7 +40,7 @@ Getting Started
 
 # Get the latest version
 To get the last version you should clone the repository from gitHub to your local files.
-```bash
+```
 git clone https://github.com/PyQuake/earthquakemodels.git
 
 # How is the code organized
@@ -55,12 +55,12 @@ The files in [3] can be found, mostly, at ./code/models
 
 It is possible to use the code that I used in most of my experiments. They are located at ./code/runExperiments
 # Executing the main GA methods 
-```bash
+```
 First you need to install all packages and download the source code from GitHub.
 
 Then you may need run the following sql script to save/load models
 
-
+```
 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
@@ -89,6 +89,7 @@ CREATE TABLE IF NOT EXISTS `earthquakemodelsDB`.`earthquakeModels` (
   `time` TEXT NULL,
   `probability` TEXT NULL,
   `executionNumber` TEXT NULL,
+  `values4poisson` TEXT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
@@ -96,6 +97,7 @@ ENGINE = InnoDB;
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+```
 
 After running it and solving all dependencies, you may run a script in ./code/runExperiments
 
@@ -108,4 +110,4 @@ To see the models results and analyse, it is possible to load them and/or retrie
   ./code/model/model.showModelsDB
   ./code/model/model.removeModelDB
   ./code/model/model.loadModelDB
-```
+
