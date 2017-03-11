@@ -15,7 +15,7 @@ import multiprocessing
 from mpi4py import MPI
 import time 
 
-def evaluationFunction(individual, modelOmega):
+def evaluationFunction(individual, modelOmega, mean):
 	"""
 	This function calculates the loglikelihood of a model (individual) with 
 	the real data from the prior X years (modelOmega, with length X).
