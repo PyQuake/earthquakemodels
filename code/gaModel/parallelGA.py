@@ -20,7 +20,7 @@ def evaluationFunction(individual, modelOmega, mean):
 	This function calculates the loglikelihood of a model (individual) with 
 	the real data from the prior X years (modelOmega, with length X).
 	It selects the smallest loglikelihood value.
-	"""
+	"""	
 	logValue = float('Infinity')
 	genomeModel=type(modelOmega[0])
 
@@ -168,7 +168,7 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, FREQ = 10, n_aval=5000
 		maximum =  float('-inf')
 		# for value, index in zip(best_all_pop, range(len(best_all_pop))):
 		for local_best in best_all_pop:
-			local_maximum = evaluationFunction(local_best, modelOmega)
+			local_maximum = evaluationFunction(local_best, modelOmega, mean)
 			if maximum < local_maximum[0]:
 				# theBestIndex = index
 				maximum = local_maximum[0]
