@@ -39,6 +39,7 @@ def execParallelGA(year, region, qntYears=5, times=10):
         observation = model.loadModelDB(region+'jmaData', year+i)
         aux = model.loadModelFromFile('../Zona3/realSCwithP_AVR/'
                                   + region + 'real' + str(depth) + "_" + str(year + i) + '.txt')    
+        aux.values4poisson = [x+1 for x in aux.values4poisson]
         observation.values4poisson = aux.values4poisson
         del aux
         observation.bins = observation.bins.tolist()
