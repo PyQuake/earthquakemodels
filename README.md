@@ -48,10 +48,11 @@ Most of the code were develop to be run in a python3 interpreter.
 You may find that some files can be bash executed.
 
 The most important files are divided into three types of files: [1] the Genetic Algorithm (GA) files that create earthquake risk models, [2] the files that are the base to the GA files and [3] the files that connect them.
-
+```
 The files in [1] can be found, mostly, at ./code/gaModel.
 The files in [2] can be found, mostly, at ./code/csep or ./code/earthquake
 The files in [3] can be found, mostly, at ./code/models
+```
 
 It is possible to use the code that I used in most of my experiments. They are located at ./code/runExperiments
 # Executing the main GA methods 
@@ -106,8 +107,8 @@ For example (assuming that your working directory is ./code/):
   python3 runExperiments/applyGaModel.py 
 
 To see the models results and analyse, it is possible to load them and/or retrieve them with some functions that are in ./code/model, mainly:
-
+```
   ./code/model/model.showModelsDB
   ./code/model/model.removeModelDB
   ./code/model/model.loadModelDB
-
+```
