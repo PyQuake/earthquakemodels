@@ -66,7 +66,7 @@ def execParallelGA(year, region, qntYears=5, times=10):
 
 
 
-def execGaModelwithP_AVR(year, region, depth, qntYears=5, times=10, save=True):
+def execGAModelwithP_AVR(year, region, depth, qntYears=5, times=10, save=True):
 
     observations = list()
     means = list()
@@ -81,15 +81,14 @@ def execGaModelwithP_AVR(year, region, depth, qntYears=5, times=10, save=True):
     mean = np.mean(means, axis=0)
     for i in range(times):
         model_ = gaModelP_AVR.gaModel(
-            NGEN=10,
+            NGEN=100,
             CXPB=0.9,
             MUTPB=0.1,
             modelOmega=observations,
             year=year +
             qntYears,
             region=region,
-            mean=mean,
-            n_aval=50)
+            mean=mean)
         model_.executionNumber=i
         model_.year=year+qntYears
         model_.modelName = region+'GAModelwithP_AVR' 
