@@ -7,36 +7,6 @@ import gaModel.reducedModel_Yuri as reducedGA
 import numpy as np
 
 
-def execReducedGAModel(year, region, qntYears=5, times=10):
-    """
-    Creates the list Model with JMA catalog
-    """
-    observations = list()
-    means = list()
-    for i in range(qntYears):
-        observation = model.loadModelDB(region+'jmaData', year+i)
-        observation.bins = observation.bins.tolist()
-        observations.append(observation)
-        means.append(observation.bins)
-    mean = np.mean(means, axis=0)
-    for i in range(times):
-        model_ = reducedGA.gaModel(
-            NGEN=100,
-            CXPB=0.9,
-            MUTPB=0.1,
-            modelOmega=observations,
-            year=year +
-            qntYears,
-            region=region,
-            mean=mean)
-        model_.executionNumber=i
-        model_.year=year+qntYears
-        model_.modelName = region+'ReducedGAModel' 
-        reducedGA_ = model.loadModelDB(region+'ReducedGAModel', year)
-        # if (reducedGA_.definitions==None):    
-        #     model.saveModelDB(model_)
-
-
 def execGaModel(year, region, qntYears=5, times=10):
     """
     Creates the GAModel with JMA catalog
@@ -77,18 +47,6 @@ def callGAModel(region):
     year = 2000
     while(year <= 2005):
         execGaModel(year, region)
-        year+=1
-
-
-def callReducedGAModel(region):
-    """
-    It is a wrapper to the function that generates the list model with JMA data
-    It cover the years of 2000 to 2005, and the models are from 2005 to 2010
-    """
-    # execReducedGAModel(2000, region)
-    year = 2000
-    while(year <= 2005):
-        execReducedGAModel(year, region)
         year+=1
 
 def main():
