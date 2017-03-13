@@ -42,7 +42,6 @@ def callReducedGAModel(region):
     It is a wrapper to the function that generates the list model with JMA data
     It cover the years of 2000 to 2005, and the models are from 2005 to 2010
     """
-    # execReducedGAModel(2000, region)
     year = 2000
     while(year <= 2005):
         execReducedGAModel(year, region)
