@@ -43,9 +43,7 @@ def mutationFunction(individual, indpb, length):
 	return individual
 
 #parallel
-toolbox = base.Toolbox()
-creator.create("FitnessFunction", base.Fitness, weights=(1.0,))
-creator.create("Individual", numpy.ndarray, fitness=creator.FitnessFunction)
+
 # pool = Pool()
 # toolbox.register("map", pool.map)
 
@@ -77,6 +75,9 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval=50000):
 			lengthPos[str(j)]=1
 	length=len(lengthPos)
 	
+	toolbox = base.Toolbox()
+	creator.create("FitnessFunction", base.Fitness, weights=(1.0,))
+	creator.create("Individual", numpy.ndarray, fitness=creator.FitnessFunction)
 	creator.create("FitnessFunction", base.Fitness, weights=(1.0,))
 	toolbox.register("evaluate", evaluationFunction, modelOmega=modelOmega, mean= mean)
 	toolbox.register("individual", tools.initRepeat, creator.Individual, genotype, n=length)

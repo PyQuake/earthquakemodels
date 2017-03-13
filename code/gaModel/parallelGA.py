@@ -36,11 +36,9 @@ def evaluationFunction(individual, modelOmega, mean):
 	return logValue,
 
 #parallel
-toolbox = base.Toolbox()
-creator.create("FitnessFunction", base.Fitness, weights=(1.0,))
-creator.create("Individual", array.array, typecode='d', fitness=creator.FitnessFunction)
-pool = multiprocessing.Pool()
-toolbox.register("map", pool.map)
+
+# pool = multiprocessing.Pool()
+# toolbox.register("map", pool.map)
 
 def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, FREQ = 10, n_aval=50000):
 	"""
@@ -51,6 +49,9 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, FREQ = 10, n_aval=5000
 	"""
 	start = time.clock()  
 	# Attribute generator
+	toolbox = base.Toolbox()
+	creator.create("FitnessFunction", base.Fitness, weights=(1.0,))
+	creator.create("Individual", array.array, typecode='d', fitness=creator.FitnessFunction)
 	toolbox.register("attr_float", random.random)
 	toolbox.register("evaluate", evaluationFunction, modelOmega=modelOmega, mean= mean)
 	toolbox.register("individual", tools.initRepeat, creator.Individual, toolbox.attr_float, len(modelOmega[0].bins))
