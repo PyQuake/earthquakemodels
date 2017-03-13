@@ -85,7 +85,7 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, FREQ = 10, n_aval=5000
 	global length
 	length=0
 
-	toolbox.register("evaluate", evaluationFunction, modelOmega=modelOmega, mean=mean)	
+	
 
 	# Calculate the len of the gen
 	lengthPos=dict()
@@ -98,6 +98,7 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, FREQ = 10, n_aval=5000
 
 	toolbox = base.Toolbox()
 	creator.create("FitnessFunction", base.Fitness, weights=(1.0,))
+	toolbox.register("evaluate", evaluationFunction, modelOmega=modelOmega, mean=mean)	
 	creator.create("Individual", numpy.ndarray, fitness=creator.FitnessFunction)
 	toolbox.register("individual", tools.initRepeat, creator.Individual, genotype, n=length)
 	toolbox.register("population", tools.initRepeat, list, toolbox.individual)

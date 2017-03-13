@@ -48,6 +48,9 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval=50000):
 	"""
 	start = time.clock()  
 	# Attribute generator
+	toolbox = base.Toolbox()
+	creator.create("FitnessFunction", base.Fitness, weights=(1.0,))
+	creator.create("Individual", array.array, typecode='d', fitness=creator.FitnessFunction)
 	toolbox.register("attr_float", random.random)
 	toolbox.register("mate", tools.cxOnePoint)
 	# operator for selecting individuals for breeding the next
