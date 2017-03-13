@@ -44,6 +44,7 @@ def mutationFunction(individual, indpb, length):
 
 #parallel
 toolbox = base.Toolbox()
+creator.create("FitnessFunction", base.Fitness, weights=(1.0,))
 creator.create("Individual", numpy.ndarray, fitness=creator.FitnessFunction)
 # pool = Pool()
 # toolbox.register("map", pool.map)
