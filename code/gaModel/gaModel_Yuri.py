@@ -36,9 +36,11 @@ def evaluationFunction(individual, modelOmega, mean):
 
 #parallel
 
-
-# pool = Pool()
-# toolbox.register("map", pool.map)
+toolbox = base.Toolbox()
+creator.create("FitnessFunction", base.Fitness, weights=(1.0,))
+creator.create("Individual", array.array, typecode='d', fitness=creator.FitnessFunction)
+pool = Pool()
+toolbox.register("map", pool.map)
 
 # %%cython
 def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval=50000):
@@ -68,9 +70,7 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval=50000):
 	x=n_aval - y*NGEN
 	n= x + y
 
-	toolbox = base.Toolbox()
-	creator.create("FitnessFunction", base.Fitness, weights=(1.0,))
-	creator.create("Individual", array.array, typecode='d', fitness=creator.FitnessFunction)
+	
 	toolbox.register("evaluate", evaluationFunction, modelOmega=modelOmega, mean= mean)
 	toolbox.register("individual", tools.initRepeat, creator.Individual, toolbox.attr_float, len(modelOmega[0].bins))
 	toolbox.register("population", tools.initRepeat, list, toolbox.individual)
