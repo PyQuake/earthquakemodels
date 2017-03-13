@@ -5,7 +5,6 @@ import random
 import earthquake.catalog as catalog
 import models.model as model
 import gaModel.GAModelP_AVR as gaModelP_AVR
-import gaModel.parallelGAModelP_AVR as parallelGAModelP_AVR
 import time
 import numpy as np
 

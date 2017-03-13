@@ -2,7 +2,6 @@
 import sys
 sys.path.insert(0, '..')
 import models.model as model
-import gaModel.parallelGA as parallelGA
 import gaModel.parallelReducedModel as parallelReducedModel
 import numpy as np
 #from mpi4py import MPI

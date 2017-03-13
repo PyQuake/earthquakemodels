@@ -2,7 +2,7 @@
 import sys
 sys.path.insert(0, '..')
 import models.model as model
-import gaModel.reducedModel_Yuri as ga
+import gaModel.reducedModel_Yuri as reducedGA
 import numpy as np
 
 
