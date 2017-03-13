@@ -19,7 +19,6 @@ def execGaModel(year, region, qntYears=5, times=10):
         means.append(observation.bins)
     mean = np.mean(means, axis=0)
     for i in range(times):
-        print('time: ',times)
         model_ = ga.gaModel(
             NGEN=100,
             CXPB=0.9,
@@ -55,19 +54,15 @@ def main():
     from 2000 to 2005 to create models from 2005 to 2010
     """
     region = 'Kanto'
-    print(region)
     callGAModel(region)
 
     region = 'EastJapan'
-    print(region)
     callGAModel(region)
 
     region = 'Tohoku'
-    print(region)
     callGAModel(region)
 
     region = 'Kansai'
-    print(region)
     callGAModel(region)
 
 
