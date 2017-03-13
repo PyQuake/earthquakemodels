@@ -21,15 +21,14 @@ def execReducedGAModel(year, region, qntYears=5, times=10):
     mean = np.mean(means, axis=0)
     for i in range(times):
         model_ = reducedGA.gaModel(
-            NGEN=10,
+            NGEN=100,
             CXPB=0.9,
             MUTPB=0.1,
             modelOmega=observations,
             year=year +
             qntYears,
             region=region,
-            mean=mean, 
-            n_aval=50)
+            mean=mean)
         model_.executionNumber=i
         model_.year=year+qntYears
         model_.modelName = region+'ReducedGAModel' 

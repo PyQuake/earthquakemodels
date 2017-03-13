@@ -15,7 +15,7 @@ import multiprocessing
 from mpi4py import MPI
 import time 
 
-def evaluationFunction(individual, modelOmega):
+def evaluationFunction(individual, modelOmega, mean):
 	"""
 	This function calculates the loglikelihood of a model (individual) with 
 	the real data from the prior X years (modelOmega, with length X).
@@ -71,8 +71,8 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval=50000):
 	toolbox.register("individual", tools.initRepeat, creator.Individual, toolbox.attr_float, len(modelOmega[0].bins))
 	toolbox.register("population", tools.initRepeat, list, toolbox.individual)
 
-	# logbook = tools.Logbook()
-	# logbook.header = "gen", "depth","min","avg","max","std"
+	logbook = tools.Logbook()
+	logbook.header = "gen", "depth","min","avg","max","std"
 
 	pop = toolbox.population(n)
 	# Evaluate the entire population
