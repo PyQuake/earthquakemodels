@@ -22,14 +22,15 @@ def execParallelGA(year, region, qntYears=5, times=10):
     for i in range(times):
         model_=model.model()
         model_ = parallelGA.gaModel(
-            NGEN=100,
+            NGEN=10,
             CXPB=0.9,
             MUTPB=0.1,
             modelOmega=observations,
             year=year +
             qntYears,
             region=region,
-            mean=mean)
+            mean=mean, 
+            n_aval=50)
         model_.executionNumber=i
         model_.year=year+qntYears
         model_.modelName = region+'parallelGA' 
