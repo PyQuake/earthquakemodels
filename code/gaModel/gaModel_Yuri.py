@@ -10,7 +10,7 @@ from models.mathUtil import calcNumberBins
 import models.model
 import random
 import array
-# %load_ext cythonmagic
+from pathos.multiprocessing import ProcessingPool as Pool
 import time 
 from operator import attrgetter
 
@@ -36,9 +36,11 @@ def evaluationFunction(individual, modelOmega, mean):
 
 #parallel
 
-
-# pool = Pool()
-# toolbox.register("map", pool.map)
+toolbox = base.Toolbox()
+creator.create("FitnessFunction", base.Fitness, weights=(1.0,))
+creator.create("Individual", array.array, typecode='d', fitness=creator.FitnessFunction)
+pool = Pool()
+toolbox.register("map", pool.map)
 
 # %%cython
 def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval=50000):
@@ -48,9 +50,6 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval=50000):
 	"""
 	start = time.clock()  
 	# Attribute generator
-	toolbox = base.Toolbox()
-	creator.create("FitnessFunction", base.Fitness, weights=(1.0,))
-	creator.create("Individual", array.array, typecode='d', fitness=creator.FitnessFunction)
 	toolbox.register("attr_float", random.random)
 	toolbox.register("mate", tools.cxOnePoint)
 	# operator for selecting individuals for breeding the next
