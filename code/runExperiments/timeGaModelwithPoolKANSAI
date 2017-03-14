@@ -1,14 +1,4 @@
-Traceback (most recent call last):
-  File "./applyGaModel.py", line 71, in <module>
-    main()
-  File "./applyGaModel.py", line 66, in main
-    callGAModel(region)
-  File "./applyGaModel.py", line 47, in callGAModel
-    execGaModel(year, region)
-  File "./applyGaModel.py", line 17, in execGaModel
-    observation.bins = observation.bins.tolist()
-AttributeError: 'NoneType' object has no attribute 'tolist'
 
-real	0m4.237s
-user	0m0.571s
-sys	0m0.133s
+real	0m17.484s
+user	0m26.611s
+sys	0m0.186s

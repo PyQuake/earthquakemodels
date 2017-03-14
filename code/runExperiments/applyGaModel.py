@@ -54,8 +54,8 @@ def main():
     for the regions: EastJapan, Kanto, Kansai, Tohoku
     from 2000 to 2005 to create models from 2005 to 2010
     """
-    # region = 'Kanto'
-    # callGAModel(region)
+    region = 'Kanto'
+    callGAModel(region)
 
     # region = 'EastJapan'
     # callGAModel(region)
@@ -63,8 +63,8 @@ def main():
     # region = 'Tohoku'
     # callGAModel(region)
 
-    region = 'Kansai'
-    callGAModel(region)
+    # region = 'Kansai'
+    # callGAModel(region)
 
 
 
