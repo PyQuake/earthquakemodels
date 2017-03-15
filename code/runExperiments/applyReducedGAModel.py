@@ -42,9 +42,9 @@ def callReducedGAModel(region):
     It cover the years of 2000 to 2005, and the models are from 2005 to 2010
     """
     year = 2000
-    while(year <= 2005):
-        execReducedGAModel(year, region)
-        year+=1
+    # while(year <= 2005):
+    execReducedGAModel(year, region)
+    #    year+=1
 
 def main():
     """
@@ -55,17 +55,14 @@ def main():
     region = 'Kanto'
     callReducedGAModel(region)
 
-    region = 'EastJapan'
-    year = 2000
-    callReducedGAModel(region)
+    # region = 'EastJapan'
+    # callReducedGAModel(region)
 
-    region = 'Tohoku'
-    year = 2000
-    callReducedGAModel(region)
+    # region = 'Tohoku'
+    # callReducedGAModel(region)
 
-    region = 'Kansai'
-    year = 2000
-    callReducedGAModel(region)
+    # region = 'Kansai'
+    # callReducedGAModel(region)
 
 
 if __name__ == "__main__":
