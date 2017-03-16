@@ -32,8 +32,8 @@ def execReducedGAModel(year, region, qntYears=5, times=10):
         model_.year=year+qntYears
         model_.modelName = region+'ReducedGAModel' 
         reducedGA_ = model.loadModelDB(region+'ReducedGAModel', year)
-        # if (reducedGA_.definitions==None):    
-        #     model.saveModelDB(model_)
+        if (reducedGA_.definitions==None):    
+            model.saveModelDB(model_)
 
 
 def callReducedGAModel(region):
@@ -42,9 +42,9 @@ def callReducedGAModel(region):
     It cover the years of 2000 to 2005, and the models are from 2005 to 2010
     """
     year = 2000
-    # while(year <= 2005):
+    while(year <= 2005):
     execReducedGAModel(year, region)
-    #    year+=1
+       year+=1
 
 def main():
     """

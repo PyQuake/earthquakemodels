@@ -10,7 +10,7 @@ It also performs the calculations of the LTest and Ntest. Not sure how they work
 import sys
 import math
 import array
-import numpy
+import numpy as np
 import random
 from models.mathUtil import invertPoisson, normalize, percentile
 
@@ -19,7 +19,7 @@ from models.mathUtil import invertPoisson, normalize, percentile
 # Removed "fixing" of lambda = 0 -- this function should not modify models
 # Remove the storing of the likelihood for each bin (if necessary may put back)
 # Need to test the scores
-def calcLogLikelihood(modelLambda, modelOmega):
+def calcLogLikelihood_old(modelLambda, modelOmega):
     """
     Calculates the log likelihood between two RELM models. Lambda is usually
     the forecast model, and Omega is usually the real data model. Both models
@@ -32,6 +32,7 @@ def calcLogLikelihood(modelLambda, modelOmega):
     """
 
     sumLogLikelihood = 0
+    aux=0
     if len(modelLambda.bins) != len(modelOmega.bins):
         raise NameError(
             "Tried to calculate log likelihood for models with different sizes")
@@ -43,12 +44,21 @@ def calcLogLikelihood(modelLambda, modelOmega):
 
         if (lambda_i == 0 and omega_i == 0):
             sumLogLikelihood += 1
+            print('entrou')
         else:
             sumLogFactorial = 0
             for i in range(omega_i):
                 sumLogFactorial += math.log10(i + 1)
             sumLogLikelihood += -lambda_i + omega_i * \
                 math.log10(lambda_i) - sumLogFactorial
+    return sumLogLikelihood
+
+
+def calcLogLikelihood(modelLambda, modelOmega):
+    log = np.vectorize(math.log10)
+
+    sumLogLikelihood = np.sum(np.negative(modelLambda.bins) + modelOmega.bins * log(modelLambda.bins) - log(np.array(modelOmega.bins)+1))
+    
     return sumLogLikelihood
 
 
