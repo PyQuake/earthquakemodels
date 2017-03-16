@@ -19,7 +19,7 @@ from models.mathUtil import invertPoisson, normalize, percentile
 # Removed "fixing" of lambda = 0 -- this function should not modify models
 # Remove the storing of the likelihood for each bin (if necessary may put back)
 # Need to test the scores
-def calcLogLikelihood_old(modelLambda, modelOmega):
+def calcLogLikelihood(modelLambda, modelOmega):
     """
     Calculates the log likelihood between two RELM models. Lambda is usually
     the forecast model, and Omega is usually the real data model. Both models
@@ -54,12 +54,12 @@ def calcLogLikelihood_old(modelLambda, modelOmega):
     return sumLogLikelihood
 
 
-def calcLogLikelihood(modelLambda, modelOmega):
-    log = np.vectorize(math.log10)
+# def calcLogLikelihood(modelLambda, modelOmega):
+#     log = np.vectorize(math.log10)
 
-    sumLogLikelihood = np.sum(np.negative(modelLambda.bins) + modelOmega.bins * log(modelLambda.bins) - log(np.array(modelOmega.bins)+1))
+#     sumLogLikelihood = np.sum(np.negative(modelLambda.bins) + modelOmega.bins * log(modelLambda.bins) - log(np.array(modelOmega.bins)+1))
     
-    return sumLogLikelihood
+#     return sumLogLikelihood
 
 
 def calcLTest(modelLambda, modelOmega):
