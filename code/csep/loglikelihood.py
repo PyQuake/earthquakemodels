@@ -14,6 +14,11 @@ import numpy as np
 import random
 from models.mathUtil import invertPoisson, normalize, percentile
 
+def logValue(element):
+    if element==0:
+        return 1
+    else:
+        return np.log10(element)
 
 # Implementation notes:
 # Removed "fixing" of lambda = 0 -- this function should not modify models
@@ -44,9 +49,9 @@ def calcLogLikelihood(modelLambda, modelOmega):
 
         if (lambda_i == 0 and omega_i == 0):
             sumLogLikelihood += 1
-            print('entrou')
         else:
             sumLogFactorial = 0
+            #'factorial' loop
             for i in range(omega_i):
                 sumLogFactorial += math.log10(i + 1)
             sumLogLikelihood += -lambda_i + omega_i * \
@@ -54,12 +59,14 @@ def calcLogLikelihood(modelLambda, modelOmega):
     return sumLogLikelihood
 
 
-# def calcLogLikelihood(modelLambda, modelOmega):
-#     log = np.vectorize(math.log10)
-
-#     sumLogLikelihood = np.sum(np.negative(modelLambda.bins) + modelOmega.bins * log(modelLambda.bins) - log(np.array(modelOmega.bins)+1))
-    
-#     return sumLogLikelihood
+def calcLogLikelihoodNEW(modelLambda, modelOmega):
+    log = np.vectorize(logValue)
+    factorial = np.vectorize(np.math.factorial)    
+    #maybe substitute factorial calc to list
+    sumLogLikelihood = np.sum(np.negative(modelLambda.bins) + modelOmega.bins * log(modelLambda.bins) - log(factorial(modelOmega.bins)))
+    # if (lambda_i == 0 and omega_i == 0)
+    sumLogLikelihood += np.sum(np.logical_not(np.logical_or(modelLambda.bins,modelOmega.bins)).astype(int))
+    return sumLogLikelihood
 
 
 def calcLTest(modelLambda, modelOmega):

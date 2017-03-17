@@ -1,6 +1,5 @@
-import math
 from numba import jit
-
+import numpy as np
 # jit decorator tells Numba to compile this function.
 # The argument types will be inferred by Numba when function is called.
 @jit
@@ -12,7 +11,7 @@ def invertPoisson(x,mi):
     if(mi >= 0):
         if(x >= 0):
             if(x < 1):
-                l = math.exp(-mi)
+                l = np.exp(-mi)
                 k = 1
                 prob = 1 * x
                 while(prob>l):
@@ -20,18 +19,23 @@ def invertPoisson(x,mi):
                     prob = prob * x
                 return k
 # @jit
-def calcNumberBins(lambda_i, omega_i, weights=None, adjusting=0):
+def calcNumberBins(lambda_i, omega_i, weights=1, adjusting=0):
     """ Transform a set of real valued bins (0..1) into 
     a set of integer bins, using the value of real data 
     (omega) as the mean for the poisson distribution"""
-    bin=[]
-    if weights is None:
-        for lam,om in zip(lambda_i,omega_i):
-            bin.append(invertPoisson(lam,om)-adjusting)
+    # bin=[]
+    invP = np.vectorize(invertPoisson)
+    if weights is 1:
+        # for lam,om in zip(lambda_i,omega_i):
+        #     bin.append(invertPoisson(lam,om)-adjusting)
+        
+        bin = (invP(lambda_i, omega_i*weights)-adjusting).tolist()
 
     else: 
-        for lam, om, weight in zip(lambda_i, omega_i, weights):
-            bin.append(invertPoisson(lam,om*weight)-adjusting)
+        # for lam, om, weight in zip(lambda_i, omega_i, weights):
+        #     bin.append(invertPoisson(lam,om*weight)-adjusting)
+        bin = (invP(lambda_i, omega_i*weights)-adjusting).tolist()
+
     return bin
 
 def normalize(auxList):

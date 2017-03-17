@@ -34,12 +34,12 @@ def execGAModelwithP_AVR(year, region, qntYears=5, times=10, save=True):
 
     observations = list()
     means = list()
-    for i in range(qntYears):
-        observation = model.loadModelDB(region+'jmaData', year+i)
-        aux = model.loadModelFromFile('../../Zona3/realSCwithP_AVR/'
+    aux = model.loadModelFromFile('../../Zona3/realSCwithP_AVR/'
                                   + region + 'real'  "_" + str(year + i) + '.txt')    
-        observation.values4poisson = aux.values4poisson
-        del aux
+    for i in range(qntYears):
+        observation=model.newModel(aux.definitions)
+        observation = model.loadModelDB(region+'jmaData', year+i)
+        observation.values4poisson = aux.bins
         observations.append(observation)
         means.append(observation.bins)
     mean = np.mean(means, axis=0)
@@ -48,7 +48,7 @@ def execGAModelwithP_AVR(year, region, qntYears=5, times=10, save=True):
             NGEN=100,
             CXPB=0.9,
             MUTPB=0.1,
-            modelOmega=observations,
+            ƒ
             year=year +
             qntYears,
             region=region,
