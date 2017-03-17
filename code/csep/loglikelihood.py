@@ -19,47 +19,47 @@ from models.mathUtil import invertPoisson, normalize, percentile
 # Removed "fixing" of lambda = 0 -- this function should not modify models
 # Remove the storing of the likelihood for each bin (if necessary may put back)
 # Need to test the scores
-# def calcLogLikelihood(modelLambda, modelOmega):
-#     """
-#     Calculates the log likelihood between two RELM models. Lambda is usually
-#     the forecast model, and Omega is usually the real data model. Both models
-#     are defined as lists of integers representing earthquake amounts.
-
-#     Lambda and Omega must be of the same size.
-
-#     If there is a pair of bins lambda/omega, where the lambda bin is 0, and the
-#     omega bin is not zero, this function will return None
-#     """
-
-#     sumLogLikelihood = 0
-#     aux=0
-#     if len(modelLambda.bins) != len(modelOmega.bins):
-#         raise NameError(
-#             "Tried to calculate log likelihood for models with different sizes")
-
-#     for lambda_i, omega_i in zip(modelLambda.bins, modelOmega.bins):
-#         if (lambda_i == 0 and omega_i != 0):
-#             print(lambda_i, omega_i)
-#             return float('-inf')  # invalid Model
-
-#         if (lambda_i == 0 and omega_i == 0):
-#             sumLogLikelihood += 1
-#             print('entrou')
-#         else:
-#             sumLogFactorial = 0
-#             for i in range(omega_i):
-#                 sumLogFactorial += math.log10(i + 1)
-#             sumLogLikelihood += -lambda_i + omega_i * \
-#                 math.log10(lambda_i) - sumLogFactorial
-#     return sumLogLikelihood
-
-
 def calcLogLikelihood(modelLambda, modelOmega):
-    log = np.vectorize(math.log10)
+    """
+    Calculates the log likelihood between two RELM models. Lambda is usually
+    the forecast model, and Omega is usually the real data model. Both models
+    are defined as lists of integers representing earthquake amounts.
 
-    sumLogLikelihood = np.sum(np.negative(modelLambda.bins) + modelOmega.bins * log(modelLambda.bins) - log(np.array(modelOmega.bins)+1))
-    
+    Lambda and Omega must be of the same size.
+
+    If there is a pair of bins lambda/omega, where the lambda bin is 0, and the
+    omega bin is not zero, this function will return None
+    """
+
+    sumLogLikelihood = 0
+    aux=0
+    if len(modelLambda.bins) != len(modelOmega.bins):
+        raise NameError(
+            "Tried to calculate log likelihood for models with different sizes")
+
+    for lambda_i, omega_i in zip(modelLambda.bins, modelOmega.bins):
+        if (lambda_i == 0 and omega_i != 0):
+            print(lambda_i, omega_i)
+            return float('-inf')  # invalid Model
+
+        if (lambda_i == 0 and omega_i == 0):
+            sumLogLikelihood += 1
+            print('entrou')
+        else:
+            sumLogFactorial = 0
+            for i in range(omega_i):
+                sumLogFactorial += math.log10(i + 1)
+            sumLogLikelihood += -lambda_i + omega_i * \
+                math.log10(lambda_i) - sumLogFactorial
     return sumLogLikelihood
+
+
+# def calcLogLikelihood(modelLambda, modelOmega):
+#     log = np.vectorize(math.log10)
+
+#     sumLogLikelihood = np.sum(np.negative(modelLambda.bins) + modelOmega.bins * log(modelLambda.bins) - log(np.array(modelOmega.bins)+1))
+    
+#     return sumLogLikelihood
 
 
 def calcLTest(modelLambda, modelOmega):
