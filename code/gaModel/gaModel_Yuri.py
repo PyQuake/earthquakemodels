@@ -89,7 +89,6 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval=50000):
 
 	for g in range(NGEN):
 		# Select the next generation individuals
-		print(g)
 		offspring = toolbox.select(pop, len(pop))
 		# Clone the selected individuals
 		offspring = list(map(toolbox.clone, offspring))
