@@ -6,7 +6,7 @@ This GA code creates the gaModel
 from deap import base, creator, tools
 import numpy
 from csep.loglikelihood import calcLogLikelihood as loglikelihood
-from models.mathUtil import calcNumberBins, loadFactorial
+from models.mathUtil import calcNumberBins
 import models.model
 import random
 import array
@@ -14,8 +14,8 @@ import time
 from operator import attrgetter
 from pathos.multiprocessing import ProcessingPool as Pool
 
-global factorial 
-factorial= loadFactorial("../../data/factorial.txt")
+# global factorial 
+# factorial= loadFactorial("../../data/factorial.txt")
 
 
 def evaluationFunction(individual, modelOmega, mean):
