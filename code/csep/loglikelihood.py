@@ -69,7 +69,7 @@ def funcFactorial(element, fact):
 
 def calcLogLikelihood(modelLambda, modelOmega,fact):
     factV = np.vectorize(funcFactorial, excluded=fact)    
-    sumLogLikelihood = np.sum((-1)*(modelLambda.bins) + modelOmega.bins * log(modelLambda.bins) - log(factV(modelOmega.bins, fact)))
+    sumLogLikelihood = np.sum(np.negative(modelLambda.bins) + modelOmega.bins * log(modelLambda.bins) - log(factV(modelOmega.bins, fact)))
     # if (lambda_i == 0 and omega_i == 0)
     sumLogLikelihood += np.sum(np.logical_not(np.logical_or(modelLambda.bins,modelOmega.bins)).astype(int))
     return sumLogLikelihood
