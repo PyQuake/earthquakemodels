@@ -1,4 +1,4 @@
-# from numba import jit
+from numba import jit
 import numpy as np
 # jit decorator tells Numba to compile this function.
 # The argument types will be inferred by Numba when function is called.
