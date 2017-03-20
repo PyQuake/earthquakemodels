@@ -31,7 +31,7 @@ log = np.vectorize(logValue)
 # Remove the storing of the likelihood for each bin (if necessary may put back)
 # Need to test the scores
 @jit
-def calcLogLikelihood(modelLambda, modelOmega, fact):
+def calcLogLikelihood(modelLambda, modelOmega):
     """
     Calculates the log likelihood between two RELM models. Lambda is usually
     the forecast model, and Omega is usually the real data model. Both models
