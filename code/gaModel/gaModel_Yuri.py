@@ -6,7 +6,7 @@ This GA code creates the gaModel
 from deap import base, creator, tools
 import numpy
 from csep.loglikelihood import calcLogLikelihood as loglikelihood
-from models.mathUtil import calcNumberBins
+from models.mathUtil import calcNumberBins, loadFactorial
 import models.model
 import random
 import array
