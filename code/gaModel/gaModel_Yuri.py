@@ -14,8 +14,8 @@ import time
 from operator import attrgetter
 from pathos.multiprocessing import ProcessingPool as Pool
 
-# global factorial 
-# factorial= loadFactorial("../../data/factorial.txt")
+global factorial 
+factorial= loadFactorial("../../data/factorial.txt")
 
 
 def evaluationFunction(individual, modelOmega, mean):
@@ -30,7 +30,7 @@ def evaluationFunction(individual, modelOmega, mean):
 	for i in range(len(modelOmega)):
 		genomeModel.bins=list(individual)
 		modelLambda=type(modelOmega[0])#maybe i can remove this
-		modelLambda.bins=calcNumberBins(genomeModel.bins, mean)
+		modelLambda.bins=calcNumberBins(genomeModel.bins, mean, factorial)
 		tempValue=loglikelihood(modelLambda, modelOmega[i])
 
 		if tempValue < logValue:
