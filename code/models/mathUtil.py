@@ -2,7 +2,7 @@
 import numpy as np
 # jit decorator tells Numba to compile this function.
 # The argument types will be inferred by Numba when function is called.
-# @jit
+@jit
 def invertPoisson(x,mi):
     """ Calculates the value that would be found in a 
     poisson distribution with lambda = mi at probability
