@@ -24,7 +24,7 @@ def logValue(element):
 # Removed "fixing" of lambda = 0 -- this function should not modify models
 # Remove the storing of the likelihood for each bin (if necessary may put back)
 # Need to test the scores
-def calcLogLikelihood(modelLambda, modelOmega):
+def calcLogLikelihoodOLD(modelLambda, modelOmega, fact):
     """
     Calculates the log likelihood between two RELM models. Lambda is usually
     the forecast model, and Omega is usually the real data model. Both models
@@ -35,7 +35,8 @@ def calcLogLikelihood(modelLambda, modelOmega):
     If there is a pair of bins lambda/omega, where the lambda bin is 0, and the
     omega bin is not zero, this function will return None
     """
-
+    # global factorial
+    
     sumLogLikelihood = 0
     aux=0
     if len(modelLambda.bins) != len(modelOmega.bins):
@@ -58,12 +59,14 @@ def calcLogLikelihood(modelLambda, modelOmega):
                 math.log10(lambda_i) - sumLogFactorial
     return sumLogLikelihood
 
+def funcFactorial(element, fact):
+    return fact[element]
 
-def calcLogLikelihoodNEW(modelLambda, modelOmega):
+def calcLogLikelihood(modelLambda, modelOmega,fact):
     log = np.vectorize(logValue)
-    factorial = np.vectorize(np.math.factorial)    
-    #maybe substitute factorial calc to list
-    sumLogLikelihood = np.sum(np.negative(modelLambda.bins) + modelOmega.bins * log(modelLambda.bins) - log(factorial(modelOmega.bins)))
+    # factorial = np.vectorize(np.math.factorial)    
+    factV = np.vectorize(funcFactorial, excluded=fact)    
+    sumLogLikelihood = np.sum(np.negative(modelLambda.bins) + modelOmega.bins * log(modelLambda.bins) - log(factV(modelOmega.bins, fact)))
     # if (lambda_i == 0 and omega_i == 0)
     sumLogLikelihood += np.sum(np.logical_not(np.logical_or(modelLambda.bins,modelOmega.bins)).astype(int))
     return sumLogLikelihood

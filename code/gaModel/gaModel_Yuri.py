@@ -6,13 +6,17 @@ This GA code creates the gaModel
 from deap import base, creator, tools
 import numpy
 from csep.loglikelihood import calcLogLikelihood as loglikelihood
-from models.mathUtil import calcNumberBins
+from models.mathUtil import calcNumberBins, loadFactorial
 import models.model
 import random
 import array
 import time 
 from operator import attrgetter
 from pathos.multiprocessing import ProcessingPool as Pool
+
+global factorial 
+factorial= loadFactorial("../../data/factorial.txt")
+
 
 def evaluationFunction(individual, modelOmega, mean):
 	"""
@@ -27,7 +31,8 @@ def evaluationFunction(individual, modelOmega, mean):
 		genomeModel.bins=list(individual)
 		modelLambda=type(modelOmega[0])#maybe i can remove this
 		modelLambda.bins=calcNumberBins(genomeModel.bins, mean)
-		tempValue=loglikelihood(modelLambda, modelOmega[i])
+		global factorial
+		tempValue=loglikelihood(modelLambda, modelOmega[i], factorial)
 
 		if tempValue < logValue:
 			logValue = tempValue
@@ -41,7 +46,7 @@ creator.create("Individual", array.array, typecode='d', fitness=creator.FitnessF
 pool = Pool()
 toolbox.register("map", pool.map)
 
-# %%cython
+
 def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval=50000):
 	"""
 	The main function. It evolves models, namely modelLamba or individual. 

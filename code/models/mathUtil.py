@@ -61,3 +61,27 @@ def percentile(value, sample):
             return float(i/numberOfSamples)
     return 1.0
 
+def calcFactorial(filename, limit=200):
+    for i in range(limit):
+        with open(filename, 'a') as f:
+            fact = np.math.factorial(i)
+            f.write(str(fact))
+            f.write(str("\n"))
+
+def loadFactorial(filename):
+    fact = list()
+    f = open(filename, "r")    
+    i=1
+    for line in f:
+        line = line.strip('\n')
+        fact.insert(i,int(line))
+        i+=1
+    return fact
+
+
+
+
+
+
+
+
