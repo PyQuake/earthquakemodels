@@ -24,7 +24,7 @@ def logValue(element):
 # Removed "fixing" of lambda = 0 -- this function should not modify models
 # Remove the storing of the likelihood for each bin (if necessary may put back)
 # Need to test the scores
-def calcLogLikelihoodOLD(modelLambda, modelOmega):
+def calcLogLikelihood(modelLambda, modelOmega):
     """
     Calculates the log likelihood between two RELM models. Lambda is usually
     the forecast model, and Omega is usually the real data model. Both models
@@ -59,7 +59,7 @@ def calcLogLikelihoodOLD(modelLambda, modelOmega):
     return sumLogLikelihood
 
 
-def calcLogLikelihood(modelLambda, modelOmega):
+def calcLogLikelihoodNEW(modelLambda, modelOmega):
     log = np.vectorize(logValue)
     factorial = np.vectorize(np.math.factorial)    
     #maybe substitute factorial calc to list
