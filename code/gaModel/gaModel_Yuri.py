@@ -2,7 +2,7 @@
 This GA code creates the gaModel 
 
 """
-
+from numba import jit
 from deap import base, creator, tools
 import numpy
 from csep.loglikelihood import calcLogLikelihood as loglikelihood
@@ -17,7 +17,7 @@ from pathos.multiprocessing import ProcessingPool as Pool
 # global factorial 
 # factorial= loadFactorial("../../data/factorial.txt")
 
-
+@jit
 def evaluationFunction(individual, modelOmega, mean):
 	"""
 	This function calculates the loglikelihood of a model (individual) with 
@@ -88,6 +88,7 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval=50000):
 		ind.fitness.values = fit
 
 	for g in range(NGEN):
+		print(g)
 		# Select the next generation individuals
 		offspring = toolbox.select(pop, len(pop))
 		# Clone the selected individuals
