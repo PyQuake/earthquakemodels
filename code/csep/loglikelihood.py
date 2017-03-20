@@ -60,7 +60,7 @@ def calcLogLikelihood(modelLambda, modelOmega, fact):
             #'factorial' loop
             # for i in range(omega_i):
             #     sumLogFactorial += math.log10(i + 1)
-            sumLogFactorial2 = np.sum(log(factV(omega_i)))
+            sumLogFactorial2 = np.sum(log(factV(omega_i, fact)))
             # print(sumLogFactorial ,sumLogFactorial2)
             sumLogLikelihood += -lambda_i + omega_i * \
                 math.log10(lambda_i) - sumLogFactorial2
