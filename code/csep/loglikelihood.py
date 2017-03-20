@@ -14,7 +14,6 @@ import array
 import numpy as np
 import random
 from models.mathUtil import invertPoisson, normalize, percentile
-from numba import jit
 
 def logValue(element):
     if element==0:
@@ -30,7 +29,6 @@ log = np.vectorize(logValue)
 # Removed "fixing" of lambda = 0 -- this function should not modify models
 # Remove the storing of the likelihood for each bin (if necessary may put back)
 # Need to test the scores
-@jit
 def calcLogLikelihood(modelLambda, modelOmega):
     """
     Calculates the log likelihood between two RELM models. Lambda is usually
