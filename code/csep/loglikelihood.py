@@ -7,12 +7,14 @@ definition by Schorlemmer et al. 2007
 It also performs the calculations of the LTest and Ntest. Not sure how they work
 """
 
+
 import sys
 import math
 import array
 import numpy as np
 import random
 from models.mathUtil import invertPoisson, normalize, percentile
+from numba import jit
 
 def logValue(element):
     if element==0:
@@ -20,11 +22,16 @@ def logValue(element):
     else:
         return np.log10(element)
 
+log = np.vectorize(logValue)
+# factorial = np.vectorize(np.math.factorial)    
+factV = np.vectorize(funcFactorial, excluded=fact)    
+
 # Implementation notes:
 # Removed "fixing" of lambda = 0 -- this function should not modify models
 # Remove the storing of the likelihood for each bin (if necessary may put back)
 # Need to test the scores
-def calcLogLikelihoodOLD(modelLambda, modelOmega, fact):
+@jit
+def calcLogLikelihood(modelLambda, modelOmega, fact):
     """
     Calculates the log likelihood between two RELM models. Lambda is usually
     the forecast model, and Omega is usually the real data model. Both models
@@ -62,10 +69,8 @@ def calcLogLikelihoodOLD(modelLambda, modelOmega, fact):
 def funcFactorial(element, fact):
     return fact[element]
 
-def calcLogLikelihood(modelLambda, modelOmega,fact):
-    log = np.vectorize(logValue)
-    # factorial = np.vectorize(np.math.factorial)    
-    factV = np.vectorize(funcFactorial, excluded=fact)    
+def calcLogLikelihoodNEW(modelLambda, modelOmega,fact):
+    
     sumLogLikelihood = np.sum(np.negative(modelLambda.bins) + modelOmega.bins * log(modelLambda.bins) - log(factV(modelOmega.bins, fact)))
     # if (lambda_i == 0 and omega_i == 0)
     sumLogLikelihood += np.sum(np.logical_not(np.logical_or(modelLambda.bins,modelOmega.bins)).astype(int))
