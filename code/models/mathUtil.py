@@ -23,18 +23,18 @@ def calcNumberBins(lambda_i, omega_i, weights=1, adjusting=0):
     """ Transform a set of real valued bins (0..1) into 
     a set of integer bins, using the value of real data 
     (omega) as the mean for the poisson distribution"""
-    bin=[]
-    # invP = np.vectorize(invertPoisson)
+    # bin=[]
+    invP = np.vectorize(invertPoisson)
     if weights is 1:
-        for lam,om in zip(lambda_i,omega_i):
-            bin.append(invertPoisson(lam,om)-adjusting)
+        # for lam,om in zip(lambda_i,omega_i):
+            # bin.append(invertPoisson(lam,om)-adjusting)
         
-        # bin = (invP(lambda_i, omega_i*weights)-adjusting).tolist()
+        bin = (invP(lambda_i, omega_i*weights)-adjusting).tolist()
 
     else: 
-        for lam, om, weight in zip(lambda_i, omega_i, weights):
-            bin.append(invertPoisson(lam,om*weight)-adjusting)
-        # bin = (invP(lambda_i, omega_i*weights)-adjusting).tolist()
+        # for lam, om, weight in zip(lambda_i, omega_i, weights):
+            # bin.append(invertPoisson(lam,om*weight)-adjusting)
+        bin = (invP(lambda_i, omega_i*weights)-adjusting).tolist()
 
     return bin
 
