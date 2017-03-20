@@ -29,7 +29,7 @@ log = np.vectorize(logValue)
 # Removed "fixing" of lambda = 0 -- this function should not modify models
 # Remove the storing of the likelihood for each bin (if necessary may put back)
 # Need to test the scores
-def calcLogLikelihood(modelLambda, modelOmega, fact):
+def calcLogLikelihood(modelLambda, modelOmega):
     """
     Calculates the log likelihood between two RELM models. Lambda is usually
     the forecast model, and Omega is usually the real data model. Both models
@@ -41,7 +41,7 @@ def calcLogLikelihood(modelLambda, modelOmega, fact):
     omega bin is not zero, this function will return None
     """
     # global factorial
-    factV = np.vectorize(funcFactorial, excluded=fact)    
+    
     sumLogLikelihood = 0
     aux=0
     if len(modelLambda.bins) != len(modelOmega.bins):
@@ -58,12 +58,10 @@ def calcLogLikelihood(modelLambda, modelOmega, fact):
         else:
             sumLogFactorial = 0
             #'factorial' loop
-            # for i in range(omega_i):
-            #     sumLogFactorial += math.log10(i + 1)
-            sumLogFactorial2 = np.sum(log(factV(omega_i, fact)))
-            # print(sumLogFactorial ,sumLogFactorial2)
+            for i in range(omega_i):
+                sumLogFactorial += math.log10(i + 1)
             sumLogLikelihood += -lambda_i + omega_i * \
-                math.log10(lambda_i) - sumLogFactorial2
+                math.log10(lambda_i) - sumLogFactorial
     return sumLogLikelihood
 
 def funcFactorial(element, fact):

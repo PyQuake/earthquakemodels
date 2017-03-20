@@ -25,16 +25,13 @@ def calcNumberBins(lambda_i, omega_i, weights=1, adjusting=0):
     (omega) as the mean for the poisson distribution"""
     # bin=[]
     invP = np.vectorize(invertPoisson)
-    if weights is 1:
+    # if weights is 1:
         # for lam,om in zip(lambda_i,omega_i):
             # bin.append(invertPoisson(lam,om)-adjusting)
-        
-        bin = (invP(lambda_i, omega_i*weights)-adjusting).tolist()
-
-    else: 
+    # else: 
         # for lam, om, weight in zip(lambda_i, omega_i, weights):
             # bin.append(invertPoisson(lam,om*weight)-adjusting)
-        bin = (invP(lambda_i, omega_i*weights)-adjusting).tolist()
+    bin = (invP(lambda_i, omega_i*weights)-adjusting).tolist()
 
     return bin
 

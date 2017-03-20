@@ -20,14 +20,15 @@ def execGaModel(year, region, qntYears=5, times=1):
     mean = np.mean(means, axis=0)
     for i in range(times):
         model_ = ga.gaModel(
-            NGEN=100,
+            NGEN=10,
             CXPB=0.9,
             MUTPB=0.1,
             modelOmega=observations,
             year=year +
             qntYears,
             region=region,
-            mean=mean)
+            mean=mean,
+            n_aval=10)
         model_.executionNumber=i
         model_.year=year+qntYears
         model_.modelName = region+'GAModel' 
