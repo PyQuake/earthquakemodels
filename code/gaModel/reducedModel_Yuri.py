@@ -1,6 +1,7 @@
 """
 This GA code uses a simplified version of the gaModel where only some bins are considered.
 """
+from numba import jit
 from operator import attrgetter
 from deap import base, creator, tools
 import numpy
@@ -9,9 +10,11 @@ from models.mathUtil import calcNumberBins
 import models.model
 import random
 import array
-# from pathos.multiprocessing import ProcessingPool as Pool
+from pathos.multiprocessing import ProcessingPool as Pool
 import time 
         
+
+@jit
 def evaluationFunction(individual, modelOmega, mean):
 	"""
 	This function calculates the loglikelihood of a model (individual) with 
@@ -44,8 +47,11 @@ def mutationFunction(individual, indpb, length):
 
 #parallel
 
-# pool = Pool()
-# toolbox.register("map", pool.map)
+toolbox = base.Toolbox()
+creator.create("FitnessFunction", base.Fitness, weights=(1.0,))
+creator.create("Individual", numpy.ndarray, fitness=creator.FitnessFunction)
+pool = Pool()
+toolbox.register("map", pool.map)
 
 def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval=50000):
 	"""
@@ -77,8 +83,7 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval=50000):
 	
 	toolbox = base.Toolbox()
 	creator.create("FitnessFunction", base.Fitness, weights=(1.0,))
-	creator.create("Individual", numpy.ndarray, fitness=creator.FitnessFunction)
-	creator.create("FitnessFunction", base.Fitness, weights=(1.0,))
+	
 	toolbox.register("evaluate", evaluationFunction, modelOmega=modelOmega, mean= mean)
 	toolbox.register("individual", tools.initRepeat, creator.Individual, genotype, n=length)
 	toolbox.register("population", tools.initRepeat, list, toolbox.individual)

@@ -1,6 +1,5 @@
 """
 This GA code creates the gaModel 
-
 """
 from numba import jit
 from deap import base, creator, tools
@@ -41,12 +40,13 @@ def evaluationFunction(individual, modelOmega, mean):
 
 toolbox = base.Toolbox()
 creator.create("FitnessFunction", base.Fitness, weights=(1.0,))
-creator.create("Individual", array.array, typecode='d', fitness=creator.FitnessFunction)
+# creator.create("Individual", array.array, typecode='d', fitness=creator.FitnessFunction)
+creator.create("Individual", numpy.ndarray, fitness=creator.FitnessFunction)
 pool = Pool()
 toolbox.register("map", pool.map)
 
 
-def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval=25000):
+def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval=50000):
 	"""
 	The main function. It evolves models, namely modelLamba or individual. 
 	It uses 1 parallel system: 1, simple, that splits the ga evolution between cores
