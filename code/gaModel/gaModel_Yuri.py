@@ -13,9 +13,6 @@ import time
 from operator import attrgetter
 from pathos.multiprocessing import ProcessingPool as Pool
 
-# global factorial 
-# factorial= loadFactorial("../../data/factorial.txt")
-
 @jit
 def evaluationFunction(individual, modelOmega, mean):
 	"""
@@ -40,8 +37,8 @@ def evaluationFunction(individual, modelOmega, mean):
 
 toolbox = base.Toolbox()
 creator.create("FitnessFunction", base.Fitness, weights=(1.0,))
-# creator.create("Individual", array.array, typecode='d', fitness=creator.FitnessFunction)
-creator.create("Individual", numpy.ndarray, fitness=creator.FitnessFunction)
+creator.create("Individual", array.array, typecode='d', fitness=creator.FitnessFunction)
+# creator.create("Individual", numpy.ndarray, fitness=creator.FitnessFunction)
 pool = Pool()
 toolbox.register("map", pool.map)
 
@@ -88,7 +85,6 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval=50000):
 		ind.fitness.values = fit
 
 	for g in range(NGEN):
-		print(g)
 		# Select the next generation individuals
 		offspring = toolbox.select(pop, len(pop))
 		# Clone the selected individuals

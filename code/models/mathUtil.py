@@ -1,7 +1,10 @@
 from numba import jit
 import numpy as np
+from functools import lru_cache as cache
+
 # jit decorator tells Numba to compile this function.
 # The argument types will be inferred by Numba when function is called.
+@cache(maxsize=None)
 @jit
 def invertPoisson(x,mi):
     """ Calculates the value that would be found in a 
@@ -18,6 +21,7 @@ def invertPoisson(x,mi):
                     k += 1
                     prob = prob * x
                 return k
+
 @jit
 def calcNumberBins(lambda_i, omega_i, weights=1, adjusting=0):
     """ Transform a set of real valued bins (0..1) into 

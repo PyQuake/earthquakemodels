@@ -27,13 +27,16 @@ def execReducedGAModel(year, region, qntYears=5, times=10):
             year=year +
             qntYears,
             region=region,
-            mean=mean)
+            mean=mean,
+            n_aval=50000)
         model_.executionNumber=i
         model_.year=year+qntYears
         model_.modelName = region+'ReducedGAModel' 
         reducedGA_ = model.loadModelDB(region+'ReducedGAModel', year)
         if (reducedGA_.definitions==None):    
-            model.saveModelDB(model_)
+        #     model.saveModelDB(model_)
+        model.saveModelToFile(observation,
+            '../../Zona4/ReducedGAModel' + region +'ReducedGAModel' + str(year) + '_' + str(i) + '.txt')
 
 
 def callReducedGAModel(region):
@@ -43,8 +46,8 @@ def callReducedGAModel(region):
     """
     year = 2000
     while(year <= 2005):
-    execReducedGAModel(year, region)
-       year+=1
+        execReducedGAModel(year, region)
+        year+=1
 
 def main():
     """

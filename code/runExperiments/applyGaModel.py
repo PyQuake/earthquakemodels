@@ -6,7 +6,7 @@ import gaModel.gaModel_Yuri as ga
 import numpy as np
 
 
-def execGaModel(year, region, qntYears=5, times=1):
+def execGaModel(year, region, qntYears=5, times=10):
     """
     Creates the GAModel with JMA catalog
     """
@@ -27,14 +27,16 @@ def execGaModel(year, region, qntYears=5, times=1):
             year=year +
             qntYears,
             region=region,
-            mean=mean)
+            mean=mean,
+            n_aval=50000)
         model_.executionNumber=i
         model_.year=year+qntYears
         model_.modelName = region+'GAModel' 
         gaModel_ = model.loadModelDB(region+'GAModel', year)
-        #if (gaModel_.definitions==None):    
-        #    model.saveModelDB(model_)
-
+        if (gaModel_.definitions==None):    
+           # model.saveModelDB(model_)
+           model.saveModelToFile(observation,
+            '../../Zona4/GAModel' + region +'GAModel' + str(year) + '_' + str(i) + '.txt')
 
 
 def callGAModel(region):
