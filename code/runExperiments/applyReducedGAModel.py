@@ -58,14 +58,14 @@ def main():
     region = 'Kanto'
     callReducedGAModel(region)
 
-    region = 'EastJapan'
-    callReducedGAModel(region)
+    # region = 'EastJapan'
+    # callReducedGAModel(region)
 
-    region = 'Tohoku'
-    callReducedGAModel(region)
+    # region = 'Tohoku'
+    # callReducedGAModel(region)
 
-    region = 'Kansai'
-    callReducedGAModel(region)
+    # region = 'Kansai'
+    # callReducedGAModel(region)
 
 
 if __name__ == "__main__":
