@@ -36,7 +36,7 @@ def execGaModel(year, region, qntYears=5, times=10):
         if (gaModel_.definitions==None):    
            # model.saveModelDB(model_)
            model.saveModelToFile(observation,
-            '../../Zona4/GAModel' + region +'GAModel' + str(year) + '_' + str(i) + '.txt')
+            '../../Zona4/GAModel/' + region +'GAModel' + str(year) + '_' + str(i) + '.txt')
 
 
 def callGAModel(region):
@@ -58,14 +58,14 @@ def main():
     region = 'Kanto'
     callGAModel(region)
 
-    region = 'EastJapan'
-    callGAModel(region)
+    # region = 'EastJapan'
+    # callGAModel(region)
 
-    region = 'Tohoku'
-    callGAModel(region)
+    # region = 'Tohoku'
+    # callGAModel(region)
 
-    region = 'Kansai'
-    callGAModel(region)
+    # region = 'Kansai'
+    # callGAModel(region)
 
 
 
