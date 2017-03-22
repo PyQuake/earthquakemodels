@@ -61,11 +61,11 @@ def main():
     # region = 'EastJapan'
     # callReducedGAModel(region)
 
-    region = 'Tohoku'
-    callReducedGAModel(region)
-
-    # region = 'Kansai'
+    # region = 'Tohoku'
     # callReducedGAModel(region)
+
+    region = 'Kansai'
+    callReducedGAModel(region)
 
 
 if __name__ == "__main__":
