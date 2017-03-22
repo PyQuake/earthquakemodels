@@ -35,7 +35,7 @@ def execReducedGAModel(year, region, qntYears=5, times=10):
         reducedGA_ = model.loadModelDB(region+'ReducedGAModel', year)
         if (reducedGA_.definitions==None):    
         #     model.saveModelDB(model_)
-            model.saveModelToFile(observation,
+            model.saveModelToFile(model_,
                 '../../Zona4/ReducedGAModel/' + region +'ReducedGAModel' + str(year) + '_' + str(i) + '.txt')
 
 

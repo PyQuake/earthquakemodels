@@ -437,6 +437,7 @@ def saveModelToFile(model, filename, real=False):
         f.write(str(model.definitions))
         f.write("\n")
     if real==False:
+        print(model.loglikelihood)
         with open(filename+"loglikelihood.txt", 'w') as f:
             f.write(str(model.loglikelihood))
             f.write("\n")

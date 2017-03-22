@@ -34,9 +34,9 @@ def execGaModel(year, region, qntYears=5, times=10):
         model_.modelName = region+'GAModel' 
         gaModel_ = model.loadModelDB(region+'GAModel', year)
         # if (gaModel_.definitions==None):    
-        #    # model.saveModelDB(model_)
-        #    model.saveModelToFile(observation,
-        #     '../../Zona4/GAModel/' + region +'GAModel' + str(year) + '_' + str(i) + '.txt')
+           # model.saveModelDB(model_)
+           model.saveModelToFile(model_,
+            '../../Zona4/GAModel/' + region +'GAModel' + str(year) + '_' + str(i) + '.txt')
 
 
 def callGAModel(region):

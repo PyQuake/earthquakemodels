@@ -126,6 +126,8 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval=50000):
 	generatedModel.prob = best_pop
 	generatedModel.bins = calcNumberBins(best_pop, modelOmega[0].bins, mean)
 	generatedModel.loglikelihood = best_pop.fitness.values
+	print(generatedModel.loglikelihood)
+	print(best_pop.fitness.values)
 	generatedModel.definitions = modelOmega[0].definitions
 	generatedModel.time = start - end
 	generatedModel.logbook = logbook
