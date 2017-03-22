@@ -6,7 +6,7 @@ import gaModel.gaModel_Yuri as ga
 import numpy as np
 
 
-def execGaModel(year, region, qntYears=5, times=1):
+def execGaModel(year, region, qntYears=5, times=10):
     """
     Creates the GAModel with JMA catalog
     """
@@ -45,9 +45,9 @@ def callGAModel(region):
     It cover the years of 2000 to 2005, and the models are from 2005 to 2010
     """
     year = 2000
-    # while(year <= 2005):
-    execGaModel(year, region)
-        # year+=1
+    while(year <= 2005):
+        execGaModel(year, region)
+        year+=1
 
 def main():
     """
@@ -55,8 +55,8 @@ def main():
     for the regions: EastJapan, Kanto, Kansai, Tohoku
     from 2000 to 2005 to create models from 2005 to 2010
     """
-    # region = 'Kanto'
-    # callGAModel(region)
+    region = 'Kanto'
+    callGAModel(region)
 
     # region = 'EastJapan'
     # callGAModel(region)
@@ -64,8 +64,8 @@ def main():
     # region = 'Tohoku'
     # callGAModel(region)
 
-    region = 'Kansai'
-    callGAModel(region)
+    # region = 'Kansai'
+    # callGAModel(region)
 
 
 
