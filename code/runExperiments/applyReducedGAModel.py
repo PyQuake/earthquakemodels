@@ -6,7 +6,7 @@ import gaModel.reducedModel_Yuri as reducedGA
 import numpy as np
 
 
-def execReducedGAModel(year, region, qntYears=10, times=1):
+def execReducedGAModel(year, region, qntYears=5, times=1):
     """
     Creates the list Model with JMA catalog
     """
@@ -20,7 +20,7 @@ def execReducedGAModel(year, region, qntYears=10, times=1):
     mean = np.mean(means, axis=0)
     for i in range(times):
         model_ = reducedGA.gaModel(
-            NGEN=100,
+            NGEN=10,
             CXPB=0.9,
             MUTPB=0.1,
             modelOmega=observations,
@@ -28,7 +28,7 @@ def execReducedGAModel(year, region, qntYears=10, times=1):
             qntYears,
             region=region,
             mean=mean,
-            n_aval=50000)
+            n_aval=50)
         model_.executionNumber=i
         model_.year=year+qntYears
         model_.modelName = region+'ReducedGAModel' 

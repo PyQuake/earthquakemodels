@@ -21,9 +21,9 @@ def evaluationFunction(individual, modelOmega, mean):
 	It selects the smallest loglikelihood value.
 	"""
 	logValue = float('Inf')
-	genomeModel=type(modelOmega[0])
+	modelLambda=models.model.newModel(modelOmega[0].definitions)
 	genomeModel.bins=list(individual)
-	modelLambda=type(modelOmega[0])#maybe i can remove this
+	modelLambda=models.model.newModel(modelOmega[0].definitions)
 	modelLambda.bins=calcNumberBins(genomeModel.bins, mean)
 	for i in range(len(modelOmega)):
 		tempValue=loglikelihood(modelLambda, modelOmega[i])
