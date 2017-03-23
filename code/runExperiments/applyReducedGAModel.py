@@ -20,7 +20,7 @@ def execReducedGAModel(year, region, qntYears=5, times=10):
     mean = np.mean(means, axis=0)
     for i in range(times):
         model_ = reducedGA.gaModel(
-            NGEN=100,
+            NGEN=10,
             CXPB=0.9,
             MUTPB=0.1,
             modelOmega=observations,
@@ -28,20 +28,20 @@ def execReducedGAModel(year, region, qntYears=5, times=10):
             qntYears,
             region=region,
             mean=mean,
-            n_aval=50000)
+            n_aval=50)
         model_.executionNumber=i
         model_.year=year+qntYears
         model_.modelName = region+'ReducedGAModel' 
         reducedGA_ = model.loadModelDB(region+'ReducedGAModel', year)
-        print(model_.loglikelihood)
-        if (reducedGA_.definitions==None):    
-        #     model.saveModelDB(model_)
-            model.saveModelToFile(model_,
-                '../../Zona4/ReducedGAModel/' + region +'ReducedGAModel' + str(year+qntYears) + '_' + str(i) + '.txt')
-            with open("../../Zona4/ReducedGAModel/" + region +"ReducedGAModel" + str(year+qntYears) + "_loglikelihood.txt", 'a') as f:
-                f.write(str(model_.loglikelihood))
-                f.write("\n")
-                f.close()  
+        print(model_.logbook)
+        # if (reducedGA_.definitions==None):    
+        # #     model.saveModelDB(model_)
+        #     model.saveModelToFile(model_,
+        #         '../../Zona4/ReducedGAModel/' + region +'ReducedGAModel' + str(year+qntYears) + '_' + str(i) + '.txt')
+        #     with open("../../Zona4/ReducedGAModel/" + region +"ReducedGAModel" + str(year+qntYears) + "_loglikelihood.txt", 'a') as f:
+        #         f.write(str(model_.loglikelihood))
+        #         f.write("\n")
+        #         f.close()  
 
 def callReducedGAModel(region):
     """
