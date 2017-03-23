@@ -6,7 +6,7 @@ import gaModel.gaModel_Yuri as ga
 import numpy as np
 
 
-def execGaModel(year, region, qntYears=5, times=1)0:
+def execGaModel(year, region, qntYears=5, times=10):
     """
     Creates the GAModel with JMA catalog
     """
