@@ -6,7 +6,7 @@ import gaModel.reducedModel_Yuri as reducedGA
 import numpy as np
 
 
-def execReducedGAModel(year, region, qntYears=5, times=1):
+def execReducedGAModel(year, region, qntYears=10, times=1):
     """
     Creates the list Model with JMA catalog
     """
