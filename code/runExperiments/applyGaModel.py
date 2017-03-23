@@ -6,7 +6,7 @@ import gaModel.gaModel_Yuri as ga
 import numpy as np
 
 
-def execGaModel(year, region, qntYears=5, times=1):
+def execGaModel(year, region, qntYears=5, times=10):
     """
     Creates the GAModel with JMA catalog
     """
@@ -49,9 +49,9 @@ def callGAModel(region):
     It cover the years of 2000 to 2005, and the models are from 2005 to 2010
     """
     year = 2000
-    # while(year <= 2005):
-    execGaModel(year, region)
-        # year+=1
+    while(year <= 2005):
+        execGaModel(year, region)
+        year+=1
 
 def main():
     """
