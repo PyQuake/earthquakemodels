@@ -31,6 +31,7 @@ from functools import lru_cache as cache
 # Removed "fixing" of lambda = 0 -- this function should not modify models
 # Remove the storing of the likelihood for each bin (if necessary may put back)
 # Need to test the scores
+
 @cache(maxsize=256)
 def calcLogLikelihood(modelLambda, modelOmega):
     """

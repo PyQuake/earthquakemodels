@@ -35,8 +35,8 @@ def execReducedGAModel(year, region, qntYears=5, times=10):
         reducedGA_ = model.loadModelDB(region+'ReducedGAModel', year)
         if (reducedGA_.definitions==None):    
         #     model.saveModelDB(model_)
-            model.saveModelToFile(observation,
-                '../../Zona4/ReducedGAModel' + region +'ReducedGAModel' + str(year) + '_' + str(i) + '.txt')
+            model.saveModelToFile(model_,
+                '../../Zona4/ReducedGAModel/' + region +'ReducedGAModel' + str(year) + '_' + str(i) + '.txt')
 
 
 def callReducedGAModel(region):
@@ -55,17 +55,17 @@ def main():
     for the regions: EastJapan, Kanto, Kansai, Tohoku
     from 2000 to 2005 to create models from 2005 to 2010
     """
-    region = 'Kanto'
-    callReducedGAModel(region)
+    # region = 'Kanto'
+    # callReducedGAModel(region)
 
-    region = 'EastJapan'
-    callReducedGAModel(region)
+    # region = 'EastJapan'
+    # callReducedGAModel(region)
 
     region = 'Tohoku'
     callReducedGAModel(region)
 
-    region = 'Kansai'
-    callReducedGAModel(region)
+    # region = 'Kansai'
+    # callReducedGAModel(region)
 
 
 if __name__ == "__main__":

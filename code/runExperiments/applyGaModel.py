@@ -37,6 +37,10 @@ def execGaModel(year, region, qntYears=5, times=1):
         #    # model.saveModelDB(model_)
         #    model.saveModelToFile(observation,
         #     '../../Zona4/GAModel' + region +'GAModel' + str(year) + '_' + str(i) + '.txt')
+            # with open("../../Zona4/GAModel" + region +"GAModel" + str(year) + "loglikelihood.txt", 'a') as f:
+            #     f.write(str(model.loglikelihood))
+            #     f.write("\n")
+            # f.close()   
 
 
 def callGAModel(region):
@@ -55,8 +59,8 @@ def main():
     for the regions: EastJapan, Kanto, Kansai, Tohoku
     from 2000 to 2005 to create models from 2005 to 2010
     """
-    region = 'Kanto'
-    callGAModel(region)
+    # region = 'Kanto'
+    # callGAModel(region)
 
     # region = 'EastJapan'
     # callGAModel(region)
