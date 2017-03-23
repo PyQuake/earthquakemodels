@@ -26,7 +26,7 @@ def evaluationFunction(individual, modelOmega, mean):
 	genomeModel.bins=list(individual)
 	modelLambda=models.model.newModel(modelOmega[0].definitions)
 	modelLambda.bins=calcNumberBins(genomeModel.bins, mean)
-	calcNumberBins..cache_clear()
+	calcNumberBins.cache_clear()
 	for i in range(len(modelOmega)):
 		tempValue=calcLogLikelihood(modelLambda, modelOmega[i])
 		calcLogLikelihood.cache_clear()

@@ -2,7 +2,7 @@ from numba import jit
 import numpy as np
 from functools import lru_cache as cache
 
-
+@cache(maxsize=128)
 @jit
 def invertPoisson(x,mi):
     """ Calculates the value that would be found in a 
@@ -20,16 +20,17 @@ def invertPoisson(x,mi):
                     k += 1
                     prob = prob * x
                 return k
-@cache(maxsize=128)
+
 @jit
 def calcNumberBins(lambda_i, omega_i, weights=1, adjusting=0):
     """ Transform a set of real valued bins (0..1) into 
     a set of integer bins, using the value of real data 
     (omega) as the mean for the poisson distribution"""
-    # bin=[]
-    # print(lambda_i)
+
     invP = np.vectorize(invertPoisson)
-    return (invP(lambda_i, omega_i*weights)-adjusting).tolist()
+    bin = (invP(lambda_i, omega_i*weights)-adjusting).tolist()
+    invertPoisson.cache_clear()
+    return bin
 
 
 def calcNumberBinsOld(lambda_i, omega_i, weights=1, adjusting=0):
