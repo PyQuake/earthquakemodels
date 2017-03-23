@@ -6,7 +6,7 @@ import gaModel.gaModel_Yuri as ga
 import numpy as np
 
 
-def execGaModel(year, region, qntYears=5, times=1):
+def execGaModel(year, region, qntYears=5, times=1)0:
     """
     Creates the GAModel with JMA catalog
     """
@@ -33,16 +33,18 @@ def execGaModel(year, region, qntYears=5, times=1):
         model_.year=year+qntYears
         model_.modelName = region+'GAModel' 
         gaModel_ = model.loadModelDB(region+'GAModel', year)
-        print(model_.logbook)
-        exit()
-        # if (gaModel_.definitions==None):    
-        #     # model.saveModelDB(model_)
-        #     model.saveModelToFile(model_,
-        #         '../../Zona4/GAModel' + region +'GAModel' + str(year+qntYears) + '_' + str(i) + '.txt')
-        #     with open("../../Zona4/GAModel/" + region +"GAModel" + str(year+qntYears) + "_loglikelihood.txt", 'a') as f:
-        #         f.write(str(model_.loglikelihood))
-        #         f.write("\n")
-        #         f.close()   
+        if (gaModel_.definitions==None):    
+            # model.saveModelDB(model_)
+            model.saveModelToFile(model_,
+                '../../Zona4/GAModel' + region +'GAModel' + str(year+qntYears) + '_' + str(i) + '.txt')
+            with open("../../Zona4/GAModel/" + region +"GAModel" + str(year+qntYears) + "_loglikelihood.txt", 'a') as f:
+                f.write(str(model_.loglikelihood))
+                f.write("\n")
+                f.close()   
+            with open("../../Zona4/GAModel/" + region +"GAModel" + str(year+qntYears) + '_' + str(i) + "logbook.txt", 'w') as f:
+                f.write(str(model_.logbook))
+                f.write("\n")
+                f.close()   
 
 
 def callGAModel(region):

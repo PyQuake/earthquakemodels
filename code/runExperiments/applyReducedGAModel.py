@@ -6,7 +6,7 @@ import gaModel.reducedModel_Yuri as reducedGA
 import numpy as np
 
 
-def execReducedGAModel(year, region, qntYears=5, times=1):
+def execReducedGAModel(year, region, qntYears=5, times=10):
     """
     Creates the list Model with JMA catalog
     """
@@ -33,16 +33,18 @@ def execReducedGAModel(year, region, qntYears=5, times=1):
         model_.year=year+qntYears
         model_.modelName = region+'ReducedGAModel' 
         reducedGA_ = model.loadModelDB(region+'ReducedGAModel', year)
-        print(model_.logbook)
-        exit()
-        # if (reducedGA_.definitions==None):    
-        # #     model.saveModelDB(model_)
-        #     model.saveModelToFile(model_,
-        #         '../../Zona4/ReducedGAModel/' + region +'ReducedGAModel' + str(year+qntYears) + '_' + str(i) + '.txt')
-        #     with open("../../Zona4/ReducedGAModel/" + region +"ReducedGAModel" + str(year+qntYears) + "_loglikelihood.txt", 'a') as f:
-        #         f.write(str(model_.loglikelihood))
-        #         f.write("\n")
-        #         f.close()  
+        if (reducedGA_.definitions==None):    
+        #     model.saveModelDB(model_)
+            model.saveModelToFile(model_,
+                '../../Zona4/ReducedGAModel/' + region +'ReducedGAModel' + str(year+qntYears) + '_' + str(i) + '.txt')
+            with open("../../Zona4/ReducedGAModel/" + region +"ReducedGAModel" + str(year+qntYears) + "_loglikelihood.txt", 'a') as f:
+                f.write(str(model_.loglikelihood))
+                f.write("\n")
+                f.close() 
+            with open("../../Zona4/ReducedGAModel/" + region +"ReducedGAModel" + str(year+qntYears) + '_' + str(i) + "logbook.txt", 'w') as f:
+                f.write(str(model_.logbook))
+                f.write("\n")
+                f.close()    
 
 def callReducedGAModel(region):
     """
