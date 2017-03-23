@@ -22,12 +22,10 @@ def evaluationFunction(individual, modelOmega, mean):
 	"""
 	logValue = float('Inf')
 	genomeModel=type(modelOmega[0])
-
+	genomeModel.bins=list(individual)
+	modelLambda=type(modelOmega[0])#maybe i can remove this
+	modelLambda.bins=calcNumberBins(genomeModel.bins, mean)
 	for i in range(len(modelOmega)):
-		genomeModel.bins=list(individual)
-		modelLambda=type(modelOmega[0])#maybe i can remove this
-		modelLambda.bins=calcNumberBins(genomeModel.bins, modelOmega[i].bins)
-		# modelLambda.bins=calcNumberBins(genomeModel.bins, mean)
 		tempValue=loglikelihood(modelLambda, modelOmega[i])
 		# print(tempValue, i)
 		if tempValue < logValue:
