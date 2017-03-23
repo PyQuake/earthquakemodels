@@ -4,7 +4,7 @@ from functools import lru_cache as cache
 
 # jit decorator tells Numba to compile this function.
 # The argument types will be inferred by Numba when function is called.
-@cache(maxsize=256)
+@cache(maxsize=128)
 @jit
 def invertPoisson(x,mi):
     """ Calculates the value that would be found in a 
