@@ -2,8 +2,6 @@ from numba import jit
 import numpy as np
 from functools import lru_cache as cache
 
-# jit decorator tells Numba to compile this function.
-# The argument types will be inferred by Numba when function is called.
 @cache(maxsize=128)
 @jit
 def invertPoisson(x,mi):
@@ -29,15 +27,22 @@ def calcNumberBins(lambda_i, omega_i, weights=1, adjusting=0):
     (omega) as the mean for the poisson distribution"""
     # bin=[]
     invP = np.vectorize(invertPoisson)
-    # if weights is 1:
-    #     for lam,om in zip(lambda_i,omega_i):
-    #         bin.append(invertPoisson(lam,om)-adjusting)
-    # else: 
-    #     for lam, om, weight in zip(lambda_i, omega_i, weights):
-    #         bin.append(invertPoisson(lam,om*weight)-adjusting)
-    # if bin != (invP(lambda_i, omega_i*weights)-adjusting).tolist():
-    #     print("FODEU")
     return (invP(lambda_i, omega_i*weights)-adjusting).tolist()
+
+
+def calcNumberBinsOld(lambda_i, omega_i, weights=1, adjusting=0):
+    """ Transform a set of real valued bins (0..1) into 
+    a set of integer bins, using the value of real data 
+    (omega) as the mean for the poisson distribution"""
+    bin=[]
+    if weights is 1:
+        for lam,om in zip(lambda_i,omega_i):
+            bin.append(invertPoisson(lam,om)-adjusting)
+    else: 
+        for lam, om, weight in zip(lambda_i, omega_i, weights):
+            bin.append(invertPoisson(lam,om*weight)-adjusting)
+    return bin
+
 
 def normalize(auxList):
     """ Normalize the number of observations, to a value between 0 and 1""" 
