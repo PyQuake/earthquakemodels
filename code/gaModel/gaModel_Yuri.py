@@ -4,7 +4,7 @@ This GA code creates the gaModel
 from numba import jit
 from deap import base, creator, tools
 import numpy
-from csep.loglikelihood import calcLogLikelihood as loglikelihood
+from csep.loglikelihood import calcLogLikelihood
 from models.mathUtil import calcNumberBins
 import models.model
 import random
@@ -12,6 +12,7 @@ import array
 import time 
 from operator import attrgetter
 from pathos.multiprocessing import ProcessingPool as Pool
+from functools import lru_cache as cache
 
 @jit
 def evaluationFunction(individual, modelOmega, mean):
@@ -27,9 +28,9 @@ def evaluationFunction(individual, modelOmega, mean):
 	modelLambda.bins=calcNumberBins(genomeModel.bins, mean)
 	calcNumberBins..cache_clear()
 	for i in range(len(modelOmega)):
-		tempValue=loglikelihood(modelLambda, modelOmega[i])
+		tempValue=calcLogLikelihood(modelLambda, modelOmega[i])
+		calcLogLikelihood.cache_clear()
 		# print(tempValue, i)
-		if tempValue < logValue:
 			logValue = tempValue
 	# print('\n')
 	return logValue,

@@ -5,14 +5,15 @@ from numba import jit
 from operator import attrgetter
 from deap import base, creator, tools
 import numpy
-from csep.loglikelihood import calcLogLikelihood as loglikelihood
+from csep.loglikelihood import calcLogLikelihood 
 from models.mathUtil import calcNumberBins
 import models.model
 import random
 import array
 from pathos.multiprocessing import ProcessingPool as Pool
 import time 
- 
+
+
 @jit
 def evaluationFunction(individual, modelOmega, mean):
 	"""
@@ -26,9 +27,8 @@ def evaluationFunction(individual, modelOmega, mean):
 	modelLambda.bins=calcNumberBins(genomeModel.bins, mean)
 	calcNumberBins.cache_clear()
 	for i in range(len(modelOmega)):    
-		tempValue=loglikelihood(modelLambda, modelOmega[i])
-		loglikelihood.cache_clear()
-		# print(tempValue)
+		tempValue=calcLogLikelihood(modelLambda, modelOmega[i])
+		calcLogLikelihood.cache_clear()
 		if tempValue < logValue:
 			logValue = tempValue
 	# print('\n')
