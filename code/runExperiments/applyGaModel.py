@@ -38,7 +38,7 @@ def execGaModel(year, region, qntYears=5, times=10):
             # model.saveModelDB(model_)
             model.saveModelToFile(model_,
                 '../../Zona4/GAModel' + region +'GAModel' + str(year+qntYears) + '_' + str(i) + '.txt')
-            with open("../../Zona4/GAModel" + region +"GAModel" + str(year+qntYears) + "_loglikelihood.txt", 'a') as f:
+            with open("../../Zona4/GAModel/" + region +"GAModel" + str(year+qntYears) + "_loglikelihood.txt", 'a') as f:
                 f.write(str(model_.loglikelihood))
                 f.write("\n")
                 f.close()   
