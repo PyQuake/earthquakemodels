@@ -37,7 +37,10 @@ def execReducedGAModel(year, region, qntYears=5, times=10):
         #     model.saveModelDB(model_)
             model.saveModelToFile(model_,
                 '../../Zona4/ReducedGAModel/' + region +'ReducedGAModel' + str(year) + '_' + str(i) + '.txt')
-
+            with open("../../Zona4/ReducedGAModel" + region +"ReducedGAModel" + str(year) + "loglikelihood.txt", 'a') as f:
+                f.write(str(model_.loglikelihood))
+                f.write("\n")
+                f.close()  
 
 def callReducedGAModel(region):
     """
@@ -55,14 +58,14 @@ def main():
     for the regions: EastJapan, Kanto, Kansai, Tohoku
     from 2000 to 2005 to create models from 2005 to 2010
     """
-    # region = 'Kanto'
-    # callReducedGAModel(region)
+    region = 'Kanto'
+    callReducedGAModel(region)
 
     # region = 'EastJapan'
     # callReducedGAModel(region)
 
-    region = 'Tohoku'
-    callReducedGAModel(region)
+    # region = 'Tohoku'
+    # callReducedGAModel(region)
 
     # region = 'Kansai'
     # callReducedGAModel(region)

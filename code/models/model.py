@@ -433,7 +433,7 @@ def saveModelToFile(model, filename, real=False):
     It saves the model to a specific file, both passed as arg
     """
     numpy.savetxt(filename, model.bins)
-    with open(filename+"def.txt", 'w') as f:
+    with open(filename+"def", 'w') as f:
         f.write(str(model.definitions))
         f.write("\n")
         
@@ -447,7 +447,7 @@ def loadModelFromFile(filename):
 
     ret = model()
 
-    with open(filename+"def.txt", 'r') as f:
+    with open(filename+"def", 'r') as f:
         ret.definitions = eval(f.readline())
     f.close()
     ret.bins = numpy.loadtxt(filename, dtype="i")
