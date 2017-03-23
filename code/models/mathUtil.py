@@ -15,6 +15,7 @@ def invertPoisson(x,mi):
                 l = np.exp(-mi)
                 k = 1
                 prob = 1 * x
+
                 while(prob>l):
                     k += 1
                     prob = prob * x
@@ -26,6 +27,7 @@ def calcNumberBins(lambda_i, omega_i, weights=1, adjusting=0):
     a set of integer bins, using the value of real data 
     (omega) as the mean for the poisson distribution"""
     # bin=[]
+    # print(lambda_i)
     invP = np.vectorize(invertPoisson)
     return (invP(lambda_i, omega_i*weights)-adjusting).tolist()
 

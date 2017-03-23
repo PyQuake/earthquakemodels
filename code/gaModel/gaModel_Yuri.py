@@ -20,17 +20,19 @@ def evaluationFunction(individual, modelOmega, mean):
 	the real data from the prior X years (modelOmega, with length X).
 	It selects the smallest loglikelihood value.
 	"""
-	logValue = float('Infinity')
+	logValue = float('Inf')
 	genomeModel=type(modelOmega[0])
 
 	for i in range(len(modelOmega)):
 		genomeModel.bins=list(individual)
 		modelLambda=type(modelOmega[0])#maybe i can remove this
-		modelLambda.bins=calcNumberBins(genomeModel.bins, mean)
+		modelLambda.bins=calcNumberBins(genomeModel.bins, modelOmega[i].bins)
+		# modelLambda.bins=calcNumberBins(genomeModel.bins, mean)
 		tempValue=loglikelihood(modelLambda, modelOmega[i])
-
+		# print(tempValue, i)
 		if tempValue < logValue:
 			logValue = tempValue
+	# print('\n')
 	return logValue,
 
 #parallel
@@ -69,7 +71,7 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval=50000):
 	x=n_aval - y*NGEN
 	n= x + y
 
-	toolbox.register("evaluate", evaluationFunction, modelOmega=modelOmega, mean= mean)
+	toolbox.register("evaluate", evaluationFunction, modelOmega=modelOmega, mean=mean)
 	toolbox.register("individual", tools.initRepeat, creator.Individual, toolbox.attr_float, len(modelOmega[0].bins))
 	toolbox.register("population", tools.initRepeat, list, toolbox.individual)
 
@@ -82,7 +84,6 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval=50000):
 	fitnesses = list(map(toolbox.evaluate, pop))#need to pass 2 model.bins. One is the real data, the other de generated model
 	for ind, fit in zip(pop, fitnesses):
 		ind.fitness.values = fit
-
 	for g in range(NGEN):
 		if (g+1) % 10==0:
 			print(g)
@@ -129,6 +130,7 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval=50000):
 	generatedModel.definitions = modelOmega[0].definitions
 	generatedModel.time = start - end
 	generatedModel.logbook = logbook
+
 	#for pysmac
 	# logValue = best_pop.fitness.values
 	#return logValue
@@ -137,7 +139,6 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval=50000):
 	# fit_max=logbook.select("max")
 	# fit_std = logbook.select("std")
 	# print(gen, fit_std, fit_max)
-	
 	return generatedModel
 
 if __name__ == "__main__":

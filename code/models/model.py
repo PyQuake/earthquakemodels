@@ -132,17 +132,18 @@ def loadModelDefinition(filename):
 #TODO: is used?This is used
 #TODO: I do think theres a way to do this more phytonic
 #Gen to Fen
-def convertFromListToData(observations,length):
+def convertFromListToData(individual,length):
     """
     Function used to convert list model to GAModel configuration
     It finds the vinculates the list model positions in a bin and atribute a probability value to it
     """
 
     ret=model()
-    ret.bins=[0.00000000001]*length
+    ret.bins=[0]*length
 
-    for gene in observations:    
+    for gene in individual:    
         ret.bins[gene.index]=gene.prob
+
     return ret
 
 

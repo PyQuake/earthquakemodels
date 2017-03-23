@@ -12,8 +12,7 @@ import random
 import array
 from pathos.multiprocessing import ProcessingPool as Pool
 import time 
-        
-
+ 
 @jit
 def evaluationFunction(individual, modelOmega, mean):
 	"""
@@ -21,15 +20,16 @@ def evaluationFunction(individual, modelOmega, mean):
 	the real data from the prior X years (modelOmega, with length X).
 	It selects the smallest loglikelihood value.
 	"""
-	logValue = float('Infinity')
-	genomeModel=type(modelOmega[0])
+	logValue = float('Inf')
 	genomeModel=models.model.convertFromListToData(individual,len(modelOmega[0].bins))
+	modelLambda=type(modelOmega[0])
+	modelLambda.bins=calcNumberBins(genomeModel.bins, mean)
 	for i in range(len(modelOmega)):    
-		modelLambda=type(modelOmega[0])
-		modelLambda.bins=calcNumberBins(genomeModel.bins, mean)
 		tempValue=loglikelihood(modelLambda, modelOmega[i])
+		# print(tempValue)
 		if tempValue < logValue:
 			logValue = tempValue
+	# print('\n')
 	return logValue,
 
 
@@ -42,6 +42,7 @@ def mutationFunction(individual, indpb, length):
 	for i in range(length):
 		if random.random()<indpb:
 			individual[i].index=random.randint(0 ,length-1)
+		if random.random()<indpb:
 			individual[i].prob=random.random()
 	return individual
 
@@ -49,7 +50,7 @@ def mutationFunction(individual, indpb, length):
 
 toolbox = base.Toolbox()
 creator.create("FitnessFunction", base.Fitness, weights=(1.0,))
-creator.create("Individual", array.array, fitness=creator.FitnessFunction)
+creator.create("Individual", numpy.ndarray, fitness=creator.FitnessFunction)
 pool = Pool()
 toolbox.register("map", pool.map)
 
@@ -59,10 +60,6 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval=50000):
 	This version of the GA simplifies the ga using a list of bins with occurences
 	It uses 1 parallel system: 1, simple, that splits the ga evolution between cores
 	"""
-
-	global length
-	length=0
-
 	#defining the class (list) that will compose an individual
 	class genotype():
 	    def __init__(self):
@@ -78,12 +75,13 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval=50000):
 	tempValue=0
 	for i in range(len(modelOmega)):    
 		for j in range(len(modelOmega[i].bins)):
-			lengthPos[str(j)]=1
+			if modelOmega[i].bins[j] != 0:
+				lengthPos[str(j)] = 1
 	length=len(lengthPos)
-	
+
+
 	toolbox = base.Toolbox()
 	creator.create("FitnessFunction", base.Fitness, weights=(1.0,))
-	
 	toolbox.register("evaluate", evaluationFunction, modelOmega=modelOmega, mean= mean)
 	toolbox.register("individual", tools.initRepeat, creator.Individual, genotype, n=length)
 	toolbox.register("population", tools.initRepeat, list, toolbox.individual)
@@ -93,7 +91,7 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval=50000):
 	# is replaced by the 'fittest' (best) of three individuals
 	# drawn randomly from the current generation.
 	toolbox.register("select", tools.selTournament, tournsize=3)
-	toolbox.register("mutate", mutationFunction,indpb=0.1, length=len(modelOmega[0].bins)-1)
+	toolbox.register("mutate", mutationFunction,indpb=0.1, length=length)
 
 	stats = tools.Statistics(key=lambda ind: ind.fitness.values)
 	stats.register("avg", numpy.mean)
@@ -110,6 +108,8 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval=50000):
 
 	for ind, fit in zip(pop, fitnesses):
 		ind.fitness.values = fit
+	# exit()
+
 	for g in range(NGEN):
 		if (g+1) % 10==0:
 			print(g)
@@ -147,6 +147,7 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval=50000):
 		offspring = sorted(offspring, key=attrgetter("fitness"), reverse = True)
 		offspring[len(offspring)-1]=best_pop
 		random.shuffle(offspring)
+
 		pop[:] = offspring
 		#logBook
 		record = stats.compile(pop)
