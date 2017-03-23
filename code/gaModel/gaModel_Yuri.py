@@ -38,7 +38,6 @@ def evaluationFunction(individual, modelOmega, mean):
 toolbox = base.Toolbox()
 creator.create("FitnessFunction", base.Fitness, weights=(1.0,))
 creator.create("Individual", array.array, typecode='d', fitness=creator.FitnessFunction)
-# creator.create("Individual", numpy.ndarray, fitness=creator.FitnessFunction)
 pool = Pool()
 toolbox.register("map", pool.map)
 
