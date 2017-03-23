@@ -4,7 +4,7 @@ from functools import lru_cache as cache
 
 # jit decorator tells Numba to compile this function.
 # The argument types will be inferred by Numba when function is called.
-@cache(maxsize=None)
+@cache(maxsize=256)
 @jit
 def invertPoisson(x,mi):
     """ Calculates the value that would be found in a 
@@ -30,14 +30,14 @@ def calcNumberBins(lambda_i, omega_i, weights=1, adjusting=0):
     # bin=[]
     invP = np.vectorize(invertPoisson)
     # if weights is 1:
-        # for lam,om in zip(lambda_i,omega_i):
-            # bin.append(invertPoisson(lam,om)-adjusting)
+    #     for lam,om in zip(lambda_i,omega_i):
+    #         bin.append(invertPoisson(lam,om)-adjusting)
     # else: 
-        # for lam, om, weight in zip(lambda_i, omega_i, weights):
-            # bin.append(invertPoisson(lam,om*weight)-adjusting)
-    bin = (invP(lambda_i, omega_i*weights)-adjusting).tolist()
-
-    return bin
+    #     for lam, om, weight in zip(lambda_i, omega_i, weights):
+    #         bin.append(invertPoisson(lam,om*weight)-adjusting)
+    # if bin != (invP(lambda_i, omega_i*weights)-adjusting).tolist():
+    #     print("FODEU")
+    return (invP(lambda_i, omega_i*weights)-adjusting).tolist()
 
 def normalize(auxList):
     """ Normalize the number of observations, to a value between 0 and 1""" 
