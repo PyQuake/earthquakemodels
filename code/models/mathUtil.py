@@ -2,7 +2,7 @@ from numba import jit
 import numpy as np
 from functools import lru_cache as cache
 
-@cache(maxsize=128)
+@cache(maxsize=None)
 @jit
 def invertPoisson(x,mi):
     """ Calculates the value that would be found in a 

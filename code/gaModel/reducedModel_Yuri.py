@@ -24,8 +24,10 @@ def evaluationFunction(individual, modelOmega, mean):
 	genomeModel=models.model.convertFromListToData(individual,len(modelOmega[0].bins))
 	modelLambda=models.model.newModel(modelOmega[0].definitions)
 	modelLambda.bins=calcNumberBins(genomeModel.bins, mean)
+	calcNumberBins..cache_clear()
 	for i in range(len(modelOmega)):    
 		tempValue=loglikelihood(modelLambda, modelOmega[i])
+		loglikelihood.cache_clear()
 		# print(tempValue)
 		if tempValue < logValue:
 			logValue = tempValue

@@ -32,7 +32,7 @@ from functools import lru_cache as cache
 # Remove the storing of the likelihood for each bin (if necessary may put back)
 # Need to test the scores
 
-@cache(maxsize=128)
+@cache(maxsize=None)
 def calcLogLikelihood(modelLambda, modelOmega):
     """
     Calculates the log likelihood between two RELM models. Lambda is usually
