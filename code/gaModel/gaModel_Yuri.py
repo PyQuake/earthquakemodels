@@ -22,7 +22,7 @@ def evaluationFunction(individual, modelOmega, mean):
 	It selects the smallest loglikelihood value.
 	"""
 	logValue = float('Inf')
-	genomeModel=modelLambda=models.model.newModel(modelOmega[0].definitions)
+	genomeModel=models.model.newModel(modelOmega[0].definitions)
 	genomeModel.bins=list(individual)
 	modelLambda=models.model.newModel(modelOmega[0].definitions)
 	modelLambda.bins=calcNumberBins(genomeModel.bins, mean)
@@ -31,7 +31,6 @@ def evaluationFunction(individual, modelOmega, mean):
 		calcLogLikelihood.cache_clear()
 		if tempValue < logValue:
 			logValue = tempValue
-	# print('\n')
 	return logValue,
 
 #parallel
@@ -84,7 +83,7 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval=50000):
 	for ind, fit in zip(pop, fitnesses):
 		ind.fitness.values = fit
 	for g in range(NGEN):
-		if (g+1) % 10==0:
+		if (g) % 10==0:
 			print(g)
 		# Select the next generation individuals
 		offspring = toolbox.select(pop, len(pop))
@@ -100,9 +99,8 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval=50000):
 			if random.random() < MUTPB:
 				toolbox.mutate(mutant)
 				del mutant.fitness.values
-    
         # Evaluate the individuals with an invalid fitness
-
+        
 		invalid_ind = [ind for ind in offspring if not ind.fitness.valid]
 		fitnesses = toolbox.map(toolbox.evaluate, invalid_ind)
 		for ind, fit in zip(invalid_ind, fitnesses):
@@ -119,17 +117,15 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval=50000):
 		#logBook
 		record = stats.compile(pop)
 		logbook.record(gen=g, **record)
-
 	end = time.clock()  
-	generatedModel = type(modelOmega[0])
+	generatedModel = models.model.newModel(modelOmega[0].definitions)
 	#conferir se e bins o best_pop
 	generatedModel.prob = best_pop
-	generatedModel.bins = calcNumberBins(best_pop, modelOmega[0].bins, mean)
+	generatedModel.bins=calcNumberBins(list(best_pop), mean)
 	generatedModel.loglikelihood = best_pop.fitness.values
 	generatedModel.definitions = modelOmega[0].definitions
 	generatedModel.time = start - end
 	generatedModel.logbook = logbook
-
 	#for pysmac
 	# logValue = best_pop.fitness.values
 	#return logValue

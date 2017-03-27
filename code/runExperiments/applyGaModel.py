@@ -12,11 +12,13 @@ def execGaModel(year, region, qntYears=5, times=10):
     """
     observations = list()
     means = list()
+    logbook = list()
     for i in range(qntYears):
         observation = model.loadModelDB(region+'jmaData', year+i)
         observation.bins = observation.bins.tolist()
         observations.append(observation)
         means.append(observation.bins)
+    del observation
     mean = np.mean(means, axis=0)
     for i in range(times):
         model_ = ga.gaModel(
@@ -42,8 +44,8 @@ def execGaModel(year, region, qntYears=5, times=10):
         with open("../../Zona4/GAModel/" + region +"GAModel" + str(year+qntYears) + '_' + str(i) + "logbook.txt", 'w') as f:
             f.write(str(model_.logbook))
             f.write("\n")
-            f.close()   
-
+            f.close()
+        f.close()
 
 def callGAModel(region):
     """
