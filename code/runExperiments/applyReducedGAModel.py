@@ -65,11 +65,11 @@ def main():
     # region = 'Kanto'
     # callReducedGAModel(region)
 
-    region = 'EastJapan'
-    callReducedGAModel(region)
-
-    # region = 'Tohoku'
+    # region = 'EastJapan'
     # callReducedGAModel(region)
+
+    region = 'Tohoku'
+    callReducedGAModel(region)
 
     # region = 'Kansai'
     # callReducedGAModel(region)
