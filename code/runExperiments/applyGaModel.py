@@ -36,7 +36,7 @@ def execGaModel(year, region, qntYears=5, times=10):
         if (gaModel_.definitions==None):    
             # model.saveModelDB(model_)
             model.saveModelToFile(model_,
-                '../../Zona4/GAModel' + region +'GAModel' + str(year+qntYears) + '_' + str(i) + '.txt')
+                '../../Zona4/GAModel/' + region +'GAModel' + str(year+qntYears) + '_' + str(i) + '.txt')
             with open("../../Zona4/GAModel/" + region +"GAModel" + str(year+qntYears) + "_loglikelihood.txt", 'a') as f:
                 f.write(str(model_.loglikelihood))
                 f.write("\n")
@@ -52,7 +52,7 @@ def callGAModel(region):
     It is a wrapper to the function that generates the GAModel with JMA data
     It cover the years of 2000 to 2005, and the models are from 2005 to 2010
     """
-    year = 2000
+    year = 2003
     while(year <= 2005):
         execGaModel(year, region)
         year+=1
@@ -63,11 +63,11 @@ def main():
     for the regions: EastJapan, Kanto, Kansai, Tohoku
     from 2000 to 2005 to create models from 2005 to 2010
     """
-    region = 'Kanto'
-    callGAModel(region)
-
-    # region = 'EastJapan'
+    # region = 'Kanto'
     # callGAModel(region)
+
+    region = 'EastJapan'
+    callGAModel(region)
 
     # region = 'Tohoku'
     # callGAModel(region)
