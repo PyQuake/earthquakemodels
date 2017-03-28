@@ -155,11 +155,12 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval=50000):
 		logbook.record(gen=g, **record)
 	
 	
-	generatedModel = type(modelOmega[0])
+	generatedModel=models.model.newModel(modelOmega[0].definitions)
 	generatedModel.bins = [0.0]*len(modelOmega[0].bins)
 	generatedModel = models.model.convertFromListToData(best_pop,len(modelOmega[0].bins))
 	generatedModel.prob = generatedModel.bins
-	generatedModel.bins = calcNumberBins(generatedModel.bins, modelOmega[0].bins)
+	# generatedModel.bins = calcNumberBins(generatedModel.bins, modelOmega[0].bins)
+	generatedModel.bins=calcNumberBins(generatedModel.bins, mean)
 	generatedModel.definitions = modelOmega[0].definitions
 	generatedModel.loglikelihood = best_pop.fitness.values
 	generatedModel.logbook = logbook

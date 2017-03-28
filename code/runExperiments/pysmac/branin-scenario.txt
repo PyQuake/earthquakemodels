@@ -1,0 +1,5 @@
+use-instances = false
+numberOfRunsLimit = 100 
+runObj = QUALITY
+pcs-file = examples/branin/params.pcs
+algo = examples/branin/wrapper.py

@@ -37,7 +37,7 @@ def execReducedGAModel(year, region, qntYears=5, times=10):
         #     model.saveModelDB(model_)
             model.saveModelToFile(model_,
                 '../../Zona4/ReducedGAModel/' + region +'ReducedGAModel' + str(year+qntYears) + '_' + str(i) + '.txt')
-            with open("../../Zona4/ReducedGAModel/" + region +"ReducedGAModel" + str(year+qntYears) + "_loglikelihood.txt", 'a') as f:
+            with open("../../Zona4/ReducedGAModel/a_" + region +"ReducedGAModel" + str(year+qntYears) + "_loglikelihood.txt", 'a') as f:
                 f.write(str(model_.loglikelihood))
                 f.write("\n")
                 f.close() 
@@ -51,7 +51,7 @@ def callReducedGAModel(region):
     It is a wrapper to the function that generates the list model with JMA data
     It cover the years of 2000 to 2005, and the models are from 2005 to 2010
     """
-    year = 2005
+    year = 2000
     while(year <= 2005):
         execReducedGAModel(year, region)
         year+=1
@@ -62,14 +62,14 @@ def main():
     for the regions: EastJapan, Kanto, Kansai, Tohoku
     from 2000 to 2005 to create models from 2005 to 2010
     """
-    # region = 'Kanto'
-    # callReducedGAModel(region)
+    region = 'Kanto'
+    callReducedGAModel(region)
 
-    # region = 'EastJapan'
-    # callReducedGAModel(region)
+    region = 'EastJapan'
+    callReducedGAModel(region)
 
-    # region = 'Tohoku'
-    # callReducedGAModel(region)
+    region = 'Tohoku'
+    callReducedGAModel(region)
 
     region = 'Kansai'
     callReducedGAModel(region)
