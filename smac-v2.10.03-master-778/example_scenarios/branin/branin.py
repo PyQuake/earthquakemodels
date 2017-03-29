@@ -21,5 +21,5 @@ yValue = (x2 - (5.1 / (4 * math.pi * math.pi)) *x1*x1 + (5 / (math.pi)) *x1 -6) 
 
   
 # SMAC has a few different output fields; here, we only need the 4th output:
-print ("Result of algorithm run: SUCCESS, 0, 0, %f, 0" % yValue)
+print "Result of algorithm run: SUCCESS, 0, 0, %f, 0" % yValue
  

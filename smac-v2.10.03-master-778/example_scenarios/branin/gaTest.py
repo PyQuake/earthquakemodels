@@ -46,3 +46,4 @@ loglikelihood = ga.gaModel(
 # SMAC has a few different output fields; here, we only need the 4th output:
 print ("Result of algorithm run: SUCCESS, 0, 0, %f, 0" % loglikelihood)
  
+

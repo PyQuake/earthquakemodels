@@ -3,3 +3,4 @@ runObj = QUALITY
 deterministic = 0
 pcs-file = example_scenarios/branin/params-gaTest.pcs
 algo = example_scenarios/branin/gaTest.py
+
