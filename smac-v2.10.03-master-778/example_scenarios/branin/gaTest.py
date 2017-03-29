@@ -6,8 +6,8 @@ import gaModel.gaModel_Yuri as ga
 import numpy as np
 
 qntYears = 5
-year=2000
-region ='Kanto'
+year=2001
+region ='EastJapan'
 
 observations = list()
 means = list()
@@ -31,7 +31,7 @@ for i in range(len(sys.argv)-1):
  
 # Compute the branin function:
 loglikelihood = ga.gaModel(
-        NGEN=10,
+        NGEN=100,
         CXPB=0.9,
         MUTPB=0.1,
         modelOmega=observations,
@@ -40,7 +40,7 @@ loglikelihood = ga.gaModel(
         region=region,
         mean=mean,
         tournsize=tournsize,
-        n_aval=5)
+        n_aval=50000)
 
   
 # SMAC has a few different output fields; here, we only need the 4th output:
