@@ -1,0 +1,4 @@
+use-instances = false
+runObj = QUALITY
+pcs-file = example_scenarios/branin/params-gaTest.pcs
+algo = example_scenarios/branin/gaTest.py

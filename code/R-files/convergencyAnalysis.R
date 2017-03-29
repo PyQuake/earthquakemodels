@@ -66,15 +66,17 @@ plotConvergencyData = function(data, type, region, year){
     saveFile = paste("../Zona4/heatMap/", type, region,"_",year,".png",sep="")
     png(saveFile, width = 800, height = 800)
     p1<- ggplot(data, aes(x=gen, y=maxs, group=1)) + 
-    geom_line(color='orange') +
-    geom_point(color='orange')+
-coord_cartesian(ylim = c(min(data$maxs), max(data$maxs))) + 
-    geom_errorbar(aes(ymin=data$maxs+data$stds, ymax=data$maxs-data$stds), width=0.2, color='black')
+        geom_line(color='orange') +
+        geom_point(color='orange')+
+        coord_cartesian(ylim = c(min(data$maxs), max(data$maxs))) + 
+        geom_errorbar(aes(ymin=data$maxs+data$stds, ymax=data$maxs-data$stds), width=0.2, color='black')
+    
     p2<- ggplot(data, aes(x=gen, y=maxs, group=1)) + 
         geom_line(color='orange') +
         geom_point(color='orange')+
-    coord_cartesian(ylim = c(min(data$maxs), max(data$maxs))) +
+        coord_cartesian(ylim = c(min(data$maxs), max(data$maxs))) +
         geom_errorbar(aes(ymin=data$maxs+data$stds, ymax=data$maxs-data$stds), width=0.2, color='black')
+    
     grid.arrange(p1, p2, ncol=2, top = paste("Convergency Analysis in ",region,"year of", year, "(ReducedGAModel - GAModel)"))
     dev.off()
 }

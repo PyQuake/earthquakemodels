@@ -1,0 +1,639 @@
+18:25:49.834 [main] INFO  c.u.c.b.a.l.ComplexLoggingOptions - Logging to: /Users/yclavinas/Documents/estudos/master-unb/earthquakemodels/smac-v2.10.03-master-778/smac-output/gaTest-scenario/log-run1234.txt
+18:25:49.843 [main] INFO  c.u.c.b.a.m.version.VersionTracker - Version of Algorithm Execution & Abstraction Toolkit is v2.10.03-master-814 (ebf4c8c913d5) 
+18:25:49.843 [main] INFO  c.u.c.b.a.m.version.VersionTracker - Version of Java Runtime Environment is Java HotSpot(TM) 64-Bit Server VM (1.8.0_60) 
+18:25:49.843 [main] INFO  c.u.c.b.a.m.version.VersionTracker - Version of OS is Mac OS X 10.12.3 (x86_64) 
+18:25:49.843 [main] INFO  c.u.c.b.a.m.version.VersionTracker - Version of Random Forest Library is v1.10.01-master-120 (b68439c2c391) 
+18:25:49.843 [main] INFO  c.u.c.b.a.m.version.VersionTracker - Version of SMAC is v2.10.03-master-778 (3ee628ef9bf2) 
+18:25:49.844 [main] INFO  c.u.c.b.a.m.j.JCommanderHelper - Call String: smac --scenario-file example_scenarios/branin/gaTest-scenario.txt --seed 1234 
+18:25:49.844 [main] INFO  c.u.c.b.smac.executors.SMACExecutor - ********** The next bit of output can be ignored, it is merely useful for debugging **********
+18:25:49.844 [main] INFO  c.u.c.b.smac.executors.SMACExecutor - ==========Enviroment Variables===========
+Apple_PubSub_Socket_Render=/private/tmp/com.apple.launchd.eUXEEEW4R7/Render
+DISPLAY=/private/tmp/com.apple.launchd.kKd0rF6WQE/org.macosforge.xquartz:0
+GEOS_DIR=/usr/local/
+HOME=/Users/yclavinas
+JAVA_ARCH=x86_64
+JAVA_MAIN_CLASS_3404=ca.ubc.cs.beta.aeatk.ant.execscript.Launcher
+LANG=en_US.UTF-8
+LOGNAME=yclavinas
+MPI_DIR=/usr/local/openmpi
+PATH=/Library/Frameworks/Python.framework/Versions/3.6/bin://anaconda/bin:/opt/local/bin:/opt/local/sbin:/usr/local/openmpi/bin:/opt/local/bin:/opt/local/sbin:/Library/Frameworks/Python.framework/Versions/3.5/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/git/bin:/Library/TeX/texbin
+PWD=/Users/yclavinas/Documents/estudos/master-unb/earthquakemodels/smac-v2.10.03-master-778
+SECURITYSESSIONID=186a7
+SHELL=/bin/bash
+SHLVL=1
+SSH_AUTH_SOCK=/private/tmp/com.apple.launchd.Hdw5z3j2AF/Listeners
+TERM=xterm-256color
+TERM_PROGRAM=Apple_Terminal
+TERM_PROGRAM_VERSION=388
+TERM_SESSION_ID=6CF67805-7167-4F16-B606-1478053807CD
+TMPDIR=/var/folders/4q/v9cwzvb11wqgxb65zp6wq3xw0000gn/T/
+USER=yclavinas
+XPC_FLAGS=0x0
+XPC_SERVICE_NAME=0
+__CF_USER_TEXT_ENCODING=0x1F5:0x0:0x0
+com.apple.java.jvmTask=CommandLine
+
+18:25:54.847 [main] INFO  c.u.c.b.smac.executors.SMACExecutor - Hostname:Lara.local
+18:25:54.847 [main] INFO  c.u.c.b.smac.executors.SMACExecutor - ==========System Properties==============
+ERRLOG=/Users/yclavinas/Documents/estudos/master-unb/earthquakemodels/smac-v2.10.03-master-778/smac-output/gaTest-scenario/log-err1234.txt
+NUMRUN=1234
+OUTPUTDIR=/Users/yclavinas/Documents/estudos/master-unb/earthquakemodels/smac-v2.10.03-master-778/smac-output/gaTest-scenario
+ROOT-LEVEL=INFO
+RUNLOG=/Users/yclavinas/Documents/estudos/master-unb/earthquakemodels/smac-v2.10.03-master-778/smac-output/gaTest-scenario/log-run1234.txt
+STDOUT-LEVEL=INFO
+WARNLOG=/Users/yclavinas/Documents/estudos/master-unb/earthquakemodels/smac-v2.10.03-master-778/smac-output/gaTest-scenario/log-warn1234.txt
+awt.toolkit=sun.lwawt.macosx.LWCToolkit
+file.encoding=UTF-8
+file.encoding.pkg=sun.io
+file.separator=/
+ftp.nonProxyHosts=local|*.local|169.254/16|*.169.254/16
+gopherProxySet=false
+http.nonProxyHosts=local|*.local|169.254/16|*.169.254/16
+java.awt.graphicsenv=sun.awt.CGraphicsEnvironment
+java.awt.printerjob=sun.lwawt.macosx.CPrinterJob
+java.class.path=/Users/yclavinas/Documents/estudos/master-unb/earthquakemodels/smac-v2.10.03-master-778/conf/:/Users/yclavinas/Documents/estudos/master-unb/earthquakemodels/smac-v2.10.03-master-778/patches/:/Users/yclavinas/Documents/estudos/master-unb/earthquakemodels/smac-v2.10.03-master-778/lib/DomainInter.jar:/Users/yclavinas/Documents/estudos/master-unb/earthquakemodels/smac-v2.10.03-master-778/lib/Jama-1.0.2.jar:/Users/yclavinas/Documents/estudos/master-unb/earthquakemodels/smac-v2.10.03-master-778/lib/aeatk-src.jar:/Users/yclavinas/Documents/estudos/master-unb/earthquakemodels/smac-v2.10.03-master-778/lib/aeatk.jar:/Users/yclavinas/Documents/estudos/master-unb/earthquakemodels/smac-v2.10.03-master-778/lib/commons-collections-3.2.1-sources.jar:/Users/yclavinas/Documents/estudos/master-unb/earthquakemodels/smac-v2.10.03-master-778/lib/commons-collections-3.2.1.jar:/Users/yclavinas/Documents/estudos/master-unb/earthquakemodels/smac-v2.10.03-master-778/lib/commons-io-2.1.jar:/Users/yclavinas/Documents/estudos/master-unb/earthquakemodels/smac-v2.10.03-master-778/lib/commons-math-2.2.jar:/Users/yclavinas/Documents/estudos/master-unb/earthquakemodels/smac-v2.10.03-master-778/lib/commons-math3-3.3.jar:/Users/yclavinas/Documents/estudos/master-unb/earthquakemodels/smac-v2.10.03-master-778/lib/exp4j-0.3.10.jar:/Users/yclavinas/Documents/estudos/master-unb/earthquakemodels/smac-v2.10.03-master-778/lib/exp4j-0.4.3.BETA-3.jar:/Users/yclavinas/Documents/estudos/master-unb/earthquakemodels/smac-v2.10.03-master-778/lib/fastrf-src.jar:/Users/yclavinas/Documents/estudos/master-unb/earthquakemodels/smac-v2.10.03-master-778/lib/fastrf.jar:/Users/yclavinas/Documents/estudos/master-unb/earthquakemodels/smac-v2.10.03-master-778/lib/guava-14.0.1.jar:/Users/yclavinas/Documents/estudos/master-unb/earthquakemodels/smac-v2.10.03-master-778/lib/jackson-annotations-2.3.1.jar:/Users/yclavinas/Documents/estudos/master-unb/earthquakemodels/smac-v2.10.03-master-778/lib/jackson-core-2.3.1.jar:/Users/yclavinas/Documents/estudos/master-unb/earthquakemodels/smac-v2.10.03-master-778/lib/jackson-databind-2.3.1.jar:/Users/yclavinas/Documents/estudos/master-unb/earthquakemodels/smac-v2.10.03-master-778/lib/jcip-annotations-src.jar:/Users/yclavinas/Documents/estudos/master-unb/earthquakemodels/smac-v2.10.03-master-778/lib/jcip-annotations.jar:/Users/yclavinas/Documents/estudos/master-unb/earthquakemodels/smac-v2.10.03-master-778/lib/jcommander.jar:/Users/yclavinas/Documents/estudos/master-unb/earthquakemodels/smac-v2.10.03-master-778/lib/jmatharray.jar:/Users/yclavinas/Documents/estudos/master-unb/earthquakemodels/smac-v2.10.03-master-778/lib/logback-access-1.1.2.jar:/Users/yclavinas/Documents/estudos/master-unb/earthquakemodels/smac-v2.10.03-master-778/lib/logback-classic-1.1.2.jar:/Users/yclavinas/Documents/estudos/master-unb/earthquakemodels/smac-v2.10.03-master-778/lib/logback-core-1.1.2.jar:/Users/yclavinas/Documents/estudos/master-unb/earthquakemodels/smac-v2.10.03-master-778/lib/numerics4j-1.3.jar:/Users/yclavinas/Documents/estudos/master-unb/earthquakemodels/smac-v2.10.03-master-778/lib/opencsv-2.3.jar:/Users/yclavinas/Documents/estudos/master-unb/earthquakemodels/smac-v2.10.03-master-778/lib/slf4j-api-1.7.5.jar:/Users/yclavinas/Documents/estudos/master-unb/earthquakemodels/smac-v2.10.03-master-778/lib/smac-src.jar:/Users/yclavinas/Documents/estudos/master-unb/earthquakemodels/smac-v2.10.03-master-778/lib/smac.jar:/Users/yclavinas/Documents/estudos/master-unb/earthquakemodels/smac-v2.10.03-master-778/lib/spi-0.2.4.jar:/Users/yclavinas/Documents/estudos/master-unb/earthquakemodels/smac-v2.10.03-master-778/*.jar:/Users/yclavinas/Documents/estudos/master-unb/earthquakemodels/smac-v2.10.03-master-778/patches/
+java.class.version=52.0
+java.endorsed.dirs=/Library/Java/JavaVirtualMachines/jdk1.8.0_60.jdk/Contents/Home/jre/lib/endorsed
+java.ext.dirs=/Users/yclavinas/Library/Java/Extensions:/Library/Java/JavaVirtualMachines/jdk1.8.0_60.jdk/Contents/Home/jre/lib/ext:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java
+java.home=/Library/Java/JavaVirtualMachines/jdk1.8.0_60.jdk/Contents/Home/jre
+java.io.tmpdir=/var/folders/4q/v9cwzvb11wqgxb65zp6wq3xw0000gn/T/
+java.library.path=/Users/yclavinas/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.
+java.runtime.name=Java(TM) SE Runtime Environment
+java.runtime.version=1.8.0_60-b27
+java.specification.name=Java Platform API Specification
+java.specification.vendor=Oracle Corporation
+java.specification.version=1.8
+java.vendor=Oracle Corporation
+java.vendor.url=http://java.oracle.com/
+java.vendor.url.bug=http://bugreport.sun.com/bugreport/
+java.version=1.8.0_60
+java.vm.info=mixed mode
+java.vm.name=Java HotSpot(TM) 64-Bit Server VM
+java.vm.specification.name=Java Virtual Machine Specification
+java.vm.specification.vendor=Oracle Corporation
+java.vm.specification.version=1.8
+java.vm.vendor=Oracle Corporation
+java.vm.version=25.60-b23
+line.separator=
+
+logback.configurationFile=ca/ubc/cs/beta/aeatk/logging/complex-logback.xml
+os.arch=x86_64
+os.name=Mac OS X
+os.version=10.12.3
+path.separator=:
+socksNonProxyHosts=local|*.local|169.254/16|*.169.254/16
+sun.arch.data.model=64
+sun.boot.class.path=/Library/Java/JavaVirtualMachines/jdk1.8.0_60.jdk/Contents/Home/jre/lib/resources.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_60.jdk/Contents/Home/jre/lib/rt.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_60.jdk/Contents/Home/jre/lib/sunrsasign.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_60.jdk/Contents/Home/jre/lib/jsse.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_60.jdk/Contents/Home/jre/lib/jce.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_60.jdk/Contents/Home/jre/lib/charsets.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_60.jdk/Contents/Home/jre/lib/jfr.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_60.jdk/Contents/Home/jre/classes
+sun.boot.library.path=/Library/Java/JavaVirtualMachines/jdk1.8.0_60.jdk/Contents/Home/jre/lib
+sun.cpu.endian=little
+sun.cpu.isalist=
+sun.io.unicode.encoding=UnicodeBig
+sun.java.command=ca.ubc.cs.beta.aeatk.ant.execscript.Launcher ca.ubc.cs.beta.smac.executors.SMACExecutor --scenario-file example_scenarios/branin/gaTest-scenario.txt --seed 1234
+sun.java.launcher=SUN_STANDARD
+sun.jnu.encoding=UTF-8
+sun.management.compiler=HotSpot 64-Bit Tiered Compilers
+sun.os.patch.level=unknown
+user.country=US
+user.dir=/Users/yclavinas/Documents/estudos/master-unb/earthquakemodels/smac-v2.10.03-master-778
+user.home=/Users/yclavinas
+user.language=en
+user.name=yclavinas
+user.timezone=America/Montevideo
+
+18:25:54.850 [main] INFO  c.u.c.b.a.m.j.JCommanderHelper - ==========Configuration Options==========
+[SMACOptions]
+ adaptiveCapping = false
+ alwaysRunInitialConfiguration = false
+ capAddSlack = 1.0
+ capSlack = 1.3
+classicInitModeOpts = [ClassicInitializationProcedureOptions]
+		 initialIncumbentRuns = 1
+
+dciModeOpts = [DoublingCappingInitializationProcedureOptions]
+		 numberOfChallengers = 2
+		 numberOfRunsPerChallenger = 2
+
+ucip = [UnbiasChallengerInitializationProcedureOptions]
+		 numberOfChallengers = 2
+		 numberOfRunsPerChallenger = 2
+		 cpulimit = 0
+
+ deterministicInstanceOrdering = false
+ doValidation = true
+ execMode = SMAC
+ experimentDir = /Users/yclavinas/Documents/estudos/master-unb/earthquakemodels/smac-v2.10.03-master-778/
+ expFunc = null
+help = [HelpOptions]
+		 showHiddenParameters = false
+		 showHelp = false
+		 helpLevel = BASIC
+		 showVersion = false
+		 helpDefaults = /Users/yclavinas/.aeatk/help.opt
+
+ initialChallengeRuns = 1
+ initialIncumbent = DEFAULT
+ initializationMode = CLASSIC
+ intensificationPercentage = 0.5
+ initialChallengers = []
+ initialChallengersIntensificationTime = 2147483647
+ iterativeCappingBreakOnFirstCompletion = false
+ iterativeCappingK = 1
+logOptions = [ComplexLoggingOptions]
+		 consoleLogLevel = INFO
+		 logLevel = INFO
+
+ maxIncumbentRuns = 2000
+mbOptions = [ModelBuildingOptions]
+		 maskCensoredDataAsKappaMax = false
+		 maskInactiveConditionalParametersAsDefaultValue = true
+		 maskCensoredDataAsUncensored = false
+		 imputationIterations = 2
+
+ modelHashCodeFile = null
+ numberOfChallengers = 10
+ numberOfRandomConfigsInEI = 10000
+ numberOfRandomConfigsUsedForLocalSearch = 0
+ numPCA = 7
+ optionFile = null
+ optionFile2 = null
+randomForestOptions = [RandomForestOptions]
+		 brokenVarianceCalculation = false
+		 freeMemoryPercentageToSubsample = 0.25
+		 fullTreeBootstrap = false
+		 ignoreConditionality = false
+		 imputeMean = false
+		 logModel = false
+		 minVariance = 1.0E-14
+		 numTrees = 10
+		 penalizeImputedValues = false
+		 preprocessMarginal = true
+		 ratioFeatures = 0.8333333333333334
+		 shuffleImputedValues = false
+		 splitMin = 10
+		 storeDataInLeaves = false
+		 subsamplePercentage = 0.9
+		 subsampleValuesWhenLowMemory = false
+
+runGroupOptions = [RunGroupOptions]
+		 runGroupName = %SCENARIO_NAME
+		 runGroupExit = false
+		 replacementChar = %
+
+scenarioConfig = [ScenarioOptions]
+		 _runObj = QUALITY
+		 intraInstanceObj = null
+		 interInstanceObj = MEAN
+		limitOptions = [TerminationCriteriaOptions]
+				 tunerTimeout = 2147483647
+				 numIterations = 2147483647
+				 runtimeLimit = 2147483647
+				 totalNumRunsLimit = 9223372036854775807
+				 countSMACTimeAsTunerTime = true
+				 challengeIncumbentAttempts = 1000
+				 fileToWatch = null
+
+		instanceOptions = [ProblemInstanceOptions]
+				 instanceFile = null
+				 instanceFeatureFile = null
+				 testInstanceFile = null
+				 checkInstanceFilesExist = false
+				 useInstances = false
+				 instanceSuffix = null
+				 testInstanceSuffix = null
+				 ignoreFeatures = false
+
+		 scenarioFile = /Users/yclavinas/Documents/estudos/master-unb/earthquakemodels/smac-v2.10.03-master-778/example_scenarios/branin/gaTest-scenario.txt
+		 outputDirectory = /Users/yclavinas/Documents/estudos/master-unb/earthquakemodels/smac-v2.10.03-master-778/smac-output
+		 invalidScenarioReason = null
+		algoExecOptions = [AlgorithmExecutionOptions]
+				 algoExec = example_scenarios/branin/gaTest.py
+				 algoExecDir = /Users/yclavinas/Documents/estudos/master-unb/earthquakemodels/smac-v2.10.03-master-778
+				 deterministic = false
+				 cutoffTime = 1.7976931348623157E308
+				 cutoffLength = -1.0
+				 additionalContext = {}
+				taeOpts = [TargetAlgorithmEvaluatorOptions]
+						 targetAlgorithmEvaluator = CLI
+						 abortOnCrash = false
+						 abortOnFirstRunCrash = true
+						 retryCount = 0
+						 cacheRuns = false
+						 cacheDebug = false
+						 useDynamicCappingExclusively = false
+						 reportStrictlyIncreasingRuntimes = false
+						 boundRuns = false
+						 maxConcurrentAlgoExecs = 1
+						 exitOnFailure = false
+						 runHashCodeFile = null
+						 leakMemory = false
+						 leakMemoryAmount = 1024
+						 verifySAT = null
+						 checkSATConsistency = true
+						 checkSATConsistencyException = true
+						 callObserverBeforeCompletion = true
+						prePostOptions = [PrePostCommandOptions]
+								 preCommand = null
+								 postCommand = null
+								 exceptionOnError = false
+								 logOutput = true
+								 directory = /Users/yclavinas/Documents/estudos/master-unb/earthquakemodels/smac-v2.10.03-master-778/.
+
+						 checkResultOrderConsistent = false
+						 skipOutstandingEvaluationsTAE = false
+						 logRequestResponses = false
+						 logRequestResponsesRCOnly = false
+						 trackRunsScheduled = false
+						 trackRunsScheduledResolution = 1.0
+						 uncleanShutdownCheck = true
+						 killCaptimeExceedingRun = true
+						 killCaptimeExceedingRunFactor = 10.0
+						 checkRunConfigsUnique = true
+						 checkRunConfigsUniqueException = true
+						 observeWalltimeIfNoRuntime = true
+						 observeWalltimeScale = 0.95
+						 observeWalltimeDelay = 5.0
+						 synchronousObserver = true
+						 taeDefaults = /Users/yclavinas/.aeatk/tae.opt
+						ttaedo = [TransformTargetAlgorithmEvaluatorDecoratorOptions]
+								 transform = false
+								 transformValidValuesOnly = true
+								 SAT_runtime_transform = R
+								 SAT_quality_transform = Q
+								 UNSAT_runtime_transform = R
+								 UNSAT_quality_transform = Q
+								 TIMEOUT_runtime_transform = R
+								 TIMEOUT_quality_transform = Q
+								 other_runtime_transform = R
+								 other_quality_transform = Q
+
+						tForkOptions = [ForkingTargetAlgorithmEvaluatorDecoratorOptions]
+								 forkToTAE = null
+								fPolicyOptions = [ForkingTargetAlgorithmEvaluatorDecoratorPolicyOptions]
+										 fPolicy = null
+										 duplicateOnSlaveQuickTimeout = 5
+
+
+						 fileToWatch = null
+						 warnIfNoResponseFromTAE = 120
+						 taeStopProcessingOnShutdown = true
+						 filecache = false
+						 fileCacheSource = /Users/yclavinas/Documents/estudos/master-unb/earthquakemodels/smac-v2.10.03-master-778/./runcache
+						 fileCacheOutput = /Users/yclavinas/Documents/estudos/master-unb/earthquakemodels/smac-v2.10.03-master-778/./runcache
+						 fileCacheCrashOnMiss = false
+						 transformCrashedQuality = true
+						 transformCrashedQualityValue = 1.0E9
+						 filterZeroCutoffRuns = true
+
+				paramFileDelegate = [ParamConfigurationSpaceOptions]
+						 paramFile = example_scenarios/branin/params-gaTest.pcs
+						 searchSubspace = null
+						 searchSubspaceFile = null
+						 continuousNeighbours = 4
+
+
+
+seedOptions = [SeedOptions]
+		 seedOffset = 0
+		 numRun = 1234
+		 initialSeedMap = {}
+
+ smacDefaults = /Users/yclavinas/.aeatk/smac.opt
+stateOpts = [StateFactoryOptions]
+		 stateSerializer = LEGACY
+		 statedeSerializer = LEGACY
+		 restoreStateFrom = null
+		 restoreIteration = null
+		 restoreScenario = null
+		 cleanOldStatesOnSuccess = true
+		 saveContextWithState = true
+
+trackingOptions = [ParamConfigurationOriginTrackingOptions]
+		 configTracking = false
+
+validationOptions = [ValidationOptions]
+		 maxTimestamp = -1.0
+		 minTimestamp = 0.0
+		 multFactor = 2.0
+		 numberOfTestInstances = 2147483647
+		 numberOfTestSeedsPerInstance = 1000
+		 numberOfValidationRuns = 1
+		 outputFileSuffix = 
+		 saveStateFile = false
+		 useWallClockTime = true
+		 validateAll = false
+		 validateOnlyIfTunerTimeReached = 0.0
+		 validateOnlyIfWallTimeReached = 0.0
+		 validateOnlyLastIncumbent = true
+		 validationHeaders = true
+		 validationRoundingMode = UP
+
+warmStartOptions = [WarmStartOptions]
+		 warmStartStateFrom = null
+		 restoreIteration = 2147483647
+
+ validationSeed = 0
+ saveRunsEveryIteration = false
+ stateQuickSaves = true
+ shutdownTAEWhenDone = true
+ validationCores = null
+ shareModelMode = false
+ shareRunDataFrequency = 300
+ shareModeModeTAE = true
+ writeRunData = true
+ defaultHandler = USE_ALL
+ sharedModeModeAssymetricMode = false
+
+[AnalyticTargetAlgorithmEvaluatorOptions]
+ simulateDelay = false
+ cores = 0
+ observerFrequency = 100
+ func = CAMELBACK
+ scaleDelay = 1.0
+
+[BlackHoleTargetAlgorithmEvaluatorOptions]
+ warnings = true
+
+[CommandLineTargetAlgorithmEvaluatorOptions]
+ observerFrequency = 500
+ concurrentExecution = true
+ cores = 1
+ logAllCallStrings = false
+ logAllResultLines = false
+ logAllCallsAndResultLines = false
+ logAllProcessOutput = false
+ listenForUpdates = true
+ paramArgumentsContainQuotes = false
+ pgEnvKillCommand = null
+ pgNiceKillCommand = bash -c "kill -s TERM -%pid"
+ pgForceKillCommand = bash -c "kill -s KILL -%pid"
+ procNiceKillCommand = kill -s TERM %pid
+ procForceKillCommand = kill -s KILL %pid
+ smacDefaults = /Users/yclavinas/.aeatk/cli-tae.opt
+
+[ConstantTargetAlgorithmEvaluatorOptions]
+ runResult = SAT
+ runtime = 1.0
+ quality = 0.0
+ runlength = 0.0
+ additionalRunData = 
+
+[IPCTargetAlgorithmEvaluatorOptions]
+ persistent = false
+ ipcMechanism = UDP
+ encodingMechanism = CALL_STRING
+ remoteHost = 127.0.0.1
+ remotePort = 5050
+ udpPacketSize = 4096
+ localPort = 0
+ execScript = null
+ execScriptOutput = false
+ poolConnections = false
+ ipcDefaults = /Users/yclavinas/.aeatk/ipc-tae.opt
+ asyncThreads = 5
+
+[PreloadedResponseTargetAlgorithmEvaluatorOptions]
+ preloadedResponses = 
+ runLength = -1.0
+ quality = 0.0
+ additionalRunData = 
+
+[RandomResponseTargetAlgorithmEvaluatorOptions]
+ simulateDelay = false
+ additionalRunData = 
+ cores = 0
+ maxResponse = 10.0
+ minResponse = 0.0
+ observerFrequency = 500
+ trendCoefficient = 0.0
+ seed = 1490736344365
+ persistent = false
+ scaleDelay = 1.0
+
+
+18:25:54.904 [main] INFO  c.u.c.b.a.s.l.LegacyStateFactory - Found previous run data in state output folder: /Users/yclavinas/Documents/estudos/master-unb/earthquakemodels/smac-v2.10.03-master-778/smac-output/gaTest-scenario , renamed to: old-state-state-run1234-1490736354904
+18:25:55.098 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - SMAC started at: Mar 28, 2017 6:25:55 PM. Minimizing mean quality.
+18:25:59.012 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - First incumbent: config 1 (internal ID: 0x000B), with mean quality: 4006.387399; estimate based on 1 runs.
+18:25:59.013 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Sample call for new incumbent config 1 (internal ID: 0x000B): 
+cd /Users/yclavinas/Documents/estudos/master-unb/earthquakemodels/smac-v2.10.03-master-778; example_scenarios/branin/gaTest.py no_instance 0 1.7976931348623157E308 2147483647 14905614 -tournsize '10'  
+18:26:10.027 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Incumbent changed to: config 2 (internal ID: 0x2B68), with mean quality: 3575.1806850000003; estimate based on 2 runs.
+18:26:10.027 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Sample call for new incumbent config 2 (internal ID: 0x2B68): 
+cd /Users/yclavinas/Documents/estudos/master-unb/earthquakemodels/smac-v2.10.03-master-778; example_scenarios/branin/gaTest.py no_instance 0 1.7976931348623157E308 2147483647 14924088 -tournsize '79'  
+18:27:22.236 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Incumbent changed to: config 7 (internal ID: 0xEAB9), with mean quality: 3376.8069285714287; estimate based on 7 runs.
+18:27:22.237 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Sample call for new incumbent config 7 (internal ID: 0xEAB9): 
+cd /Users/yclavinas/Documents/estudos/master-unb/earthquakemodels/smac-v2.10.03-master-778; example_scenarios/branin/gaTest.py no_instance 0 1.7976931348623157E308 2147483647 14924088 -tournsize '2'  
+18:27:47.708 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3418.6487662; estimate now based on 10 runs.
+18:29:59.543 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3520.47107955; estimate now based on 20 runs.
+18:33:54.791 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Incumbent changed to: config 11 (internal ID: 0x3EA74), with mean quality: 3533.141163785714; estimate based on 28 runs.
+18:33:54.792 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Sample call for new incumbent config 11 (internal ID: 0x3EA74): 
+cd /Users/yclavinas/Documents/estudos/master-unb/earthquakemodels/smac-v2.10.03-master-778; example_scenarios/branin/gaTest.py no_instance 0 1.7976931348623157E308 2147483647 1186779 -tournsize '131'  
+18:34:12.836 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3533.9980073; estimate now based on 30 runs.
+18:39:19.489 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Incumbent changed to: config 27 (internal ID: 0x55AA9), with mean quality: 3586.570980972973; estimate based on 37 runs.
+18:39:19.489 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Sample call for new incumbent config 27 (internal ID: 0x55AA9): 
+cd /Users/yclavinas/Documents/estudos/master-unb/earthquakemodels/smac-v2.10.03-master-778; example_scenarios/branin/gaTest.py no_instance 0 1.7976931348623157E308 2147483647 1405407 -tournsize '109'  
+18:39:36.662 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3609.368593375; estimate now based on 40 runs.
+18:40:58.195 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3577.4123017; estimate now based on 50 runs.
+18:44:31.171 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Incumbent changed to: config 7 (internal ID: 0x81AF1), with mean quality: 3562.8670458035713; estimate based on 56 runs.
+18:44:31.171 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Sample call for new incumbent config 7 (internal ID: 0x81AF1): 
+cd /Users/yclavinas/Documents/estudos/master-unb/earthquakemodels/smac-v2.10.03-master-778; example_scenarios/branin/gaTest.py no_instance 0 1.7976931348623157E308 2147483647 1405407 -tournsize '2'  
+18:47:37.470 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3547.8580606666665; estimate now based on 60 runs.
+18:56:23.479 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3553.911569485714; estimate now based on 70 runs.
+19:01:57.600 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3553.0748151125; estimate now based on 80 runs.
+19:03:38.866 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3556.6557627666666; estimate now based on 90 runs.
+19:10:43.504 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Incumbent changed to: config 70 (internal ID: 0xE7E38), with mean quality: 3537.216193226804; estimate based on 97 runs.
+19:10:43.504 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Sample call for new incumbent config 70 (internal ID: 0xE7E38): 
+cd /Users/yclavinas/Documents/estudos/master-unb/earthquakemodels/smac-v2.10.03-master-778; example_scenarios/branin/gaTest.py no_instance 0 1.7976931348623157E308 2147483647 1405407 -tournsize '13'  
+19:11:07.120 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3545.96222749; estimate now based on 100 runs.
+19:15:06.996 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3541.8713451; estimate now based on 110 runs.
+19:18:41.780 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3548.3956242416666; estimate now based on 120 runs.
+19:25:11.400 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3570.130637823077; estimate now based on 130 runs.
+19:28:25.737 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3572.9830151428573; estimate now based on 140 runs.
+19:45:36.051 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Incumbent changed to: config 7 (internal ID: 0x1646BF), with mean quality: 3523.049637909722; estimate based on 144 runs.
+19:45:36.052 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Sample call for new incumbent config 7 (internal ID: 0x1646BF): 
+cd /Users/yclavinas/Documents/estudos/master-unb/earthquakemodels/smac-v2.10.03-master-778; example_scenarios/branin/gaTest.py no_instance 0 1.7976931348623157E308 2147483647 1405407 -tournsize '2'  
+19:46:26.392 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3522.190646626667; estimate now based on 150 runs.
+19:48:06.448 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3525.03485423125; estimate now based on 160 runs.
+19:52:55.941 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3523.3907382764705; estimate now based on 170 runs.
+19:55:09.557 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3512.7752333555554; estimate now based on 180 runs.
+19:56:56.209 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3511.6044708578947; estimate now based on 190 runs.
+19:59:49.131 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3506.68360196; estimate now based on 200 runs.
+20:01:23.115 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3507.9280864904763; estimate now based on 210 runs.
+20:02:42.897 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3515.4388152227275; estimate now based on 220 runs.
+20:04:30.143 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3507.8472586086955; estimate now based on 230 runs.
+20:06:04.155 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3504.002286554167; estimate now based on 240 runs.
+20:07:31.091 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3505.715780944; estimate now based on 250 runs.
+20:09:18.409 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3505.6549074076925; estimate now based on 260 runs.
+20:10:53.182 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3511.8366220333332; estimate now based on 270 runs.
+20:12:00.764 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3513.2371514928573; estimate now based on 280 runs.
+20:13:21.163 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3514.0096860448275; estimate now based on 290 runs.
+20:14:48.710 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3512.3208148233334; estimate now based on 300 runs.
+20:16:03.210 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3509.1028100612903; estimate now based on 310 runs.
+20:17:24.777 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3505.818525828125; estimate now based on 320 runs.
+20:18:39.380 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3501.126192281818; estimate now based on 330 runs.
+20:21:34.829 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3498.7205643911766; estimate now based on 340 runs.
+20:22:55.276 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3495.44219334; estimate now based on 350 runs.
+20:24:09.317 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3496.6774983805553; estimate now based on 360 runs.
+20:27:03.239 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3499.9233798783785; estimate now based on 370 runs.
+20:28:17.539 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3503.4279439289476; estimate now based on 380 runs.
+20:29:31.364 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3505.29116684359; estimate now based on 390 runs.
+20:32:33.692 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3506.921382205; estimate now based on 400 runs.
+20:34:27.141 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3503.0872740292684; estimate now based on 410 runs.
+20:35:34.400 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3501.191391540476; estimate now based on 420 runs.
+20:36:55.288 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3501.360242039535; estimate now based on 430 runs.
+20:40:15.976 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3499.836674822727; estimate now based on 440 runs.
+20:41:36.392 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3497.53675724; estimate now based on 450 runs.
+20:42:50.407 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3496.8415114173913; estimate now based on 460 runs.
+20:46:39.004 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3497.53806626383; estimate now based on 470 runs.
+20:48:13.297 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3497.09495891875; estimate now based on 480 runs.
+20:49:47.360 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3498.130965765306; estimate now based on 490 runs.
+20:50:55.755 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3497.264717002; estimate now based on 500 runs.
+20:51:52.342 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3497.1922382607845; estimate now based on 510 runs.
+20:52:38.869 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3496.8235684884617; estimate now based on 520 runs.
+20:53:24.720 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3496.014183754717; estimate now based on 530 runs.
+20:54:15.300 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3494.196604048148; estimate now based on 540 runs.
+20:55:12.480 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3495.8095740927274; estimate now based on 550 runs.
+20:56:19.792 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3494.555510369643; estimate now based on 560 runs.
+20:57:33.542 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3497.0017686245615; estimate now based on 570 runs.
+20:58:20.637 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3497.1669455206898; estimate now based on 580 runs.
+20:59:11.309 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3496.3633049677965; estimate now based on 590 runs.
+20:59:58.949 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3497.6793924283334; estimate now based on 600 runs.
+21:01:29.469 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3499.7359337918033; estimate now based on 610 runs.
+21:02:16.044 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3498.1391741370967; estimate now based on 620 runs.
+21:03:02.398 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3496.7427562825396; estimate now based on 630 runs.
+21:03:53.027 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3495.4665502921875; estimate now based on 640 runs.
+21:04:41.112 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3495.891765332308; estimate now based on 650 runs.
+21:05:27.568 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3494.647296572727; estimate now based on 660 runs.
+21:06:31.299 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3494.1319367044775; estimate now based on 670 runs.
+21:07:17.910 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3494.065451620588; estimate now based on 680 runs.
+21:08:04.760 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3493.0871858681157; estimate now based on 690 runs.
+21:09:02.213 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3491.7773780885714; estimate now based on 700 runs.
+21:09:49.504 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3491.4823802478872; estimate now based on 710 runs.
+21:10:39.631 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3489.0997966; estimate now based on 720 runs.
+21:11:26.927 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3490.379112493151; estimate now based on 730 runs.
+21:12:14.032 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3489.7820788824324; estimate now based on 740 runs.
+21:13:11.572 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3488.268159988; estimate now based on 750 runs.
+21:14:19.077 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3489.4421548092105; estimate now based on 760 runs.
+21:15:09.579 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3488.0228953597402; estimate now based on 770 runs.
+21:15:56.230 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3486.653857252564; estimate now based on 780 runs.
+21:16:53.716 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3487.3122785962028; estimate now based on 790 runs.
+21:17:41.018 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3485.38824130875; estimate now based on 800 runs.
+21:18:27.923 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3486.053990876543; estimate now based on 810 runs.
+21:19:18.511 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3487.9072976634147; estimate now based on 820 runs.
+21:20:15.603 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3487.3286349349396; estimate now based on 830 runs.
+21:21:02.684 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3487.2408389285715; estimate now based on 840 runs.
+21:21:49.319 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3488.213038205882; estimate now based on 850 runs.
+21:22:39.955 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3487.511854298837; estimate now based on 860 runs.
+21:23:26.562 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3488.1566336965516; estimate now based on 870 runs.
+21:24:13.681 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3487.834088365909; estimate now based on 880 runs.
+21:25:00.439 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3487.8275650707865; estimate now based on 890 runs.
+21:25:50.807 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3490.1199014866665; estimate now based on 900 runs.
+21:26:47.747 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3492.4537884923075; estimate now based on 910 runs.
+21:28:21.003 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3493.1249346206523; estimate now based on 920 runs.
+21:29:07.247 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3491.468253856989; estimate now based on 930 runs.
+21:29:56.935 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3490.3218531765956; estimate now based on 940 runs.
+21:30:43.301 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3491.703641114737; estimate now based on 950 runs.
+21:32:04.024 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3490.66254366875; estimate now based on 960 runs.
+21:32:51.329 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3490.0804705505157; estimate now based on 970 runs.
+21:33:54.861 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3489.851697172449; estimate now based on 980 runs.
+21:34:42.084 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3489.5294746656564; estimate now based on 990 runs.
+21:36:26.658 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3490.173078882; estimate now based on 1000 runs.
+21:37:13.447 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3491.5651407693067; estimate now based on 1010 runs.
+21:38:10.734 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3491.803407584314; estimate now based on 1020 runs.
+21:38:57.079 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3491.4012132300973; estimate now based on 1030 runs.
+21:39:47.232 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3490.984430785577; estimate now based on 1040 runs.
+21:40:34.208 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3492.4229618342856; estimate now based on 1050 runs.
+21:41:21.159 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3492.977482421698; estimate now based on 1060 runs.
+21:42:11.044 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3492.3776980074767; estimate now based on 1070 runs.
+21:42:58.547 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3492.6480953574073; estimate now based on 1080 runs.
+21:45:36.162 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3492.472623766055; estimate now based on 1090 runs.
+21:46:23.824 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3492.343744623636; estimate now based on 1100 runs.
+21:47:10.692 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3493.3037738423423; estimate now based on 1110 runs.
+21:49:11.441 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3493.484916076786; estimate now based on 1120 runs.
+21:49:59.310 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3492.922936235398; estimate now based on 1130 runs.
+21:50:46.429 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3494.012760053509; estimate now based on 1140 runs.
+21:51:37.507 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3493.3976402669564; estimate now based on 1150 runs.
+21:52:31.404 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3493.4478787681032; estimate now based on 1160 runs.
+21:53:21.195 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3494.191625017949; estimate now based on 1170 runs.
+21:54:08.160 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3496.020469892373; estimate now based on 1180 runs.
+21:56:11.788 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3495.8191550268907; estimate now based on 1190 runs.
+21:56:58.613 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3495.6618881958334; estimate now based on 1200 runs.
+21:57:45.415 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3495.078129426446; estimate now based on 1210 runs.
+21:58:36.142 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3496.4738826459015; estimate now based on 1220 runs.
+22:01:03.792 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3496.687665265041; estimate now based on 1230 runs.
+22:01:51.711 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3497.2943224959677; estimate now based on 1240 runs.
+22:02:42.806 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3496.506497644; estimate now based on 1250 runs.
+22:03:30.060 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3496.6491057738094; estimate now based on 1260 runs.
+22:04:26.870 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3497.730966914173; estimate now based on 1270 runs.
+22:05:24.391 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3497.346114971875; estimate now based on 1280 runs.
+22:06:11.718 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3496.7064230341084; estimate now based on 1290 runs.
+22:06:58.845 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3497.130745715385; estimate now based on 1300 runs.
+22:07:48.675 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3497.2342192603055; estimate now based on 1310 runs.
+22:08:35.941 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3497.4870441280304; estimate now based on 1320 runs.
+22:09:22.353 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3498.1979028443607; estimate now based on 1330 runs.
+22:10:12.475 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3498.020528869403; estimate now based on 1340 runs.
+22:10:59.815 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3499.691388588148; estimate now based on 1350 runs.
+22:11:46.409 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3499.025066345588; estimate now based on 1360 runs.
+22:12:33.957 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3499.045621840146; estimate now based on 1370 runs.
+22:13:24.259 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3498.804381407971; estimate now based on 1380 runs.
+22:14:21.822 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3499.210073957554; estimate now based on 1390 runs.
+22:16:09.295 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3499.2101390242856; estimate now based on 1400 runs.
+22:16:56.719 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3499.6692790659577; estimate now based on 1410 runs.
+22:18:33.314 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3499.738064677465; estimate now based on 1420 runs.
+22:19:30.121 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3500.566175869231; estimate now based on 1430 runs.
+22:20:20.926 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3500.8526790951387; estimate now based on 1440 runs.
+22:21:08.436 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3500.255184938621; estimate now based on 1450 runs.
+22:21:55.656 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3501.615082593151; estimate now based on 1460 runs.
+22:22:46.868 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3501.332822472109; estimate now based on 1470 runs.
+22:23:41.687 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3501.6008933358107; estimate now based on 1480 runs.
+22:24:32.216 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3501.931373703356; estimate now based on 1490 runs.
+22:25:19.274 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3501.075942986; estimate now based on 1500 runs.
+22:26:05.896 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3500.609352755629; estimate now based on 1510 runs.
+22:26:56.383 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3501.1863389164473; estimate now based on 1520 runs.
+22:27:43.709 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3500.411619384314; estimate now based on 1530 runs.
+22:28:30.692 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3500.4121104; estimate now based on 1540 runs.
+22:29:27.889 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3501.48182232; estimate now based on 1550 runs.
+22:30:15.813 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3500.969762508333; estimate now based on 1560 runs.
+22:31:02.748 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3501.177270502548; estimate now based on 1570 runs.
+22:32:00.324 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3500.6317738974685; estimate now based on 1580 runs.
+22:32:47.611 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3500.687875625157; estimate now based on 1590 runs.
+22:33:38.872 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3501.48999097125; estimate now based on 1600 runs.
+22:34:25.767 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3501.292713537888; estimate now based on 1610 runs.
+22:35:12.898 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3500.9709838679014; estimate now based on 1620 runs.
+22:36:02.885 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3502.0732834993864; estimate now based on 1630 runs.
+22:37:00.641 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3501.7353484585365; estimate now based on 1640 runs.
+22:37:54.386 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3501.1844704933333; estimate now based on 1650 runs.
+22:38:44.974 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3500.9970125030122; estimate now based on 1660 runs.
+22:39:32.136 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3501.4011465826347; estimate now based on 1670 runs.
+22:40:42.465 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3500.1256713791668; estimate now based on 1680 runs.
+22:41:29.822 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3500.3397448532546; estimate now based on 1690 runs.
+22:42:17.707 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3500.9202968123527; estimate now based on 1700 runs.
+22:43:24.748 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3501.105649636842; estimate now based on 1710 runs.
+22:44:12.118 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3502.1130070023255; estimate now based on 1720 runs.
+22:45:02.814 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3501.7874381369943; estimate now based on 1730 runs.
+22:45:50.350 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3502.064276433908; estimate now based on 1740 runs.
+22:46:37.648 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3501.6844130531426; estimate now based on 1750 runs.
+22:47:27.961 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3501.997382840341; estimate now based on 1760 runs.
+22:48:14.988 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3501.565769553107; estimate now based on 1770 runs.
+22:49:01.937 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3501.869680355056; estimate now based on 1780 runs.
+22:49:49.363 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3501.2570460396646; estimate now based on 1790 runs.
+22:50:40.567 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3500.8594000055555; estimate now based on 1800 runs.
+22:51:27.506 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3501.2370718596685; estimate now based on 1810 runs.
+22:52:15.558 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3501.1475353961537; estimate now based on 1820 runs.
+22:53:06.004 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3501.285252793989; estimate now based on 1830 runs.
+22:53:53.310 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3500.7052708706524; estimate now based on 1840 runs.
+22:54:39.919 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3500.0433159664863; estimate now based on 1850 runs.
+22:55:27.390 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3499.2999614037635; estimate now based on 1860 runs.
+22:56:18.034 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3498.5717042524066; estimate now based on 1870 runs.
+22:57:04.834 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3498.8909065531916; estimate now based on 1880 runs.
+23:01:23.224 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3498.770796257143; estimate now based on 1890 runs.
+23:02:10.594 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3497.9145924642107; estimate now based on 1900 runs.
+23:02:57.349 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3497.7666628492148; estimate now based on 1910 runs.
+23:03:44.021 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3497.75213754375; estimate now based on 1920 runs.
+23:04:33.993 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3497.512648031606; estimate now based on 1930 runs.
+23:05:21.522 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3497.5142847262887; estimate now based on 1940 runs.
+23:06:08.886 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3498.4739491841024; estimate now based on 1950 runs.
+23:06:59.235 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3498.855715112755; estimate now based on 1960 runs.
+23:07:46.004 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3499.618809261929; estimate now based on 1970 runs.
+23:08:33.448 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3498.923342772727; estimate now based on 1980 runs.
+23:09:37.426 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3499.1807231633165; estimate now based on 1990 runs.
+23:10:27.884 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3499.6029981215; estimate now based on 2000 runs.
+09:02:30.873 [Thread-6] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Making best attempt to save state. This state may be dirty, in that it was taken in the middle of an iteration and consequently may not be restorable. It may also be corrupt depending on the exact reason we are shutting down.

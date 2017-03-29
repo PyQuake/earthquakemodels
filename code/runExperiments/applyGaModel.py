@@ -22,7 +22,7 @@ def execGaModel(year, region, qntYears=5, times=10):
     mean = np.mean(means, axis=0)
     for i in range(times):
         model_ = ga.gaModel(
-            NGEN=100,
+            NGEN=10,
             CXPB=0.9,
             MUTPB=0.1,
             modelOmega=observations,
@@ -30,7 +30,9 @@ def execGaModel(year, region, qntYears=5, times=10):
             qntYears,
             region=region,
             mean=mean,
-            n_aval=50000)
+            n_aval=5,
+            tournsize=10)
+        exit()
         model_.executionNumber=i
         model_.year=year+qntYears
         model_.modelName = region+'GAModel' 

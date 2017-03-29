@@ -42,7 +42,7 @@ pool = Pool()
 toolbox.register("map", pool.map)
 
 
-def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval=50000):
+def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, tournsize, n_aval=50000):
 	"""
 	The main function. It evolves models, namely modelLamba or individual. 
 	It uses 1 parallel system: 1, simple, that splits the ga evolution between cores
@@ -55,7 +55,7 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval=50000):
 	# generation: each individual of the current generation
 	# is replaced by the 'fittest' (best) of three individuals
 	# drawn randomly from the current generation.
-	toolbox.register("select", tools.selTournament, tournsize=3)
+	toolbox.register("select", tools.selTournament, tournsize=tournsize)
 	toolbox.register("mutate", tools.mutPolynomialBounded,indpb=0.1, eta = 1, low = 0, up = 1)
 
 	stats = tools.Statistics(key=lambda ind: ind.fitness.values)
@@ -126,15 +126,10 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval=50000):
 	generatedModel.definitions = modelOmega[0].definitions
 	generatedModel.time = start - end
 	generatedModel.logbook = logbook
-	#for pysmac
-	# logValue = best_pop.fitness.values
-	#return logValue
+	output = generatedModel.loglikelihood 
+	return((-1)*output[0])
 
-	# gen = logbook.select("gen")
-	# fit_max=logbook.select("max")
-	# fit_std = logbook.select("std")
-	# print(gen, fit_std, fit_max)
-	return generatedModel
+	# return generatedModel
 
 if __name__ == "__main__":
 	gaModel()
