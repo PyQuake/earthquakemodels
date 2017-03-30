@@ -30,7 +30,7 @@ for i in range(len(sys.argv)-1):
         tournsize = int(sys.argv[i+1])
  
 # Compute the branin function:
-loglikelihood = ga.gaModel(
+loglikelihood = reducedGA.gaModel(
         NGEN=100,
         CXPB=0.9,
         MUTPB=0.1,
