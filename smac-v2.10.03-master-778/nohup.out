@@ -39,3 +39,93 @@ cd /root/mpi_projects/earthquakemodels/smac-v2.10.03-master-778; example_scenari
 [INFO ] Updated estimated mean quality of the same incumbent: 3076.640108030435; estimate now based on 230 runs.
 [INFO ] Updated estimated mean quality of the same incumbent: 3076.8635898791667; estimate now based on 240 runs.
 [INFO ] Updated estimated mean quality of the same incumbent: 3077.61611704; estimate now based on 250 runs.
+[INFO ] Updated estimated mean quality of the same incumbent: 3078.0977026153846; estimate now based on 260 runs.
+================================================================================
+Unable to run program, most likely you need to upgrade to Java >=7.
+ Current Java Virtual Machine Name is: Java HotSpot(TM) 64-Bit Server VM
+ Version: (1.6.0_31)
+ Location: /usr/java/jdk1.6.0_31/jre
+Please check your PATH and JAVA_HOME environment variables to ensure that it is the correct version.
+For more information see: https://www.java.com/en/download/help/download_options.xml
+================================================================================
+[INFO ] Logging to: /root/mpi_projects/earthquakemodels/smac-v2.10.03-master-778/smac-output/gaTest-scenario/log-run736354595.txt
+[INFO ] Version of SMAC is v2.10.03-master-778 (3ee628ef9bf2), running on OpenJDK 64-Bit Server VM (1.7.0_131) and Linux 3.10.0-327.28.3.el7.x86_64 (amd64) 
+[INFO ] Call String: smac --scenario-file example_scenarios/branin/gaTest-scenario.txt 
+[INFO ] SMAC started at: Mar 30, 2017 11:21:02 AM. Minimizing mean quality.
+[ERROR] The following algorithm call failed: cd "/root/mpi_projects/earthquakemodels/smac-v2.10.03-master-778" ;  example_scenarios/branin/reducedTest.py no_instance 0 1.7976931348623157E308 2147483647 5580601 -tournsize '10'  
+Error occurred while running SMAC
+>Error Message:Cannot run program "example_scenarios/branin/reducedTest.py" (in directory "/root/mpi_projects/earthquakemodels/smac-v2.10.03-master-778"): error=13, Permission denied
+>Encountered Exception:TargetAlgorithmAbortException
+>Error Log Location: /root/mpi_projects/earthquakemodels/smac-v2.10.03-master-778/smac-output/gaTest-scenario/log-run736354595.txt
+[ERROR] Message: Cannot run program "example_scenarios/branin/reducedTest.py" (in directory "/root/mpi_projects/earthquakemodels/smac-v2.10.03-master-778"): error=13, Permission denied
+[ERROR] We tried to call the target algorithm wrapper, but this call failed.
+[ERROR] The problem is (most likely) somewhere in the wrapper or with the arguments to SMAC.
+[ERROR] The easiest way to debug this problem is to manually execute the call we tried and see why it did not return the correct result
+[ERROR] The required output of the wrapper is something like "Result for ParamILS: x,x,x,x,x".);
+[INFO ] Exiting SMAC with failure. Log: /root/mpi_projects/earthquakemodels/smac-v2.10.03-master-778/smac-output/gaTest-scenario/log-run736354595.txt
+[INFO ] For a list of available commands use:  --help
+[INFO ] The Quickstart guide at available at: http://www.cs.ubc.ca/labs/beta/Projects/SMAC/ or alternatively (doc/quickstart.html) gives simple examples for getting up and running.
+[INFO ] The FAQ (doc/faq.pdf) contains commonly asked questions regarding troubleshooting, and usage.
+[INFO ] The Manual (doc/manual.pdf) contains detailed information on file format semantics.
+[INFO ] If you are stuck, please ask a question in the SMAC forum: https://groups.google.com/forum/#!forum/smac-forum
+[INFO ] Logging to: /root/mpi_projects/earthquakemodels/smac-v2.10.03-master-778/smac-output/gaTest-scenario/log-run245420511.txt
+[INFO ] Version of SMAC is v2.10.03-master-778 (3ee628ef9bf2), running on OpenJDK 64-Bit Server VM (1.7.0_131) and Linux 3.10.0-327.28.3.el7.x86_64 (amd64) 
+[INFO ] Call String: smac --scenario-file example_scenarios/branin/gaTest-scenario.txt 
+[INFO ] SMAC started at: Mar 30, 2017 11:21:22 AM. Minimizing mean quality.
+[ERROR] The following algorithm call failed: cd "/root/mpi_projects/earthquakemodels/smac-v2.10.03-master-778" ;  example_scenarios/branin/reducedTest.py no_instance 0 1.7976931348623157E308 2147483647 3194580 -tournsize '10'  
+Error occurred while running SMAC
+>Error Message:Cannot run program "example_scenarios/branin/reducedTest.py" (in directory "/root/mpi_projects/earthquakemodels/smac-v2.10.03-master-778"): error=13, Permission denied
+>Encountered Exception:TargetAlgorithmAbortException
+>Error Log Location: /root/mpi_projects/earthquakemodels/smac-v2.10.03-master-778/smac-output/gaTest-scenario/log-run245420511.txt
+[ERROR] Message: Cannot run program "example_scenarios/branin/reducedTest.py" (in directory "/root/mpi_projects/earthquakemodels/smac-v2.10.03-master-778"): error=13, Permission denied
+[ERROR] We tried to call the target algorithm wrapper, but this call failed.
+[ERROR] The problem is (most likely) somewhere in the wrapper or with the arguments to SMAC.
+[ERROR] The easiest way to debug this problem is to manually execute the call we tried and see why it did not return the correct result
+[ERROR] The required output of the wrapper is something like "Result for ParamILS: x,x,x,x,x".);
+[INFO ] Exiting SMAC with failure. Log: /root/mpi_projects/earthquakemodels/smac-v2.10.03-master-778/smac-output/gaTest-scenario/log-run245420511.txt
+[INFO ] For a list of available commands use:  --help
+[INFO ] The Quickstart guide at available at: http://www.cs.ubc.ca/labs/beta/Projects/SMAC/ or alternatively (doc/quickstart.html) gives simple examples for getting up and running.
+[INFO ] The FAQ (doc/faq.pdf) contains commonly asked questions regarding troubleshooting, and usage.
+[INFO ] The Manual (doc/manual.pdf) contains detailed information on file format semantics.
+[INFO ] If you are stuck, please ask a question in the SMAC forum: https://groups.google.com/forum/#!forum/smac-forum
+[WARN ] [PROCESS-ERR]  Traceback (most recent call last):
+[WARN ] [PROCESS-ERR]    File "example_scenarios/branin/gaTest.py", line 47, in <module>
+[WARN ] [PROCESS-ERR]      print ("Result of algorithm run: SUCCESS, 0, 0, %f, 0" % loglikelihood)
+[WARN ] [PROCESS-ERR]  TypeError: must be real number, not model
+[ERROR] The following algorithm call failed: cd "/root/mpi_projects/earthquakemodels/smac-v2.10.03-master-778" ;  example_scenarios/branin/gaTest.py no_instance 0 1.7976931348623157E308 2147483647 7858570 -tournsize '2'  
+[ERROR] The last 10 lines of output we saw were:
+[ERROR] > 0
+[ERROR] > 10
+[ERROR] > 20
+[ERROR] > 30
+[ERROR] > 40
+[ERROR] > 50
+[ERROR] > 60
+[ERROR] > 70
+[ERROR] > 80
+[ERROR] > 90
+[WARN ] Detected CRASHED run. The Solution Quality of CRASHED runs will be transformed to the MAX(quality, 1.0E9), to disable this use --transform-crashed-quality false to change the value use --transform-crashed-quality-value
+[INFO ] Logging to: /root/mpi_projects/earthquakemodels/smac-v2.10.03-master-778/smac-output/gaTest-scenario/log-run164218424.txt
+[INFO ] Version of SMAC is v2.10.03-master-778 (3ee628ef9bf2), running on OpenJDK 64-Bit Server VM (1.7.0_131) and Linux 3.10.0-327.28.3.el7.x86_64 (amd64) 
+[INFO ] Call String: smac --scenario-file example_scenarios/branin/gaTest-scenario.txt 
+[INFO ] SMAC started at: Mar 30, 2017 11:21:50 AM. Minimizing mean quality.
+[WARN ] [PROCESS-ERR]  Traceback (most recent call last):
+[WARN ] [PROCESS-ERR]    File "example_scenarios/branin/reducedTest.py", line 33, in <module>
+[WARN ] [PROCESS-ERR]      loglikelihood = ga.gaModel(
+[WARN ] [PROCESS-ERR]  NameError: name 'ga' is not defined
+[ERROR] The following algorithm call failed: cd "/root/mpi_projects/earthquakemodels/smac-v2.10.03-master-778" ;  example_scenarios/branin/reducedTest.py no_instance 0 1.7976931348623157E308 2147483647 9904877 -tournsize '10'  
+Error occurred while running SMAC
+>Error Message: Wrapper did not output anything that matched the expected output ("Result of algorithm run:..."). Please try executing the wrapper directly
+>Encountered Exception:TargetAlgorithmAbortException
+>Error Log Location: /root/mpi_projects/earthquakemodels/smac-v2.10.03-master-778/smac-output/gaTest-scenario/log-run164218424.txt
+[ERROR] Message:  Wrapper did not output anything that matched the expected output ("Result of algorithm run:..."). Please try executing the wrapper directly
+[ERROR] We tried to call the target algorithm wrapper, but this call failed.
+[ERROR] The problem is (most likely) somewhere in the wrapper or with the arguments to SMAC.
+[ERROR] The easiest way to debug this problem is to manually execute the call we tried and see why it did not return the correct result
+[ERROR] The required output of the wrapper is something like "Result for ParamILS: x,x,x,x,x".);
+[INFO ] Exiting SMAC with failure. Log: /root/mpi_projects/earthquakemodels/smac-v2.10.03-master-778/smac-output/gaTest-scenario/log-run164218424.txt
+[INFO ] For a list of available commands use:  --help
+[INFO ] The Quickstart guide at available at: http://www.cs.ubc.ca/labs/beta/Projects/SMAC/ or alternatively (doc/quickstart.html) gives simple examples for getting up and running.
+[INFO ] The FAQ (doc/faq.pdf) contains commonly asked questions regarding troubleshooting, and usage.
+[INFO ] The Manual (doc/manual.pdf) contains detailed information on file format semantics.
+[INFO ] If you are stuck, please ask a question in the SMAC forum: https://groups.google.com/forum/#!forum/smac-forum
