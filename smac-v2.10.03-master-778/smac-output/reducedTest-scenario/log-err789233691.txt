@@ -1,0 +1,26 @@
+11:28:02.838 [CLI TAE (Master Thread - #0)] ERROR c.u.c.b.a.t.b.c.CommandLineAlgorithmRun - The following algorithm call failed: cd "/Users/yclavinas/Documents/estudos/master-unb/earthquakemodels/smac-v2.10.03-master-778" ;  example_scenarios/branin/reducedTest.py no_instance 0 1.7976931348623157E308 2147483647 16458633 -tournsize '10'  
+11:28:02.977 [main] ERROR c.u.c.b.smac.executors.SMACExecutor - Message: Cannot run program "example_scenarios/branin/reducedTest.py" (in directory "/Users/yclavinas/Documents/estudos/master-unb/earthquakemodels/smac-v2.10.03-master-778"): error=13, Permission denied
+11:28:03.028 [main] ERROR c.u.c.b.smac.executors.SMACExecutor - A serious problem occured during target algorithm execution and we are aborting execution 
+ca.ubc.cs.beta.aeatk.targetalgorithmevaluator.exceptions.TargetAlgorithmAbortException: Cannot run program "example_scenarios/branin/reducedTest.py" (in directory "/Users/yclavinas/Documents/estudos/master-unb/earthquakemodels/smac-v2.10.03-master-778"): error=13, Permission denied
+	at ca.ubc.cs.beta.aeatk.targetalgorithmevaluator.base.cli.CommandLineAlgorithmRun.call(CommandLineAlgorithmRun.java:674) ~[aeatk.jar:na]
+	at ca.ubc.cs.beta.aeatk.targetalgorithmevaluator.base.cli.CommandLineAlgorithmRun.call(CommandLineAlgorithmRun.java:60) ~[aeatk.jar:na]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266) ~[na:1.8.0_60]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142) ~[na:1.8.0_60]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617) ~[na:1.8.0_60]
+	at java.lang.Thread.run(Thread.java:745) ~[na:1.8.0_60]
+Caused by: java.io.IOException: Cannot run program "example_scenarios/branin/reducedTest.py" (in directory "/Users/yclavinas/Documents/estudos/master-unb/earthquakemodels/smac-v2.10.03-master-778"): error=13, Permission denied
+	at java.lang.ProcessBuilder.start(ProcessBuilder.java:1048) ~[na:1.8.0_60]
+	at java.lang.Runtime.exec(Runtime.java:620) ~[na:1.8.0_60]
+	at ca.ubc.cs.beta.aeatk.targetalgorithmevaluator.base.cli.CommandLineAlgorithmRun.runProcess(CommandLineAlgorithmRun.java:822) ~[aeatk.jar:na]
+	at ca.ubc.cs.beta.aeatk.targetalgorithmevaluator.base.cli.CommandLineAlgorithmRun.call(CommandLineAlgorithmRun.java:415) ~[aeatk.jar:na]
+	... 5 common frames omitted
+Caused by: java.io.IOException: error=13, Permission denied
+	at java.lang.UNIXProcess.forkAndExec(Native Method) ~[na:1.8.0_60]
+	at java.lang.UNIXProcess.<init>(UNIXProcess.java:248) ~[na:1.8.0_60]
+	at java.lang.ProcessImpl.start(ProcessImpl.java:134) ~[na:1.8.0_60]
+	at java.lang.ProcessBuilder.start(ProcessBuilder.java:1029) ~[na:1.8.0_60]
+	... 8 common frames omitted
+11:28:03.029 [main] ERROR c.u.c.b.smac.executors.SMACExecutor - We tried to call the target algorithm wrapper, but this call failed.
+11:28:03.029 [main] ERROR c.u.c.b.smac.executors.SMACExecutor - The problem is (most likely) somewhere in the wrapper or with the arguments to SMAC.
+11:28:03.029 [main] ERROR c.u.c.b.smac.executors.SMACExecutor - The easiest way to debug this problem is to manually execute the call we tried and see why it did not return the correct result
+11:28:03.029 [main] ERROR c.u.c.b.smac.executors.SMACExecutor - The required output of the wrapper is something like "Result for ParamILS: x,x,x,x,x".);
