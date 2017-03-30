@@ -65,26 +65,32 @@ plotConvergencyData = function(data, type, region, year){
 
     saveFile = paste("../Zona4/heatMap/", type, region,"_",year,".png",sep="")
     png(saveFile, width = 800, height = 800)
-    p1<- ggplot(data, aes(x=gen, y=maxs, group=1)) + 
-        geom_line(color='orange') +
-        geom_point(color='orange')+
-        coord_cartesian(ylim = c(min(data$maxs), max(data$maxs))) + 
-        geom_errorbar(aes(ymin=data$maxs+data$stds, ymax=data$maxs-data$stds), width=0.2, color='black')
+    if (type == 'GAModel'){
+        p1<- ggplot(data, aes(x=gen, y=maxs, group=1)) + 
+            geom_line(color='orange') +
+            geom_point(color='orange')+
+            # coord_cartesian(ylim = c(min(data$maxs), max(data$maxs))) + 
+            geom_errorbar(aes(ymin=data$maxs+data$stds, ymax=data$maxs-data$stds), width=0.2, color='black')
+        grid.arrange(p1,ncol=1, top = paste("Convergency Analysis in ",region,"year of", year, "(ReducedGAModel - GAModel)"))
+        dev.off()    
+    }
+    else{
+        p1<- ggplot(data, aes(x=gen, y=maxs, group=1)) + 
+            geom_line(color='orange') +
+            geom_point(color='orange')+
+            coord_cartesian(ylim = c(min(data$maxs), max(data$maxs))) + 
+            geom_errorbar(aes(ymin=data$maxs+data$stds, ymax=data$maxs-data$stds), width=0.2, color='black')
+        grid.arrange(p1,ncol=1, top = paste("Convergency Analysis in ",region,"year of", year, "(ReducedGAModel - GAModel)"))
+        dev.off()
+    }
     
-    p2<- ggplot(data, aes(x=gen, y=maxs, group=1)) + 
-        geom_line(color='orange') +
-        geom_point(color='orange')+
-        coord_cartesian(ylim = c(min(data$maxs), max(data$maxs))) +
-        geom_errorbar(aes(ymin=data$maxs+data$stds, ymax=data$maxs-data$stds), width=0.2, color='black')
-    
-    grid.arrange(p1, p2, ncol=2, top = paste("Convergency Analysis in ",region,"year of", year, "(ReducedGAModel - GAModel)"))
-    dev.off()
 }
 
-for (i in 1:1){
+for (i in 1:4){
     region = chooseRegion(i)
-    for (year in 2005:2005){
+    for (year in 2005:2009){
         plotConvergencyData(createData(modelName = 'ReducedGAModel',region,year),'ReducedGAModel', region, year)
+        plotConvergencyData(createData(modelName = 'GAModel',region,year),'GAModel', region, year)
     }    
 }
 

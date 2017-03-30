@@ -55,7 +55,7 @@ creator.create("Individual", numpy.ndarray, fitness=creator.FitnessFunction)
 pool = Pool()
 toolbox.register("map", pool.map)
 
-def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval=50000):
+def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, tournsize=3, n_aval=50000):
 	"""
 	The main function. It evolves models, namely modelLamba or individual. 
 	This version of the GA simplifies the ga using a list of bins with occurences
@@ -91,7 +91,7 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval=50000):
 	# generation: each individual of the current generation
 	# is replaced by the 'fittest' (best) of three individuals
 	# drawn randomly from the current generation.
-	toolbox.register("select", tools.selTournament, tournsize=3)
+	toolbox.register("select", tools.selTournament, tournsize=tournsize)
 	toolbox.register("mutate", mutationFunction,indpb=0.1, length=length)
 
 	stats = tools.Statistics(key=lambda ind: ind.fitness.values)
@@ -165,19 +165,12 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval=50000):
 	generatedModel.loglikelihood = best_pop.fitness.values
 	generatedModel.logbook = logbook
 
-	#for pysmac
-	# logValue = best_pop.fitness.values
-	#return logValue
-	
-	
-	# gen = logbook.select("ngen")
-	# fit_max=logbook.select("max")
-	# fit_std = logbook.select("std")
-	# print(gen, fit_std, fit_max)
+	output = generatedModel.loglikelihood 
+	return((-1)*output[0])
 
 
 	
-	return generatedModel
+	# return generatedModel
 
 if __name__ == "__main__":
 	gaModel()
