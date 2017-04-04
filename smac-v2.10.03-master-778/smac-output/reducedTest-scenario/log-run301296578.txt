@@ -408,3 +408,20 @@ warmStartOptions = [WarmStartOptions]
 
 
 11:30:20.241 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - SMAC started at: Mar 30, 2017 11:30:20 AM. Minimizing mean quality.
+11:37:08.085 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - First incumbent: config 1 (internal ID: 0x000B), with mean quality: 3354.456574; estimate based on 1 runs.
+11:37:08.086 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Sample call for new incumbent config 1 (internal ID: 0x000B): 
+cd /root/mpi_projects/earthquakemodels/smac-v2.10.03-master-778; example_scenarios/branin/reducedTest.py no_instance 0 1.7976931348623157E308 2147483647 8098364 -tournsize '10'  
+13:51:07.005 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Incumbent changed to: config 5 (internal ID: 0x754C), with mean quality: 3321.0026022; estimate based on 5 runs.
+13:51:07.006 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Sample call for new incumbent config 5 (internal ID: 0x754C): 
+cd /root/mpi_projects/earthquakemodels/smac-v2.10.03-master-778; example_scenarios/branin/reducedTest.py no_instance 0 1.7976931348623157E308 2147483647 8098364 -tournsize '4'  
+15:32:25.950 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3327.3816721; estimate now based on 10 runs.
+19:41:53.753 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3326.52546255; estimate now based on 20 runs.
+23:25:25.002 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3334.0784688333333; estimate now based on 30 runs.
+03:11:54.539 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3336.08217665; estimate now based on 40 runs.
+06:58:19.462 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3335.16800232; estimate now based on 50 runs.
+10:47:00.787 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3340.3630396333333; estimate now based on 60 runs.
+02:44:04.603 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Incumbent changed to: config 51 (internal ID: 0x58243), with mean quality: 3261.589934029412; estimate based on 68 runs.
+02:44:04.603 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Sample call for new incumbent config 51 (internal ID: 0x58243): 
+cd /root/mpi_projects/earthquakemodels/smac-v2.10.03-master-778; example_scenarios/branin/reducedTest.py no_instance 0 1.7976931348623157E308 2147483647 6304768 -tournsize '2'  
+03:41:05.422 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3262.7372727714287; estimate now based on 70 runs.
+07:32:22.336 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3264.6168395875; estimate now based on 80 runs.

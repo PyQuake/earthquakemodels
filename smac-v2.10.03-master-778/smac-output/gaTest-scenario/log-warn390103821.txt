@@ -1,0 +1,78 @@
+11:39:12.852 [CLI TAE (STDERR Thread - #0)] WARN  c.u.c.b.a.t.b.c.CommandLineAlgorithmRun - [PROCESS-ERR]  Process ForkPoolWorker-2:
+11:39:12.852 [CLI TAE (STDERR Thread - #0)] WARN  c.u.c.b.a.t.b.c.CommandLineAlgorithmRun - [PROCESS-ERR]  Traceback (most recent call last):
+11:39:12.852 [CLI TAE (STDERR Thread - #0)] WARN  c.u.c.b.a.t.b.c.CommandLineAlgorithmRun - [PROCESS-ERR]    File "/root/anaconda3/lib/python3.6/site-packages/multiprocess/process.py", line 249, in _bootstrap
+11:39:12.852 [CLI TAE (STDERR Thread - #0)] WARN  c.u.c.b.a.t.b.c.CommandLineAlgorithmRun - [PROCESS-ERR]      self.run()
+11:39:12.852 [CLI TAE (STDERR Thread - #0)] WARN  c.u.c.b.a.t.b.c.CommandLineAlgorithmRun - [PROCESS-ERR]    File "/root/anaconda3/lib/python3.6/site-packages/multiprocess/process.py", line 93, in run
+11:39:12.852 [CLI TAE (STDERR Thread - #0)] WARN  c.u.c.b.a.t.b.c.CommandLineAlgorithmRun - [PROCESS-ERR]      self._target(*self._args, **self._kwargs)
+11:39:12.852 [CLI TAE (STDERR Thread - #0)] WARN  c.u.c.b.a.t.b.c.CommandLineAlgorithmRun - [PROCESS-ERR]    File "/root/anaconda3/lib/python3.6/site-packages/multiprocess/pool.py", line 108, in worker
+11:39:12.852 [CLI TAE (STDERR Thread - #0)] WARN  c.u.c.b.a.t.b.c.CommandLineAlgorithmRun - [PROCESS-ERR]      task = get()
+11:39:12.853 [CLI TAE (STDERR Thread - #0)] WARN  c.u.c.b.a.t.b.c.CommandLineAlgorithmRun - [PROCESS-ERR]    File "/root/anaconda3/lib/python3.6/site-packages/multiprocess/queues.py", line 345, in get
+11:39:12.853 [CLI TAE (STDERR Thread - #0)] WARN  c.u.c.b.a.t.b.c.CommandLineAlgorithmRun - [PROCESS-ERR]      with self._rlock:
+11:39:12.853 [CLI TAE (STDERR Thread - #0)] WARN  c.u.c.b.a.t.b.c.CommandLineAlgorithmRun - [PROCESS-ERR]    File "/root/anaconda3/lib/python3.6/site-packages/multiprocess/synchronize.py", line 102, in __enter__
+11:39:12.853 [CLI TAE (STDERR Thread - #0)] WARN  c.u.c.b.a.t.b.c.CommandLineAlgorithmRun - [PROCESS-ERR]      return self._semlock.__enter__()
+11:39:12.853 [CLI TAE (STDERR Thread - #0)] WARN  c.u.c.b.a.t.b.c.CommandLineAlgorithmRun - [PROCESS-ERR]  KeyboardInterrupt
+11:39:12.853 [CLI TAE (STDERR Thread - #0)] WARN  c.u.c.b.a.t.b.c.CommandLineAlgorithmRun - [PROCESS-ERR]  Process ForkPoolWorker-1:
+11:39:12.853 [CLI TAE (STDERR Thread - #0)] WARN  c.u.c.b.a.t.b.c.CommandLineAlgorithmRun - [PROCESS-ERR]  Traceback (most recent call last):
+11:39:12.853 [CLI TAE (STDERR Thread - #0)] WARN  c.u.c.b.a.t.b.c.CommandLineAlgorithmRun - [PROCESS-ERR]    File "/root/anaconda3/lib/python3.6/site-packages/multiprocess/process.py", line 249, in _bootstrap
+11:39:12.853 [CLI TAE (STDERR Thread - #0)] WARN  c.u.c.b.a.t.b.c.CommandLineAlgorithmRun - [PROCESS-ERR]      self.run()
+11:39:12.853 [CLI TAE (STDERR Thread - #0)] WARN  c.u.c.b.a.t.b.c.CommandLineAlgorithmRun - [PROCESS-ERR]    File "/root/anaconda3/lib/python3.6/site-packages/multiprocess/process.py", line 93, in run
+11:39:12.853 [CLI TAE (STDERR Thread - #0)] WARN  c.u.c.b.a.t.b.c.CommandLineAlgorithmRun - [PROCESS-ERR]      self._target(*self._args, **self._kwargs)
+11:39:12.854 [CLI TAE (STDERR Thread - #0)] WARN  c.u.c.b.a.t.b.c.CommandLineAlgorithmRun - [PROCESS-ERR]    File "/root/anaconda3/lib/python3.6/site-packages/multiprocess/pool.py", line 108, in worker
+11:39:12.854 [CLI TAE (STDERR Thread - #0)] WARN  c.u.c.b.a.t.b.c.CommandLineAlgorithmRun - [PROCESS-ERR]      task = get()
+11:39:12.854 [CLI TAE (STDERR Thread - #0)] WARN  c.u.c.b.a.t.b.c.CommandLineAlgorithmRun - [PROCESS-ERR]    File "/root/anaconda3/lib/python3.6/site-packages/multiprocess/queues.py", line 345, in get
+11:39:12.854 [CLI TAE (STDERR Thread - #0)] WARN  c.u.c.b.a.t.b.c.CommandLineAlgorithmRun - [PROCESS-ERR]      with self._rlock:
+11:39:12.854 [CLI TAE (STDERR Thread - #0)] WARN  c.u.c.b.a.t.b.c.CommandLineAlgorithmRun - [PROCESS-ERR]    File "/root/anaconda3/lib/python3.6/site-packages/multiprocess/synchronize.py", line 102, in __enter__
+11:39:12.854 [CLI TAE (STDERR Thread - #0)] WARN  c.u.c.b.a.t.b.c.CommandLineAlgorithmRun - [PROCESS-ERR]      return self._semlock.__enter__()
+11:39:12.854 [CLI TAE (STDERR Thread - #0)] WARN  c.u.c.b.a.t.b.c.CommandLineAlgorithmRun - [PROCESS-ERR]  KeyboardInterrupt
+11:39:12.854 [CLI TAE (STDERR Thread - #0)] WARN  c.u.c.b.a.t.b.c.CommandLineAlgorithmRun - [PROCESS-ERR]  Process ForkPoolWorker-4:
+11:39:12.854 [CLI TAE (STDERR Thread - #0)] WARN  c.u.c.b.a.t.b.c.CommandLineAlgorithmRun - [PROCESS-ERR]  Traceback (most recent call last):
+11:39:12.854 [CLI TAE (STDERR Thread - #0)] WARN  c.u.c.b.a.t.b.c.CommandLineAlgorithmRun - [PROCESS-ERR]    File "/root/anaconda3/lib/python3.6/site-packages/multiprocess/process.py", line 249, in _bootstrap
+11:39:12.854 [CLI TAE (STDERR Thread - #0)] WARN  c.u.c.b.a.t.b.c.CommandLineAlgorithmRun - [PROCESS-ERR]      self.run()
+11:39:12.855 [CLI TAE (STDERR Thread - #0)] WARN  c.u.c.b.a.t.b.c.CommandLineAlgorithmRun - [PROCESS-ERR]    File "/root/anaconda3/lib/python3.6/site-packages/multiprocess/process.py", line 93, in run
+11:39:12.855 [CLI TAE (STDERR Thread - #0)] WARN  c.u.c.b.a.t.b.c.CommandLineAlgorithmRun - [PROCESS-ERR]      self._target(*self._args, **self._kwargs)
+11:39:12.855 [CLI TAE (STDERR Thread - #0)] WARN  c.u.c.b.a.t.b.c.CommandLineAlgorithmRun - [PROCESS-ERR]    File "/root/anaconda3/lib/python3.6/site-packages/multiprocess/pool.py", line 108, in worker
+11:39:12.855 [CLI TAE (STDERR Thread - #0)] WARN  c.u.c.b.a.t.b.c.CommandLineAlgorithmRun - [PROCESS-ERR]      task = get()
+11:39:12.855 [CLI TAE (STDERR Thread - #0)] WARN  c.u.c.b.a.t.b.c.CommandLineAlgorithmRun - [PROCESS-ERR]    File "/root/anaconda3/lib/python3.6/site-packages/multiprocess/queues.py", line 345, in get
+11:39:12.855 [CLI TAE (STDERR Thread - #0)] WARN  c.u.c.b.a.t.b.c.CommandLineAlgorithmRun - [PROCESS-ERR]      with self._rlock:
+11:39:12.855 [CLI TAE (STDERR Thread - #0)] WARN  c.u.c.b.a.t.b.c.CommandLineAlgorithmRun - [PROCESS-ERR]    File "/root/anaconda3/lib/python3.6/site-packages/multiprocess/synchronize.py", line 102, in __enter__
+11:39:12.855 [CLI TAE (STDERR Thread - #0)] WARN  c.u.c.b.a.t.b.c.CommandLineAlgorithmRun - [PROCESS-ERR]      return self._semlock.__enter__()
+11:39:12.855 [CLI TAE (STDERR Thread - #0)] WARN  c.u.c.b.a.t.b.c.CommandLineAlgorithmRun - [PROCESS-ERR]  KeyboardInterrupt
+11:39:12.906 [CLI TAE (STDERR Thread - #0)] WARN  c.u.c.b.a.t.b.c.CommandLineAlgorithmRun - [PROCESS-ERR]  Process ForkPoolWorker-3:
+11:39:12.914 [CLI TAE (STDERR Thread - #0)] WARN  c.u.c.b.a.t.b.c.CommandLineAlgorithmRun - [PROCESS-ERR]  Traceback (most recent call last):
+11:39:12.915 [CLI TAE (STDERR Thread - #0)] WARN  c.u.c.b.a.t.b.c.CommandLineAlgorithmRun - [PROCESS-ERR]    File "/root/anaconda3/lib/python3.6/site-packages/multiprocess/process.py", line 249, in _bootstrap
+11:39:12.915 [CLI TAE (STDERR Thread - #0)] WARN  c.u.c.b.a.t.b.c.CommandLineAlgorithmRun - [PROCESS-ERR]      self.run()
+11:39:12.915 [CLI TAE (STDERR Thread - #0)] WARN  c.u.c.b.a.t.b.c.CommandLineAlgorithmRun - [PROCESS-ERR]    File "/root/anaconda3/lib/python3.6/site-packages/multiprocess/process.py", line 93, in run
+11:39:12.915 [CLI TAE (STDERR Thread - #0)] WARN  c.u.c.b.a.t.b.c.CommandLineAlgorithmRun - [PROCESS-ERR]      self._target(*self._args, **self._kwargs)
+11:39:12.915 [CLI TAE (STDERR Thread - #0)] WARN  c.u.c.b.a.t.b.c.CommandLineAlgorithmRun - [PROCESS-ERR]    File "/root/anaconda3/lib/python3.6/site-packages/multiprocess/pool.py", line 108, in worker
+11:39:12.915 [CLI TAE (STDERR Thread - #0)] WARN  c.u.c.b.a.t.b.c.CommandLineAlgorithmRun - [PROCESS-ERR]      task = get()
+11:39:12.915 [CLI TAE (STDERR Thread - #0)] WARN  c.u.c.b.a.t.b.c.CommandLineAlgorithmRun - [PROCESS-ERR]    File "/root/anaconda3/lib/python3.6/site-packages/multiprocess/queues.py", line 346, in get
+11:39:12.915 [CLI TAE (STDERR Thread - #0)] WARN  c.u.c.b.a.t.b.c.CommandLineAlgorithmRun - [PROCESS-ERR]      res = self._reader.recv_bytes()
+11:39:12.915 [CLI TAE (STDERR Thread - #0)] WARN  c.u.c.b.a.t.b.c.CommandLineAlgorithmRun - [PROCESS-ERR]    File "/root/anaconda3/lib/python3.6/site-packages/multiprocess/connection.py", line 219, in recv_bytes
+11:39:12.915 [CLI TAE (STDERR Thread - #0)] WARN  c.u.c.b.a.t.b.c.CommandLineAlgorithmRun - [PROCESS-ERR]      buf = self._recv_bytes(maxlength)
+11:39:12.916 [CLI TAE (STDERR Thread - #0)] WARN  c.u.c.b.a.t.b.c.CommandLineAlgorithmRun - [PROCESS-ERR]    File "/root/anaconda3/lib/python3.6/site-packages/multiprocess/connection.py", line 410, in _recv_bytes
+11:39:12.916 [CLI TAE (STDERR Thread - #0)] WARN  c.u.c.b.a.t.b.c.CommandLineAlgorithmRun - [PROCESS-ERR]      buf = self._recv(4)
+11:39:12.916 [CLI TAE (STDERR Thread - #0)] WARN  c.u.c.b.a.t.b.c.CommandLineAlgorithmRun - [PROCESS-ERR]    File "/root/anaconda3/lib/python3.6/site-packages/multiprocess/connection.py", line 382, in _recv
+11:39:12.916 [CLI TAE (STDERR Thread - #0)] WARN  c.u.c.b.a.t.b.c.CommandLineAlgorithmRun - [PROCESS-ERR]      chunk = read(handle, remaining)
+11:39:12.916 [CLI TAE (STDERR Thread - #0)] WARN  c.u.c.b.a.t.b.c.CommandLineAlgorithmRun - [PROCESS-ERR]  KeyboardInterrupt
+11:39:12.916 [CLI TAE (STDERR Thread - #0)] WARN  c.u.c.b.a.t.b.c.CommandLineAlgorithmRun - [PROCESS-ERR]  Traceback (most recent call last):
+11:39:12.916 [CLI TAE (STDERR Thread - #0)] WARN  c.u.c.b.a.t.b.c.CommandLineAlgorithmRun - [PROCESS-ERR]    File "example_scenarios/branin/gaTest.py", line 43, in <module>
+11:39:12.916 [CLI TAE (STDERR Thread - #0)] WARN  c.u.c.b.a.t.b.c.CommandLineAlgorithmRun - [PROCESS-ERR]      n_aval=50000)
+11:39:12.916 [CLI TAE (STDERR Thread - #0)] WARN  c.u.c.b.a.t.b.c.CommandLineAlgorithmRun - [PROCESS-ERR]    File "../code/gaModel/gaModel_Yuri.py", line 91, in gaModel
+11:39:12.916 [CLI TAE (STDERR Thread - #0)] WARN  c.u.c.b.a.t.b.c.CommandLineAlgorithmRun - [PROCESS-ERR]      offspring = list(map(toolbox.clone, offspring))
+11:39:12.916 [CLI TAE (STDERR Thread - #0)] WARN  c.u.c.b.a.t.b.c.CommandLineAlgorithmRun - [PROCESS-ERR]    File "/root/anaconda3/lib/python3.6/copy.py", line 161, in deepcopy
+11:39:12.917 [CLI TAE (STDERR Thread - #0)] WARN  c.u.c.b.a.t.b.c.CommandLineAlgorithmRun - [PROCESS-ERR]      y = copier(memo)
+11:39:12.917 [CLI TAE (STDERR Thread - #0)] WARN  c.u.c.b.a.t.b.c.CommandLineAlgorithmRun - [PROCESS-ERR]    File "/root/anaconda3/lib/python3.6/site-packages/deap/creator.py", line 86, in __deepcopy__
+11:39:12.917 [CLI TAE (STDERR Thread - #0)] WARN  c.u.c.b.a.t.b.c.CommandLineAlgorithmRun - [PROCESS-ERR]      copy_.__dict__.update(copy.deepcopy(self.__dict__, memo))
+11:39:12.917 [CLI TAE (STDERR Thread - #0)] WARN  c.u.c.b.a.t.b.c.CommandLineAlgorithmRun - [PROCESS-ERR]    File "/root/anaconda3/lib/python3.6/copy.py", line 150, in deepcopy
+11:39:12.917 [CLI TAE (STDERR Thread - #0)] WARN  c.u.c.b.a.t.b.c.CommandLineAlgorithmRun - [PROCESS-ERR]      y = copier(x, memo)
+11:39:12.917 [CLI TAE (STDERR Thread - #0)] WARN  c.u.c.b.a.t.b.c.CommandLineAlgorithmRun - [PROCESS-ERR]    File "/root/anaconda3/lib/python3.6/copy.py", line 240, in _deepcopy_dict
+11:39:12.917 [CLI TAE (STDERR Thread - #0)] WARN  c.u.c.b.a.t.b.c.CommandLineAlgorithmRun - [PROCESS-ERR]      y[deepcopy(key, memo)] = deepcopy(value, memo)
+11:39:12.917 [CLI TAE (STDERR Thread - #0)] WARN  c.u.c.b.a.t.b.c.CommandLineAlgorithmRun - [PROCESS-ERR]    File "/root/anaconda3/lib/python3.6/copy.py", line 161, in deepcopy
+11:39:12.917 [CLI TAE (STDERR Thread - #0)] WARN  c.u.c.b.a.t.b.c.CommandLineAlgorithmRun - [PROCESS-ERR]      y = copier(memo)
+11:39:12.917 [CLI TAE (STDERR Thread - #0)] WARN  c.u.c.b.a.t.b.c.CommandLineAlgorithmRun - [PROCESS-ERR]    File "/root/anaconda3/lib/python3.6/site-packages/deap/base.py", line 252, in __deepcopy__
+11:39:12.917 [CLI TAE (STDERR Thread - #0)] WARN  c.u.c.b.a.t.b.c.CommandLineAlgorithmRun - [PROCESS-ERR]      copy_ = self.__class__()
+11:39:12.918 [CLI TAE (STDERR Thread - #0)] WARN  c.u.c.b.a.t.b.c.CommandLineAlgorithmRun - [PROCESS-ERR]    File "/root/anaconda3/lib/python3.6/site-packages/deap/creator.py", line 150, in initType
+11:39:12.918 [CLI TAE (STDERR Thread - #0)] WARN  c.u.c.b.a.t.b.c.CommandLineAlgorithmRun - [PROCESS-ERR]      base.__init__(self, *args, **kargs)
+11:39:12.918 [CLI TAE (STDERR Thread - #0)] WARN  c.u.c.b.a.t.b.c.CommandLineAlgorithmRun - [PROCESS-ERR]    File "/root/anaconda3/lib/python3.6/site-packages/deap/base.py", line 172, in __init__
+11:39:12.918 [CLI TAE (STDERR Thread - #0)] WARN  c.u.c.b.a.t.b.c.CommandLineAlgorithmRun - [PROCESS-ERR]      if not isinstance(self.weights, Sequence):
+11:39:12.923 [CLI TAE (STDERR Thread - #0)] WARN  c.u.c.b.a.t.b.c.CommandLineAlgorithmRun - [PROCESS-ERR]    File "/root/anaconda3/lib/python3.6/abc.py", line 182, in __instancecheck__

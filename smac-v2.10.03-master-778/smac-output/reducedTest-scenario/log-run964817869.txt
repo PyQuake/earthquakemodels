@@ -408,3 +408,20 @@ warmStartOptions = [WarmStartOptions]
 
 
 11:26:59.869 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - SMAC started at: Mar 30, 2017 11:26:59 AM. Minimizing mean quality.
+11:34:23.222 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - First incumbent: config 1 (internal ID: 0x000B), with mean quality: 3464.106477; estimate based on 1 runs.
+11:34:23.223 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Sample call for new incumbent config 1 (internal ID: 0x000B): 
+cd /root/mpi_projects/earthquakemodels/smac-v2.10.03-master-778; example_scenarios/branin/reducedTest.py no_instance 0 1.7976931348623157E308 2147483647 16298923 -tournsize '10'  
+12:39:01.515 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Incumbent changed to: config 3 (internal ID: 0x7547), with mean quality: 3340.6012833333334; estimate based on 3 runs.
+12:39:01.516 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Sample call for new incumbent config 3 (internal ID: 0x7547): 
+cd /root/mpi_projects/earthquakemodels/smac-v2.10.03-master-778; example_scenarios/branin/reducedTest.py no_instance 0 1.7976931348623157E308 2147483647 16298923 -tournsize '6'  
+15:06:56.134 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3384.6984423; estimate now based on 10 runs.
+18:54:54.521 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3367.6595308; estimate now based on 20 runs.
+23:01:11.303 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3348.4138905333334; estimate now based on 30 runs.
+02:46:16.239 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3340.9632434; estimate now based on 40 runs.
+06:34:42.603 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3347.20846904; estimate now based on 50 runs.
+11:31:11.523 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3347.0780905333336; estimate now based on 60 runs.
+15:21:00.203 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3349.058685471429; estimate now based on 70 runs.
+19:07:59.572 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3352.17970415; estimate now based on 80 runs.
+23:16:15.888 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3353.5306580666665; estimate now based on 90 runs.
+03:05:33.131 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3357.4172443400003; estimate now based on 100 runs.
+06:55:42.756 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3359.480874318182; estimate now based on 110 runs.

@@ -1,0 +1,33 @@
+nohup: ignoring input
+[INFO ] Logging to: /root/mpi_projects/earthquakemodels/smac-v2.10.03-master-778/smac-output/gaTest-scenario/log-run339959936.txt
+[INFO ] Version of SMAC is v2.10.03-master-778 (3ee628ef9bf2), running on OpenJDK 64-Bit Server VM (1.7.0_131) and Linux 3.10.0-327.28.3.el7.x86_64 (amd64) 
+[INFO ] Call String: smac --scenario-file example_scenarios/branin/gaTest-scenario.txt 
+[INFO ] SMAC started at: Mar 30, 2017 11:39:32 AM. Minimizing mean quality.
+[INFO ] First incumbent: config 1 (internal ID: 0x000B), with mean quality: 3169.539464; estimate based on 1 runs.
+[INFO ] Sample call for new incumbent config 1 (internal ID: 0x000B): 
+cd /root/mpi_projects/earthquakemodels/smac-v2.10.03-master-778; example_scenarios/branin/gaTest.py no_instance 0 1.7976931348623157E308 2147483647 12878003 -tournsize '10'  
+[INFO ] Updated estimated mean quality of the same incumbent: 3230.0532322; estimate now based on 10 runs.
+[INFO ] Incumbent changed to: config 16 (internal ID: 0x20020), with mean quality: 3204.028252555556; estimate based on 18 runs.
+[INFO ] Sample call for new incumbent config 16 (internal ID: 0x20020): 
+cd /root/mpi_projects/earthquakemodels/smac-v2.10.03-master-778; example_scenarios/branin/gaTest.py no_instance 0 1.7976931348623157E308 2147483647 8089354 -tournsize '14'  
+[INFO ] Incumbent changed to: config 18 (internal ID: 0x28DDB), with mean quality: 3154.696735842105; estimate based on 19 runs.
+[INFO ] Sample call for new incumbent config 18 (internal ID: 0x28DDB): 
+cd /root/mpi_projects/earthquakemodels/smac-v2.10.03-master-778; example_scenarios/branin/gaTest.py no_instance 0 1.7976931348623157E308 2147483647 8089354 -tournsize '15'  
+[INFO ] Updated estimated mean quality of the same incumbent: 3156.29026125; estimate now based on 20 runs.
+[INFO ] Updated estimated mean quality of the same incumbent: 3179.0362911; estimate now based on 30 runs.
+[INFO ] Updated estimated mean quality of the same incumbent: 3180.193021575; estimate now based on 40 runs.
+[INFO ] Updated estimated mean quality of the same incumbent: 3176.78768058; estimate now based on 50 runs.
+[INFO ] Updated estimated mean quality of the same incumbent: 3181.6223190166666; estimate now based on 60 runs.
+[INFO ] Updated estimated mean quality of the same incumbent: 3184.3335824857145; estimate now based on 70 runs.
+[INFO ] Updated estimated mean quality of the same incumbent: 3188.4109268875; estimate now based on 80 runs.
+[INFO ] Updated estimated mean quality of the same incumbent: 3187.1363355; estimate now based on 90 runs.
+[INFO ] Updated estimated mean quality of the same incumbent: 3189.96092701; estimate now based on 100 runs.
+[INFO ] Incumbent changed to: config 61 (internal ID: 0xB055A), with mean quality: 3175.9137414411766; estimate based on 102 runs.
+[INFO ] Sample call for new incumbent config 61 (internal ID: 0xB055A): 
+cd /root/mpi_projects/earthquakemodels/smac-v2.10.03-master-778; example_scenarios/branin/gaTest.py no_instance 0 1.7976931348623157E308 2147483647 16076423 -tournsize '11'  
+[INFO ] Updated estimated mean quality of the same incumbent: 3176.737645518182; estimate now based on 110 runs.
+[INFO ] Updated estimated mean quality of the same incumbent: 3174.81105435; estimate now based on 120 runs.
+[INFO ] Updated estimated mean quality of the same incumbent: 3171.9608161538463; estimate now based on 130 runs.
+[INFO ] Updated estimated mean quality of the same incumbent: 3172.534551057143; estimate now based on 140 runs.
+[INFO ] Updated estimated mean quality of the same incumbent: 3175.0561201933333; estimate now based on 150 runs.
+[INFO ] Updated estimated mean quality of the same incumbent: 3172.79333624375; estimate now based on 160 runs.
