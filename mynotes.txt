@@ -24,3 +24,6 @@ ssh cluster8.local 'mount 164.41.75.66:/root/mpi_projects/ /root/mpi_projects/; 
 source //anaconda/bin/activate
 
 mount 164.41.75.66:/root/mpi_projects/ /root/mpi_projects/
+
+./smac --scenario-file example_scenarios/branin/gaTest-scenario.txt 
+./smac --scenario-file example_scenarios/branin/reducedTest-scenario.txt 

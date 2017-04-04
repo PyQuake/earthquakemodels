@@ -1,0 +1,5 @@
+"CPU Time Used","Estimated Training Performance","Wallclock Time","Incumbent ID","Automatic Configurator (CPU) Time","Configuration..."
+0.0, 1.7976931348623157E308, 0.0, 1, 0.0,  tournsize='10'
+0.6993110000000001, 4039.644549, 58.584, 1, 0.599534,  tournsize='10'
+1.1617359999999999, 4034.6805305, 113.968, 1, 0.9619470000000001,  tournsize='10'
+1.7348500000000002, 4053.8482, 224.325, 1, 1.3349689999999999,  tournsize='10'

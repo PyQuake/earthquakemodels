@@ -40,7 +40,7 @@ loglikelihood = ga.gaModel(
         region=region,
         mean=mean,
         tournsize=tournsize,
-        n_aval=50000)
+        n_aval=50)
 
   
 # SMAC has a few different output fields; here, we only need the 4th output:

@@ -38,6 +38,17 @@ createData = function(modelName, region, year){
     data9 = loadData(modelName, region, year, 8)
     data10 = loadData(modelName, region, year, 9)
     
+    data1$std = pmin(data1$std, 500)
+    data2$std = pmin(data1$std, 500)
+    data3$std = pmin(data1$std, 500)
+    data4$std = pmin(data1$std, 500)
+    data5$std = pmin(data1$std, 500)
+    data6$std = pmin(data1$std, 500)
+    data7$std = pmin(data1$std, 500)
+    data8$std = pmin(data1$std, 500)
+    data9$std = pmin(data1$std, 500)
+    data10$std = pmin(data1$std, 500)
+    
     maxs = c(rep(0,length(data1$max)))
     for (i in 1:length(data1$max)){
         maxs[i] = ((data1$max[i] + data2$max[i] + data3$max[i] + data4$max[i] + data5$max[i] + 
@@ -50,7 +61,7 @@ createData = function(modelName, region, year){
                         data6$std[i] + data7$std[i] + data8$std[i] + data9$std[i] + data10$std[i])/10)
     }
     
-    gen = c(1:100)
+    gen = c(1:200)
     data = data.frame(
         setNames(replicate(3,numeric(0), simplify = F),
                  c("maxs", "stds", "gen")))
@@ -69,18 +80,24 @@ plotConvergencyData = function(data, type, region, year){
         p1<- ggplot(data, aes(x=gen, y=maxs, group=1)) + 
             geom_line(color='orange') +
             geom_point(color='orange')+
-            # coord_cartesian(ylim = c(min(data$maxs), max(data$maxs))) + 
             geom_errorbar(aes(ymin=data$maxs+data$stds, ymax=data$maxs-data$stds), width=0.2, color='black')
-        grid.arrange(p1,ncol=1, top = paste("Convergency Analysis in ",region,"year of", year, "(ReducedGAModel - GAModel)"))
+        print(p1 + 
+            ggtitle(paste("Convergency Analysis in ",region,"year of", year, "(GAModel)"))+
+            theme(axis.text=element_text(size=14))+
+            theme(plot.title = element_text(size=18, face="bold"))
+        )
         dev.off()    
     }
-    else{
+    else if(type=='ReducedGAModel'){
         p1<- ggplot(data, aes(x=gen, y=maxs, group=1)) + 
             geom_line(color='orange') +
             geom_point(color='orange')+
-            coord_cartesian(ylim = c(min(data$maxs), max(data$maxs))) + 
             geom_errorbar(aes(ymin=data$maxs+data$stds, ymax=data$maxs-data$stds), width=0.2, color='black')
-        grid.arrange(p1,ncol=1, top = paste("Convergency Analysis in ",region,"year of", year, "(ReducedGAModel - GAModel)"))
+        print(p1 + 
+            ggtitle(paste("Convergency Analysis in ",region,"year of", year, "(ReducedGAModel)"))+
+            theme(axis.text=element_text(size=14))+
+            theme(plot.title = element_text(size=18, face="bold"))
+        )
         dev.off()
     }
     
@@ -88,13 +105,14 @@ plotConvergencyData = function(data, type, region, year){
 
 for (i in 1:4){
     region = chooseRegion(i)
-    for (year in 2005:2009){
+    for (year in 2005:2010){
         plotConvergencyData(createData(modelName = 'ReducedGAModel',region,year),'ReducedGAModel', region, year)
         plotConvergencyData(createData(modelName = 'GAModel',region,year),'GAModel', region, year)
     }    
 }
 
 
+plotConvergencyData(createData(modelName = 'GAModel','200EastJapan',2006),'GAModel', 'EastJapan', 2006)
 
 
 
