@@ -1,20 +1,46 @@
-[INFO ] Logging to: /Users/yclavinas/Documents/estudos/master-unb/earthquakemodels/smac-v2.10.03-master-778/smac-output/gaTest-scenario/log-run984967730.txt
-[INFO ] Version of SMAC is v2.10.03-master-778 (3ee628ef9bf2), running on Java HotSpot(TM) 64-Bit Server VM (1.8.0_60) and Mac OS X 10.12.3 (x86_64) 
-[INFO ] Call String: smac --scenario-file example_scenarios/branin/gaTest-scenario.txt 
-[INFO ] SMAC started at: Apr 4, 2017 12:54:08 PM. Minimizing mean quality.
-[ERROR] The following algorithm call failed: cd "/Users/yclavinas/Documents/estudos/master-unb/earthquakemodels/smac-v2.10.03-master-778" ;  example_scenarios/branin/gaTest.py no_instance 0 1.7976931348623157E308 2147483647 11284690 -tournsize '10'  
-Error occurred while running SMAC
->Error Message: Wrapper did not output anything that matched the expected output ("Result of algorithm run:..."). Please try executing the wrapper directly
->Encountered Exception:TargetAlgorithmAbortException
->Error Log Location: /Users/yclavinas/Documents/estudos/master-unb/earthquakemodels/smac-v2.10.03-master-778/smac-output/gaTest-scenario/log-run984967730.txt
-[ERROR] Message:  Wrapper did not output anything that matched the expected output ("Result of algorithm run:..."). Please try executing the wrapper directly
-[ERROR] We tried to call the target algorithm wrapper, but this call failed.
-[ERROR] The problem is (most likely) somewhere in the wrapper or with the arguments to SMAC.
-[ERROR] The easiest way to debug this problem is to manually execute the call we tried and see why it did not return the correct result
-[ERROR] The required output of the wrapper is something like "Result for ParamILS: x,x,x,x,x".);
-[INFO ] Exiting SMAC with failure. Log: /Users/yclavinas/Documents/estudos/master-unb/earthquakemodels/smac-v2.10.03-master-778/smac-output/gaTest-scenario/log-run984967730.txt
-[INFO ] For a list of available commands use:  --help
-[INFO ] The Quickstart guide at available at: http://www.cs.ubc.ca/labs/beta/Projects/SMAC/ or alternatively (doc/quickstart.html) gives simple examples for getting up and running.
-[INFO ] The FAQ (doc/faq.pdf) contains commonly asked questions regarding troubleshooting, and usage.
-[INFO ] The Manual (doc/manual.pdf) contains detailed information on file format semantics.
-[INFO ] If you are stuck, please ask a question in the SMAC forum: https://groups.google.com/forum/#!forum/smac-forum
+nohup: ignoring input
+[INFO ] Logging to: /root/mpi_projects/earthquakemodels/smac-v2.10.03-master-778/smac-output/gaTest-scenario/log-run1.txt
+[INFO ] Version of SMAC is v2.10.03-master-778 (3ee628ef9bf2), running on OpenJDK 64-Bit Server VM (1.7.0_131) and Linux 3.10.0-327.28.3.el7.x86_64 (amd64) 
+[INFO ] Call String: smac --scenario-file example_scenarios/branin/gaTest-scenario.txt --seed 1 
+[INFO ] Found previous run data in state output folder: /root/mpi_projects/earthquakemodels/smac-v2.10.03-master-778/smac-output/gaTest-scenario , renamed to: old-state-state-run1-1491324359928
+[INFO ] SMAC started at: Apr 4, 2017 1:46:00 PM. Minimizing mean quality.
+[INFO ] First incumbent: config 1 (internal ID: 0x000B), with mean quality: 3156.601548; estimate based on 1 runs.
+[INFO ] Sample call for new incumbent config 1 (internal ID: 0x000B): 
+cd /root/mpi_projects/earthquakemodels/smac-v2.10.03-master-778; example_scenarios/branin/gaTest.py no_instance 0 1.7976931348623157E308 2147483647 5320365 -tournsize '10'  
+[INFO ] Incumbent changed to: config 2 (internal ID: 0x38D4), with mean quality: 3124.0996145; estimate based on 2 runs.
+[INFO ] Sample call for new incumbent config 2 (internal ID: 0x38D4): 
+cd /root/mpi_projects/earthquakemodels/smac-v2.10.03-master-778; example_scenarios/branin/gaTest.py no_instance 0 1.7976931348623157E308 2147483647 5320365 -tournsize '13'  
+[INFO ] Updated estimated mean quality of the same incumbent: 3179.7694398; estimate now based on 10 runs.
+[INFO ] Incumbent changed to: config 9 (internal ID: 0x122A4), with mean quality: 3181.9528001666667; estimate based on 12 runs.
+[INFO ] Sample call for new incumbent config 9 (internal ID: 0x122A4): 
+cd /root/mpi_projects/earthquakemodels/smac-v2.10.03-master-778; example_scenarios/branin/gaTest.py no_instance 0 1.7976931348623157E308 2147483647 8756526 -tournsize '14'  
+[INFO ] Updated estimated mean quality of the same incumbent: 3184.0329374; estimate now based on 20 runs.
+[INFO ] Updated estimated mean quality of the same incumbent: 3188.3281022; estimate now based on 30 runs.
+[INFO ] Incumbent changed to: config 16 (internal ID: 0x36599), with mean quality: 3183.8817526875; estimate based on 32 runs.
+[INFO ] Sample call for new incumbent config 16 (internal ID: 0x36599): 
+cd /root/mpi_projects/earthquakemodels/smac-v2.10.03-master-778; example_scenarios/branin/gaTest.py no_instance 0 1.7976931348623157E308 2147483647 10173568 -tournsize '12'  
+[INFO ] Updated estimated mean quality of the same incumbent: 3184.96137; estimate now based on 40 runs.
+[INFO ] Updated estimated mean quality of the same incumbent: 3179.78298604; estimate now based on 50 runs.
+[INFO ] Updated estimated mean quality of the same incumbent: 3180.8443821833334; estimate now based on 60 runs.
+[INFO ] Updated estimated mean quality of the same incumbent: 3174.3245518142858; estimate now based on 70 runs.
+[INFO ] Updated estimated mean quality of the same incumbent: 3181.3705857; estimate now based on 80 runs.
+[INFO ] Updated estimated mean quality of the same incumbent: 3177.5861765; estimate now based on 90 runs.
+[INFO ] Updated estimated mean quality of the same incumbent: 3181.11863873; estimate now based on 100 runs.
+[INFO ] Updated estimated mean quality of the same incumbent: 3179.647004309091; estimate now based on 110 runs.
+[INFO ] Updated estimated mean quality of the same incumbent: 3181.799490375; estimate now based on 120 runs.
+[INFO ] Updated estimated mean quality of the same incumbent: 3178.1984250384617; estimate now based on 130 runs.
+[INFO ] Updated estimated mean quality of the same incumbent: 3180.486299857143; estimate now based on 140 runs.
+[INFO ] Updated estimated mean quality of the same incumbent: 3179.1320319266665; estimate now based on 150 runs.
+[INFO ] Updated estimated mean quality of the same incumbent: 3180.475363325; estimate now based on 160 runs.
+[INFO ] Updated estimated mean quality of the same incumbent: 3183.3563243764706; estimate now based on 170 runs.
+[INFO ] Updated estimated mean quality of the same incumbent: 3184.822839111111; estimate now based on 180 runs.
+[INFO ] Updated estimated mean quality of the same incumbent: 3183.7773041368423; estimate now based on 190 runs.
+[INFO ] Updated estimated mean quality of the same incumbent: 3184.078306205; estimate now based on 200 runs.
+[INFO ] Updated estimated mean quality of the same incumbent: 3183.0163405761905; estimate now based on 210 runs.
+[INFO ] Updated estimated mean quality of the same incumbent: 3182.6772958; estimate now based on 220 runs.
+[INFO ] Updated estimated mean quality of the same incumbent: 3182.747886873913; estimate now based on 230 runs.
+[INFO ] Updated estimated mean quality of the same incumbent: 3183.087914625; estimate now based on 240 runs.
+[INFO ] Updated estimated mean quality of the same incumbent: 3182.607316372; estimate now based on 250 runs.
+[INFO ] Updated estimated mean quality of the same incumbent: 3182.9988125076925; estimate now based on 260 runs.
+[INFO ] Updated estimated mean quality of the same incumbent: 3184.1382638814816; estimate now based on 270 runs.
+[INFO ] Updated estimated mean quality of the same incumbent: 3183.8848502428573; estimate now based on 280 runs.

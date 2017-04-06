@@ -1,105 +1,103 @@
-12:57:41.836 [main] INFO  c.u.c.b.a.l.ComplexLoggingOptions - Logging to: /Users/yclavinas/Documents/estudos/master-unb/earthquakemodels/smac-v2.10.03-master-778/smac-output/gaTest-scenario/log-run1.txt
-12:57:41.846 [main] INFO  c.u.c.b.a.m.version.VersionTracker - Version of Algorithm Execution & Abstraction Toolkit is v2.10.03-master-814 (ebf4c8c913d5) 
-12:57:41.846 [main] INFO  c.u.c.b.a.m.version.VersionTracker - Version of Java Runtime Environment is Java HotSpot(TM) 64-Bit Server VM (1.8.0_60) 
-12:57:41.846 [main] INFO  c.u.c.b.a.m.version.VersionTracker - Version of OS is Mac OS X 10.12.3 (x86_64) 
-12:57:41.846 [main] INFO  c.u.c.b.a.m.version.VersionTracker - Version of Random Forest Library is v1.10.01-master-120 (b68439c2c391) 
-12:57:41.846 [main] INFO  c.u.c.b.a.m.version.VersionTracker - Version of SMAC is v2.10.03-master-778 (3ee628ef9bf2) 
-12:57:41.847 [main] INFO  c.u.c.b.a.m.j.JCommanderHelper - Call String: smac --scenario-file example_scenarios/branin/gaTest-scenario.txt --seed 1 
-12:57:41.847 [main] INFO  c.u.c.b.smac.executors.SMACExecutor - ********** The next bit of output can be ignored, it is merely useful for debugging **********
-12:57:41.847 [main] INFO  c.u.c.b.smac.executors.SMACExecutor - ==========Enviroment Variables===========
-Apple_PubSub_Socket_Render=/private/tmp/com.apple.launchd.eUXEEEW4R7/Render
-DISPLAY=/private/tmp/com.apple.launchd.kKd0rF6WQE/org.macosforge.xquartz:0
-GEOS_DIR=/usr/local/
-HOME=/Users/yclavinas
-JAVA_ARCH=x86_64
-JAVA_MAIN_CLASS_51157=ca.ubc.cs.beta.aeatk.ant.execscript.Launcher
+13:45:59.864 [main] INFO  c.u.c.b.a.l.ComplexLoggingOptions - Logging to: /root/mpi_projects/earthquakemodels/smac-v2.10.03-master-778/smac-output/gaTest-scenario/log-run1.txt
+13:45:59.873 [main] INFO  c.u.c.b.a.m.version.VersionTracker - Version of Algorithm Execution & Abstraction Toolkit is v2.10.03-master-814 (ebf4c8c913d5) 
+13:45:59.873 [main] INFO  c.u.c.b.a.m.version.VersionTracker - Version of Java Runtime Environment is OpenJDK 64-Bit Server VM (1.7.0_131) 
+13:45:59.873 [main] INFO  c.u.c.b.a.m.version.VersionTracker - Version of OS is Linux 3.10.0-327.28.3.el7.x86_64 (amd64) 
+13:45:59.873 [main] INFO  c.u.c.b.a.m.version.VersionTracker - Version of Random Forest Library is v1.10.01-master-120 (b68439c2c391) 
+13:45:59.873 [main] INFO  c.u.c.b.a.m.version.VersionTracker - Version of SMAC is v2.10.03-master-778 (3ee628ef9bf2) 
+13:45:59.873 [main] INFO  c.u.c.b.a.m.j.JCommanderHelper - Call String: smac --scenario-file example_scenarios/branin/gaTest-scenario.txt --seed 1 
+13:45:59.874 [main] INFO  c.u.c.b.smac.executors.SMACExecutor - ********** The next bit of output can be ignored, it is merely useful for debugging **********
+13:45:59.874 [main] INFO  c.u.c.b.smac.executors.SMACExecutor - ==========Enviroment Variables===========
+HISTCONTROL=ignoredups
+HISTSIZE=1000
+HOME=/root
+HOSTNAME=cluster1.local
 LANG=en_US.UTF-8
-LOGNAME=yclavinas
-MPI_DIR=/usr/local/openmpi
-PATH=/Library/Frameworks/Python.framework/Versions/3.6/bin://anaconda/bin:/opt/local/bin:/opt/local/sbin:/usr/local/openmpi/bin:/opt/local/bin:/opt/local/sbin:/Library/Frameworks/Python.framework/Versions/3.5/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/git/bin:/Library/TeX/texbin
-PWD=/Users/yclavinas/Documents/estudos/master-unb/earthquakemodels/smac-v2.10.03-master-778
+LD_LIBRARY_PATH=/opt/mpi/mpich3/lib:/nfs/mpich3/lib::/root/mpi_projects/earthquakemodels/smac-v2.10.03-master-778/lib/native/:/root/mpi_projects/earthquakemodels/smac-v2.10.03-master-778/lib/:/root/mpi_projects/earthquakemodels/smac-v2.10.03-master-778/
+LESSOPEN=||/usr/bin/lesspipe.sh %s
+LOGNAME=root
+LS_COLORS=rs=0:di=38;5;27:ln=38;5;51:mh=44;38;5;15:pi=40;38;5;11:so=38;5;13:do=38;5;5:bd=48;5;232;38;5;11:cd=48;5;232;38;5;3:or=48;5;232;38;5;9:mi=05;48;5;232;38;5;15:su=48;5;196;38;5;15:sg=48;5;11;38;5;16:ca=48;5;196;38;5;226:tw=48;5;10;38;5;16:ow=48;5;10;38;5;21:st=48;5;21;38;5;15:ex=38;5;34:*.tar=38;5;9:*.tgz=38;5;9:*.arc=38;5;9:*.arj=38;5;9:*.taz=38;5;9:*.lha=38;5;9:*.lz4=38;5;9:*.lzh=38;5;9:*.lzma=38;5;9:*.tlz=38;5;9:*.txz=38;5;9:*.tzo=38;5;9:*.t7z=38;5;9:*.zip=38;5;9:*.z=38;5;9:*.Z=38;5;9:*.dz=38;5;9:*.gz=38;5;9:*.lrz=38;5;9:*.lz=38;5;9:*.lzo=38;5;9:*.xz=38;5;9:*.bz2=38;5;9:*.bz=38;5;9:*.tbz=38;5;9:*.tbz2=38;5;9:*.tz=38;5;9:*.deb=38;5;9:*.rpm=38;5;9:*.jar=38;5;9:*.war=38;5;9:*.ear=38;5;9:*.sar=38;5;9:*.rar=38;5;9:*.alz=38;5;9:*.ace=38;5;9:*.zoo=38;5;9:*.cpio=38;5;9:*.7z=38;5;9:*.rz=38;5;9:*.cab=38;5;9:*.jpg=38;5;13:*.jpeg=38;5;13:*.gif=38;5;13:*.bmp=38;5;13:*.pbm=38;5;13:*.pgm=38;5;13:*.ppm=38;5;13:*.tga=38;5;13:*.xbm=38;5;13:*.xpm=38;5;13:*.tif=38;5;13:*.tiff=38;5;13:*.png=38;5;13:*.svg=38;5;13:*.svgz=38;5;13:*.mng=38;5;13:*.pcx=38;5;13:*.mov=38;5;13:*.mpg=38;5;13:*.mpeg=38;5;13:*.m2v=38;5;13:*.mkv=38;5;13:*.webm=38;5;13:*.ogm=38;5;13:*.mp4=38;5;13:*.m4v=38;5;13:*.mp4v=38;5;13:*.vob=38;5;13:*.qt=38;5;13:*.nuv=38;5;13:*.wmv=38;5;13:*.asf=38;5;13:*.rm=38;5;13:*.rmvb=38;5;13:*.flc=38;5;13:*.avi=38;5;13:*.fli=38;5;13:*.flv=38;5;13:*.gl=38;5;13:*.dl=38;5;13:*.xcf=38;5;13:*.xwd=38;5;13:*.yuv=38;5;13:*.cgm=38;5;13:*.emf=38;5;13:*.axv=38;5;13:*.anx=38;5;13:*.ogv=38;5;13:*.ogx=38;5;13:*.aac=38;5;45:*.au=38;5;45:*.flac=38;5;45:*.mid=38;5;45:*.midi=38;5;45:*.mka=38;5;45:*.mp3=38;5;45:*.mpc=38;5;45:*.ogg=38;5;45:*.ra=38;5;45:*.wav=38;5;45:*.axa=38;5;45:*.oga=38;5;45:*.spx=38;5;45:*.xspf=38;5;45:
+MAIL=/var/spool/mail/root
+NLSPATH=/usr/dt/lib/nls/msg/%L/%N.cat
+PATH=/root/anaconda3/bin:/opt/mpi/mpich3/bin:/nfs/mpich3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/root/bin
+PWD=/root/mpi_projects/earthquakemodels/smac-v2.10.03-master-778
+SELINUX_LEVEL_REQUESTED=
+SELINUX_ROLE_REQUESTED=
+SELINUX_USE_CURRENT_RANGE=
 SHELL=/bin/bash
 SHLVL=1
-SSH_AUTH_SOCK=/private/tmp/com.apple.launchd.Hdw5z3j2AF/Listeners
+SSH_CLIENT=164.41.75.66 41904 22
+SSH_CONNECTION=164.41.75.66 41904 164.41.75.67 22
+SSH_TTY=/dev/pts/0
 TERM=xterm-256color
-TERM_PROGRAM=Apple_Terminal
-TERM_PROGRAM_VERSION=388
-TERM_SESSION_ID=2541C825-A5E5-4B44-8D55-09A8EBB11B9F
-TMPDIR=/var/folders/4q/v9cwzvb11wqgxb65zp6wq3xw0000gn/T/
-USER=yclavinas
-XPC_FLAGS=0x0
-XPC_SERVICE_NAME=0
-__CF_USER_TEXT_ENCODING=0x1F5:0x0:0x0
-com.apple.java.jvmTask=CommandLine
+USER=root
+XDG_RUNTIME_DIR=/run/user/0
+XDG_SESSION_ID=25
+XFILESEARCHPATH=/usr/dt/app-defaults/%L/Dt
 
-12:57:41.847 [main] INFO  c.u.c.b.smac.executors.SMACExecutor - Hostname:Lara.local
-12:57:41.847 [main] INFO  c.u.c.b.smac.executors.SMACExecutor - ==========System Properties==============
-ERRLOG=/Users/yclavinas/Documents/estudos/master-unb/earthquakemodels/smac-v2.10.03-master-778/smac-output/gaTest-scenario/log-err1.txt
+13:45:59.874 [main] INFO  c.u.c.b.smac.executors.SMACExecutor - Hostname:cluster1.local
+13:45:59.874 [main] INFO  c.u.c.b.smac.executors.SMACExecutor - ==========System Properties==============
+ERRLOG=/root/mpi_projects/earthquakemodels/smac-v2.10.03-master-778/smac-output/gaTest-scenario/log-err1.txt
 NUMRUN=1
-OUTPUTDIR=/Users/yclavinas/Documents/estudos/master-unb/earthquakemodels/smac-v2.10.03-master-778/smac-output/gaTest-scenario
+OUTPUTDIR=/root/mpi_projects/earthquakemodels/smac-v2.10.03-master-778/smac-output/gaTest-scenario
 ROOT-LEVEL=INFO
-RUNLOG=/Users/yclavinas/Documents/estudos/master-unb/earthquakemodels/smac-v2.10.03-master-778/smac-output/gaTest-scenario/log-run1.txt
+RUNLOG=/root/mpi_projects/earthquakemodels/smac-v2.10.03-master-778/smac-output/gaTest-scenario/log-run1.txt
 STDOUT-LEVEL=INFO
-WARNLOG=/Users/yclavinas/Documents/estudos/master-unb/earthquakemodels/smac-v2.10.03-master-778/smac-output/gaTest-scenario/log-warn1.txt
-awt.toolkit=sun.lwawt.macosx.LWCToolkit
+WARNLOG=/root/mpi_projects/earthquakemodels/smac-v2.10.03-master-778/smac-output/gaTest-scenario/log-warn1.txt
+awt.toolkit=sun.awt.X11.XToolkit
 file.encoding=UTF-8
 file.encoding.pkg=sun.io
 file.separator=/
-ftp.nonProxyHosts=local|*.local|169.254/16|*.169.254/16
-gopherProxySet=false
-http.nonProxyHosts=local|*.local|169.254/16|*.169.254/16
-java.awt.graphicsenv=sun.awt.CGraphicsEnvironment
-java.awt.printerjob=sun.lwawt.macosx.CPrinterJob
-java.class.path=/Users/yclavinas/Documents/estudos/master-unb/earthquakemodels/smac-v2.10.03-master-778/conf/:/Users/yclavinas/Documents/estudos/master-unb/earthquakemodels/smac-v2.10.03-master-778/patches/:/Users/yclavinas/Documents/estudos/master-unb/earthquakemodels/smac-v2.10.03-master-778/lib/DomainInter.jar:/Users/yclavinas/Documents/estudos/master-unb/earthquakemodels/smac-v2.10.03-master-778/lib/Jama-1.0.2.jar:/Users/yclavinas/Documents/estudos/master-unb/earthquakemodels/smac-v2.10.03-master-778/lib/aeatk-src.jar:/Users/yclavinas/Documents/estudos/master-unb/earthquakemodels/smac-v2.10.03-master-778/lib/aeatk.jar:/Users/yclavinas/Documents/estudos/master-unb/earthquakemodels/smac-v2.10.03-master-778/lib/commons-collections-3.2.1-sources.jar:/Users/yclavinas/Documents/estudos/master-unb/earthquakemodels/smac-v2.10.03-master-778/lib/commons-collections-3.2.1.jar:/Users/yclavinas/Documents/estudos/master-unb/earthquakemodels/smac-v2.10.03-master-778/lib/commons-io-2.1.jar:/Users/yclavinas/Documents/estudos/master-unb/earthquakemodels/smac-v2.10.03-master-778/lib/commons-math-2.2.jar:/Users/yclavinas/Documents/estudos/master-unb/earthquakemodels/smac-v2.10.03-master-778/lib/commons-math3-3.3.jar:/Users/yclavinas/Documents/estudos/master-unb/earthquakemodels/smac-v2.10.03-master-778/lib/exp4j-0.3.10.jar:/Users/yclavinas/Documents/estudos/master-unb/earthquakemodels/smac-v2.10.03-master-778/lib/exp4j-0.4.3.BETA-3.jar:/Users/yclavinas/Documents/estudos/master-unb/earthquakemodels/smac-v2.10.03-master-778/lib/fastrf-src.jar:/Users/yclavinas/Documents/estudos/master-unb/earthquakemodels/smac-v2.10.03-master-778/lib/fastrf.jar:/Users/yclavinas/Documents/estudos/master-unb/earthquakemodels/smac-v2.10.03-master-778/lib/guava-14.0.1.jar:/Users/yclavinas/Documents/estudos/master-unb/earthquakemodels/smac-v2.10.03-master-778/lib/jackson-annotations-2.3.1.jar:/Users/yclavinas/Documents/estudos/master-unb/earthquakemodels/smac-v2.10.03-master-778/lib/jackson-core-2.3.1.jar:/Users/yclavinas/Documents/estudos/master-unb/earthquakemodels/smac-v2.10.03-master-778/lib/jackson-databind-2.3.1.jar:/Users/yclavinas/Documents/estudos/master-unb/earthquakemodels/smac-v2.10.03-master-778/lib/jcip-annotations-src.jar:/Users/yclavinas/Documents/estudos/master-unb/earthquakemodels/smac-v2.10.03-master-778/lib/jcip-annotations.jar:/Users/yclavinas/Documents/estudos/master-unb/earthquakemodels/smac-v2.10.03-master-778/lib/jcommander.jar:/Users/yclavinas/Documents/estudos/master-unb/earthquakemodels/smac-v2.10.03-master-778/lib/jmatharray.jar:/Users/yclavinas/Documents/estudos/master-unb/earthquakemodels/smac-v2.10.03-master-778/lib/logback-access-1.1.2.jar:/Users/yclavinas/Documents/estudos/master-unb/earthquakemodels/smac-v2.10.03-master-778/lib/logback-classic-1.1.2.jar:/Users/yclavinas/Documents/estudos/master-unb/earthquakemodels/smac-v2.10.03-master-778/lib/logback-core-1.1.2.jar:/Users/yclavinas/Documents/estudos/master-unb/earthquakemodels/smac-v2.10.03-master-778/lib/numerics4j-1.3.jar:/Users/yclavinas/Documents/estudos/master-unb/earthquakemodels/smac-v2.10.03-master-778/lib/opencsv-2.3.jar:/Users/yclavinas/Documents/estudos/master-unb/earthquakemodels/smac-v2.10.03-master-778/lib/slf4j-api-1.7.5.jar:/Users/yclavinas/Documents/estudos/master-unb/earthquakemodels/smac-v2.10.03-master-778/lib/smac-src.jar:/Users/yclavinas/Documents/estudos/master-unb/earthquakemodels/smac-v2.10.03-master-778/lib/smac.jar:/Users/yclavinas/Documents/estudos/master-unb/earthquakemodels/smac-v2.10.03-master-778/lib/spi-0.2.4.jar:/Users/yclavinas/Documents/estudos/master-unb/earthquakemodels/smac-v2.10.03-master-778/*.jar:/Users/yclavinas/Documents/estudos/master-unb/earthquakemodels/smac-v2.10.03-master-778/patches/
-java.class.version=52.0
-java.endorsed.dirs=/Library/Java/JavaVirtualMachines/jdk1.8.0_60.jdk/Contents/Home/jre/lib/endorsed
-java.ext.dirs=/Users/yclavinas/Library/Java/Extensions:/Library/Java/JavaVirtualMachines/jdk1.8.0_60.jdk/Contents/Home/jre/lib/ext:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java
-java.home=/Library/Java/JavaVirtualMachines/jdk1.8.0_60.jdk/Contents/Home/jre
-java.io.tmpdir=/var/folders/4q/v9cwzvb11wqgxb65zp6wq3xw0000gn/T/
-java.library.path=/Users/yclavinas/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.
-java.runtime.name=Java(TM) SE Runtime Environment
-java.runtime.version=1.8.0_60-b27
+java.awt.graphicsenv=sun.awt.X11GraphicsEnvironment
+java.awt.printerjob=sun.print.PSPrinterJob
+java.class.path=/root/mpi_projects/earthquakemodels/smac-v2.10.03-master-778/conf/:/root/mpi_projects/earthquakemodels/smac-v2.10.03-master-778/patches/:/root/mpi_projects/earthquakemodels/smac-v2.10.03-master-778/lib/aeatk.jar:/root/mpi_projects/earthquakemodels/smac-v2.10.03-master-778/lib/aeatk-src.jar:/root/mpi_projects/earthquakemodels/smac-v2.10.03-master-778/lib/commons-collections-3.2.1.jar:/root/mpi_projects/earthquakemodels/smac-v2.10.03-master-778/lib/commons-collections-3.2.1-sources.jar:/root/mpi_projects/earthquakemodels/smac-v2.10.03-master-778/lib/commons-io-2.1.jar:/root/mpi_projects/earthquakemodels/smac-v2.10.03-master-778/lib/commons-math-2.2.jar:/root/mpi_projects/earthquakemodels/smac-v2.10.03-master-778/lib/commons-math3-3.3.jar:/root/mpi_projects/earthquakemodels/smac-v2.10.03-master-778/lib/DomainInter.jar:/root/mpi_projects/earthquakemodels/smac-v2.10.03-master-778/lib/exp4j-0.3.10.jar:/root/mpi_projects/earthquakemodels/smac-v2.10.03-master-778/lib/exp4j-0.4.3.BETA-3.jar:/root/mpi_projects/earthquakemodels/smac-v2.10.03-master-778/lib/fastrf.jar:/root/mpi_projects/earthquakemodels/smac-v2.10.03-master-778/lib/fastrf-src.jar:/root/mpi_projects/earthquakemodels/smac-v2.10.03-master-778/lib/guava-14.0.1.jar:/root/mpi_projects/earthquakemodels/smac-v2.10.03-master-778/lib/jackson-annotations-2.3.1.jar:/root/mpi_projects/earthquakemodels/smac-v2.10.03-master-778/lib/jackson-core-2.3.1.jar:/root/mpi_projects/earthquakemodels/smac-v2.10.03-master-778/lib/jackson-databind-2.3.1.jar:/root/mpi_projects/earthquakemodels/smac-v2.10.03-master-778/lib/Jama-1.0.2.jar:/root/mpi_projects/earthquakemodels/smac-v2.10.03-master-778/lib/jcip-annotations.jar:/root/mpi_projects/earthquakemodels/smac-v2.10.03-master-778/lib/jcip-annotations-src.jar:/root/mpi_projects/earthquakemodels/smac-v2.10.03-master-778/lib/jcommander.jar:/root/mpi_projects/earthquakemodels/smac-v2.10.03-master-778/lib/jmatharray.jar:/root/mpi_projects/earthquakemodels/smac-v2.10.03-master-778/lib/logback-access-1.1.2.jar:/root/mpi_projects/earthquakemodels/smac-v2.10.03-master-778/lib/logback-classic-1.1.2.jar:/root/mpi_projects/earthquakemodels/smac-v2.10.03-master-778/lib/logback-core-1.1.2.jar:/root/mpi_projects/earthquakemodels/smac-v2.10.03-master-778/lib/numerics4j-1.3.jar:/root/mpi_projects/earthquakemodels/smac-v2.10.03-master-778/lib/opencsv-2.3.jar:/root/mpi_projects/earthquakemodels/smac-v2.10.03-master-778/lib/slf4j-api-1.7.5.jar:/root/mpi_projects/earthquakemodels/smac-v2.10.03-master-778/lib/smac.jar:/root/mpi_projects/earthquakemodels/smac-v2.10.03-master-778/lib/smac-src.jar:/root/mpi_projects/earthquakemodels/smac-v2.10.03-master-778/lib/spi-0.2.4.jar:/root/mpi_projects/earthquakemodels/smac-v2.10.03-master-778/*.jar:/root/mpi_projects/earthquakemodels/smac-v2.10.03-master-778/patches/
+java.class.version=51.0
+java.endorsed.dirs=/usr/lib/jvm/java-1.7.0-openjdk-1.7.0.131-2.6.9.0.el7_3.x86_64/jre/lib/endorsed
+java.ext.dirs=/usr/lib/jvm/java-1.7.0-openjdk-1.7.0.131-2.6.9.0.el7_3.x86_64/jre/lib/ext:/usr/java/packages/lib/ext
+java.home=/usr/lib/jvm/java-1.7.0-openjdk-1.7.0.131-2.6.9.0.el7_3.x86_64/jre
+java.io.tmpdir=/tmp
+java.library.path=/opt/mpi/mpich3/lib:/nfs/mpich3/lib::/root/mpi_projects/earthquakemodels/smac-v2.10.03-master-778/lib/native/:/root/mpi_projects/earthquakemodels/smac-v2.10.03-master-778/lib/:/root/mpi_projects/earthquakemodels/smac-v2.10.03-master-778/:/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib
+java.runtime.name=OpenJDK Runtime Environment
+java.runtime.version=1.7.0_131-mockbuild_2017_02_13_17_01-b00
 java.specification.name=Java Platform API Specification
 java.specification.vendor=Oracle Corporation
-java.specification.version=1.8
+java.specification.version=1.7
 java.vendor=Oracle Corporation
 java.vendor.url=http://java.oracle.com/
 java.vendor.url.bug=http://bugreport.sun.com/bugreport/
-java.version=1.8.0_60
+java.version=1.7.0_131
 java.vm.info=mixed mode
-java.vm.name=Java HotSpot(TM) 64-Bit Server VM
+java.vm.name=OpenJDK 64-Bit Server VM
 java.vm.specification.name=Java Virtual Machine Specification
 java.vm.specification.vendor=Oracle Corporation
-java.vm.specification.version=1.8
+java.vm.specification.version=1.7
 java.vm.vendor=Oracle Corporation
-java.vm.version=25.60-b23
+java.vm.version=24.131-b00
 line.separator=
 
 logback.configurationFile=ca/ubc/cs/beta/aeatk/logging/complex-logback.xml
-os.arch=x86_64
-os.name=Mac OS X
-os.version=10.12.3
+os.arch=amd64
+os.name=Linux
+os.version=3.10.0-327.28.3.el7.x86_64
 path.separator=:
-socksNonProxyHosts=local|*.local|169.254/16|*.169.254/16
 sun.arch.data.model=64
-sun.boot.class.path=/Library/Java/JavaVirtualMachines/jdk1.8.0_60.jdk/Contents/Home/jre/lib/resources.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_60.jdk/Contents/Home/jre/lib/rt.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_60.jdk/Contents/Home/jre/lib/sunrsasign.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_60.jdk/Contents/Home/jre/lib/jsse.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_60.jdk/Contents/Home/jre/lib/jce.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_60.jdk/Contents/Home/jre/lib/charsets.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_60.jdk/Contents/Home/jre/lib/jfr.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_60.jdk/Contents/Home/jre/classes
-sun.boot.library.path=/Library/Java/JavaVirtualMachines/jdk1.8.0_60.jdk/Contents/Home/jre/lib
+sun.boot.class.path=/usr/lib/jvm/java-1.7.0-openjdk-1.7.0.131-2.6.9.0.el7_3.x86_64/jre/lib/resources.jar:/usr/lib/jvm/java-1.7.0-openjdk-1.7.0.131-2.6.9.0.el7_3.x86_64/jre/lib/rt.jar:/usr/lib/jvm/java-1.7.0-openjdk-1.7.0.131-2.6.9.0.el7_3.x86_64/jre/lib/sunrsasign.jar:/usr/lib/jvm/java-1.7.0-openjdk-1.7.0.131-2.6.9.0.el7_3.x86_64/jre/lib/jsse.jar:/usr/lib/jvm/java-1.7.0-openjdk-1.7.0.131-2.6.9.0.el7_3.x86_64/jre/lib/jce.jar:/usr/lib/jvm/java-1.7.0-openjdk-1.7.0.131-2.6.9.0.el7_3.x86_64/jre/lib/charsets.jar:/usr/lib/jvm/java-1.7.0-openjdk-1.7.0.131-2.6.9.0.el7_3.x86_64/jre/lib/rhino.jar:/usr/lib/jvm/java-1.7.0-openjdk-1.7.0.131-2.6.9.0.el7_3.x86_64/jre/lib/jfr.jar:/usr/lib/jvm/java-1.7.0-openjdk-1.7.0.131-2.6.9.0.el7_3.x86_64/jre/classes
+sun.boot.library.path=/usr/lib/jvm/java-1.7.0-openjdk-1.7.0.131-2.6.9.0.el7_3.x86_64/jre/lib/amd64
 sun.cpu.endian=little
 sun.cpu.isalist=
-sun.io.unicode.encoding=UnicodeBig
+sun.io.unicode.encoding=UnicodeLittle
 sun.java.command=ca.ubc.cs.beta.aeatk.ant.execscript.Launcher ca.ubc.cs.beta.smac.executors.SMACExecutor --scenario-file example_scenarios/branin/gaTest-scenario.txt --seed 1
 sun.java.launcher=SUN_STANDARD
 sun.jnu.encoding=UTF-8
 sun.management.compiler=HotSpot 64-Bit Tiered Compilers
 sun.os.patch.level=unknown
 user.country=US
-user.dir=/Users/yclavinas/Documents/estudos/master-unb/earthquakemodels/smac-v2.10.03-master-778
-user.home=/Users/yclavinas
+user.dir=/root/mpi_projects/earthquakemodels/smac-v2.10.03-master-778
+user.home=/root
 user.language=en
-user.name=yclavinas
-user.timezone=America/Montevideo
+user.name=root
+user.timezone=America/Sao_Paulo
 
-12:57:41.851 [main] INFO  c.u.c.b.a.m.j.JCommanderHelper - ==========Configuration Options==========
+13:45:59.896 [main] INFO  c.u.c.b.a.m.j.JCommanderHelper - ==========Configuration Options==========
 [SMACOptions]
  adaptiveCapping = false
  alwaysRunInitialConfiguration = false
@@ -120,14 +118,14 @@ ucip = [UnbiasChallengerInitializationProcedureOptions]
  deterministicInstanceOrdering = false
  doValidation = true
  execMode = SMAC
- experimentDir = /Users/yclavinas/Documents/estudos/master-unb/earthquakemodels/smac-v2.10.03-master-778/
+ experimentDir = /root/mpi_projects/earthquakemodels/smac-v2.10.03-master-778/
  expFunc = null
 help = [HelpOptions]
 		 showHiddenParameters = false
 		 showHelp = false
 		 helpLevel = BASIC
 		 showVersion = false
-		 helpDefaults = /Users/yclavinas/.aeatk/help.opt
+		 helpDefaults = /root/.aeatk/help.opt
 
  initialChallengeRuns = 1
  initialIncumbent = DEFAULT
@@ -201,12 +199,12 @@ scenarioConfig = [ScenarioOptions]
 				 testInstanceSuffix = null
 				 ignoreFeatures = false
 
-		 scenarioFile = /Users/yclavinas/Documents/estudos/master-unb/earthquakemodels/smac-v2.10.03-master-778/example_scenarios/branin/gaTest-scenario.txt
-		 outputDirectory = /Users/yclavinas/Documents/estudos/master-unb/earthquakemodels/smac-v2.10.03-master-778/smac-output
+		 scenarioFile = /root/mpi_projects/earthquakemodels/smac-v2.10.03-master-778/example_scenarios/branin/gaTest-scenario.txt
+		 outputDirectory = /root/mpi_projects/earthquakemodels/smac-v2.10.03-master-778/smac-output
 		 invalidScenarioReason = null
 		algoExecOptions = [AlgorithmExecutionOptions]
 				 algoExec = example_scenarios/branin/gaTest.py
-				 algoExecDir = /Users/yclavinas/Documents/estudos/master-unb/earthquakemodels/smac-v2.10.03-master-778
+				 algoExecDir = /root/mpi_projects/earthquakemodels/smac-v2.10.03-master-778
 				 deterministic = false
 				 cutoffTime = 1.7976931348623157E308
 				 cutoffLength = -1.0
@@ -235,7 +233,7 @@ scenarioConfig = [ScenarioOptions]
 								 postCommand = null
 								 exceptionOnError = false
 								 logOutput = true
-								 directory = /Users/yclavinas/Documents/estudos/master-unb/earthquakemodels/smac-v2.10.03-master-778/.
+								 directory = /root/mpi_projects/earthquakemodels/smac-v2.10.03-master-778/.
 
 						 checkResultOrderConsistent = false
 						 skipOutstandingEvaluationsTAE = false
@@ -252,7 +250,7 @@ scenarioConfig = [ScenarioOptions]
 						 observeWalltimeScale = 0.95
 						 observeWalltimeDelay = 5.0
 						 synchronousObserver = true
-						 taeDefaults = /Users/yclavinas/.aeatk/tae.opt
+						 taeDefaults = /root/.aeatk/tae.opt
 						ttaedo = [TransformTargetAlgorithmEvaluatorDecoratorOptions]
 								 transform = false
 								 transformValidValuesOnly = true
@@ -276,8 +274,8 @@ scenarioConfig = [ScenarioOptions]
 						 warnIfNoResponseFromTAE = 120
 						 taeStopProcessingOnShutdown = true
 						 filecache = false
-						 fileCacheSource = /Users/yclavinas/Documents/estudos/master-unb/earthquakemodels/smac-v2.10.03-master-778/./runcache
-						 fileCacheOutput = /Users/yclavinas/Documents/estudos/master-unb/earthquakemodels/smac-v2.10.03-master-778/./runcache
+						 fileCacheSource = /root/mpi_projects/earthquakemodels/smac-v2.10.03-master-778/./runcache
+						 fileCacheOutput = /root/mpi_projects/earthquakemodels/smac-v2.10.03-master-778/./runcache
 						 fileCacheCrashOnMiss = false
 						 transformCrashedQuality = true
 						 transformCrashedQualityValue = 1.0E9
@@ -296,7 +294,7 @@ seedOptions = [SeedOptions]
 		 numRun = 1
 		 initialSeedMap = {}
 
- smacDefaults = /Users/yclavinas/.aeatk/smac.opt
+ smacDefaults = /root/.aeatk/smac.opt
 stateOpts = [StateFactoryOptions]
 		 stateSerializer = LEGACY
 		 statedeSerializer = LEGACY
@@ -367,7 +365,7 @@ warmStartOptions = [WarmStartOptions]
  pgForceKillCommand = bash -c "kill -s KILL -%pid"
  procNiceKillCommand = kill -s TERM %pid
  procForceKillCommand = kill -s KILL %pid
- smacDefaults = /Users/yclavinas/.aeatk/cli-tae.opt
+ smacDefaults = /root/.aeatk/cli-tae.opt
 
 [ConstantTargetAlgorithmEvaluatorOptions]
  runResult = SAT
@@ -387,7 +385,7 @@ warmStartOptions = [WarmStartOptions]
  execScript = null
  execScriptOutput = false
  poolConnections = false
- ipcDefaults = /Users/yclavinas/.aeatk/ipc-tae.opt
+ ipcDefaults = /root/.aeatk/ipc-tae.opt
  asyncThreads = 5
 
 [PreloadedResponseTargetAlgorithmEvaluatorOptions]
@@ -404,56 +402,50 @@ warmStartOptions = [WarmStartOptions]
  minResponse = 0.0
  observerFrequency = 500
  trendCoefficient = 0.0
- seed = 1491321461258
+ seed = 1491324359385
  persistent = false
  scaleDelay = 1.0
 
 
-12:57:42.103 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - SMAC started at: Apr 4, 2017 12:57:42 PM. Minimizing mean quality.
-12:58:40.675 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - First incumbent: config 1 (internal ID: 0x000B), with mean quality: 4039.644549; estimate based on 1 runs.
-12:58:40.676 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Sample call for new incumbent config 1 (internal ID: 0x000B): 
-cd /Users/yclavinas/Documents/estudos/master-unb/earthquakemodels/smac-v2.10.03-master-778; example_scenarios/branin/gaTest.py no_instance 0 1.7976931348623157E308 2147483647 5320365 -tournsize '10'  
-13:01:43.233 [Thread-6] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Making best attempt to save state. This state may be dirty, in that it was taken in the middle of an iteration and consequently may not be restorable. It may also be corrupt depending on the exact reason we are shutting down.
-13:01:43.280 [CLI TAE (STDERR Thread - #0)] WARN  c.u.c.b.a.t.b.c.CommandLineAlgorithmRun - [PROCESS-ERR]  Process ForkPoolWorker-1:
-13:01:43.280 [CLI TAE (STDERR Thread - #0)] WARN  c.u.c.b.a.t.b.c.CommandLineAlgorithmRun - [PROCESS-ERR]  Traceback (most recent call last):
-13:01:43.281 [CLI TAE (STDERR Thread - #0)] WARN  c.u.c.b.a.t.b.c.CommandLineAlgorithmRun - [PROCESS-ERR]    File "//anaconda/lib/python3.6/site-packages/multiprocess/process.py", line 249, in _bootstrap
-13:01:43.281 [CLI TAE (STDERR Thread - #0)] WARN  c.u.c.b.a.t.b.c.CommandLineAlgorithmRun - [PROCESS-ERR]      self.run()
-13:01:43.281 [CLI TAE (STDERR Thread - #0)] WARN  c.u.c.b.a.t.b.c.CommandLineAlgorithmRun - [PROCESS-ERR]    File "//anaconda/lib/python3.6/site-packages/multiprocess/process.py", line 93, in run
-13:01:43.281 [CLI TAE (STDERR Thread - #0)] WARN  c.u.c.b.a.t.b.c.CommandLineAlgorithmRun - [PROCESS-ERR]      self._target(*self._args, **self._kwargs)
-13:01:43.281 [CLI TAE (STDERR Thread - #0)] WARN  c.u.c.b.a.t.b.c.CommandLineAlgorithmRun - [PROCESS-ERR]    File "//anaconda/lib/python3.6/site-packages/multiprocess/pool.py", line 108, in worker
-13:01:43.281 [CLI TAE (STDERR Thread - #0)] WARN  c.u.c.b.a.t.b.c.CommandLineAlgorithmRun - [PROCESS-ERR]      task = get()
-13:01:43.282 [CLI TAE (STDERR Thread - #0)] WARN  c.u.c.b.a.t.b.c.CommandLineAlgorithmRun - [PROCESS-ERR]    File "//anaconda/lib/python3.6/site-packages/multiprocess/queues.py", line 346, in get
-13:01:43.282 [CLI TAE (STDERR Thread - #0)] WARN  c.u.c.b.a.t.b.c.CommandLineAlgorithmRun - [PROCESS-ERR]      res = self._reader.recv_bytes()
-13:01:43.282 [CLI TAE (STDERR Thread - #0)] WARN  c.u.c.b.a.t.b.c.CommandLineAlgorithmRun - [PROCESS-ERR]    File "//anaconda/lib/python3.6/site-packages/multiprocess/connection.py", line 219, in recv_bytes
-13:01:43.282 [CLI TAE (STDERR Thread - #0)] WARN  c.u.c.b.a.t.b.c.CommandLineAlgorithmRun - [PROCESS-ERR]      buf = self._recv_bytes(maxlength)
-13:01:43.282 [CLI TAE (STDERR Thread - #0)] WARN  c.u.c.b.a.t.b.c.CommandLineAlgorithmRun - [PROCESS-ERR]    File "//anaconda/lib/python3.6/site-packages/multiprocess/connection.py", line 410, in _recv_bytes
-13:01:43.284 [CLI TAE (STDERR Thread - #0)] WARN  c.u.c.b.a.t.b.c.CommandLineAlgorithmRun - [PROCESS-ERR]      buf = self._recv(4)
-13:01:43.284 [CLI TAE (STDERR Thread - #0)] WARN  c.u.c.b.a.t.b.c.CommandLineAlgorithmRun - [PROCESS-ERR]    File "//anaconda/lib/python3.6/site-packages/multiprocess/connection.py", line 382, in _recv
-13:01:43.285 [CLI TAE (STDERR Thread - #0)] WARN  c.u.c.b.a.t.b.c.CommandLineAlgorithmRun - [PROCESS-ERR]      chunk = read(handle, remaining)
-13:01:43.285 [CLI TAE (STDERR Thread - #0)] WARN  c.u.c.b.a.t.b.c.CommandLineAlgorithmRun - [PROCESS-ERR]  KeyboardInterrupt
-13:01:43.285 [CLI TAE (STDERR Thread - #0)] WARN  c.u.c.b.a.t.b.c.CommandLineAlgorithmRun - [PROCESS-ERR]  Process ForkPoolWorker-2:
-13:01:43.285 [CLI TAE (STDERR Thread - #0)] WARN  c.u.c.b.a.t.b.c.CommandLineAlgorithmRun - [PROCESS-ERR]  Traceback (most recent call last):
-13:01:43.285 [CLI TAE (STDERR Thread - #0)] WARN  c.u.c.b.a.t.b.c.CommandLineAlgorithmRun - [PROCESS-ERR]    File "//anaconda/lib/python3.6/site-packages/multiprocess/process.py", line 249, in _bootstrap
-13:01:43.286 [CLI TAE (STDERR Thread - #0)] WARN  c.u.c.b.a.t.b.c.CommandLineAlgorithmRun - [PROCESS-ERR]      self.run()
-13:01:43.286 [CLI TAE (STDERR Thread - #0)] WARN  c.u.c.b.a.t.b.c.CommandLineAlgorithmRun - [PROCESS-ERR]    File "//anaconda/lib/python3.6/site-packages/multiprocess/process.py", line 93, in run
-13:01:43.286 [CLI TAE (STDERR Thread - #0)] WARN  c.u.c.b.a.t.b.c.CommandLineAlgorithmRun - [PROCESS-ERR]      self._target(*self._args, **self._kwargs)
-13:01:43.286 [CLI TAE (STDERR Thread - #0)] WARN  c.u.c.b.a.t.b.c.CommandLineAlgorithmRun - [PROCESS-ERR]    File "//anaconda/lib/python3.6/site-packages/multiprocess/pool.py", line 108, in worker
-13:01:43.286 [CLI TAE (STDERR Thread - #0)] WARN  c.u.c.b.a.t.b.c.CommandLineAlgorithmRun - [PROCESS-ERR]      task = get()
-13:01:43.287 [CLI TAE (STDERR Thread - #0)] WARN  c.u.c.b.a.t.b.c.CommandLineAlgorithmRun - [PROCESS-ERR]    File "//anaconda/lib/python3.6/site-packages/multiprocess/queues.py", line 345, in get
-13:01:43.287 [CLI TAE (STDERR Thread - #0)] WARN  c.u.c.b.a.t.b.c.CommandLineAlgorithmRun - [PROCESS-ERR]      with self._rlock:
-13:01:43.287 [CLI TAE (STDERR Thread - #0)] WARN  c.u.c.b.a.t.b.c.CommandLineAlgorithmRun - [PROCESS-ERR]    File "//anaconda/lib/python3.6/site-packages/multiprocess/synchronize.py", line 102, in __enter__
-13:01:43.287 [CLI TAE (STDERR Thread - #0)] WARN  c.u.c.b.a.t.b.c.CommandLineAlgorithmRun - [PROCESS-ERR]      return self._semlock.__enter__()
-13:01:43.287 [CLI TAE (STDERR Thread - #0)] WARN  c.u.c.b.a.t.b.c.CommandLineAlgorithmRun - [PROCESS-ERR]  KeyboardInterrupt
-13:01:43.287 [CLI TAE (STDERR Thread - #0)] WARN  c.u.c.b.a.t.b.c.CommandLineAlgorithmRun - [PROCESS-ERR]  Process ForkPoolWorker-3:
-13:01:43.287 [CLI TAE (STDERR Thread - #0)] WARN  c.u.c.b.a.t.b.c.CommandLineAlgorithmRun - [PROCESS-ERR]  Traceback (most recent call last):
-13:01:43.288 [CLI TAE (STDERR Thread - #0)] WARN  c.u.c.b.a.t.b.c.CommandLineAlgorithmRun - [PROCESS-ERR]    File "//anaconda/lib/python3.6/site-packages/multiprocess/process.py", line 249, in _bootstrap
-13:01:43.288 [CLI TAE (STDERR Thread - #0)] WARN  c.u.c.b.a.t.b.c.CommandLineAlgorithmRun - [PROCESS-ERR]      self.run()
-13:01:43.288 [CLI TAE (STDERR Thread - #0)] WARN  c.u.c.b.a.t.b.c.CommandLineAlgorithmRun - [PROCESS-ERR]    File "//anaconda/lib/python3.6/site-packages/multiprocess/process.py", line 93, in run
-13:01:43.288 [CLI TAE (STDERR Thread - #0)] WARN  c.u.c.b.a.t.b.c.CommandLineAlgorithmRun - [PROCESS-ERR]      self._target(*self._args, **self._kwargs)
-13:01:43.288 [CLI TAE (STDERR Thread - #0)] WARN  c.u.c.b.a.t.b.c.CommandLineAlgorithmRun - [PROCESS-ERR]    File "//anaconda/lib/python3.6/site-packages/multiprocess/pool.py", line 108, in worker
-13:01:43.288 [CLI TAE (STDERR Thread - #0)] WARN  c.u.c.b.a.t.b.c.CommandLineAlgorithmRun - [PROCESS-ERR]      task = get()
-13:01:43.289 [CLI TAE (STDERR Thread - #0)] WARN  c.u.c.b.a.t.b.c.CommandLineAlgorithmRun - [PROCESS-ERR]    File "//anaconda/lib/python3.6/site-packages/multiprocess/queues.py", line 345, in get
-13:01:43.289 [CLI TAE (STDERR Thread - #0)] WARN  c.u.c.b.a.t.b.c.CommandLineAlgorithmRun - [PROCESS-ERR]      with self._rlock:
-13:01:43.289 [CLI TAE (STDERR Thread - #0)] WARN  c.u.c.b.a.t.b.c.CommandLineAlgorithmRun - [PROCESS-ERR]    File "//anaconda/lib/python3.6/site-packages/multiprocess/synchronize.py", line 102, in __enter__
-13:01:43.289 [CLI TAE (STDERR Thread - #0)] WARN  c.u.c.b.a.t.b.c.CommandLineAlgorithmRun - [PROCESS-ERR]      return self._semlock.__enter__()
-13:01:43.289 [CLI TAE (STDERR Thread - #0)] WARN  c.u.c.b.a.t.b.c.CommandLineAlgorithmRun - [PROCESS-ERR]  KeyboardInterrupt
+13:45:59.938 [main] INFO  c.u.c.b.a.s.l.LegacyStateFactory - Found previous run data in state output folder: /root/mpi_projects/earthquakemodels/smac-v2.10.03-master-778/smac-output/gaTest-scenario , renamed to: old-state-state-run1-1491324359928
+13:46:00.131 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - SMAC started at: Apr 4, 2017 1:46:00 PM. Minimizing mean quality.
+13:48:22.910 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - First incumbent: config 1 (internal ID: 0x000B), with mean quality: 3156.601548; estimate based on 1 runs.
+13:48:22.910 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Sample call for new incumbent config 1 (internal ID: 0x000B): 
+cd /root/mpi_projects/earthquakemodels/smac-v2.10.03-master-778; example_scenarios/branin/gaTest.py no_instance 0 1.7976931348623157E308 2147483647 5320365 -tournsize '10'  
+13:55:33.507 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Incumbent changed to: config 2 (internal ID: 0x38D4), with mean quality: 3124.0996145; estimate based on 2 runs.
+13:55:33.507 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Sample call for new incumbent config 2 (internal ID: 0x38D4): 
+cd /root/mpi_projects/earthquakemodels/smac-v2.10.03-master-778; example_scenarios/branin/gaTest.py no_instance 0 1.7976931348623157E308 2147483647 5320365 -tournsize '13'  
+14:32:44.170 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3179.7694398; estimate now based on 10 runs.
+15:11:29.623 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Incumbent changed to: config 9 (internal ID: 0x122A4), with mean quality: 3181.9528001666667; estimate based on 12 runs.
+15:11:29.624 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Sample call for new incumbent config 9 (internal ID: 0x122A4): 
+cd /root/mpi_projects/earthquakemodels/smac-v2.10.03-master-778; example_scenarios/branin/gaTest.py no_instance 0 1.7976931348623157E308 2147483647 8756526 -tournsize '14'  
+15:57:54.176 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3184.0329374; estimate now based on 20 runs.
+17:23:12.622 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3188.3281022; estimate now based on 30 runs.
+18:11:51.309 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Incumbent changed to: config 16 (internal ID: 0x36599), with mean quality: 3183.8817526875; estimate based on 32 runs.
+18:11:51.310 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Sample call for new incumbent config 16 (internal ID: 0x36599): 
+cd /root/mpi_projects/earthquakemodels/smac-v2.10.03-master-778; example_scenarios/branin/gaTest.py no_instance 0 1.7976931348623157E308 2147483647 10173568 -tournsize '12'  
+20:05:40.518 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3184.96137; estimate now based on 40 runs.
+20:56:17.781 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3179.78298604; estimate now based on 50 runs.
+21:44:22.286 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3180.8443821833334; estimate now based on 60 runs.
+22:39:39.107 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3174.3245518142858; estimate now based on 70 runs.
+23:49:23.310 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3181.3705857; estimate now based on 80 runs.
+00:44:20.445 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3177.5861765; estimate now based on 90 runs.
+01:39:16.148 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3181.11863873; estimate now based on 100 runs.
+02:34:36.054 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3179.647004309091; estimate now based on 110 runs.
+03:29:19.914 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3181.799490375; estimate now based on 120 runs.
+04:29:14.512 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3178.1984250384617; estimate now based on 130 runs.
+05:24:25.892 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3180.486299857143; estimate now based on 140 runs.
+06:33:47.358 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3179.1320319266665; estimate now based on 150 runs.
+07:27:51.884 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3180.475363325; estimate now based on 160 runs.
+12:04:27.293 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3183.3563243764706; estimate now based on 170 runs.
+13:37:52.819 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3184.822839111111; estimate now based on 180 runs.
+14:33:31.540 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3183.7773041368423; estimate now based on 190 runs.
+15:44:08.831 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3184.078306205; estimate now based on 200 runs.
+16:39:04.617 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3183.0163405761905; estimate now based on 210 runs.
+17:28:57.711 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3182.6772958; estimate now based on 220 runs.
+18:19:21.076 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3182.747886873913; estimate now based on 230 runs.
+19:43:08.591 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3183.087914625; estimate now based on 240 runs.
+20:32:30.095 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3182.607316372; estimate now based on 250 runs.
+21:27:45.348 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3182.9988125076925; estimate now based on 260 runs.
+22:38:52.999 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3184.1382638814816; estimate now based on 270 runs.
+23:28:44.055 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3183.8848502428573; estimate now based on 280 runs.
