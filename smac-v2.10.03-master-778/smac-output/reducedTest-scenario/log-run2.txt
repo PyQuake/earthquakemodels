@@ -1,12 +1,12 @@
-13:45:54.061 [main] INFO  c.u.c.b.a.l.ComplexLoggingOptions - Logging to: /root/mpi_projects/earthquakemodels/smac-v2.10.03-master-778/smac-output/reducedTest-scenario/log-run2.txt
-13:45:54.069 [main] INFO  c.u.c.b.a.m.version.VersionTracker - Version of Algorithm Execution & Abstraction Toolkit is v2.10.03-master-814 (ebf4c8c913d5) 
-13:45:54.069 [main] INFO  c.u.c.b.a.m.version.VersionTracker - Version of Java Runtime Environment is OpenJDK 64-Bit Server VM (1.7.0_131) 
-13:45:54.070 [main] INFO  c.u.c.b.a.m.version.VersionTracker - Version of OS is Linux 3.10.0-327.36.1.el7.x86_64 (amd64) 
-13:45:54.070 [main] INFO  c.u.c.b.a.m.version.VersionTracker - Version of Random Forest Library is v1.10.01-master-120 (b68439c2c391) 
-13:45:54.070 [main] INFO  c.u.c.b.a.m.version.VersionTracker - Version of SMAC is v2.10.03-master-778 (3ee628ef9bf2) 
-13:45:54.070 [main] INFO  c.u.c.b.a.m.j.JCommanderHelper - Call String: smac --scenario-file example_scenarios/branin/reducedTest-scenario.txt --seed 2 
-13:45:54.070 [main] INFO  c.u.c.b.smac.executors.SMACExecutor - ********** The next bit of output can be ignored, it is merely useful for debugging **********
-13:45:54.070 [main] INFO  c.u.c.b.smac.executors.SMACExecutor - ==========Enviroment Variables===========
+20:22:43.774 [main] INFO  c.u.c.b.a.l.ComplexLoggingOptions - Logging to: /root/mpi_projects/earthquakemodels/smac-v2.10.03-master-778/smac-output/reducedTest-scenario/log-run2.txt
+20:22:43.809 [main] INFO  c.u.c.b.a.m.version.VersionTracker - Version of Algorithm Execution & Abstraction Toolkit is v2.10.03-master-814 (ebf4c8c913d5) 
+20:22:43.810 [main] INFO  c.u.c.b.a.m.version.VersionTracker - Version of Java Runtime Environment is OpenJDK 64-Bit Server VM (1.7.0_131) 
+20:22:43.810 [main] INFO  c.u.c.b.a.m.version.VersionTracker - Version of OS is Linux 3.10.0-327.36.1.el7.x86_64 (amd64) 
+20:22:43.810 [main] INFO  c.u.c.b.a.m.version.VersionTracker - Version of Random Forest Library is v1.10.01-master-120 (b68439c2c391) 
+20:22:43.810 [main] INFO  c.u.c.b.a.m.version.VersionTracker - Version of SMAC is v2.10.03-master-778 (3ee628ef9bf2) 
+20:22:43.811 [main] INFO  c.u.c.b.a.m.j.JCommanderHelper - Call String: smac --scenario-file example_scenarios/branin/reducedTest-scenario.txt --seed 2 
+20:22:43.811 [main] INFO  c.u.c.b.smac.executors.SMACExecutor - ********** The next bit of output can be ignored, it is merely useful for debugging **********
+20:22:43.811 [main] INFO  c.u.c.b.smac.executors.SMACExecutor - ==========Enviroment Variables===========
 BASH_FUNC_module()=() {  eval `/usr/bin/modulecmd bash $*`
 }
 HISTCONTROL=ignoredups
@@ -30,17 +30,17 @@ SELINUX_ROLE_REQUESTED=
 SELINUX_USE_CURRENT_RANGE=
 SHELL=/bin/bash
 SHLVL=1
-SSH_CLIENT=164.41.75.66 45808 22
-SSH_CONNECTION=164.41.75.66 45808 164.41.75.68 22
+SSH_CLIENT=164.41.75.66 60050 22
+SSH_CONNECTION=164.41.75.66 60050 164.41.75.68 22
 SSH_TTY=/dev/pts/0
 TERM=xterm-256color
 USER=root
 XDG_RUNTIME_DIR=/run/user/0
-XDG_SESSION_ID=27
+XDG_SESSION_ID=9
 XFILESEARCHPATH=/usr/dt/app-defaults/%L/Dt
 
-13:45:54.070 [main] INFO  c.u.c.b.smac.executors.SMACExecutor - Hostname:cluster2.local
-13:45:54.071 [main] INFO  c.u.c.b.smac.executors.SMACExecutor - ==========System Properties==============
+20:22:43.812 [main] INFO  c.u.c.b.smac.executors.SMACExecutor - Hostname:cluster2.local
+20:22:43.812 [main] INFO  c.u.c.b.smac.executors.SMACExecutor - ==========System Properties==============
 ERRLOG=/root/mpi_projects/earthquakemodels/smac-v2.10.03-master-778/smac-output/reducedTest-scenario/log-err2.txt
 NUMRUN=2
 OUTPUTDIR=/root/mpi_projects/earthquakemodels/smac-v2.10.03-master-778/smac-output/reducedTest-scenario
@@ -102,7 +102,7 @@ user.language=en
 user.name=root
 user.timezone=America/Sao_Paulo
 
-13:45:54.093 [main] INFO  c.u.c.b.a.m.j.JCommanderHelper - ==========Configuration Options==========
+20:22:43.850 [main] INFO  c.u.c.b.a.m.j.JCommanderHelper - ==========Configuration Options==========
 [SMACOptions]
  adaptiveCapping = false
  alwaysRunInitialConfiguration = false
@@ -407,28 +407,15 @@ warmStartOptions = [WarmStartOptions]
  minResponse = 0.0
  observerFrequency = 500
  trendCoefficient = 0.0
- seed = 1491324353558
+ seed = 1491520962484
  persistent = false
  scaleDelay = 1.0
 
 
-13:45:54.136 [main] INFO  c.u.c.b.a.s.l.LegacyStateFactory - Found previous run data in state output folder: /root/mpi_projects/earthquakemodels/smac-v2.10.03-master-778/smac-output/reducedTest-scenario , renamed to: old-state-state-run2-1491324354126
-13:45:54.329 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - SMAC started at: Apr 4, 2017 1:45:54 PM. Minimizing mean quality.
-13:52:34.996 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - First incumbent: config 1 (internal ID: 0x000B), with mean quality: 3367.901195; estimate based on 1 runs.
-13:52:34.997 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Sample call for new incumbent config 1 (internal ID: 0x000B): 
+20:22:44.023 [main] INFO  c.u.c.b.a.s.l.LegacyStateFactory - Found previous run data in state output folder: /root/mpi_projects/earthquakemodels/smac-v2.10.03-master-778/smac-output/reducedTest-scenario , renamed to: old-state-state-run2-1491520964010
+20:22:44.264 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - SMAC started at: Apr 6, 2017 8:22:44 PM. Minimizing mean quality.
+20:29:26.512 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - First incumbent: config 1 (internal ID: 0x000B), with mean quality: 3264.112612; estimate based on 1 runs.
+20:29:26.513 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Sample call for new incumbent config 1 (internal ID: 0x000B): 
 cd /root/mpi_projects/earthquakemodels/smac-v2.10.03-master-778; example_scenarios/branin/reducedTest.py no_instance 0 1.7976931348623157E308 2147483647 8792767 -tournsize '10'  
-15:53:07.404 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3365.960361; estimate now based on 10 runs.
-18:20:49.950 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3357.94425445; estimate now based on 20 runs.
-20:48:30.108 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3354.0120429333333; estimate now based on 30 runs.
-23:28:45.766 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3367.80886865; estimate now based on 40 runs.
-02:24:13.838 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3367.53210378; estimate now based on 50 runs.
-04:38:50.735 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3367.5398260666666; estimate now based on 60 runs.
-06:53:30.340 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3365.1399258; estimate now based on 70 runs.
-09:08:11.981 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3364.0033430875; estimate now based on 80 runs.
-11:22:46.650 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3361.2540598333335; estimate now based on 90 runs.
-13:50:03.698 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3360.98488837; estimate now based on 100 runs.
-16:05:16.808 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3362.6063030545456; estimate now based on 110 runs.
-18:18:50.040 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3363.893378516667; estimate now based on 120 runs.
-20:33:54.359 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3363.893386723077; estimate now based on 130 runs.
-23:29:05.860 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3364.441304; estimate now based on 140 runs.
-01:56:56.025 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3365.0641168533334; estimate now based on 150 runs.
+22:23:04.832 [main] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Updated estimated mean quality of the same incumbent: 3368.7196886; estimate now based on 10 runs.
+22:39:44.802 [Thread-6] INFO  c.u.c.b.s.c.SequentialModelBasedAlgorithmConfiguration - Making best attempt to save state. This state may be dirty, in that it was taken in the middle of an iteration and consequently may not be restorable. It may also be corrupt depending on the exact reason we are shutting down.
