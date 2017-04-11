@@ -4,7 +4,7 @@ overall_obj = MEAN
 deterministic = 0
 pcs-file = example_scenarios/branin/params-gaTest.pcs
 algo = example_scenarios/branin/reducedTest.py
-outdir = gaResults/
+outdir =  reducedgaResults/
 wallclock-limit = 172800
 
 
