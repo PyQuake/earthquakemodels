@@ -1,61 +1,39 @@
 nohup: ignoring input
-[INFO ] Logging to: /root/mpi_projects/earthquakemodels/smac-v2.10.03-master-778/smac-output/gaTest-scenario/log-run1.txt
-[INFO ] Version of SMAC is v2.10.03-master-778 (3ee628ef9bf2), running on OpenJDK 64-Bit Server VM (1.7.0_131) and Linux 3.10.0-327.28.3.el7.x86_64 (amd64) 
-[INFO ] Call String: smac --scenario-file example_scenarios/branin/gaTest-scenario.txt --seed 1 
-[INFO ] Found previous run data in state output folder: /root/mpi_projects/earthquakemodels/smac-v2.10.03-master-778/smac-output/gaTest-scenario , renamed to: old-state-state-run1-1491661370188
-[INFO ] SMAC started at: Apr 8, 2017 11:22:50 AM. Minimizing mean quality.
-[INFO ] First incumbent: config 1 (internal ID: 0x000B), with mean quality: 3180.302939; estimate based on 1 runs.
+[INFO ] Logging to: /root/mpi_projects/earthquakemodels/smac-v2.10.03-master-778/gaResults/gaTest-scenario/log-run994727075.txt
+[INFO ] Version of SMAC is v2.10.03-master-778 (3ee628ef9bf2), running on OpenJDK 64-Bit Server VM (1.7.0_131) and Linux 3.10.0-327.36.1.el7.x86_64 (amd64) 
+[INFO ] Call String: smac --scenario-file example_scenarios/branin/gaTest-scenario.txt 
+[INFO ] SMAC started at: Apr 11, 2017 11:29:33 AM. Minimizing mean quality.
+[INFO ] First incumbent: config 1 (internal ID: 0x000B), with mean quality: 3105.380345; estimate based on 1 runs.
 [INFO ] Sample call for new incumbent config 1 (internal ID: 0x000B): 
-cd /root/mpi_projects/earthquakemodels/smac-v2.10.03-master-778; example_scenarios/branin/gaTest.py no_instance 0 1.7976931348623157E308 2147483647 5320365 -tournsize '10'  
-[INFO ] Incumbent changed to: config 7 (internal ID: 0x7551), with mean quality: 3182.509055142857; estimate based on 7 runs.
-[INFO ] Sample call for new incumbent config 7 (internal ID: 0x7551): 
-cd /root/mpi_projects/earthquakemodels/smac-v2.10.03-master-778; example_scenarios/branin/gaTest.py no_instance 0 1.7976931348623157E308 2147483647 8756526 -tournsize '80'  
-[INFO ] Updated estimated mean quality of the same incumbent: 3205.7939198; estimate now based on 10 runs.
-[INFO ] Incumbent changed to: config 10 (internal ID: 0x11F5F), with mean quality: 3161.90769; estimate based on 13 runs.
-[INFO ] Sample call for new incumbent config 10 (internal ID: 0x11F5F): 
-cd /root/mpi_projects/earthquakemodels/smac-v2.10.03-master-778; example_scenarios/branin/gaTest.py no_instance 0 1.7976931348623157E308 2147483647 8756526 -tournsize '7'  
-[INFO ] Updated estimated mean quality of the same incumbent: 3154.826993; estimate now based on 20 runs.
-[INFO ] Updated estimated mean quality of the same incumbent: 3157.9007773333333; estimate now based on 30 runs.
-[INFO ] Updated estimated mean quality of the same incumbent: 3163.6916677; estimate now based on 40 runs.
-[INFO ] Updated estimated mean quality of the same incumbent: 3160.1112036600002; estimate now based on 50 runs.
-[INFO ] Updated estimated mean quality of the same incumbent: 3166.0505058333333; estimate now based on 60 runs.
-[INFO ] Updated estimated mean quality of the same incumbent: 3164.3513903; estimate now based on 70 runs.
-[INFO ] Updated estimated mean quality of the same incumbent: 3164.909668725; estimate now based on 80 runs.
-[INFO ] Updated estimated mean quality of the same incumbent: 3164.520416888889; estimate now based on 90 runs.
-[INFO ] Updated estimated mean quality of the same incumbent: 3167.001118; estimate now based on 100 runs.
-[INFO ] Updated estimated mean quality of the same incumbent: 3168.1299076727273; estimate now based on 110 runs.
-[INFO ] Updated estimated mean quality of the same incumbent: 3171.0051439416666; estimate now based on 120 runs.
-[INFO ] Updated estimated mean quality of the same incumbent: 3170.214335976923; estimate now based on 130 runs.
-[INFO ] Updated estimated mean quality of the same incumbent: 3170.6098853214285; estimate now based on 140 runs.
-[INFO ] Updated estimated mean quality of the same incumbent: 3168.869898653333; estimate now based on 150 runs.
-[INFO ] Updated estimated mean quality of the same incumbent: 3166.15339536875; estimate now based on 160 runs.
-[INFO ] Updated estimated mean quality of the same incumbent: 3168.1793118235296; estimate now based on 170 runs.
-[INFO ] Updated estimated mean quality of the same incumbent: 3168.6972328166667; estimate now based on 180 runs.
-[INFO ] Updated estimated mean quality of the same incumbent: 3168.764600242105; estimate now based on 190 runs.
-[INFO ] Updated estimated mean quality of the same incumbent: 3167.787331395; estimate now based on 200 runs.
-[INFO ] Updated estimated mean quality of the same incumbent: 3168.3128170285713; estimate now based on 210 runs.
-[INFO ] Updated estimated mean quality of the same incumbent: 3167.6007125363635; estimate now based on 220 runs.
-[INFO ] Updated estimated mean quality of the same incumbent: 3168.415306656522; estimate now based on 230 runs.
-[INFO ] Updated estimated mean quality of the same incumbent: 3168.333136475; estimate now based on 240 runs.
-[INFO ] Updated estimated mean quality of the same incumbent: 3168.021811552; estimate now based on 250 runs.
-[INFO ] Updated estimated mean quality of the same incumbent: 3167.5570348961537; estimate now based on 260 runs.
-[INFO ] Updated estimated mean quality of the same incumbent: 3165.8250810703703; estimate now based on 270 runs.
-[INFO ] Updated estimated mean quality of the same incumbent: 3166.7284836214285; estimate now based on 280 runs.
-[INFO ] Updated estimated mean quality of the same incumbent: 3165.5736372896554; estimate now based on 290 runs.
-[INFO ] Updated estimated mean quality of the same incumbent: 3165.3882716233334; estimate now based on 300 runs.
-e same incumbent: 3113.243126685294; estimate now based on 340 runs.
-[INFO ] Updated estimated mean quality of the same incumbent: 3113.43759486; estimate now based on 350 runs.
-[INFO ] Updated estimated mean quality of the same incumbent: 3113.3761919833332; estimate now based on 360 runs.
-[INFO ] Updated estimated mean quality of the same incumbent: 3113.1369121864864; estimate now based on 370 runs.
-[INFO ] Updated estimated mean quality of the same incumbent: 3112.558560128947; estimate now based on 380 runs.
-[INFO ] Updated estimated mean quality of the same incumbent: 3112.5324645538462; estimate now based on 390 runs.
-[INFO ] Updated estimated mean quality of the same incumbent: 3111.662984655; estimate now based on 400 runs.
-[INFO ] Updated estimated mean quality of the same incumbent: 3112.027447419512; estimate now based on 410 runs.
-[INFO ] Updated estimated mean quality of the same incumbent: 3113.025124814286; estimate now based on 420 runs.
-[INFO ] Updated estimated mean quality of the same incumbent: 3112.6995165023254; estimate now based on 430 runs.
-[INFO ] Updated estimated mean quality of the same incumbent: 3112.162425940909; estimate now based on 440 runs.
-[INFO ] Updated estimated mean quality of the same incumbent: 3112.1158895422222; estimate now based on 450 runs.
-[INFO ] Updated estimated mean quality of the same incumbent: 3111.8124926173914; estimate now based on 460 runs.
-[INFO ] Updated estimated mean quality of the same incumbent: 3111.0818202851065; estimate now based on 470 runs.
-[INFO ] Updated estimated mean quality of the same incumbent: 3111.5049441020833; estimate now based on 480 runs.
-[INFO ] Updated estimated mean quality of the same incumbent: 3111.254357644898; estimate now based on 490 runs.
+cd /root/mpi_projects/earthquakemodels/smac-v2.10.03-master-778; example_scenarios/branin/gaTest.py no_instance 0 1.7976931348623157E308 2147483647 9566878 -tournsize '3'  
+[INFO ] Updated estimated mean quality of the same incumbent: 3088.3451558; estimate now based on 10 runs.
+[INFO ] Updated estimated mean quality of the same incumbent: 3088.8068494; estimate now based on 20 runs.
+[INFO ] Incumbent changed to: config 9 (internal ID: 0x1D5E1), with mean quality: 3082.370972333333; estimate based on 21 runs.
+[INFO ] Sample call for new incumbent config 9 (internal ID: 0x1D5E1): 
+cd /root/mpi_projects/earthquakemodels/smac-v2.10.03-master-778; example_scenarios/branin/gaTest.py no_instance 0 1.7976931348623157E308 2147483647 13943764 -tournsize '2'  
+[INFO ] Updated estimated mean quality of the same incumbent: 3083.440608266667; estimate now based on 30 runs.
+[INFO ] Updated estimated mean quality of the same incumbent: 3090.889526125; estimate now based on 40 runs.
+[INFO ] Updated estimated mean quality of the same incumbent: 3093.0554121; estimate now based on 50 runs.
+[INFO ] Updated estimated mean quality of the same incumbent: 3094.8802049333335; estimate now based on 60 runs.
+[INFO ] Updated estimated mean quality of the same incumbent: 3091.6361944571427; estimate now based on 70 runs.
+[INFO ] Updated estimated mean quality of the same incumbent: 3088.5335587125; estimate now based on 80 runs.
+[INFO ] Updated estimated mean quality of the same incumbent: 3091.241876466667; estimate now based on 90 runs.
+[INFO ] Updated estimated mean quality of the same incumbent: 3089.21759832; estimate now based on 100 runs.
+[INFO ] Updated estimated mean quality of the same incumbent: 3086.902408309091; estimate now based on 110 runs.
+[INFO ] Updated estimated mean quality of the same incumbent: 3088.146993525; estimate now based on 120 runs.
+[INFO ] Updated estimated mean quality of the same incumbent: 3086.7099517153847; estimate now based on 130 runs.
+[INFO ] Updated estimated mean quality of the same incumbent: 3086.4636654142855; estimate now based on 140 runs.
+[INFO ] Updated estimated mean quality of the same incumbent: 3086.99272904; estimate now based on 150 runs.
+[INFO ] Updated estimated mean quality of the same incumbent: 3089.240958; estimate now based on 160 runs.
+[INFO ] Updated estimated mean quality of the same incumbent: 3088.3384046764704; estimate now based on 170 runs.
+[INFO ] Updated estimated mean quality of the same incumbent: 3087.707667811111; estimate now based on 180 runs.
+[INFO ] Updated estimated mean quality of the same incumbent: 3085.841567536842; estimate now based on 190 runs.
+[INFO ] Updated estimated mean quality of the same incumbent: 3085.66013418; estimate now based on 200 runs.
+[INFO ] Updated estimated mean quality of the same incumbent: 3086.1373281571427; estimate now based on 210 runs.
+[INFO ] Updated estimated mean quality of the same incumbent: 3087.8498220363635; estimate now based on 220 runs.
+[INFO ] Updated estimated mean quality of the same incumbent: 3088.455237478261; estimate now based on 230 runs.
+[INFO ] Updated estimated mean quality of the same incumbent: 3087.4273035958336; estimate now based on 240 runs.
+[INFO ] Updated estimated mean quality of the same incumbent: 3085.90549118; estimate now based on 250 runs.
+[INFO ] Updated estimated mean quality of the same incumbent: 3085.906862015385; estimate now based on 260 runs.
+[INFO ] Updated estimated mean quality of the same incumbent: 3085.3395625185185; estimate now based on 270 runs.
+[INFO ] Updated estimated mean quality of the same incumbent: 3084.7134527285716; estimate now based on 280 runs.
