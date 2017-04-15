@@ -1,0 +1,4 @@
+"CPU Time Used","Estimated Training Performance","Wallclock Time","Incumbent ID","Automatic Configurator (CPU) Time","Full Configuration","Predicted Performance (if available)",
+"0.0"," 1.7976931348623157E308","0.0","1","0.0", " tournsize='3'","NaN"
+"0.9061747749999999"," 3117.460475","153.72","1","0.8065443489999997", " tournsize='3'","NaN"
+"1.5328832809999997"," 5.000015587302375E8","254.403","1","1.333083049", " tournsize='3'","3117.460475"
