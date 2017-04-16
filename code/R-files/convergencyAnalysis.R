@@ -61,7 +61,7 @@ createData = function(modelName, region, year){
                         data6$std[i] + data7$std[i] + data8$std[i] + data9$std[i] + data10$std[i])/10)
     }
     
-    gen = c(1:200)
+    gen = c(1:100)
     data = data.frame(
         setNames(replicate(3,numeric(0), simplify = F),
                  c("maxs", "stds", "gen")))
@@ -103,16 +103,78 @@ plotConvergencyData = function(data, type, region, year){
     
 }
 
-for (i in 1:4){
-    region = chooseRegion(i)
-    for (year in 2005:2010){
-        plotConvergencyData(createData(modelName = 'ReducedGAModel',region,year),'ReducedGAModel', region, year)
-        plotConvergencyData(createData(modelName = 'GAModel',region,year),'GAModel', region, year)
-    }    
+# for (i in 1:4){
+#     region = chooseRegion(i)
+#     for (year in 2005:2010){
+#         tournizeRegion = paste('tournsize=2',region,sep="")
+#         plotConvergencyData(createData(modelName = 'ReducedGAModel',tournizeRegion,year),'ReducedGAModel', region, year)
+#         plotConvergencyData(createData(modelName = 'GAModel',tournizeRegion,year),'GAModel', region, year)
+#     }    
+# }
+
+convertToNumeric = function(model){
+        aux=gsub(".*\\((.*)\\).*", "\\1", model$V1)
+        aux=gsub(",", "\\1", aux)
+        values = as.numeric(aux)
+    # }
+    return(values)
 }
 
+loadDataLoglikelihood = function(type, region, year, prefix){
+    setwd("~/Documents/estudos/master-unb/earthquakemodels/Zona4/")
+    file = paste(type,'/',prefix,region,type,year,"_loglikelihood.txt",sep="")
+    data = read.csv2(file, sep='\n', header=F)
+    return(data)
+}
 
-plotConvergencyData(createData(modelName = 'GAModel','200EastJapan',2006),'GAModel', 'EastJapan', 2006)
+# finalData = data.frame(
+#     setNames(replicate(4,numeric(0), simplify = F),
+#              c("loglikeValues", "model", "years", "regions")))
 
 
+createDataFrame4AOV = function(modelName){
+    finalData = data.frame(
+        setNames(replicate(4,numeric(0), simplify = F),
+                 c("loglikeValues", "model", "years", "regions")))
+    
+    for (i in 1:1) {
+        region = chooseRegion(i)    
+        for (year in 2000:2005) {
+            
+            prefix = ''
+            ga = loadDataLoglikelihood(modelName, region, year+5, prefix)
+            prefix = 'tournsize=2'
+            tournsize2 = loadDataLoglikelihood(modelName,region, year+5, prefix)
+            
+            loglike = convertToNumeric(ga)
+            logliketournsize2 = convertToNumeric(tournsize2)
+            loglikeValues = c(loglike, logliketournsize2)
+            
+            nameGA = c(rep(modelName,10))
+            name=paste(modelName, 'tournsize2',sep='')
+            nameLista = c(rep(name,10))
+            
+            years = c(rep(toString(year+5),20))
+            regions = c(rep(region, 20))
+            model = c(nameGa, nameLista)
+            
+            data = data.frame(loglikeValues, model, years, regions)
+            if (dim(finalData)[1]==0) {
+                finalData = merge(finalData, data, all.y=T)  
+            }
+            else{
+                finalData=rbind(finalData, data)
+            }
+        }
+    }    
+    return(finalData)
+}
 
+data = createDataFrame4AOV('GAModel')
+
+resultANOVA = aov(loglikeValues~model+regions, data = data)
+summary(resultANOVA)
+tuk = TukeyHSD(resultANOVA)
+op <- par(mar = c(5,21,4,2))
+plot(tuk,las=1)
+# print(tuk)

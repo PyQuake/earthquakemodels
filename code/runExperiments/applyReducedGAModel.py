@@ -62,17 +62,17 @@ def main():
     for the regions: EastJapan, Kanto, Kansai, Tohoku
     from 2000 to 2005 to create models from 2005 to 2010
     """
-    region = 'Kanto'
-    callReducedGAModel(region)
+    # region = 'Kanto'
+    # callReducedGAModel(region)
 
     region = 'EastJapan'
     callReducedGAModel(region)
 
-    region = 'Tohoku'
-    callReducedGAModel(region)
+    # region = 'Tohoku'
+    # callReducedGAModel(region)
 
-    region = 'Kansai'
-    callReducedGAModel(region)
+    # region = 'Kansai'
+    # callReducedGAModel(region)
 
 
 if __name__ == "__main__":
