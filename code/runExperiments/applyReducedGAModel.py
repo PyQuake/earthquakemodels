@@ -52,7 +52,7 @@ def callReducedGAModel(region):
     It cover the years of 2000 to 2005, and the models are from 2005 to 2010
     """
     year = 2000
-    while(year <= 2010):
+    while(year <= 2006):
         execReducedGAModel(year, region)
         year+=1
 

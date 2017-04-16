@@ -12,7 +12,7 @@ import random
 import array
 from pathos.multiprocessing import ProcessingPool as Pool
 import time 
-
+from functools import lru_cache as cache
 
 @jit
 def evaluationFunction(individual, modelOmega, mean):
@@ -30,7 +30,6 @@ def evaluationFunction(individual, modelOmega, mean):
 		calcLogLikelihood.cache_clear()
 		if tempValue < logValue:
 			logValue = tempValue
-	# print('\n')
 	return logValue,
 
 
@@ -112,8 +111,6 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, tournsize=2, n_aval=50
 	# exit()
 
 	for g in range(NGEN):
-		if (g+1) % 10==0:
-			print(g)
 		# Select the next generation individuals
 		offspring = toolbox.select(pop, len(pop))
 		# Clone the selected individuals
