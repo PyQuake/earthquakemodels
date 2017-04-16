@@ -36,12 +36,12 @@ def execReducedGAModel(year, region, qntYears=5, times=10):
         # if (reducedGA_.definitions==None):    
     #     model.saveModelDB(model_)
         model.saveModelToFile(model_,
-            '../../Zona4/ReducedGAModel/' + region +'ReducedGAModel' + str(year+qntYears) + '_' + str(i) + '.txt')
-        with open("../../Zona4/ReducedGAModel/a_" + region +"ReducedGAModel" + str(year+qntYears) + "_loglikelihood.txt", 'a') as f:
+            '../../Zona4/ReducedGAModel/tournsize=2' + region +'ReducedGAModel' + str(year+qntYears) + '_' + str(i) + '.txt')
+        with open("../../Zona4/ReducedGAModel/tournsize=2" + region +"ReducedGAModel" + str(year+qntYears) + "_loglikelihood.txt", 'a') as f:
             f.write(str(model_.loglikelihood))
             f.write("\n")
             f.close() 
-        with open("../../Zona4/ReducedGAModel/" + region +"ReducedGAModel" + str(year+qntYears) + '_' + str(i) + "logbook.txt", 'w') as f:
+        with open("../../Zona4/ReducedGAModel/tournsize=2" + region +"ReducedGAModel" + str(year+qntYears) + '_' + str(i) + "logbook.txt", 'w') as f:
             f.write(str(model_.logbook))
             f.write("\n")
             f.close()    
@@ -51,8 +51,8 @@ def callReducedGAModel(region):
     It is a wrapper to the function that generates the list model with JMA data
     It cover the years of 2000 to 2005, and the models are from 2005 to 2010
     """
-    year = 2005
-    while(year <= 2005):
+    year = 2000
+    while(year <= 2010):
         execReducedGAModel(year, region)
         year+=1
 
@@ -65,14 +65,14 @@ def main():
     region = 'Kanto'
     callReducedGAModel(region)
 
-    # region = 'EastJapan'
-    # callReducedGAModel(region)
+    region = 'EastJapan'
+    callReducedGAModel(region)
 
-    # region = 'Tohoku'
-    # callReducedGAModel(region)
+    region = 'Tohoku'
+    callReducedGAModel(region)
 
-    # region = 'Kansai'
-    # callReducedGAModel(region)
+    region = 'Kansai'
+    callReducedGAModel(region)
 
 
 if __name__ == "__main__":

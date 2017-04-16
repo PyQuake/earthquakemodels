@@ -36,12 +36,12 @@ def execGaModel(year, region, qntYears=5, times=10):
         model_.modelName = region+'GAModel' 
         # model.saveModelDB(model_)
         model.saveModelToFile(model_,
-            '../../Zona4/GAModel/200' + region +'GAModel' + str(year+qntYears) + '_' + str(i) + '.txt')
-        with open("../../Zona4/GAModel/200" + region +"GAModel" + str(year+qntYears) + "_loglikelihood.txt", 'a') as f:
+            '../../Zona4/GAModel/tournsize=2' + region +'GAModel' + str(year+qntYears) + '_' + str(i) + '.txt')
+        with open("../../Zona4/GAModel/tournsize=2" + region +"GAModel" + str(year+qntYears) + "_loglikelihood.txt", 'a') as f:
             f.write(str(model_.loglikelihood))
             f.write("\n")
             f.close()   
-        with open("../../Zona4/GAModel/200" + region +"GAModel" + str(year+qntYears) + '_' + str(i) + "logbook.txt", 'w') as f:
+        with open("../../Zona4/GAModel/tournsize=2" + region +"GAModel" + str(year+qntYears) + '_' + str(i) + "logbook.txt", 'w') as f:
             f.write(str(model_.logbook))
             f.write("\n")
             f.close()
@@ -52,8 +52,8 @@ def callGAModel(region):
     It is a wrapper to the function that generates the GAModel with JMA data
     It cover the years of 2000 to 2005, and the models are from 2005 to 2010
     """
-    year = 2001
-    while(year <= 2001):
+    year = 2000
+    while(year <= 2006):
         execGaModel(year, region)
         year+=1
 
@@ -69,11 +69,11 @@ def main():
     region = 'EastJapan'
     callGAModel(region)
 
-    # region = 'Tohoku'
-    # callGAModel(region)
+    region = 'Tohoku'
+    callGAModel(region)
 
-    # region = 'Kansai'
-    # callGAModel(region)
+    region = 'Kansai'
+    callGAModel(region)
 
 
 
