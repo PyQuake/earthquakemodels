@@ -7,7 +7,7 @@ import numpy as np
 
 qntYears = 5
 year=2001
-region ='EastJapan'
+region ='Tohoku'
 
 observations = list()
 means = list()

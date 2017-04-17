@@ -103,14 +103,14 @@ plotConvergencyData = function(data, type, region, year){
     
 }
 
-# for (i in 1:4){
-#     region = chooseRegion(i)
-#     for (year in 2005:2010){
-#         tournizeRegion = paste('tournsize=2',region,sep="")
-#         plotConvergencyData(createData(modelName = 'ReducedGAModel',tournizeRegion,year),'ReducedGAModel', region, year)
-#         plotConvergencyData(createData(modelName = 'GAModel',tournizeRegion,year),'GAModel', region, year)
-#     }    
-# }
+for (i in 1:4){
+    region = chooseRegion(i)
+    for (year in 2005:2010){
+        tournizeRegion = paste('tournsize=2',region,sep="")
+        plotConvergencyData(createData(modelName = 'ReducedGAModel',tournizeRegion,year),'ReducedGAModel', region, year)
+        plotConvergencyData(createData(modelName = 'GAModel',tournizeRegion,year),'GAModel', region, year)
+    }    
+}
 
 convertToNumeric = function(model){
         aux=gsub(".*\\((.*)\\).*", "\\1", model$V1)
@@ -127,17 +127,13 @@ loadDataLoglikelihood = function(type, region, year, prefix){
     return(data)
 }
 
-# finalData = data.frame(
-#     setNames(replicate(4,numeric(0), simplify = F),
-#              c("loglikeValues", "model", "years", "regions")))
-
 
 createDataFrame4AOV = function(modelName){
     finalData = data.frame(
         setNames(replicate(4,numeric(0), simplify = F),
                  c("loglikeValues", "model", "years", "regions")))
     
-    for (i in 1:1) {
+    for (i in 1:4) {
         region = chooseRegion(i)    
         for (year in 2000:2005) {
             
@@ -156,8 +152,7 @@ createDataFrame4AOV = function(modelName){
             
             years = c(rep(toString(year+5),20))
             regions = c(rep(region, 20))
-            model = c(nameGa, nameLista)
-            
+            model = c(nameGA, nameLista)
             data = data.frame(loglikeValues, model, years, regions)
             if (dim(finalData)[1]==0) {
                 finalData = merge(finalData, data, all.y=T)  
@@ -172,7 +167,7 @@ createDataFrame4AOV = function(modelName){
 
 data = createDataFrame4AOV('GAModel')
 
-resultANOVA = aov(loglikeValues~model+regions, data = data)
+resultANOVA = aov(loglikeValues~model+regions+years, data = data)
 summary(resultANOVA)
 tuk = TukeyHSD(resultANOVA)
 op <- par(mar = c(5,21,4,2))
