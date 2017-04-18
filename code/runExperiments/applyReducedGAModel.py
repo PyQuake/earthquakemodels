@@ -51,10 +51,10 @@ def callReducedGAModel(region):
     It is a wrapper to the function that generates the list model with JMA data
     It cover the years of 2000 to 2005, and the models are from 2005 to 2010
     """
-    year = 2000
-    while(year <= 2006):
-        execReducedGAModel(year, region)
-        year+=1
+    year = 2007
+    # while(year <= 2006):
+    execReducedGAModel(year, region)
+        # year+=1
 
 def main():
     """
@@ -65,14 +65,14 @@ def main():
     # region = 'Kanto'
     # callReducedGAModel(region)
 
-    # region = 'EastJapan'
-    # callReducedGAModel(region)
+    region = 'EastJapan'
+    callReducedGAModel(region)
 
     # region = 'Tohoku'
     # callReducedGAModel(region)
 
-    region = 'Kansai'
-    callReducedGAModel(region)
+    # region = 'Kansai'
+    # callReducedGAModel(region)
 
 
 if __name__ == "__main__":
