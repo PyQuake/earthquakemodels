@@ -31,21 +31,22 @@ def execGaModel(year, region, qntYears=5, times=10):
             region=region,
             mean=mean,
             n_aval=50000)
-        model_.executionNumber=i
-        model_.year=year+qntYears
-        model_.modelName = region+'GAModel' 
-        # model.saveModelDB(model_)
-        model.saveModelToFile(model_,
-            '../../Zona4/GAModel/a_' + region +'GAModel' + str(year+qntYears) + '_' + str(i) + '.txt')
-        with open("../../Zona4/GAModel/a_" + region +"GAModel" + str(year+qntYears) + "_loglikelihood.txt", 'a') as f:
-            f.write(str(model_.loglikelihood))
-            f.write("\n")
-            f.close()   
-        with open("../../Zona4/GAModel/a_" + region +"GAModel" + str(year+qntYears) + '_' + str(i) + "logbook.txt", 'w') as f:
-            f.write(str(model_.logbook))
-            f.write("\n")
-            f.close()
-        f.close()
+        print(model_.loglikelihood)
+        # model_.executionNumber=i
+        # model_.year=year+qntYears
+        # model_.modelName = region+'GAModel' 
+        # # model.saveModelDB(model_)
+        # model.saveModelToFile(model_,
+        #     '../../Zona4/GAModel/a_' + region +'GAModel' + str(year+qntYears) + '_' + str(i) + '.txt')
+        # with open("../../Zona4/GAModel/a_" + region +"GAModel" + str(year+qntYears) + "_loglikelihood.txt", 'a') as f:
+        #     f.write(str(model_.loglikelihood))
+        #     f.write("\n")
+        #     f.close()   
+        # with open("../../Zona4/GAModel/a_" + region +"GAModel" + str(year+qntYears) + '_' + str(i) + "logbook.txt", 'w') as f:
+        #     f.write(str(model_.logbook))
+        #     f.write("\n")
+        #     f.close()
+        # f.close()
 
 def callGAModel(region):
     """
