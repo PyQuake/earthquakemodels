@@ -54,7 +54,7 @@ creator.create("Individual", numpy.ndarray, fitness=creator.FitnessFunction)
 pool = Pool()
 toolbox.register("map", pool.map)
 
-def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, tournsize=20, n_aval=50000):
+def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval=50000):
 	"""
 	The main function. It evolves models, namely modelLamba or individual. 
 	This version of the GA simplifies the ga using a list of bins with occurences
@@ -90,7 +90,7 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, tournsize=20, n_aval=5
 	# generation: each individual of the current generation
 	# is replaced by the 'fittest' (best) of three individuals
 	# drawn randomly from the current generation.
-	toolbox.register("select", tools.selTournament, tournsize=tournsize)
+	# toolbox.register("select", tools.selTournament, tournsize=tournsize)
 	toolbox.register("mutate", mutationFunction,indpb=0.1, length=length)
 
 	stats = tools.Statistics(key=lambda ind: ind.fitness.values)
@@ -112,9 +112,9 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, tournsize=20, n_aval=5
 
 	for g in range(NGEN):
 		# Select the next generation individuals
-		offspring = toolbox.select(pop, len(pop))
+		# offspring = toolbox.select(pop, len(pop))
 		# Clone the selected individuals
-		offspring = list(map(toolbox.clone, offspring))
+		offspring = list(map(toolbox.clone, pop))
 		# Apply crossover and mutation on the offspring
 		for child1, child2 in zip(offspring[::2], offspring[1::2]):
 			if random.random() < CXPB:
@@ -131,16 +131,8 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, tournsize=20, n_aval=5
 		for ind, fit in zip(invalid_ind, fitnesses):
 			ind.fitness.values = fit
 			
-        # The population is entirely replaced by the offspring, but the last pop best_ind
+        # The population is entirely replaced by the offspring, but the last ind replaced by best_pop
         #Elitism
-		# best_pop = tools.selBest(pop, 1)[0]
-		# worst_ind = tools.selWorst(offspring, 1)[0]
-		
-		# for i in range(len(offspring)):
-		# 	result = list(map(equalObjects,offspring[i],worst_ind))
-		# 	if all(result)==True:
-		# 		offspring[i] = best_pop
-		# 		break
 		best_pop = tools.selBest(pop, 1)[0]
 		offspring = sorted(offspring, key=attrgetter("fitness"), reverse = True)
 		offspring[len(offspring)-1]=best_pop
