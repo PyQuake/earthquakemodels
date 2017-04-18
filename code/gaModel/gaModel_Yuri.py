@@ -42,7 +42,7 @@ pool = Pool()
 toolbox.register("map", pool.map)
 
 
-def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, tournsize=20, n_aval=50000):
+def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, tournsize=3, n_aval=50000):
 	"""
 	The main function. It evolves models, namely modelLamba or individual. 
 	It uses 1 parallel system: 1, simple, that splits the ga evolution between cores
@@ -83,10 +83,10 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, tournsize=20, n_aval=5
 	for ind, fit in zip(pop, fitnesses):
 		ind.fitness.values = fit
 	for g in range(NGEN):
-		# Select the next generation individuals
-		offspring = toolbox.select(pop, len(pop))
+		print(g)
 		# Clone the selected individuals
-		offspring = list(map(toolbox.clone, offspring))
+		# offspring = list(map(toolbox.clone, offspring))
+		offspring = [toolbox.clone(ind) for ind in pop]
 		# Apply crossover and mutation on the offspring
 		for child1, child2 in zip(offspring[::2], offspring[1::2]):
 			if random.random() < CXPB:
@@ -104,7 +104,9 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, tournsize=20, n_aval=5
 		for ind, fit in zip(invalid_ind, fitnesses):
 			ind.fitness.values = fit
 
-        # The population is entirely replaced by the offspring, but the last pop best_pop
+		# Select the next generation individuals
+		offspring = toolbox.select(pop+offspring, len(pop))
+        # The population is entirely replaced by the offspring, but the last ind replaced by best_pop
         #Elitism
 		best_pop = tools.selBest(pop, 1)[0]
 		offspring = sorted(offspring, key=attrgetter("fitness"), reverse = True)

@@ -121,7 +121,7 @@ plotConvergencyData = function(data1, data2, data3, data4, type, region, year){
 }
 ```
 
-## Convergency plots
+# Convergency plots
  
 
 ```{r, echo=FALSE}
@@ -218,7 +218,7 @@ plot(tuk,las=0)
 ```
 
 
-##KANTO
+###KANTO
 ```{r}
 
 subTabela = data[data$regions=="Kanto",]
@@ -230,7 +230,7 @@ op <- par(mar = c(5,14,4,2)+0.1)
 plot(tuk,las=0)
 ```
 
-##EASTJAPAN
+###EASTJAPAN
 ```{r}
 
 subTabela2 = data[data$regions=="EastJapan",]
@@ -253,7 +253,7 @@ plot(tuk,las=0)
 
 ```
 
-##TOHOKU
+###TOHOKU
 
 ```{R}
 subTabela3 = data[data$regions=="Tohoku",]
