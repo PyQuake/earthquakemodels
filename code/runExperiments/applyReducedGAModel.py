@@ -53,7 +53,7 @@ def callReducedGAModel(region):
     """
     year = 2000
     while(year <= 2006):
-    execReducedGAModel(year, region)
+        execReducedGAModel(year, region)
         year+=1
 
 def main():
