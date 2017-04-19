@@ -54,7 +54,7 @@ def callGAModel(region):
     """
     year = 2000
     while(year <= 2006):
-    execGaModel(year, region)
+        execGaModel(year, region)
         year+=1
 
 def main():
