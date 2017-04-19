@@ -55,7 +55,7 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval=50000):
 	# generation: each individual of the current generation
 	# is replaced by the 'fittest' (best) of three individuals
 	# drawn randomly from the current generation.
-	# toolbox.register("select", tools.selTournament, tournsize=tournsize)
+	# toolbox.register("select", tools.selTournament, tournsize=2)
 	toolbox.register("mutate", tools.mutPolynomialBounded,indpb=0.1, eta = 1, low = 0, up = 1)
 
 	stats = tools.Statistics(key=lambda ind: ind.fitness.values)
@@ -80,9 +80,14 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval=50000):
 	# Evaluate the entire population
 
 	fitnesses = list(map(toolbox.evaluate, pop))#need to pass 2 model.bins. One is the real data, the other de generated model
+	# print(fitnesses)
+	# fitnesses[:]=[(x -numpy.min(fitnesses))/(numpy.max(fitnesses)-numpy.min(fitnesses)) for x in fitnesses]
+	# print(fitnesses)
 	for ind, fit in zip(pop, fitnesses):
 		ind.fitness.values = fit
 	for g in range(NGEN):
+		# Select the next generation individuals
+		# offspring = toolbox.select(pop, len(pop))
 		offspring = list(map(toolbox.clone, pop))
 		# Apply crossover and mutation on the offspring
 		for child1, child2 in zip(offspring[::2], offspring[1::2]):
@@ -101,8 +106,6 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval=50000):
 		for ind, fit in zip(invalid_ind, fitnesses):
 			ind.fitness.values = fit
 
-		# # Select the next generation individuals
-		# offspring = toolbox.select(pop+offspring, len(pop))
         # The population is entirely replaced by the offspring, but the last ind replaced by best_pop
         #Elitism
 		best_pop = tools.selBest(pop, 1)[0]
