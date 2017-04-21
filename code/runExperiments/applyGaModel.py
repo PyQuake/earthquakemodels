@@ -22,7 +22,7 @@ def execGaModel(year, region, qntYears=5, times=10):
     mean = np.mean(means, axis=0)
     for i in range(times):
         model_ = ga.gaModel(
-            NGEN=100,
+            NGEN=10,
             CXPB=0.9,
             MUTPB=0.1,
             modelOmega=observations,
@@ -30,22 +30,23 @@ def execGaModel(year, region, qntYears=5, times=10):
             qntYears,
             region=region,
             mean=mean,
-            n_aval=50000)
+            n_aval=500)
         # model_.executionNumber=i
         # model_.year=year+qntYears
         # model_.modelName = region+'GAModel' 
         # model.saveModelDB(model_)
-        model.saveModelToFile(model_,
-            '../../rawdata/GAModel/teste' + region +'GAModel' + str(year+qntYears) + '_' + str(i) + '.txt')
-        with open("../../rawdata/GAModel/teste" + region +"GAModel" + str(year+qntYears) + "_loglikelihood.txt", 'a') as f:
-            f.write(str(model_.loglikelihood))
-            f.write("\n")
-            f.close()   
-        with open("../../rawdata/GAModel/teste" + region +"GAModel" + str(year+qntYears) + '_' + str(i) + "logbook.txt", 'w') as f:
-            f.write(str(model_.logbook))
-            f.write("\n")
-            f.close()
-        f.close()
+        print(model_.loglikelihood)
+        # model.saveModelToFile(model_,
+        #     '../../rawdata/GAModel/teste' + region +'GAModel' + str(year+qntYears) + '_' + str(i) + '.txt')
+        # with open("../../rawdata/GAModel/teste" + region +"GAModel" + str(year+qntYears) + "_loglikelihood.txt", 'a') as f:
+        #     f.write(str(model_.loglikelihood))
+        #     f.write("\n")
+        #     f.close()   
+        # with open("../../rawdata/GAModel/teste" + region +"GAModel" + str(year+qntYears) + '_' + str(i) + "logbook.txt", 'w') as f:
+        #     f.write(str(model_.logbook))
+        #     f.write("\n")
+        #     f.close()
+        # f.close()
 
 def callGAModel(region):
     """
