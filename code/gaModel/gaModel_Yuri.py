@@ -56,7 +56,7 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval=50000):
 	# is replaced by the 'fittest' (best) of three individuals
 	# drawn randomly from the current generation.
 	# toolbox.register("select", tools.selTournament, tournsize=2)
-	toolbox.register("select", tools.selAutomaticEpsilonLexicase)
+	toolbox.register("select", tools.selRoulette)
 	toolbox.register("mutate", tools.mutPolynomialBounded,indpb=0.1, eta = 1, low = 0, up = 1)
 
 	stats = tools.Statistics(key=lambda ind: ind.fitness.values)
@@ -85,8 +85,6 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval=50000):
 	
 	# print(fitnesses)
 	for g in range(NGEN):
-		if g%10==0:
-			print(g)
 		# normalize fitnesses
 		tempFitness=[]
 		tempFitness[:] = fitnesses

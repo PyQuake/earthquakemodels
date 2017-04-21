@@ -91,6 +91,7 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval=50000):
 	# is replaced by the 'fittest' (best) of three individuals
 	# drawn randomly from the current generation.
 	# toolbox.register("select", tools.selTournament, tournsize=tournsize)
+	toolbox.register("select", tools.selRoulette)
 	toolbox.register("mutate", mutationFunction,indpb=0.1, length=length)
 
 	stats = tools.Statistics(key=lambda ind: ind.fitness.values)
@@ -111,9 +112,17 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval=50000):
 	# exit()
 
 	for g in range(NGEN):
+		# normalize fitnesses
+		tempFitness=[]
+		tempFitness[:] = fitnesses
+		min = numpy.min(fitnesses)
+		max = numpy.max(fitnesses)
+		fitnesses[:] = (fitnesses-min)/(max-min)
 		# Select the next generation individuals
-		# offspring = toolbox.select(pop, len(pop))
-		# Clone the selected individuals
+		offspring = toolbox.select(pop, len(pop))
+		#de-normalize
+		fitnesses=tempFitness
+		#create offspring
 		offspring = list(map(toolbox.clone, pop))
 		# Apply crossover and mutation on the offspring
 		for child1, child2 in zip(offspring[::2], offspring[1::2]):

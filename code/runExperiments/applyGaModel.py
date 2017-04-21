@@ -22,7 +22,7 @@ def execGaModel(year, region, qntYears=5, times=10):
     mean = np.mean(means, axis=0)
     for i in range(times):
         model_ = ga.gaModel(
-            NGEN=10,
+            NGEN=100,
             CXPB=0.9,
             MUTPB=0.1,
             modelOmega=observations,
@@ -30,23 +30,22 @@ def execGaModel(year, region, qntYears=5, times=10):
             qntYears,
             region=region,
             mean=mean,
-            n_aval=500)
+            n_aval=50000)
         # model_.executionNumber=i
         # model_.year=year+qntYears
         # model_.modelName = region+'GAModel' 
         # model.saveModelDB(model_)
-        print(model_.loglikelihood)
-        # model.saveModelToFile(model_,
-        #     '../../rawdata/GAModel/teste' + region +'GAModel' + str(year+qntYears) + '_' + str(i) + '.txt')
-        # with open("../../rawdata/GAModel/teste" + region +"GAModel" + str(year+qntYears) + "_loglikelihood.txt", 'a') as f:
-        #     f.write(str(model_.loglikelihood))
-        #     f.write("\n")
-        #     f.close()   
-        # with open("../../rawdata/GAModel/teste" + region +"GAModel" + str(year+qntYears) + '_' + str(i) + "logbook.txt", 'w') as f:
-        #     f.write(str(model_.logbook))
-        #     f.write("\n")
-        #     f.close()
-        # f.close()
+        model.saveModelToFile(model_,
+            '../../rawdata/GAModel/selRoulette' + region +'GAModel' + str(year+qntYears) + '_' + str(i) + '.txt')
+        with open("../../rawdata/GAModel/selRoulette" + region +"GAModel" + str(year+qntYears) + "_loglikelihood.txt", 'a') as f:
+            f.write(str(model_.loglikelihood))
+            f.write("\n")
+            f.close()   
+        with open("../../rawdata/GAModel/selRoulette" + region +"GAModel" + str(year+qntYears) + '_' + str(i) + "logbook.txt", 'w') as f:
+            f.write(str(model_.logbook))
+            f.write("\n")
+            f.close()
+        f.close()
 
 def callGAModel(region):
     """
@@ -54,9 +53,9 @@ def callGAModel(region):
     It cover the years of 2000 to 2005, and the models are from 2005 to 2010
     """
     year = 2000
-    # while(year <= 2006):
-    execGaModel(year, region)
-        # year+=1
+    while(year <= 2006):
+        execGaModel(year, region)
+        year+=1
 
 def main():
     """
@@ -67,14 +66,14 @@ def main():
     region = 'Kanto'
     callGAModel(region)
 
-    # region = 'EastJapan'
-    # callGAModel(region)
+    region = 'EastJapan'
+    callGAModel(region)
 
-    # region = 'Tohoku'
-    # callGAModel(region)
+    region = 'Tohoku'
+    callGAModel(region)
 
-    # region = 'Kansai'
-    # callGAModel(region)
+    region = 'Kansai'
+    callGAModel(region)
 
 
 
