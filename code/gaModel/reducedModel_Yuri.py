@@ -13,7 +13,7 @@ import array
 from pathos.multiprocessing import ProcessingPool as Pool
 import time 
 from functools import lru_cache as cache
-
+import dill
 @jit
 def evaluationFunction(individual, modelOmega, mean):
 	"""
@@ -46,6 +46,12 @@ def mutationFunction(individual, indpb, length):
 			individual[i].prob=random.random()
 	return individual
 
+def normalizeFitness(fitnesses):
+	min = numpy.min(fitnesses)
+	max = numpy.max(fitnesses)
+	fitnesses[:] = (fitnesses-min)/(max-min)
+	return(fitnesses)
+
 #parallel
 
 toolbox = base.Toolbox()
@@ -62,10 +68,11 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval=50000):
 	"""
 	#defining the class (list) that will compose an individual
 	class genotype():
-	    def __init__(self):
-	    	self.index = random.randint(0, len(modelOmega[0].bins)-1)
-	    	self.prob = random.random()
-	
+		
+		def __init__(self):
+			self.index = random.randint(0, len(modelOmega[0].bins)-1)
+			self.prob = random.random()
+		
 	y=int(n_aval/NGEN)
 	x=n_aval - y*NGEN
 	n= x + y
@@ -79,9 +86,6 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval=50000):
 				lengthPos[str(j)] = 1
 	length=len(lengthPos)
 
-
-	toolbox = base.Toolbox()
-	creator.create("FitnessFunction", base.Fitness, weights=(1.0,))
 	toolbox.register("evaluate", evaluationFunction, modelOmega=modelOmega, mean= mean)
 	toolbox.register("individual", tools.initRepeat, creator.Individual, genotype, n=length)
 	toolbox.register("population", tools.initRepeat, list, toolbox.individual)
@@ -91,7 +95,7 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval=50000):
 	# is replaced by the 'fittest' (best) of three individuals
 	# drawn randomly from the current generation.
 	# toolbox.register("select", tools.selTournament, tournsize=tournsize)
-	toolbox.register("select", tools.selLexicase)
+	toolbox.register("select", tools.selRoulette)
 	toolbox.register("mutate", mutationFunction,indpb=0.1, length=length)
 
 	stats = tools.Statistics(key=lambda ind: ind.fitness.values)
@@ -104,26 +108,18 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval=50000):
 	logbook.header = "gen","min","avg","max","std"
 
 	pop = toolbox.population(n)
-
-	fitnesses = list(map(toolbox.evaluate, pop))#need to pass 2 model.bins. One is the real data, the other de generated model
-
+	# Evaluate the entire population
+	fitnesses = list(toolbox.map(toolbox.evaluate, pop))#need to pass 2 model.bins. One is the real data, the other de generated model
+	# normalize fitnesses
+	fitnesses = normalizeFitness(fitnesses)
 	for ind, fit in zip(pop, fitnesses):
 		ind.fitness.values = fit
-	# exit()
 
 	for g in range(NGEN):
-		# normalize fitnesses
-		tempFitness=[]
-		tempFitness[:] = fitnesses
-		min = numpy.min(fitnesses)
-		max = numpy.max(fitnesses)
-		fitnesses[:] = (fitnesses-min)/(max-min)
 		# Select the next generation individuals
 		offspring = toolbox.select(pop, len(pop))
-		#de-normalize
-		fitnesses=tempFitness
 		#create offspring
-		offspring = list(map(toolbox.clone, pop))
+		offspring = list(toolbox.map(toolbox.clone, pop))
 		# Apply crossover and mutation on the offspring
 		for child1, child2 in zip(offspring[::2], offspring[1::2]):
 			if random.random() < CXPB:
@@ -136,10 +132,11 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval=50000):
 				del mutant.fitness.values
         # Evaluate the individuals with an invalid fitness
 		invalid_ind = [ind for ind in offspring if not ind.fitness.valid]
-		fitnesses = map(toolbox.evaluate, invalid_ind)
+		fitnesses = list(toolbox.map(toolbox.evaluate, invalid_ind))
+		# normalize fitnesses
+		fitnesses = normalizeFitness(fitnesses)
 		for ind, fit in zip(invalid_ind, fitnesses):
 			ind.fitness.values = fit
-			
         # The population is entirely replaced by the offspring, but the last ind replaced by best_pop
         #Elitism
 		best_pop = tools.selBest(pop, 1)[0]
@@ -149,6 +146,9 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval=50000):
 
 		pop[:] = offspring
 		#logBook
+		fitnesses = list(toolbox.map(toolbox.evaluate, pop))
+		for ind, fit in zip(pop, fitnesses):
+			ind.fitness.values = fit
 		record = stats.compile(pop)
 		logbook.record(gen=g, **record)
 	
@@ -157,12 +157,10 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval=50000):
 	generatedModel.bins = [0.0]*len(modelOmega[0].bins)
 	generatedModel = models.model.convertFromListToData(best_pop,len(modelOmega[0].bins))
 	generatedModel.prob = generatedModel.bins
-	# generatedModel.bins = calcNumberBins(generatedModel.bins, modelOmega[0].bins)
 	generatedModel.bins=calcNumberBins(generatedModel.bins, mean)
 	generatedModel.definitions = modelOmega[0].definitions
 	generatedModel.loglikelihood = best_pop.fitness.values
 	generatedModel.logbook = logbook
-
 	# output = generatedModel.loglikelihood 
 	# return((-1)*output[0])
 
