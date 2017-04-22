@@ -36,8 +36,8 @@ def execReducedGAModel(year, region, qntYears=5, times=10):
         # if (reducedGA_.definitions==None):    
     #     model.saveModelDB(model_)
         model.saveModelToFile(model_,
-            '..//rawdata/ReducedGAModel/selRoulette' + region +'ReducedGAModel' + str(year+qntYears) + '_' + str(i) + '.txt')
-        with open("..//ReducedGAModel/selRoulette" + region +"ReducedGAModel" + str(year+qntYears) + "_loglikelihood.txt", 'a') as f:
+            '../rawdata/ReducedGAModel/selRoulette' + region +'ReducedGAModel' + str(year+qntYears) + '_' + str(i) + '.txt')
+        with open("../rawdata/ReducedGAModel/selRoulette" + region +"ReducedGAModel" + str(year+qntYears) + "_loglikelihood.txt", 'a') as f:
             f.write(str(model_.loglikelihood))
             f.write("\n")
             f.close() 
