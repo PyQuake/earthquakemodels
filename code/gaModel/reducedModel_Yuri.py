@@ -13,7 +13,7 @@ import array
 from pathos.multiprocessing import ProcessingPool as Pool
 import time 
 from functools import lru_cache as cache
-import dill
+
 @jit
 def evaluationFunction(individual, modelOmega, mean):
 	"""
