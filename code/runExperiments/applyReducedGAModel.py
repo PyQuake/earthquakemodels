@@ -35,16 +35,16 @@ def execReducedGAModel(year, region, qntYears=5, times=10):
         # reducedGA_ = model.loadModelDB(region+'ReducedGAModel', year)
         # if (reducedGA_.definitions==None):    
     #     model.saveModelDB(model_)
-        # model.saveModelToFile(model_,
-        #     '../../Zona4/rawdata/ReducedGAModel/selRoulette' + region +'ReducedGAModel' + str(year+qntYears) + '_' + str(i) + '.txt')
-        # with open("../../Zona4/ReducedGAModel/selRoulette" + region +"ReducedGAModel" + str(year+qntYears) + "_loglikelihood.txt", 'a') as f:
-        #     f.write(str(model_.loglikelihood))
-        #     f.write("\n")
-        #     f.close() 
-        # with open("../../Zona4/rawdata/ReducedGAModel/selRoulette" + region +"ReducedGAModel" + str(year+qntYears) + '_' + str(i) + "logbook.txt", 'w') as f:
-        #     f.write(str(model_.logbook))
-        #     f.write("\n")
-        #     f.close()    
+        model.saveModelToFile(model_,
+            '../../Zona4/rawdata/ReducedGAModel/selRoulette' + region +'ReducedGAModel' + str(year+qntYears) + '_' + str(i) + '.txt')
+        with open("../../Zona4/ReducedGAModel/selRoulette" + region +"ReducedGAModel" + str(year+qntYears) + "_loglikelihood.txt", 'a') as f:
+            f.write(str(model_.loglikelihood))
+            f.write("\n")
+            f.close() 
+        with open("../../Zona4/rawdata/ReducedGAModel/selRoulette" + region +"ReducedGAModel" + str(year+qntYears) + '_' + str(i) + "logbook.txt", 'w') as f:
+            f.write(str(model_.logbook))
+            f.write("\n")
+            f.close()    
 
 def callReducedGAModel(region):
     """
