@@ -10,7 +10,7 @@ from models.mathUtil import calcNumberBins
 import models.model
 import random
 import array
-from pathos.multiprocessing import ProcessingPool as Pool
+# from pathos.multiprocessing import ProcessingPool as Pool
 import time 
 from functools import lru_cache as cache
 
@@ -57,8 +57,8 @@ def normalizeFitness(fitnesses):
 toolbox = base.Toolbox()
 creator.create("FitnessFunction", base.Fitness, weights=(1.0,))
 creator.create("Individual", numpy.ndarray, fitness=creator.FitnessFunction)
-pool = Pool()
-toolbox.register("map", pool.map)
+# pool = Pool()
+# toolbox.register("map", pool.map)
 
 def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval=50000):
 	"""
