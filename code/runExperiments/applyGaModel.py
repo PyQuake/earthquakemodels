@@ -36,12 +36,12 @@ def execGaModel(year, region, qntYears=5, times=10):
         # model_.modelName = region+'GAModel' 
         # model.saveModelDB(model_)
         model.saveModelToFile(model_,
-            '../../rawdata/GAModel/selRoulette' + region +'GAModel' + str(year+qntYears) + '_' + str(i) + '.txt')
-        with open("../../rawdata/GAModel/selRoulette" + region +"GAModel" + str(year+qntYears) + "_loglikelihood.txt", 'a') as f:
+            '../../rawdata/GAModel/selLexicase' + region +'GAModel' + str(year+qntYears) + '_' + str(i) + '.txt')
+        with open("../../rawdata/GAModel/selLexicase" + region +"GAModel" + str(year+qntYears) + "_loglikelihood.txt", 'a') as f:
             f.write(str(model_.loglikelihood))
             f.write("\n")
             f.close()   
-        with open("../../rawdata/GAModel/selRoulette" + region +"GAModel" + str(year+qntYears) + '_' + str(i) + "logbook.txt", 'w') as f:
+        with open("../../rawdata/GAModel/selLexicase" + region +"GAModel" + str(year+qntYears) + '_' + str(i) + "logbook.txt", 'w') as f:
             f.write(str(model_.logbook))
             f.write("\n")
             f.close()
