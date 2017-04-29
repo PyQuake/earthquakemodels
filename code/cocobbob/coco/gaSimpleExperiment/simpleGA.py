@@ -11,8 +11,9 @@ import models.model
 import random
 import array
 from operator import attrgetter
-# from pathos.multiprocessing import ProcessingPool as Pool
-from multiprocessing import Pool
+from scoop import futures
+
+
 
 
 def evalFun(individual, fun):
@@ -21,10 +22,7 @@ def evalFun(individual, fun):
 toolbox = base.Toolbox()
 creator.create("FitnessFunction", base.Fitness, weights=(-1.0,))
 creator.create("Individual", array.array, typecode='d', fitness=creator.FitnessFunction)
-pool = Pool()
-toolbox.register("map", pool.map)
-
-
+toolbox.register("map", futures.map)
 
 def gaModel(fun, problem_dimension, NGEN=100,CXPB=0.9,MUTPB=0.1, n_aval=50000):
 	"""
