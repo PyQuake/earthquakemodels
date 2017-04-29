@@ -13,6 +13,8 @@ import array
 from operator import attrgetter
 from pathos.multiprocessing import ProcessingPool as Pool
 
+def evalFun(individual, fun):
+	return fun(individual),
 #parallel
 toolbox = base.Toolbox()
 creator.create("FitnessFunction", base.Fitness, weights=(-1.0,))
@@ -20,8 +22,7 @@ creator.create("Individual", array.array, typecode='d', fitness=creator.FitnessF
 pool = Pool()
 toolbox.register("map", pool.map)
 
-def evalFun(individual, fun):
-	return fun(individual),
+
 
 def gaModel(fun, problem_dimension, NGEN=100,CXPB=0.9,MUTPB=0.1, n_aval=50000):
 	"""
