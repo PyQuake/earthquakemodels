@@ -326,6 +326,7 @@ def coco_optimize(solver, fun, max_evals, max_runs=1e9):
         #     CALL MY SOLVER, interfaces vary
 ##############################################################################
         else:
+            print(solver.__name__)
             raise ValueError("no entry for solver %s" % str(solver.__name__))
 
         if fun.evaluations >= max_evals or fun.final_target_hit:
