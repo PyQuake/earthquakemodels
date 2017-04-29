@@ -352,14 +352,14 @@ max_runs = 1e9  # number of (almost) independent trials per problem instance
 number_of_batches = 1  # allows to run everything in several batches
 current_batch = 1      # 1..number_of_batches
 ##############################################################################
-SOLVER = simpleGA
+SOLVER = simpleGA.gaModel
 # SOLVER = my_solver # SOLVER = fmin_slsqp # SOLVER = cma.fmin
 suite_instance = "" # "year:2016"
 suite_options = ""  # "dimensions: 2,3,5,10,20 "  # if 40 is not desired
 # for more suite options, see http://numbbo.github.io/coco-doc/C/#suite-parameters
 observer_options = ObserverOptions({  # is (inherited from) a dictionary
                     'algorithm_info': "A SIMPLE GA SEARCH ALGORITHM", # CHANGE/INCOMMENT THIS!
-                    # 'algorithm_name': "",  # default already provided from SOLVER name
+                    # 'algorithm_name': "simpleGA",  # default already provided from SOLVER name
                     # 'result_folder': "",  # default already provided from several global vars
                    })
 ######################### END CHANGE HERE ####################################
