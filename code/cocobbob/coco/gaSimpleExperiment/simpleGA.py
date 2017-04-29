@@ -20,6 +20,9 @@ creator.create("Individual", array.array, typecode='d', fitness=creator.FitnessF
 # pool = Pool()
 # toolbox.register("map", pool.map)
 
+def evalFun(fun, individual):
+	return fun(individual),
+
 def gaModel(fun, problem_dimension, NGEN=100,CXPB=0.9,MUTPB=0.1, n_aval=50000):
 	"""
 	The main function. It evolves models, namely modelLamba or individual. 
@@ -47,7 +50,7 @@ def gaModel(fun, problem_dimension, NGEN=100,CXPB=0.9,MUTPB=0.1, n_aval=50000):
 	x=n_aval - y*NGEN
 	n= x + y
 
-	toolbox.register("evaluate", fun)
+	toolbox.register("evaluate", evalFun, fun=fun)
 	#TODO: Adjust
 	toolbox.register("individual", tools.initRepeat, creator.Individual, toolbox.attr_float, problem_dimension)
 	toolbox.register("population", tools.initRepeat, list, toolbox.individual)
