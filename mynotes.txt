@@ -1,29 +1,27 @@
 
 580e084c81bfbf1a07c7ffc4
-ssh root@164.41.209.150 -p 13508 'cd mpi_projects/earthquakemodels/code; nohup mpiexec -n 1 -hostfile ../../hosts.txt python3 applyGAModel.py &'
 
  /usr/local/mysql/bin/mysql -u root -p 
  /Applications/MySQLWorkbench.app/Contents/MacOS/mysqldump  -u root -p -h localhost earthquakemodelsDB > todos.sql
 /usr/local/mysql/bin/mysql -u root -p earthquakemodelsDB < todos.sql
 
 
-cd mpi_projects/earthquakemodels/code/runExperiments/
-nohup bash -s <<< 'time ./applyReducedGaModel.py'>& timeFINALREDUCED & 
-
-ssh cluster1.local 'cd mpi_projects/earthquakemodels/code/runExperiments/; nohup ./applyGaModel.py>& timeKANTOGAMODEL &'
-ssh cluster2.local 'cd mpi_projects/earthquakemodels/code/runExperiments/; nohup ./applyGaModel.py>& timeEASTJAPANGAMODEL &'
-ssh cluster3.local 'mount 164.41.75.66:/root/mpi_projects/ /root/mpi_projects/; cd mpi_projects/earthquakemodels/code/runExperiments/; nohup ./applyGaModel.py>& timETOHOKUGAMODEL & '
-ssh cluster4.local 'mount 164.41.75.66:/root/mpi_projects/ /root/mpi_projects/; cd mpi_projects/earthquakemodels/code/runExperiments/; nohup ./applyGaModel.py>& timeKANSAIGAMODEL & '
-
-ssh cluster5.local 'mount 164.41.75.66:/root/mpi_projects/ /root/mpi_projects/; cd mpi_projects/earthquakemodels/code/runExperiments/; nohup ./applyReducedGAModel.py>& timeKANTOREDUCEDGAMODEL & '
-ssh cluster6.local 'mount 164.41.75.66:/root/mpi_projects/ /root/mpi_projects/; cd mpi_projects/earthquakemodels/code/runExperiments/; nohup ./applyReducedGAModel.py>& timeEASTJAPANREDUCEDGAMODEL & '
-ssh cluster7.local 'mount 164.41.75.66:/root/mpi_projects/ /root/mpi_projects/; cd mpi_projects/earthquakemodels/code/runExperiments/; nohup ./applyReducedGAModel.py>& timETOHOKUREDUCEDGAMODEL & '
-ssh cluster8.local 'mount 164.41.75.66:/root/mpi_projects/ /root/mpi_projects/; cd mpi_projects/earthquakemodels/code/runExperiments/; nohup ./applyReducedGAModel.py>& timeKANSAIREDUCEDGAMODEL & '
-
-
 source //anaconda/bin/activate
 
+nano /etc/fstab
 mount 164.41.75.66:/root/mpi_projects/ /root/mpi_projects/
 
 ./smac --scenario-file example_scenarios/branin/gaTest-scenario.txt 
 ./smac --scenario-file example_scenarios/branin/reducedTest-scenario.txt 
+
+
+/root/mpi_projects/rt_project/region-templates/runtime/bin/regiontemplates/examples/yuri
+	runtime
+/root/mpi_projects/rt_project/region-templates/runtime/regiontemplates/examples/yuri
+	code
+
+export HARMONY_HOME=/root/mpi_projects/rt_project/region-templates/runtime/regiontemtplates/external-src/activeharmony-4.5/
+
+mpirun -n 2 ./PipelineRTFS-NS-Diff-AH-PRO-Yi-GIS -i imagesIN/
+mpirun -n 2 ./HelloWorldRT -i imagesIN/
+mpirun -n 2 ./Pipeline-F -i ../HelloWorldRT/imagesIN/
