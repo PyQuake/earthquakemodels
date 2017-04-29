@@ -17,8 +17,8 @@ from pathos.multiprocessing import ProcessingPool as Pool
 toolbox = base.Toolbox()
 creator.create("FitnessFunction", base.Fitness, weights=(-1.0,))
 creator.create("Individual", array.array, typecode='d', fitness=creator.FitnessFunction)
-# pool = Pool()
-# toolbox.register("map", pool.map)
+pool = Pool()
+toolbox.register("map", pool.map)
 
 def evalFun(individual, fun):
 	return fun(individual),
