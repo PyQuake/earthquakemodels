@@ -359,7 +359,7 @@ suite_options = ""  # "dimensions: 2,3,5,10,20 "  # if 40 is not desired
 # for more suite options, see http://numbbo.github.io/coco-doc/C/#suite-parameters
 observer_options = ObserverOptions({  # is (inherited from) a dictionary
                     'algorithm_info': "A SIMPLE GA SEARCH ALGORITHM", # CHANGE/INCOMMENT THIS!
-                    # 'algorithm_name': "simpleGA",  # default already provided from SOLVER name
+                    'algorithm_name': "simpleGA",  # default already provided from SOLVER name
                     # 'result_folder': "",  # default already provided from several global vars
                    })
 ######################### END CHANGE HERE ####################################
