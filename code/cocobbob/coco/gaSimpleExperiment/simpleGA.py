@@ -20,7 +20,7 @@ creator.create("Individual", array.array, typecode='d', fitness=creator.FitnessF
 # pool = Pool()
 # toolbox.register("map", pool.map)
 
-def evalFun(fun, individual):
+def evalFun(individual, fun):
 	return fun(individual),
 
 def gaModel(fun, problem_dimension, NGEN=100,CXPB=0.9,MUTPB=0.1, n_aval=50000):
