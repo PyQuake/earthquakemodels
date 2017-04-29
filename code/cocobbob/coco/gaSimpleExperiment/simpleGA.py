@@ -11,7 +11,9 @@ import models.model
 import random
 import array
 from operator import attrgetter
-from pathos.multiprocessing import ProcessingPool as Pool
+# from pathos.multiprocessing import ProcessingPool as Pool
+from multiprocessing import Pool
+
 
 def evalFun(individual, fun):
 	return fun(individual),
