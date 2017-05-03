@@ -22,11 +22,18 @@ toolbox = base.Toolbox()
 creator.create("FitnessFunction", base.Fitness, weights=(-1.0,))
 creator.create("Individual", array.array, typecode='d', fitness=creator.FitnessFunction)
 
-def gaModel(fun, problem_dimension, NGEN=200,CXPB=0.9,MUTPB=0.1, n_aval=100000):
-	"""
-	The main function. It evolves models, namely modelLamba or individual. 
-	It uses 1 parallel system: 1, simple, that splits the ga evolution between cores
-	""" 
+def gaModel(fun, problem_dimension, CXPB=0.9,MUTPB=0.1):
+
+	#calculating the number of individuals of the populations based on the number of executions
+	fmax = 100000 * problem_dimension
+	n = int(np.sqrt(fmax) * 5)
+	NGEN = fmax / n
+	if fmax % p != 0:
+		NGEN += 1
+	
+	tournsize = n/500
+
+
 	# Attribute generator
 	toolbox.register("attr_float", random.uniform, -5,5)
 	toolbox.register("mate", tools.cxOnePoint)
@@ -35,7 +42,7 @@ def gaModel(fun, problem_dimension, NGEN=200,CXPB=0.9,MUTPB=0.1, n_aval=100000):
 	# is replaced by the 'fittest' (best) of three individuals
 	# drawn randomly from the current generation.
 	# toolbox.register("select", tools.selLexicase)
-	toolbox.register("select", tools.selTournament, tournsize=2)
+	toolbox.register("select", tools.selTournament, tournsize=tournsize)
 	toolbox.register("mutate", tools.mutPolynomialBounded,indpb=0.1, eta = 1, low = -5, up = 5)
 
 	stats = tools.Statistics(key=lambda ind: ind.fitness.values)
@@ -43,14 +50,9 @@ def gaModel(fun, problem_dimension, NGEN=200,CXPB=0.9,MUTPB=0.1, n_aval=100000):
 	stats.register("std", numpy.std)
 	stats.register("min", numpy.min)
 	stats.register("max", numpy.max)
-
-	#calculating the number of individuals of the populations based on the number of executions
-	y=int(n_aval/NGEN)
-	x=n_aval - y*NGEN
-	n= x + y
+	
 
 	toolbox.register("evaluate", evalFun, fun=fun)
-	#TODO: Adjust
 	toolbox.register("individual", tools.initRepeat, creator.Individual, toolbox.attr_float, problem_dimension)
 	toolbox.register("population", tools.initRepeat, list, toolbox.individual)
 
