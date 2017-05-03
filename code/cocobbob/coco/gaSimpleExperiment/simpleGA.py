@@ -34,8 +34,8 @@ def gaModel(fun, problem_dimension, NGEN=100,CXPB=0.9,MUTPB=0.1, n_aval=50000):
 	# generation: each individual of the current generation
 	# is replaced by the 'fittest' (best) of three individuals
 	# drawn randomly from the current generation.
-	toolbox.register("select", tools.selLexicase)
 	# toolbox.register("select", tools.selLexicase)
+	toolbox.register("select", tools.selTournament, tournsize=2)
 	toolbox.register("mutate", tools.mutPolynomialBounded,indpb=0.1, eta = 1, low = -5, up = 5)
 
 	stats = tools.Statistics(key=lambda ind: ind.fitness.values)
@@ -58,6 +58,7 @@ def gaModel(fun, problem_dimension, NGEN=100,CXPB=0.9,MUTPB=0.1, n_aval=50000):
 	logbook.header = "gen","min","avg","max","std"
 
 	pop = toolbox.population(n)
+	print(pop)
 	# Evaluate the entire population
 	fitnesses = list(toolbox.map(toolbox.evaluate, pop))#need to pass 2 model.bins. One is the real data, the other de generated model
 	for ind, fit in zip(pop, fitnesses):
