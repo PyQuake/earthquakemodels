@@ -28,7 +28,7 @@ def gaModel(fun, problem_dimension, NGEN=100,CXPB=0.9,MUTPB=0.1, n_aval=50000):
 	It uses 1 parallel system: 1, simple, that splits the ga evolution between cores
 	""" 
 	# Attribute generator
-	toolbox.register("attr_float", random.random)
+	toolbox.register("attr_float", random.uniform, 0,5)
 	toolbox.register("mate", tools.cxOnePoint)
 	# operator for selecting individuals for breeding the next
 	# generation: each individual of the current generation
@@ -36,7 +36,7 @@ def gaModel(fun, problem_dimension, NGEN=100,CXPB=0.9,MUTPB=0.1, n_aval=50000):
 	# drawn randomly from the current generation.
 	toolbox.register("select", tools.selLexicase)
 	# toolbox.register("select", tools.selLexicase)
-	toolbox.register("mutate", tools.mutPolynomialBounded,indpb=0.1, eta = 1, low = 0, up = 1)
+	toolbox.register("mutate", tools.mutPolynomialBounded,indpb=0.1, eta = 1, low = -5, up = 5)
 
 	stats = tools.Statistics(key=lambda ind: ind.fitness.values)
 	stats.register("avg", numpy.mean)
