@@ -28,7 +28,7 @@ def gaModel(fun, problem_dimension, CXPB=0.9,MUTPB=0.1):
 	fmax = 100000 * problem_dimension
 	n = int(numpy.sqrt(fmax) * 5)
 	NGEN = fmax / n
-	if fmax % p != 0:
+	if fmax % n != 0:
 		NGEN += 1
 	
 	tournsize = n/500
