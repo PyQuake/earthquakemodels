@@ -22,7 +22,7 @@ toolbox = base.Toolbox()
 creator.create("FitnessFunction", base.Fitness, weights=(-1.0,))
 creator.create("Individual", array.array, typecode='d', fitness=creator.FitnessFunction)
 
-def gaModel(fun, problem_dimension, NGEN=100,CXPB=0.9,MUTPB=0.1, n_aval=50000):
+def gaModel(fun, problem_dimension, NGEN=200,CXPB=0.9,MUTPB=0.1, n_aval=100000):
 	"""
 	The main function. It evolves models, namely modelLamba or individual. 
 	It uses 1 parallel system: 1, simple, that splits the ga evolution between cores
