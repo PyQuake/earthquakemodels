@@ -26,7 +26,7 @@ def gaModel(fun, problem_dimension, CXPB=0.9,MUTPB=0.1):
 
 	#calculating the number of individuals of the populations based on the number of executions
 	fmax = 100000 * problem_dimension
-	n = int(np.sqrt(fmax) * 5)
+	n = int(numpy.sqrt(fmax) * 5)
 	NGEN = fmax / n
 	if fmax % p != 0:
 		NGEN += 1
