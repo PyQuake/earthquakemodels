@@ -318,7 +318,7 @@ def coco_optimize(solver, fun, max_evals, max_runs=1e9):
         elif solver.__name__ == 'fmin_slsqp':
             solver(fun, x0, iter=1 + remaining_evals / fun.dimension,
                    iprint=-1)
-        elif solver.__name__ == 'PRCGA_based':
+        elif solver.__name__ == 'gaModel':
             solver(fun, fun.dimension)
 ############################ ADD HERE ########################################
         # ### IMPLEMENT HERE THE CALL TO ANOTHER SOLVER/OPTIMIZER ###
