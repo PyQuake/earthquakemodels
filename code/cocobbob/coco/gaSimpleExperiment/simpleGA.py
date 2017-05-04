@@ -68,7 +68,6 @@ def gaModel(fun, problem_dimension, CXPB=0.8,MUTPB=0.15):
 		ind.fitness.values = fit
 
 	for g in range(fmax):
-		print(g)
 		# Select the next generation individuals
 		offspring = toolbox.select(pop, len(pop))
 		#create offspring
