@@ -36,7 +36,7 @@ def gaModel(fun, problem_dimension, CXPB=0.8,MUTPB=0.15):
 
 	# Attribute generator
 	toolbox.register("attr_float", random.uniform, -5,5)
-	toolbox.register("mate", tools.cxBlend, alpha)
+	toolbox.register("mate", tools.cxBlend)
 	# toolbox.register("mate", tools.cxTwoPoint)
 	# operator for selecting individuals for breeding the next
 	# generation: each individual of the current generation
@@ -73,7 +73,7 @@ def gaModel(fun, problem_dimension, CXPB=0.8,MUTPB=0.15):
 		# Apply crossover and mutation on the offspring
 		for child1, child2 in zip(offspring[::2], offspring[1::2]):
 			if random.random() > CXPB:
-				toolbox.mate(child1, child2)
+				toolbox.mate(child1, child2, 0.3+0.2*random.random())
 				del child1.fitness.values
 				del child2.fitness.values
 		# for mutant in offspring:
