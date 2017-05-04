@@ -51,7 +51,7 @@ try: from scipy.optimize import fmin_slsqp  # "pip install scipy" installs scipy
 except: pass
 try: range = xrange  # let range always be an iterator
 except NameError: pass
-import gamodel 
+import PRCGA_based 
 
 def default_observers(update={}):
     """return a map from suite names to default observer names"""
@@ -318,7 +318,7 @@ def coco_optimize(solver, fun, max_evals, max_runs=1e9):
         elif solver.__name__ == 'fmin_slsqp':
             solver(fun, x0, iter=1 + remaining_evals / fun.dimension,
                    iprint=-1)
-        elif solver.__name__ == 'gaModel':
+        elif solver.__name__ == 'PRCGA_based':
             solver(fun, fun.dimension)
 ############################ ADD HERE ########################################
         # ### IMPLEMENT HERE THE CALL TO ANOTHER SOLVER/OPTIMIZER ###
@@ -352,14 +352,14 @@ max_runs = 1e9  # number of (almost) independent trials per problem instance
 number_of_batches = 1  # allows to run everything in several batches
 current_batch = 1      # 1..number_of_batches
 ##############################################################################
-SOLVER = gamodel.gaModel
+SOLVER = PRCGA_based.PRCGA_based
 # SOLVER = my_solver # SOLVER = fmin_slsqp # SOLVER = cma.fmin
 suite_instance = "" # "year:2016"
 suite_options = ""  # "dimensions: 2,3,5,10,20 "  # if 40 is not desired
 # for more suite options, see http://numbbo.github.io/coco-doc/C/#suite-parameters
 observer_options = ObserverOptions({  # is (inherited from) a dictionary
-                    'algorithm_info': "A SIMPLE gamodel SEARCH ALGORITHM", # CHANGE/INCOMMENT THIS!
-                    'algorithm_name': "gamodel",  # default already provided from SOLVER name
+                    'algorithm_info': "A SIMPLE PRCGA_based SEARCH ALGORITHM", # CHANGE/INCOMMENT THIS!
+                    'algorithm_name': "PRCGA_based",  # default already provided from SOLVER name
                     # 'result_folder': "",  # default already provided from several global vars
                    })
 ######################### END CHANGE HERE ####################################
