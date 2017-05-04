@@ -30,6 +30,7 @@ def gaModel(fun, problem_dimension, CXPB=0.8,MUTPB=0.15):
 
 	#calculating the number of individuals of the populations based on the number of executions
 	fmax = 50000 * problem_dimension
+	slicesize =int(fmax * 0.1)
 	n = min(100, 10 * problem_dimension)
 	# n = int(numpy.sqrt(fmax) * 5)
 	tournsize = 3
@@ -101,11 +102,10 @@ def gaModel(fun, problem_dimension, CXPB=0.8,MUTPB=0.15):
 		for ind, fit in zip(pop, fitnesses):
 			ind.fitness.values = fit
 		record = stats.compile(pop)
-		print(record)
 		if record["std"] < 1e-12:	
 			sortedPop = sorted(pop, key=attrgetter("fitness"), reverse = True)
 			pop = toolbox.population(n)
-			pop[0:fmax * 0.1] = sortedPop[0:fmax * 0.1]
+			pop[0:slicesize] = sortedPop[0:slicesize]
 			fitnesses = list(toolbox.map(toolbox.evaluate, pop))
 			for ind, fit in zip(pop, fitnesses):
 				ind.fitness.values = fit
