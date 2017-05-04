@@ -45,7 +45,7 @@ def gaModel(fun, problem_dimension, CXPB=0.8,MUTPB=0.15):
 	# is replaced by the 'fittest' (best) of three individuals
 	# drawn randomly from the current generation.
 	# toolbox.register("select", tools.selLexicase)
-	toolbox.register("select", tools.selTournament, tournsize=tournsize)
+	toolbox.register("select", tools.selTournament, tournsize=2)
 	toolbox.register("mutate", tools.mutPolynomialBounded,indpb=0.1, eta = 1, low = -5, up = 5)
 
 	stats = tools.Statistics(key=lambda ind: ind.fitness.values)

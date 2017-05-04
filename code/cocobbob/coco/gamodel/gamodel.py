@@ -1,7 +1,8 @@
 """
 This GA code creates the gaModel 
 """
-from numba import jit
+import sys
+sys.path.insert(0, '../../../')
 from deap import base, creator, tools
 import numpy
 from csep.loglikelihood import calcLogLikelihood
@@ -9,53 +10,29 @@ from models.mathUtil import calcNumberBins
 import models.model
 import random
 import array
-import time 
 from operator import attrgetter
-from pathos.multiprocessing import ProcessingPool as Pool
-from functools import lru_cache as cache
+# from pathos.multiprocessing import ProcessingPool as Pool
+# from multiprocessing import Pool
 
-@jit
-def evaluationFunction(individual, modelOmega, mean):
-	"""
-	This function calculates the loglikelihood of a model (individual) with 
-	the real data from the prior X years (modelOmega, with length X).
-	It selects the smallest loglikelihood value.
-	"""
-	logValue = float('Inf')
-	genomeModel=models.model.newModel(modelOmega[0].definitions)
-	genomeModel.bins=list(individual)
-	modelLambda=models.model.newModel(modelOmega[0].definitions)
-	modelLambda.bins=calcNumberBins(genomeModel.bins, mean)
-	for i in range(len(modelOmega)):
-		tempValue=calcLogLikelihood(modelLambda, modelOmega[i])
-		calcLogLikelihood.cache_clear()
-		if tempValue < logValue:
-			logValue = tempValue
-	return logValue,
 
-# def normalizeFitness(fitnesses):
-# 	min = numpy.min(fitnesses)
-# 	max = numpy.max(fitnesses)
-# 	fitnesses[:] = (fitnesses-min)/(max-min)
-# 	return(fitnesses)
-
+def evalFun(individual, fun):
+	return fun(individual),
 #parallel
 
+
 toolbox = base.Toolbox()
-creator.create("FitnessFunction", base.Fitness, weights=(1.0,))
+creator.create("FitnessFunction", base.Fitness, weights=(-1.0,))
 creator.create("Individual", array.array, typecode='d', fitness=creator.FitnessFunction)
-pool = Pool()
-toolbox.register("map", pool.map)
+# pool = Pool()
+# toolbox.register("map", pool.map)
 
-
-def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval=50000):
+def gaModel(NGEN=100,CXPB=0.9,MUTPB=0.1, n_aval=50000):
 	"""
 	The main function. It evolves models, namely modelLamba or individual. 
 	It uses 1 parallel system: 1, simple, that splits the ga evolution between cores
 	"""
-	start = time.clock()  
 	# Attribute generator
-	toolbox.register("attr_float", random.random)
+	toolbox.register("attr_float", random.uniform, -5,5)
 	toolbox.register("mate", tools.cxOnePoint)
 	# operator for selecting individuals for breeding the next
 	# generation: each individual of the current generation
@@ -63,7 +40,7 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval=50000):
 	# drawn randomly from the current generation.
 	toolbox.register("select", tools.selTournament, tournsize=2)
 	# toolbox.register("select", tools.selLexicase)
-	toolbox.register("mutate", tools.mutPolynomialBounded,indpb=0.1, eta = 1, low = 0, up = 1)
+	toolbox.register("mutate", tools.mutPolynomialBounded,indpb=0.1, eta = 1, low = -5, up = 5)
 
 	stats = tools.Statistics(key=lambda ind: ind.fitness.values)
 	stats.register("avg", numpy.mean)
@@ -76,7 +53,7 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval=50000):
 	x=n_aval - y*NGEN
 	n= x + y
 
-	toolbox.register("evaluate", evaluationFunction, modelOmega=modelOmega, mean=mean)
+	toolbox.register("evaluate", evalFun, fun=fun)
 	toolbox.register("individual", tools.initRepeat, creator.Individual, toolbox.attr_float, len(modelOmega[0].bins))
 	toolbox.register("population", tools.initRepeat, list, toolbox.individual)
 
@@ -129,18 +106,7 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval=50000):
 		record = stats.compile(pop)
 		logbook.record(gen=g, **record)
 
-	end = time.clock()  
-	generatedModel = models.model.newModel(modelOmega[0].definitions)
-	generatedModel.prob = best_pop
-	generatedModel.bins=calcNumberBins(list(best_pop), mean)
-	generatedModel.loglikelihood = best_pop.fitness.values
-	generatedModel.definitions = modelOmega[0].definitions
-	generatedModel.time = start - end
-	generatedModel.logbook = logbook
-	# output = generatedModel.loglikelihood 
-	# return((-1)*output[0])
-
-	return generatedModel
+	return best_pop
 
 if __name__ == "__main__":
 	gaModel()
