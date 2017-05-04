@@ -26,7 +26,7 @@ creator.create("Individual", array.array, typecode='d', fitness=creator.FitnessF
 # pool = Pool()
 # toolbox.register("map", pool.map)
 
-def gaModel(NGEN=100,CXPB=0.9,MUTPB=0.1, n_aval=50000):
+def gaModel(fun, problem_dimension,NGEN=100,CXPB=0.9,MUTPB=0.1, n_aval=50000):
 	"""
 	The main function. It evolves models, namely modelLamba or individual. 
 	It uses 1 parallel system: 1, simple, that splits the ga evolution between cores
