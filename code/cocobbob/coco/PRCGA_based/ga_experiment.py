@@ -352,7 +352,7 @@ max_runs = 1e9  # number of (almost) independent trials per problem instance
 number_of_batches = 1  # allows to run everything in several batches
 current_batch = 1      # 1..number_of_batches
 ##############################################################################
-SOLVER = PRCGA_based.PRCGA_based
+SOLVER = PRCGA_based.gaModel
 # SOLVER = my_solver # SOLVER = fmin_slsqp # SOLVER = cma.fmin
 suite_instance = "" # "year:2016"
 suite_options = ""  # "dimensions: 2,3,5,10,20 "  # if 40 is not desired
