@@ -101,7 +101,8 @@ def gaModel(fun, problem_dimension, CXPB=0.8,MUTPB=0.15):
 		for ind, fit in zip(pop, fitnesses):
 			ind.fitness.values = fit
 		record = stats.compile(pop)
-		if record.std < 1e-12:	
+		print(record)
+		if record["std"] < 1e-12:	
 			sortedPop = sorted(pop, key=attrgetter("fitness"), reverse = True)
 			pop = toolbox.population(n)
 			pop[0:fmax * 0.1] = sortedPop[0:fmax * 0.1]
