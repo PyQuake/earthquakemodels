@@ -54,7 +54,7 @@ def gaModel(fun, problem_dimension,NGEN=100,CXPB=0.9,MUTPB=0.1, n_aval=50000):
 	n= x + y
 
 	toolbox.register("evaluate", evalFun, fun=fun)
-	toolbox.register("individual", tools.initRepeat, creator.Individual, toolbox.attr_float, len(modelOmega[0].bins))
+	toolbox.register("individual", tools.initRepeat, creator.Individual, toolbox.attr_float, problem_dimension)
 	toolbox.register("population", tools.initRepeat, list, toolbox.individual)
 
 	logbook = tools.Logbook()
