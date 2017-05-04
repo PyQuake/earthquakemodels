@@ -29,9 +29,10 @@ creator.create("Individual", array.array, typecode='d', fitness=creator.FitnessF
 def gaModel(fun, problem_dimension, CXPB=0.8,MUTPB=0.15):
 
 	#calculating the number of individuals of the populations based on the number of executions
-	fmax = 50000 * problem_dimension
-	slicesize =int(fmax * 0.1)
+	fmax = 100000 * problem_dimension
+	
 	n = min(100, 10 * problem_dimension)
+	slicesize =int(n * 0.1)
 	# n = int(numpy.sqrt(fmax) * 5)
 	tournsize = 3
 
@@ -67,6 +68,7 @@ def gaModel(fun, problem_dimension, CXPB=0.8,MUTPB=0.15):
 		ind.fitness.values = fit
 
 	for g in range(fmax):
+		print(g)
 		# Select the next generation individuals
 		offspring = toolbox.select(pop, len(pop))
 		#create offspring
