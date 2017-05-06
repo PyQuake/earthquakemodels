@@ -1,4 +1,0 @@
-Could not import matplotlib.pyplot, therefore ``cma.plot()``" + etc. is not available
-COCO INFO: Results will be output to folder exdata/gaModel_on_bbob_budget0002xD
-Benchmarking solver '<function gaModel' with budget=2*dimension on bbob suite, Wed May  3 13:32:39 2017
-May3 13h32:39, d=2, running: f001
