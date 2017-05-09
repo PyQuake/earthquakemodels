@@ -140,7 +140,7 @@ def main(func, dim, maxfuncevals, ftarget=None):
     #     if best.fitness > opt:
     #         return best
     
-    return best
+    # return best
 
 if __name__ == "__main__":
     # Maximum number of restart for an algorithm that detects stagnation
