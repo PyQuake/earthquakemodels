@@ -74,7 +74,7 @@ def main(func, dim, maxfuncevals, ftarget=None):
     toolbox.register("population", tools.initRepeat, list, toolbox.individual)
     logbook = tools.Logbook()
     logbook.header = "gen","min","avg","max","std"
-    pop = toolbox.population(n)
+    pop = toolbox.population(10)
     print(pop)
     exit()
 	#end my code
