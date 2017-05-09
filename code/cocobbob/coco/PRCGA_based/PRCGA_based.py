@@ -28,6 +28,7 @@ from deap import creator
 from deap import benchmarks
 from deap import tools
 import fgeneric
+import numpy
 
 import bbobbenchmarks as bn
 
