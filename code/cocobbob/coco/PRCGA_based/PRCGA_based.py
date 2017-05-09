@@ -78,7 +78,7 @@ def main(func, dim, maxfuncevals, ftarget=None):
     fitnesses = list(toolbox.map(toolbox.evaluate, pop))
     for ind, fit in zip(pop, fitnesses):
     	ind.fitness.values = fit
-	maxfunevals - len(pop)
+	maxfuncevals - len(pop)
 	print(pop)
 	exit()
 	#end my code
