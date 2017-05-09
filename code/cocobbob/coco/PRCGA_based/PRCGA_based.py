@@ -118,6 +118,46 @@ def main(func, dim, maxfuncevals, ftarget=None):
 		g += len(pop)
 	print(logbook)
 	print(best_pop.fitness)
+	# exit()
+	#end my code
+
+    
+	# Create the desired optimal function value as a Fitness object
+	# for later comparison
+	opt = creator.FitnessMin((ftarget,))
+
+	# Interval in which to initialize the optimizer
+	interval = -5, 5
+	sigma = (interval[1] - interval[0])/2.0
+	alpha = 2.0**(1.0/dim)
+
+	# Initialize best randomly and worst as a place holder
+	best = creator.Individual(random.uniform(interval[0], interval[1]) for _ in range(dim))
+	worst = creator.Individual([0.0] * dim)
+
+	# Evaluate the first individual
+	best.fitness.values = toolbox.evaluate(best)
+
+	# Evolve until ftarget is reached or the number of evaluation
+	# is exausted (maxfuncevals)
+	for g in range(1, maxfuncevals):
+		toolbox.update(worst, best, sigma)
+		worst.fitness.values = toolbox.evaluate(worst)
+		if best.fitness <= worst.fitness:
+			# Incease mutation strength and swap the individual
+			sigma = sigma * alpha
+			best, worst = worst, best
+		else:
+			# Decrease mutation strength
+			sigma = sigma * alpha**(-0.25)
+
+	# Test if we reached the optimum of the function
+	# Remember that ">" for fitness means better (not greater)
+	if best.fitness > opt:
+		print(best.fitness)
+		return best
+	
+	print(best.fitness)
 	return best_pop
 
 if __name__ == "__main__":
