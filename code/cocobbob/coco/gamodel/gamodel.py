@@ -104,8 +104,8 @@ def gaModel(fun, problem_dimension,NGEN=100,CXPB=0.9,MUTPB=0.1, n_aval=50000):
 		record = stats.compile(pop)
 		logbook.record(gen=g, **record)
 		print(logbook)
-		print(pop)
-		exit()
+
+	exit()
 	return best_pop
 
 if __name__ == "__main__":
