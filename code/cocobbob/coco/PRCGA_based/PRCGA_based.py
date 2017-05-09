@@ -58,11 +58,13 @@ def main(func, dim, maxfuncevals, ftarget=None):
 	NGEN=100
 	CXPB=0.9
 	MUTPB=0.1
+	g=0
+	n = min(100, 10 * problem_dimension)
+	slicesize =int(n * 0.1)
 	toolbox = base.Toolbox()
 	toolbox.register("update", update)
 	toolbox.register("evaluate", func)
 	toolbox.decorate("evaluate", tupleize)
-
 	toolbox.register("attr_float", random.uniform, -5,5)
 	toolbox.register("mate", tools.cxTwoPoint)
 	toolbox.register("select", tools.selTournament, tournsize=2)
@@ -76,12 +78,11 @@ def main(func, dim, maxfuncevals, ftarget=None):
 	toolbox.register("population", tools.initRepeat, list, toolbox.individual)
 	logbook = tools.Logbook()
 	logbook.header = "gen","min","avg","max","std"
-	pop = toolbox.population(10)
+	pop = toolbox.population(n)
 	fitnesses = list(toolbox.map(toolbox.evaluate, pop))
 	for ind, fit in zip(pop, fitnesses):
 		ind.fitness.values = fit
 	maxfuncevals -= len(pop)
-	g=0
 	# for g in range(maxfuncevals):
 	while(g < maxfuncevals):
 		offspring = toolbox.select(pop, len(pop))
@@ -107,7 +108,7 @@ def main(func, dim, maxfuncevals, ftarget=None):
 		record = stats.compile(pop)
 		if record["std"] < 1e-12:	
 			sortedPop = sorted(pop, key=attrgetter("fitness"), reverse = True)
-			pop = toolbox.population(10)
+			pop = toolbox.population(n)
 			pop[0:slicesize] = sortedPop[0:slicesize]
 			fitnesses = list(toolbox.map(toolbox.evaluate, pop))
 			for ind, fit in zip(pop, fitnesses):
