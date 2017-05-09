@@ -107,7 +107,7 @@ def main(func, dim, maxfuncevals, ftarget=None):
 		record = stats.compile(pop)
 		if record["std"] < 1e-12:	
 			sortedPop = sorted(pop, key=attrgetter("fitness"), reverse = True)
-			pop = toolbox.population(n)
+			pop = toolbox.population(10)
 			pop[0:slicesize] = sortedPop[0:slicesize]
 			fitnesses = list(toolbox.map(toolbox.evaluate, pop))
 			for ind, fit in zip(pop, fitnesses):
