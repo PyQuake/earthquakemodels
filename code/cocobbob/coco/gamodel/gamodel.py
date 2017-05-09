@@ -14,7 +14,7 @@ from operator import attrgetter
 # from pathos.multiprocessing import ProcessingPool as Pool
 # from multiprocessing import Pool
 
-
+import fgeneric
 def evalFun(individual, fun):
 	return fun(individual),
 #parallel
