@@ -55,7 +55,7 @@ def tupleize(func):
 
 def main(func, dim, maxfuncevals, ftarget=None):
 	NGEN=100,CXPB=0.9,MUTPB=0.1
-    toolbox = base.Toolbox()
+	toolbox = base.Toolbox()
     toolbox.register("update", update)
     toolbox.register("evaluate", func)
     toolbox.decorate("evaluate", tupleize)
