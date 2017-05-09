@@ -230,7 +230,7 @@ class LoggingFunction(object):
             try:
                 os.makedirs(filepath)
             #except OSError as (err, strerror):
-	    except IOError as err:
+            except IOError as err:
                 if err == errno.EEXIST:
                     pass
                 else:
