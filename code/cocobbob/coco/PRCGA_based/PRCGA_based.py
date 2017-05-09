@@ -59,7 +59,7 @@ def main(func, dim, maxfuncevals, ftarget=None):
 	CXPB=0.9
 	MUTPB=0.1
 	g=0
-	n = min(100, 10 * problem_dimension)
+	n = min(100, 10 * dim)
 	slicesize =int(n * 0.1)
 	toolbox = base.Toolbox()
 	toolbox.register("update", update)
