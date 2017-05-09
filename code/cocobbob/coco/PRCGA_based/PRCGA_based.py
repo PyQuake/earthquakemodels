@@ -30,12 +30,10 @@ from deap import benchmarks
 import fgeneric
 
 import bbobbenchmarks as bn
-from pathos.multiprocessing import ProcessingPool as Pool
+
 toolbox = base.Toolbox()
 creator.create("FitnessMin", base.Fitness, weights=(-1.0,))
 creator.create("Individual", array.array, typecode="d", fitness=creator.FitnessMin)
-pool = Pool()
-toolbox.register("map", pool.map)
 
 
 
@@ -59,6 +57,42 @@ def main(func, dim, maxfuncevals, ftarget=None):
     toolbox.register("update", update)
     toolbox.register("evaluate", func)
     toolbox.decorate("evaluate", tupleize)
+
+
+    #begin my code
+    toolbox.register("attr_float", random.uniform, -5,5)
+	toolbox.register("mate", tools.cxTwoPoint)
+	# operator for selecting individuals for breeding the next
+	# generation: each individual of the current generation
+	# is replaced by the 'fittest' (best) of three individuals
+	# drawn randomly from the current generation.
+	toolbox.register("select", tools.selTournament, tournsize=2)
+	# toolbox.register("select", tools.selLexicase)
+	toolbox.register("mutate", tools.mutPolynomialBounded,indpb=0.1, eta = 1, low = -5, up = 5)
+
+	stats = tools.Statistics(key=lambda ind: ind.fitness.values)
+	stats.register("avg", numpy.mean)
+	stats.register("std", numpy.std)
+	stats.register("min", numpy.min)
+	stats.register("max", numpy.max)
+
+	#calculating the number of individuals of the populations based on the number of executions
+	y=int(n_aval/NGEN)
+	x=n_aval - y*NGEN
+	n= x + y
+
+	toolbox.register("evaluate", evalFun, fun=fun)
+	toolbox.register("individual", tools.initRepeat, creator.Individual, toolbox.attr_float, problem_dimension)
+	toolbox.register("population", tools.initRepeat, list, toolbox.individual)
+
+	logbook = tools.Logbook()
+	logbook.header = "gen","min","avg","max","std"
+
+	pop = toolbox.population(n)
+	print(pop)
+	exit()
+	#end my code
+
     
     # Create the desired optimal function value as a Fitness object
     # for later comparison
@@ -72,7 +106,6 @@ def main(func, dim, maxfuncevals, ftarget=None):
     # Initialize best randomly and worst as a place holder
     best = creator.Individual(random.uniform(interval[0], interval[1]) for _ in range(dim))
     worst = creator.Individual([0.0] * dim)
-    print(best, worst)
     
     # Evaluate the first individual
     best.fitness.values = toolbox.evaluate(best)
