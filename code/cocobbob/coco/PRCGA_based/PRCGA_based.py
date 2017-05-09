@@ -15,6 +15,7 @@
 #    License along with DEAP. If not, see <http://www.gnu.org/licenses/>.
 import sys
 sys.path.insert(0, '../../../')
+sys.path.insert(0, '../../')
 import array
 import math
 import random
