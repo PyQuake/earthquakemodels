@@ -20,7 +20,7 @@ import array
 import math
 import random
 import time
-
+from pathos.multiprocessing import ProcessingPool as Pool
 from itertools import chain
 
 from deap import base
@@ -36,6 +36,8 @@ import bbobbenchmarks as bn
 toolbox = base.Toolbox()
 creator.create("FitnessMin", base.Fitness, weights=(-1.0,))
 creator.create("Individual", array.array, typecode="d", fitness=creator.FitnessMin)
+pool = Pool()
+toolbox.register("map", pool.map)
 
 
 
