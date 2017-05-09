@@ -81,10 +81,10 @@ def gaModel(fun, problem_dimension,NGEN=100,CXPB=0.9,MUTPB=0.1, n_aval=50000):
 			if random.random() < MUTPB:
 				toolbox.mutate(mutant)
 				del mutant.fitness.values
-        # Evaluate the individuals with an invalid fitness
         
-		invalid_ind = [ind for ind in offspring if not ind.fitness.valid]
-		fitnesses = list(toolbox.map(toolbox.evaluate, invalid_ind))
+  #       # Evaluate the individuals with an invalid fitness
+		# invalid_ind = [ind for ind in offspring if not ind.fitness.valid]
+		# fitnesses = list(toolbox.map(toolbox.evaluate, invalid_ind))
  
  		#Select best ind for elitism
 		best_pop = tools.selBest(pop, 1)[0]
