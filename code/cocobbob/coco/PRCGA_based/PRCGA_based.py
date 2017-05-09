@@ -83,7 +83,7 @@ def main(func, dim, maxfuncevals, ftarget=None):
 	maxfuncevals -= len(pop)
 	g=0
 	# for g in range(maxfuncevals):
-	while(g < maxfunevals)
+	while(g < maxfunevals):
 		offspring = toolbox.select(pop, len(pop))
 		offspring = list(toolbox.map(toolbox.clone, pop))
 		for child1, child2 in zip(offspring[::2], offspring[1::2]):
