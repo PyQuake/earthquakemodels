@@ -199,6 +199,7 @@ if __name__ == "__main__":
                     
                     # Stop if ftarget is reached
                     if e.fbest < e.ftarget or e.evaluations + minfuncevals > maxfuncevals:
+                    	print("Stop if ftarget is reached")
                         break
                 
                 e.finalizerun()
