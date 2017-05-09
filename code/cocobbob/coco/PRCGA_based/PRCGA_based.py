@@ -13,7 +13,8 @@
 #
 #    You should have received a copy of the GNU Lesser General Public
 #    License along with DEAP. If not, see <http://www.gnu.org/licenses/>.
-
+import sys
+sys.path.insert(0, '../../../')
 import array
 import math
 import random
@@ -26,6 +27,7 @@ from deap import creator
 from deap import benchmarks
 
 import fgeneric
+
 import bbobbenchmarks as bn
 from pathos.multiprocessing import ProcessingPool as Pool
 toolbox = base.Toolbox()
