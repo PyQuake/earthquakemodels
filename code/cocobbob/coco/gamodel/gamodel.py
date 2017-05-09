@@ -38,8 +38,8 @@ def gaModel(fun, problem_dimension,NGEN=100,CXPB=0.9,MUTPB=0.1, n_aval=50000):
 	# generation: each individual of the current generation
 	# is replaced by the 'fittest' (best) of three individuals
 	# drawn randomly from the current generation.
-	# toolbox.register("select", tools.selTournament, tournsize=2)
-	toolbox.register("select", tools.selLexicase)
+	toolbox.register("select", tools.selTournament, tournsize=2)
+	# toolbox.register("select", tools.selLexicase)
 	toolbox.register("mutate", tools.mutPolynomialBounded,indpb=0.1, eta = 1, low = -5, up = 5)
 
 	stats = tools.Statistics(key=lambda ind: ind.fitness.values)
@@ -63,8 +63,6 @@ def gaModel(fun, problem_dimension,NGEN=100,CXPB=0.9,MUTPB=0.1, n_aval=50000):
 	pop = toolbox.population(n)
 	# Evaluate the entire population
 	fitnesses = list(toolbox.map(toolbox.evaluate, pop))#need to pass 2 model.bins. One is the real data, the other de generated model
-	# normalize fitnesses
-	# fitnesses = normalizeFitness(fitnesses)
 	for ind, fit in zip(pop, fitnesses):
 		ind.fitness.values = fit
 
@@ -87,25 +85,25 @@ def gaModel(fun, problem_dimension,NGEN=100,CXPB=0.9,MUTPB=0.1, n_aval=50000):
         
 		invalid_ind = [ind for ind in offspring if not ind.fitness.valid]
 		fitnesses = list(toolbox.map(toolbox.evaluate, invalid_ind))
-		# normalize fitnesses
-		# fitnesses = normalizeFitness(fitnesses)
-		for ind, fit in zip(invalid_ind, fitnesses):
-			ind.fitness.values = fit
-        # The population is entirely replaced by the offspring, but the last ind replaced by best_pop
-        #Elitism
+ 
+ 		#Select best ind for elitism
 		best_pop = tools.selBest(pop, 1)[0]
-		offspring = sorted(offspring, key=attrgetter("fitness"), reverse = True)
-		offspring[len(offspring)-1]=best_pop
-		random.shuffle(offspring)
+		# The population is entirely replaced by the offspring, but the last ind replaced by best_pop
 		pop[:] = offspring
 		
-		#logBook
 		fitnesses = list(toolbox.map(toolbox.evaluate, pop))
 		for ind, fit in zip(pop, fitnesses):
 			ind.fitness.values = fit
+
+		#Subs the worst ind (new pop) by the select best ind (old pop)
+		pop = sorted(pop, key=attrgetter("fitness"), reverse = False)
+		pop[0]=best_pop
+		random.shuffle(pop)
+
+		#logBook
 		record = stats.compile(pop)
 		logbook.record(gen=g, **record)
-
+		print(logbook)
 	return best_pop
 
 if __name__ == "__main__":
