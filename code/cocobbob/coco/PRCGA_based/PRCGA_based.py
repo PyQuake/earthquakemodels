@@ -1,119 +1,142 @@
-"""
-This GA code creates the gaModel 
-"""
-import sys
-sys.path.insert(0, '../../../')
-from deap import base, creator, tools
-import numpy
-from csep.loglikelihood import calcLogLikelihood
-from models.mathUtil import calcNumberBins
-import models.model
-import random
+
+#    This file is part of DEAP.
+#
+#    DEAP is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU Lesser General Public License as
+#    published by the Free Software Foundation, either version 3 of
+#    the License, or (at your option) any later version.
+#
+#    DEAP is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+#    GNU Lesser General Public License for more details.
+#
+#    You should have received a copy of the GNU Lesser General Public
+#    License along with DEAP. If not, see <http://www.gnu.org/licenses/>.
+
 import array
-from operator import attrgetter
-# from pathos.multiprocessing import ProcessingPool as Pool
-# from multiprocessing import Pool
+import math
+import random
+import time
 
+from itertools import chain
 
-def evalFun(individual, fun):
-	return fun(individual),
-#parallel
+from deap import base
+from deap import creator
+from deap import benchmarks
 
-
+import fgeneric
+import bbobbenchmarks as bn
+from pathos.multiprocessing import ProcessingPool as Pool
 toolbox = base.Toolbox()
-creator.create("FitnessFunction", base.Fitness, weights=(-1.0,))
-creator.create("Individual", array.array, typecode='d', fitness=creator.FitnessFunction)
-# pool = Pool()
-# toolbox.register("map", pool.map)
+creator.create("FitnessMin", base.Fitness, weights=(-1.0,))
+creator.create("Individual", array.array, typecode="d", fitness=creator.FitnessMin)
+pool = Pool()
+toolbox.register("map", pool.map)
 
-def gaModel(fun, problem_dimension, CXPB=0.8,MUTPB=0.15):
 
-	#calculating the number of individuals of the populations based on the number of executions
-	
-	
-	n = min(100, 10 * problem_dimension)
-	slicesize =int(n * 0.1)
-	# n = int(numpy.sqrt(fmax) * 5)
-	tournsize = 3
-	fmax = (100000 * problem_dimension)/n
-	# Attribute generator
-	toolbox.register("attr_float", random.uniform, -5,5)
-	toolbox.register("mate", tools.cxBlend)
-	# toolbox.register("mate", tools.cxTwoPoint)
-	# operator for selecting individuals for breeding the next
-	# generation: each individual of the current generation
-	# is replaced by the 'fittest' (best) of three individuals
-	# drawn randomly from the current generation.
-	toolbox.register("select", tools.selLexicase)
-	# toolbox.register("select", tools.selTournament, tournsize=2)
-	toolbox.register("mutate", tools.mutPolynomialBounded,indpb=0.1, eta = 1, low = -5, up = 5)
 
-	stats = tools.Statistics(key=lambda ind: ind.fitness.values)
-	stats.register("avg", numpy.mean)
-	stats.register("std", numpy.std)
-	stats.register("min", numpy.min)
-	stats.register("max", numpy.max)
-	
+def update(individual, mu, sigma):
+    """Update the current *individual* with values from a gaussian centered on
+    *mu* and standard deviation *sigma*.
+    """
+    for i, mu_i in enumerate(mu):
+        individual[i] = random.gauss(mu_i, sigma)
 
-	toolbox.register("evaluate", evalFun, fun=fun)
-	toolbox.register("individual", tools.initRepeat, creator.Individual, toolbox.attr_float, problem_dimension)
-	toolbox.register("population", tools.initRepeat, list, toolbox.individual)
+def tupleize(func):
+    """A decorator that tuple-ize the result of a function. This is useful
+    when the evaluation function returns a single value.
+    """
+    def wrapper(*args, **kargs):
+        return func(*args, **kargs),
+    return wrapper
 
-	logbook = tools.Logbook()
-
-	pop = toolbox.population(n)
-	# Evaluate the entire population
-	fitnesses = list(toolbox.map(toolbox.evaluate, pop))#need to pass 2 model.bins. One is the real data, the other de generated model
-	for ind, fit in zip(pop, fitnesses):
-		ind.fitness.values = fit
-
-	for g in range(fmax):
-		# Select the next generation individuals
-		offspring = toolbox.select(pop, len(pop))
-		#create offspring
-		offspring = list(toolbox.map(toolbox.clone, pop))
-		# Apply crossover and mutation on the offspring
-		for child1, child2 in zip(offspring[::2], offspring[1::2]):
-			if random.random() > CXPB:
-				toolbox.mate(child1, child2, 0.3+0.2*random.random())
-				del child1.fitness.values
-				del child2.fitness.values
-		# for mutant in offspring:
-				if random.random() < MUTPB:
-					toolbox.mutate(child1)
-				if random.random() < MUTPB:
-					toolbox.mutate(child2)
-				# del mutant.fitness.values
-        # Evaluate the individuals with an invalid fitness
+def main(func, dim, maxfuncevals, ftarget=None):
+    toolbox = base.Toolbox()
+    toolbox.register("update", update)
+    toolbox.register("evaluate", func)
+    toolbox.decorate("evaluate", tupleize)
+    
+    # Create the desired optimal function value as a Fitness object
+    # for later comparison
+    opt = creator.FitnessMin((ftarget,))
+    
+    # Interval in which to initialize the optimizer
+    interval = -5, 5
+    sigma = (interval[1] - interval[0])/2.0
+    alpha = 2.0**(1.0/dim)
+    
+    # Initialize best randomly and worst as a place holder
+    best = creator.Individual(random.uniform(interval[0], interval[1]) for _ in range(dim))
+    worst = creator.Individual([0.0] * dim)
+    
+    # Evaluate the first individual
+    best.fitness.values = toolbox.evaluate(best)
+    
+    # Evolve until ftarget is reached or the number of evaluation
+    # is exausted (maxfuncevals)
+    for g in range(1, maxfuncevals):
+        toolbox.update(worst, best, sigma)
+        worst.fitness.values = toolbox.evaluate(worst)
+        if best.fitness <= worst.fitness:
+            # Incease mutation strength and swap the individual
+            sigma = sigma * alpha
+            best, worst = worst, best
+        else:
+            # Decrease mutation strength
+            sigma = sigma * alpha**(-0.25)
         
-		invalid_ind = [ind for ind in offspring if not ind.fitness.valid]
-		fitnesses = list(toolbox.map(toolbox.evaluate, invalid_ind))
-		for ind, fit in zip(invalid_ind, fitnesses):
-			ind.fitness.values = fit
-        #The population is entirely replaced by the offspring, but the last ind replaced by best_pop
-        #Elitism
-		best_pop = tools.selBest(pop, 1)[0]
-		offspring = sorted(offspring, key=attrgetter("fitness"), reverse = True)
-		offspring[len(offspring)-1]=best_pop
-		random.shuffle(offspring)
-		pop[:] = offspring
-		
-		#logBook
-		fitnesses = list(toolbox.map(toolbox.evaluate, pop))
-		for ind, fit in zip(pop, fitnesses):
-			ind.fitness.values = fit
-		record = stats.compile(pop)
-		if record["std"] < 1e-12:	
-			sortedPop = sorted(pop, key=attrgetter("fitness"), reverse = True)
-			pop = toolbox.population(n)
-			pop[0:slicesize] = sortedPop[0:slicesize]
-			fitnesses = list(toolbox.map(toolbox.evaluate, pop))
-			for ind, fit in zip(pop, fitnesses):
-				ind.fitness.values = fit
-
-		logbook.record(gen=g, **record)
-
-	return best_pop
+        # Test if we reached the optimum of the function
+        # Remember that ">" for fitness means better (not greater)
+        if best.fitness > opt:
+            return best
+    
+    return best
 
 if __name__ == "__main__":
-	gaModel()
+    # Maximum number of restart for an algorithm that detects stagnation
+    maxrestarts = 1000
+    
+    # Create a COCO experiment that will log the results under the
+    # ./output directory
+    e = fgeneric.LoggingFunction("output")
+    
+    # Iterate over all desired test dimensions
+    for dim in (2, 3, 5, 10, 20, 40):
+        # Set the maximum number function evaluation granted to the algorithm
+        # This is usually function of the dimensionality of the problem
+        maxfuncevals = 100 * dim**2
+        minfuncevals = dim + 2
+        
+        # Iterate over a set of benchmarks (noise free benchmarks here)
+        for f_name in bn.nfreeIDs:
+            
+            # Iterate over all the instance of a single problem
+            # Rotation, translation, etc.
+            for instance in chain(range(1, 6), range(21, 31)):
+                
+                # Set the function to be used (problem) in the logger
+                e.setfun(*bn.instantiate(f_name, iinstance=instance))
+                
+                # Independent restarts until maxfunevals or ftarget is reached
+                for restarts in range(0, maxrestarts + 1):
+                    if restarts > 0:
+                        # Signal the experiment that the algorithm restarted
+                        e.restart('independent restart')  # additional info
+                    
+                    # Run the algorithm with the remaining number of evaluations
+                    revals = int(math.ceil(maxfuncevals - e.evaluations))
+                    main(e.evalfun, dim, revals, e.ftarget)
+                    
+                    # Stop if ftarget is reached
+                    if e.fbest < e.ftarget or e.evaluations + minfuncevals > maxfuncevals:
+                        break
+                
+                e.finalizerun()
+                
+                print('f%d in %d-D, instance %d: FEs=%d with %d restarts, '
+                      'fbest-ftarget=%.4e'
+                      % (f_name, dim, instance, e.evaluations, restarts,
+                         e.fbest - e.ftarget))
+                         
+            print('date and time: %s' % time.asctime())

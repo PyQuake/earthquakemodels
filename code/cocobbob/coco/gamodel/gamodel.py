@@ -96,9 +96,9 @@ def gaModel(fun, problem_dimension,NGEN=100,CXPB=0.9,MUTPB=0.1, n_aval=50000):
 			ind.fitness.values = fit
 
 		#Subs the worst ind (new pop) by the select best ind (old pop)
-		# pop = sorted(pop, key=attrgetter("fitness"), reverse = False)
-		# pop[0]=best_pop
-		# random.shuffle(pop)
+		pop = sorted(pop, key=attrgetter("fitness"), reverse = False)
+		pop[0]=best_pop
+		random.shuffle(pop)
 
 		#logBook
 		record = stats.compile(pop)
