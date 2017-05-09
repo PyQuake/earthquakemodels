@@ -29,6 +29,7 @@ from deap import benchmarks
 from deap import tools
 import fgeneric
 import numpy
+from operator import attrgetter
 
 import bbobbenchmarks as bn
 
