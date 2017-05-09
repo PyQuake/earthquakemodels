@@ -70,7 +70,7 @@ def main(func, dim, maxfuncevals, ftarget=None):
     stats.register("std", numpy.std)
     stats.register("min", numpy.min)
     stats.register("max", numpy.max)
-    toolbox.register("individual", tools.initRepeat, creator.Individual, toolbox.attr_float, problem_dimension)
+    toolbox.register("individual", tools.initRepeat, creator.Individual, toolbox.attr_float, dim)
     toolbox.register("population", tools.initRepeat, list, toolbox.individual)
     logbook = tools.Logbook()
     logbook.header = "gen","min","avg","max","std"
