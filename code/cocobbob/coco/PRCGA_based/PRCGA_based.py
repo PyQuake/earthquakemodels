@@ -141,8 +141,12 @@ def main(func, dim, maxfuncevals, ftarget=None):
 	# Test if we reached the optimum of the function
 	# Remember that ">" for fitness means better (not greater)
 	if best.fitness > opt:
+		print(best.fitnesses)
+		exit()
 		return best
-
+	
+	print(best.fitnesses)
+	exit()
 	return best
 
 if __name__ == "__main__":
