@@ -61,36 +61,22 @@ def main(func, dim, maxfuncevals, ftarget=None):
 
     #begin my code
     toolbox.register("attr_float", random.uniform, -5,5)
-	toolbox.register("mate", tools.cxTwoPoint)
-	# operator for selecting individuals for breeding the next
-	# generation: each individual of the current generation
-	# is replaced by the 'fittest' (best) of three individuals
-	# drawn randomly from the current generation.
-	toolbox.register("select", tools.selTournament, tournsize=2)
-	# toolbox.register("select", tools.selLexicase)
-	toolbox.register("mutate", tools.mutPolynomialBounded,indpb=0.1, eta = 1, low = -5, up = 5)
-
-	stats = tools.Statistics(key=lambda ind: ind.fitness.values)
-	stats.register("avg", numpy.mean)
-	stats.register("std", numpy.std)
-	stats.register("min", numpy.min)
-	stats.register("max", numpy.max)
-
-	#calculating the number of individuals of the populations based on the number of executions
-	y=int(n_aval/NGEN)
-	x=n_aval - y*NGEN
-	n= x + y
-
-	toolbox.register("evaluate", evalFun, fun=fun)
-	toolbox.register("individual", tools.initRepeat, creator.Individual, toolbox.attr_float, problem_dimension)
-	toolbox.register("population", tools.initRepeat, list, toolbox.individual)
-
-	logbook = tools.Logbook()
-	logbook.header = "gen","min","avg","max","std"
-
-	pop = toolbox.population(n)
-	print(pop)
-	exit()
+    toolbox.register("mate", tools.cxTwoPoint)
+    toolbox.register("select", tools.selTournament, tournsize=2)
+    toolbox.register("mutate", tools.mutPolynomialBounded,indpb=0.1, eta = 1, low = -5, up = 5)
+    stats = tools.Statistics(key=lambda ind: ind.fitness.values)
+    stats.register("avg", numpy.mean)
+    stats.register("std", numpy.std)
+    stats.register("min", numpy.min)
+    stats.register("max", numpy.max)
+    toolbox.register("evaluate", evalFun, fun=fun)
+    toolbox.register("individual", tools.initRepeat, creator.Individual, toolbox.attr_float, problem_dimension)
+    toolbox.register("population", tools.initRepeat, list, toolbox.individual)
+    logbook = tools.Logbook()
+    logbook.header = "gen","min","avg","max","std"
+    pop = toolbox.population(n)
+    print(pop)
+    exit()
 	#end my code
 
     
