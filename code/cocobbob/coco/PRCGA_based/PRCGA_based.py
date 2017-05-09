@@ -56,38 +56,31 @@ def tupleize(func):
 def main(func, dim, maxfuncevals, ftarget=None):
 	NGEN=100,CXPB=0.9,MUTPB=0.1
 	toolbox = base.Toolbox()
-    toolbox.register("update", update)
-    toolbox.register("evaluate", func)
-    toolbox.decorate("evaluate", tupleize)
+	toolbox.register("update", update)
+	toolbox.register("evaluate", func)
+	toolbox.decorate("evaluate", tupleize)
 
-
-    #begin my code
-    toolbox.register("attr_float", random.uniform, -5,5)
-    toolbox.register("mate", tools.cxTwoPoint)
-    toolbox.register("select", tools.selTournament, tournsize=2)
-    toolbox.register("mutate", tools.mutPolynomialBounded,indpb=0.1, eta = 1, low = -5, up = 5)
-    stats = tools.Statistics(key=lambda ind: ind.fitness.values)
-    stats.register("avg", numpy.mean)
-    stats.register("std", numpy.std)
-    stats.register("min", numpy.min)
-    stats.register("max", numpy.max)
-    toolbox.register("individual", tools.initRepeat, creator.Individual, toolbox.attr_float, dim)
-    toolbox.register("population", tools.initRepeat, list, toolbox.individual)
-    logbook = tools.Logbook()
-    logbook.header = "gen","min","avg","max","std"
-    pop = toolbox.population(10)
-    fitnesses = list(toolbox.map(toolbox.evaluate, pop))
-    for ind, fit in zip(pop, fitnesses):
-    	ind.fitness.values = fit
-	print(maxfuncevals)
+	toolbox.register("attr_float", random.uniform, -5,5)
+	toolbox.register("mate", tools.cxTwoPoint)
+	toolbox.register("select", tools.selTournament, tournsize=2)
+	toolbox.register("mutate", tools.mutPolynomialBounded,indpb=0.1, eta = 1, low = -5, up = 5)
+	stats = tools.Statistics(key=lambda ind: ind.fitness.values)
+	stats.register("avg", numpy.mean)
+	stats.register("std", numpy.std)
+	stats.register("min", numpy.min)
+	stats.register("max", numpy.max)
+	toolbox.register("individual", tools.initRepeat, creator.Individual, toolbox.attr_float, dim)
+	toolbox.register("population", tools.initRepeat, list, toolbox.individual)
+	logbook = tools.Logbook()
+	logbook.header = "gen","min","avg","max","std"
+	pop = toolbox.population(10)
+	fitnesses = list(toolbox.map(toolbox.evaluate, pop))
+	for ind, fit in zip(pop, fitnesses):
+		ind.fitness.values = fit
 	maxfuncevals -= len(pop)
-	print(maxfuncevals)
 	for g in range(maxfuncevals):
-		# Select the next generation individuals
 		offspring = toolbox.select(pop, len(pop))
-		#create offspring
 		offspring = list(toolbox.map(toolbox.clone, pop))
-		# Apply crossover and mutation on the offspring
 		for child1, child2 in zip(offspring[::2], offspring[1::2]):
 			if random.random() < CXPB:
 				toolbox.mate(child1, child2)
@@ -97,21 +90,15 @@ def main(func, dim, maxfuncevals, ftarget=None):
 			if random.random() < MUTPB:
 				toolbox.mutate(mutant)
 				del mutant.fitness.values
- 		#Select best ind for elitism
 		best_pop = tools.selBest(pop, 1)[0]
-		# The population is entirely replaced by the offspring, but the last ind replaced by best_pop
 		pop[:] = offspring
-		
+
 		fitnesses = list(toolbox.map(toolbox.evaluate, pop))
 		for ind, fit in zip(pop, fitnesses):
 			ind.fitness.values = fit
-
-		#Subs the worst ind (new pop) by the select best ind (old pop)
 		pop = sorted(pop, key=attrgetter("fitness"), reverse = False)
 		pop[0]=best_pop
 		random.shuffle(pop)
-
-		#logBook
 		record = stats.compile(pop)
 		logbook.record(gen=g, **record)
 		print(logbook)
