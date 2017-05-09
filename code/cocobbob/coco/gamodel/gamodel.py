@@ -33,7 +33,7 @@ def gaModel(fun, problem_dimension,NGEN=100,CXPB=0.9,MUTPB=0.1, n_aval=50000):
 	"""
 	# Attribute generator
 	toolbox.register("attr_float", random.uniform, -5,5)
-	toolbox.register("mate", tools.cxOnePoint)
+	toolbox.register("mate", tools.cxTwoPoint)
 	# operator for selecting individuals for breeding the next
 	# generation: each individual of the current generation
 	# is replaced by the 'fittest' (best) of three individuals
@@ -104,6 +104,8 @@ def gaModel(fun, problem_dimension,NGEN=100,CXPB=0.9,MUTPB=0.1, n_aval=50000):
 		record = stats.compile(pop)
 		logbook.record(gen=g, **record)
 		print(logbook)
+		print(pop)
+		exit()
 	return best_pop
 
 if __name__ == "__main__":
