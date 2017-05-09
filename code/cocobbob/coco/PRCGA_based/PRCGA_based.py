@@ -81,7 +81,9 @@ def main(func, dim, maxfuncevals, ftarget=None):
 	for ind, fit in zip(pop, fitnesses):
 		ind.fitness.values = fit
 	maxfuncevals -= len(pop)
-	for g in range(maxfuncevals):
+	g=0
+	# for g in range(maxfuncevals):
+	while(g < maxfunevals)
 		offspring = toolbox.select(pop, len(pop))
 		offspring = list(toolbox.map(toolbox.clone, pop))
 		for child1, child2 in zip(offspring[::2], offspring[1::2]):
@@ -103,8 +105,17 @@ def main(func, dim, maxfuncevals, ftarget=None):
 		pop[0]=best_pop
 		random.shuffle(pop)
 		record = stats.compile(pop)
+		if record["std"] < 1e-12:	
+			sortedPop = sorted(pop, key=attrgetter("fitness"), reverse = True)
+			pop = toolbox.population(n)
+			pop[0:slicesize] = sortedPop[0:slicesize]
+			fitnesses = list(toolbox.map(toolbox.evaluate, pop))
+			for ind, fit in zip(pop, fitnesses):
+				ind.fitness.values = fit
 		logbook.record(gen=g, **record)
+		g += len(pop)
 	print(logbook)
+	print(best_pop)
 	# exit()
 	#end my code
 
@@ -158,7 +169,7 @@ if __name__ == "__main__":
     e = fgeneric.LoggingFunction("output")
     
     # Iterate over all desired test dimensions
-    for dim in (40, 3, 5, 10, 20, 40):
+    for dim in (10, 3, 5, 10, 20, 40):
         # Set the maximum number function evaluation granted to the algorithm
         # This is usually function of the dimensionality of the problem
         maxfuncevals = 100 * dim**2
