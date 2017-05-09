@@ -78,8 +78,42 @@ def main(func, dim, maxfuncevals, ftarget=None):
     fitnesses = list(toolbox.map(toolbox.evaluate, pop))
     for ind, fit in zip(pop, fitnesses):
     	ind.fitness.values = fit
-	maxfuncevals - len(pop)
-	print(pop)
+	print(maxfunevals)
+	maxfuncevals -= len(pop)
+	print(maxfunevals)
+	for g in range(maxfuncevals):
+		# Select the next generation individuals
+		offspring = toolbox.select(pop, len(pop))
+		#create offspring
+		offspring = list(toolbox.map(toolbox.clone, pop))
+		# Apply crossover and mutation on the offspring
+		for child1, child2 in zip(offspring[::2], offspring[1::2]):
+			if random.random() < CXPB:
+				toolbox.mate(child1, child2)
+				del child1.fitness.values
+				del child2.fitness.values
+		for mutant in offspring:
+			if random.random() < MUTPB:
+				toolbox.mutate(mutant)
+				del mutant.fitness.values
+ 		#Select best ind for elitism
+		best_pop = tools.selBest(pop, 1)[0]
+		# The population is entirely replaced by the offspring, but the last ind replaced by best_pop
+		pop[:] = offspring
+		
+		fitnesses = list(toolbox.map(toolbox.evaluate, pop))
+		for ind, fit in zip(pop, fitnesses):
+			ind.fitness.values = fit
+
+		#Subs the worst ind (new pop) by the select best ind (old pop)
+		pop = sorted(pop, key=attrgetter("fitness"), reverse = False)
+		pop[0]=best_pop
+		random.shuffle(pop)
+
+		#logBook
+		record = stats.compile(pop)
+		logbook.record(gen=g, **record)
+		print(logbook)
 	exit()
 	#end my code
 
