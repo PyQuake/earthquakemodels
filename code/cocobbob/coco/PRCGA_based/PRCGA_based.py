@@ -72,6 +72,7 @@ def main(func, dim, maxfuncevals, ftarget=None):
     # Initialize best randomly and worst as a place holder
     best = creator.Individual(random.uniform(interval[0], interval[1]) for _ in range(dim))
     worst = creator.Individual([0.0] * dim)
+    print(best, worst)
     
     # Evaluate the first individual
     best.fitness.values = toolbox.evaluate(best)
