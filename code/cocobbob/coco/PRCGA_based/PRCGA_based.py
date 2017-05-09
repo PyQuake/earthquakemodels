@@ -116,7 +116,7 @@ def main(func, dim, maxfuncevals, ftarget=None):
 		logbook.record(gen=g, **record)
 		g += len(pop)
 	print(logbook)
-	print(best_pop)
+	print(best_pop.fitness)
 	# exit()
 	#end my code
 
