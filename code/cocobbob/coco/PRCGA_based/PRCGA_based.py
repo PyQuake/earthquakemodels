@@ -67,7 +67,7 @@ def main(func, dim, maxfuncevals, ftarget=None):
 	toolbox.decorate("evaluate", tupleize)
 	toolbox.register("attr_float", random.uniform, -5,5)
 	toolbox.register("mate", tools.cxTwoPoint)
-	toolbox.register("select", tools.selTournament, tournsize=2)
+	toolbox.register("select", tools.selTournament, tournsize=10)
 	toolbox.register("mutate", tools.mutPolynomialBounded,indpb=0.1, eta = 1, low = -5, up = 5)
 	stats = tools.Statistics(key=lambda ind: ind.fitness.values)
 	stats.register("avg", numpy.mean)
