@@ -80,7 +80,7 @@ def main(func, dim, maxfuncevals, ftarget=None):
     	ind.fitness.values = fit
 	print(maxfunevals)
 	maxfuncevals -= len(pop)
-	print(maxfunevals)
+	print(maxfuncevals)
 	for g in range(maxfuncevals):
 		# Select the next generation individuals
 		offspring = toolbox.select(pop, len(pop))
