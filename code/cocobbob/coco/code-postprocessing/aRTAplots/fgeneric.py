@@ -229,8 +229,7 @@ class LoggingFunction(object):
             filepath, filename = os.path.split(datafile)
             try:
                 os.makedirs(filepath)
-            #except OSError as (err, strerror):
-            except IOError as err:
+            except OSError as (err, strerror):
                 if err == errno.EEXIST:
                     pass
                 else:
