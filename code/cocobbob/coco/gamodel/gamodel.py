@@ -126,12 +126,18 @@ def main(func, dim, maxfuncevals, ftarget=None):
 	return best_pop
 
 if __name__ == "__main__":
+	if len(sys.argv) < 2:
+		output = "output"
+	else
+	    output = sys.argv[1]
+	print(output)
+	exit()
     # Maximum number of restart for an algorithm that detects stagnation
     maxrestarts = 1000
     
     # Create a COCO experiment that will log the results under the
     # ./output directory
-    e = fgeneric.LoggingFunction("output")
+    e = fgeneric.LoggingFunction(output)
     
     # Iterate over all desired test dimensions
     for dim in (2, 3, 5, 10, 20, 40):
