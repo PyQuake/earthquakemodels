@@ -162,7 +162,8 @@ if __name__ == "__main__":
 	mean = np.mean(means, axis=0)
 	observation = models.model.loadModelDB(region+'jmaData', year+6)
 	observation.bins = observation.bins.tolist()
-	ftarget = evaluationFunction(observation, observation, mean)
+	observations.append(observation)
+	ftarget = evaluationFunction(observations, observation, mean)
 	model_ = gaModel(
 		NGEN=100,
 		CXPB=0.9,
