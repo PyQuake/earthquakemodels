@@ -42,12 +42,12 @@ toolbox.register("map", futures.map)
 
 
 
-def update(individual, mu, sigma):
-    """Update the current *individual* with values from a gaussian centered on
-    *mu* and standard deviation *sigma*.
-    """
-    for i, mu_i in enumerate(mu):
-        individual[i] = random.gauss(mu_i, sigma)
+# def update(individual, mu, sigma):
+#     """Update the current *individual* with values from a gaussian centered on
+#     *mu* and standard deviation *sigma*.
+#     """
+#     for i, mu_i in enumerate(mu):
+#         individual[i] = random.gauss(mu_i, sigma)
 
 def tupleize(func):
     """A decorator that tuple-ize the result of a function. This is useful
@@ -65,7 +65,7 @@ def main(func, dim, maxfuncevals, ftarget=None):
 	n = min(100, 10 * dim)
 	slicesize = 1
 	toolbox = base.Toolbox()
-	toolbox.register("update", update)
+	# toolbox.register("update", update)
 	toolbox.register("evaluate", func)
 	toolbox.decorate("evaluate", tupleize)
 	toolbox.register("attr_float", random.uniform, -5,5)
@@ -109,7 +109,10 @@ def main(func, dim, maxfuncevals, ftarget=None):
 		pop[0]=best_pop
 		random.shuffle(pop)
 		record = stats.compile(pop)
-		if record["std"] < 1e-12:	
+		if (record["min"] - ftarget) < 1e-12:
+			print("e pra sair")
+			return best_pop
+		if record["std"] < 10e-8:	
 			sortedPop = sorted(pop, key=attrgetter("fitness"), reverse = True)
 			pop = toolbox.population(n)
 			pop[0:slicesize] = sortedPop[0:slicesize]
@@ -118,7 +121,6 @@ def main(func, dim, maxfuncevals, ftarget=None):
 				ind.fitness.values = fit
 			g += len(pop)
 		logbook.record(gen=g, **record)
-		print(logbook)
 		g += len(pop)
 	
 	return best_pop
