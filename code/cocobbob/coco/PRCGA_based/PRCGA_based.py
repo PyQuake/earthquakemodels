@@ -37,7 +37,7 @@ import bbobbenchmarks as bn
 toolbox = base.Toolbox()
 creator.create("FitnessMin", base.Fitness, weights=(-1.0,))
 creator.create("Individual", array.array, typecode="d", fitness=creator.FitnessMin)
-pool = Pool()
+# pool = Pool()
 toolbox.register("map", futures.map)
 
 
