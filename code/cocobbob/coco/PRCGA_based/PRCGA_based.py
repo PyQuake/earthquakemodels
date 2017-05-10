@@ -14,14 +14,11 @@
 #    You should have received a copy of the GNU Lesser General Public
 #    License along with DEAP. If not, see <http://www.gnu.org/licenses/>.
 import sys
-sys.path.insert(0, '../../../')
-sys.path.insert(0, '../code-postprocessing/aRTAplots/')
 import array
 import math
 import random
 import time
-# from pathos.multiprocessing import ProcessingPool as Pool
-from scoop import futures
+import multiprocessing
 from itertools import chain
 
 from deap import base
@@ -38,16 +35,9 @@ toolbox = base.Toolbox()
 creator.create("FitnessMin", base.Fitness, weights=(-1.0,))
 creator.create("Individual", array.array, typecode="d", fitness=creator.FitnessMin)
 # pool = Pool()
-toolbox.register("map", futures.map)
-
-
-
-def update(individual, mu, sigma):
-    """Update the current *individual* with values from a gaussian centered on
-    *mu* and standard deviation *sigma*.
-    """
-    for i, mu_i in enumerate(mu):
-        individual[i] = random.gauss(mu_i, sigma)
+# toolbox.register("map", futures.map)
+pool = multiprocessing.Pool()
+toolbox.register("map", pool.map)
 
 def tupleize(func):
     """A decorator that tuple-ize the result of a function. This is useful
@@ -57,7 +47,7 @@ def tupleize(func):
         return func(*args, **kargs),
     return wrapper
 
-def main(func, dim, maxfuncevals, ftarget=None):
+def main(func, dim, maxfuncevals, ftarget=None, tournsize=20):
 	NGEN=100
 	CXPB=0.9
 	MUTPB=0.1
@@ -65,12 +55,11 @@ def main(func, dim, maxfuncevals, ftarget=None):
 	n = min(100, 10 * dim)
 	slicesize = 1
 	toolbox = base.Toolbox()
-	toolbox.register("update", update)
 	toolbox.register("evaluate", func)
 	toolbox.decorate("evaluate", tupleize)
 	toolbox.register("attr_float", random.uniform, -5,5)
 	toolbox.register("mate", tools.cxTwoPoint)
-	toolbox.register("select", tools.selTournament, tournsize=20)
+	toolbox.register("select", tools.selTournament, tournsize=tournsize)
 	toolbox.register("mutate", tools.mutPolynomialBounded,indpb=0.1, eta = 1, low = -5, up = 5)
 	stats = tools.Statistics(key=lambda ind: ind.fitness.values)
 	stats.register("avg", numpy.mean)
@@ -111,25 +100,23 @@ def main(func, dim, maxfuncevals, ftarget=None):
 		record = stats.compile(pop)
 		if (abs(record["min"] - ftarget)) < 10e-8:
 			return best_pop
-		if record["std"] < 1e-12:	
+		if record["std"] < 10e-12:	
 			sortedPop = sorted(pop, key=attrgetter("fitness"), reverse = True)
 			pop = toolbox.population(n)
-			pop[0:slicesize] = sortedPop[0:slicesize]
+			pop[slicesize] = sortedPop[slicesize]
 			fitnesses = list(toolbox.map(toolbox.evaluate, pop))
 			for ind, fit in zip(pop, fitnesses):
 				ind.fitness.values = fit
 			g += len(pop)
 		# logbook.record(gen=g, **record)
+		
 		g += len(pop)
-	
+	# print(logbook)
 	return best_pop
 
 if __name__ == "__main__":
-	if len(sys.argv) < 2:
-		output = "output"
-	else:
-		output = sys.argv[1]
-		
+	output = sys.argv[1]
+	tournsize = sys.argv[2]
 	# Maximum number of restart for an algorithm that detects stagnation
 	maxrestarts = 1000
 
@@ -141,7 +128,7 @@ if __name__ == "__main__":
 	for dim in (2, 3, 5, 10, 20, 40):
 		# Set the maximum number function evaluation granted to the algorithm
 		# This is usually function of the dimensionality of the problem
-		maxfuncevals = 1000 * dim
+		maxfuncevals = 10e5 * dim
 		minfuncevals = dim + 2
 
 		# Iterate over a set of benchmarks (noise free benchmarks here)
@@ -162,7 +149,7 @@ if __name__ == "__main__":
 
 					# Run the algorithm with the remaining number of evaluations
 					revals = int(math.ceil(maxfuncevals - e.evaluations))
-					main(e.evalfun, dim, revals, e.ftarget)
+					main(e.evalfun, dim, revals, e.ftarget, tournsize)
 
 					# Stop if ftarget is reached
 					if e.fbest < e.ftarget or e.evaluations + minfuncevals > maxfuncevals:
