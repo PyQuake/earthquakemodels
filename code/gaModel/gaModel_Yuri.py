@@ -3,7 +3,7 @@ This GA code creates the gaModel
 """
 import sys
 sys.path.insert(0, '../')
-from numba import jit
+# from numba import jit
 from deap import base, creator, tools
 import numpy as np
 from csep.loglikelihood import calcLogLikelihood
@@ -14,10 +14,10 @@ import array
 import time 
 from operator import attrgetter
 from pathos.multiprocessing import ProcessingPool as Pool
-from functools import lru_cache as cache
+# from functools import lru_cache as cache
 import fgeneric
 
-@jit
+# @jit
 def evaluationFunction(individual, modelOmega, mean):
 	"""
 	This function calculates the loglikelihood of a model (individual) with 
