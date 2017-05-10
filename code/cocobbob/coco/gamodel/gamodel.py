@@ -109,12 +109,12 @@ def main(func, dim, maxfuncevals, ftarget=None):
 		pop[0]=best_pop
 		random.shuffle(pop)
 		record = stats.compile(pop)
-		print(ftarget)
-		exit()
-		if (record["min"] - ftarget) < 1e-12:
+		
+		if (record["min"] - ftarget) < 10e-8:
 			print("e pra sair")
+			print(logbook)
 			return best_pop
-		if record["std"] < 10e-8:	
+		if record["std"] < 10e-12:	
 			sortedPop = sorted(pop, key=attrgetter("fitness"), reverse = True)
 			pop = toolbox.population(n)
 			pop[0:slicesize] = sortedPop[0:slicesize]
@@ -123,9 +123,9 @@ def main(func, dim, maxfuncevals, ftarget=None):
 				ind.fitness.values = fit
 			g += len(pop)
 		logbook.record(gen=g, **record)
-		print(logbook)
+		
 		g += len(pop)
-	
+	print(logbook)
 	return best_pop
 
 if __name__ == "__main__":
