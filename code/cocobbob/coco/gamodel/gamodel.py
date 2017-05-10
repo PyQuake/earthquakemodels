@@ -109,7 +109,9 @@ def main(func, dim, maxfuncevals, ftarget=None):
 		pop[0]=best_pop
 		random.shuffle(pop)
 		record = stats.compile(pop)
-
+		print(abs(record["min"] - ftarget))
+		print(abs(ftarget-record["min"]))
+		exit()
 		if (abs(record["min"] - ftarget)) < 10e-8:
 			print("e pra sair")
 			print(logbook)
