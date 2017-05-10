@@ -152,7 +152,6 @@ if __name__ == "__main__":
 
 	observations = list()
 	means = list()
-	logbook = list()
 	for i in range(5):
 		observation = models.model.loadModelDB(region+'jmaData', year+i)
 		observation.bins = observation.bins.tolist()
@@ -160,10 +159,11 @@ if __name__ == "__main__":
 		means.append(observation.bins)
 	del observation
 	mean = np.mean(means, axis=0)
+	aux = list()
+	
 	observation = models.model.loadModelDB(region+'jmaData', year+6)
-	observation.bins = observation.bins.tolist()
-	observations.append(observation)
-	ftarget = evaluationFunction(observations, observation, mean)
+	tempValue=calcLogLikelihood(observation, observation)
+
 	model_ = gaModel(
 		NGEN=100,
 		CXPB=0.9,
