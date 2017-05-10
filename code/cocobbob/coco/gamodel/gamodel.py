@@ -130,8 +130,7 @@ if __name__ == "__main__":
 		output = "output"
 	else:
 		output = sys.argv[1]
-	print(output)
-	exit()
+		
 	# Maximum number of restart for an algorithm that detects stagnation
 	maxrestarts = 1000
 

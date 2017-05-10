@@ -125,6 +125,11 @@ def main(func, dim, maxfuncevals, ftarget=None):
 	return best_pop
 
 if __name__ == "__main__":
+	if len(sys.argv) < 2:
+		output = "output"
+	else:
+		output = sys.argv[1]
+		
     # Maximum number of restart for an algorithm that detects stagnation
     maxrestarts = 1000
     
