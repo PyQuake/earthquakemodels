@@ -29,7 +29,7 @@ def calcNumberBins(lambda_i, omega_i, weights=1, adjusting=0):
 
     invP = np.vectorize(invertPoisson)
     bin = (invP(lambda_i, omega_i*weights)-adjusting).tolist()
-    invertPoisson.cache_clear()
+    # invertPoisson.cache_clear()
     return bin
 
 
