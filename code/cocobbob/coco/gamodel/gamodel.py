@@ -118,6 +118,7 @@ def main(func, dim, maxfuncevals, ftarget=None):
 				ind.fitness.values = fit
 			g += len(pop)
 		logbook.record(gen=g, **record)
+		print(logbook)
 		g += len(pop)
 	
 	return best_pop
