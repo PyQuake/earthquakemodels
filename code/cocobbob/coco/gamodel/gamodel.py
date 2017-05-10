@@ -111,6 +111,7 @@ def main(func, dim, maxfuncevals, ftarget=None):
 		record = stats.compile(pop)
 
 		if (abs(record["min"] - ftarget)) < 10e-8:
+			print("e pra sair")
 			print(logbook)
 			return best_pop
 		if record["std"] < 10e-12:	
