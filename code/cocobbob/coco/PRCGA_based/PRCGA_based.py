@@ -79,8 +79,8 @@ def main(func, dim, maxfuncevals, ftarget=None):
 	stats.register("max", numpy.max)
 	toolbox.register("individual", tools.initRepeat, creator.Individual, toolbox.attr_float, dim)
 	toolbox.register("population", tools.initRepeat, list, toolbox.individual)
-	logbook = tools.Logbook()
-	logbook.header = "gen","min","avg","max","std"
+	# logbook = tools.Logbook()
+	# logbook.header = "gen","min","avg","max","std"
 	pop = toolbox.population(n)
 	fitnesses = list(toolbox.map(toolbox.evaluate, pop))
 	for ind, fit in zip(pop, fitnesses):
@@ -109,6 +109,8 @@ def main(func, dim, maxfuncevals, ftarget=None):
 		pop[0]=best_pop
 		random.shuffle(pop)
 		record = stats.compile(pop)
+		if (abs(record["min"] - ftarget)) < 10e-8:
+			return best_pop
 		if record["std"] < 1e-12:	
 			sortedPop = sorted(pop, key=attrgetter("fitness"), reverse = True)
 			pop = toolbox.population(n)
@@ -117,7 +119,7 @@ def main(func, dim, maxfuncevals, ftarget=None):
 			for ind, fit in zip(pop, fitnesses):
 				ind.fitness.values = fit
 			g += len(pop)
-		logbook.record(gen=g, **record)
+		# logbook.record(gen=g, **record)
 		g += len(pop)
 	
 	return best_pop
