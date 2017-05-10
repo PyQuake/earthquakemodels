@@ -168,7 +168,7 @@ if __name__ == "__main__":
 		MUTPB=0.1,
 		modelOmega=observations,
 		year=year +
-		qntYears,
+		5,
 		region=region,
 		mean=mean,
 		n_aval=50000,
