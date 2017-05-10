@@ -162,7 +162,7 @@ if __name__ == "__main__":
 	aux = list()
 	
 	observation = models.model.loadModelDB(region+'jmaData', year+6)
-	tempValue=calcLogLikelihood(observation, observation)
+	ftarget=calcLogLikelihood(observation, observation)
 
 	model_ = gaModel(
 		NGEN=100,
