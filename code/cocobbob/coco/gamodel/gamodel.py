@@ -128,7 +128,7 @@ def main(func, dim, maxfuncevals, ftarget=None):
 if __name__ == "__main__":
 	if len(sys.argv) < 2:
 		output = "output"
-	else
+	else:
 	    output = sys.argv[1]
 	print(output)
 	exit()
