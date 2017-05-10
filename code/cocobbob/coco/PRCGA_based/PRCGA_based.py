@@ -70,7 +70,7 @@ def main(func, dim, maxfuncevals, ftarget=None):
 	toolbox.decorate("evaluate", tupleize)
 	toolbox.register("attr_float", random.uniform, -5,5)
 	toolbox.register("mate", tools.cxTwoPoint)
-	toolbox.register("select", tools.selTournament, tournsize=2)
+	toolbox.register("select", tools.selTournament, tournsize=20)
 	toolbox.register("mutate", tools.mutPolynomialBounded,indpb=0.1, eta = 1, low = -5, up = 5)
 	stats = tools.Statistics(key=lambda ind: ind.fitness.values)
 	stats.register("avg", numpy.mean)
@@ -131,7 +131,7 @@ if __name__ == "__main__":
     e = fgeneric.LoggingFunction("output")
     
     # Iterate over all desired test dimensions
-    for dim in (2, 3, 5, 10, 20):
+    for dim in (2, 3, 5, 10, 20, 40):
         # Set the maximum number function evaluation granted to the algorithm
         # This is usually function of the dimensionality of the problem
         maxfuncevals = 10e5 * dim

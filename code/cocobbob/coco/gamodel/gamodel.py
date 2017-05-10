@@ -20,7 +20,8 @@ import array
 import math
 import random
 import time
-from pathos.multiprocessing import ProcessingPool as Pool
+# from pathos.multiprocessing import ProcessingPool as Pool
+from scoop import futures
 from itertools import chain
 
 from deap import base
@@ -36,8 +37,8 @@ import bbobbenchmarks as bn
 toolbox = base.Toolbox()
 creator.create("FitnessMin", base.Fitness, weights=(-1.0,))
 creator.create("Individual", array.array, typecode="d", fitness=creator.FitnessMin)
-pool = Pool()
-toolbox.register("map", pool.map)
+# pool = Pool()
+toolbox.register("map", futures.map)
 
 
 
@@ -130,7 +131,7 @@ if __name__ == "__main__":
     e = fgeneric.LoggingFunction("output")
     
     # Iterate over all desired test dimensions
-    for dim in (2, 3, 5, 10, 20):
+    for dim in (2, 3, 5, 10, 20, 40):
         # Set the maximum number function evaluation granted to the algorithm
         # This is usually function of the dimensionality of the problem
         maxfuncevals = 10e5 * dim
