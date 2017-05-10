@@ -55,6 +55,8 @@ def main(func, dim, maxfuncevals, ftarget=None, tournsize=2):
 	MUTPB=0.1
 	g=0
 	n = min(100, 10 * dim)
+	print(tournsize)
+	exit()
 	slicesize = 1
 	toolbox = base.Toolbox()
 	toolbox.register("evaluate", func)
