@@ -49,7 +49,7 @@ def tupleize(func):
         return func(*args, **kargs),
     return wrapper
 
-def main(func, dim, maxfuncevals, ftarget=None, tournsize=2):
+def main(func, dim, maxfuncevals, ftarget, tournsize):
 	NGEN=100
 	CXPB=0.9
 	MUTPB=0.1
@@ -62,6 +62,7 @@ def main(func, dim, maxfuncevals, ftarget=None, tournsize=2):
 	toolbox.register("attr_float", random.uniform, -5,5)
 	toolbox.register("mate", tools.cxTwoPoint)
 	toolbox.register("select", tools.selTournament, tournsize=tournsize)
+	print(tournsize)
 	toolbox.register("mutate", tools.mutPolynomialBounded,indpb=0.1, eta = 1, low = -5, up = 5)
 	stats = tools.Statistics(key=lambda ind: ind.fitness.values)
 	stats.register("avg", numpy.mean)
