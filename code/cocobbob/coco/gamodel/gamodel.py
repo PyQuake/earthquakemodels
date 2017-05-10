@@ -129,11 +129,11 @@ if __name__ == "__main__":
 	if len(sys.argv) < 2:
 		output = "output"
 	else:
-	    output = sys.argv[1]
+		output = sys.argv[1]
 	print(output)
 	exit()
-    # Maximum number of restart for an algorithm that detects stagnation
-    maxrestarts = 1000
+	# Maximum number of restart for an algorithm that detects stagnation
+	maxrestarts = 1000
     
     # Create a COCO experiment that will log the results under the
     # ./output directory
