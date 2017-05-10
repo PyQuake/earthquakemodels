@@ -62,7 +62,7 @@ def main(func, dim, maxfuncevals, ftarget=None):
 	MUTPB=0.1
 	g=0
 	n = min(100, 10 * dim)
-	slicesize =int(n * 0.1)
+	slicesize = 1
 	toolbox = base.Toolbox()
 	toolbox.register("update", update)
 	toolbox.register("evaluate", func)
@@ -133,7 +133,7 @@ if __name__ == "__main__":
     for dim in (2, 3, 5, 10, 20):
         # Set the maximum number function evaluation granted to the algorithm
         # This is usually function of the dimensionality of the problem
-        maxfuncevals = 100 * dim**2
+        maxfuncevals = 10e5 * dim
         minfuncevals = dim + 2
         
         # Iterate over a set of benchmarks (noise free benchmarks here)

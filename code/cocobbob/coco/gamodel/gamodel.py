@@ -1,77 +1,94 @@
-"""
-This GA code creates the gaModel 
-"""
+
+#    This file is part of DEAP.
+#
+#    DEAP is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU Lesser General Public License as
+#    published by the Free Software Foundation, either version 3 of
+#    the License, or (at your option) any later version.
+#
+#    DEAP is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+#    GNU Lesser General Public License for more details.
+#
+#    You should have received a copy of the GNU Lesser General Public
+#    License along with DEAP. If not, see <http://www.gnu.org/licenses/>.
 import sys
 sys.path.insert(0, '../../../')
-from deap import base, creator, tools
-import numpy
-from csep.loglikelihood import calcLogLikelihood
-from models.mathUtil import calcNumberBins
-import models.model
-import random
+sys.path.insert(0, '../code-postprocessing/aRTAplots/')
 import array
-from operator import attrgetter
-# from pathos.multiprocessing import ProcessingPool as Pool
-# from multiprocessing import Pool
+import math
+import random
+import time
+from pathos.multiprocessing import ProcessingPool as Pool
+from itertools import chain
 
+from deap import base
+from deap import creator
+from deap import benchmarks
+from deap import tools
 import fgeneric
-def evalFun(individual, fun):
-	return fun(individual),
-#parallel
+import numpy
+from operator import attrgetter
 
+import bbobbenchmarks as bn
 
 toolbox = base.Toolbox()
-creator.create("FitnessFunction", base.Fitness, weights=(1.0,))
-creator.create("Individual", array.array, typecode='d', fitness=creator.FitnessFunction)
-# pool = Pool()
-# toolbox.register("map", pool.map)
+creator.create("FitnessMin", base.Fitness, weights=(-1.0,))
+creator.create("Individual", array.array, typecode="d", fitness=creator.FitnessMin)
+pool = Pool()
+toolbox.register("map", pool.map)
 
-def gaModel(fun, problem_dimension,NGEN=100,CXPB=0.9,MUTPB=0.1, n_aval=50000):
-	"""
-	The main function. It evolves models, namely modelLamba or individual. 
-	It uses 1 parallel system: 1, simple, that splits the ga evolution between cores
-	"""
-	# Attribute generator
+
+
+def update(individual, mu, sigma):
+    """Update the current *individual* with values from a gaussian centered on
+    *mu* and standard deviation *sigma*.
+    """
+    for i, mu_i in enumerate(mu):
+        individual[i] = random.gauss(mu_i, sigma)
+
+def tupleize(func):
+    """A decorator that tuple-ize the result of a function. This is useful
+    when the evaluation function returns a single value.
+    """
+    def wrapper(*args, **kargs):
+        return func(*args, **kargs),
+    return wrapper
+
+def main(func, dim, maxfuncevals, ftarget=None):
+	NGEN=100
+	CXPB=0.9
+	MUTPB=0.1
+	g=0
+	n = min(100, 10 * dim)
+	slicesize = 1
+	toolbox = base.Toolbox()
+	toolbox.register("update", update)
+	toolbox.register("evaluate", func)
+	toolbox.decorate("evaluate", tupleize)
 	toolbox.register("attr_float", random.uniform, -5,5)
 	toolbox.register("mate", tools.cxTwoPoint)
-	# operator for selecting individuals for breeding the next
-	# generation: each individual of the current generation
-	# is replaced by the 'fittest' (best) of three individuals
-	# drawn randomly from the current generation.
 	toolbox.register("select", tools.selTournament, tournsize=2)
-	# toolbox.register("select", tools.selLexicase)
 	toolbox.register("mutate", tools.mutPolynomialBounded,indpb=0.1, eta = 1, low = -5, up = 5)
-
 	stats = tools.Statistics(key=lambda ind: ind.fitness.values)
 	stats.register("avg", numpy.mean)
 	stats.register("std", numpy.std)
 	stats.register("min", numpy.min)
 	stats.register("max", numpy.max)
-
-	#calculating the number of individuals of the populations based on the number of executions
-	y=int(n_aval/NGEN)
-	x=n_aval - y*NGEN
-	n= x + y
-
-	toolbox.register("evaluate", evalFun, fun=fun)
-	toolbox.register("individual", tools.initRepeat, creator.Individual, toolbox.attr_float, problem_dimension)
+	toolbox.register("individual", tools.initRepeat, creator.Individual, toolbox.attr_float, dim)
 	toolbox.register("population", tools.initRepeat, list, toolbox.individual)
-
 	logbook = tools.Logbook()
 	logbook.header = "gen","min","avg","max","std"
-
 	pop = toolbox.population(n)
-	# Evaluate the entire population
-	fitnesses = list(toolbox.map(toolbox.evaluate, pop))#need to pass 2 model.bins. One is the real data, the other de generated model
+	fitnesses = list(toolbox.map(toolbox.evaluate, pop))
 	for ind, fit in zip(pop, fitnesses):
 		ind.fitness.values = fit
-
-	for g in range(NGEN):
-		# Select the next generation individuals
+	maxfuncevals -= len(pop)
+	# for g in range(maxfuncevals):
+	while(g < maxfuncevals):
 		offspring = toolbox.select(pop, len(pop))
-		#create offspring
 		offspring = list(toolbox.map(toolbox.clone, pop))
-		# Apply crossover and mutation on the offspring
 		for child1, child2 in zip(offspring[::2], offspring[1::2]):
 			if random.random() < CXPB:
 				toolbox.mate(child1, child2)
@@ -81,32 +98,73 @@ def gaModel(fun, problem_dimension,NGEN=100,CXPB=0.9,MUTPB=0.1, n_aval=50000):
 			if random.random() < MUTPB:
 				toolbox.mutate(mutant)
 				del mutant.fitness.values
-        
-  #       # Evaluate the individuals with an invalid fitness
-		# invalid_ind = [ind for ind in offspring if not ind.fitness.valid]
-		# fitnesses = list(toolbox.map(toolbox.evaluate, invalid_ind))
- 
- 		#Select best ind for elitism
 		best_pop = tools.selBest(pop, 1)[0]
-		# The population is entirely replaced by the offspring, but the last ind replaced by best_pop
 		pop[:] = offspring
-		
+
 		fitnesses = list(toolbox.map(toolbox.evaluate, pop))
 		for ind, fit in zip(pop, fitnesses):
 			ind.fitness.values = fit
-
-		#Subs the worst ind (new pop) by the select best ind (old pop)
 		pop = sorted(pop, key=attrgetter("fitness"), reverse = False)
 		pop[0]=best_pop
 		random.shuffle(pop)
-
-		#logBook
 		record = stats.compile(pop)
+		if record["std"] < 1e-12:	
+			sortedPop = sorted(pop, key=attrgetter("fitness"), reverse = True)
+			pop = toolbox.population(n)
+			pop[0:slicesize] = sortedPop[0:slicesize]
+			fitnesses = list(toolbox.map(toolbox.evaluate, pop))
+			for ind, fit in zip(pop, fitnesses):
+				ind.fitness.values = fit
+			g += len(pop)
 		logbook.record(gen=g, **record)
-		print(logbook)
-
-	exit()
+		g += len(pop)
+	
 	return best_pop
 
 if __name__ == "__main__":
-	gaModel()
+    # Maximum number of restart for an algorithm that detects stagnation
+    maxrestarts = 1000
+    
+    # Create a COCO experiment that will log the results under the
+    # ./output directory
+    e = fgeneric.LoggingFunction("output")
+    
+    # Iterate over all desired test dimensions
+    for dim in (2, 3, 5, 10, 20):
+        # Set the maximum number function evaluation granted to the algorithm
+        # This is usually function of the dimensionality of the problem
+        maxfuncevals = 10e5 * dim
+        minfuncevals = dim + 2
+        
+        # Iterate over a set of benchmarks (noise free benchmarks here)
+        for f_name in bn.nfreeIDs:
+            
+            # Iterate over all the instance of a single problem
+            # Rotation, translation, etc.
+            for instance in chain(range(1, 6), range(21, 31)):
+                
+                # Set the function to be used (problem) in the logger
+                e.setfun(*bn.instantiate(f_name, iinstance=instance))
+                
+                # Independent restarts until maxfunevals or ftarget is reached
+                for restarts in range(0, maxrestarts + 1):
+                    if restarts > 0:
+                        # Signal the experiment that the algorithm restarted
+                        e.restart('independent restart')  # additional info
+                    
+                    # Run the algorithm with the remaining number of evaluations
+                    revals = int(math.ceil(maxfuncevals - e.evaluations))
+                    main(e.evalfun, dim, revals, e.ftarget)
+                    
+                    # Stop if ftarget is reached
+                    if e.fbest < e.ftarget or e.evaluations + minfuncevals > maxfuncevals:
+                        break
+                
+                e.finalizerun()
+                
+                print('f%d in %d-D, instance %d: FEs=%d with %d restarts, '
+                      'fbest-ftarget=%.4e'
+                      % (f_name, dim, instance, e.evaluations, restarts,
+                         e.fbest - e.ftarget))
+                         
+            print('date and time: %s' % time.asctime())
