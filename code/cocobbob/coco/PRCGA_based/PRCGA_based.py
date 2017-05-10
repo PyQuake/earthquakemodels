@@ -81,14 +81,14 @@ def main(func, dim, maxfuncevals, ftarget=None):
 	logbook = tools.Logbook()
 	logbook.header = "gen","min","avg","max","std"
 	pop = toolbox.population(n)
-	fitnesses = list(toolbox.map(toolbox.evaluate, pop))
+	fitnesses = list(map(toolbox.evaluate, pop))
 	for ind, fit in zip(pop, fitnesses):
 		ind.fitness.values = fit
 	maxfuncevals -= len(pop)
 	# for g in range(maxfuncevals):
 	while(g < maxfuncevals):
 		offspring = toolbox.select(pop, len(pop))
-		offspring = list(toolbox.map(toolbox.clone, pop))
+		offspring = list(map(toolbox.clone, pop))
 		for child1, child2 in zip(offspring[::2], offspring[1::2]):
 			if random.random() < CXPB:
 				toolbox.mate(child1, child2)
@@ -101,7 +101,7 @@ def main(func, dim, maxfuncevals, ftarget=None):
 		best_pop = tools.selBest(pop, 1)[0]
 		pop[:] = offspring
 
-		fitnesses = list(toolbox.map(toolbox.evaluate, pop))
+		fitnesses = list(map(toolbox.evaluate, pop))
 		for ind, fit in zip(pop, fitnesses):
 			ind.fitness.values = fit
 		pop = sorted(pop, key=attrgetter("fitness"), reverse = False)
@@ -112,7 +112,7 @@ def main(func, dim, maxfuncevals, ftarget=None):
 			sortedPop = sorted(pop, key=attrgetter("fitness"), reverse = True)
 			pop = toolbox.population(n)
 			pop[0:slicesize] = sortedPop[0:slicesize]
-			fitnesses = list(toolbox.map(toolbox.evaluate, pop))
+			fitnesses = list(map(toolbox.evaluate, pop))
 			for ind, fit in zip(pop, fitnesses):
 				ind.fitness.values = fit
 			g += len(pop)
