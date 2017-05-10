@@ -1,6 +1,6 @@
 from numba import jit
 import numpy as np
-#from functools import lru_cache as cache
+from functools import lru_cache as cache
 
 @cache(maxsize=128)
 @jit

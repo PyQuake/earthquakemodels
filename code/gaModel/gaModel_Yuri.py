@@ -1,9 +1,11 @@
 """
 This GA code creates the gaModel 
 """
+import sys
+sys.path.insert(0, '../')
 from numba import jit
 from deap import base, creator, tools
-import numpy
+import numpy as np
 from csep.loglikelihood import calcLogLikelihood
 from models.mathUtil import calcNumberBins
 import models.model
@@ -13,6 +15,7 @@ import time
 from operator import attrgetter
 from pathos.multiprocessing import ProcessingPool as Pool
 from functools import lru_cache as cache
+import fgeneric
 
 @jit
 def evaluationFunction(individual, modelOmega, mean):
@@ -33,11 +36,6 @@ def evaluationFunction(individual, modelOmega, mean):
 			logValue = tempValue
 	return logValue,
 
-# def normalizeFitness(fitnesses):
-# 	min = numpy.min(fitnesses)
-# 	max = numpy.max(fitnesses)
-# 	fitnesses[:] = (fitnesses-min)/(max-min)
-# 	return(fitnesses)
 
 #parallel
 
@@ -48,7 +46,7 @@ pool = Pool()
 toolbox.register("map", pool.map)
 
 
-def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval=50000):
+def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval=50000, tournsize=2):
 	"""
 	The main function. It evolves models, namely modelLamba or individual. 
 	It uses 1 parallel system: 1, simple, that splits the ga evolution between cores
@@ -61,15 +59,15 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval=50000):
 	# generation: each individual of the current generation
 	# is replaced by the 'fittest' (best) of three individuals
 	# drawn randomly from the current generation.
-	toolbox.register("select", tools.selTournament, tournsize=2)
+	toolbox.register("select", tools.selTournament, tournsize=tournsize)
 	# toolbox.register("select", tools.selLexicase)
 	toolbox.register("mutate", tools.mutPolynomialBounded,indpb=0.1, eta = 1, low = 0, up = 1)
 
 	stats = tools.Statistics(key=lambda ind: ind.fitness.values)
-	stats.register("avg", numpy.mean)
-	stats.register("std", numpy.std)
-	stats.register("min", numpy.min)
-	stats.register("max", numpy.max)
+	stats.register("avg", np.mean)
+	stats.register("std", np.std)
+	stats.register("min", np.min)
+	stats.register("max", np.max)
 
 	#calculating the number of individuals of the populations based on the number of executions
 	y=int(n_aval/NGEN)
@@ -143,4 +141,39 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval=50000):
 	return generatedModel
 
 if __name__ == "__main__":
-	gaModel()
+	output = sys.argv[1]
+	tournsize = int(sys.argv[2])
+
+	region = 'Kanto'
+	year=2000
+
+	# Create a COCO experiment that will log the results under the
+	# ./output directory
+	e = fgeneric.LoggingFunction(output)
+
+
+	observations = list()
+	means = list()
+	logbook = list()
+	for i in range(5):
+		observation = models.model.loadModelDB(region+'jmaData', year+i)
+		observation.bins = observation.bins.tolist()
+		observations.append(observation)
+		means.append(observation.bins)
+	del observation
+	mean = np.mean(means, axis=0)
+	model_ = gaModel(
+		NGEN=100,
+		CXPB=0.9,
+		MUTPB=0.1,
+		modelOmega=observations,
+		year=year +
+		qntYears,
+		region=region,
+		mean=mean,
+		n_aval=50000,
+		tournsize=tournsize)
+
+	# gaModel(e.evalfun, dim, revals, e.ftarget, tournsize)
+
+	e.finalizerun()

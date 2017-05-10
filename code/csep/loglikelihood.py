@@ -14,7 +14,7 @@ import array
 import numpy as np
 import random
 from models.mathUtil import invertPoisson, normalize, percentile
-#from functools import lru_cache as cache
+from functools import lru_cache as cache
 
 
 # def logValue(element):
