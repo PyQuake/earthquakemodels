@@ -46,13 +46,12 @@ pool = Pool()
 toolbox.register("map", pool.map)
 
 
-def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval=50000, tournsize=2):
+def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval=50000, tournsize=2, ftarget=None):
 	"""
 	The main function. It evolves models, namely modelLamba or individual. 
 	It uses 1 parallel system: 1, simple, that splits the ga evolution between cores
 	"""
 	start = time.clock()  
-
 	#calculating the number of individuals of the populations based on the number of executions
 	y=int(n_aval/NGEN)
 	x=n_aval - y*NGEN
@@ -161,6 +160,9 @@ if __name__ == "__main__":
 		means.append(observation.bins)
 	del observation
 	mean = np.mean(means, axis=0)
+	observation = models.model.loadModelDB(region+'jmaData', year+6)
+	observation.bins = observation.bins.tolist()
+	ftarget = evaluationFunction(observation, observation, mean)
 	model_ = gaModel(
 		NGEN=100,
 		CXPB=0.9,
@@ -171,7 +173,8 @@ if __name__ == "__main__":
 		region=region,
 		mean=mean,
 		n_aval=50000,
-		tournsize=tournsize)
+		tournsize=tournsize,
+		ftarget=ftarget)
 
 	# gaModel(e.evalfun, dim, revals, e.ftarget, tournsize)
 
