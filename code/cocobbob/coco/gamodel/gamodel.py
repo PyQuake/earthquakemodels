@@ -119,6 +119,8 @@ def main(func, dim, maxfuncevals, ftarget=None, tournsize=2):
 if __name__ == "__main__":
 	output = sys.argv[1]
 	tournsize = sys.argv[2]
+	print(output, tournsize)
+	exit()
 	# Maximum number of restart for an algorithm that detects stagnation
 	maxrestarts = 1000
 
