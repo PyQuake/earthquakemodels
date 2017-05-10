@@ -52,6 +52,11 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval=50000, tournsiz
 	It uses 1 parallel system: 1, simple, that splits the ga evolution between cores
 	"""
 	start = time.clock()  
+
+	#calculating the number of individuals of the populations based on the number of executions
+	y=int(n_aval/NGEN)
+	x=n_aval - y*NGEN
+	n= x + y
 	# Attribute generator
 	toolbox.register("attr_float", random.random)
 	toolbox.register("mate", tools.cxOnePoint)
@@ -62,18 +67,11 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval=50000, tournsiz
 	toolbox.register("select", tools.selTournament, tournsize=tournsize)
 	# toolbox.register("select", tools.selLexicase)
 	toolbox.register("mutate", tools.mutPolynomialBounded,indpb=0.1, eta = 1, low = 0, up = 1)
-
 	stats = tools.Statistics(key=lambda ind: ind.fitness.values)
 	stats.register("avg", np.mean)
 	stats.register("std", np.std)
 	stats.register("min", np.min)
 	stats.register("max", np.max)
-
-	#calculating the number of individuals of the populations based on the number of executions
-	y=int(n_aval/NGEN)
-	x=n_aval - y*NGEN
-	n= x + y
-
 	toolbox.register("evaluate", evaluationFunction, modelOmega=modelOmega, mean=mean)
 	toolbox.register("individual", tools.initRepeat, creator.Individual, toolbox.attr_float, len(modelOmega[0].bins))
 	toolbox.register("population", tools.initRepeat, list, toolbox.individual)
@@ -103,38 +101,43 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval=50000, tournsiz
 				toolbox.mutate(mutant)
 				del mutant.fitness.values
         # Evaluate the individuals with an invalid fitness
-        
 		invalid_ind = [ind for ind in offspring if not ind.fitness.valid]
 		fitnesses = list(toolbox.map(toolbox.evaluate, invalid_ind))
 		for ind, fit in zip(invalid_ind, fitnesses):
 			ind.fitness.values = fit
-        # The population is entirely replaced by the offspring, but the last ind replaced by best_pop
-        #Elitism
+		#Elitism
 		best_pop = tools.selBest(pop, 1)[0]
-		offspring = sorted(offspring, key=attrgetter("fitness"), reverse = True)
-		offspring[len(offspring)-1]=best_pop
-		random.shuffle(offspring)
+		# The population is entirely replaced by the offspring, but the last ind replaced by best_pop
 		pop[:] = offspring
-		
-		#logBook
-		fitnesses = list(toolbox.map(toolbox.evaluate, pop))
-		for ind, fit in zip(pop, fitnesses):
-			ind.fitness.values = fit
+		pop = sorted(pop, key=attrgetter("fitness"), reverse = False)
+		pop[0]=best_pop
+		random.shuffle(pop)
 		record = stats.compile(pop)
+		if (abs(record["min"] - ftarget)) < 10e-8:
+			return best_pop
+		if record["std"] < 10e-12:	
+			sortedPop = sorted(pop, key=attrgetter("fitness"), reverse = True)
+			pop = toolbox.population(n)
+			pop[slicesize] = sortedPop[slicesize]
+			fitnesses = list(toolbox.map(toolbox.evaluate, pop))
+			for ind, fit in zip(pop, fitnesses):
+				ind.fitness.values = fit
+			g+=1
 		logbook.record(gen=g, **record)
 
-	end = time.clock()  
-	generatedModel = models.model.newModel(modelOmega[0].definitions)
-	generatedModel.prob = best_pop
-	generatedModel.bins=calcNumberBins(list(best_pop), mean)
-	generatedModel.loglikelihood = best_pop.fitness.values
-	generatedModel.definitions = modelOmega[0].definitions
-	generatedModel.time = start - end
-	generatedModel.logbook = logbook
+	return best_pop
+	# end = time.clock()  
+	# generatedModel = models.model.newModel(modelOmega[0].definitions)
+	# generatedModel.prob = best_pop
+	# generatedModel.bins=calcNumberBins(list(best_pop), mean)
+	# generatedModel.loglikelihood = best_pop.fitness.values
+	# generatedModel.definitions = modelOmega[0].definitions
+	# generatedModel.time = start - end
+	# generatedModel.logbook = logbook
 	# output = generatedModel.loglikelihood 
 	# return((-1)*output[0])
 
-	return generatedModel
+	# return generatedModel
 
 if __name__ == "__main__":
 	output = sys.argv[1]
