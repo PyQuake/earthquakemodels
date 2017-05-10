@@ -35,9 +35,6 @@ import bbobbenchmarks as bn
 
 toolbox = base.Toolbox()
 creator.create("FitnessMin", base.Fitness, weights=(-1.0,))
-creator.create("Individual", array.array, typecode="d", fitness=creator.FitnessMin)
-# pool = Pool()
-# toolbox.register("map", futures.map)
 pool = multiprocessing.Pool()
 toolbox.register("map", pool.map)
 
@@ -62,7 +59,6 @@ def main(func, dim, maxfuncevals, ftarget, tournsize):
 	toolbox.register("attr_float", random.uniform, -5,5)
 	toolbox.register("mate", tools.cxTwoPoint)
 	toolbox.register("select", tools.selTournament, tournsize=tournsize)
-	print(tournsize)
 	toolbox.register("mutate", tools.mutPolynomialBounded,indpb=0.1, eta = 1, low = -5, up = 5)
 	stats = tools.Statistics(key=lambda ind: ind.fitness.values)
 	stats.register("avg", numpy.mean)
@@ -119,7 +115,7 @@ def main(func, dim, maxfuncevals, ftarget, tournsize):
 
 if __name__ == "__main__":
 	output = sys.argv[1]
-	tournsize = sys.argv[2]
+	tournsize = int(sys.argv[2])
 
 	# Maximum number of restart for an algorithm that detects stagnation
 	maxrestarts = 1000
