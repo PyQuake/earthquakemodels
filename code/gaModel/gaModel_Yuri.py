@@ -120,13 +120,16 @@ def gaModel(func,NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval, tournsize
 		best_pop = tools.selBest(pop, 1)[0]
 		# The population is entirely replaced by the offspring, but the last ind replaced by best_pop
 		pop[:] = offspring
+
+		fitnesses = list(toolbox.map(toolbox.evaluate, pop))
+		for ind, fit in zip(pop, fitnesses):
+			ind.fitness.values = fit
 		pop = sorted(pop, key=attrgetter("fitness"), reverse = False)
 		pop[0]=best_pop
 		random.shuffle(pop)
 		record = stats.compile(pop)
 		if (abs(record["min"] - ftarget)) < 10e-8:
 			return best_pop
-			# return best_pop.fitness.values[0]
 		if record["std"] < 10e-12:	
 			sortedPop = sorted(pop, key=attrgetter("fitness"), reverse = True)
 			pop = toolbox.population(n)
@@ -135,9 +138,10 @@ def gaModel(func,NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval, tournsize
 			for ind, fit in zip(pop, fitnesses):
 				ind.fitness.values = fit
 			g+=1
-		logbook.record(gen=g, **record)
+		# logbook.record(gen=g, **record)
+		
+	# print(logbook)
 	return best_pop
-	# return best_pop.fitness.values[0]
 
 if __name__ == "__main__":
 	output = sys.argv[1]
