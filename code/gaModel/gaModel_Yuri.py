@@ -178,8 +178,9 @@ if __name__ == "__main__":
 	ftarget=calcLogLikelihood(observation, observation)
 	func, opt = bn.instantiate(1, iinstance=1)
 	opt=ftarget
-	e.setfun(func, opt=ftarget)
+	# e.setfun(func, opt=ftarget)
 	e.evalfun.im_class.evalfun=evaluationFunction
+	e.evalfun = evaluationFunction
 	gaModel(e.evalfun,
 		NGEN=5,
 		CXPB=0.9,
