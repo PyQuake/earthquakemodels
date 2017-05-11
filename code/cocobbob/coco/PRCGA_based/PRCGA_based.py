@@ -127,7 +127,7 @@ if __name__ == "__main__":
 	for dim in (2, 3, 5, 10, 20, 40):
 		# Set the maximum number function evaluation granted to the algorithm
 		# This is usually function of the dimensionality of the problem
-		maxfuncevals = 10e5 * dim
+		maxfuncevals = 10e1 * dim
 		minfuncevals = dim + 2
 
 		# Iterate over a set of benchmarks (noise free benchmarks here)

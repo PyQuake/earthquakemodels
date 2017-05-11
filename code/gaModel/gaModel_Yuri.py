@@ -53,7 +53,7 @@ def tupleize(func):
         return func(*args, **kargs),
     return wrapper
 
-def gaModel(func,NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval=50000, tournsize=2, ftarget=None):
+def gaModel(func,NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval, tournsize, ftarget):
 	"""
 	The main function. It evolves models, namely modelLamba or individual. 
 	It uses 1 parallel system: 1, simple, that splits the ga evolution between cores
@@ -172,11 +172,9 @@ if __name__ == "__main__":
 	observation = models.model.loadModelDB(region+'jmaData', year+6)
 	ftarget=calcLogLikelihood(observation, observation)
 	func, opt = bn.instantiate(1, iinstance=1)
-	func.evaluate = evaluationFunction
-	print(evaluationFunction, func.evaluate)
 	opt=ftarget
 	e.setfun(func, opt=ftarget)
-
+	e.evalfun.im_class.evalfun=evaluationFunction
 	gaModel(e.evalfun,
 		NGEN=5,
 		CXPB=0.9,
