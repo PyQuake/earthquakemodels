@@ -44,7 +44,7 @@ def tupleize(func):
     when the evaluation function returns a single value.
     """
     def wrapper(*args, **kargs):
-    	print(func)
+    	print(*args, **kargs)
         return func(*args, **kargs),
     return wrapper
 
