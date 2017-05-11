@@ -173,7 +173,7 @@ if __name__ == "__main__":
 	
 	observation = models.model.loadModelDB(region+'jmaData', year+6)
 	ftarget=calcLogLikelihood(observation, observation)
-	func, opt = bn.instantiate(f_name, iinstance=instance)
+	func, opt = bn.instantiate(1, iinstance=1)
 	func.evaluate = evaluationFunction
 	opt=ftarget
 	e.setfun(func, opt=ftarget)
