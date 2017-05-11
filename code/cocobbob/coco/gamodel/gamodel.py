@@ -100,7 +100,7 @@ def main(func, dim, maxfuncevals, ftarget, tournsize):
 		random.shuffle(pop)
 		record = stats.compile(pop)
 		if (abs(record["min"] - ftarget)) < 10e-8:
-			return best_pop
+			return best_pop.fitness.values[0]
 		if record["std"] < 10e-12:	
 			sortedPop = sorted(pop, key=attrgetter("fitness"), reverse = True)
 			pop = toolbox.population(n)
@@ -113,7 +113,7 @@ def main(func, dim, maxfuncevals, ftarget, tournsize):
 		
 		g += len(pop)
 	# print(logbook)
-	return best_pop
+	return best_pop.fitness.values[0]
 
 if __name__ == "__main__":
 	output = sys.argv[1]
