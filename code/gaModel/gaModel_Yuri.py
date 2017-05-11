@@ -67,7 +67,7 @@ def gaModel(func,NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval, tournsize
 	# Attribute generator
 
 	toolbox.register("evaluate", func)
-	toolbox.decorate("evaluate", tupleize)
+	toolbox.decorate("evaluate", tupleize, modelOmega, mean)
 	toolbox.register("attr_float", random.random)
 	toolbox.register("mate", tools.cxOnePoint)
 	# operator for selecting individuals for breeding the next
@@ -90,7 +90,7 @@ def gaModel(func,NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval, tournsize
 	logbook.header = "gen","min","avg","max","std"
 
 	pop = toolbox.population(n)
-	toolbox.evaluate(pop[0],modelOmega, mean)
+	toolbox.evaluate(pop[0])
 	exit()
 	# Evaluate the entire population
 	fitnesses = list(toolbox.map(toolbox.evaluate, pop))
