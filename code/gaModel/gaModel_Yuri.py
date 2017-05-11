@@ -177,8 +177,6 @@ if __name__ == "__main__":
 	func.evaluate = evaluationFunction
 	opt=ftarget
 	e.setfun(func, opt=ftarget)
-	print(e.ftarget, ftarget)
-	e.ftarget = ftarget
 
 	gaModel(func,
 		NGEN=5,
@@ -191,7 +189,7 @@ if __name__ == "__main__":
 		mean=mean,
 		n_aval=100,
 		tournsize=tournsize,
-		ftarget=e.ftarget)
+		ftarget=ftarget)
 
 
 	print('FEs=%d ' % (e.evaluations))

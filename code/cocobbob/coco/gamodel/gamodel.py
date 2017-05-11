@@ -20,7 +20,7 @@ import array
 import math
 import random
 import time
-import multiprocessing
+from pathos.multiprocessing import ProcessingPool as Pool
 from itertools import chain
 
 from deap import base
@@ -36,8 +36,8 @@ import bbobbenchmarks as bn
 toolbox = base.Toolbox()
 creator.create("FitnessMin", base.Fitness, weights=(-1.0,))
 creator.create("Individual", array.array, typecode="d", fitness=creator.FitnessMin)
-# pool = multiprocessing.Pool()
-# toolbox.register("map", pool.map)
+pool = multiprocessing.Pool()
+toolbox.register("map", pool.map)
 
 def tupleize(func):
     """A decorator that tuple-ize the result of a function. This is useful
@@ -150,8 +150,7 @@ if __name__ == "__main__":
 
 					# Run the algorithm with the remaining number of evaluations
 					revals = int(math.ceil(maxfuncevals - e.evaluations))
-					a = e.ftarget
-					main(e.evalfun, dim, revals, a, tournsize)
+					main(e.evalfun, dim, revals, e.ftarget, tournsize)
 					# Stop if ftarget is reached
 					if e.fbest < e.ftarget or e.evaluations + minfuncevals > maxfuncevals:
 						break
