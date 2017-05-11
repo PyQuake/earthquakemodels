@@ -35,7 +35,7 @@ def evaluationFunction(individual, modelOmega, mean):
 		# calcLogLikelihood.cache_clear()
 		if tempValue < logValue:
 			logValue = tempValue
-	return logValue,
+	return logValue
 
 
 #parallel
