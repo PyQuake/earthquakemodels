@@ -144,6 +144,10 @@ if __name__ == "__main__":
 
 				# Set the function to be used (problem) in the logger
 				e.setfun(*bn.instantiate(f_name, iinstance=instance))
+				print(*bn.instantiate(f_name, iinstance=instance))
+				res = dictbbob[1](iinstance=1, param=None)
+				print(res, res.fopt)
+				exit()
 				# Independent restarts until maxfunevals or ftarget is reached
 				for restarts in range(0, maxrestarts + 1):
 					if restarts > 0:
@@ -152,12 +156,7 @@ if __name__ == "__main__":
 
 					# Run the algorithm with the remaining number of evaluations
 					revals = int(math.ceil(maxfuncevals - e.evaluations))
-					print("e.evalfun=",e.evalfun)
-
-
 					main(e.evalfun, dim, revals, e.ftarget, tournsize)
-					print("e.evaluations=%d"%e.evaluations)
-					exit()
 					# Stop if ftarget is reached
 					if e.fbest < e.ftarget or e.evaluations + minfuncevals > maxfuncevals:
 						break
