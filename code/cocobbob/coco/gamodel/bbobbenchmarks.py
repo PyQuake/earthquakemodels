@@ -693,8 +693,7 @@ class F109(_FSphere, BBOBCauchyFunction):
     cauchyalpha = 1.
     cauchyp = 0.2
 
-
-class F2(BBOBNfreeFunction):
+class F2_new(BBOBNfreeFunction):
     """Separable ellipsoid with monotone transformation
     
     Parameter: condition number (default 1e6)
@@ -737,14 +736,64 @@ class F2(BBOBNfreeFunction):
 
         # COMPUTATION core
         ftrue = dot(monotoneTFosc(x)**2, self.scales)
+
+        # FINALIZE
+        ftrue += fadd
+
+        return fval
+
+
+class F2(BBOBNfreeFunction):
+    """Separable ellipsoid with monotone transformation
+    
+    Parameter: condition number (default 1e6)
+
+    """
+
+    funId = 2
+    paramValues = (1e0, 1e6)
+    condition = 1e6
+
+    def initwithsize(self, curshape, dim):
+        # DIM-dependent initialization
+        if self.dim != dim:
+            if self.zerox:
+                self.xopt = zeros(dim)
+            else:
+                self.xopt = compute_xopt(self.rseed, dim)
+            if hasattr(self, 'param') and self.param: # not self.param is None
+                tmp = self.param
+            else:
+                tmp = self.condition
+            self.scales = tmp ** linspace(0, 1, dim)
+
+        # DIM- and POPSI-dependent initialisations of DIM*POPSI matrices
+        if self.lastshape != curshape:
+            self.dim = dim
+            self.lastshape = curshape
+            self.arrxopt = resize(self.xopt, curshape)
+
+    def _evalfull(self, x):
+        print(x)
+        fadd = self.fopt
+        curshape, dim = self.shape_(x)
+        # it is assumed x are row vectors
+
+        if self.lastshape != curshape:
+            self.initwithsize(curshape, dim)
+
+        # TRANSFORMATION IN SEARCH SPACE
+        x = x - self.arrxopt # cannot be replaced with x -= arrxopt!
+
+        # COMPUTATION core
+        ftrue = dot(monotoneTFosc(x)**2, self.scales)
         fval = self.noise(ftrue) # without noise
 
         # FINALIZE
         ftrue += fadd
         fval += fadd
-        print(ftrue, fval)
-        # return fval, ftrue
-        return fval
+
+        return fval, ftrue
 
 class F3(BBOBNfreeFunction):
     """Rastrigin with monotone transformation separable "condition" 10"""
