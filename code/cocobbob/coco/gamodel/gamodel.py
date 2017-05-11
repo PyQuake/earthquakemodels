@@ -77,6 +77,7 @@ def main(func, dim, maxfuncevals, ftarget, tournsize):
 	maxfuncevals -= len(pop)
 	# for g in range(maxfuncevals):
 	while(g < maxfuncevals):
+		print(g)
 		offspring = toolbox.select(pop, len(pop))
 		offspring = list(toolbox.map(toolbox.clone, pop))
 		for child1, child2 in zip(offspring[::2], offspring[1::2]):
