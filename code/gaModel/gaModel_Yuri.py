@@ -90,7 +90,6 @@ def gaModel(func,NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval, tournsize
 	logbook.header = "gen","min","avg","max","std"
 
 	pop = toolbox.population(n)
-	print(toolbox.evaluate)
 	toolbox.evaluate(pop[0],modelOmega, mean)
 	exit()
 	# Evaluate the entire population
