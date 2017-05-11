@@ -71,7 +71,7 @@ def main(func, dim, maxfuncevals, ftarget=None, tournsize=20):
 	# logbook.header = "gen","min","avg","max","std"
 	pop = toolbox.population(n)
 	print('in main',pop[0])
-	toolbox.map(toolbox.evaluate, [3.9937153 , -2.45531052])
+	toolbox.map(toolbox.evaluate, pop[0])
 	exit()
 	fitnesses = list(toolbox.map(toolbox.evaluate, pop))
 	for ind, fit in zip(pop, fitnesses):
