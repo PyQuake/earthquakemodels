@@ -52,7 +52,7 @@ def main(func, dim, maxfuncevals, ftarget=None, tournsize=20):
 	MUTPB=0.1
 	g=0
 	n = min(100, 10 * dim)
-	n=2
+	n=1
 	toolbox = base.Toolbox()
 	toolbox.register("evaluate", func)
 	toolbox.decorate("evaluate", tupleize)
@@ -70,7 +70,7 @@ def main(func, dim, maxfuncevals, ftarget=None, tournsize=20):
 	# logbook = tools.Logbook()
 	# logbook.header = "gen","min","avg","max","std"
 	pop = toolbox.population(n)
-	print(pop[0])
+	print('in main',pop[0])
 	toolbox.map(toolbox.evaluate, pop[0])
 	exit()
 	fitnesses = list(toolbox.map(toolbox.evaluate, pop))
