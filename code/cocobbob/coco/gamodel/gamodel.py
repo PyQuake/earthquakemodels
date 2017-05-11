@@ -150,7 +150,7 @@ if __name__ == "__main__":
 
 					# Run the algorithm with the remaining number of evaluations
 					revals = int(math.ceil(maxfuncevals - e.evaluations))
-					print("e.evalfun=%d"%e.evalfun)
+					print("e.evalfun=",e.evalfun)
 
 
 					main(e.evalfun, dim, revals, e.ftarget, tournsize)
