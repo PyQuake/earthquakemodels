@@ -54,7 +54,7 @@ def main(func, dim, maxfuncevals, ftarget, tournsize):
 	g=0
 	n = min(100, 10 * dim)
 	slicesize = 1
-	toolbox = base.Toolbox()
+	# toolbox = base.Toolbox()
 	toolbox.register("evaluate", func)
 	toolbox.decorate("evaluate", tupleize)
 	toolbox.register("attr_float", random.uniform, -5,5)

@@ -45,8 +45,15 @@ creator.create("Individual", array.array, typecode='d', fitness=creator.FitnessF
 pool = Pool()
 toolbox.register("map", pool.map)
 
+def tupleize(func):
+    """A decorator that tuple-ize the result of a function. This is useful
+    when the evaluation function returns a single value.
+    """
+    def wrapper(*args, **kargs):
+        return func(*args, **kargs),
+    return wrapper
 
-def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval=50000, tournsize=2, ftarget=None):
+def gaModel(func,NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval=50000, tournsize=2, ftarget=None):
 	"""
 	The main function. It evolves models, namely modelLamba or individual. 
 	It uses 1 parallel system: 1, simple, that splits the ga evolution between cores
@@ -58,6 +65,9 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval=50000, tournsiz
 	x=n_aval - y*NGEN
 	n= x + y
 	# Attribute generator
+
+	toolbox.register("evaluate", func, , modelOmega=modelOmega, mean=mean)
+	toolbox.decorate("evaluate", tupleize)
 	toolbox.register("attr_float", random.random)
 	toolbox.register("mate", tools.cxOnePoint)
 	# operator for selecting individuals for breeding the next
@@ -72,7 +82,7 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval=50000, tournsiz
 	stats.register("std", np.std)
 	stats.register("min", np.min)
 	stats.register("max", np.max)
-	toolbox.register("evaluate", evaluationFunction, modelOmega=modelOmega, mean=mean)
+	# toolbox.register("evaluate", evaluationFunction, modelOmega=modelOmega, mean=mean)
 	toolbox.register("individual", tools.initRepeat, creator.Individual, toolbox.attr_float, len(modelOmega[0].bins))
 	toolbox.register("population", tools.initRepeat, list, toolbox.individual)
 
@@ -164,12 +174,12 @@ if __name__ == "__main__":
 	observation = models.model.loadModelDB(region+'jmaData', year+6)
 	ftarget=calcLogLikelihood(observation, observation)
 	func, opt = bn.instantiate(f_name, iinstance=instance)
-	func.evaluate = ()
+	func.evaluate = evaluationFunction
 	opt=ftarget
 	e.setfun(func, opt=ftarget)
 	e.ftarget = ftarget
 
-	gaModel(
+	gaModel(func,
 		NGEN=5,
 		CXPB=0.9,
 		MUTPB=0.1,
