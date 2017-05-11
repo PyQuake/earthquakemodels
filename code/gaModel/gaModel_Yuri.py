@@ -58,7 +58,6 @@ def gaModel(func,NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval=50000, tou
 	The main function. It evolves models, namely modelLamba or individual. 
 	It uses 1 parallel system: 1, simple, that splits the ga evolution between cores
 	"""
-	print("e.ftarget=%f" % e.ftarget)
 	start = time.clock()  
 	#calculating the number of individuals of the populations based on the number of executions
 	y=int(n_aval/NGEN)
@@ -66,8 +65,8 @@ def gaModel(func,NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval=50000, tou
 	n= x + y
 	# Attribute generator
 
-	toolbox.register("evaluate", func, modelOmega=modelOmega, mean=mean)
-	toolbox.decorate("evaluate", tupleize)
+	toolbox.register("evaluate", func)
+	toolbox.decorate("evaluate", tupleize, modelOmega=modelOmega, mean=mean)
 	toolbox.register("attr_float", random.random)
 	toolbox.register("mate", tools.cxOnePoint)
 	# operator for selecting individuals for breeding the next
