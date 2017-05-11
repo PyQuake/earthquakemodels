@@ -36,8 +36,8 @@ import bbobbenchmarks as bn
 toolbox = base.Toolbox()
 creator.create("FitnessMin", base.Fitness, weights=(-1.0,))
 creator.create("Individual", array.array, typecode="d", fitness=creator.FitnessMin)
-pool = multiprocessing.Pool()
-toolbox.register("map", pool.map)
+# pool = multiprocessing.Pool()
+# toolbox.register("map", pool.map)
 
 def tupleize(func):
     """A decorator that tuple-ize the result of a function. This is useful
