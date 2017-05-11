@@ -115,7 +115,8 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval=50000, tournsiz
 		random.shuffle(pop)
 		record = stats.compile(pop)
 		if (abs(record["min"] - ftarget)) < 10e-8:
-			print(best_pop.fitness.values[0])
+			print(best_pop.fitness.values[0], g)
+			revals = g
 			return best_pop.fitness.values[0]
 		if record["std"] < 10e-12:	
 			sortedPop = sorted(pop, key=attrgetter("fitness"), reverse = True)
@@ -126,7 +127,8 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval=50000, tournsiz
 				ind.fitness.values = fit
 			g+=1
 		logbook.record(gen=g, **record)
-	print(best_pop.fitness.values[0])
+	print(best_pop.fitness.values[0], g)
+	revals = g
 	return best_pop.fitness.values[0]
 	# end = time.clock()  
 	# generatedModel = models.model.newModel(modelOmega[0].definitions)
@@ -166,6 +168,8 @@ if __name__ == "__main__":
 	observation = models.model.loadModelDB(region+'jmaData', year+6)
 	ftarget=calcLogLikelihood(observation, observation)
 	e.setfun(evaluationFunction, ftarget, 1, 1)
+	# revals = int(math.ceil(maxfuncevals - e.evaluations))
+	revals = 10
 	gaModel(
 		NGEN=5,
 		CXPB=0.9,
@@ -175,7 +179,7 @@ if __name__ == "__main__":
 		5,
 		region=region,
 		mean=mean,
-		n_aval=10,
+		n_aval=revals,
 		tournsize=tournsize,
 		ftarget=e.ftarget)
 
