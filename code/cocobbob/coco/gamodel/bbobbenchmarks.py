@@ -743,7 +743,8 @@ class F2(BBOBNfreeFunction):
         ftrue += fadd
         fval += fadd
         print(ftrue, fval)
-        return fval, ftrue
+        # return fval, ftrue
+        return fval
 
 class F3(BBOBNfreeFunction):
     """Rastrigin with monotone transformation separable "condition" 10"""
