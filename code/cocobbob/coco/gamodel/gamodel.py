@@ -144,7 +144,7 @@ if __name__ == "__main__":
 
 				# Set the function to be used (problem) in the logger
 				e.setfun(*bn.instantiate(f_name, iinstance=instance))
-				print(*bn.instantiate(f_name, iinstance=instance))
+				print(bn.instantiate(f_name, iinstance=instance))
 				res = dictbbob[1](iinstance=1, param=None)
 				print(res, res.fopt)
 				exit()
