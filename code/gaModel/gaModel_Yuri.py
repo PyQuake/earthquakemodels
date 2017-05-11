@@ -25,6 +25,7 @@ def evaluationFunction(individual, modelOmega, mean):
 	It selects the smallest loglikelihood value.
 	"""
 	logValue = float('Inf')
+	print("enout")
 	genomeModel=models.model.newModel(modelOmega[0].definitions)
 	genomeModel.bins=list(individual)
 	modelLambda=models.model.newModel(modelOmega[0].definitions)
@@ -50,8 +51,6 @@ def tupleize(func):
     when the evaluation function returns a single value.
     """
     def wrapper(*args, **kargs):
-    	print(func)
-    	exit()
         return func(*args, **kargs),
     return wrapper
 
@@ -66,7 +65,7 @@ def gaModel(func,NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval, tournsize
 	x=n_aval - y*NGEN
 	n= x + y
 	# Attribute generator
-	print(func)
+
 	toolbox.register("evaluate", func)
 	toolbox.decorate("evaluate", tupleize)
 	toolbox.register("attr_float", random.random)
@@ -91,6 +90,8 @@ def gaModel(func,NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval, tournsize
 	logbook.header = "gen","min","avg","max","std"
 
 	pop = toolbox.population(n)
+	func(modelOmega, pop[0], mean)
+	exit()
 	# Evaluate the entire population
 	fitnesses = list(toolbox.map(toolbox.evaluate, pop))
 	for ind, fit in zip(pop, fitnesses):
