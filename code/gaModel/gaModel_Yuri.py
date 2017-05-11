@@ -166,7 +166,7 @@ if __name__ == "__main__":
 	ftarget=calcLogLikelihood(observation, observation)
 
 	model_ = gaModel(
-		NGEN=100,
+		NGEN=10,
 		CXPB=0.9,
 		MUTPB=0.1,
 		modelOmega=observations,
@@ -174,10 +174,11 @@ if __name__ == "__main__":
 		5,
 		region=region,
 		mean=mean,
-		n_aval=50000,
+		n_aval=250,
 		tournsize=tournsize,
 		ftarget=ftarget)
 
-	# gaModel(e.evalfun, dim, revals, e.ftarget, tournsize)
+
+	print('FEs=%d fbest-ftarget=%.4e' % (e.evaluations, e.fbest - e.ftarget))
 
 	e.finalizerun()
