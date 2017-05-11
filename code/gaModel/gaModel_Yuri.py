@@ -51,6 +51,7 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval=50000, tournsiz
 	The main function. It evolves models, namely modelLamba or individual. 
 	It uses 1 parallel system: 1, simple, that splits the ga evolution between cores
 	"""
+	print("e.ftarget=%f" % e.ftarget)
 	start = time.clock()  
 	#calculating the number of individuals of the populations based on the number of executions
 	y=int(n_aval/NGEN)
@@ -126,7 +127,7 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval=50000, tournsiz
 			g+=1
 		logbook.record(gen=g, **record)
 	print(best_pop, best_pop.fitness)
-	return best_pop
+	return best_pop.fitness
 	# end = time.clock()  
 	# generatedModel = models.model.newModel(modelOmega[0].definitions)
 	# generatedModel.prob = best_pop
@@ -150,7 +151,8 @@ if __name__ == "__main__":
 	# Create a COCO experiment that will log the results under the
 	# ./output directory
 	e = fgeneric.LoggingFunction(output)
-	print(e.evaluations)
+	print("e",e)
+	print("e.evaluations"%e.evaluations)
 
 	observations = list()
 	means = list()
@@ -165,8 +167,10 @@ if __name__ == "__main__":
 	
 	observation = models.model.loadModelDB(region+'jmaData', year+6)
 	ftarget=calcLogLikelihood(observation, observation)
+	print("ftarget",ftarget)
 	e.setfun(evaluationFunction, ftarget, 1, 1)
-	model_ = gaModel(
+	print("e.ftarget",e.ftarget)
+	gaModel(
 		NGEN=5,
 		CXPB=0.9,
 		MUTPB=0.1,
@@ -175,12 +179,12 @@ if __name__ == "__main__":
 		5,
 		region=region,
 		mean=mean,
-		n_aval=60,
+		n_aval=10,
 		tournsize=tournsize,
-		ftarget=ftarget)
+		ftarget=e.ftarget)
 
 
 	print('FEs=%d ' % (e.evaluations))
-	print('fbest-ftarget=%.4e' % e.fbest - e.ftarget)
+	print('fbest-ftarget=%.4e' % e.fbest)
 
 	e.finalizerun()
