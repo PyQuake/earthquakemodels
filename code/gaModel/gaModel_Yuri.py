@@ -115,8 +115,8 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval=50000, tournsiz
 		random.shuffle(pop)
 		record = stats.compile(pop)
 		if (abs(record["min"] - ftarget)) < 10e-8:
-			print(best_pop.fitness.values)
-			return best_pop.fitness.values
+			print(best_pop.fitness.values[0])
+			return best_pop.fitness.values[0]
 		if record["std"] < 10e-12:	
 			sortedPop = sorted(pop, key=attrgetter("fitness"), reverse = True)
 			pop = toolbox.population(n)
@@ -126,8 +126,8 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval=50000, tournsiz
 				ind.fitness.values = fit
 			g+=1
 		logbook.record(gen=g, **record)
-	print(best_pop.fitness.values)
-	return best_pop.fitness.values
+	print(best_pop.fitness.values[0])
+	return best_pop.fitness.values[0]
 	# end = time.clock()  
 	# generatedModel = models.model.newModel(modelOmega[0].definitions)
 	# generatedModel.prob = best_pop
@@ -151,8 +151,6 @@ if __name__ == "__main__":
 	# Create a COCO experiment that will log the results under the
 	# ./output directory
 	e = fgeneric.LoggingFunction(output)
-	print("e",e)
-	print("e.evaluations",e.evaluations)
 
 	observations = list()
 	means = list()
@@ -167,9 +165,7 @@ if __name__ == "__main__":
 	
 	observation = models.model.loadModelDB(region+'jmaData', year+6)
 	ftarget=calcLogLikelihood(observation, observation)
-	print("ftarget",ftarget)
 	e.setfun(evaluationFunction, ftarget, 1, 1)
-	print("e.ftarget",e.ftarget)
 	gaModel(
 		NGEN=5,
 		CXPB=0.9,
