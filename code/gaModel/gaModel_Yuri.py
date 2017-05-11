@@ -164,7 +164,7 @@ if __name__ == "__main__":
 	
 	observation = models.model.loadModelDB(region+'jmaData', year+6)
 	ftarget=calcLogLikelihood(observation, observation)
-	e.setfun(evaluationFunction)
+	e.setfun(evaluationFunction, ftarget, 1, 1)
 	model_ = gaModel(
 		NGEN=10,
 		CXPB=0.9,
