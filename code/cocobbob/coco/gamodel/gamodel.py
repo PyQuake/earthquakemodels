@@ -149,7 +149,7 @@ if __name__ == "__main__":
 
 					# Run the algorithm with the remaining number of evaluations
 					revals = int(math.ceil(maxfuncevals - e.evaluations))
-					main(e.evalfun, dim, revals, e.ftarget)
+					main(e.evalfun, dim, revals, e.ftarget, 2)
 
 					# Stop if ftarget is reached
 					if e.fbest < e.ftarget or e.evaluations + minfuncevals > maxfuncevals:
