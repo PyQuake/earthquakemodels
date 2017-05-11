@@ -181,6 +181,6 @@ if __name__ == "__main__":
 
 
 	print('FEs=%d ' % (e.evaluations))
-	print('fbest-ftarget=%.4e' % e.fbest - e.ftarget))
+	print('fbest-ftarget=%.4e' % e.fbest - e.ftarget)
 
 	e.finalizerun()
