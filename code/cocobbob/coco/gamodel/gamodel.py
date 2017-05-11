@@ -146,7 +146,7 @@ if __name__ == "__main__":
 				e.setfun(*bn.instantiate(f_name, iinstance=instance))
 				print(bn.instantiate(f_name, iinstance=instance))
 				# res = dictbbob[1](iinstance=1, param=None)
-				print(res, res.fopt)
+				# print(res, res.fopt)
 				exit()
 				# Independent restarts until maxfunevals or ftarget is reached
 				for restarts in range(0, maxrestarts + 1):
