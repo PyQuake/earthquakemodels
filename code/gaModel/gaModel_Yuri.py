@@ -180,6 +180,7 @@ if __name__ == "__main__":
 		ftarget=ftarget)
 
 
-	print('FEs=%d fbest-ftarget=%.4e' % (e.evaluations, e.fbest - e.ftarget))
+	print('FEs=%d ' % (e.evaluations)
+	print('fbest-ftarget=%.4e' % e.fbest - e.ftarget))
 
 	e.finalizerun()
