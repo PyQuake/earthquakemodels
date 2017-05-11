@@ -66,76 +66,76 @@ def gaModel(func,NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval=50000, tou
 	# Attribute generator
 	func(modelOmega[0], modelOmega[0], mean)
 	exit()
-	toolbox.register("evaluate", func, modelOmega, mean)
-	toolbox.decorate("evaluate", tupleize)
-	toolbox.register("attr_float", random.random)
-	toolbox.register("mate", tools.cxOnePoint)
-	# operator for selecting individuals for breeding the next
-	# generation: each individual of the current generation
-	# is replaced by the 'fittest' (best) of three individuals
-	# drawn randomly from the current generation.
-	toolbox.register("select", tools.selTournament, tournsize=tournsize)
-	# toolbox.register("select", tools.selLexicase)
-	toolbox.register("mutate", tools.mutPolynomialBounded,indpb=0.1, eta = 1, low = 0, up = 1)
-	stats = tools.Statistics(key=lambda ind: ind.fitness.values)
-	stats.register("avg", np.mean)
-	stats.register("std", np.std)
-	stats.register("min", np.min)
-	stats.register("max", np.max)
-	# toolbox.register("evaluate", evaluationFunction, modelOmega=modelOmega, mean=mean)
-	toolbox.register("individual", tools.initRepeat, creator.Individual, toolbox.attr_float, len(modelOmega[0].bins))
-	toolbox.register("population", tools.initRepeat, list, toolbox.individual)
+	# toolbox.register("evaluate", func, modelOmega, mean)
+	# toolbox.decorate("evaluate", tupleize)
+	# toolbox.register("attr_float", random.random)
+	# toolbox.register("mate", tools.cxOnePoint)
+	# # operator for selecting individuals for breeding the next
+	# # generation: each individual of the current generation
+	# # is replaced by the 'fittest' (best) of three individuals
+	# # drawn randomly from the current generation.
+	# toolbox.register("select", tools.selTournament, tournsize=tournsize)
+	# # toolbox.register("select", tools.selLexicase)
+	# toolbox.register("mutate", tools.mutPolynomialBounded,indpb=0.1, eta = 1, low = 0, up = 1)
+	# stats = tools.Statistics(key=lambda ind: ind.fitness.values)
+	# stats.register("avg", np.mean)
+	# stats.register("std", np.std)
+	# stats.register("min", np.min)
+	# stats.register("max", np.max)
+	# # toolbox.register("evaluate", evaluationFunction, modelOmega=modelOmega, mean=mean)
+	# toolbox.register("individual", tools.initRepeat, creator.Individual, toolbox.attr_float, len(modelOmega[0].bins))
+	# toolbox.register("population", tools.initRepeat, list, toolbox.individual)
 
-	logbook = tools.Logbook()
-	logbook.header = "gen","min","avg","max","std"
+	# logbook = tools.Logbook()
+	# logbook.header = "gen","min","avg","max","std"
 
-	pop = toolbox.population(n)
-	# Evaluate the entire population
-	fitnesses = list(toolbox.map(toolbox.evaluate, pop))
-	for ind, fit in zip(pop, fitnesses):
-		ind.fitness.values = fit
+	# pop = toolbox.population(n)
+	# # Evaluate the entire population
+	# fitnesses = list(toolbox.map(toolbox.evaluate, pop))
+	# for ind, fit in zip(pop, fitnesses):
+	# 	ind.fitness.values = fit
 
-	for g in range(NGEN):
-		print(g)
-		# Select the next generation individuals
-		offspring = toolbox.select(pop, len(pop))
-		#create offspring
-		offspring = list(toolbox.map(toolbox.clone, pop))
-		# Apply crossover and mutation on the offspring
-		for child1, child2 in zip(offspring[::2], offspring[1::2]):
-			if random.random() < CXPB:
-				toolbox.mate(child1, child2)
-				del child1.fitness.values
-				del child2.fitness.values
-		for mutant in offspring:
-			if random.random() < MUTPB:
-				toolbox.mutate(mutant)
-				del mutant.fitness.values
-        # Evaluate the individuals with an invalid fitness
-		invalid_ind = [ind for ind in offspring if not ind.fitness.valid]
-		fitnesses = list(toolbox.map(toolbox.evaluate, invalid_ind))
-		for ind, fit in zip(invalid_ind, fitnesses):
-			ind.fitness.values = fit
-		#Elitism
-		best_pop = tools.selBest(pop, 1)[0]
-		# The population is entirely replaced by the offspring, but the last ind replaced by best_pop
-		pop[:] = offspring
-		pop = sorted(pop, key=attrgetter("fitness"), reverse = False)
-		pop[0]=best_pop
-		random.shuffle(pop)
-		record = stats.compile(pop)
-		if (abs(record["min"] - ftarget)) < 10e-8:
-			return best_pop.fitness.values[0]
-		if record["std"] < 10e-12:	
-			sortedPop = sorted(pop, key=attrgetter("fitness"), reverse = True)
-			pop = toolbox.population(n)
-			pop[0] = sortedPop[0]
-			fitnesses = list(toolbox.map(toolbox.evaluate, pop))
-			for ind, fit in zip(pop, fitnesses):
-				ind.fitness.values = fit
-			g+=1
-		logbook.record(gen=g, **record)
-	return best_pop.fitness.values[0]
+	# for g in range(NGEN):
+	# 	print(g)
+	# 	# Select the next generation individuals
+	# 	offspring = toolbox.select(pop, len(pop))
+	# 	#create offspring
+	# 	offspring = list(toolbox.map(toolbox.clone, pop))
+	# 	# Apply crossover and mutation on the offspring
+	# 	for child1, child2 in zip(offspring[::2], offspring[1::2]):
+	# 		if random.random() < CXPB:
+	# 			toolbox.mate(child1, child2)
+	# 			del child1.fitness.values
+	# 			del child2.fitness.values
+	# 	for mutant in offspring:
+	# 		if random.random() < MUTPB:
+	# 			toolbox.mutate(mutant)
+	# 			del mutant.fitness.values
+ #        # Evaluate the individuals with an invalid fitness
+	# 	invalid_ind = [ind for ind in offspring if not ind.fitness.valid]
+	# 	fitnesses = list(toolbox.map(toolbox.evaluate, invalid_ind))
+	# 	for ind, fit in zip(invalid_ind, fitnesses):
+	# 		ind.fitness.values = fit
+	# 	#Elitism
+	# 	best_pop = tools.selBest(pop, 1)[0]
+	# 	# The population is entirely replaced by the offspring, but the last ind replaced by best_pop
+	# 	pop[:] = offspring
+	# 	pop = sorted(pop, key=attrgetter("fitness"), reverse = False)
+	# 	pop[0]=best_pop
+	# 	random.shuffle(pop)
+	# 	record = stats.compile(pop)
+	# 	if (abs(record["min"] - ftarget)) < 10e-8:
+	# 		return best_pop.fitness.values[0]
+	# 	if record["std"] < 10e-12:	
+	# 		sortedPop = sorted(pop, key=attrgetter("fitness"), reverse = True)
+	# 		pop = toolbox.population(n)
+	# 		pop[0] = sortedPop[0]
+	# 		fitnesses = list(toolbox.map(toolbox.evaluate, pop))
+	# 		for ind, fit in zip(pop, fitnesses):
+	# 			ind.fitness.values = fit
+	# 		g+=1
+	# 	logbook.record(gen=g, **record)
+	# return best_pop.fitness.values[0]
 	# end = time.clock()  
 	# generatedModel = models.model.newModel(modelOmega[0].definitions)
 	# generatedModel.prob = best_pop
