@@ -50,6 +50,8 @@ def tupleize(func):
     when the evaluation function returns a single value.
     """
     def wrapper(*args, **kargs):
+    	print(func)
+    	exit()
         return func(*args, **kargs),
     return wrapper
 
@@ -64,7 +66,8 @@ def gaModel(func,NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval, tournsize
 	x=n_aval - y*NGEN
 	n= x + y
 	# Attribute generator
-	toolbox.register("evaluate", func, modelOmega, mean)
+	print(func)
+	toolbox.register("evaluate", func)
 	toolbox.decorate("evaluate", tupleize)
 	toolbox.register("attr_float", random.random)
 	toolbox.register("mate", tools.cxOnePoint)
