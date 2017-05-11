@@ -691,7 +691,7 @@ class F109(_FSphere, BBOBCauchyFunction):
     cauchyalpha = 1.
     cauchyp = 0.2
 
-class
+# class F2(BBOBNfreeFunction):
 
 class F2(BBOBNfreeFunction):
     """Separable ellipsoid with monotone transformation
