@@ -75,7 +75,6 @@ def main(func, dim, maxfuncevals, ftarget=None, tournsize=20):
 	maxfuncevals -= len(pop)
 	# for g in range(maxfuncevals):
 	while(g < maxfuncevals):
-		print(g)
 		offspring = toolbox.select(pop, len(pop))
 		offspring = list(toolbox.map(toolbox.clone, pop))
 		for child1, child2 in zip(offspring[::2], offspring[1::2]):
@@ -125,7 +124,7 @@ if __name__ == "__main__":
 	for dim in (2, 3, 5, 10, 20, 40):
 		# Set the maximum number function evaluation granted to the algorithm
 		# This is usually function of the dimensionality of the problem
-		maxfuncevals = 10e1 * dim
+		maxfuncevals = 10e5 * dim
 		minfuncevals = dim + 2
 
 		# Iterate over a set of benchmarks (noise free benchmarks here)
