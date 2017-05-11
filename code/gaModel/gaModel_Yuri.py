@@ -66,7 +66,7 @@ def gaModel(func,NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval=50000, tou
 	n= x + y
 	# Attribute generator
 
-	toolbox.register("evaluate", funcmodelOmega)
+	toolbox.register("evaluate", func,modelOmega)
 	toolbox.decorate("evaluate", tupleize)
 	toolbox.register("attr_float", random.random)
 	toolbox.register("mate", tools.cxOnePoint)
