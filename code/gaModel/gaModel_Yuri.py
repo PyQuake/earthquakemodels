@@ -90,7 +90,7 @@ def gaModel(func,NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval=50000, tou
 
 	pop = toolbox.population(n)
 	# Evaluate the entire population
-	# fitnesses = list(toolbox.map(toolbox.evaluate, pop, modelOmega, mean))
+	fitnesses = list(toolbox.map(toolbox.evaluate, pop))
 	for ind, fit in zip(pop, fitnesses):
 		ind.fitness.values = fit
 
@@ -112,7 +112,7 @@ def gaModel(func,NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval=50000, tou
 				del mutant.fitness.values
         # Evaluate the individuals with an invalid fitness
 		invalid_ind = [ind for ind in offspring if not ind.fitness.valid]
-		# fitnesses = list(toolbox.map(toolbox.evaluate, invalid_ind, modelOmega, mean))
+		fitnesses = list(toolbox.map(toolbox.evaluate, invalid_ind))
 		for ind, fit in zip(invalid_ind, fitnesses):
 			ind.fitness.values = fit
 		#Elitism
@@ -129,7 +129,7 @@ def gaModel(func,NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval=50000, tou
 			sortedPop = sorted(pop, key=attrgetter("fitness"), reverse = True)
 			pop = toolbox.population(n)
 			pop[0] = sortedPop[0]
-			# fitnesses = list(toolbox.map(toolbox.evaluate, pop, modelOmega, mean))
+			fitnesses = list(toolbox.map(toolbox.evaluate, pop))
 			for ind, fit in zip(pop, fitnesses):
 				ind.fitness.values = fit
 			g+=1
