@@ -115,8 +115,8 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval=50000, tournsiz
 		random.shuffle(pop)
 		record = stats.compile(pop)
 		if (abs(record["min"] - ftarget)) < 10e-8:
-			print(best_pop, best_pop.fitness)
-			return best_pop.fitness
+			print(best_pop.fitness.values)
+			return best_pop.fitness.values
 		if record["std"] < 10e-12:	
 			sortedPop = sorted(pop, key=attrgetter("fitness"), reverse = True)
 			pop = toolbox.population(n)
@@ -126,8 +126,8 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval=50000, tournsiz
 				ind.fitness.values = fit
 			g+=1
 		logbook.record(gen=g, **record)
-	print(best_pop, best_pop.fitness)
-	return best_pop.fitness
+	print(best_pop.fitness.values)
+	return best_pop.fitness.values
 	# end = time.clock()  
 	# generatedModel = models.model.newModel(modelOmega[0].definitions)
 	# generatedModel.prob = best_pop
