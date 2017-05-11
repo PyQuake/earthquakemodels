@@ -651,7 +651,7 @@ class _FSphere(BBOBFunction):
         fval += fadd
         return fval, ftrue
 
-class F1(_FSphere, BBOBNfreeFunction):
+class F1(_FSphere):
     """Noise-free Sphere function"""
     funId = 1
     def boundaryhandling(self, x):
