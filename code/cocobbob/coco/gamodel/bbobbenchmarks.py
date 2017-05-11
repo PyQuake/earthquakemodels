@@ -699,7 +699,7 @@ class F2(BBOBNfreeFunction):
     paramValues = (1e0, 1e6)
     condition = 1e6
 
-    def initwithsize():
+    def initwithsize(self, curshape, dim):
         # DIM-dependent initialization
         if self.dim != dim:
             if self.zerox:
