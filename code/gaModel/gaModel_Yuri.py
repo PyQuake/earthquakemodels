@@ -152,7 +152,7 @@ if __name__ == "__main__":
 	# ./output directory
 	e = fgeneric.LoggingFunction(output)
 	print("e",e)
-	print("e.evaluations"%e.evaluations)
+	print("e.evaluations",e.evaluations)
 
 	observations = list()
 	means = list()
