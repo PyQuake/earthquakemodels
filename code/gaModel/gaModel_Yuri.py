@@ -177,7 +177,7 @@ if __name__ == "__main__":
 	opt=ftarget
 	e.setfun(func, opt=ftarget)
 
-	gaModel(func,
+	gaModel(e.evalfun,
 		NGEN=5,
 		CXPB=0.9,
 		MUTPB=0.1,
