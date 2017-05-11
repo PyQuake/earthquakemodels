@@ -14,13 +14,12 @@
 #    You should have received a copy of the GNU Lesser General Public
 #    License along with DEAP. If not, see <http://www.gnu.org/licenses/>.
 import sys
-# sys.path.insert(0, '../')
-# sys.path.insert(0, '../../../')
+#sys.path.insert(0, '../../../')
 import array
 import math
 import random
 import time
-from pathos.multiprocessing import ProcessingPool as Pool
+import multiprocessing
 from itertools import chain
 
 from deap import base
@@ -36,7 +35,7 @@ import bbobbenchmarks as bn
 toolbox = base.Toolbox()
 creator.create("FitnessMin", base.Fitness, weights=(-1.0,))
 creator.create("Individual", array.array, typecode="d", fitness=creator.FitnessMin)
-pool = Pool()
+pool = multiprocessing.Pool()
 toolbox.register("map", pool.map)
 
 def tupleize(func):
@@ -47,14 +46,13 @@ def tupleize(func):
         return func(*args, **kargs),
     return wrapper
 
-def main(func, dim, maxfuncevals, ftarget, tournsize):
+def main(func, dim, maxfuncevals, ftarget=None, tournsize=20):
 	NGEN=100
 	CXPB=0.9
 	MUTPB=0.1
 	g=0
 	n = min(100, 10 * dim)
-	slicesize = 1
-	# toolbox = base.Toolbox()
+	toolbox = base.Toolbox()
 	toolbox.register("evaluate", func)
 	toolbox.decorate("evaluate", tupleize)
 	toolbox.register("attr_float", random.uniform, -5,5)
@@ -100,12 +98,11 @@ def main(func, dim, maxfuncevals, ftarget, tournsize):
 		random.shuffle(pop)
 		record = stats.compile(pop)
 		if (abs(record["min"] - ftarget)) < 10e-8:
-			print(best_pop.fitness.values[0])
-			return best_pop.fitness.values[0]
+			return best_pop
 		if record["std"] < 10e-12:	
 			sortedPop = sorted(pop, key=attrgetter("fitness"), reverse = True)
 			pop = toolbox.population(n)
-			pop[slicesize] = sortedPop[slicesize]
+			pop[0] = sortedPop[0]
 			fitnesses = list(toolbox.map(toolbox.evaluate, pop))
 			for ind, fit in zip(pop, fitnesses):
 				ind.fitness.values = fit
@@ -114,8 +111,7 @@ def main(func, dim, maxfuncevals, ftarget, tournsize):
 		
 		g += len(pop)
 	# print(logbook)
-	print(best_pop.fitness.values[0])
-	return best_pop.fitness.values[0]
+	return best_pop
 
 if __name__ == "__main__":
 	output = sys.argv[1]
@@ -131,8 +127,9 @@ if __name__ == "__main__":
 	for dim in (2, 3, 5, 10, 20, 40):
 		# Set the maximum number function evaluation granted to the algorithm
 		# This is usually function of the dimensionality of the problem
-		maxfuncevals = 100 * dim**2
+		maxfuncevals = 10e1 * dim
 		minfuncevals = dim + 2
+
 		# Iterate over a set of benchmarks (noise free benchmarks here)
 		for f_name in bn.nfreeIDs:
 
@@ -151,7 +148,7 @@ if __name__ == "__main__":
 
 					# Run the algorithm with the remaining number of evaluations
 					revals = int(math.ceil(maxfuncevals - e.evaluations))
-					main(e.evalfun, dim, revals, e.ftarget, 2)
+					main(e.evalfun, dim, revals, e.ftarget, tournsize)
 
 					# Stop if ftarget is reached
 					if e.fbest < e.ftarget or e.evaluations + minfuncevals > maxfuncevals:
@@ -163,6 +160,5 @@ if __name__ == "__main__":
 					'fbest-ftarget=%.4e'
 					% (f_name, dim, instance, e.evaluations, restarts,
 						e.fbest - e.ftarget))
-
 
 			print('date and time: %s' % time.asctime())
