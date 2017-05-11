@@ -52,7 +52,6 @@ def main(func, dim, maxfuncevals, ftarget=None, tournsize=20):
 	MUTPB=0.1
 	g=0
 	n = min(100, 10 * dim)
-	slicesize = 1
 	toolbox = base.Toolbox()
 	toolbox.register("evaluate", func)
 	toolbox.decorate("evaluate", tupleize)
@@ -76,6 +75,7 @@ def main(func, dim, maxfuncevals, ftarget=None, tournsize=20):
 	maxfuncevals -= len(pop)
 	# for g in range(maxfuncevals):
 	while(g < maxfuncevals):
+		print(g)
 		offspring = toolbox.select(pop, len(pop))
 		offspring = list(toolbox.map(toolbox.clone, pop))
 		for child1, child2 in zip(offspring[::2], offspring[1::2]):
@@ -102,7 +102,7 @@ def main(func, dim, maxfuncevals, ftarget=None, tournsize=20):
 		if record["std"] < 10e-12:	
 			sortedPop = sorted(pop, key=attrgetter("fitness"), reverse = True)
 			pop = toolbox.population(n)
-			pop[slicesize] = sortedPop[slicesize]
+			pop[0] = sortedPop[0]
 			fitnesses = list(toolbox.map(toolbox.evaluate, pop))
 			for ind, fit in zip(pop, fitnesses):
 				ind.fitness.values = fit
@@ -127,7 +127,7 @@ if __name__ == "__main__":
 	for dim in (2, 3, 5, 10, 20, 40):
 		# Set the maximum number function evaluation granted to the algorithm
 		# This is usually function of the dimensionality of the problem
-		maxfuncevals = 10e5 * dim
+		maxfuncevals = 10e1 * dim
 		minfuncevals = dim + 2
 
 		# Iterate over a set of benchmarks (noise free benchmarks here)
