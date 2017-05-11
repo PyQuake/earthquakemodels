@@ -52,6 +52,7 @@ def main(func, dim, maxfuncevals, ftarget=None, tournsize=20):
 	MUTPB=0.1
 	g=0
 	n = min(100, 10 * dim)
+	n=2
 	toolbox = base.Toolbox()
 	toolbox.register("evaluate", func)
 	toolbox.decorate("evaluate", tupleize)
