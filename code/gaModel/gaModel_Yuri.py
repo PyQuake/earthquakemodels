@@ -176,6 +176,7 @@ if __name__ == "__main__":
 	# e.setfun(func, opt=ftarget)
 	e.evalfun.im_class.evalfun=evaluationFunction
 	e.evalfun = evaluationFunction
+	print(e.fbest)
 	gaModel(e.evalfun,
 		NGEN=5,
 		CXPB=0.9,

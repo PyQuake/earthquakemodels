@@ -694,12 +694,12 @@ class F109(_FSphere, BBOBCauchyFunction):
     cauchyp = 0.2
 
 
-class F2_new(BBOBNfreeFunction):
+class F2(BBOBNfreeFunction):
     funId = 2
     paramValues = (1e0, 1e6)
     condition = 1e6
 
-    def initwithsize(self, curshape, dim):
+    def initwithsize():
         # DIM-dependent initialization
         if self.dim != dim:
             if self.zerox:
@@ -736,9 +736,10 @@ class F2_new(BBOBNfreeFunction):
         # FINALIZE
         ftrue += fadd
         fval += fadd
+        print(ftrue, fval)
         return fval, ftrue
 
-class F2(BBOBNfreeFunction):
+class F2_old(BBOBNfreeFunction):
     """Separable ellipsoid with monotone transformation
     
     Parameter: condition number (default 1e6)
@@ -746,8 +747,8 @@ class F2(BBOBNfreeFunction):
     """
 
     funId = 2
-    # paramValues = (1e0, 1e6)
-    # condition = 1e6
+    paramValues = (1e0, 1e6)
+    condition = 1e6
 
     def initwithsize(self, curshape, dim):
         # DIM-dependent initialization
