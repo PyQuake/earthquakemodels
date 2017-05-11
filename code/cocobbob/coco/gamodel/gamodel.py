@@ -140,12 +140,12 @@ if __name__ == "__main__":
 
 			# Iterate over all the instance of a single problem
 			# Rotation, translation, etc.
-			for instance in chain(range(1, 6), range(21, 31)):
+			for instance in chain(range(2, 6), range(21, 31)):
 
 				# Set the function to be used (problem) in the logger
 				e.setfun(*bn.instantiate(f_name, iinstance=instance))
 				print(bn.instantiate(f_name, iinstance=instance))
-				res = dictbbob[1](iinstance=1, param=None)
+				# res = dictbbob[1](iinstance=1, param=None)
 				print(res, res.fopt)
 				exit()
 				# Independent restarts until maxfunevals or ftarget is reached

@@ -93,7 +93,8 @@ from math import floor as floor
 from numpy import dot, linspace, diag, tile, zeros, sign, resize
 from numpy.random import standard_normal as _randn # TODO: may bring confusion
 from numpy.random import random as _rand # TODO: may bring confusion
-
+import sys
+sys.path.insert(0, '../../../')
 """
 % VAL = BENCHMARKS(X, FUNCID)
 % VAL = BENCHMARKS(X, STRFUNC)
@@ -689,6 +690,8 @@ class F109(_FSphere, BBOBCauchyFunction):
     funId = 109
     cauchyalpha = 1.
     cauchyp = 0.2
+
+class
 
 class F2(BBOBNfreeFunction):
     """Separable ellipsoid with monotone transformation
