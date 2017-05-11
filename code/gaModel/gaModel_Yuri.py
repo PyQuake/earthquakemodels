@@ -16,7 +16,7 @@ from operator import attrgetter
 from pathos.multiprocessing import ProcessingPool as Pool
 # from functools import lru_cache as cache
 import fgeneric
-
+import bbobbenchmarks as bn
 # @jit
 def evaluationFunction(individual, modelOmega, mean):
 	"""
@@ -163,9 +163,12 @@ if __name__ == "__main__":
 	
 	observation = models.model.loadModelDB(region+'jmaData', year+6)
 	ftarget=calcLogLikelihood(observation, observation)
-	e.setfun(evaluationFunction, ftarget, 1, 1)
-	# revals = int(math.ceil(maxfuncevals - e.evaluations))
-	revals = 10
+	func, opt = bn.instantiate(f_name, iinstance=instance)
+	func.evaluate = ()
+	opt=ftarget
+	e.setfun(func, opt=ftarget)
+	e.ftarget = ftarget
+
 	gaModel(
 		NGEN=5,
 		CXPB=0.9,
@@ -175,7 +178,7 @@ if __name__ == "__main__":
 		5,
 		region=region,
 		mean=mean,
-		n_aval=revals,
+		n_aval=100,
 		tournsize=tournsize,
 		ftarget=e.ftarget)
 

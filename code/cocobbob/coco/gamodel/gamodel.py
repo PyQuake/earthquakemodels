@@ -44,8 +44,6 @@ def tupleize(func):
     when the evaluation function returns a single value.
     """
     def wrapper(*args, **kargs):
-    	print(args)
-    	print(kargs)
         return func(*args, **kargs),
     return wrapper
 
@@ -144,10 +142,6 @@ if __name__ == "__main__":
 
 				# Set the function to be used (problem) in the logger
 				e.setfun(*bn.instantiate(f_name, iinstance=instance))
-				print(bn.instantiate(f_name, iinstance=instance))
-				# res = dictbbob[1](iinstance=1, param=None)
-				# print(res, res.fopt)
-				exit()
 				# Independent restarts until maxfunevals or ftarget is reached
 				for restarts in range(0, maxrestarts + 1):
 					if restarts > 0:
