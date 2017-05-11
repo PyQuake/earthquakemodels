@@ -67,7 +67,7 @@ def gaModel(func,NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval=50000, tou
 	# Attribute generator
 
 	toolbox.register("evaluate", func)
-	toolbox.decorate("evaluate", tupleize, modelOmega=modelOmega, mean=mean)
+	toolbox.decorate("evaluate", tupleize, modelOmega,mean)
 	toolbox.register("attr_float", random.random)
 	toolbox.register("mate", tools.cxOnePoint)
 	# operator for selecting individuals for breeding the next
