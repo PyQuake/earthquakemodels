@@ -64,6 +64,7 @@ def gaModel(func,NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval=50000, tou
 	x=n_aval - y*NGEN
 	n= x + y
 	# Attribute generator
+	print(func)
 	func(modelOmega[0], modelOmega[0], mean)
 	exit()
 	# toolbox.register("evaluate", func, modelOmega, mean)
