@@ -99,6 +99,7 @@ def main(func, dim, maxfuncevals, ftarget, tournsize):
 		random.shuffle(pop)
 		record = stats.compile(pop)
 		if (abs(record["min"] - ftarget)) < 10e-8:
+			print(best_pop)
 			return best_pop
 		if record["std"] < 10e-12:	
 			sortedPop = sorted(pop, key=attrgetter("fitness"), reverse = True)
@@ -111,7 +112,8 @@ def main(func, dim, maxfuncevals, ftarget, tournsize):
 		# logbook.record(gen=g, **record)
 		
 		g += len(pop)
-	# print(logbook)
+	# print(logbook
+	print(best_pop)
 	return best_pop
 
 if __name__ == "__main__":
