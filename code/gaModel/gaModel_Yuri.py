@@ -90,8 +90,6 @@ def gaModel(func,NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval, tournsize
 	logbook.header = "gen","min","avg","max","std"
 
 	pop = toolbox.population(n)
-	toolbox.evaluate(pop[0])
-	exit()
 	# Evaluate the entire population
 	fitnesses = list(toolbox.map(toolbox.evaluate, pop))
 	for ind, fit in zip(pop, fitnesses):
