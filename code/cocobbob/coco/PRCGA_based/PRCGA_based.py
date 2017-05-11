@@ -107,10 +107,8 @@ def main(func, dim, maxfuncevals, ftarget=None, tournsize=20):
 			for ind, fit in zip(pop, fitnesses):
 				ind.fitness.values = fit
 			g += len(pop)
-		# logbook.record(gen=g, **record)
 		
 		g += len(pop)
-	# print(logbook)
 	return best_pop
 
 if __name__ == "__main__":
