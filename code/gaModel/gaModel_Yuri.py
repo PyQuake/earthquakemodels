@@ -115,7 +115,6 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval=50000, tournsiz
 		random.shuffle(pop)
 		record = stats.compile(pop)
 		if (abs(record["min"] - ftarget)) < 10e-8:
-			print(best_pop.fitness.values[0], g)
 			revals = g
 			return best_pop.fitness.values[0]
 		if record["std"] < 10e-12:	
@@ -127,7 +126,6 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval=50000, tournsiz
 				ind.fitness.values = fit
 			g+=1
 		logbook.record(gen=g, **record)
-	print(best_pop.fitness.values[0], g)
 	revals = g
 	return best_pop.fitness.values[0]
 	# end = time.clock()  
