@@ -177,6 +177,7 @@ if __name__ == "__main__":
 	func.evaluate = evaluationFunction
 	opt=ftarget
 	e.setfun(func, opt=ftarget)
+	print(e.ftarget, ftarget)
 	e.ftarget = ftarget
 
 	gaModel(func,
