@@ -169,7 +169,7 @@ if __name__ == "__main__":
 	mean = np.mean(means, axis=0)
 	aux = list()
 	
-	func, opt = bn.instantiate(1, iinstance=1)
+	func, opt = bn.instantiate(2, iinstance=1)
 	observation = models.model.loadModelDB(region+'jmaData', year+6)
 	ftarget = calcLogLikelihood(observation, observation)
 	opt=ftarget
