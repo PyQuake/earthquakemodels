@@ -707,16 +707,16 @@ class F2(BBOBNfreeFunction):
 
     def initwithsize(self, curshape, dim):
         # DIM-dependent initialization
-        if self.dim != dim:
-            if self.zerox:
-                self.xopt = zeros(dim)
-            else:
-                self.xopt = compute_xopt(self.rseed, dim)
-            if hasattr(self, 'param') and self.param: # not self.param is None
-                tmp = self.param
-            else:
-                tmp = self.condition
-            self.scales = tmp ** linspace(0, 1, dim)
+        # if self.dim != dim:
+        #     if self.zerox:
+        #         self.xopt = zeros(dim)
+        #     else:
+        #         self.xopt = compute_xopt(self.rseed, dim)
+        #     if hasattr(self, 'param') and self.param: # not self.param is None
+        #         tmp = self.param
+        #     else:
+        #         tmp = self.condition
+        #     self.scales = tmp ** linspace(0, 1, dim)
 
         # DIM- and POPSI-dependent initialisations of DIM*POPSI matrices
         if self.lastshape != curshape:
