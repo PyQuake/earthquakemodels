@@ -166,196 +166,196 @@ from models.mathUtil import calcNumberBins
 
 ### FUNCTION DEFINITION ###
 
-def compute_xopt(rseed, dim):
-    """Generate a random vector used as optimum argument.
+# def compute_xopt(rseed, dim):
+#     """Generate a random vector used as optimum argument.
     
-    Rounded by four digits, but never to zero.
+#     Rounded by four digits, but never to zero.
 
-    """
-    xopt = 8 * np.floor(1e4 * unif(dim, rseed))/1e4 - 4
-    idx = (xopt == 0)
-    xopt[idx] = -1e-5
-    return xopt
+#     """
+#     xopt = 8 * np.floor(1e4 * unif(dim, rseed))/1e4 - 4
+#     idx = (xopt == 0)
+#     xopt[idx] = -1e-5
+#     return xopt
 
-def compute_rotation(seed, dim):
-    """Returns an orthogonal basis. 
+# def compute_rotation(seed, dim):
+#     """Returns an orthogonal basis. 
     
-    The rotation is used in several ways and in combination with
-    non-linear transformations. Search space rotation invariant 
-    algorithms are not expected to be invariant under this rotation. 
+#     The rotation is used in several ways and in combination with
+#     non-linear transformations. Search space rotation invariant 
+#     algorithms are not expected to be invariant under this rotation. 
     
-    """
-    B = np.reshape(gauss(dim * dim, seed), (dim, dim))
-    for i in range(dim):
-        for j in range(0, i):
-            B[i] = B[i] - dot(B[i], B[j]) * B[j]
-        B[i] = B[i] / (np.sum(B[i]**2) ** .5)
-    return B
+#     """
+#     B = np.reshape(gauss(dim * dim, seed), (dim, dim))
+#     for i in range(dim):
+#         for j in range(0, i):
+#             B[i] = B[i] - dot(B[i], B[j]) * B[j]
+#         B[i] = B[i] / (np.sum(B[i]**2) ** .5)
+#     return B
 
-def monotoneTFosc(f):
-    """Maps [-inf,inf] to [-inf,inf] with different constants
-    for positive and negative part.
+# def monotoneTFosc(f):
+#     """Maps [-inf,inf] to [-inf,inf] with different constants
+#     for positive and negative part.
 
-    """
-    if np.isscalar(f):
-        if f > 0.:
-            f = np.log(f) / 0.1
-            f = np.exp(f + 0.49*(np.sin(f) + np.sin(0.79*f))) ** 0.1
-        elif f < 0.:
-            f = np.log(-f) / 0.1
-            f = -np.exp(f + 0.49*(np.sin(0.55*f) + np.sin(0.31*f))) ** 0.1
-        return f
-    else:
-        f = np.asarray(f)
-        g = f.copy()
-        idx = (f > 0)
-        g[idx] = np.log(f[idx]) / 0.1
-        g[idx] = np.exp(g[idx] + 0.49*(np.sin(g[idx]) + np.sin(0.79*g[idx]))) ** 0.1
-        idx = (f < 0)
-        g[idx] = np.log(-f[idx]) / 0.1
-        g[idx] = -np.exp(g[idx] + 0.49*(np.sin(0.55*g[idx]) + np.sin(0.31*g[idx]))) ** 0.1
-        return g
+#     """
+#     if np.isscalar(f):
+#         if f > 0.:
+#             f = np.log(f) / 0.1
+#             f = np.exp(f + 0.49*(np.sin(f) + np.sin(0.79*f))) ** 0.1
+#         elif f < 0.:
+#             f = np.log(-f) / 0.1
+#             f = -np.exp(f + 0.49*(np.sin(0.55*f) + np.sin(0.31*f))) ** 0.1
+#         return f
+#     else:
+#         f = np.asarray(f)
+#         g = f.copy()
+#         idx = (f > 0)
+#         g[idx] = np.log(f[idx]) / 0.1
+#         g[idx] = np.exp(g[idx] + 0.49*(np.sin(g[idx]) + np.sin(0.79*g[idx]))) ** 0.1
+#         idx = (f < 0)
+#         g[idx] = np.log(-f[idx]) / 0.1
+#         g[idx] = -np.exp(g[idx] + 0.49*(np.sin(0.55*g[idx]) + np.sin(0.31*g[idx]))) ** 0.1
+#         return g
 
-def defaultboundaryhandling(x, fac):
-    """Returns a float penalty for being outside of boundaries [-5, 5]"""
-    xoutside = np.maximum(0., np.abs(x) - 5) * sign(x)
-    fpen = fac * np.sum(xoutside**2, -1) # penalty
-    return fpen
+# def defaultboundaryhandling(x, fac):
+#     """Returns a float penalty for being outside of boundaries [-5, 5]"""
+#     xoutside = np.maximum(0., np.abs(x) - 5) * sign(x)
+#     fpen = fac * np.sum(xoutside**2, -1) # penalty
+#     return fpen
 
-def gauss(N, seed):
-    """Samples N standard normally distributed numbers
-    being the same for a given seed
+# def gauss(N, seed):
+#     """Samples N standard normally distributed numbers
+#     being the same for a given seed
 
-    """
-    r = unif(2*N, seed)
-    g = np.sqrt(-2 * np.log(r[:N])) * np.cos(2 * np.pi * r[N:2*N])
-    if np.any(g == 0.):
-        g[g == 0] = 1e-99
-    return g
+#     """
+#     r = unif(2*N, seed)
+#     g = np.sqrt(-2 * np.log(r[:N])) * np.cos(2 * np.pi * r[N:2*N])
+#     if np.any(g == 0.):
+#         g[g == 0] = 1e-99
+#     return g
 
-def unif(N, inseed):
-    """Generates N uniform numbers with starting seed."""
+# def unif(N, inseed):
+#     """Generates N uniform numbers with starting seed."""
 
-    # initialization
-    inseed = np.abs(inseed)
-    if inseed < 1.:
-        inseed = 1.
+#     # initialization
+#     inseed = np.abs(inseed)
+#     if inseed < 1.:
+#         inseed = 1.
 
-    rgrand = 32 * [0.]
-    aktseed = inseed
-    for i in xrange(39, -1, -1):
-        tmp = floor(aktseed/127773.)
-        aktseed = 16807. * (aktseed - tmp * 127773.) - 2836. * tmp
-        if aktseed < 0:
-            aktseed = aktseed + 2147483647.
-        if i < 32:
-            rgrand[i] = aktseed
-    aktrand = rgrand[0]
+#     rgrand = 32 * [0.]
+#     aktseed = inseed
+#     for i in xrange(39, -1, -1):
+#         tmp = floor(aktseed/127773.)
+#         aktseed = 16807. * (aktseed - tmp * 127773.) - 2836. * tmp
+#         if aktseed < 0:
+#             aktseed = aktseed + 2147483647.
+#         if i < 32:
+#             rgrand[i] = aktseed
+#     aktrand = rgrand[0]
 
-    # sample numbers
-    r = int(N) * [0.]
-    for i in xrange(int(N)):
-        tmp = floor(aktseed/127773.)
-        aktseed = 16807. * (aktseed - tmp * 127773.) - 2836. * tmp
-        if aktseed < 0:
-            aktseed = aktseed + 2147483647.
-        tmp = int(floor(aktrand / 67108865.))
-        aktrand = rgrand[tmp]
-        rgrand[tmp] = aktseed
-        r[i] = aktrand / 2.147483647e9
-    r = np.asarray(r)
-    if (r == 0).any():
-        warning.warn('zero sampled(?), set to 1e-99')
-        r[r == 0] = 1e-99
-    return r
+#     # sample numbers
+#     r = int(N) * [0.]
+#     for i in xrange(int(N)):
+#         tmp = floor(aktseed/127773.)
+#         aktseed = 16807. * (aktseed - tmp * 127773.) - 2836. * tmp
+#         if aktseed < 0:
+#             aktseed = aktseed + 2147483647.
+#         tmp = int(floor(aktrand / 67108865.))
+#         aktrand = rgrand[tmp]
+#         rgrand[tmp] = aktseed
+#         r[i] = aktrand / 2.147483647e9
+#     r = np.asarray(r)
+#     if (r == 0).any():
+#         warning.warn('zero sampled(?), set to 1e-99')
+#         r[r == 0] = 1e-99
+#     return r
 
-# for testing and comparing to other implementations, 
-#   myrand and myrandn are used only for sampling the noise 
-#   Rename to myrand and myrandn to rand and randn and
-#   comment lines 24 and 25.
+# # for testing and comparing to other implementations, 
+# #   myrand and myrandn are used only for sampling the noise 
+# #   Rename to myrand and myrandn to rand and randn and
+# #   comment lines 24 and 25.
 
-_randomnseed = 30. # warning this is a global variable...
-def _myrandn(size):
-    """Normal random distribution sampling.
+# _randomnseed = 30. # warning this is a global variable...
+# def _myrandn(size):
+#     """Normal random distribution sampling.
     
-    For testing and comparing purpose.
+#     For testing and comparing purpose.
     
-    """
+#     """
 
-    global _randomnseed
-    _randomnseed = _randomnseed + 1.
-    if _randomnseed > 1e9:
-        _randomnseed = 1.
-    res = np.reshape(gauss(np.prod(size), _randomnseed), size)
-    return res
+#     global _randomnseed
+#     _randomnseed = _randomnseed + 1.
+#     if _randomnseed > 1e9:
+#         _randomnseed = 1.
+#     res = np.reshape(gauss(np.prod(size), _randomnseed), size)
+#     return res
 
-_randomseed = 30. # warning this is a global variable...
-def _myrand(size):
-    """Uniform random distribution sampling.
+# _randomseed = 30. # warning this is a global variable...
+# def _myrand(size):
+#     """Uniform random distribution sampling.
     
-    For testing and comparing purpose.
+#     For testing and comparing purpose.
     
-    """
+#     """
 
-    global _randomseed
-    _randomseed = _randomseed + 1
-    if _randomseed > 1e9:
-        _randomseed = 1
-    res = np.reshape(unif(np.prod(size), _randomseed), size) 
-    return res
+#     global _randomseed
+#     _randomseed = _randomseed + 1
+#     if _randomseed > 1e9:
+#         _randomseed = 1
+#     res = np.reshape(unif(np.prod(size), _randomseed), size) 
+#     return res
 
-def fGauss(ftrue, beta):
-    """Returns Gaussian model noisy value."""
-    # expects ftrue to be a np.array
-    popsi = np.shape(ftrue)
-    fval = ftrue * np.exp(beta * _randn(popsi)) # with gauss noise
-    tol = 1e-8
-    fval = fval + 1.01 * tol
-    idx = ftrue < tol
-    try:
-        fval[idx] = ftrue[idx]
-    except IndexError: # fval is a scalar
-        if idx:
-            fval = ftrue
-    return fval
+# def fGauss(ftrue, beta):
+#     """Returns Gaussian model noisy value."""
+#     # expects ftrue to be a np.array
+#     popsi = np.shape(ftrue)
+#     fval = ftrue * np.exp(beta * _randn(popsi)) # with gauss noise
+#     tol = 1e-8
+#     fval = fval + 1.01 * tol
+#     idx = ftrue < tol
+#     try:
+#         fval[idx] = ftrue[idx]
+#     except IndexError: # fval is a scalar
+#         if idx:
+#             fval = ftrue
+#     return fval
 
-def fUniform(ftrue, alpha, beta):
-    """Returns uniform model noisy value."""
-    # expects ftrue to be a np.array
-    popsi = np.shape(ftrue)
-    fval = (_rand(popsi) ** beta * ftrue *
-            np.maximum(1., (1e9 / (ftrue + 1e-99)) ** (alpha * _rand(popsi))))
-    tol = 1e-8
-    fval = fval + 1.01 * tol
-    idx = ftrue < tol
-    try:
-        fval[idx] = ftrue[idx]
-    except IndexError: # fval is a scalar
-        if idx:
-            fval = ftrue
-    return fval
+# def fUniform(ftrue, alpha, beta):
+#     """Returns uniform model noisy value."""
+#     # expects ftrue to be a np.array
+#     popsi = np.shape(ftrue)
+#     fval = (_rand(popsi) ** beta * ftrue *
+#             np.maximum(1., (1e9 / (ftrue + 1e-99)) ** (alpha * _rand(popsi))))
+#     tol = 1e-8
+#     fval = fval + 1.01 * tol
+#     idx = ftrue < tol
+#     try:
+#         fval[idx] = ftrue[idx]
+#     except IndexError: # fval is a scalar
+#         if idx:
+#             fval = ftrue
+#     return fval
 
-def fCauchy(ftrue, alpha, p):
-    """Returns Cauchy model noisy value
+# def fCauchy(ftrue, alpha, p):
+#     """Returns Cauchy model noisy value
     
-    Cauchy with median 1e3*alpha and with p=0.2, zero otherwise
+#     Cauchy with median 1e3*alpha and with p=0.2, zero otherwise
 
-    P(Cauchy > 1,10,100,1000) = 0.25, 0.032, 0.0032, 0.00032
+#     P(Cauchy > 1,10,100,1000) = 0.25, 0.032, 0.0032, 0.00032
 
-    """
-    # expects ftrue to be a np.array
-    popsi = np.shape(ftrue)
-    fval = ftrue + alpha * np.maximum(0., 1e3 + (_rand(popsi) < p) *
-                                          _randn(popsi) / (np.abs(_randn(popsi)) + 1e-199))
-    tol = 1e-8
-    fval = fval + 1.01 * tol
-    idx = ftrue < tol
-    try:
-        fval[idx] = ftrue[idx]
-    except IndexError: # fval is a scalar
-        if idx:
-            fval = ftrue
-    return fval
+#     """
+#     # expects ftrue to be a np.array
+#     popsi = np.shape(ftrue)
+#     fval = ftrue + alpha * np.maximum(0., 1e3 + (_rand(popsi) < p) *
+#                                           _randn(popsi) / (np.abs(_randn(popsi)) + 1e-199))
+#     tol = 1e-8
+#     fval = fval + 1.01 * tol
+#     idx = ftrue < tol
+#     try:
+#         fval[idx] = ftrue[idx]
+#     except IndexError: # fval is a scalar
+#         if idx:
+#             fval = ftrue
+#     return fval
 
 ### CLASS DEFINITION ###
 
