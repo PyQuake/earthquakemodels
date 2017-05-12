@@ -693,34 +693,8 @@ class F109(_FSphere, BBOBCauchyFunction):
     cauchyalpha = 1.
     cauchyp = 0.2
 
+
 class F2(BBOBNfreeFunction):
-
-    funId = 2
-    region="Kanto"
-    year=2000
-    observation = models.model.loadModelDB(region+'jmaData', year+6)
-    fpot = calcLogLikelihood(observation, observation)
-    def initwithsize(self, curshape, dim):
-        pass
-
-    def _evalfull(self, x):        
-        logValue = float('Inf')
-        genomeModel = models.model.newModel(modelOmega[0].definitions)
-        genomeModel.bins = list(individual)
-        modelLambda=models.model.newModel(modelOmega[0].definitions)
-        modelLambda.bins = calcNumberBins(genomeModel.bins, mean)
-        for i in range(len(modelOmega)):
-            tempValue=calcLogLikelihood(modelLambda, modelOmega[i])
-            if tempValue < logValue:
-                logValue = tempValue
-        fval = logValue
-        ftrue = logValue
-        
-        return fval, ftrue
-
-
-
-class F2_asd(BBOBNfreeFunction):
     """Separable ellipsoid with monotone transformation
     
     Parameter: condition number (default 1e6)
@@ -751,6 +725,11 @@ class F2_asd(BBOBNfreeFunction):
             self.arrxopt = resize(self.xopt, curshape)
 
     def _evalfull(self, x):
+        region="Kanto"
+        year=2000
+        observation = models.model.loadModelDB(region+'jmaData', year+6)
+        self.fpot = calcLogLikelihood(observation, observation)
+
         fadd = self.fopt
         curshape, dim = self.shape_(x)
         # it is assumed x are row vectors
@@ -768,6 +747,18 @@ class F2_asd(BBOBNfreeFunction):
         # FINALIZE
         ftrue += fadd
         fval += fadd
+
+        logValue = float('Inf')
+        genomeModel = models.model.newModel(modelOmega[0].definitions)
+        genomeModel.bins = list(individual)
+        modelLambda=models.model.newModel(modelOmega[0].definitions)
+        modelLambda.bins = calcNumberBins(genomeModel.bins, mean)
+        for i in range(len(modelOmega)):
+            tempValue=calcLogLikelihood(modelLambda, modelOmega[i])
+            if tempValue < logValue:
+                logValue = tempValue
+        fval = logValue
+        ftrue = logValue
         return fval, ftrue
 
 class F3(BBOBNfreeFunction):
