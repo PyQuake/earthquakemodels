@@ -708,10 +708,10 @@ class F2(BBOBNfreeFunction):
         region="Kanto"
         year=2000
         observation = models.model.loadModelDB(region+'jmaData', year+6)
-        print(self.fpot)
+        print(self._fpot)
         self.fpot = calcLogLikelihood(observation, observation)
-        fpot = self.fopt
-        print(self.fpot)
+        fpot = self._fopt
+        print(self._fpot)
         # DIM-dependent initialization
         # if self.dim != dim:
         #     if self.zerox:
