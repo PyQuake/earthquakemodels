@@ -718,7 +718,7 @@ class F2(BBOBNfreeFunction):
 
 
 
-class F2(BBOBNfreeFunction):
+class F2_old(BBOBNfreeFunction):
     """Separable ellipsoid with monotone transformation
     
     Parameter: condition number (default 1e6)
