@@ -169,14 +169,12 @@ if __name__ == "__main__":
 	mean = np.mean(means, axis=0)
 	aux = list()
 	
-	observation = models.model.loadModelDB(region+'jmaData', year+6)
-	ftarget=calcLogLikelihood(observation, observation)
-	func, opt = bn.instantiate(1, iinstance=1)
-	opt=ftarget
-	# e.setfun(func, opt=ftarget)
-	e.evalfun.im_class.evalfun=evaluationFunction
-	e.evalfun = evaluationFunction
-	print(e.fbest)
+	# func, opt = bn.instantiate(1, iinstance=1)
+	# opt=ftarget
+	# # e.setfun(func, opt=ftarget)
+	# e.evalfun.im_class.evalfun=evaluationFunction
+	# e.evalfun = evaluationFunction
+	# print(e.fbest)
 	gaModel(e.evalfun,
 		NGEN=5,
 		CXPB=0.9,
