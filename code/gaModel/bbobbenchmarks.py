@@ -2155,6 +2155,8 @@ class _FTemplate(BBOBNfreeFunction):
 
 def instantiate(ifun, iinstance=0, param=None, **kwargs):
     """Returns test function ifun, by default instance 0."""
+    print(dictbbob)
+    exit()
     res = dictbbob[ifun](iinstance=iinstance, param=param, **kwargs)  # calling BBOBFunction.__init__(iinstance, param,...)
     return res, res.fopt
 
