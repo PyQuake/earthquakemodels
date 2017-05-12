@@ -12,15 +12,15 @@ import random
 import array
 import time 
 from operator import attrgetter
-from pathos.multiprocessing import ProcessingPool as Pool
+# from pathos.multiprocessing import ProcessingPool as Pool
 import fgeneric
 import bbobbenchmarks as bn
 
 toolbox = base.Toolbox()
 creator.create("FitnessFunction", base.Fitness, weights=(-1.0,))
 creator.create("Individual", array.array, typecode='d', fitness=creator.FitnessFunction)
-pool = Pool()
-toolbox.register("map", pool.map)
+# pool = Pool()
+# toolbox.register("map", pool.map)
 
 def tupleize(func):
     """A decorator that tuple-ize the result of a function. This is useful
