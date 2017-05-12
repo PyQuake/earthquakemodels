@@ -704,12 +704,14 @@ class F2(BBOBNfreeFunction):
     funId = 2
     paramValues = (1e0, 1e6)
     condition = 1e6
-    print('ue?')
     def initwithsize(self, curshape, dim):
         region="Kanto"
         year=2000
         observation = models.model.loadModelDB(region+'jmaData', year+6)
+        print(self.fpot)
         self.fpot = calcLogLikelihood(observation, observation)
+        fpot = self.fopt
+        print(self.fpot)
         # DIM-dependent initialization
         # if self.dim != dim:
         #     if self.zerox:
