@@ -156,7 +156,8 @@ if __name__ == "__main__":
 							break
 
 					e.finalizerun()
-
+					print(e.fbest)
+					exit()
 					print('f%d in %d-D, instance %d: FEs=%d with %d restarts, '
 						'fbest-ftarget=%.4e'
 						% (f_name, dim, instance, e.evaluations, restarts,
