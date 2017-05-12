@@ -184,6 +184,8 @@ if __name__ == "__main__":
 
 
 	print('FEs=%d ' % (e.evaluations))
+	print(e.fbest)
+	print(e.ftarget)
 	print('fbest-ftarget=%.4e' % e.fbest-e.ftarget)
 
 	e.finalizerun()
