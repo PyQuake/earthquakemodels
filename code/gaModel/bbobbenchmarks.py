@@ -449,8 +449,11 @@ class BBOBFunction(AbstractTestFunction):
         if zerof:
             self.fopt = 0.
         else:
-            self.fopt = min(1000, max(-1000, (np.round(100*100*gauss(1, self.rseed)[0]/gauss(1, self.rseed+1)[0])/100)))
-            self.fopt = 100001
+            # self.fopt = min(1000, max(-1000, (np.round(100*100*gauss(1, self.rseed)[0]/gauss(1, self.rseed+1)[0])/100)))
+            region="Kanto"
+            year=2000
+            observation = models.model.loadModelDB(region+'jmaData', year+6)
+            self.fpot = calcLogLikelihood(observation, observation)
         self.iinstance = iinstance
         self.dim = None
         self.lastshape = None
@@ -617,16 +620,10 @@ class F2(BBOBNfreeFunction):
     """
 
     funId = 2
-    paramValues = (1e0, 1e6)
-    condition = 1e6
-    def initwithsize(self, curshape, dim):
-        region="Kanto"
-        year=2000
-        observation = models.model.loadModelDB(region+'jmaData', year+6)
-        print(self._fpot)
-        self.fpot = calcLogLikelihood(observation, observation)
-        fpot = self._fopt
-        print(self._fpot)
+    # paramValues = (1e0, 1e6)
+    # condition = 1e6
+    # def initwithsize(self, curshape, dim):
+        
         # DIM-dependent initialization
         # if self.dim != dim:
         #     if self.zerox:
