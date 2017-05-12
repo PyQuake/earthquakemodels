@@ -706,6 +706,7 @@ class F2(BBOBNfreeFunction):
     condition = 1e6
 
     def initwithsize(self, curshape, dim):
+        pass
         # DIM-dependent initialization
         # if self.dim != dim:
         #     if self.zerox:
