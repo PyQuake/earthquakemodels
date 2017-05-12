@@ -94,7 +94,7 @@ from numpy import dot, linspace, diag, tile, zeros, sign, resize
 from numpy.random import standard_normal as _randn # TODO: may bring confusion
 from numpy.random import random as _rand # TODO: may bring confusion
 import sys
-sys.path.insert(0, '../../../')
+sys.path.insert(0, '../')
 from csep.loglikelihood import calcLogLikelihood
 from models.mathUtil import calcNumberBins
 import models.model
