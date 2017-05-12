@@ -120,11 +120,9 @@ class LoggingFunction(object):
                 self.f = f
                 self.fnoisy =  fnoisy
                 self.x = x
-
             bestf = np.min(f)
             if bestf < self.bestf:
                 self.bestf = bestf
-                print("in update in fgeneric",np.min(f), self.bestf)
             bestfnoisy = np.min(fnoisy)
             if bestfnoisy < self.bestfnoisy:
                 self.bestfnoisy = bestfnoisy
@@ -291,8 +289,10 @@ class LoggingFunction(object):
                     fvaluej = fvalue
                     ftruej = ftrue
                     xj = x
-                self.lasteval.update(fvaluej, ftruej, xj)
 
+                self.lasteval.update(fvaluej, ftruej, xj)
+                print(self.lasteval.bestf)
+                exit()
                 if self.lasteval.num >= self.evalsTrigger:
                     buffr.append(self.lasteval.sprintData(self.fopt))
                     while self.lasteval.num >= np.floor(10**(self.idxEvalsTrigger/self.nbptsevals)):
