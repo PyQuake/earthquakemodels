@@ -19,7 +19,7 @@ import array
 import math
 import random
 import time
-import multiprocessing
+# import multiprocessing
 from itertools import chain
 
 from deap import base
@@ -35,8 +35,8 @@ import bbobbenchmarks as bn
 toolbox = base.Toolbox()
 creator.create("FitnessMin", base.Fitness, weights=(-1.0,))
 creator.create("Individual", array.array, typecode="d", fitness=creator.FitnessMin)
-pool = multiprocessing.Pool()
-toolbox.register("map", pool.map)
+# pool = multiprocessing.Pool()
+# toolbox.register("map", pool.map)
 
 def tupleize(func):
     """A decorator that tuple-ize the result of a function. This is useful
@@ -97,7 +97,6 @@ def main(func, dim, maxfuncevals, ftarget=None, tournsize=20):
 		random.shuffle(pop)
 		record = stats.compile(pop)
 		if (abs(record["min"] - ftarget)) < 10e-8:
-			print(best_pop.fitness.values)
 			return best_pop
 		if record["std"] < 10e-12:	
 			sortedPop = sorted(pop, key=attrgetter("fitness"), reverse = True)
@@ -109,7 +108,6 @@ def main(func, dim, maxfuncevals, ftarget=None, tournsize=20):
 			g += len(pop)
 		
 		g += len(pop)
-	print(best_pop.fitness.values)
 	return best_pop
 
 if __name__ == "__main__":
@@ -126,7 +124,7 @@ if __name__ == "__main__":
 	for dim in (2, 3, 5, 10, 20, 40):
 		# Set the maximum number function evaluation granted to the algorithm
 		# This is usually function of the dimensionality of the problem
-		maxfuncevals = 10e1 * dim
+		maxfuncevals = 10e5 * dim
 		minfuncevals = dim + 2
 
 		# Iterate over a set of benchmarks (noise free benchmarks here)
@@ -159,5 +157,4 @@ if __name__ == "__main__":
 					'fbest-ftarget=%.4e, and best=%.4e'
 					% (f_name, dim, instance, e.evaluations, restarts,
 						e.fbest - e.ftarget, e.fbest))
-			exit()
 			print('date and time: %s' % time.asctime())

@@ -20,7 +20,7 @@ import random
 import time
 import sys
 
-from pathos.multiprocessing import ProcessingPool as Pool
+# from pathos.multiprocessing import ProcessingPool as Pool
 from itertools import chain
 
 from deap import base
