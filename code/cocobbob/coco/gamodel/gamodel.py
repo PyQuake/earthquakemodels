@@ -90,8 +90,9 @@ def main(func, dim, maxfuncevals, ftarget=None):
         # Test if we reached the optimum of the function
         # Remember that ">" for fitness means better (not greater)
         if best.fitness > opt:
+        	print(best.fitness.values)
             return best
-    
+    print(best.fitness.values)
     return best
 
 if __name__ == "__main__":
@@ -138,8 +139,8 @@ if __name__ == "__main__":
                 e.finalizerun()
                 
                 print('f%d in %d-D, instance %d: FEs=%d with %d restarts, '
-                      'fbest-ftarget=%.4e'
+                      'fbest-ftarget=%.4e and fbest = %.4e'
                       % (f_name, dim, instance, e.evaluations, restarts,
-                         e.fbest - e.ftarget))
+                         e.fbest - e.ftarget), e.fbest)
                          
             print('date and time: %s' % time.asctime())
