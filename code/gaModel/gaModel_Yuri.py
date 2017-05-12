@@ -169,12 +169,12 @@ if __name__ == "__main__":
 	mean = np.mean(means, axis=0)
 	aux = list()
 	
-	# func, opt = bn.instantiate(1, iinstance=1)
-	# opt=ftarget
-	# # e.setfun(func, opt=ftarget)
+	func, opt = bn.instantiate(1, iinstance=1)
+	opt=ftarget
+	e.setfun(func, opt=ftarget)
 	# e.evalfun.im_class.evalfun=evaluationFunction
 	# e.evalfun = evaluationFunction
-	# print(e.fbest)
+	print(e.ftarget)
 	gaModel(e.evalfun,
 		NGEN=5,
 		CXPB=0.9,
