@@ -696,6 +696,8 @@ class F109(_FSphere, BBOBCauchyFunction):
 class F2_new(BBOBNfreeFunction):
 
     funId = 2
+    region="Kanto"
+    year=2000
     observation = models.model.loadModelDB(region+'jmaData', year+6)
     self.opt=calcLogLikelihood(observation, observation)
 
