@@ -705,7 +705,7 @@ class F2(BBOBNfreeFunction):
 
     """
     funId = 2
-    def _evalfull(self, x, modelOmega, mean):
+    def _evalfull(self, individual, modelOmega, mean):
         logValue = float('Inf')
         genomeModel=models.model.newModel(modelOmega[0].definitions)
         genomeModel.bins=list(individual)
