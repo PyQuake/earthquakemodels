@@ -700,10 +700,10 @@ class F2(BBOBNfreeFunction):
     year=2000
     observation = models.model.loadModelDB(region+'jmaData', year+6)
     fpot = calcLogLikelihood(observation, observation)
+    def initwithsize(self, curshape, dim):
+        pass
 
-    def _evalfull(self, x):
-        
-        
+    def _evalfull(self, x):        
         logValue = float('Inf')
         genomeModel = models.model.newModel(modelOmega[0].definitions)
         genomeModel.bins = list(individual)
@@ -714,11 +714,13 @@ class F2(BBOBNfreeFunction):
             if tempValue < logValue:
                 logValue = tempValue
         fval = logValue
-        return fval
+        ftrue = logValue
+        
+        return fval, ftrue
 
 
 
-class F2_old(BBOBNfreeFunction):
+class F2(BBOBNfreeFunction):
     """Separable ellipsoid with monotone transformation
     
     Parameter: condition number (default 1e6)
