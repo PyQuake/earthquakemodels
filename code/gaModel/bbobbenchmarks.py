@@ -687,9 +687,6 @@ class F2(BBOBNfreeFunction):
                 logValue = tempValue
         return -logValue
 
-    # funId = 2
-    # paramValues = (1e0, 1e6)
-    # condition = 1e6
 
     # def initwithsize(self, curshape, dim):
     #     # DIM-dependent initialization
