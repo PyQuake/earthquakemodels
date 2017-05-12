@@ -2094,7 +2094,6 @@ class F24(BBOBNfreeFunction):
 
 #dictbbob = {'sphere': F1, 'ellipsoid': F2, 'Rastrigin': F3}
 nfreefunclasses = (F1, F2) # hard coded
-noisyfunclasses = (F101, F102)
 dictbbobnfree = dict((i.funId, i) for i in nfreefunclasses)
 nfreeIDs = sorted(dictbbobnfree.keys())  # was: "nfreenames"
 nfreeinfos = [str(i) + ': ' + dictbbobnfree[i].__doc__ for i in nfreeIDs]
@@ -2102,7 +2101,7 @@ nfreeinfos = [str(i) + ': ' + dictbbobnfree[i].__doc__ for i in nfreeIDs]
 dictbbobnoisy = dict((i.funId, i) for i in noisyfunclasses)
 noisyIDs = sorted(dictbbobnoisy.keys())  # was noisynames
 
-funclasses = list(nfreefunclasses) + list(noisyfunclasses)
+funclasses = list(nfreefunclasses)
 dictbbob = dict((i.funId, i) for i in funclasses)
 
 #TODO: pb xopt f9, 21, 22
