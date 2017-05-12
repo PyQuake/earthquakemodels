@@ -98,6 +98,7 @@ def main(func, dim, maxfuncevals, ftarget=None, tournsize=20):
 		record = stats.compile(pop)
 		if (abs(record["min"] - ftarget)) < 10e-8:
 			print(logbook)
+			print(best_pop.fitness.values)
 			return best_pop
 		if record["std"] < 10e-12:	
 			sortedPop = sorted(pop, key=attrgetter("fitness"), reverse = True)
@@ -110,8 +111,8 @@ def main(func, dim, maxfuncevals, ftarget=None, tournsize=20):
 		logbook.record(gen=g, **record)
 		
 		g += len(pop)
-
 	print(logbook)
+	print(best_pop.fitness.values)
 	return best_pop
 
 if __name__ == "__main__":
