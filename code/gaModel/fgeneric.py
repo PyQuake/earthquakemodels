@@ -120,10 +120,11 @@ class LoggingFunction(object):
                 self.f = f
                 self.fnoisy =  fnoisy
                 self.x = x
-            print("in update in fgeneric",np.min(f), self.bestf)
+
             bestf = np.min(f)
             if bestf < self.bestf:
                 self.bestf = bestf
+                print("in update in fgeneric",np.min(f), self.bestf)
             bestfnoisy = np.min(fnoisy)
             if bestfnoisy < self.bestfnoisy:
                 self.bestfnoisy = bestfnoisy
