@@ -730,12 +730,12 @@ class F2(BBOBNfreeFunction):
         observation = models.model.loadModelDB(region+'jmaData', year+6)
         self.fpot = calcLogLikelihood(observation, observation)
 
-        # fadd = self.fopt
-        curshape, dim = self.shape_(x)
-        # it is assumed x are row vectors
+        # # fadd = self.fopt
+        # curshape, dim = self.shape_(x)
+        # # it is assumed x are row vectors
 
-        if self.lastshape != curshape:
-            self.initwithsize(curshape, dim)
+        # if self.lastshape != curshape:
+        #     self.initwithsize(curshape, dim)
 
         # # TRANSFORMATION IN SEARCH SPACE
         # x = x - self.arrxopt # cannot be replaced with x -= arrxopt!
