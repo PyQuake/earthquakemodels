@@ -11,7 +11,7 @@ from distutils.core import setup
 _name = 'cocopp'
 setup(
     name = _name,
-    version = "2.1",
+    version = "",
     packages = [_name, _name + '.comp2', _name + '.compall'],
     package_dir = {_name: 'cocopp'},
     package_data={_name: ['*enchmarkshortinfos.txt',
