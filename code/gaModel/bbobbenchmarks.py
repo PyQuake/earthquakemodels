@@ -700,7 +700,6 @@ class F2_new(BBOBNfreeFunction):
     year=2000
     observation = models.model.loadModelDB(region+'jmaData', year+6)
     fpot = calcLogLikelihood(observation, observation)
-    self.fpot = fpot
 
     def _evalfull(self, x):
         
@@ -715,8 +714,7 @@ class F2_new(BBOBNfreeFunction):
             if tempValue < logValue:
                 logValue = tempValue
         fval = logValue
-        ftrue = self.fopt
-        return fval, ftrue
+        return fval
 
 
 
