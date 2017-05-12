@@ -555,59 +555,6 @@ class BBOBNfreeFunction(BBOBFunction):
 
         return ftrue.copy()
 
-class BBOBGaussFunction(BBOBFunction):
-    """Class of the Gauss noise functions of BBOB.
-
-    Attribute gaussbeta needs to be defined by inheriting classes.
-    
-    """
-
-    # gaussbeta = None
-
-    def noise(self, ftrue):
-        """Returns the noisy function values."""
-
-        return fGauss(ftrue, self.gaussbeta)
-
-    def boundaryhandling(self, x):
-        return defaultboundaryhandling(x, 100.)
-
-class BBOBUniformFunction(BBOBFunction, object):
-    """Class of the uniform noise functions of BBOB.
-    
-    Attributes unifalphafac and unifbeta need to be defined by inheriting
-    classes.
-    
-    """
-    # unifalphafac = None
-    # unifbeta = None
-
-    def noise(self, ftrue):
-        """Returns the noisy function values."""
-
-        return fUniform(ftrue, self.unifalphafac * (0.49 + 1. / self.dim), self.unifbeta)
-
-    def boundaryhandling(self, x):
-        return defaultboundaryhandling(x, 100.)
-
-class BBOBCauchyFunction(BBOBFunction):
-    """Class of the Cauchy noise functions of BBOB.
-
-    Attributes cauchyalpha and cauchyp need to be defined by inheriting
-    classes.
-
-    """
-    # cauchyalpha = None
-    # cauchyp = None
-
-    def noise(self, ftrue):
-        """Returns the noisy function values."""
-
-        return fCauchy(ftrue, self.cauchyalpha, self.cauchyp)
-
-    def boundaryhandling(self, x):
-        return defaultboundaryhandling(x, 100.)
-
 class _FSphere(BBOBFunction):
     """Abstract Sphere function.
     
