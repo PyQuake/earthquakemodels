@@ -267,7 +267,7 @@ class LoggingFunction(object):
         if not self._is_ready():
             self._readytostart()
 
-        out = self._fun_evalfull(x, *args, **kwargs)
+        out = self._fun_evalfull(individual, modelOmega, mean, *args, **kwargs)
         try:
             fvalue, ftrue = out
         except TypeError:
