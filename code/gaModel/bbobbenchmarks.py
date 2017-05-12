@@ -673,6 +673,7 @@ class F2(BBOBNfreeFunction):
     Parameter: condition number (default 1e6)
 
     """
+    funId = 2
     def _evalfull(self, x, modelOmega, mean):
         logValue = float('Inf')
         genomeModel=models.model.newModel(modelOmega[0].definitions)
