@@ -719,10 +719,10 @@ class F2(BBOBNfreeFunction):
         #     self.scales = tmp ** linspace(0, 1, dim)
 
         # DIM- and POPSI-dependent initialisations of DIM*POPSI matrices
-        if self.lastshape != curshape:
-            self.dim = dim
-            self.lastshape = curshape
-            self.arrxopt = resize(self.xopt, curshape)
+        # if self.lastshape != curshape:
+        #     self.dim = dim
+        #     self.lastshape = curshape
+        #     self.arrxopt = resize(self.xopt, curshape)
 
     def _evalfull(self, x):
         region="Kanto"
