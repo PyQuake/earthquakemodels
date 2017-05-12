@@ -186,7 +186,7 @@ if __name__ == "__main__":
 		mean=mean,
 		n_aval=100,
 		tournsize=tournsize,
-		ftarget=ftarget)
+		ftarget=e.ftarget)
 
 
 	print('FEs=%d ' % (e.evaluations))
