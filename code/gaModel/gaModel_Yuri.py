@@ -170,6 +170,10 @@ if __name__ == "__main__":
 	aux = list()
 	
 	func, opt = bn.instantiate(2, iinstance=1)
+	print(func, opt)
+	observation = models.model.loadModelDB(region+'jmaData', year+6)
+	ftarget = calcLogLikelihood(observation, observation)
+	opt=ftarget
 	e.setfun(func, opt=ftarget)
 	gaModel(e.evalfun,
 		NGEN=5,
