@@ -691,24 +691,6 @@ class F109(_FSphere, BBOBCauchyFunction):
     cauchyalpha = 1.
     cauchyp = 0.2
 
-class F2_new(BBOBNfreeFunction):
-    """Separable ellipsoid with monotone transformation
-    
-    Parameter: condition number (default 1e6)
-
-    """
-
-    funId = 2
-
-    def _evalfull(self, x):
-        
-        fval=sum(x)
-        # FINALIZE
-        # ftrue += fadd
-        # fval += fadd
-        return fval
-
-
 class F2(BBOBNfreeFunction):
     """Separable ellipsoid with monotone transformation
     
@@ -740,7 +722,6 @@ class F2(BBOBNfreeFunction):
             self.arrxopt = resize(self.xopt, curshape)
 
     def _evalfull(self, x):
-        print("in bb",x)
         fadd = self.fopt
         curshape, dim = self.shape_(x)
         # it is assumed x are row vectors
