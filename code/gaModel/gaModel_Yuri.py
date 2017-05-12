@@ -171,7 +171,7 @@ if __name__ == "__main__":
 	opt=ftarget
 	e.setfun(func, opt=ftarget)
 	gaModel(e.evalfun,
-		NGEN=5,
+		NGEN=10,
 		CXPB=0.9,
 		MUTPB=0.1,
 		modelOmega=observations,
@@ -179,12 +179,12 @@ if __name__ == "__main__":
 		5,
 		region=region,
 		mean=mean,
-		n_aval=100,
+		n_aval=200,
 		tournsize=tournsize,
 		ftarget=e.ftarget)
 
 
-	print('e.ftarget' % e.ftarget)
+	print('e.ftarget', e.ftarget)
 	print("e.fbest",e.fbest)
 	# print('fbest-ftarget=%.4e' % e.fbest - e.ftarget)
 
