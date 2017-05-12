@@ -702,7 +702,7 @@ class F2_new(BBOBNfreeFunction):
         year=2000
         observation = models.model.loadModelDB(region+'jmaData', year+6)
         self.fopt=calcLogLikelihood(observation, observation)
-
+        print(self.fopt, self.precision)
         
         logValue = float('Inf')
         genomeModel = models.model.newModel(modelOmega[0].definitions)
