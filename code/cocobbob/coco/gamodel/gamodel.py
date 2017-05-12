@@ -100,47 +100,48 @@ if __name__ == "__main__":
 	tournsize = int(sys.argv[2])
 	# Maximum number of restart for an algorithm that detects stagnation
 	maxrestarts = 1000
-    
-    # Create a COCO experiment that will log the results under the
-    # ./output directory
-    e = fgeneric.LoggingFunction("output")
-    
-    # Iterate over all desired test dimensions
-    for dim in (2, 3, 5, 10, 20, 40):
-        # Set the maximum number function evaluation granted to the algorithm
-        # This is usually function of the dimensionality of the problem
-        maxfuncevals = 100 * dim**2
-        minfuncevals = dim + 2
-        
-        # Iterate over a set of benchmarks (noise free benchmarks here)
-        for f_name in bn.nfreeIDs:
-            
-            # Iterate over all the instance of a single problem
-            # Rotation, translation, etc.
-            for instance in chain(range(1, 6), range(21, 31)):
-                
-                # Set the function to be used (problem) in the logger
-                e.setfun(*bn.instantiate(f_name, iinstance=instance))
-                
-                # Independent restarts until maxfunevals or ftarget is reached
-                for restarts in range(0, maxrestarts + 1):
-                    if restarts > 0:
-                        # Signal the experiment that the algorithm restarted
-                        e.restart('independent restart')  # additional info
-                    
-                    # Run the algorithm with the remaining number of evaluations
-                    revals = int(math.ceil(maxfuncevals - e.evaluations))
-                    main(e.evalfun, dim, revals, e.ftarget)
-                    
-                    # Stop if ftarget is reached
-                    if e.fbest < e.ftarget or e.evaluations + minfuncevals > maxfuncevals:
-                        break
-                
-                e.finalizerun()
-                
-                print('f%d in %d-D, instance %d: FEs=%d with %d restarts, '
+
+	# Create a COCO experiment that will log the results under the
+	# ./output directory
+	e = fgeneric.LoggingFunction("output")
+
+	# Iterate over all desired test dimensions
+	for dim in (2, 3, 5, 10, 20, 40):
+		# Set the maximum number function evaluation granted to the algorithm
+		# This is usually function of the dimensionality of the problem
+		maxfuncevals = 100 * dim**2
+		minfuncevals = dim + 2
+
+		# Iterate over a set of benchmarks (noise free benchmarks here)
+		for f_name in bn.nfreeIDs:
+
+			# Iterate over all the instance of a single problem
+			# Rotation, translation, etc.
+			for instance in chain(range(1, 6), range(21, 31)):
+
+				# Set the function to be used (problem) in the logger
+				e.setfun(*bn.instantiate(f_name, iinstance=instance))
+
+				# Independent restarts until maxfunevals or ftarget is reached
+				for restarts in range(0, maxrestarts + 1):
+					if restarts > 0:
+						# Signal the experiment that the algorithm restarted
+						e.restart('independent restart')  # additional info
+
+					# Run the algorithm with the remaining number of evaluations
+					revals = int(math.ceil(maxfuncevals - e.evaluations))
+					main(e.evalfun, dim, revals, e.ftarget)
+
+					# Stop if ftarget is reached
+					if e.fbest < e.ftarget or e.evaluations + minfuncevals > maxfuncevals:
+						break
+
+
+				e.finalizerun()
+
+				print('f%d in %d-D, instance %d: FEs=%d with %d restarts, '
                       'fbest-ftarget=%.4e and fbest = %.4e'
                       % (f_name, dim, instance, e.evaluations, restarts,
                          e.fbest - e.ftarget), e.fbest)
-                         
-            print('date and time: %s' % time.asctime())
+
+			print('date and time: %s' % time.asctime())
