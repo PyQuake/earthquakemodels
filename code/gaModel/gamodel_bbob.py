@@ -157,9 +157,9 @@ if __name__ == "__main__":
 		tournsize=tournsize,
 		ftarget=e.ftarget)
 
-	e.finalizerun()
+	
 
 	print(' FEs=%d fbest-ftarget=%.4e and fbest = %.4e'
 	          % (e.evaluations, e.fbest - e.ftarget, e.fbest))
-
+	e.finalizerun()
 	print('date and time: %s' % time.asctime())
