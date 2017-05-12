@@ -84,6 +84,8 @@ def gaModel(func,NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval, tournsize
 	# toolbox.register("evaluate", evaluationFunction, modelOmega=modelOmega, mean=mean)
 	toolbox.register("individual", tools.initRepeat, creator.Individual, toolbox.attr_float, len(modelOmega[0].bins))
 	toolbox.register("population", tools.initRepeat, list, toolbox.individual)
+	logbook = tools.Logbook()
+	logbook.header = "gen","min","avg","max","std"
 
 	pop = toolbox.population(n)
 	# Evaluate the entire population
@@ -124,7 +126,9 @@ def gaModel(func,NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval, tournsize
 		pop[0]=best_pop
 		random.shuffle(pop)
 		record = stats.compile(pop)
+		logbook.record(gen=g,**record)
 		if (abs(record["min"] - ftarget)) < 10e-8:
+			print(logbook)
 			print("best_pop.fitness.values",best_pop.fitness.values)
 			return best_pop
 		if record["std"] < 10e-12:	
@@ -135,6 +139,7 @@ def gaModel(func,NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval, tournsize
 			for ind, fit in zip(pop, fitnesses):
 				ind.fitness.values = fit
 			g+=1
+	print(logbook)
 	print("best_pop.fitness.values",best_pop.fitness.values)
 	return best_pop
 
@@ -182,5 +187,5 @@ if __name__ == "__main__":
 	# print('FEs=%d ' % (e.evaluations))
 	print("e.fbest",e.fbest)
 	# print('fbest-ftarget=%.4e' % e.fbest - e.ftarget)
-	
+
 	e.finalizerun()
