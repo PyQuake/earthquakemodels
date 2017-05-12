@@ -3,7 +3,6 @@ This GA code creates the gaModel
 """
 import sys
 sys.path.insert(0, '../')
-# from numba import jit
 from deap import base, creator, tools
 import numpy as np
 from csep.loglikelihood import calcLogLikelihood
@@ -14,19 +13,14 @@ import array
 import time 
 from operator import attrgetter
 from pathos.multiprocessing import ProcessingPool as Pool
-# from functools import lru_cache as cache
 import fgeneric
 import bbobbenchmarks as bn
-# @jit
-
-
-#parallel
 
 toolbox = base.Toolbox()
 creator.create("FitnessFunction", base.Fitness, weights=(-1.0,))
 creator.create("Individual", array.array, typecode='d', fitness=creator.FitnessFunction)
-pool = Pool()
-toolbox.register("map", pool.map)
+# pool = Pool()
+# toolbox.register("map", pool.map)
 
 def tupleize(func):
     """A decorator that tuple-ize the result of a function. This is useful
