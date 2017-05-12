@@ -740,13 +740,13 @@ class F2(BBOBNfreeFunction):
         # TRANSFORMATION IN SEARCH SPACE
         x = x - self.arrxopt # cannot be replaced with x -= arrxopt!
 
-        # COMPUTATION core
-        ftrue = dot(monotoneTFosc(x)**2, self.scales)
-        fval = self.noise(ftrue) # without noise
+        # # COMPUTATION core
+        # ftrue = dot(monotoneTFosc(x)**2, self.scales)
+        # fval = self.noise(ftrue) # without noise
 
-        # FINALIZE
-        ftrue += fadd
-        fval += fadd
+        # # FINALIZE
+        # ftrue += fadd
+        # fval += fadd
 
         logValue = float('Inf')
         genomeModel = models.model.newModel(modelOmega[0].definitions)
