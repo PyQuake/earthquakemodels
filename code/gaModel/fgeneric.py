@@ -292,7 +292,6 @@ class LoggingFunction(object):
                 print('in evalfun before', fvaluej)
                 self.lasteval.update(fvaluej, ftruej, xj)
                 print('in evalfun after',self.lasteval.bestf)
-                exit()
                 if self.lasteval.num >= self.evalsTrigger:
                     buffr.append(self.lasteval.sprintData(self.fopt))
                     while self.lasteval.num >= np.floor(10**(self.idxEvalsTrigger/self.nbptsevals)):
