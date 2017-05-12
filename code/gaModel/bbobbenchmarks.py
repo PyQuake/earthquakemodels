@@ -673,49 +673,60 @@ class F2(BBOBNfreeFunction):
     Parameter: condition number (default 1e6)
 
     """
+    logValue = float('Inf')
+    genomeModel=models.model.newModel(modelOmega[0].definitions)
+    genomeModel.bins=list(individual)
+    modelLambda=models.model.newModel(modelOmega[0].definitions)
+    modelLambda.bins=calcNumberBins(genomeModel.bins, mean)
+    for i in range(len(modelOmega)):
+        tempValue=calcLogLikelihood(modelLambda, modelOmega[i])
+        # calcLogLikelihood.cache_clear()
+        if tempValue < logValue:
+            logValue = tempValue
+    return -logValue
 
-    funId = 2
-    paramValues = (1e0, 1e6)
-    condition = 1e6
+    # funId = 2
+    # paramValues = (1e0, 1e6)
+    # condition = 1e6
 
-    def initwithsize(self, curshape, dim):
-        # DIM-dependent initialization
-        if self.dim != dim:
-            if self.zerox:
-                self.xopt = zeros(dim)
-            else:
-                self.xopt = compute_xopt(self.rseed, dim)
-            if hasattr(self, 'param') and self.param: # not self.param is None
-                tmp = self.param
-            else:
-                tmp = self.condition
-            self.scales = tmp ** linspace(0, 1, dim)
+    # def initwithsize(self, curshape, dim):
+    #     # DIM-dependent initialization
+    #     if self.dim != dim:
+    #         if self.zerox:
+    #             self.xopt = zeros(dim)
+    #         else:
+    #             self.xopt = compute_xopt(self.rseed, dim)
+    #         if hasattr(self, 'param') and self.param: # not self.param is None
+    #             tmp = self.param
+    #         else:
+    #             tmp = self.condition
+    #         self.scales = tmp ** linspace(0, 1, dim)
 
-        # DIM- and POPSI-dependent initialisations of DIM*POPSI matrices
-        if self.lastshape != curshape:
-            self.dim = dim
-            self.lastshape = curshape
-            self.arrxopt = resize(self.xopt, curshape)
+    #     # DIM- and POPSI-dependent initialisations of DIM*POPSI matrices
+    #     if self.lastshape != curshape:
+    #         self.dim = dim
+    #         self.lastshape = curshape
+    #         self.arrxopt = resize(self.xopt, curshape)
 
-    def _evalfull(self, x, modelOmega, mean):
-        fadd = self.fopt
-        curshape, dim = self.shape_(x)
-        # it is assumed x are row vectors
+    # def _evalfull(self, x, modelOmega, mean):
+    #     fadd = self.fopt
+    #     curshape, dim = self.shape_(x)
+    #     # it is assumed x are row vectors
 
-        if self.lastshape != curshape:
-            self.initwithsize(curshape, dim)
+    #     if self.lastshape != curshape:
+    #         self.initwithsize(curshape, dim)
 
-        # TRANSFORMATION IN SEARCH SPACE
-        x = x - self.arrxopt # cannot be replaced with x -= arrxopt!
+    #     # TRANSFORMATION IN SEARCH SPACE
+    #     x = x - self.arrxopt # cannot be replaced with x -= arrxopt!
 
-        # COMPUTATION core
-        ftrue = dot(monotoneTFosc(x)**2, self.scales)
-        fval = self.noise(ftrue) # without noise
+    #     # COMPUTATION core
+    #     ftrue = dot(monotoneTFosc(x)**2, self.scales)
+    #     fval = self.noise(ftrue) # without noise
 
-        # FINALIZE
-        ftrue += fadd
-        fval += fadd
-        return fval, ftrue
+    #     # FINALIZE
+    #     ftrue += fadd
+    #     fval += fadd
+    #     return fval, ftrue
 
 #dictbbob = {'sphere': F1, 'ellipsoid': F2, 'Rastrigin': F3}
 nfreefunclasses = (F1, F2) # hard coded
