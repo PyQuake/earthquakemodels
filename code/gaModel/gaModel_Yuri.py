@@ -184,7 +184,7 @@ if __name__ == "__main__":
 		ftarget=e.ftarget)
 
 
-	# print('FEs=%d ' % (e.evaluations))
+	print('e.ftarget' % e.ftarget)
 	print("e.fbest",e.fbest)
 	# print('fbest-ftarget=%.4e' % e.fbest - e.ftarget)
 
