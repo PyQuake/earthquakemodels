@@ -2093,8 +2093,7 @@ class F24(BBOBNfreeFunction):
         return fval, ftrue
 
 #dictbbob = {'sphere': F1, 'ellipsoid': F2, 'Rastrigin': F3}
-nfreefunclasses = (F1, F2, F3, F4, F5, F6, F7, F8, F9, F10, F11, F12, F13, F14,
-                   F15, F16, F17, F18, F19, F20, F21, F22, F23, F24) # hard coded
+nfreefunclasses = (F2)
 noisyfunclasses = (F101, F102, F103, F104, F105, F106, F107, F108, F109, F110,
                    F111, F112, F113, F114, F115, F116, F117, F118, F119, F120,
                    F121, F122, F123, F124, F125, F126, F127, F128, F129, F130)
