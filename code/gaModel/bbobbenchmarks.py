@@ -93,6 +93,9 @@ from math import floor as floor
 from numpy import dot, linspace, diag, tile, zeros, sign, resize
 from numpy.random import standard_normal as _randn # TODO: may bring confusion
 from numpy.random import random as _rand # TODO: may bring confusion
+import models.model
+from csep.loglikelihood import calcLogLikelihood
+from models.mathUtil import calcNumberBins
 
 """
 % VAL = BENCHMARKS(X, FUNCID)
@@ -689,6 +692,29 @@ class F109(_FSphere, BBOBCauchyFunction):
     funId = 109
     cauchyalpha = 1.
     cauchyp = 0.2
+
+class F2_new(BBOBNfreeFunction):
+
+    funId = 2
+    observation = models.model.loadModelDB(region+'jmaData', year+6)
+    self.opt=calcLogLikelihood(observation, observation)
+
+    def _evalfull(self, x):
+        
+        logValue = float('Inf')
+        genomeModel = models.model.newModel(modelOmega[0].definitions)
+        genomeModel.bins = list(individual)
+        modelLambda=models.model.newModel(modelOmega[0].definitions)
+        modelLambda.bins = calcNumberBins(genomeModel.bins, mean)
+        for i in range(len(modelOmega)):
+            tempValue=calcLogLikelihood(modelLambda, modelOmega[i])
+            if tempValue < logValue:
+                logValue = tempValue
+        fval = logValue
+        ftrue = self.opt
+        return fval, ftrue
+
+
 
 class F2(BBOBNfreeFunction):
     """Separable ellipsoid with monotone transformation

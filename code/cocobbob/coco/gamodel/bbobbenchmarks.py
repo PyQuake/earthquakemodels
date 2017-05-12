@@ -691,7 +691,7 @@ class F109(_FSphere, BBOBCauchyFunction):
     cauchyalpha = 1.
     cauchyp = 0.2
 
-class F2(BBOBNfreeFunction):
+class F2_new(BBOBNfreeFunction):
     """Separable ellipsoid with monotone transformation
     
     Parameter: condition number (default 1e6)
@@ -709,7 +709,7 @@ class F2(BBOBNfreeFunction):
         return fval
 
 
-class F2_old(BBOBNfreeFunction):
+class F2(BBOBNfreeFunction):
     """Separable ellipsoid with monotone transformation
     
     Parameter: condition number (default 1e6)
