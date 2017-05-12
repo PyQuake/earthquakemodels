@@ -304,20 +304,20 @@ from models.mathUtil import calcNumberBins
 #     res = np.reshape(unif(np.prod(size), _randomseed), size) 
 #     return res
 
-# def fGauss(ftrue, beta):
-#     """Returns Gaussian model noisy value."""
-#     # expects ftrue to be a np.array
-#     popsi = np.shape(ftrue)
-#     fval = ftrue * np.exp(beta * _randn(popsi)) # with gauss noise
-#     tol = 1e-8
-#     fval = fval + 1.01 * tol
-#     idx = ftrue < tol
-#     try:
-#         fval[idx] = ftrue[idx]
-#     except IndexError: # fval is a scalar
-#         if idx:
-#             fval = ftrue
-#     return fval
+def fGauss(ftrue, beta):
+    """Returns Gaussian model noisy value."""
+    # expects ftrue to be a np.array
+    popsi = np.shape(ftrue)
+    fval = ftrue * np.exp(beta * _randn(popsi)) # with gauss noise
+    tol = 1e-8
+    fval = fval + 1.01 * tol
+    idx = ftrue < tol
+    try:
+        fval[idx] = ftrue[idx]
+    except IndexError: # fval is a scalar
+        if idx:
+            fval = ftrue
+    return fval
 
 # def fUniform(ftrue, alpha, beta):
 #     """Returns uniform model noisy value."""
@@ -450,6 +450,7 @@ class BBOBFunction(AbstractTestFunction):
             self.fopt = 0.
         else:
             self.fopt = min(1000, max(-1000, (np.round(100*100*gauss(1, self.rseed)[0]/gauss(1, self.rseed+1)[0])/100)))
+            self.fopt = 100001
         self.iinstance = iinstance
         self.dim = None
         self.lastshape = None
