@@ -49,7 +49,6 @@ def tupleize(func):
     """A decorator that tuple-ize the result of a function. This is useful
     when the evaluation function returns a single value.
     """
-    print(func)
     def wrapper(*args, **kargs):
         return func(*args, **kargs),
     return wrapper
