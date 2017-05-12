@@ -702,7 +702,7 @@ class F2(BBOBNfreeFunction):
 
     def _evalfull(self, x):
         
-        ftrue=sum(x)
+        fval=sum(x)
         # FINALIZE
         # ftrue += fadd
         # fval += fadd
