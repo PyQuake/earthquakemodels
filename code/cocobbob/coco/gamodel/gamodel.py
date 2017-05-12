@@ -18,7 +18,9 @@ import array
 import math
 import random
 import time
+import sys
 
+from pathos.multiprocessing import ProcessingPool as Pool
 from itertools import chain
 
 from deap import base
@@ -28,8 +30,12 @@ from deap import benchmarks
 import fgeneric
 import bbobbenchmarks as bn
 
+toolbox = base.Toolbox()
 creator.create("FitnessMin", base.Fitness, weights=(-1.0,))
 creator.create("Individual", array.array, typecode="d", fitness=creator.FitnessMin)
+pool = Pool()
+toolbox.register("map", pool.map)
+
 
 def update(individual, mu, sigma):
     """Update the current *individual* with values from a gaussian centered on
@@ -47,7 +53,7 @@ def tupleize(func):
     return wrapper
 
 def main(func, dim, maxfuncevals, ftarget=None):
-    toolbox = base.Toolbox()
+    
     toolbox.register("update", update)
     toolbox.register("evaluate", func)
     toolbox.decorate("evaluate", tupleize)
@@ -89,6 +95,8 @@ def main(func, dim, maxfuncevals, ftarget=None):
     return best
 
 if __name__ == "__main__":
+	output = sys.argv[1]
+	tournsize = int(sys.argv[2])
     # Maximum number of restart for an algorithm that detects stagnation
     maxrestarts = 1000
     
