@@ -724,6 +724,7 @@ class F2(BBOBNfreeFunction):
             self.arrxopt = resize(self.xopt, curshape)
 
     def _evalfull(self, x):
+        print("in bb",x)
         fadd = self.fopt
         curshape, dim = self.shape_(x)
         # it is assumed x are row vectors
