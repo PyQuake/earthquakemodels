@@ -85,9 +85,6 @@ def gaModel(func,NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval, tournsize
 	toolbox.register("individual", tools.initRepeat, creator.Individual, toolbox.attr_float, len(modelOmega[0].bins))
 	toolbox.register("population", tools.initRepeat, list, toolbox.individual)
 
-	logbook = tools.Logbook()
-	logbook.header = "gen","min","avg","max","std"
-
 	pop = toolbox.population(n)
 	# Evaluate the entire population
 	fitnesses = list(toolbox.map(toolbox.evaluate, pop))
@@ -138,7 +135,6 @@ def gaModel(func,NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval, tournsize
 			for ind, fit in zip(pop, fitnesses):
 				ind.fitness.values = fit
 			g+=1
-		# logbook.record(gen=g, **record)
 	print(best_pop.fitness.values)
 	return best_pop
 
@@ -165,7 +161,6 @@ if __name__ == "__main__":
 	aux = list()
 	
 	func, opt = bn.instantiate(2, iinstance=1)
-	print(func, opt)
 	observation = models.model.loadModelDB(region+'jmaData', year+6)
 	ftarget = calcLogLikelihood(observation, observation)
 	opt=ftarget
@@ -186,7 +181,6 @@ if __name__ == "__main__":
 
 	print('FEs=%d ' % (e.evaluations))
 	print(e.fbest)
-	print(e.ftarget)
 	print('fbest-ftarget=%.4e' % e.fbest - e.ftarget)
 
 	e.finalizerun()
