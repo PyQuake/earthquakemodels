@@ -450,6 +450,7 @@ class BBOBFunction(AbstractTestFunction):
         if zerof:
             self.fopt = 0.
         else:
+            print("entrou?")
             # self.fopt = min(1000, max(-1000, (np.round(100*100*gauss(1, self.rseed)[0]/gauss(1, self.rseed+1)[0])/100)))
             region="Kanto"
             year=2000
