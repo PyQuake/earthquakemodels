@@ -673,17 +673,18 @@ class F2(BBOBNfreeFunction):
     Parameter: condition number (default 1e6)
 
     """
-    logValue = float('Inf')
-    genomeModel=models.model.newModel(modelOmega[0].definitions)
-    genomeModel.bins=list(individual)
-    modelLambda=models.model.newModel(modelOmega[0].definitions)
-    modelLambda.bins=calcNumberBins(genomeModel.bins, mean)
-    for i in range(len(modelOmega)):
-        tempValue=calcLogLikelihood(modelLambda, modelOmega[i])
-        # calcLogLikelihood.cache_clear()
-        if tempValue < logValue:
-            logValue = tempValue
-    return -logValue
+    def _evalfull(self, x, modelOmega, mean):
+        logValue = float('Inf')
+        genomeModel=models.model.newModel(modelOmega[0].definitions)
+        genomeModel.bins=list(individual)
+        modelLambda=models.model.newModel(modelOmega[0].definitions)
+        modelLambda.bins=calcNumberBins(genomeModel.bins, mean)
+        for i in range(len(modelOmega)):
+            tempValue=calcLogLikelihood(modelLambda, modelOmega[i])
+            # calcLogLikelihood.cache_clear()
+            if tempValue < logValue:
+                logValue = tempValue
+        return -logValue
 
     # funId = 2
     # paramValues = (1e0, 1e6)
