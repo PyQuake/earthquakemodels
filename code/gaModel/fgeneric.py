@@ -241,7 +241,7 @@ class LoggingFunction(object):
                     % self.fopt)
             f.close()
 
-    def evalfun(self, inputx, *args, **kwargs):
+    def evalfun(self, inputx, modelOmega, mean, *args, **kwargs):
         """Evaluate the function, return objective function value. 
         
         Positional and keyword arguments args and kwargs are directly
