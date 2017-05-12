@@ -125,7 +125,7 @@ def gaModel(func,NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval, tournsize
 		random.shuffle(pop)
 		record = stats.compile(pop)
 		if (abs(record["min"] - ftarget)) < 10e-8:
-			print(best_pop.fitness.values)
+			print("best_pop.fitness.values",best_pop.fitness.values)
 			return best_pop
 		if record["std"] < 10e-12:	
 			sortedPop = sorted(pop, key=attrgetter("fitness"), reverse = True)
@@ -135,7 +135,7 @@ def gaModel(func,NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval, tournsize
 			for ind, fit in zip(pop, fitnesses):
 				ind.fitness.values = fit
 			g+=1
-	print(best_pop.fitness.values)
+	print("best_pop.fitness.values",best_pop.fitness.values)
 	return best_pop
 
 if __name__ == "__main__":
@@ -179,8 +179,8 @@ if __name__ == "__main__":
 		ftarget=e.ftarget)
 
 
-	print('FEs=%d ' % (e.evaluations))
-	print(e.fbest)
-	print('fbest-ftarget=%.4e' % e.fbest - e.ftarget)
-
+	# print('FEs=%d ' % (e.evaluations))
+	print("e.fbest",e.fbest)
+	# print('fbest-ftarget=%.4e' % e.fbest - e.ftarget)
+	
 	e.finalizerun()
