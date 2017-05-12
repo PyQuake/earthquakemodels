@@ -72,7 +72,7 @@ def main(func, dim, maxfuncevals, ftarget=None, tournsize=20):
 	pop = toolbox.population(n)
 	print('in main',pop[0], sum(pop[0]))
 	print(toolbox.evaluate(pop[0]))
-	exit()
+	# exit()
 	fitnesses = list(toolbox.map(toolbox.evaluate, pop))
 	for ind, fit in zip(pop, fitnesses):
 		ind.fitness.values = fit
