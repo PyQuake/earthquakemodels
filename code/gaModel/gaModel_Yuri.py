@@ -170,6 +170,7 @@ if __name__ == "__main__":
 	aux = list()
 	
 	func, opt = bn.instantiate(1, iinstance=1)
+	observation = models.model.loadModelDB(region+'jmaData', year+6)
 	opt=ftarget
 	e.setfun(func, opt=ftarget)
 	# e.evalfun.im_class.evalfun=evaluationFunction
