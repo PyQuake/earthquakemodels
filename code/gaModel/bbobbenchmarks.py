@@ -747,50 +747,6 @@ nfreeinfos = [str(i) + ': ' + dictbbobnfree[i].__doc__ for i in nfreeIDs]
 funclasses = list(nfreefunclasses)
 dictbbob = dict((i.funId, i) for i in funclasses)
 
-#TODO: pb xopt f9, 21, 22
-class _FTemplate(BBOBNfreeFunction):
-    """Template based on F1"""
-
-    funId = 421337
-
-    def initwithsize(self, curshape, dim):
-        # DIM-dependent initialization
-        if self.dim != dim:
-            if self.zerox:
-                self.xopt = zeros(dim)
-            else:
-                self.xopt = compute_xopt(self.rseed, dim)
-
-        # DIM- and POPSI-dependent initialisations of DIM*POPSI matrices
-        if self.lastshape != curshape:
-            self.dim = dim
-            self.lastshape = curshape
-            self.arrxopt = resize(self.xopt, curshape)
-
-        self.linearTf = None
-        self.rotation = None
-
-    def _evalfull(self, x):
-        fadd = self.fopt
-        curshape, dim = self.shape_(x)
-        # it is assumed x are row vectors
-
-        if self.lastshape != curshape:
-            self.initwithsize(curshape, dim)
-
-        # BOUNDARY HANDLING
-
-        # TRANSFORMATION IN SEARCH SPACE
-        x = x - self.arrxopt # cannot be replaced with x -= arrxopt!
-
-        # COMPUTATION core
-        ftrue = np.sum(x**2, 1)
-        fval = self.noise(ftrue)
-
-        # FINALIZE
-        ftrue += fadd
-        fval += fadd
-        return fval, ftrue
 
 def instantiate(ifun, iinstance=0, param=None, **kwargs):
     """Returns test function ifun, by default instance 0."""
