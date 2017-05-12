@@ -701,7 +701,7 @@ class F2_new(BBOBNfreeFunction):
         region="Kanto"
         year=2000
         observation = models.model.loadModelDB(region+'jmaData', year+6)
-        self.opt=calcLogLikelihood(observation, observation)
+        self.fopt=calcLogLikelihood(observation, observation)
 
         
         logValue = float('Inf')
@@ -714,7 +714,7 @@ class F2_new(BBOBNfreeFunction):
             if tempValue < logValue:
                 logValue = tempValue
         fval = logValue
-        ftrue = self.opt
+        ftrue = self.fopt
         return fval, ftrue
 
 
