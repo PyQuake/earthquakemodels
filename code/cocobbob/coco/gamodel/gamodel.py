@@ -90,9 +90,7 @@ def main(func, dim, maxfuncevals, ftarget=None):
         # Test if we reached the optimum of the function
         # Remember that ">" for fitness means better (not greater)
         if best.fitness > opt:
-        	print(best.fitness.values)
         	return best
-    print(best.fitness.values)
     return best
 
 if __name__ == "__main__":
