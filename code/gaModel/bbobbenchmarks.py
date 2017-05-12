@@ -653,7 +653,7 @@ class _FSphere(BBOBFunction):
         fval += fadd
         return fval, ftrue
 
-class F1(_FSphere, BBOBNfreeFunction):
+class F1_old(_FSphere, BBOBNfreeFunction):
     """Noise-free Sphere function"""
     funId = 1
     def boundaryhandling(self, x):
@@ -693,7 +693,7 @@ class F109(_FSphere, BBOBCauchyFunction):
     cauchyalpha = 1.
     cauchyp = 0.2
 
-class F2(BBOBNfreeFunction):
+class F1(BBOBNfreeFunction):
 
     funId = 2
     region="Kanto"
@@ -718,7 +718,7 @@ class F2(BBOBNfreeFunction):
 
 
 
-class F2_old(BBOBNfreeFunction):
+class F2(BBOBNfreeFunction):
     """Separable ellipsoid with monotone transformation
     
     Parameter: condition number (default 1e6)
