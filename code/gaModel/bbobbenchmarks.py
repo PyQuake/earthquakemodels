@@ -704,7 +704,7 @@ class F2(BBOBNfreeFunction):
     funId = 2
     paramValues = (1e0, 1e6)
     condition = 1e6
-
+    print('ue?')
     def initwithsize(self, curshape, dim):
         pass
         # DIM-dependent initialization
