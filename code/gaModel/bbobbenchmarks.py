@@ -716,7 +716,6 @@ class F2(BBOBNfreeFunction):
             # calcLogLikelihood.cache_clear()
             if tempValue < logValue:
                 logValue = tempValue
-        print(logValue)
         return -logValue, -logValue
 
 

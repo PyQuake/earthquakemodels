@@ -289,6 +289,7 @@ class LoggingFunction(object):
                     fvaluej = fvalue
                     ftruej = ftrue
                     xj = x
+                print(fvaluej, ftruej, xj)
                 self.lasteval.update(fvaluej, ftruej, xj)
 
                 if self.lasteval.num >= self.evalsTrigger:
