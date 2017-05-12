@@ -91,7 +91,7 @@ def main(func, dim, maxfuncevals, ftarget=None):
         # Remember that ">" for fitness means better (not greater)
         if best.fitness > opt:
         	print(best.fitness.values)
-            return best
+        	return best
     print(best.fitness.values)
     return best
 
