@@ -18,23 +18,23 @@ from pathos.multiprocessing import ProcessingPool as Pool
 import fgeneric
 import bbobbenchmarks as bn
 # @jit
-# def evaluationFunction(individual, modelOmega, mean):
-# 	"""
-# 	This function calculates the loglikelihood of a model (individual) with 
-# 	the real data from the prior X years (modelOmega, with length X).
-# 	It selects the smallest loglikelihood value.
-# 	"""
-# 	logValue = float('Inf')
-# 	genomeModel=models.model.newModel(modelOmega[0].definitions)
-# 	genomeModel.bins=list(individual)
-# 	modelLambda=models.model.newModel(modelOmega[0].definitions)
-# 	modelLambda.bins=calcNumberBins(genomeModel.bins, mean)
-# 	for i in range(len(modelOmega)):
-# 		tempValue=calcLogLikelihood(modelLambda, modelOmega[i])
-# 		# calcLogLikelihood.cache_clear()
-# 		if tempValue < logValue:
-# 			logValue = tempValue
-# 	return logValue
+def evaluationFunction(individual, modelOmega, mean):
+	"""
+	This function calculates the loglikelihood of a model (individual) with 
+	the real data from the prior X years (modelOmega, with length X).
+	It selects the smallest loglikelihood value.
+	"""
+	logValue = float('Inf')
+	genomeModel=models.model.newModel(modelOmega[0].definitions)
+	genomeModel.bins=list(individual)
+	modelLambda=models.model.newModel(modelOmega[0].definitions)
+	modelLambda.bins=calcNumberBins(genomeModel.bins, mean)
+	for i in range(len(modelOmega)):
+		tempValue=calcLogLikelihood(modelLambda, modelOmega[i])
+		# calcLogLikelihood.cache_clear()
+		if tempValue < logValue:
+			logValue = tempValue
+	return logValue
 
 
 #parallel
@@ -42,14 +42,13 @@ import bbobbenchmarks as bn
 toolbox = base.Toolbox()
 creator.create("FitnessFunction", base.Fitness, weights=(1.0,))
 creator.create("Individual", array.array, typecode='d', fitness=creator.FitnessFunction)
-pool = Pool()
-toolbox.register("map", pool.map)
+# pool = Pool()
+# toolbox.register("map", pool.map)
 
 def tupleize(func):
     """A decorator that tuple-ize the result of a function. This is useful
     when the evaluation function returns a single value.
     """
-    print(func)
     def wrapper(*args, **kargs):
         return func(*args, **kargs),
     return wrapper
@@ -69,7 +68,7 @@ def gaModel(func,NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval, tournsize
 	toolbox.register("evaluate", func, modelOmega = modelOmega, mean=mean)
 	toolbox.decorate("evaluate", tupleize)
 	toolbox.register("attr_float", random.random)
-	toolbox.register("mate", tools.cxTwoPoint)
+	toolbox.register("mate", tools.cxOnePoint)
 	# operator for selecting individuals for breeding the next
 	# generation: each individual of the current generation
 	# is replaced by the 'fittest' (best) of three individuals
@@ -162,8 +161,13 @@ if __name__ == "__main__":
 		means.append(observation.bins)
 	del observation
 	mean = np.mean(means, axis=0)
-
-	e.setfun(bn.instantiate(2, iinstance=1))
+	aux = list()
+	
+	func, opt = bn.instantiate(2, iinstance=1)
+	observation = models.model.loadModelDB(region+'jmaData', year+6)
+	ftarget = calcLogLikelihood(observation, observation)
+	opt=ftarget
+	e.setfun(func, opt=ftarget)
 	gaModel(e.evalfun,
 		NGEN=100,
 		CXPB=0.9,
