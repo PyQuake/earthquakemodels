@@ -448,6 +448,10 @@ class BBOBFunction(AbstractTestFunction):
             self.fopt = 0.
         else:
             self.fopt = min(1000, max(-1000, (np.round(100*100*gauss(1, self.rseed)[0]/gauss(1, self.rseed+1)[0])/100)))
+            region="Kanto"
+            year=2000
+            observation = models.model.loadModelDB(region+'jmaData', year+6)
+            self.fpot = calcLogLikelihood(observation, observation)
         self.iinstance = iinstance
         self.dim = None
         self.lastshape = None
@@ -657,39 +661,6 @@ class F1(_FSphere, BBOBNfreeFunction):
     def boundaryhandling(self, x):
         return 0.
 
-class F101(_FSphere, BBOBGaussFunction):
-    """Sphere with moderate Gauss noise"""
-    funId = 101
-    gaussbeta = 0.01
-
-class F102(_FSphere, BBOBUniformFunction):
-    """Sphere with moderate uniform noise"""
-    funId = 102
-    unifalphafac = 0.01
-    unifbeta = 0.01
-
-class F103(_FSphere, BBOBCauchyFunction):
-    """Sphere with moderate Cauchy noise"""
-    funId = 103
-    cauchyalpha = 0.01
-    cauchyp = 0.05
-
-class F107(_FSphere, BBOBGaussFunction):
-    """Sphere with  Gauss noise"""
-    funId = 107
-    gaussbeta = 1.
-
-class F108(_FSphere, BBOBUniformFunction):
-    """Sphere with uniform noise"""
-    funId = 108
-    unifalphafac = 1.
-    unifbeta = 1.
-
-class F109(_FSphere, BBOBCauchyFunction):
-    """Sphere with Cauchy noise"""
-    funId = 109
-    cauchyalpha = 1.
-    cauchyp = 0.2
 
 class F2(BBOBNfreeFunction):
     """Separable ellipsoid with monotone transformation
