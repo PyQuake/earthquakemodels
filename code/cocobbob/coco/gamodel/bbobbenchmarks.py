@@ -704,24 +704,24 @@ class F2(BBOBNfreeFunction):
     paramValues = (1e0, 1e6)
     condition = 1e6
 
-    def initwithsize(self, curshape, dim):
-        # DIM-dependent initialization
-        if self.dim != dim:
-            if self.zerox:
-                self.xopt = zeros(dim)
-            else:
-                self.xopt = compute_xopt(self.rseed, dim)
-            if hasattr(self, 'param') and self.param: # not self.param is None
-                tmp = self.param
-            else:
-                tmp = self.condition
-            self.scales = tmp ** linspace(0, 1, dim)
+    # def initwithsize(self, curshape, dim):
+    #     # DIM-dependent initialization
+    #     if self.dim != dim:
+    #         if self.zerox:
+    #             self.xopt = zeros(dim)
+    #         else:
+    #             self.xopt = compute_xopt(self.rseed, dim)
+    #         if hasattr(self, 'param') and self.param: # not self.param is None
+    #             tmp = self.param
+    #         else:
+    #             tmp = self.condition
+    #         self.scales = tmp ** linspace(0, 1, dim)
 
-        # DIM- and POPSI-dependent initialisations of DIM*POPSI matrices
-        if self.lastshape != curshape:
-            self.dim = dim
-            self.lastshape = curshape
-            self.arrxopt = resize(self.xopt, curshape)
+    #     # DIM- and POPSI-dependent initialisations of DIM*POPSI matrices
+    #     if self.lastshape != curshape:
+    #         self.dim = dim
+    #         self.lastshape = curshape
+    #         self.arrxopt = resize(self.xopt, curshape)
 
     def _evalfull(self, x):
         print("in bb",x)
