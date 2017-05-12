@@ -120,6 +120,7 @@ class LoggingFunction(object):
                 self.f = f
                 self.fnoisy =  fnoisy
                 self.x = x
+            print(f, np.min(f))
             bestf = np.min(f)
             if bestf < self.bestf:
                 self.bestf = bestf
@@ -289,7 +290,6 @@ class LoggingFunction(object):
                     fvaluej = fvalue
                     ftruej = ftrue
                     xj = x
-                print(fvaluej, ftruej, xj)
                 self.lasteval.update(fvaluej, ftruej, xj)
 
                 if self.lasteval.num >= self.evalsTrigger:
