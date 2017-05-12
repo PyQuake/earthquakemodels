@@ -222,52 +222,52 @@ from models.mathUtil import calcNumberBins
 #     fpen = fac * np.sum(xoutside**2, -1) # penalty
 #     return fpen
 
-# def gauss(N, seed):
-#     """Samples N standard normally distributed numbers
-#     being the same for a given seed
+def gauss(N, seed):
+    """Samples N standard normally distributed numbers
+    being the same for a given seed
 
-#     """
-#     r = unif(2*N, seed)
-#     g = np.sqrt(-2 * np.log(r[:N])) * np.cos(2 * np.pi * r[N:2*N])
-#     if np.any(g == 0.):
-#         g[g == 0] = 1e-99
-#     return g
+    """
+    r = unif(2*N, seed)
+    g = np.sqrt(-2 * np.log(r[:N])) * np.cos(2 * np.pi * r[N:2*N])
+    if np.any(g == 0.):
+        g[g == 0] = 1e-99
+    return g
 
-# def unif(N, inseed):
-#     """Generates N uniform numbers with starting seed."""
+def unif(N, inseed):
+    """Generates N uniform numbers with starting seed."""
 
-#     # initialization
-#     inseed = np.abs(inseed)
-#     if inseed < 1.:
-#         inseed = 1.
+    # initialization
+    inseed = np.abs(inseed)
+    if inseed < 1.:
+        inseed = 1.
 
-#     rgrand = 32 * [0.]
-#     aktseed = inseed
-#     for i in xrange(39, -1, -1):
-#         tmp = floor(aktseed/127773.)
-#         aktseed = 16807. * (aktseed - tmp * 127773.) - 2836. * tmp
-#         if aktseed < 0:
-#             aktseed = aktseed + 2147483647.
-#         if i < 32:
-#             rgrand[i] = aktseed
-#     aktrand = rgrand[0]
+    rgrand = 32 * [0.]
+    aktseed = inseed
+    for i in xrange(39, -1, -1):
+        tmp = floor(aktseed/127773.)
+        aktseed = 16807. * (aktseed - tmp * 127773.) - 2836. * tmp
+        if aktseed < 0:
+            aktseed = aktseed + 2147483647.
+        if i < 32:
+            rgrand[i] = aktseed
+    aktrand = rgrand[0]
 
-#     # sample numbers
-#     r = int(N) * [0.]
-#     for i in xrange(int(N)):
-#         tmp = floor(aktseed/127773.)
-#         aktseed = 16807. * (aktseed - tmp * 127773.) - 2836. * tmp
-#         if aktseed < 0:
-#             aktseed = aktseed + 2147483647.
-#         tmp = int(floor(aktrand / 67108865.))
-#         aktrand = rgrand[tmp]
-#         rgrand[tmp] = aktseed
-#         r[i] = aktrand / 2.147483647e9
-#     r = np.asarray(r)
-#     if (r == 0).any():
-#         warning.warn('zero sampled(?), set to 1e-99')
-#         r[r == 0] = 1e-99
-#     return r
+    # sample numbers
+    r = int(N) * [0.]
+    for i in xrange(int(N)):
+        tmp = floor(aktseed/127773.)
+        aktseed = 16807. * (aktseed - tmp * 127773.) - 2836. * tmp
+        if aktseed < 0:
+            aktseed = aktseed + 2147483647.
+        tmp = int(floor(aktrand / 67108865.))
+        aktrand = rgrand[tmp]
+        rgrand[tmp] = aktseed
+        r[i] = aktrand / 2.147483647e9
+    r = np.asarray(r)
+    if (r == 0).any():
+        warning.warn('zero sampled(?), set to 1e-99')
+        r[r == 0] = 1e-99
+    return r
 
 # # for testing and comparing to other implementations, 
 # #   myrand and myrandn are used only for sampling the noise 
