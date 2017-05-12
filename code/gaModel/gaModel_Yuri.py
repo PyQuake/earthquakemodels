@@ -171,7 +171,7 @@ if __name__ == "__main__":
 	opt=ftarget
 	e.setfun(func, opt=ftarget)
 	gaModel(e.evalfun,
-		NGEN=5,
+		NGEN=100,
 		CXPB=0.9,
 		MUTPB=0.1,
 		modelOmega=observations,
@@ -179,7 +179,7 @@ if __name__ == "__main__":
 		5,
 		region=region,
 		mean=mean,
-		n_aval=100,
+		n_aval=50000,
 		tournsize=tournsize,
 		ftarget=e.ftarget)
 
