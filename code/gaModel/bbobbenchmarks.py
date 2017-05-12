@@ -610,8 +610,6 @@ class F1(_FSphere, BBOBNfreeFunction):
     def boundaryhandling(self, x):
         return 0.
 
-
-
 class F2(BBOBNfreeFunction):
     """Separable ellipsoid with monotone transformation
     
@@ -620,51 +618,59 @@ class F2(BBOBNfreeFunction):
     """
 
     funId = 2
-    # paramValues = (1e0, 1e6)
-    # condition = 1e6
-    # def initwithsize(self, curshape, dim):
-        
+    paramValues = (1e0, 1e6)
+    condition = 1e6
+
+    def initwithsize(self, curshape, dim):
         # DIM-dependent initialization
-        # if self.dim != dim:
-        #     if self.zerox:
-        #         self.xopt = zeros(dim)
-        #     else:
-        #         self.xopt = compute_xopt(self.rseed, dim)
-        #     if hasattr(self, 'param') and self.param: # not self.param is None
-        #         tmp = self.param
-        #     else:
-        #         tmp = self.condition
-        #     self.scales = tmp ** linspace(0, 1, dim)
+        if self.dim != dim:
+            if self.zerox:
+                self.xopt = zeros(dim)
+            else:
+                self.xopt = compute_xopt(self.rseed, dim)
+            if hasattr(self, 'param') and self.param: # not self.param is None
+                tmp = self.param
+            else:
+                tmp = self.condition
+            self.scales = tmp ** linspace(0, 1, dim)
 
         # DIM- and POPSI-dependent initialisations of DIM*POPSI matrices
-        # if self.lastshape != curshape:
-        #     self.dim = dim
-        #     self.lastshape = curshape
-        #     self.arrxopt = resize(self.xopt, curshape)
+        if self.lastshape != curshape:
+            self.dim = dim
+            self.lastshape = curshape
+            self.arrxopt = resize(self.xopt, curshape)
 
+    def _evalfull(self, x):
+        fadd = self.fopt
+        curshape, dim = self.shape_(x)
+        # it is assumed x are row vectors
+
+        if self.lastshape != curshape:
+            self.initwithsize(curshape, dim)
+
+        # TRANSFORMATION IN SEARCH SPACE
+        x = x - self.arrxopt # cannot be replaced with x -= arrxopt!
+
+        # COMPUTATION core
+        ftrue = dot(monotoneTFosc(x)**2, self.scales)
+        fval = self.noise(ftrue) # without noise
+
+        # FINALIZE
+        ftrue += fadd
+        fval += fadd
+        return fval, ftrue
+
+
+
+class F2_old(BBOBNfreeFunction):
+
+
+    funId = 2
     def _evalfull(self, x):
         region="Kanto"
         year=2000
         observation = models.model.loadModelDB(region+'jmaData', year+6)
         self.fpot = calcLogLikelihood(observation, observation)
-
-        # # fadd = self.fopt
-        # curshape, dim = self.shape_(x)
-        # # it is assumed x are row vectors
-
-        # if self.lastshape != curshape:
-        #     self.initwithsize(curshape, dim)
-
-        # # TRANSFORMATION IN SEARCH SPACE
-        # x = x - self.arrxopt # cannot be replaced with x -= arrxopt!
-
-        # # COMPUTATION core
-        # ftrue = dot(monotoneTFosc(x)**2, self.scales)
-        # fval = self.noise(ftrue) # without noise
-
-        # # FINALIZE
-        # ftrue += fadd
-        # fval += fadd
 
         logValue = float('Inf')
         genomeModel = models.model.newModel(modelOmega[0].definitions)
