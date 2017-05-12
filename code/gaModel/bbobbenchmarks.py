@@ -450,11 +450,11 @@ class BBOBFunction(AbstractTestFunction):
         if zerof:
             self.fopt = 0.
         else:
-            # self.fopt = min(1000, max(-1000, (np.round(100*100*gauss(1, self.rseed)[0]/gauss(1, self.rseed+1)[0])/100)))
+            self.fopt = min(1000, max(-1000, (np.round(100*100*gauss(1, self.rseed)[0]/gauss(1, self.rseed+1)[0])/100)))
             region="Kanto"
             year=2000
             observation = models.model.loadModelDB(region+'jmaData', year+6)
-            self.fpot = calcLogLikelihood(observation, observation)
+            self.fopt = calcLogLikelihood(observation, observation)
         self.iinstance = iinstance
         self.dim = None
         self.lastshape = None
