@@ -159,5 +159,5 @@ if __name__ == "__main__":
 					'fbest-ftarget=%.4e, and best=%.4e'
 					% (f_name, dim, instance, e.evaluations, restarts,
 						e.fbest - e.ftarget, e.fbest))
-				exit()
+			exit()
 			print('date and time: %s' % time.asctime())
