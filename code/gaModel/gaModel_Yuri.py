@@ -34,13 +34,13 @@ def evaluationFunction(individual, modelOmega, mean):
 		# calcLogLikelihood.cache_clear()
 		if tempValue < logValue:
 			logValue = tempValue
-	return -logValue
+	return logValue
 
 
 #parallel
 
 toolbox = base.Toolbox()
-creator.create("FitnessFunction", base.Fitness, weights=(-1.0,))
+creator.create("FitnessFunction", base.Fitness, weights=(1.0,))
 creator.create("Individual", array.array, typecode='d', fitness=creator.FitnessFunction)
 # pool = Pool()
 # toolbox.register("map", pool.map)
@@ -129,7 +129,6 @@ def gaModel(func,NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval, tournsize
 		logbook.record(gen=g,**record)
 		if (abs(record["min"] - ftarget)) < 10e-8:
 			print(logbook)
-			print("best_pop.fitness.values",best_pop.fitness.values)
 			return best_pop
 		if record["std"] < 10e-12:	
 			sortedPop = sorted(pop, key=attrgetter("fitness"), reverse = True)
@@ -140,7 +139,6 @@ def gaModel(func,NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval, tournsize
 				ind.fitness.values = fit
 			g+=1
 	print(logbook)
-	print("best_pop.fitness.values",best_pop.fitness.values)
 	return best_pop
 
 if __name__ == "__main__":
