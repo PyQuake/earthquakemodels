@@ -60,7 +60,7 @@ def gaModel(func,NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval, tournsize
 	@decorator(modelOmega = modelOmega, mean=mean)	
 	def aux(individual, modelOmega = modelOmega, mean=mean):
 		return teste(individual)
-	toolbox.register("evaluate", aux, modelOmega = modelOmega, mean=mean)
+	toolbox.register("evaluate", aux)
 	# toolbox.register("evaluate", func, modelOmega = modelOmega, mean=mean)	
 	# toolbox.decorate("evaluate", tupleize)
 
