@@ -30,21 +30,28 @@ def tupleize(func):
         return func(*args, **kargs),
     return wrapper
 
-def gaModel(func,NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval, tournsize, ftarget):
+def func():
+	pass
+
+@tupleize
+	def aux(individual):
+		return func(individual, modelOmega, mean)
+
+
+def gaModel(func1,NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval, tournsize, ftarget):
 	"""
 	The main function. It evolves models, namely modelLamba or individual. 
 	It uses 1 parallel system: 1, simple, that splits the ga evolution between cores
 	"""
 	start = time.clock()  
+	global func
+	func = func1
 	#calculating the number of individuals of the populations based on the number of executions
 	y=int(n_aval/NGEN)
 	x=n_aval - y*NGEN
 	n= x + y
 	# Attribute generator
-	@tupleize
-	def aux(individual):
-		return func(individual, modelOmega, mean)
-
+	
 	# toolbox.register("evaluate", func, modelOmega = modelOmega, mean=mean)	
 	# toolbox.decorate("evaluate", tupleize)
 
