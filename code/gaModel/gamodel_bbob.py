@@ -22,6 +22,7 @@ creator.create("Individual", array.array, typecode='d', fitness=creator.FitnessF
 # pool = Pool()
 toolbox.register("map", futures.map)
 
+@tools.ClosestValidPenality(valid, closest_feasible, 1.0e-6, distance)
 def tupleize(func):
     """A decorator that tuple-ize the result of a function. This is useful
     when the evaluation function returns a single value.
@@ -45,7 +46,7 @@ def gaModel(func,NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval, tournsize
 	toolbox.register("evaluate", func, modelOmega = modelOmega, mean=mean)
 	toolbox.decorate("evaluate", tupleize)
 	toolbox.register("attr_float", random.random)
-	toolbox.register("mate", tools.cxOnePoint)
+	toolbox.register("mate", tools.cxTwoPoint)
 	# operator for selecting individuals for breeding the next
 	# generation: each individual of the current generation
 	# is replaced by the 'fittest' (best) of three individuals
