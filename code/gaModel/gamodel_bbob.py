@@ -30,14 +30,6 @@ def tupleize(func):
         return func(*args, **kargs),
     return wrapper
 
-def func(arg1, agr2, agr3, agr4):
-	pass
-
-@tupleize
-def aux(individual):
-	return func(individual)
-
-
 def gaModel(func,NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval, tournsize, ftarget):
 	"""
 	The main function. It evolves models, namely modelLamba or individual. 
@@ -49,7 +41,11 @@ def gaModel(func,NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval, tournsize
 	x=n_aval - y*NGEN
 	n= x + y
 	# Attribute generator
-	toolbox.register("func", func, modelOmega = modelOmega, mean=mean)	
+	toolbox.register("evaluate", func, modelOmega = modelOmega, mean=mean)	
+	teste = toolbox.evaluate
+	@tupleize
+	def aux(individual):
+		return teste(individual)
 	toolbox.register("evaluate", aux)
 	
 	# toolbox.register("evaluate", func, modelOmega = modelOmega, mean=mean)	
