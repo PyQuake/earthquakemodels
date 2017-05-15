@@ -28,14 +28,12 @@ class ClosestValidPenalty(object):
 	def __init__(self, modelOmega, mean):
 		self.modelOmega = modelOmega
         self.mean = mean
-        
-    def __call__(self, func):
-        @wraps(func)
-        def wrapper(individual, *args, **kwargs):
-            if self.fbty_fct(individual):
-                return func(individual, self.modelOmega, self.mean, *args, **kwargs)
 
-        return wrapper
+    def __call__(self, func):
+    	@wraps(func)
+    	def wrapper(individual, *args, **kwargs):
+    		return func(individual, self.modelOmega, self.mean, *args, **kwargs)
+    	return wrapper
 
 def tupleize(func):
     """A decorator that tuple-ize the result of a function. This is useful
