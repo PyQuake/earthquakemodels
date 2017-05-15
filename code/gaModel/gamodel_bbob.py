@@ -33,7 +33,7 @@ class ClassBasedDecoratorWithParams(object):
             return func(*args, **kwargs),
         return wrapper
 
-@ClassBasedDecoratorWithParams(modelOmega, mean)
+@ClassBasedDecoratorWithParams(modelOmega=None, mean=None)
 def aux(individual):
 	return func(individual, modelOmega, mean)	
 
