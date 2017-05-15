@@ -28,12 +28,12 @@ class decorator(object):
 	def __init__(self, modelOmega, mean):
 		print(modelOmega, mean)
 		self.modelOmega = modelOmega
-        self.var = mean
+		self.mean = mean
 	
 	def __call__(self, func):
 		@wraps(func)
 		def wrapper(individual, *args, **kwargs):
-			return func(individual, self.modelOmega, self.var, *args, **kwargs)
+			return func(individual, self.modelOmega, self.mean, *args, **kwargs)
 		return wrapper
 
 def tupleize(func):
@@ -57,7 +57,7 @@ def gaModel(func,NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval, tournsize
 	# Attribute generator
 	toolbox.register("evaluate", func, modelOmega = modelOmega, mean=mean)	
 	teste = toolbox.evaluate
-	@decorator(modelOmega, mean)
+	@decorator(modelOmega, mean=None)
 	def aux(individual):
 		return teste(individual)
 	toolbox.register("evaluate", aux)
