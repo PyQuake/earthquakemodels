@@ -27,23 +27,8 @@ def tupleize(func):
     when the evaluation function returns a single value.
     """
     def wrapper(*args, **kargs):
-    	print(type(args), len(args))
-    	# individual = args[0]
-    	# modelOmega = args[1]
-    	# mean = args[2]
-    	exit()
-    	return func(individual, modelOmega, mean , **kargs),
+        return func(*args, **kargs),
     return wrapper
-
-@tupleize
-def aux(teste):
-	print('aui')
-	print(teste[0])
-	print(teste[1])
-	print(teste[2])
-	exit()
-	return func(teste)
-	
 
 def gaModel(func,NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval, tournsize, ftarget):
 	"""
@@ -51,12 +36,18 @@ def gaModel(func,NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval, tournsize
 	It uses 1 parallel system: 1, simple, that splits the ga evolution between cores
 	"""
 	start = time.clock()  
-	
 	#calculating the number of individuals of the populations based on the number of executions
 	y=int(n_aval/NGEN)
 	x=n_aval - y*NGEN
 	n= x + y
 	# Attribute generator
+	toolbox.register("evaluate", func, modelOmega = modelOmega, mean=mean)	
+	teste = toolbox.evaluate
+	@tupleize
+	def aux(individual):
+		return teste(individual)
+	
+	toolbox.register("evaluate", aux)
 	
 	# toolbox.register("evaluate", func, modelOmega = modelOmega, mean=mean)	
 	# toolbox.decorate("evaluate", tupleize)
@@ -83,12 +74,7 @@ def gaModel(func,NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval, tournsize
 
 	pop = toolbox.population(n)
 	# Evaluate the entire population
-	teste = list()
-	teste.append(mean)
-	teste.append(mean)
-	teste.append(mean)
-	print('auhsd')
-	fitnesses = list(toolbox.map(aux, teste))
+	fitnesses = list(toolbox.map(toolbox.evaluate, pop))
 	for ind, fit in zip(pop, fitnesses):
 		ind.fitness.values = fit
 
@@ -110,7 +96,7 @@ def gaModel(func,NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval, tournsize
 				del mutant.fitness.values
         # Evaluate the individuals with an invalid fitness
 		invalid_ind = [ind for ind in offspring if not ind.fitness.valid]
-		fitnesses = list(toolbox.map(aux, invalid_ind))
+		fitnesses = list(toolbox.map(toolbox.evaluate, invalid_ind))
 		for ind, fit in zip(invalid_ind, fitnesses):
 			ind.fitness.values = fit
 		#Elitism
@@ -118,7 +104,7 @@ def gaModel(func,NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval, tournsize
 		# The population is entirely replaced by the offspring, but the last ind replaced by best_pop
 		pop[:] = offspring
 
-		fitnesses = list(toolbox.map(aux, pop))
+		fitnesses = list(toolbox.map(evaluate, pop))
 		for ind, fit in zip(pop, fitnesses):
 			ind.fitness.values = fit
 		pop = sorted(pop, key=attrgetter("fitness"), reverse = False)
@@ -133,7 +119,7 @@ def gaModel(func,NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval, tournsize
 			sortedPop = sorted(pop, key=attrgetter("fitness"), reverse = True)
 			pop = toolbox.population(n)
 			pop[0] = sortedPop[0]
-			fitnesses = list(toolbox.map(aux, pop))
+			fitnesses = list(toolbox.map(toolbox.evaluate, pop))
 			for ind, fit in zip(pop, fitnesses):
 				ind.fitness.values = fit
 			g+=1
