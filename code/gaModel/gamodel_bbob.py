@@ -50,8 +50,8 @@ def gaModel(func,NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval, tournsize
 	# Attribute generator
 	# toolbox.register("evaluate", func, modelOmega = modelOmega, mean=mean)	
 	# teste = toolbox.evaluate
-	# def aux(individual):
-	# 	return func(individual)
+	def aux(individual):
+		return func(individual)
 	decorator(mean, mean)aux(individual)
 	# toolbox.register("evaluate", aux)
 	
