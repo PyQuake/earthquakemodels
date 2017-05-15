@@ -451,10 +451,10 @@ class BBOBFunction(AbstractTestFunction):
             self.fopt = 0.
         else:
             # self.fopt = min(1000, max(-1000, (np.round(100*100*gauss(1, self.rseed)[0]/gauss(1, self.rseed+1)[0])/100)))
-            print("in init", param)
+            print("in init", param[0], param[1])
             exit()
-            region="Kanto"
-            year=2000
+            region = param[0]
+            year = param[1]
             observation = models.model.loadModelDB(region+'jmaData', year+6)
             self.fopt = calcLogLikelihood(observation, observation)
         self.iinstance = iinstance
@@ -2160,7 +2160,6 @@ class _FTemplate(BBOBNfreeFunction):
 
 def instantiate(ifun, iinstance=0, param=None, **kwargs):
     """Returns test function ifun, by default instance 0."""
-    print(param, kwargs)
     res = dictbbob[ifun](iinstance=iinstance, param=param, **kwargs)  # calling BBOBFunction.__init__(iinstance, param,...)
     return res, res.fopt
 
