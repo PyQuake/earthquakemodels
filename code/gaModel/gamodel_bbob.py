@@ -73,14 +73,14 @@ def gaModel(func,NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval, tournsize
 	stats.register("max", np.max)
 	# toolbox.register("evaluate", evaluationFunction, modelOmega=modelOmega, mean=mean)
 	toolbox.register("individual", tools.initRepeat, creator.Individual, toolbox.attr_float, 10)
-	toolbox.register("individual", tools.initRepeat, creator.Individual, toolbox.attr_float, len(modelOmega[0].bins))
+	# toolbox.register("individual", tools.initRepeat, creator.Individual, toolbox.attr_float, len(modelOmega[0].bins))
 	toolbox.register("population", tools.initRepeat, list, toolbox.individual)
 	logbook = tools.Logbook()
 	logbook.header = "gen","min","avg","max","std"
 
 	pop = toolbox.population(n)
 	# Evaluate the entire population
-	teste = (pop, modelOmega, mean)
+	teste = (pop, mean)
 	fitnesses = list(toolbox.map(aux, teste))
 	for ind, fit in zip(pop, fitnesses):
 		ind.fitness.values = fit
