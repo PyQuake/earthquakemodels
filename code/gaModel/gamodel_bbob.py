@@ -24,7 +24,7 @@ toolbox.register("map", futures.map)
 
 class ClassBasedDecoratorWithParams(object):
 
-    def __init__(self, arg1, arg2):
+    def __init__(self, modelOmega, mean):
         pass
 
     def __call__(self, func, *args, **kwargs):
