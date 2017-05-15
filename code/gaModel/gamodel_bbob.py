@@ -26,6 +26,8 @@ toolbox.register("map", futures.map)
 class decorator(object):
 
 	def __init__(self, modelOmega, mean):
+		print(modelOmega, mean)
+		exit("in decorator")
 		self.modelOmega = modelOmega
         self.mean = mean
 	
@@ -56,7 +58,7 @@ def gaModel(func,NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval, tournsize
 	# Attribute generator
 	toolbox.register("evaluate", func, modelOmega = modelOmega, mean=mean)	
 	teste = toolbox.evaluate
-	@decorator(modelOmega = modelOmega, mean=mean)	
+	@decorator(modelOmega, mean)
 	def aux(individual):
 		return teste(individual)
 	toolbox.register("evaluate", aux)
