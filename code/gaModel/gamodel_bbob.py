@@ -34,8 +34,8 @@ def func():
 	pass
 
 @tupleize
-	def aux(individual):
-		return func(individual, modelOmega, mean)
+def aux(individual):
+	return func(individual, modelOmega, mean)
 
 
 def gaModel(func1,NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval, tournsize, ftarget):
