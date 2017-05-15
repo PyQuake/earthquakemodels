@@ -29,9 +29,9 @@ def tupleize(func):
     def wrapper(*args, **kargs):
     	# print(args)
     	individual = teste[0]
-		modelOmega = teste[1]
-		mean = teste[2]
-        return func(individual, modelOmega, mean , **kargs),
+    	modelOmega = teste[1]
+    	mean = teste[2]
+    	return func(individual, modelOmega, mean , **kargs),
     return wrapper
 
 @tupleize
