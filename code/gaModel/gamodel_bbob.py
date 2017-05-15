@@ -45,8 +45,8 @@ def tupleize(func):
 
 global fun
 
-@decorator(modelOmega = modelOmega, mean=mean)	
-def evaluateFun(individual, modelOmega = modelOmega, mean=mean):
+@decorator(modelOmega = None, mean = None)	
+def evaluateFun(individual, modelOmega = None , mean=None):
 	return fun(individual)
 
 def gaModel(func,NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval, tournsize, ftarget):
