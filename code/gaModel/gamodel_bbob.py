@@ -33,9 +33,6 @@ def tupleize(func):
 def func():
 	pass
 
-@tupleize
-def aux(individual):
-	return func(individual, modelOmega, mean)
 
 
 def gaModel(func1,NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval, tournsize, ftarget):
@@ -51,7 +48,10 @@ def gaModel(func1,NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval, tournsiz
 	x=n_aval - y*NGEN
 	n= x + y
 	# Attribute generator
-	
+	@tupleize
+	def aux(individual):
+		return func(individual, modelOmega, mean)
+
 	# toolbox.register("evaluate", func, modelOmega = modelOmega, mean=mean)	
 	# toolbox.decorate("evaluate", tupleize)
 
