@@ -26,7 +26,6 @@ toolbox.register("map", futures.map)
 class decorator(object):
 
 	def __init__(self, modelOmega, mean):
-		print(modelOmega, mean)
 		self.modelOmega = modelOmega
 		self.mean = mean
 	
@@ -44,6 +43,12 @@ def tupleize(func):
         return func(*args, **kargs),
     return wrapper
 
+global fun
+
+@decorator(modelOmega = modelOmega, mean=mean)	
+def evaluateFun(individual, modelOmega = modelOmega, mean=mean):
+	return fun(individual)
+
 def gaModel(func,NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval, tournsize, ftarget):
 	"""
 	The main function. It evolves models, namely modelLamba or individual. 
@@ -56,11 +61,10 @@ def gaModel(func,NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval, tournsize
 	n= x + y
 	# Attribute generator
 	toolbox.register("evaluate", func, modelOmega = modelOmega, mean=mean)	
-	teste = toolbox.evaluate
-	@decorator(modelOmega = modelOmega, mean=mean)	
-	def aux(individual, modelOmega = modelOmega, mean=mean):
-		return teste(individual)
-	toolbox.register("evaluate", aux)
+	global fun
+	fun = toolbox.evaluate
+	
+	toolbox.register("evaluate", evaluateFun)
 	# toolbox.register("evaluate", func, modelOmega = modelOmega, mean=mean)	
 	# toolbox.decorate("evaluate", tupleize)
 
