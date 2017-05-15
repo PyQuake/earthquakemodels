@@ -22,16 +22,20 @@ creator.create("Individual", array.array, typecode='d', fitness=creator.FitnessF
 # pool = Pool()
 toolbox.register("map", futures.map)
 
-def tupleize(func):
-    """A decorator that tuple-ize the result of a function. This is useful
-    when the evaluation function returns a single value.
-    """
-    def wrapper(modelOmega, mean):
-    	print(modelOmega)
-    	print(mean)
-    	exit()
-        return func(*args, **kargs),
-    return wrapper
+def decorator(modelOmega, mean):
+	print(mean)
+	exit()
+	def tupleize(func):
+	    """A decorator that tuple-ize the result of a function. This is useful
+	    when the evaluation function returns a single value.
+	    """
+	    def wrapper(*args, **kargs):
+	    	print(modelOmega)
+	    	print(mean)
+	    	exit()
+	        return func(*args, **kargs),
+	    return wrapper
+	return tupleize
 
 def gaModel(func,NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval, tournsize, ftarget):
 	"""
@@ -46,9 +50,9 @@ def gaModel(func,NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval, tournsize
 	# Attribute generator
 	# toolbox.register("evaluate", func, modelOmega = modelOmega, mean=mean)	
 	# teste = toolbox.evaluate
-	@tupleize
+	@decorator
 	def aux(individual):
-		return func(individual, modelOmega, mean)
+		return func(individual)
 	toolbox.register("evaluate", aux)
 	
 	# toolbox.register("evaluate", func, modelOmega = modelOmega, mean=mean)	
