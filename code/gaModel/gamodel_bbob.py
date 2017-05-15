@@ -30,6 +30,9 @@ def tupleize(func):
         return func(*args, **kargs),
     return wrapper
 
+def func(arg1, agr2, agr3, agr4):
+	pass
+
 @tupleize
 def aux(individual):
 	return func(individual)
