@@ -29,17 +29,13 @@ class ClassBasedDecoratorWithParams(object):
 
     def __call__(self, func, *args, **kwargs):
 
-        def new_func(*args, **kwargs):
+        def wrapper(*args, **kwargs):
             return func(*args, **kwargs),
-        return new_func
+        return wrapper
 
-# def tupleize(func):
-#     """A decorator that tuple-ize the result of a function. This is useful
-#     when the evaluation function returns a single value.
-#     """
-#     def wrapper(*args, **kargs):
-#         return func(*args, **kargs),
-#     return wrapper
+@ClassBasedDecoratorWithParams(modelOmega, mean)
+def aux(individual):
+	return func(individual, modelOmega, mean)	
 
 def gaModel(func,NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval, tournsize, ftarget):
 	"""
@@ -53,9 +49,6 @@ def gaModel(func,NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval, tournsize
 	n= x + y
 	# Attribute generator
 	# toolbox.register("evaluate", func, modelOmega = modelOmega, mean=mean)	
-	@ClassBasedDecoratorWithParams(mean, mean)
-	def aux(individual):
-		return func(individual, modelOmega, mean)	
 	
 	toolbox.register("evaluate", aux)
 	
