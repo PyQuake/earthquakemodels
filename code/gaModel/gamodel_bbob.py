@@ -17,7 +17,7 @@ import fgeneric
 import bbobbenchmarks as bn
 from functools import wraps
 
-func, opt = bn.instantiate(2, iinstance=1)
+
 toolbox = base.Toolbox()
 creator.create("FitnessFunction", base.Fitness, weights=(-1.0,))
 creator.create("Individual", array.array, typecode='d', fitness=creator.FitnessFunction)
