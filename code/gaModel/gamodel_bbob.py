@@ -43,8 +43,9 @@ def gaModel(func,NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval, tournsize
 	# Attribute generator
 	toolbox.register("evaluate", func, modelOmega = modelOmega, mean=mean)	
 	@tupleize
-	def aux(toolbox.evaluate):
-		return tupleize(toolbox.evaluate)
+	# teste = toolbox.evaluate
+	def aux(teste):
+		return tupleize(teste)
 	toolbox.register("evaluate", aux)
 	
 	# toolbox.register("evaluate", func, modelOmega = modelOmega, mean=mean)	
