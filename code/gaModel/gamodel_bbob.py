@@ -71,9 +71,9 @@ def gaModel(func,NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval, tournsize
 	logbook = tools.Logbook()
 	logbook.header = "gen","min","avg","max","std"
 
-	def aux(individual):
+	def teste(individual):
 		return func(individual)
-	decorator(mean, mean)(aux)(individual)
+	aux = decorator(mean, mean)(teste)(individual)
 
 	pop = toolbox.population(n)
 	# Evaluate the entire population
