@@ -30,7 +30,7 @@ class decorator(object):
 		self.modelOmega = modelOmega
 		self.mean = mean
 	
-	def __call__(self, modelOmega, mean, func):
+	def __call__(self, func):
 		@wraps(func)
 		def wrapper(individual, *args, **kwargs):
 			return func(individual, self.modelOmega, self.mean, *args, **kwargs),
@@ -47,7 +47,7 @@ def tupleize(func):
 @decorator(modelOmega = None, mean = None)	
 
 def evaluateFun(individual, modelOmega = None , mean=None):
-	return func(individual, modelOmega = None , mean=None)
+	return func(individual,modelOmega = None , mean=None)
 
 def gaModel(func,NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval, tournsize, ftarget):
 	"""
@@ -64,7 +64,7 @@ def gaModel(func,NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval, tournsize
 	# global fun
 	# fun = toolbox.evaluate
 	
-	toolbox.register("evaluate", evaluateFun, modelOmega = modelOmega, mean=mean)	
+	toolbox.register("evaluate", evaluateFun)
 	# toolbox.register("evaluate", func, modelOmega = modelOmega, mean=mean)	
 	# toolbox.decorate("evaluate", tupleize)
 
