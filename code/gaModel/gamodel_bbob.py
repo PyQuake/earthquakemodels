@@ -45,10 +45,7 @@ def gaModel(func,NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval, tournsize
 	n= x + y
 	# Attribute generator
 	# toolbox.register("evaluate", func, modelOmega = modelOmega, mean=mean)	
-	# teste = toolbox.evaluate
-	def aux(individual):
-		return func(individual)
-	decorator(mean, mean)(aux)(individual)
+	
 	# toolbox.register("evaluate", aux)
 	
 	# toolbox.register("evaluate", func, modelOmega = modelOmega, mean=mean)	
@@ -73,6 +70,10 @@ def gaModel(func,NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval, tournsize
 	toolbox.register("population", tools.initRepeat, list, toolbox.individual)
 	logbook = tools.Logbook()
 	logbook.header = "gen","min","avg","max","std"
+
+	def aux(individual):
+		return func(individual)
+	decorator(mean, mean)(aux)(individual)
 
 	pop = toolbox.population(n)
 	# Evaluate the entire population
