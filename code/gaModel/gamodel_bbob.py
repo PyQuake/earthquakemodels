@@ -22,6 +22,9 @@ creator.create("Individual", array.array, typecode='d', fitness=creator.FitnessF
 # pool = Pool()
 toolbox.register("map", futures.map)
 
+modelOmega=None
+mean=None
+
 class ClassBasedDecoratorWithParams(object):
 
     def __init__(self, modelOmega, mean):
@@ -33,9 +36,9 @@ class ClassBasedDecoratorWithParams(object):
             return func(*args, **kwargs),
         return wrapper
 
-@ClassBasedDecoratorWithParams(modelOmega=None, mean=None)
+@ClassBasedDecoratorWithParams(modelOmega, mean)
 def aux(individual):
-	return func(individual, modelOmega=None, mean=None)	
+	return func(individual, modelOmega, mean)	
 
 def gaModel(func,NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval, tournsize, ftarget):
 	"""
