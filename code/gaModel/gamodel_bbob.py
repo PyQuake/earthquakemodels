@@ -22,16 +22,28 @@ creator.create("Individual", array.array, typecode='d', fitness=creator.FitnessF
 # pool = Pool()
 toolbox.register("map", futures.map)
 
-def decorator(modelOmega, mean):
-	def tupleize(func):
-	    """A decorator that tuple-ize the result of a function. This is useful
-	    when the evaluation function returns a single value.
-	    """
-	    def wrapper(*args, **kargs):
-	    	print(args, len(args))
-	        return func(*args, **kargs),
-	    return wrapper
-	return tupleize
+class ClassBasedDecoratorWithParams(object):
+
+    def __init__(self, arg1, arg2):
+        print "INIT ClassBasedDecoratorWithParams"
+        print arg1
+        print arg2
+
+    def __call__(self, func, *args, **kwargs):
+        print "CALL ClassBasedDecoratorWithParams"
+
+        def new_func(*args, **kwargs):
+            print "Function has been decorated.  Congratulations."
+            return func(*args, **kwargs)
+        return new_func
+
+def tupleize(func):
+    """A decorator that tuple-ize the result of a function. This is useful
+    when the evaluation function returns a single value.
+    """
+    def wrapper(*args, **kargs):
+        return func(*args, **kargs),
+    return wrapper
 
 def gaModel(func,NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval, tournsize, ftarget):
 	"""
@@ -44,9 +56,13 @@ def gaModel(func,NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval, tournsize
 	x=n_aval - y*NGEN
 	n= x + y
 	# Attribute generator
-	# toolbox.register("evaluate", func, modelOmega = modelOmega, mean=mean)	
+	toolbox.register("evaluate", func, modelOmega = modelOmega, mean=mean)	
+	teste = toolbox.evaluate
+	@ClassBasedDecoratorWithParams(mean, mean)
+	def aux(individual):
+		return func(modelOmega, mean)	
 	
-	# toolbox.register("evaluate", aux)
+	toolbox.register("evaluate", aux)
 	
 	# toolbox.register("evaluate", func, modelOmega = modelOmega, mean=mean)	
 	# toolbox.decorate("evaluate", tupleize)
@@ -70,10 +86,6 @@ def gaModel(func,NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval, tournsize
 	toolbox.register("population", tools.initRepeat, list, toolbox.individual)
 	logbook = tools.Logbook()
 	logbook.header = "gen","min","avg","max","std"
-
-	def teste(individual):
-		return func(individual)
-	aux = decorator(mean, mean)(teste)(individual)
 
 	pop = toolbox.population(n)
 	# Evaluate the entire population
@@ -107,7 +119,7 @@ def gaModel(func,NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval, tournsize
 		# The population is entirely replaced by the offspring, but the last ind replaced by best_pop
 		pop[:] = offspring
 
-		fitnesses = list(toolbox.map(toolbox.evaluate, pop))
+		fitnesses = list(toolbox.map(evaluate, pop))
 		for ind, fit in zip(pop, fitnesses):
 			ind.fitness.values = fit
 		pop = sorted(pop, key=attrgetter("fitness"), reverse = False)
