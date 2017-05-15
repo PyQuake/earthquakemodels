@@ -37,13 +37,13 @@ class ClassBasedDecoratorWithParams(object):
             return func(*args, **kwargs),
         return new_func
 
-def tupleize(func):
-    """A decorator that tuple-ize the result of a function. This is useful
-    when the evaluation function returns a single value.
-    """
-    def wrapper(*args, **kargs):
-        return func(*args, **kargs),
-    return wrapper
+# def tupleize(func):
+#     """A decorator that tuple-ize the result of a function. This is useful
+#     when the evaluation function returns a single value.
+#     """
+#     def wrapper(*args, **kargs):
+#         return func(*args, **kargs),
+#     return wrapper
 
 def gaModel(func,NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval, tournsize, ftarget):
 	"""
@@ -56,8 +56,7 @@ def gaModel(func,NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval, tournsize
 	x=n_aval - y*NGEN
 	n= x + y
 	# Attribute generator
-	toolbox.register("evaluate", func, modelOmega = modelOmega, mean=mean)	
-	teste = toolbox.evaluate
+	# toolbox.register("evaluate", func, modelOmega = modelOmega, mean=mean)	
 	@ClassBasedDecoratorWithParams(mean, mean)
 	def aux(individual):
 		return func(individual, modelOmega, mean)	
@@ -119,7 +118,7 @@ def gaModel(func,NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval, tournsize
 		# The population is entirely replaced by the offspring, but the last ind replaced by best_pop
 		pop[:] = offspring
 
-		fitnesses = list(toolbox.map(evaluate, pop))
+		fitnesses = list(toolbox.map(toolbox.evaluate, pop))
 		for ind, fit in zip(pop, fitnesses):
 			ind.fitness.values = fit
 		pop = sorted(pop, key=attrgetter("fitness"), reverse = False)
