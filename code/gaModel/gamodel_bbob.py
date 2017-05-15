@@ -22,12 +22,13 @@ creator.create("Individual", array.array, typecode='d', fitness=creator.FitnessF
 # pool = Pool()
 toolbox.register("map", futures.map)
 
-def tupleize(func):
+def tupleize(func arg1):
     """A decorator that tuple-ize the result of a function. This is useful
     when the evaluation function returns a single value.
     """
     def wrapper(*args, **kargs):
     	print(len(args))
+    	print(arg1)
     	exit()
         return func(*args, **kargs),
     return wrapper
