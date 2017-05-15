@@ -27,17 +27,17 @@ def tupleize(func):
     when the evaluation function returns a single value.
     """
     def wrapper(*args, **kargs):
-    	print(args)
-    	exit()
-        return func(*args, **kargs),
+    	# print(args)
+    	individual = teste[0]
+		modelOmega = teste[1]
+		mean = teste[2]
+        return func(individual, modelOmega, mean , **kargs),
     return wrapper
 
 @tupleize
 def aux(teste):
-	individual = teste[0]
-	modelOmega = teste[1]
-	mean = teste[2]
-	return func(individual, modelOmega, mean)
+	
+	return func(teste)
 	
 
 def gaModel(func,NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval, tournsize, ftarget):
