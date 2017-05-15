@@ -27,7 +27,7 @@ class decorator(object):
 
 	def __init__(self, modelOmega, mean):
 		self.modelOmega = modelOmega
-        self.mean = modelOmega
+        self.mean = mean
 	
 	def __call__(self, func):
 		@wraps(func)
@@ -56,7 +56,7 @@ def gaModel(func,NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval, tournsize
 	# Attribute generator
 	toolbox.register("evaluate", func, modelOmega = modelOmega, mean=mean)	
 	teste = toolbox.evaluate
-	@decorator(modelOmega, mean)
+	@decorator(modelOmega = modelOmega, mean=mean)	
 	def aux(individual):
 		return teste(individual)
 	toolbox.register("evaluate", aux)
