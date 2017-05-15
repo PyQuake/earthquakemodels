@@ -37,8 +37,8 @@ class ClassBasedDecoratorWithParams(object):
         return wrapper
 
 @ClassBasedDecoratorWithParams(modelOmega, mean)
-def aux(individual):
-	return func(individual)	
+def aux(individual, modelOmega, mean):
+	return func(individual, modelOmega, mean)	
 
 def gaModel(func,NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval, tournsize, ftarget):
 	"""
@@ -53,7 +53,7 @@ def gaModel(func,NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval, tournsize
 	# Attribute generator
 	# toolbox.register("evaluate", func, modelOmega = modelOmega, mean=mean)	
 	
-	toolbox.register("evaluate", aux)
+	toolbox.register("evaluate", aux, modelOmega, mean)
 	
 	# toolbox.register("evaluate", func, modelOmega = modelOmega, mean=mean)	
 	# toolbox.decorate("evaluate", tupleize)
