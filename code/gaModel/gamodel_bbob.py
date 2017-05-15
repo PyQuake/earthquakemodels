@@ -87,6 +87,7 @@ def gaModel(func,NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval, tournsize
 	teste.append(mean)
 	teste.append(mean)
 	teste.append(mean)
+	print('auhsd')
 	fitnesses = list(toolbox.map(aux, teste))
 	for ind, fit in zip(pop, fitnesses):
 		ind.fitness.values = fit
