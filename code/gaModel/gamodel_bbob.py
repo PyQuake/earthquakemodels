@@ -35,7 +35,7 @@ class ClassBasedDecoratorWithParams(object):
 
 @ClassBasedDecoratorWithParams(modelOmega=None, mean=None)
 def aux(individual):
-	return func(individual, modelOmega, mean)	
+	return func(individual, modelOmega=None, mean=None)	
 
 def gaModel(func,NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval, tournsize, ftarget):
 	"""
