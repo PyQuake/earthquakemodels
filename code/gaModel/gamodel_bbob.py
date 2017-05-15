@@ -34,7 +34,7 @@ class ClassBasedDecoratorWithParams(object):
 
         def new_func(*args, **kwargs):
             print "Function has been decorated.  Congratulations."
-            return func(*args, **kwargs)
+            return func(*args, **kwargs),
         return new_func
 
 def tupleize(func):
