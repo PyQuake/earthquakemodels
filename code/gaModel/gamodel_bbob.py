@@ -30,6 +30,7 @@ def tupleize(func):
         return func(*args, **kargs),
     return wrapper
 
+@tupleize
 def aux():
 	pass
 
