@@ -17,6 +17,7 @@ import fgeneric
 import bbobbenchmarks as bn
 from functools import wraps
 
+func, opt = bn.instantiate(2, iinstance=1)
 toolbox = base.Toolbox()
 creator.create("FitnessFunction", base.Fitness, weights=(-1.0,))
 creator.create("Individual", array.array, typecode='d', fitness=creator.FitnessFunction)
@@ -43,11 +44,10 @@ def tupleize(func):
         return func(*args, **kargs),
     return wrapper
 
-global fun
-
 @decorator(modelOmega = None, mean = None)	
+
 def evaluateFun(individual, modelOmega = None , mean=None):
-	return fun(individual)
+	return func(individual)
 
 def gaModel(func,NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval, tournsize, ftarget):
 	"""
