@@ -22,23 +22,13 @@ creator.create("Individual", array.array, typecode='d', fitness=creator.FitnessF
 # pool = Pool()
 toolbox.register("map", futures.map)
 
-modelOmega=None
-mean=None
-
-class ClassBasedDecoratorWithParams(object):
-
-    def __init__(self, modelOmega, mean):
-        pass
-
-    def __call__(self, func, *args, **kwargs):
-
-        def wrapper(*args, **kwargs):
-            return func(*args, **kwargs),
-        return wrapper
-
-@ClassBasedDecoratorWithParams(modelOmega, mean)
-def aux(individual, modelOmega, mean):
-	return func(individual, modelOmega, mean)	
+def tupleize(func):
+    """A decorator that tuple-ize the result of a function. This is useful
+    when the evaluation function returns a single value.
+    """
+    # def wrapper(*args, **kargs):
+    return func(*args, **kargs),
+    # return wrapper
 
 def gaModel(func,NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval, tournsize, ftarget):
 	"""
@@ -51,10 +41,8 @@ def gaModel(func,NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval, tournsize
 	x=n_aval - y*NGEN
 	n= x + y
 	# Attribute generator
-	# toolbox.register("evaluate", func, modelOmega = modelOmega, mean=mean)	
-	
-	toolbox.register("evaluate", aux, modelOmega, mean)
-	
+	toolbox.register("evaluate", func, modelOmega = modelOmega, mean=mean)	
+	toolbox.decorate("evaluate", tupleize)
 	# toolbox.register("evaluate", func, modelOmega = modelOmega, mean=mean)	
 	# toolbox.decorate("evaluate", tupleize)
 
@@ -110,7 +98,7 @@ def gaModel(func,NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval, tournsize
 		# The population is entirely replaced by the offspring, but the last ind replaced by best_pop
 		pop[:] = offspring
 
-		fitnesses = list(toolbox.map(toolbox.evaluate, pop))
+		fitnesses = list(toolbox.map(evaluate, pop))
 		for ind, fit in zip(pop, fitnesses):
 			ind.fitness.values = fit
 		pop = sorted(pop, key=attrgetter("fitness"), reverse = False)
