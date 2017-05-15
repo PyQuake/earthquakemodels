@@ -22,7 +22,7 @@ creator.create("Individual", array.array, typecode='d', fitness=creator.FitnessF
 # pool = Pool()
 toolbox.register("map", futures.map)
 
-@tools.ClosestValidPenality(valid, closest_feasible, 1.0e-6, distance)
+@tupleize(func)
 def tupleize(func):
     """A decorator that tuple-ize the result of a function. This is useful
     when the evaluation function returns a single value.
