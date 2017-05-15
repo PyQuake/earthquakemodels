@@ -25,16 +25,15 @@ toolbox.register("map", futures.map)
 
 class decorator(object):
 
-	def __init__(self, modelOmega, mean=None):
+	def __init__(self, modelOmega, mean):
 		print(modelOmega, mean)
-		# exit("in decorator")
 		self.modelOmega = modelOmega
-        self.mean = mean
+        self.var = mean
 	
 	def __call__(self, func):
 		@wraps(func)
 		def wrapper(individual, *args, **kwargs):
-			return func(individual, self.modelOmega, self.mean, *args, **kwargs)
+			return func(individual, self.modelOmega, self.var, *args, **kwargs)
 		return wrapper
 
 def tupleize(func):
