@@ -37,6 +37,7 @@ def tupleize(func):
 
 @tupleize
 def aux(teste):
+	print('aui')
 	print(teste[0])
 	print(teste[1])
 	print(teste[2])
