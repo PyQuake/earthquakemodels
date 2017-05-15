@@ -33,7 +33,10 @@ def tupleize(func):
     return wrapper
 
 @tupleize
-def aux(individual, modelOmega=None, mean=None):
+def aux(teste):
+	individual = teste[0]
+	modelOmega = teste[1]
+	mean = teste[2]
 	return func(individual, modelOmega, mean)
 	
 
@@ -75,7 +78,8 @@ def gaModel(func,NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval, tournsize
 
 	pop = toolbox.population(n)
 	# Evaluate the entire population
-	fitnesses = list(toolbox.map(aux, pop))
+	teste = (pop, modelOmega, mean)
+	fitnesses = list(toolbox.map(aux, teste))
 	for ind, fit in zip(pop, fitnesses):
 		ind.fitness.values = fit
 
