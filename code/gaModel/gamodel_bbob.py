@@ -15,20 +15,38 @@ from operator import attrgetter
 from scoop import futures
 import fgeneric
 import bbobbenchmarks as bn
+from functools import wraps
 
 toolbox = base.Toolbox()
 creator.create("FitnessFunction", base.Fitness, weights=(-1.0,))
 creator.create("Individual", array.array, typecode='d', fitness=creator.FitnessFunction)
 # pool = Pool()
 toolbox.register("map", futures.map)
+class ClosestValidPenalty(object):
 
-def tupleize(func, ind, a, b):
+	def __init__(self, modelOmega, mean):
+        # self.fbty_fct = feasibility
+        # self.fbl_fct = feasible
+        # self.alpha = alpha
+        # self.dist_fct = distance
+        self.modelOmega = modelOmega
+        self.mean = mean
+        
+    def __call__(self, func):
+        @wraps(func)
+        def wrapper(individual, *args, **kwargs):
+            if self.fbty_fct(individual):
+                return func(individual, self.modelOmega, self.mean, *args, **kwargs)
+
+        return wrapper
+
+def tupleize(func):
     """A decorator that tuple-ize the result of a function. This is useful
     when the evaluation function returns a single value.
     """
-    # def wrapper(*args, **kargs):
-    return func(ind, a, b),
-    # return wrapper
+    def wrapper(*args, **kargs):
+        return func(*args, **kargs),
+    return wrapper
 
 def gaModel(func,NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval, tournsize, ftarget):
 	"""
@@ -42,7 +60,11 @@ def gaModel(func,NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval, tournsize
 	n= x + y
 	# Attribute generator
 	toolbox.register("evaluate", func, modelOmega = modelOmega, mean=mean)	
-	toolbox.decorate("evaluate", tupleize, None, modelOmega, mean)
+	teste = toolbox.evaluate
+	@ClosestValidPenalty(modelOmega, mean)
+	def aux(individual):
+		return teste(individual)
+	toolbox.register("evaluate", aux)
 	# toolbox.register("evaluate", func, modelOmega = modelOmega, mean=mean)	
 	# toolbox.decorate("evaluate", tupleize)
 
