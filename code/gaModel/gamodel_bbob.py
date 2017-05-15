@@ -28,7 +28,7 @@ def tupleize(func):
     """
     def wrapper(*args, **kargs):
     	print(args)
-    	print(args[0])
+    	print(args[2])
     	exit()
         return func(*args, **kargs),
     return wrapper
