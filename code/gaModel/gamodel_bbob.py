@@ -60,7 +60,7 @@ def gaModel(func,NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval, tournsize
 	teste = toolbox.evaluate
 	@ClassBasedDecoratorWithParams(mean, mean)
 	def aux(individual):
-		return func(modelOmega, mean)	
+		return func(individual, modelOmega, mean)	
 	
 	toolbox.register("evaluate", aux)
 	
