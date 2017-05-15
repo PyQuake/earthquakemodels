@@ -27,7 +27,7 @@ def tupleize(func):
     when the evaluation function returns a single value.
     """
     def wrapper(*args, **kargs):
-    	
+    	print(type(args))
     	# individual = args[0]
     	# modelOmega = args[1]
     	# mean = args[2]
