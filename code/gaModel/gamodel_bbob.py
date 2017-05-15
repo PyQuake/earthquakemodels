@@ -22,14 +22,11 @@ creator.create("FitnessFunction", base.Fitness, weights=(-1.0,))
 creator.create("Individual", array.array, typecode='d', fitness=creator.FitnessFunction)
 # pool = Pool()
 toolbox.register("map", futures.map)
+
 class ClosestValidPenalty(object):
 
 	def __init__(self, modelOmega, mean):
-        # self.fbty_fct = feasibility
-        # self.fbl_fct = feasible
-        # self.alpha = alpha
-        # self.dist_fct = distance
-        self.modelOmega = modelOmega
+		self.modelOmega = modelOmega
         self.mean = mean
         
     def __call__(self, func):
