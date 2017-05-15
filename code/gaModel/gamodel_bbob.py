@@ -31,8 +31,8 @@ def tupleize(func):
     return wrapper
 
 @tupleize
-	def aux(individual, modelOmega=None, mean=None):
-		return func(individual, modelOmega, mean)
+def aux(individual, modelOmega=None, mean=None):
+	return func(individual, modelOmega, mean)
 	
 
 def gaModel(func,NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval, tournsize, ftarget):
