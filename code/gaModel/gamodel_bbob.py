@@ -29,7 +29,7 @@ class decorator(object):
 		print(modelOmega, mean)
 		exit("in decorator")
 		self.modelOmega = modelOmega
-        self.mean = mean
+        # self.mean = mean
 	
 	def __call__(self, func):
 		@wraps(func)
