@@ -25,15 +25,11 @@ toolbox.register("map", futures.map)
 class ClassBasedDecoratorWithParams(object):
 
     def __init__(self, arg1, arg2):
-        print "INIT ClassBasedDecoratorWithParams"
-        print arg1
-        print arg2
+        pass
 
     def __call__(self, func, *args, **kwargs):
-        print "CALL ClassBasedDecoratorWithParams"
 
         def new_func(*args, **kwargs):
-            print "Function has been decorated.  Congratulations."
             return func(*args, **kwargs),
         return new_func
 
