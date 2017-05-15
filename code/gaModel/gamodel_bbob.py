@@ -44,8 +44,7 @@ def gaModel(func,NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval, tournsize
 	@tupleize
 	def aux(individual):
 		return func(individual, modelOmega, mean)
-	toolbox.register("evaluate", aux)
-	
+
 	# toolbox.register("evaluate", func, modelOmega = modelOmega, mean=mean)	
 	# toolbox.decorate("evaluate", tupleize)
 
@@ -71,7 +70,7 @@ def gaModel(func,NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval, tournsize
 
 	pop = toolbox.population(n)
 	# Evaluate the entire population
-	fitnesses = list(toolbox.map(toolbox.evaluate, pop))
+	fitnesses = list(toolbox.map(aux, pop))
 	for ind, fit in zip(pop, fitnesses):
 		ind.fitness.values = fit
 
