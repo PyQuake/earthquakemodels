@@ -121,7 +121,7 @@ if __name__ == "__main__":
 	gaParams = sys.argv[5]
 
 	f = open(gaParams, "r")
-	keys = ['key', 'value']
+	keys = ['key', 'NGEN', 'n_aval', 'qntYears', 'CXPB', 'MUTPB']
 	params = dict()
 	for line in f:
 		if line[0] == '#':
@@ -129,6 +129,8 @@ if __name__ == "__main__":
 		tokens = line.split()
 		for key,value in zip(keys,tokens):
 			print(key, value)
+			if key == 'key':
+				params[key] = value
 			if key == 'CXPB' or key == 'MUTPB':
 				params[key] = float(value)
 			else:
