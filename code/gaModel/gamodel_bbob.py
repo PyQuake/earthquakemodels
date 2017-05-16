@@ -15,7 +15,6 @@ from operator import attrgetter
 # from scoop import futures
 import fgeneric
 import bbobbenchmarks as bn
-from functools import wraps
 
 
 toolbox = base.Toolbox()
@@ -41,12 +40,7 @@ def gaModel(func,NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval, tournsize
 	# Attribute generator
 	toolbox.register("attr_float", random.random)
 	toolbox.register("mate", tools.cxOnePoint)
-	# operator for selecting individuals for breeding the next
-	# generation: each individual of the current generation
-	# is replaced by the 'fittest' (best) of three individuals
-	# drawn randomly from the current generation.
 	toolbox.register("select", tools.selTournament, tournsize=2)
-	# toolbox.register("select", tools.selLexicase)
 	toolbox.register("mutate", tools.mutPolynomialBounded,indpb=0.1, eta = 1, low = 0, up = 1)
 
 	stats = tools.Statistics(key=lambda ind: ind.fitness.values)
@@ -151,7 +145,7 @@ if __name__ == "__main__":
 		means.append(observation.bins)
 	# del observation
 	mean = np.mean(means, axis=0)
-	param = (region, year)
+	param = (region, year, params['qntYears'])
 	func, opt = bn.instantiate(2, iinstance=1, param=param)
 	# observation = models.model.loadModelDB(region+'jmaData', year+params[qntYears])
 	ftarget = calcLogLikelihood(observation, observation)

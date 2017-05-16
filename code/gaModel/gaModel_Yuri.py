@@ -139,7 +139,8 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval=50000):
 	generatedModel.logbook = logbook
 	# output = generatedModel.loglikelihood 
 	# return((-1)*output[0])
-
+	print(logbook)
+	exit()
 	return generatedModel
 
 if __name__ == "__main__":
