@@ -66,14 +66,14 @@ def main():
     # region = 'Kanto'
     # callGAModel(region)
 
-    region = 'EastJapan'
-    callGAModel(region)
+    # region = 'EastJapan'
+    # callGAModel(region)
 
     region = 'Tohoku'
     callGAModel(region)
 
-    region = 'Kansai'
-    callGAModel(region)
+    # region = 'Kansai'
+    # callGAModel(region)
 
 
 
