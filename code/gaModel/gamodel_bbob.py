@@ -38,46 +38,44 @@ def gaModel(func,NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval, tournsize
 	It uses 1 parallel system: 1, simple, that splits the ga evolution between cores
 	"""
 	start = time.clock()  
-	#calculating the number of individuals of the populations based on the number of executions
-	y=int(n_aval/NGEN)
-	x=n_aval - y*NGEN
-	n= x + y
 	# Attribute generator
-	# toolbox.register("evaluate", func, modelOmega = modelOmega, mean=mean)	
-	# global fun
-	# fun = toolbox.evaluate
-	
-	toolbox.register("evaluate", func, modelOmega = modelOmega, mean=mean)	
-	toolbox.decorate("evaluate", tupleize)
-
 	toolbox.register("attr_float", random.random)
 	toolbox.register("mate", tools.cxOnePoint)
 	# operator for selecting individuals for breeding the next
 	# generation: each individual of the current generation
 	# is replaced by the 'fittest' (best) of three individuals
 	# drawn randomly from the current generation.
-	toolbox.register("select", tools.selTournament, tournsize=tournsize)
+	toolbox.register("select", tools.selTournament, tournsize=2)
 	# toolbox.register("select", tools.selLexicase)
 	toolbox.register("mutate", tools.mutPolynomialBounded,indpb=0.1, eta = 1, low = 0, up = 1)
+
 	stats = tools.Statistics(key=lambda ind: ind.fitness.values)
-	stats.register("avg", np.mean)
-	stats.register("std", np.std)
-	stats.register("min", np.min)
-	stats.register("max", np.max)
-	# toolbox.register("evaluate", evaluationFunction, modelOmega=modelOmega, mean=mean)
+	stats.register("avg", numpy.mean)
+	stats.register("std", numpy.std)
+	stats.register("min", numpy.min)
+	stats.register("max", numpy.max)
+
+	#calculating the number of individuals of the populations based on the number of executions
+	y=int(n_aval/NGEN)
+	x=n_aval - y*NGEN
+	n= x + y
+
+	toolbox.register("evaluate", evaluationFunction, modelOmega=modelOmega, mean=mean)
 	toolbox.register("individual", tools.initRepeat, creator.Individual, toolbox.attr_float, len(modelOmega[0].bins))
 	toolbox.register("population", tools.initRepeat, list, toolbox.individual)
+
 	logbook = tools.Logbook()
 	logbook.header = "gen","min","avg","max","std"
 
 	pop = toolbox.population(n)
 	# Evaluate the entire population
-	fitnesses = list(toolbox.map(toolbox.evaluate, pop))
+	fitnesses = list(toolbox.map(toolbox.evaluate, pop))#need to pass 2 model.bins. One is the real data, the other de generated model
+	# normalize fitnesses
+	# fitnesses = normalizeFitness(fitnesses)
 	for ind, fit in zip(pop, fitnesses):
 		ind.fitness.values = fit
 
 	for g in range(NGEN):
-		print(g)
 		# Select the next generation individuals
 		offspring = toolbox.select(pop, len(pop))
 		#create offspring
@@ -93,34 +91,27 @@ def gaModel(func,NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval, tournsize
 				toolbox.mutate(mutant)
 				del mutant.fitness.values
         # Evaluate the individuals with an invalid fitness
+        
 		invalid_ind = [ind for ind in offspring if not ind.fitness.valid]
 		fitnesses = list(toolbox.map(toolbox.evaluate, invalid_ind))
+		# normalize fitnesses
+		fitnesses = normalizeFitness(fitnesses)
 		for ind, fit in zip(invalid_ind, fitnesses):
 			ind.fitness.values = fit
-		#Elitism
+        # The population is entirely replaced by the offspring, but the last ind replaced by best_pop
+        #Elitism
 		best_pop = tools.selBest(pop, 1)[0]
-		# The population is entirely replaced by the offspring, but the last ind replaced by best_pop
+		offspring = sorted(offspring, key=attrgetter("fitness"), reverse = True)
+		offspring[len(offspring)-1]=best_pop
+		random.shuffle(offspring)
 		pop[:] = offspring
-
+		
+		#logBook
 		fitnesses = list(toolbox.map(toolbox.evaluate, pop))
 		for ind, fit in zip(pop, fitnesses):
 			ind.fitness.values = fit
-		pop = sorted(pop, key=attrgetter("fitness"), reverse = False)
-		pop[0]=best_pop
-		random.shuffle(pop)
 		record = stats.compile(pop)
-		logbook.record(gen=g,**record)
-		if (abs(record["min"] - ftarget)) < 10e-8:
-			print(logbook)
-			return best_pop
-		if record["std"] < 10e-12:	
-			sortedPop = sorted(pop, key=attrgetter("fitness"), reverse = True)
-			pop = toolbox.population(n)
-			pop[0] = sortedPop[0]
-			fitnesses = list(toolbox.map(toolbox.evaluate, pop))
-			for ind, fit in zip(pop, fitnesses):
-				ind.fitness.values = fit
-			g+=1
+		logbook.record(gen=g, **record)
 	print(logbook)
 	return best_pop
 
