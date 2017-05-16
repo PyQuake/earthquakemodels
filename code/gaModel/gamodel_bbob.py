@@ -124,8 +124,8 @@ if __name__ == "__main__":
 	keys = ['key', 'NGEN', 'n_aval', 'qntYears', 'CXPB', 'MUTPB']
 	params = dict()
 	for line in f:
-		# if line[0] == '#':
-		# 	continue
+		if line[0] == '#':
+			continue
 		tokens = line.split()
 		for key,value in zip(keys,tokens):
 			if key == 'key':
