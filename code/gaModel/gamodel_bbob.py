@@ -40,22 +40,21 @@ toolbox.register("map", futures.map)
 # 		return value
 # 		# return wrapper
 
-def tupleize(func2):
+def tupleize(func):
     """A decorator that tuple-ize the result of a function. This is useful
     when the evaluation function returns a single value.
     """
-    @wraps(func2)
+    @wraps(func)
     def wrapper(*args, **kargs):
-    	value = func2(*args, **kargs),
-    	print(value)
-        return value
+        return func(*args, **kargs),
     return wrapper
 
 # @tupleize
 # @decorator
 @tupleize
 def evaluateFun(ind, modelOmega, mean):	
-	return func(ind)
+	# return func(ind)
+	pass
 
 def gaModel(func,NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval, tournsize, ftarget):
 	"""
