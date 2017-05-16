@@ -12,7 +12,7 @@ import random
 import array
 import time 
 from operator import attrgetter
-from scoop import futures
+# from scoop import futures
 import fgeneric
 import bbobbenchmarks as bn
 from functools import wraps
@@ -22,41 +22,8 @@ toolbox = base.Toolbox()
 creator.create("FitnessFunction", base.Fitness, weights=(-1.0,))
 creator.create("Individual", array.array, typecode='d', fitness=creator.FitnessFunction)
 # pool = Pool()
-toolbox.register("map", futures.map)
+# toolbox.register("map", futures.map)
 
-# class decorator(object):
-
-# 	def __init__(self, func3):
-# 		# self.modelOmega = modelOmega
-# 		# self.mean = mean
-# 		self.func = func3
-# 		pass
-# 	def __call__(self, func3, modelOmega, mean, *args, **kwargs):
-# 		# @wraps(func3)
-# 		# def wrapper(*args, **kwargs):
-# 		# value = func3(ind1, modelOmega, mean, *args, **kwargs)
-# 		value = func3(ind, modelOmega, mean)
-# 		print(value)
-# 		return value
-# 		# return wrapper
-
-def tupleize(func):
-    """A decorator that tuple-ize the result of a function. This is useful
-    when the evaluation function returns a single value.
-    """
-    @wraps(func)
-    def wrapper(modelOmega, mean,*args, **kargs):
-    	value = func(*args, **kargs)
-    	print(type(value), value)
-        return value,
-    return wrapper
-
-# @tupleize
-# @decorator
-@tupleize
-def evaluateFun(ind, modelOmega, mean):	
-	return func(ind, modelOmega, mean)
-	pass
 
 def gaModel(func,NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval, tournsize, ftarget):
 	"""
@@ -73,10 +40,8 @@ def gaModel(func,NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval, tournsize
 	# global fun
 	# fun = toolbox.evaluate
 	
-	toolbox.register("evaluate", evaluateFun, modelOmega = modelOmega, mean=mean)	
-	# toolbox.register("evaluate", evaluateFun)
-	# toolbox.register("evaluate", func, modelOmega = modelOmega, mean=mean)	
-	# toolbox.decorate("evaluate", tupleize)
+	toolbox.register("evaluate", func, modelOmega = modelOmega, mean=mean)	
+	toolbox.decorate("evaluate", tupleize)
 
 	toolbox.register("attr_float", random.random)
 	toolbox.register("mate", tools.cxTwoPoint)
