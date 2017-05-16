@@ -37,7 +37,7 @@ class decorator(object):
 			value = func3(ind1, modelOmega, mean, *args, **kwargs)
 			print(value)
 			return value,
-		return wrapper
+		return wrapper,
 
 def tupleize(func2):
     """A decorator that tuple-ize the result of a function. This is useful
@@ -95,8 +95,6 @@ def gaModel(func,NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval, tournsize
 	# Evaluate the entire population
 	fitnesses = list(toolbox.map(toolbox.evaluate, pop))
 	for ind, fit in zip(pop, fitnesses):
-		# print(fit)
-		# exit('in for')
 		ind.fitness.values = fit
 
 	for g in range(NGEN):
