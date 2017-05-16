@@ -12,9 +12,9 @@ import array
 import time 
 from operator import attrgetter
 from pathos.multiprocessing import ProcessingPool as Pool
-# from functools import lru_cache as cache
+from functools import lru_cache as cache
 
-# @jit
+@jit
 def evaluationFunction(individual, modelOmega, mean):
 	"""
 	This function calculates the loglikelihood of a model (individual) with 
@@ -28,16 +28,10 @@ def evaluationFunction(individual, modelOmega, mean):
 	modelLambda.bins=calcNumberBins(genomeModel.bins, mean)
 	for i in range(len(modelOmega)):
 		tempValue=calcLogLikelihood(modelLambda, modelOmega[i])
-		# calcLogLikelihood.cache_clear()
+		calcLogLikelihood.cache_clear()
 		if tempValue < logValue:
 			logValue = tempValue
 	return logValue,
-
-# def normalizeFitness(fitnesses):
-# 	min = numpy.min(fitnesses)
-# 	max = numpy.max(fitnesses)
-# 	fitnesses[:] = (fitnesses-min)/(max-min)
-# 	return(fitnesses)
 
 #parallel
 
@@ -48,7 +42,7 @@ pool = Pool()
 toolbox.register("map", pool.map)
 
 
-def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval=50000):
+def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, tournsize=2, n_aval=50000):
 	"""
 	The main function. It evolves models, namely modelLamba or individual. 
 	It uses 1 parallel system: 1, simple, that splits the ga evolution between cores
@@ -61,8 +55,7 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval=50000):
 	# generation: each individual of the current generation
 	# is replaced by the 'fittest' (best) of three individuals
 	# drawn randomly from the current generation.
-	toolbox.register("select", tools.selTournament, tournsize=2)
-	# toolbox.register("select", tools.selLexicase)
+	toolbox.register("select", tools.selTournament, tournsize=tournsize)
 	toolbox.register("mutate", tools.mutPolynomialBounded,indpb=0.1, eta = 1, low = 0, up = 1)
 
 	stats = tools.Statistics(key=lambda ind: ind.fitness.values)
@@ -85,15 +78,15 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval=50000):
 
 	pop = toolbox.population(n)
 	# Evaluate the entire population
-	fitnesses = list(toolbox.map(toolbox.evaluate, pop))#need to pass 2 model.bins. One is the real data, the other de generated model
+
+	fitnesses = list(map(toolbox.evaluate, pop))#need to pass 2 model.bins. One is the real data, the other de generated model
 	for ind, fit in zip(pop, fitnesses):
 		ind.fitness.values = fit
-
 	for g in range(NGEN):
 		# Select the next generation individuals
 		offspring = toolbox.select(pop, len(pop))
-		#create offspring
-		offspring = list(toolbox.map(toolbox.clone, pop))
+		# Clone the selected individuals
+		offspring = list(map(toolbox.clone, offspring))
 		# Apply crossover and mutation on the offspring
 		for child1, child2 in zip(offspring[::2], offspring[1::2]):
 			if random.random() < CXPB:
@@ -107,10 +100,11 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval=50000):
         # Evaluate the individuals with an invalid fitness
         
 		invalid_ind = [ind for ind in offspring if not ind.fitness.valid]
-		fitnesses = list(toolbox.map(toolbox.evaluate, invalid_ind))
+		fitnesses = toolbox.map(toolbox.evaluate, invalid_ind)
 		for ind, fit in zip(invalid_ind, fitnesses):
 			ind.fitness.values = fit
-        # The population is entirely replaced by the offspring, but the last ind replaced by best_pop
+
+        # The population is entirely replaced by the offspring, but the last pop best_pop
         #Elitism
 		best_pop = tools.selBest(pop, 1)[0]
 		offspring = sorted(offspring, key=attrgetter("fitness"), reverse = True)
@@ -119,14 +113,11 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval=50000):
 		pop[:] = offspring
 		
 		#logBook
-		fitnesses = list(toolbox.map(toolbox.evaluate, pop))
-		for ind, fit in zip(pop, fitnesses):
-			ind.fitness.values = fit
 		record = stats.compile(pop)
 		logbook.record(gen=g, **record)
-
 	end = time.clock()  
 	generatedModel = models.model.newModel(modelOmega[0].definitions)
+	#conferir se e bins o best_pop
 	generatedModel.prob = best_pop
 	generatedModel.bins=calcNumberBins(list(best_pop), mean)
 	generatedModel.loglikelihood = best_pop.fitness.values
@@ -135,7 +126,7 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval=50000):
 	generatedModel.logbook = logbook
 	# output = generatedModel.loglikelihood 
 	# return((-1)*output[0])
-	print(logbook)
+	print(Logbook)
 	exit()
 	return generatedModel
 
