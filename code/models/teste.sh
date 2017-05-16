@@ -1,5 +1,6 @@
 python2.7 -c "import math"
 if [echo $?]
+	then
 	echo 'it exists'
 fi
 
