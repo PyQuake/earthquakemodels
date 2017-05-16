@@ -50,10 +50,10 @@ def gaModel(func,NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval, tournsize
 	toolbox.register("mutate", tools.mutPolynomialBounded,indpb=0.1, eta = 1, low = 0, up = 1)
 
 	stats = tools.Statistics(key=lambda ind: ind.fitness.values)
-	stats.register("avg", numpy.mean)
-	stats.register("std", numpy.std)
-	stats.register("min", numpy.min)
-	stats.register("max", numpy.max)
+	stats.register("avg", np.mean)
+	stats.register("std", np.std)
+	stats.register("min", np.min)
+	stats.register("max", np.max)
 
 	#calculating the number of individuals of the populations based on the number of executions
 	y=int(n_aval/NGEN)
