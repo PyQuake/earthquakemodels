@@ -121,7 +121,7 @@ if __name__ == "__main__":
 	gaParams = sys.argv[5]
 
 	f = open(gaParams, "r")
-	keys = ['NGEN','n_aval','CXPB','MUTPB', 'qntYears']
+	keys = ['key', 'geracao', 'aval', 'anos', 'cx', 'mut']
 	params = dict()
 	for line in f:
 		if line[0] == '#':
