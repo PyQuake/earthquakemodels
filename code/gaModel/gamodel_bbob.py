@@ -40,7 +40,7 @@ class decorator(object):
 			return value
 		return wrapper
 
-def tupleize(func2):
+def tupleize(func2, modelOmega, mean):
     """A decorator that tuple-ize the result of a function. This is useful
     when the evaluation function returns a single value.
     """
@@ -52,7 +52,7 @@ def tupleize(func2):
 # @decorator
 @tupleize
 def evaluateFun(ind):
-	return func1(ind)
+	return func1(ind, modelOmega, mean)
 
 def gaModel(func,NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval, tournsize, ftarget):
 	"""
