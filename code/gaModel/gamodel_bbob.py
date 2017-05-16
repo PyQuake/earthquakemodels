@@ -44,8 +44,7 @@ def tupleize(func):
         return func(*args, **kargs),
     return wrapper
 
-@decorator(modelOmega = None, mean = None)	
-
+@decorator
 def evaluateFun(individual, modelOmega=None, mean=None):
 	return func(individual)
 
