@@ -48,8 +48,8 @@ def tupleize(func):
     return wrapper
 
 @decorator
-def evaluateFun(individual):
-	return func(individual)
+def evaluateFun(ind):
+	return func(ind)
 
 def gaModel(func,NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval, tournsize, ftarget):
 	"""
