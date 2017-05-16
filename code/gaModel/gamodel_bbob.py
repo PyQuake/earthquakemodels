@@ -46,7 +46,9 @@ def tupleize(func):
     """
     @wraps(func)
     def wrapper(*args, **kargs):
-        return list(func(*args, **kargs)),
+    	value = func(*args, **kargs)
+    	print(type(value), value)
+        return value,
     return wrapper
 
 # @tupleize
