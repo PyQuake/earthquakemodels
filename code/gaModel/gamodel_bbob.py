@@ -34,7 +34,9 @@ class decorator(object):
 	def __call__(self, func, modelOmega, mean):
 		# @wraps(func)
 		def wrapper(individual, *args, **kwargs):
-			return func(individual, modelOmega, mean, *args, **kwargs),
+			value = func(individual, modelOmega, mean, *args, **kwargs)
+			print(value)
+			return value,
 		return wrapper
 
 def tupleize(func):
