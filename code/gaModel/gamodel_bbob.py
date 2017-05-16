@@ -77,6 +77,8 @@ def gaModel(func,NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval, tournsize
 		ind.fitness.values = fit
 
 	for g in range(NGEN):
+		if g%10 == 0:
+			print(g)
 		# Select the next generation individuals
 		offspring = toolbox.select(pop, len(pop))
 		#create offspring
