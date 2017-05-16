@@ -83,6 +83,8 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, tournsize=2, n_aval=50
 	for ind, fit in zip(pop, fitnesses):
 		ind.fitness.values = fit
 	for g in range(NGEN):
+		if g%10 == 0:
+			print(g)
 		# Select the next generation individuals
 		offspring = toolbox.select(pop, len(pop))
 		# Clone the selected individuals
