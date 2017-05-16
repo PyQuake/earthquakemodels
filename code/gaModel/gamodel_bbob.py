@@ -128,7 +128,7 @@ if __name__ == "__main__":
 			continue
 		tokens = line.split()
 		for key,value in zip(keys,tokens):
-			print(key, value)
+			print(type(key), key, value)
 			if key == 'key':
 				params[key] = value
 			if key == 'CXPB' or key == 'MUTPB':
