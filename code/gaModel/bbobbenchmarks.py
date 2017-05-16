@@ -453,7 +453,8 @@ class BBOBFunction(AbstractTestFunction):
             # self.fopt = min(1000, max(-1000, (np.round(100*100*gauss(1, self.rseed)[0]/gauss(1, self.rseed+1)[0])/100)))
             region = param[0]
             year = param[1]
-            observation = models.model.loadModelDB(region+'jmaData', year+6)
+            qntyears = param[2]
+            observation = models.model.loadModelDB(region+'jmaData', year+qntyears)
             self.fopt = calcLogLikelihood(observation, observation)
         self.iinstance = iinstance
         self.dim = None
