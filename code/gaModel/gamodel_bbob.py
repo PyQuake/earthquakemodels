@@ -48,15 +48,14 @@ def tupleize(func2):
     def wrapper(*args, **kargs):
     	value = func2(*args, **kargs),
     	print(value)
-        return value,
+        return value
     return wrapper
 
 # @tupleize
 # @decorator
 @tupleize
 def evaluateFun(ind, modelOmega, mean):	
-	pass
-	# return func(ind, modelOmega, means)
+	return func(ind, modelOmega, mean),
 
 def gaModel(func,NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval, tournsize, ftarget):
 	"""
