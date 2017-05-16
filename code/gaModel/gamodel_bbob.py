@@ -132,19 +132,19 @@ if __name__ == "__main__":
 	gaParams = sys.argv[5]
 
 	f = open(gaParams, "r")
-    keys = ['NGEN','n_aval','CXPB','MUTPB', 'qntYears']
-    definition = dict()
-    for line in f:
-        tokens = line.split()
-        for key,value in zip(keys,tokens):
-        	value = int(value)
-            if key == 'CXPB' or key ==  'MUTPB':
-                definition[key] = float(value)
-            else:
-                definition[key] = int(value)
-    f.close()
-    print(definition)
-    exit()
+	keys = ['NGEN','n_aval','CXPB','MUTPB', 'qntYears']
+	params = dict()
+	for line in f:
+		tokens = line.split()
+		for key,value in zip(keys,tokens):
+			value = int(value)
+			if key == 'CXPB' or key ==  'MUTPB':
+				params[key] = float(value)
+			else:
+				params[key] = int(value)
+	f.close()
+	print(params)
+	exit()
 
 	# Create a COCO experiment that will log the results under the
 	# ./output directory
