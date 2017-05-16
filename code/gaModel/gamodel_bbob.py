@@ -135,14 +135,14 @@ if __name__ == "__main__":
 			else:
 				params[key] = int(value)
 	f.close()
-
+	print(params)
 	# Create a COCO experiment that will log the results under the
 	# ./output directory
 	e = fgeneric.LoggingFunction(output)
 
 	observations = list()
 	means = list()
-	for i in range(params[n_aval]):
+	for i in range(params[qntYears]):
 		observation = models.model.loadModelDB(region+'jmaData', year+i)
 		observation.bins = observation.bins.tolist()
 		observations.append(observation)
