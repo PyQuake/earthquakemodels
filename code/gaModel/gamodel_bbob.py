@@ -26,9 +26,10 @@ toolbox.register("map", futures.map)
 
 class decorator(object):
 
-	def __init__(self):
+	def __init__(self, func):
 		# self.modelOmega = modelOmega
 		# self.mean = mean
+		self.func = func
 		pass
 	def __call__(self, func, modelOmega, mean):
 		@wraps(func)
