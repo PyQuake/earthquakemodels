@@ -1,7 +1,7 @@
-python2.7 -c "import math"
-if [echo $?]
+#!/bin/bash
+if [python2.7 -c "import math" == 0]
 	then
-	echo 'it exists'
+		echo 'it exists'
 fi
 
 cd /root/mpi_projects/earthquakemodels/code/gaModel
