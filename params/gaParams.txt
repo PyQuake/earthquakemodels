@@ -1,0 +1,5 @@
+NGEN = 100
+n_aval = 50000
+qntYears = 5
+CXPB = 0.9
+MUTPB = 0.1
