@@ -49,7 +49,7 @@ def tupleize(func2):
     	value = func2(*args, **kargs),
     	print(value)
         return value,
-    return wrapper,
+    return wrapper
 
 # @tupleize
 # @decorator
