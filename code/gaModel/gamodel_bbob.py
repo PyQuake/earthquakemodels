@@ -47,13 +47,12 @@ def tupleize(func):
     @wraps(func)
     def wrapper(*args, **kargs):
         return func(*args, **kargs),
-    return wrapper
+    return list(wrapper)
 
 # @tupleize
 # @decorator
 @tupleize
 def evaluateFun(ind, modelOmega, mean):	
-	# return func(ind)
 	pass
 
 def gaModel(func,NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval, tournsize, ftarget):
