@@ -135,14 +135,13 @@ if __name__ == "__main__":
 			else:
 				params[key] = int(value)
 	f.close()
-	print(params)
 	# Create a COCO experiment that will log the results under the
 	# ./output directory
 	e = fgeneric.LoggingFunction(output)
 
 	observations = list()
 	means = list()
-	for i in range(params[qntYears]):
+	for i in range(params['qntYears']):
 		observation = models.model.loadModelDB(region+'jmaData', year+i)
 		observation.bins = observation.bins.tolist()
 		observations.append(observation)
@@ -157,15 +156,15 @@ if __name__ == "__main__":
 	e.setfun(func, opt=ftarget)
 
 	gaModel(e.evalfun,
-		NGEN=params[NGEN],
-		CXPB=params[CXPB],
-		MUTPB=params[MUTPB],
+		NGEN=params['NGEN'],
+		CXPB=params['CXPB'],
+		MUTPB=params['MUTPB'],
 		modelOmega=observations,
 		year=year +
-		params[qntYears],
+		params['qntYears'],
 		region=region,
 		mean=mean,
-		n_aval=params[n_aval],
+		n_aval=params['n_aval'],
 		tournsize=tournsize,
 		ftarget=e.ftarget)
 
