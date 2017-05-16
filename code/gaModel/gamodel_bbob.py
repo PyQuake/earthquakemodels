@@ -32,7 +32,7 @@ class decorator(object):
 		self.func = func
 		pass
 	def __call__(self, func, modelOmega, mean):
-		# @wraps(func)
+		@wraps(func)
 		def wrapper(individual, *args, **kwargs):
 			value = func(individual, modelOmega, mean, *args, **kwargs)
 			print(value)
