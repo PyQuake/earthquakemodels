@@ -24,21 +24,21 @@ creator.create("Individual", array.array, typecode='d', fitness=creator.FitnessF
 # pool = Pool()
 toolbox.register("map", futures.map)
 
-class decorator(object):
+# class decorator(object):
 
-	def __init__(self, func3):
-		# self.modelOmega = modelOmega
-		# self.mean = mean
-		self.func = func3
-		pass
-	def __call__(self, func3, modelOmega, mean, *args, **kwargs):
-		# @wraps(func3)
-		# def wrapper(*args, **kwargs):
-		# value = func3(ind1, modelOmega, mean, *args, **kwargs)
-		value = func3(ind, modelOmega, mean)
-		print(value)
-		return value
-		# return wrapper
+# 	def __init__(self, func3):
+# 		# self.modelOmega = modelOmega
+# 		# self.mean = mean
+# 		self.func = func3
+# 		pass
+# 	def __call__(self, func3, modelOmega, mean, *args, **kwargs):
+# 		# @wraps(func3)
+# 		# def wrapper(*args, **kwargs):
+# 		# value = func3(ind1, modelOmega, mean, *args, **kwargs)
+# 		value = func3(ind, modelOmega, mean)
+# 		print(value)
+# 		return value
+# 		# return wrapper
 
 def tupleize(func2):
     """A decorator that tuple-ize the result of a function. This is useful
@@ -53,7 +53,7 @@ def tupleize(func2):
 # @decorator
 @tupleize
 def evaluateFun(ind):
-	return func1(ind)
+	return func1(ind, modelOmega, mean)
 
 def gaModel(func,NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval, tournsize, ftarget):
 	"""
