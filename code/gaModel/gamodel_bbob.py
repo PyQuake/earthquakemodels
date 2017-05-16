@@ -51,7 +51,7 @@ def gaModel(func,NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval, tournsize
 	toolbox.decorate("evaluate", tupleize)
 
 	toolbox.register("attr_float", random.random)
-	toolbox.register("mate", tools.cxTwoPoint)
+	toolbox.register("mate", tools.cxOnePoint)
 	# operator for selecting individuals for breeding the next
 	# generation: each individual of the current generation
 	# is replaced by the 'fittest' (best) of three individuals
@@ -165,7 +165,7 @@ if __name__ == "__main__":
 
 	
 
-	print(' FEs=%d fbest-ftarget=%.4e and fbest = %.4e'
-	          % (e.evaluations, e.fbest - e.ftarget, e.fbest))
+	print('ftarget=%.e4 FEs=%d fbest-ftarget=%.4e and fbest = %.4e'
+	          % (e.ftarget, e.evaluations, e.fbest - e.ftarget, e.fbest))
 	e.finalizerun()
 	print('date and time: %s' % time.asctime())
