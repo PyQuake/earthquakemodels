@@ -31,17 +31,17 @@ def execGaModel(year, region, qntYears=5, times=10):
             region=region,
             mean=mean,
             n_aval=50000)
-        # model_.executionNumber=i
-        # model_.year=year+qntYears
-        # model_.modelName = region+'GAModel' 
+        model_.executionNumber=i
+        model_.year=year+qntYears
+        model_.modelName = region+'GAModel' 
         # model.saveModelDB(model_)
         model.saveModelToFile(model_,
-            '../../rawdata/GAModel/genSub' + region +'GAModel' + str(year+qntYears) + '_' + str(i) + '.txt')
-        with open("../../rawdata/GAModel/genSub" + region +"GAModel" + str(year+qntYears) + "_loglikelihood.txt", 'a') as f:
+            '../../Zona4/GAModel/tournsize=2' + region +'GAModel' + str(year+qntYears) + '_' + str(i) + '.txt')
+        with open("../../Zona4/GAModel/tournsize=2" + region +"GAModel" + str(year+qntYears) + "_loglikelihood.txt", 'a') as f:
             f.write(str(model_.loglikelihood))
             f.write("\n")
             f.close()   
-        with open("../../rawdata/GAModel/genSub" + region +"GAModel" + str(year+qntYears) + '_' + str(i) + "logbook.txt", 'w') as f:
+        with open("../../Zona4/GAModel/tournsize=2" + region +"GAModel" + str(year+qntYears) + '_' + str(i) + "logbook.txt", 'w') as f:
             f.write(str(model_.logbook))
             f.write("\n")
             f.close()
@@ -63,17 +63,17 @@ def main():
     for the regions: EastJapan, Kanto, Kansai, Tohoku
     from 2000 to 2005 to create models from 2005 to 2010
     """
-    region = 'Kanto'
+    # region = 'Kanto'
+    # callGAModel(region)
+
+    region = 'EastJapan'
     callGAModel(region)
 
-    # region = 'EastJapan'
-    # callGAModel(region)
+    region = 'Tohoku'
+    callGAModel(region)
 
-    # region = 'Tohoku'
-    # callGAModel(region)
-
-    # region = 'Kansai'
-    # callGAModel(region)
+    region = 'Kansai'
+    callGAModel(region)
 
 
 
