@@ -63,7 +63,8 @@ def gaModel(func,NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval, tournsize
 	# global fun
 	# fun = toolbox.evaluate
 	
-	toolbox.register("evaluate", evaluateFun, modelOmega = modelOmega, mean=mean)	
+	# toolbox.register("evaluate", evaluateFun, modelOmega = modelOmega, mean=mean)	
+	toolbox.register("evaluate", evaluateFun)
 	# toolbox.register("evaluate", func, modelOmega = modelOmega, mean=mean)	
 	# toolbox.decorate("evaluate", tupleize)
 
