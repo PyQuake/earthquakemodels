@@ -126,7 +126,7 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, tournsize=2, n_aval=50
 	generatedModel.logbook = logbook
 	# output = generatedModel.loglikelihood 
 	# return((-1)*output[0])
-	print(Logbook)
+	print(logbook)
 	exit()
 	return generatedModel
 
