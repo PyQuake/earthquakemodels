@@ -26,30 +26,30 @@ toolbox.register("map", futures.map)
 
 class decorator(object):
 
-	def __init__(self, func):
+	def __init__(self, func3):
 		# self.modelOmega = modelOmega
 		# self.mean = mean
 		self.func = func
 		pass
-	def __call__(self, func, modelOmega, mean):
+	def __call__(self, func3, modelOmega, mean):
 		@wraps(func)
 		def wrapper(ind1, *args, **kwargs):
-			value = func(ind1, modelOmega, mean, *args, **kwargs)
+			value = func3(ind1, modelOmega, mean, *args, **kwargs)
 			print(value)
 			return value,
 		return wrapper
 
-def tupleize(func):
+def tupleize(func2):
     """A decorator that tuple-ize the result of a function. This is useful
     when the evaluation function returns a single value.
     """
     def wrapper(*args, **kargs):
-        return func(*args, **kargs),
+        return func2(*args, **kargs),
     return wrapper
 
 @decorator
 def evaluateFun(ind):
-	return func(ind)
+	return func1(ind)
 
 def gaModel(func,NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval, tournsize, ftarget):
 	"""
