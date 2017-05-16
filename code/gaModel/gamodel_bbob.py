@@ -128,11 +128,9 @@ if __name__ == "__main__":
 			continue
 		tokens = line.split()
 		for key,value in zip(keys,tokens):
-			# print(type(key), , value)
 			if key == 'key':
-				print('tem que entrar aqui')
 				params[key] = value
-			if key == 'CXPB' or key == 'MUTPB':
+			elif key == 'CXPB' or key == 'MUTPB':
 				params[key] = float(value)
 			else:
 				params[key] = int(value)
