@@ -54,7 +54,7 @@ def tupleize(func2):
 # @decorator
 @tupleize
 def evaluateFun(ind):
-	return func1(ind, modelOmega, mean)
+	return func1(ind)
 
 def gaModel(func,NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval, tournsize, ftarget):
 	"""
