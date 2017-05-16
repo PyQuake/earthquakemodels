@@ -29,23 +29,24 @@ class decorator(object):
 	def __init__(self, func3):
 		# self.modelOmega = modelOmega
 		# self.mean = mean
-		self.func = func3
+		# self.func = func3
 		pass
-	def __call__(self, func3, ind1, modelOmega, mean):
+	def __call__(self, func3, modelOmega, mean):
 		@wraps(func3)
 		def wrapper(*args, **kwargs):
-			value = func3(ind1, modelOmega, mean, *args, **kwargs)
+			print(ind)
+			value = func3(modelOmega, mean, *args, **kwargs)
 			print(value)
 			return value
 		return wrapper
 
-def tupleize(func2):
-    """A decorator that tuple-ize the result of a function. This is useful
-    when the evaluation function returns a single value.
-    """
-    def wrapper(*args, **kargs):
-        return func2(*args, **kargs),
-    return wrapper
+# def tupleize(func2):
+#     """A decorator that tuple-ize the result of a function. This is useful
+#     when the evaluation function returns a single value.
+#     """
+#     def wrapper(*args, **kargs):
+#         return func2(*args, **kargs),
+#     return wrapper
 
 @decorator
 def evaluateFun(ind):
