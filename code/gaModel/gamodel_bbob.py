@@ -20,7 +20,7 @@ from functools import wraps
 
 toolbox = base.Toolbox()
 creator.create("FitnessFunction", base.Fitness, weights=(-1.0,))
-creator.create("Individual", array.array, typecode='d', fitness=creator.FitnessFunction)
+creator.create("Individual", list, typecode='d', fitness=creator.FitnessFunction)
 # pool = Pool()
 toolbox.register("map", futures.map)
 
@@ -32,10 +32,9 @@ class decorator(object):
 		# self.func = func3
 		pass
 	def __call__(self, func3, modelOmega, mean):
-		# @wraps(func3)
+		@wraps(func3)
 		def wrapper(*args, **kwargs):
-			print(ind)
-			value = func3(modelOmega, mean, *args, **kwargs)
+			value = func3(ind1, modelOmega, mean, *args, **kwargs)
 			print(value)
 			return value
 		return wrapper
@@ -49,8 +48,8 @@ def tupleize(func2):
         return func2(modelOmega, mean, *args, **kargs),
     return wrapper
 
-# @decorator
-@tupleize
+# @tupleize
+@decorator
 def evaluateFun(ind):
 	return func1(ind, modelOmega, mean)
 
