@@ -42,7 +42,7 @@ pool = Pool()
 toolbox.register("map", pool.map)
 
 
-def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, tournsize=2, n_aval=50000):
+def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, tournsize=3, n_aval=50000):
 	"""
 	The main function. It evolves models, namely modelLamba or individual. 
 	It uses 1 parallel system: 1, simple, that splits the ga evolution between cores
