@@ -60,7 +60,8 @@ def gaModel(func,NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval, tournsize
 	x=n_aval - y*NGEN
 	n= x + y
 
-	toolbox.register("evaluate", evaluationFunction, modelOmega=modelOmega, mean=mean)
+	toolbox.register("evaluate", func, modelOmega=modelOmega, mean=mean)
+	toolbox.decorate("evaluate", tupleize)
 	toolbox.register("individual", tools.initRepeat, creator.Individual, toolbox.attr_float, len(modelOmega[0].bins))
 	toolbox.register("population", tools.initRepeat, list, toolbox.individual)
 
