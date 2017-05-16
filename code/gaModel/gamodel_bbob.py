@@ -47,7 +47,7 @@ def tupleize(func2):
     @wraps(func2)
     def wrapper(modelOmega, mean, *args, **kargs):
     	ind = args[0]
-        return func2(ind, modelOmega, mean, *args, **kargs),
+        return func2(ind, *args, **kargs),
     return wrapper
 
 # @tupleize
