@@ -47,6 +47,9 @@ def tupleize(func2):
     @wraps(func2)
     def wrapper(*args, **kargs):
     	print(len(args))
+    	for e in args:
+    		print (e)
+    	exit('in tupleize')
     	ind = args[0]
     	modelOmega = args[1]
     	mean = args[2]
