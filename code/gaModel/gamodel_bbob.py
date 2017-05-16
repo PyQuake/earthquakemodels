@@ -94,8 +94,6 @@ def gaModel(func,NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval, tournsize
         
 		invalid_ind = [ind for ind in offspring if not ind.fitness.valid]
 		fitnesses = list(toolbox.map(toolbox.evaluate, invalid_ind))
-		# normalize fitnesses
-		# fitnesses = normalizeFitness(fitnesses)
 		for ind, fit in zip(invalid_ind, fitnesses):
 			ind.fitness.values = fit
         # The population is entirely replaced by the offspring, but the last ind replaced by best_pop
@@ -126,6 +124,8 @@ if __name__ == "__main__":
 	keys = ['NGEN','n_aval','CXPB','MUTPB', 'qntYears']
 	params = dict()
 	for line in f:
+		if line[0] == '#':
+			continue
 		tokens = line.split()
 		for key,value in zip(keys,tokens):
 			value = int(value)
