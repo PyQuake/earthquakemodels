@@ -40,15 +40,17 @@ class decorator(object):
 			return value
 		return wrapper
 
-# def tupleize(func2):
-#     """A decorator that tuple-ize the result of a function. This is useful
-#     when the evaluation function returns a single value.
-#     """
-#     def wrapper(*args, **kargs):
-#         return func2(*args, **kargs),
-#     return wrapper
+def tupleize(func2):
+    """A decorator that tuple-ize the result of a function. This is useful
+    when the evaluation function returns a single value.
+    """
+    @wraps(func2)
+    def wrapper(*args, **kargs):
+        return func2(*args, **kargs),
+    return wrapper
 
-@decorator
+# @decorator
+@tupleize
 def evaluateFun(ind):
 	return func1(ind)
 
