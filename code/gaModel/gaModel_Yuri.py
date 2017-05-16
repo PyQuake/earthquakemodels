@@ -86,8 +86,6 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval=50000):
 	pop = toolbox.population(n)
 	# Evaluate the entire population
 	fitnesses = list(toolbox.map(toolbox.evaluate, pop))#need to pass 2 model.bins. One is the real data, the other de generated model
-	# normalize fitnesses
-	# fitnesses = normalizeFitness(fitnesses)
 	for ind, fit in zip(pop, fitnesses):
 		ind.fitness.values = fit
 
@@ -110,8 +108,6 @@ def gaModel(NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval=50000):
         
 		invalid_ind = [ind for ind in offspring if not ind.fitness.valid]
 		fitnesses = list(toolbox.map(toolbox.evaluate, invalid_ind))
-		# normalize fitnesses
-		fitnesses = normalizeFitness(fitnesses)
 		for ind, fit in zip(invalid_ind, fitnesses):
 			ind.fitness.values = fit
         # The population is entirely replaced by the offspring, but the last ind replaced by best_pop
