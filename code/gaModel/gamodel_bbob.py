@@ -45,7 +45,7 @@ def tupleize(func2):
     when the evaluation function returns a single value.
     """
     @wraps(func2)
-    def wrapper( modelOmega, mean, *args, **kargs):
+    def wrapper(*args, **kargs):
     	ind = args[0]
         return func2(ind,*args, **kargs),
     return wrapper
@@ -54,7 +54,7 @@ def tupleize(func2):
 # @decorator
 @tupleize
 def evaluateFun(ind):
-	return func1(ind)
+	return func1(ind,  modelOmega, mean)
 
 def gaModel(func,NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval, tournsize, ftarget):
 	"""
