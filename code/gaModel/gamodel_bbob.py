@@ -20,7 +20,7 @@ from functools import wraps
 
 toolbox = base.Toolbox()
 creator.create("FitnessFunction", base.Fitness, weights=(-1.0,))
-creator.create("Individual", list, typecode='d', fitness=creator.FitnessFunction)
+creator.create("Individual", array.array, typecode='d', fitness=creator.FitnessFunction)
 # pool = Pool()
 toolbox.register("map", futures.map)
 
@@ -32,12 +32,13 @@ class decorator(object):
 		# self.func = func3
 		pass
 	def __call__(self, func3, modelOmega, mean):
-		@wraps(func3)
-		def wrapper(*args, **kwargs):
-			value = func3(ind1, modelOmega, mean, *args, **kwargs)
-			print(value)
-			return value
-		return wrapper
+		# @wraps(func3)
+		# def wrapper(*args, **kwargs):
+		# value = func3(ind1, modelOmega, mean, *args, **kwargs)
+		value = func3(ind1, modelOmega, mean)
+		print(value)
+		return value
+		# return wrapper
 
 def tupleize(func2):
     """A decorator that tuple-ize the result of a function. This is useful
