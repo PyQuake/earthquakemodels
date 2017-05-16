@@ -48,7 +48,7 @@ def tupleize(func2):
     def wrapper(*args, **kargs):
     	value = func2(*args, **kargs),
     	print(value)
-        return value
+        return value,
     return wrapper,
 
 # @tupleize
