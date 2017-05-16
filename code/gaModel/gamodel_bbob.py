@@ -24,7 +24,14 @@ creator.create("Individual", array.array, typecode='d', fitness=creator.FitnessF
 # pool = Pool()
 # toolbox.register("map", futures.map)
 
-
+def tupleize(func):
+    """A decorator that tuple-ize the result of a function. This is useful
+    when the evaluation function returns a single value.
+    """
+    def wrapper(*args, **kargs):
+        return func(*args, **kargs),
+    return wrapper
+    
 def gaModel(func,NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval, tournsize, ftarget):
 	"""
 	The main function. It evolves models, namely modelLamba or individual. 
