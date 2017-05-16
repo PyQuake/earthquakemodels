@@ -26,14 +26,14 @@ toolbox.register("map", futures.map)
 
 class decorator(object):
 
-	def __init__(self, modelOmega, mean):
-		self.modelOmega = modelOmega
-		self.mean = mean
-	
-	def __call__(self, func):
+	def __init__(self):
+		# self.modelOmega = modelOmega
+		# self.mean = mean
+		pass
+	def __call__(self, func, modelOmega, mean):
 		@wraps(func)
 		def wrapper(individual, *args, **kwargs):
-			return func(individual, self.modelOmega, self.mean, *args, **kwargs),
+			return func(individual, modelOmega, mean, *args, **kwargs),
 		return wrapper
 
 def tupleize(func):
@@ -63,8 +63,8 @@ def gaModel(func,NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval, tournsize
 	# global fun
 	# fun = toolbox.evaluate
 	
-	# toolbox.register("evaluate", evaluateFun, modelOmega = modelOmega, mean=mean)	
-	toolbox.register("evaluate", evaluateFun)
+	toolbox.register("evaluate", evaluateFun, modelOmega = modelOmega, mean=mean)	
+	# toolbox.register("evaluate", evaluateFun)
 	# toolbox.register("evaluate", func, modelOmega = modelOmega, mean=mean)	
 	# toolbox.decorate("evaluate", tupleize)
 
