@@ -127,9 +127,24 @@ def gaModel(func,NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval, tournsize
 if __name__ == "__main__":
 	output = sys.argv[1]
 	tournsize = int(sys.argv[2])
+	region = sys.argv[3]
+	year = int(sys.argv[4])
+	gaParams = sys.argv[5]
 
-	region = 'Kanto'
-	year=2000
+	f = open(gaParams, "r")
+    keys = ['NGEN','n_aval','CXPB','MUTPB', 'qntYears']
+    definition = dict()
+    for line in f:
+        tokens = line.split()
+        for key,value in zip(keys,tokens):
+        	value = int(value)
+            if key == 'CXPB' or key ==  'MUTPB':
+                definition[key] = float(value)
+            else:
+                definition[key] = int(value)
+    f.close()
+    print(definition)
+    exit()
 
 	# Create a COCO experiment that will log the results under the
 	# ./output directory
@@ -137,7 +152,7 @@ if __name__ == "__main__":
 
 	observations = list()
 	means = list()
-	for i in range(5):
+	for i in range(qntYears):
 		observation = models.model.loadModelDB(region+'jmaData', year+i)
 		observation.bins = observation.bins.tolist()
 		observations.append(observation)
