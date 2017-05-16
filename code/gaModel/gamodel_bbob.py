@@ -47,14 +47,14 @@ def tupleize(func2):
     @wraps(func2)
     def wrapper(*args, **kargs):
     	ind = args[0]
-        return func2(ind,*args, **kargs),
+        return func2(ind, *args, **kargs),
     return wrapper
 
 # @tupleize
 # @decorator
 @tupleize
-def evaluateFun(ind):
-	return func1(ind,  modelOmega, mean)
+def evaluateFun(ind, modelOmega, mean):
+	return func1(ind)
 
 def gaModel(func,NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval, tournsize, ftarget):
 	"""
