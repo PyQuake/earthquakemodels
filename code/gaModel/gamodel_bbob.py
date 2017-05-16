@@ -35,7 +35,7 @@ class decorator(object):
 		# @wraps(func3)
 		# def wrapper(*args, **kwargs):
 		# value = func3(ind1, modelOmega, mean, *args, **kwargs)
-		value = func3(ind1, modelOmega, mean)
+		value = func3(ind, modelOmega, mean)
 		print(value)
 		return value
 		# return wrapper
