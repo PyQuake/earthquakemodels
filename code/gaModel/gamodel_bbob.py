@@ -128,6 +128,7 @@ if __name__ == "__main__":
 			continue
 		tokens = line.split()
 		for key,value in zip(keys,tokens):
+			print(key)
 			if key == 'CXPB' or key == 'MUTPB':
 				params[key] = float(value)
 			else:
