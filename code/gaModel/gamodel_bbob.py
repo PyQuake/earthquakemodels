@@ -51,7 +51,7 @@ def tupleize(func2):
     	# 	print (e)
     	# exit('in tupleize')
     	ind = args[0]
-    	return func(args, kargs)
+    	# return func(args, kargs)
         return func2(ind, modelOmega, mean, *args, **kargs),
     return wrapper
 
