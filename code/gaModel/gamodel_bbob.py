@@ -95,8 +95,8 @@ def gaModel(func,NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval, tournsize
 	# Evaluate the entire population
 	fitnesses = list(toolbox.map(toolbox.evaluate, pop))
 	for ind, fit in zip(pop, fitnesses):
-		print(fit)
-		exit('in for')
+		# print(fit)
+		# exit('in for')
 		ind.fitness.values = fit
 
 	for g in range(NGEN):
