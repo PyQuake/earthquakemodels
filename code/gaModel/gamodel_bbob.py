@@ -124,8 +124,8 @@ if __name__ == "__main__":
 	keys = ['key', 'NGEN', 'n_aval', 'qntYears', 'CXPB', 'MUTPB']
 	params = dict()
 	for line in f:
-		if line[0] == '#':
-			continue
+		# if line[0] == '#':
+		# 	continue
 		tokens = line.split()
 		for key,value in zip(keys,tokens):
 			if key == 'key':
@@ -135,8 +135,6 @@ if __name__ == "__main__":
 			else:
 				params[key] = int(value)
 	f.close()
-	print(params)
-	exit()
 
 	# Create a COCO experiment that will log the results under the
 	# ./output directory
@@ -158,15 +156,15 @@ if __name__ == "__main__":
 	e.setfun(func, opt=ftarget)
 
 	gaModel(e.evalfun,
-		NGEN=100,
-		CXPB=0.9,
-		MUTPB=0.1,
+		NGEN=params[NGEN],
+		CXPB=params[CXPB],
+		MUTPB=params[MUTPB],
 		modelOmega=observations,
 		year=year +
-		5,
+		params[qntYears],
 		region=region,
 		mean=mean,
-		n_aval=50000,
+		n_aval=params[n_aval],
 		tournsize=tournsize,
 		ftarget=e.ftarget)
 
