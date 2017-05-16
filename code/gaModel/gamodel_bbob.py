@@ -31,7 +31,7 @@ def tupleize(func):
     def wrapper(*args, **kargs):
         return func(*args, **kargs),
     return wrapper
-    
+
 def gaModel(func,NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval, tournsize, ftarget):
 	"""
 	The main function. It evolves models, namely modelLamba or individual. 
@@ -151,7 +151,7 @@ if __name__ == "__main__":
 	e.setfun(func, opt=ftarget)
 
 	gaModel(e.evalfun,
-		NGEN=10,
+		NGEN=100,
 		CXPB=0.9,
 		MUTPB=0.1,
 		modelOmega=observations,
@@ -159,7 +159,7 @@ if __name__ == "__main__":
 		5,
 		region=region,
 		mean=mean,
-		n_aval=50,
+		n_aval=50000,
 		tournsize=tournsize,
 		ftarget=e.ftarget)
 
