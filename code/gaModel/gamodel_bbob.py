@@ -147,7 +147,7 @@ if __name__ == "__main__":
 	mean = np.mean(means, axis=0)
 	param = (region, year, params['qntYears'])
 	func, opt = bn.instantiate(2, iinstance=1, param=param)
-	observation = models.model.loadModelDB(region+'jmaData', year+params[qntYears]+1)
+	observation = models.model.loadModelDB(region+'jmaData', year+params['qntYears']+1)
 	ftarget = calcLogLikelihood(observation, observation)
 	del observation
 	e.setfun(func, opt=ftarget)
