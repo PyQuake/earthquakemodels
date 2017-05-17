@@ -94,14 +94,14 @@ def main(func, dim, maxfuncevals, ftarget=None):
     return best
 
 if __name__ == "__main__":
-	output = sys.argv[1]
-	tournsize = int(sys.argv[2])
-	# Maximum number of restart for an algorithm that detects stagnation
-	maxrestarts = 1000
+    output = sys.argv[1]
+    tournsize = int(sys.argv[2])
+    # Maximum number of restart for an algorithm that detects stagnation
+    maxrestarts = 1000
 
-	# Create a COCO experiment that will log the results under the
-	# ./output directory
-	e = fgeneric.LoggingFunction(output)
+    # Create a COCO experiment that will log the results under the
+    # ./output directory
+    e = fgeneric.LoggingFunction(output)
 
     # Iterate over all desired test dimensions
     # for dim in (2, 3):
