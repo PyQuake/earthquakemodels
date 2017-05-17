@@ -94,23 +94,23 @@ def main(func, dim, maxfuncevals, ftarget=None):
     return best
 
 if __name__ == "__main__":
-	output = sys.argv[1]
-	tournsize = int(sys.argv[2])
-	# Maximum number of restart for an algorithm that detects stagnation
-	maxrestarts = 1000
+    output = sys.argv[1]
+    tournsize = int(sys.argv[2])
+    # Maximum number of restart for an algorithm that detects stagnation
+    maxrestarts = 1000
     dim = 2
     f_name = 1
     instance=1
-	# Create a COCO experiment that will log the results under the
-	# ./output directory
-	e = fgeneric.LoggingFunction(output)
+    # Create a COCO experiment that will log the results under the
+    # ./output directory
+    e = fgeneric.LoggingFunction(output)
 
-	# Iterate over all desired test dimensions
-	# for dim in (2, 3, 5, 10, 20, 40):
-	# Set the maximum number function evaluation granted to the algorithm
-	# This is usually function of the dimensionality of the problem
-	maxfuncevals = 100 * dim**2
-	minfuncevals = dim + 2
+    # Iterate over all desired test dimensions
+    # for dim in (2, 3, 5, 10, 20, 40):
+    # Set the maximum number function evaluation granted to the algorithm
+    # This is usually function of the dimensionality of the problem
+    maxfuncevals = 100 * dim**2
+    minfuncevals = dim + 2
 
 	# Iterate over a set of benchmarks (noise free benchmarks here)
 	# for f_name in bn.nfreeIDs:
