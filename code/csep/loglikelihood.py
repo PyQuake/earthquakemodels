@@ -14,7 +14,7 @@ import array
 import numpy as np
 import random
 from models.mathUtil import invertPoisson, normalize, percentile
-from functools import lru_cache as cache
+# from functools import lru_cache as cache
 
 
 # def logValue(element):
@@ -32,7 +32,7 @@ from functools import lru_cache as cache
 # Remove the storing of the likelihood for each bin (if necessary may put back)
 # Need to test the scores
 
-@cache(maxsize=128)
+# @cache(maxsize=128)
 def calcLogLikelihood(modelLambda, modelOmega):
     """
     Calculates the log likelihood between two RELM models. Lambda is usually

@@ -1,9 +1,9 @@
 from numba import jit
 import numpy as np
-from functools import lru_cache as cache
+# from functools import lru_cache as cache
 
-@cache(maxsize=128)
-@jit
+# @cache(maxsize=128)
+# @jit
 def invertPoisson(x,mi):
     """ Calculates the value that would be found in a 
     poisson distribution with lambda = mi at probability
@@ -21,7 +21,7 @@ def invertPoisson(x,mi):
                     prob = prob * x
                 return k
 
-@jit
+# @jit
 def calcNumberBins(lambda_i, omega_i, weights=1, adjusting=0):
     """ Transform a set of real valued bins (0..1) into 
     a set of integer bins, using the value of real data 
