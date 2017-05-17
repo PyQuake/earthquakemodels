@@ -1,0 +1,77 @@
+\providecommand{\algorithmAshort}{tes}
+\providecommand{\algorithmBshort}{dea}
+\begin{tabular}{@{}c@{}|*{5}{@{}r@{}@{}l@{}}|@{}r@{}@{}l@{}}
+$\Delta f_\mathrm{opt}$ & \multicolumn{2}{@{\,}c@{\,}}{10} & \multicolumn{2}{@{\,}c@{\,}}{0.1} & \multicolumn{2}{@{\,}c@{\,}}{1e-3} & \multicolumn{2}{@{\,}c@{\,}}{1e-5} & \multicolumn{2}{@{\,}c@{\,}}{1e-7} & \multicolumn{2}{@{}l@{}}{\#succ}\\\hline
+${\bf f_{1}}$ & \multicolumn{2}{@{}c@{}}{2.0 \quad} & \multicolumn{2}{@{}c@{}}{6.0 \quad} & \multicolumn{2}{@{}c@{}}{6.0 \quad} & \multicolumn{2}{@{}c@{}}{6.0 \quad} & \multicolumn{2}{@{}c@{}|}{6.0} & 15 & /15\\
+1:\:\algorithmAshort\hspace*{\fill} & 3 & .0 & 8 & .2 & 14& & 22& & 30& & 1 & /1\\
+2:\:\algorithmBshort\hspace*{\fill} & 1 & .8(2) & 7 & .4(4) & 15&(2) & 23&(5) & 31&(6) & 15 & /15\\\hline
+${\bf f_{2}}$ & \multicolumn{2}{@{}c@{}}{16 \quad} & \multicolumn{2}{@{}c@{}}{25 \quad} & \multicolumn{2}{@{}c@{}}{26 \quad} & \multicolumn{2}{@{}c@{}}{28 \quad} & \multicolumn{2}{@{}c@{}|}{29} & 15 & /15\\
+1:\:\algorithmAshort\hspace*{\fill} & \multicolumn{2}{@{}c@{}}{$\infty$} & \multicolumn{2}{@{}c@{}}{$\infty$} & \multicolumn{2}{@{}c@{}}{$\infty$} & \multicolumn{2}{@{}c@{}}{$\infty$} & \multicolumn{2}{@{}c|@{}}{$\infty$\textit{400}} & 0 & /1\\
+2:\:\algorithmBshort\hspace*{\fill} & 54&(39) & 229&(360) & \multicolumn{2}{@{}c@{}}{$\infty$} & \multicolumn{2}{@{}c@{}}{$\infty$} & \multicolumn{2}{@{}c|@{}}{$\infty$\textit{400}} & 0 & /15\\\hline
+${\bf f_{3}}$ & \multicolumn{2}{@{}c@{}}{15 \quad} & \multicolumn{2}{@{}c@{}}{445 \quad} & \multicolumn{2}{@{}c@{}}{450 \quad} & \multicolumn{2}{@{}c@{}}{454 \quad} & \multicolumn{2}{@{}c@{}|}{464} & 15 & /15\\
+1:\:\algorithmAshort\hspace*{\fill} & 2 & .1 & \multicolumn{2}{@{}c@{}}{$\infty$} & \multicolumn{2}{@{}c@{}}{$\infty$} & \multicolumn{2}{@{}c@{}}{$\infty$} & \multicolumn{2}{@{}c|@{}}{$\infty$\textit{400}} & 0 & /1\\
+2:\:\algorithmBshort\hspace*{\fill} & 7 & .2(8) & 13&(23) & 13&(7) & 13&(30) & 13&(7) & 1 & /15\\\hline
+${\bf f_{4}}$ & \multicolumn{2}{@{}c@{}}{22 \quad} & \multicolumn{2}{@{}c@{}}{459 \quad} & \multicolumn{2}{@{}c@{}}{523 \quad} & \multicolumn{2}{@{}c@{}}{544 \quad} & \multicolumn{2}{@{}c@{}|}{566} & 15 & /15\\
+1:\:\algorithmAshort\hspace*{\fill} & 6 & .0 & \multicolumn{2}{@{}c@{}}{$\infty$} & \multicolumn{2}{@{}c@{}}{$\infty$} & \multicolumn{2}{@{}c@{}}{$\infty$} & \multicolumn{2}{@{}c|@{}}{$\infty$\textit{400}} & 0 & /1\\
+2:\:\algorithmBshort\hspace*{\fill} & 4 & .9(9) & 6 & .0(5) & 5 & .3(2) & 5 & .2(6) & 5 & .0(5) & 2 & /15\\\hline
+${\bf f_{5}}$ & \multicolumn{2}{@{}c@{}}{4.0 \quad} & \multicolumn{2}{@{}c@{}}{4.0 \quad} & \multicolumn{2}{@{}c@{}}{4.0 \quad} & \multicolumn{2}{@{}c@{}}{4.0 \quad} & \multicolumn{2}{@{}c@{}|}{4.0} & 15 & /15\\
+1:\:\algorithmAshort\hspace*{\fill} & 0 & .75 & 1 & .8 & 1 & .8 & 1 & .8 & 1 & .8 & 1 & /1\\
+2:\:\algorithmBshort\hspace*{\fill} & 1 & .1(1) & 1 & .9(2) & 1 & .9(1) & 1 & .9(1) & 1 & .9(1) & 15 & /15\\\hline
+${\bf f_{6}}$ & \multicolumn{2}{@{}c@{}}{13 \quad} & \multicolumn{2}{@{}c@{}}{41 \quad} & \multicolumn{2}{@{}c@{}}{67 \quad} & \multicolumn{2}{@{}c@{}}{95 \quad} & \multicolumn{2}{@{}c@{}|}{124} & 15 & /15\\
+1:\:\algorithmAshort\hspace*{\fill} & 3 & .8 & 2 & .6 & 2 & .5 & 2 & .9 & 2 & .8 & 1 & /1\\
+2:\:\algorithmBshort\hspace*{\fill} & 2 & .4(1) & 2 & .4(0.7) & 2 & .6(0.5) & 2 & .7(0.4) & 3 & .1(0.5) & 12 & /15\\\hline
+${\bf f_{7}}$ & \multicolumn{2}{@{}c@{}}{3.0 \quad} & \multicolumn{2}{@{}c@{}}{60 \quad} & \multicolumn{2}{@{}c@{}}{217 \quad} & \multicolumn{2}{@{}c@{}}{217 \quad} & \multicolumn{2}{@{}c@{}|}{241} & 15 & /15\\
+1:\:\algorithmAshort\hspace*{\fill} & 7 & .3 & 1 & .2 & 0 & .47 & 0 & .47 & 0 & .43 & 1 & /1\\
+2:\:\algorithmBshort\hspace*{\fill} & 11&(26) & 3 & .3(1.0) & 1 & .6(2) & 1 & .6(1) & 1 & .5(1) & 10 & /15\\\hline
+${\bf f_{8}}$ & \multicolumn{2}{@{}c@{}}{5.0 \quad} & \multicolumn{2}{@{}c@{}}{37 \quad} & \multicolumn{2}{@{}c@{}}{86 \quad} & \multicolumn{2}{@{}c@{}}{94 \quad} & \multicolumn{2}{@{}c@{}|}{112} & 15 & /15\\
+1:\:\algorithmAshort\hspace*{\fill} & \multicolumn{2}{@{}c@{}}{$\infty$} & \multicolumn{2}{@{}c@{}}{$\infty$} & \multicolumn{2}{@{}c@{}}{$\infty$} & \multicolumn{2}{@{}c@{}}{$\infty$} & \multicolumn{2}{@{}c|@{}}{$\infty$\textit{400}} & 0 & /1\\
+2:\:\algorithmBshort\hspace*{\fill} & 26&(60) & 21&(52) & 66&(107) & \multicolumn{2}{@{}c@{}}{$\infty$} & \multicolumn{2}{@{}c|@{}}{$\infty$\textit{400}} & 0 & /15\\\hline
+${\bf f_{9}}$ & \multicolumn{2}{@{}c@{}}{1 \quad} & \multicolumn{2}{@{}c@{}}{30 \quad} & \multicolumn{2}{@{}c@{}}{68 \quad} & \multicolumn{2}{@{}c@{}}{81 \quad} & \multicolumn{2}{@{}c@{}|}{92} & 15 & /15\\
+1:\:\algorithmAshort\hspace*{\fill} & \multicolumn{2}{@{}c@{}}{$\infty$} & \multicolumn{2}{@{}c@{}}{$\infty$} & \multicolumn{2}{@{}c@{}}{$\infty$} & \multicolumn{2}{@{}c@{}}{$\infty$} & \multicolumn{2}{@{}c|@{}}{$\infty$\textit{400}} & 0 & /1\\
+2:\:\algorithmBshort\hspace*{\fill} & 226&(114) & 24&(40) & 84&(57) & \multicolumn{2}{@{}c@{}}{$\infty$} & \multicolumn{2}{@{}c|@{}}{$\infty$\textit{400}} & 0 & /15\\\hline
+${\bf f_{10}}$ & \multicolumn{2}{@{}c@{}}{30 \quad} & \multicolumn{2}{@{}c@{}}{54 \quad} & \multicolumn{2}{@{}c@{}}{68 \quad} & \multicolumn{2}{@{}c@{}}{82 \quad} & \multicolumn{2}{@{}c@{}|}{98} & 15 & /15\\
+1:\:\algorithmAshort\hspace*{\fill} & \multicolumn{2}{@{}c@{}}{$\infty$} & \multicolumn{2}{@{}c@{}}{$\infty$} & \multicolumn{2}{@{}c@{}}{$\infty$} & \multicolumn{2}{@{}c@{}}{$\infty$} & \multicolumn{2}{@{}c|@{}}{$\infty$\textit{400}} & 0 & /1\\
+2:\:\algorithmBshort\hspace*{\fill} & 39&(50) & \multicolumn{2}{@{}c@{}}{$\infty$} & \multicolumn{2}{@{}c@{}}{$\infty$} & \multicolumn{2}{@{}c@{}}{$\infty$} & \multicolumn{2}{@{}c|@{}}{$\infty$\textit{400}} & 0 & /15\\\hline
+${\bf f_{11}}$ & \multicolumn{2}{@{}c@{}}{35 \quad} & \multicolumn{2}{@{}c@{}}{50 \quad} & \multicolumn{2}{@{}c@{}}{67 \quad} & \multicolumn{2}{@{}c@{}}{81 \quad} & \multicolumn{2}{@{}c@{}|}{97} & 15 & /15\\
+1:\:\algorithmAshort\hspace*{\fill} & 2 & .3 & 1 & .7 & \multicolumn{2}{@{}c@{}}{$\infty$} & \multicolumn{2}{@{}c@{}}{$\infty$} & \multicolumn{2}{@{}c|@{}}{$\infty$\textit{400}} & 0 & /1\\
+2:\:\algorithmBshort\hspace*{\fill} & 34&(46) & \multicolumn{2}{@{}c@{}}{$\infty$} & \multicolumn{2}{@{}c@{}}{$\infty$} & \multicolumn{2}{@{}c@{}}{$\infty$} & \multicolumn{2}{@{}c|@{}}{$\infty$\textit{400}} & 0 & /15\\\hline
+${\bf f_{12}}$ & \multicolumn{2}{@{}c@{}}{35 \quad} & \multicolumn{2}{@{}c@{}}{75 \quad} & \multicolumn{2}{@{}c@{}}{105 \quad} & \multicolumn{2}{@{}c@{}}{153 \quad} & \multicolumn{2}{@{}c@{}|}{195} & 15 & /15\\
+1:\:\algorithmAshort\hspace*{\fill} & 2 & .2 & \multicolumn{2}{@{}c@{}}{$\infty$} & \multicolumn{2}{@{}c@{}}{$\infty$} & \multicolumn{2}{@{}c@{}}{$\infty$} & \multicolumn{2}{@{}c|@{}}{$\infty$\textit{400}} & 0 & /1\\
+2:\:\algorithmBshort\hspace*{\fill} & 34&(32) & 76&(76) & \multicolumn{2}{@{}c@{}}{$\infty$} & \multicolumn{2}{@{}c@{}}{$\infty$} & \multicolumn{2}{@{}c|@{}}{$\infty$\textit{400}} & 0 & /15\\\hline
+${\bf f_{13}}$ & \multicolumn{2}{@{}c@{}}{23 \quad} & \multicolumn{2}{@{}c@{}}{46 \quad} & \multicolumn{2}{@{}c@{}}{71 \quad} & \multicolumn{2}{@{}c@{}}{95 \quad} & \multicolumn{2}{@{}c@{}|}{122} & 15 & /15\\
+1:\:\algorithmAshort\hspace*{\fill} & 3 & .5 & \multicolumn{2}{@{}c@{}}{$\infty$} & \multicolumn{2}{@{}c@{}}{$\infty$} & \multicolumn{2}{@{}c@{}}{$\infty$} & \multicolumn{2}{@{}c|@{}}{$\infty$\textit{400}} & 0 & /1\\
+2:\:\algorithmBshort\hspace*{\fill} & 9 & .0(6) & 125&(120) & \multicolumn{2}{@{}c@{}}{$\infty$} & \multicolumn{2}{@{}c@{}}{$\infty$} & \multicolumn{2}{@{}c|@{}}{$\infty$\textit{400}} & 0 & /15\\\hline
+${\bf f_{14}}$ & \multicolumn{2}{@{}c@{}}{1 \quad} & \multicolumn{2}{@{}c@{}}{16 \quad} & \multicolumn{2}{@{}c@{}}{38 \quad} & \multicolumn{2}{@{}c@{}}{67 \quad} & \multicolumn{2}{@{}c@{}|}{90} & 15 & /15\\
+1:\:\algorithmAshort\hspace*{\fill} & 3 & .0 & 4 & .8 & 4 & .0 & \multicolumn{2}{@{}c@{}}{$\infty$} & \multicolumn{2}{@{}c|@{}}{$\infty$\textit{400}} & 0 & /1\\
+2:\:\algorithmBshort\hspace*{\fill} & 4 & .3(2) & 4 & .1(1) & 11&(13) & 42&(75) & \multicolumn{2}{@{}c|@{}}{$\infty$\textit{400}} & 0 & /15\\\hline
+${\bf f_{15}}$ & \multicolumn{2}{@{}c@{}}{37 \quad} & \multicolumn{2}{@{}c@{}}{1033 \quad} & \multicolumn{2}{@{}c@{}}{1113 \quad} & \multicolumn{2}{@{}c@{}}{1231 \quad} & \multicolumn{2}{@{}c@{}|}{1412} & 15 & /15\\
+1:\:\algorithmAshort\hspace*{\fill} & 1 & .2 & \multicolumn{2}{@{}c@{}}{$\infty$} & \multicolumn{2}{@{}c@{}}{$\infty$} & \multicolumn{2}{@{}c@{}}{$\infty$} & \multicolumn{2}{@{}c|@{}}{$\infty$\textit{400}} & 0 & /1\\
+2:\:\algorithmBshort\hspace*{\fill} & 1 & .5(0.6) & 5 & .5(6) & 5 & .2(13) & 4 & .7(6) & 4 & .2(6) & 1 & /15\\\hline
+${\bf f_{16}}$ & \multicolumn{2}{@{}c@{}}{9.0 \quad} & \multicolumn{2}{@{}c@{}}{174 \quad} & \multicolumn{2}{@{}c@{}}{358 \quad} & \multicolumn{2}{@{}c@{}}{409 \quad} & \multicolumn{2}{@{}c@{}|}{538} & 15 & /15\\
+1:\:\algorithmAshort\hspace*{\fill} & 2 & .7 & 0 & .52 & 0 & .47 & \multicolumn{2}{@{}c@{}}{$\infty$} & \multicolumn{2}{@{}c|@{}}{$\infty$\textit{400}} & 0 & /1\\
+2:\:\algorithmBshort\hspace*{\fill} & 14&(23) & 3 & .2(4) & 7 & .6(10) & 6 & .7(12) & 5 & .2(6) & 1 & /15\\\hline
+${\bf f_{17}}$ & \multicolumn{2}{@{}c@{}}{3.0 \quad} & \multicolumn{2}{@{}c@{}}{133 \quad} & \multicolumn{2}{@{}c@{}}{396 \quad} & \multicolumn{2}{@{}c@{}}{1086 \quad} & \multicolumn{2}{@{}c@{}|}{1657} & 15 & /15\\
+1:\:\algorithmAshort\hspace*{\fill} & 2 & .7 & \multicolumn{2}{@{}c@{}}{$\infty$} & \multicolumn{2}{@{}c@{}}{$\infty$} & \multicolumn{2}{@{}c@{}}{$\infty$} & \multicolumn{2}{@{}c|@{}}{$\infty$\textit{400}} & 0 & /1\\
+2:\:\algorithmBshort\hspace*{\fill} & 12&(34) & 4 & .2(8) & 7 & .0(9) & \multicolumn{2}{@{}c@{}}{$\infty$} & \multicolumn{2}{@{}c|@{}}{$\infty$\textit{400}} & 0 & /15\\\hline
+${\bf f_{18}}$ & \multicolumn{2}{@{}c@{}}{19 \quad} & \multicolumn{2}{@{}c@{}}{666 \quad} & \multicolumn{2}{@{}c@{}}{1708 \quad} & \multicolumn{2}{@{}c@{}}{2438 \quad} & \multicolumn{2}{@{}c@{}|}{2858} & 15 & /15\\
+1:\:\algorithmAshort\hspace*{\fill} & 1 & .8 & \multicolumn{2}{@{}c@{}}{$\infty$} & \multicolumn{2}{@{}c@{}}{$\infty$} & \multicolumn{2}{@{}c@{}}{$\infty$} & \multicolumn{2}{@{}c|@{}}{$\infty$\textit{400}} & 0 & /1\\
+2:\:\algorithmBshort\hspace*{\fill} & 1 & .5(0.8) & \multicolumn{2}{@{}c@{}}{$\infty$} & \multicolumn{2}{@{}c@{}}{$\infty$} & \multicolumn{2}{@{}c@{}}{$\infty$} & \multicolumn{2}{@{}c|@{}}{$\infty$\textit{400}} & 0 & /15\\\hline
+${\bf f_{19}}$ & \multicolumn{2}{@{}c@{}}{1 \quad} & \multicolumn{2}{@{}c@{}}{26 \quad} & \multicolumn{2}{@{}c@{}}{227 \quad} & \multicolumn{2}{@{}c@{}}{252 \quad} & \multicolumn{2}{@{}c@{}|}{276} & 15 & /15\\
+1:\:\algorithmAshort\hspace*{\fill} & 4 & .0 & \multicolumn{2}{@{}c@{}}{$\infty$} & \multicolumn{2}{@{}c@{}}{$\infty$} & \multicolumn{2}{@{}c@{}}{$\infty$} & \multicolumn{2}{@{}c|@{}}{$\infty$\textit{400}} & 0 & /1\\
+2:\:\algorithmBshort\hspace*{\fill} & 5 & .8(3) & 26&(23) & \multicolumn{2}{@{}c@{}}{$\infty$} & \multicolumn{2}{@{}c@{}}{$\infty$} & \multicolumn{2}{@{}c|@{}}{$\infty$\textit{400}} & 0 & /15\\\hline
+${\bf f_{20}}$ & \multicolumn{2}{@{}c@{}}{4.0 \quad} & \multicolumn{2}{@{}c@{}}{365 \quad} & \multicolumn{2}{@{}c@{}}{366 \quad} & \multicolumn{2}{@{}c@{}}{370 \quad} & \multicolumn{2}{@{}c@{}|}{375} & 15 & /15\\
+1:\:\algorithmAshort\hspace*{\fill} & 3 & .8 & \multicolumn{2}{@{}c@{}}{$\infty$} & \multicolumn{2}{@{}c@{}}{$\infty$} & \multicolumn{2}{@{}c@{}}{$\infty$} & \multicolumn{2}{@{}c|@{}}{$\infty$\textit{400}} & 0 & /1\\
+2:\:\algorithmBshort\hspace*{\fill} & 4 & .8(2) & 3 & .3(3) & 3 & .4(3) & 3 & .5(4) & 3 & .7(3) & 4 & /15\\\hline
+${\bf f_{21}}$ & \multicolumn{2}{@{}c@{}}{2.0 \quad} & \multicolumn{2}{@{}c@{}}{174 \quad} & \multicolumn{2}{@{}c@{}}{290 \quad} & \multicolumn{2}{@{}c@{}}{324 \quad} & \multicolumn{2}{@{}c@{}|}{330} & 15 & /15\\
+1:\:\algorithmAshort\hspace*{\fill} & 0 & .50 & \multicolumn{2}{@{}c@{}}{$\infty$} & \multicolumn{2}{@{}c@{}}{$\infty$} & \multicolumn{2}{@{}c@{}}{$\infty$} & \multicolumn{2}{@{}c|@{}}{$\infty$\textit{400}} & 0 & /1\\
+2:\:\algorithmBshort\hspace*{\fill} & 2 & .2(4) & 2 & .8(3) & 1 & .8(1) & 1 & .7(2) & 1 & .8(3) & 7 & /15\\\hline
+${\bf f_{22}}$ & \multicolumn{2}{@{}c@{}}{5.0 \quad} & \multicolumn{2}{@{}c@{}}{168 \quad} & \multicolumn{2}{@{}c@{}}{249 \quad} & \multicolumn{2}{@{}c@{}}{289 \quad} & \multicolumn{2}{@{}c@{}|}{306} & 15 & /15\\
+1:\:\algorithmAshort\hspace*{\fill} & 0 & .40 & 0 & .21 & \multicolumn{2}{@{}c@{}}{$\infty$} & \multicolumn{2}{@{}c@{}}{$\infty$} & \multicolumn{2}{@{}c|@{}}{$\infty$\textit{400}} & 0 & /1\\
+2:\:\algorithmBshort\hspace*{\fill} & 6 & .2(26) & 3 & .9(5) & 6 & .8(8) & 20&(20) & \multicolumn{2}{@{}c|@{}}{$\infty$\textit{400}} & 0 & /15\\\hline
+${\bf f_{23}}$ & \multicolumn{2}{@{}c@{}}{8.0 \quad} & \multicolumn{2}{@{}c@{}}{234 \quad} & \multicolumn{2}{@{}c@{}}{299 \quad} & \multicolumn{2}{@{}c@{}}{348 \quad} & \multicolumn{2}{@{}c@{}|}{379} & 15 & /15\\
+1:\:\algorithmAshort\hspace*{\fill} & 0 & .12 & \multicolumn{2}{@{}c@{}}{$\infty$} & \multicolumn{2}{@{}c@{}}{$\infty$} & \multicolumn{2}{@{}c@{}}{$\infty$} & \multicolumn{2}{@{}c|@{}}{$\infty$\textit{400}} & 0 & /1\\
+2:\:\algorithmBshort\hspace*{\fill} & 7 & .2(14) & 12&(8) & 10&(13) & 17&(24) & \multicolumn{2}{@{}c|@{}}{$\infty$\textit{400}} & 0 & /15\\\hline
+${\bf f_{24}}$ & \multicolumn{2}{@{}c@{}}{18 \quad} & \multicolumn{2}{@{}c@{}}{8515 \quad} & \multicolumn{2}{@{}c@{}}{24113 \quad} & \multicolumn{2}{@{}c@{}}{24721 \quad} & \multicolumn{2}{@{}c@{}|}{24721} & 5 & /15\\
+1:\:\algorithmAshort\hspace*{\fill} & 1 & .1 & \multicolumn{2}{@{}c@{}}{$\infty$} & \multicolumn{2}{@{}c@{}}{$\infty$} & \multicolumn{2}{@{}c@{}}{$\infty$} & \multicolumn{2}{@{}c|@{}}{$\infty$\textit{400}} & 0 & /1\\
+2:\:\algorithmBshort\hspace*{\fill} & 2 & .0(3) & \multicolumn{2}{@{}c@{}}{$\infty$} & \multicolumn{2}{@{}c@{}}{$\infty$} & \multicolumn{2}{@{}c@{}}{$\infty$} & \multicolumn{2}{@{}c|@{}}{$\infty$\textit{400}} & 0 & /15
+\end{tabular}
