@@ -1,0 +1,6 @@
+funcId = 16, DIM = 2, Precision = 1.000e-08, algId = 'not-specified'
+% 
+data_f16/bbobexp_f16_DIM2.dat, 1:400|4.5e-05
+funcId = 16, DIM = 3, Precision = 1.000e-08, algId = 'not-specified'
+% 
+data_f16/bbobexp_f16_DIM3.dat, 1:900|1.9e-01
