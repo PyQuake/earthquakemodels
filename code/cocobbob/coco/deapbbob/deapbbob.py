@@ -104,7 +104,7 @@ if __name__ == "__main__":
 	e = fgeneric.LoggingFunction(output)
 
 	# Iterate over all desired test dimensions
-	for dim in (2):
+	for dim in (2, 3):
 		# Set the maximum number function evaluation granted to the algorithm
 		# This is usually function of the dimensionality of the problem
 		maxfuncevals = 100 * dim**2
