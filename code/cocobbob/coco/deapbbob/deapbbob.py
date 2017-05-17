@@ -114,33 +114,33 @@ if __name__ == "__main__":
     # Iterate over a set of benchmarks (noise free benchmarks here)
     # for f_name in bn.nfreeIDs:
     f_name=2
-	# Iterate over all the instance of a single problem
-	# Rotation, translation, etc.
-	# for instance in chain(range(1, 6), range(21, 31)):
+    # Iterate over all the instance of a single problem
+    # Rotation, translation, etc.
+    # for instance in chain(range(1, 6), range(21, 31)):
 
-	# Set the function to be used (problem) in the logger
-	e.setfun(*bn.instantiate(f_name, iinstance=1))
+    # Set the function to be used (problem) in the logger
+    e.setfun(*bn.instantiate(f_name, iinstance=1))
 
-	# Independent restarts until maxfunevals or ftarget is reached
-	for restarts in range(0, maxrestarts + 1):
-		if restarts > 0:
-			# Signal the experiment that the algorithm restarted
-			e.restart('independent restart')  # additional info
+    # Independent restarts until maxfunevals or ftarget is reached
+    for restarts in range(0, maxrestarts + 1):
+        if restarts > 0:
+            # Signal the experiment that the algorithm restarted
+            e.restart('independent restart')  # additional info
 
-		# Run the algorithm with the remaining number of evaluations
-		revals = int(math.ceil(maxfuncevals - e.evaluations))
-		main(e.evalfun, dim, revals, e.ftarget)
+            # Run the algorithm with the remaining number of evaluations
+            revals = int(math.ceil(maxfuncevals - e.evaluations))
+            main(e.evalfun, dim, revals, e.ftarget)
 
-		# Stop if ftarget is reached
-		if e.fbest < e.ftarget or e.evaluations + minfuncevals > maxfuncevals:
-			break
+            # Stop if ftarget is reached
+        if e.fbest < e.ftarget or e.evaluations + minfuncevals > maxfuncevals:
+            break
 
 
-		e.finalizerun()
+    e.finalizerun()
 
-		print('f%d in %d-D, instance %d: FEs=%d with %d restarts, '
-              'fbest-ftarget=%.4e and fbest = %.4e'
-              % (f_name, dim, instance, e.evaluations, restarts,
-                 e.fbest - e.ftarget, e.fbest))
+    print('f%d in %d-D, instance %d: FEs=%d with %d restarts, '
+    'fbest-ftarget=%.4e and fbest = %.4e'
+    % (f_name, dim, instance, e.evaluations, restarts,
+    e.fbest - e.ftarget, e.fbest))
 
-		print('date and time: %s' % time.asctime())
+    print('date and time: %s' % time.asctime())
