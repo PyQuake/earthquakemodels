@@ -103,16 +103,16 @@ if __name__ == "__main__":
 	# ./output directory
 	e = fgeneric.LoggingFunction(output)
 
-	# Iterate over all desired test dimensions
-	# for dim in (2, 3):
+    # Iterate over all desired test dimensions
+    # for dim in (2, 3):
     dim=2
-	# Set the maximum number function evaluation granted to the algorithm
-	# This is usually function of the dimensionality of the problem
-	maxfuncevals = 100 * dim**2
-	minfuncevals = dim + 2
+    # Set the maximum number function evaluation granted to the algorithm
+    # This is usually function of the dimensionality of the problem
+    maxfuncevals = 100 * dim**2
+    minfuncevals = dim + 2
 
-	# Iterate over a set of benchmarks (noise free benchmarks here)
-	# for f_name in bn.nfreeIDs:
+    # Iterate over a set of benchmarks (noise free benchmarks here)
+    # for f_name in bn.nfreeIDs:
     f_name=2
 	# Iterate over all the instance of a single problem
 	# Rotation, translation, etc.
