@@ -34,7 +34,7 @@ toolbox = base.Toolbox()
 creator.create("FitnessMin", base.Fitness, weights=(-1.0,))
 creator.create("Individual", array.array, typecode="d", fitness=creator.FitnessMin)
 # pool = Pool()
-toolbox.register("map", futures.map)
+# toolbox.register("map", futures.map)
 
 
 def update(individual, mu, sigma):
@@ -104,7 +104,7 @@ if __name__ == "__main__":
 	e = fgeneric.LoggingFunction(output)
 
 	# Iterate over all desired test dimensions
-	for dim in (2, 3, 5, 10, 20, 40):
+	for dim in (2):
 		# Set the maximum number function evaluation granted to the algorithm
 		# This is usually function of the dimensionality of the problem
 		maxfuncevals = 100 * dim**2
