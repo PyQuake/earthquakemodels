@@ -94,8 +94,7 @@ def gaModel(func,NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval, tournsize
 		fitnesses = list(toolbox.map(toolbox.evaluate, invalid_ind))
 		for ind, fit in zip(invalid_ind, fitnesses):
 			ind.fitness.values = fit
-			print(fit)
-		exit('in eval invalid freaks')
+			
         # The population is entirely replaced by the offspring, but the last ind replaced by best_pop
         #Elitism
 		best_pop = tools.selBest(pop, 1)[0]
