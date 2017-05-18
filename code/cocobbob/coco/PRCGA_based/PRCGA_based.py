@@ -74,6 +74,8 @@ def main(func, dim, maxfuncevals, ftarget=None, tournsize=20):
 	fitnesses = list(toolbox.map(toolbox.evaluate, pop))
 	for ind, fit in zip(pop, fitnesses):
 		ind.fitness.values = fit
+		print(fit)
+	exit('first eval')
 	maxfuncevals -= len(pop)
 	# for g in range(maxfuncevals):
 	while(g < maxfuncevals):
