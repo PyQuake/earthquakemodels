@@ -455,7 +455,7 @@ class BBOBFunction(AbstractTestFunction):
             year = param[1]
             qntyears = param[2]
             observation = models.model.loadModelDB(region+'jmaData', year+qntyears+1)
-            self.fopt = calcLogLikelihood(observation, observation)
+            self.fopt = -calcLogLikelihood(observation, observation)
         self.iinstance = iinstance
         self.dim = None
         self.lastshape = None
