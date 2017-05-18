@@ -98,9 +98,6 @@ def main(func, dim, maxfuncevals, ftarget=None, tournsize=20):
 		offspring[0]=best_pop
 		random.shuffle(offspring)
 		pop[:] = offspring
-		for ind in pop:
-			print(ind.fitness.values)
-		exit()
 		record = stats.compile(pop)
 		logbook.record(gen=g, **record)
 		print(logbook)
