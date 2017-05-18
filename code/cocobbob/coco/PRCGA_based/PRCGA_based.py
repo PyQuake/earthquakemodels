@@ -74,8 +74,6 @@ def main(func, dim, maxfuncevals, ftarget=None, tournsize=20):
 	fitnesses = list(toolbox.map(toolbox.evaluate, pop))
 	for ind, fit in zip(pop, fitnesses):
 		ind.fitness.values = fit
-		print(fit)
-	exit('first eval')
 	maxfuncevals -= len(pop)
 	# for g in range(maxfuncevals):
 	while(g < maxfuncevals):
@@ -91,7 +89,7 @@ def main(func, dim, maxfuncevals, ftarget=None, tournsize=20):
 				toolbox.mutate(mutant)
 				del mutant.fitness.values
 
-		fitnesses = list(toolbox.map(toolbox.evaluate, pop))
+		invalid_ind = [ind for ind in offspring if not ind.fitness.valid]
 		for ind, fit in zip(pop, fitnesses):
 			ind.fitness.values = fit
 		#Elitism
