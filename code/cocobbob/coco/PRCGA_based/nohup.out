@@ -1,4 +1,4 @@
 Traceback (most recent call last):
-  File "PRCGA_based.py", line 125, in <module>
-    tournsize = int(sys.argv[2])
-ValueError: invalid literal for int() with base 10: '../../../../params/gaParams.txt'
+  File "PRCGA_based.py", line 157, in <module>
+    main(e.evalfun, dim, revals, e.ftarget, tournsize)
+NameError: name 'tournsize' is not defined
