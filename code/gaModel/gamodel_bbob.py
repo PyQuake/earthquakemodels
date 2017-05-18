@@ -117,7 +117,7 @@ if __name__ == "__main__":
 
 	f = open(gaParams, "r")
 	keys = ['key', 'NGEN', 'n_aval', 'qntYears', 'CXPB', 'MUTPB', 'region', 'year', 'tournsize']
-	
+
 	params = dict()
 	for line in f:
 		if line[0] == '#':
@@ -128,7 +128,7 @@ if __name__ == "__main__":
 				params[key] = value
 			elif key == 'CXPB' or key == 'MUTPB':
 				params[key] = float(value)
-			elif key == 'region'
+			elif key == 'region':
 				params[key] = value
 			else:
 				params[key] = int(value)
