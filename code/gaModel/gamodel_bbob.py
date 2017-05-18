@@ -140,15 +140,15 @@ if __name__ == "__main__":
 	observations = list()
 	means = list()
 	for i in range(params['qntYears']):
-		observation = models.model.loadModelDB(region+'jmaData', year+i)
+		observation = models.model.loadModelDB(params['region']+'jmaData', params['year']+i)
 		observation.bins = observation.bins.tolist()
 		observations.append(observation)
 		means.append(observation.bins)
 	# del observation
 	mean = np.mean(means, axis=0)
-	param = (region, year, params['qntYears'])
+	param = (params['region'], params['year'], params['qntYears'])
 	func, opt = bn.instantiate(2, iinstance=1, param=param)
-	observation = models.model.loadModelDB(region+'jmaData', year+params['qntYears']+1)
+	observation = models.model.loadModelDB(params[ 'region']+'jmaData', params['year']+params['qntYears']+1)
 	ftarget = calcLogLikelihood(observation, observation)
 	del observation
 	e.setfun(func, opt=ftarget)
@@ -158,12 +158,12 @@ if __name__ == "__main__":
 		CXPB=params['CXPB'],
 		MUTPB=params['MUTPB'],
 		modelOmega=observations,
-		year=year +
+		year=params['year'] +
 		params['qntYears'],
-		region=region,
+		region=params['region'],
 		mean=mean,
 		n_aval=params['n_aval'],
-		tournsize=tournsize,
+		tournsize=params['tournsize'],
 		ftarget=e.ftarget)
 
 	
