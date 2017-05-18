@@ -88,7 +88,7 @@ def main(func, dim, maxfuncevals, ftarget=None, tournsize=20):
 			if random.random() < MUTPB:
 				toolbox.mutate(mutant)
 				del mutant.fitness.values
-				
+
 		fitnesses = list(toolbox.map(toolbox.evaluate, pop))
 		for ind, fit in zip(pop, fitnesses):
 			ind.fitness.values = fit
@@ -98,6 +98,10 @@ def main(func, dim, maxfuncevals, ftarget=None, tournsize=20):
 		offspring[0]=best_pop
 		random.shuffle(offspring)
 		pop[:] = offspring
+
+		record = stats.compile(pop)
+		logbook.record(gen=g, **record)
+		print(logbook)
 
 		if (abs(record["min"] - ftarget)) < 10e-8:
 			return best_pop
@@ -110,6 +114,8 @@ def main(func, dim, maxfuncevals, ftarget=None, tournsize=20):
 			for ind, fit in zip(pop, fitnesses):
 				ind.fitness.values = fit
 			g += len(pop)
+			record = stats.compile(pop)
+			logbook.record(gen=g, **record)
 		
 		g += len(pop)
 	return best_pop
