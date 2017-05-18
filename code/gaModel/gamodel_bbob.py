@@ -65,6 +65,7 @@ def gaModel(func,NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval, tournsize
 	pop = toolbox.population(n)
 	# Evaluate the entire population
 	fitnesses = list(toolbox.map(toolbox.evaluate, pop))#need to pass 2 model.bins. One is the real data, the other de generated model
+	numero_avaliacoes = len(pop)
 	# normalize fitnesses
 	# fitnesses = normalizeFitness(fitnesses)
 	for ind, fit in zip(pop, fitnesses):
@@ -93,6 +94,7 @@ def gaModel(func,NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval, tournsize
 		fitnesses = list(toolbox.map(toolbox.evaluate, invalid_ind))
 		for ind, fit in zip(invalid_ind, fitnesses):
 			ind.fitness.values = fit
+		numero_avaliacoes += len(pop)
         # The population is entirely replaced by the offspring, but the last ind replaced by best_pop
         #Elitism
 		best_pop = tools.selBest(pop, 1)[0]
@@ -102,12 +104,13 @@ def gaModel(func,NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval, tournsize
 		pop[:] = offspring
 		
 		#logBook
-		fitnesses = list(toolbox.map(toolbox.evaluate, pop))
+		# fitnesses = list(toolbox.map(toolbox.evaluate, pop))
 		for ind, fit in zip(pop, fitnesses):
 			ind.fitness.values = fit
 		record = stats.compile(pop)
 		logbook.record(gen=g, **record)
 	print(logbook)
+	print(numero_avaliacoes)
 	return best_pop
 
 if __name__ == "__main__":
