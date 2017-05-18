@@ -94,7 +94,6 @@ def gaModel(func,NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval, tournsize
 		fitnesses = list(toolbox.map(toolbox.evaluate, invalid_ind))
 		for ind, fit in zip(invalid_ind, fitnesses):
 			ind.fitness.values = fit
-		numero_avaliacoes += len(pop)
         # The population is entirely replaced by the offspring, but the last ind replaced by best_pop
         #Elitism
 		best_pop = tools.selBest(pop, 1)[0]
@@ -110,18 +109,14 @@ def gaModel(func,NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval, tournsize
 		record = stats.compile(pop)
 		logbook.record(gen=g, **record)
 	print(logbook)
-	print(numero_avaliacoes)
 	return best_pop
 
 if __name__ == "__main__":
 	output = sys.argv[1]
-	tournsize = int(sys.argv[2])
-	region = sys.argv[3]
-	year = int(sys.argv[4])
-	gaParams = sys.argv[5]
+	gaParams = sys.argv[2]
 
 	f = open(gaParams, "r")
-	keys = ['key', 'NGEN', 'n_aval', 'qntYears', 'CXPB', 'MUTPB']
+	keys = ['key', 'NGEN', 'n_aval', 'qntYears', 'CXPB', 'MUTPB', 'region', 'year', 'tournsize']
 	params = dict()
 	for line in f:
 		if line[0] == '#':
@@ -132,6 +127,8 @@ if __name__ == "__main__":
 				params[key] = value
 			elif key == 'CXPB' or key == 'MUTPB':
 				params[key] = float(value)
+			elif key == 'region'
+				params[key] = value
 			else:
 				params[key] = int(value)
 	f.close()
