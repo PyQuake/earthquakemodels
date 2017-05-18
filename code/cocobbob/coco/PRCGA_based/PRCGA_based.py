@@ -92,6 +92,8 @@ def main(func, dim, maxfuncevals, ftarget=None, tournsize=20):
 		invalid_ind = [ind for ind in offspring if not ind.fitness.valid]
 		for ind, fit in zip(pop, fitnesses):
 			ind.fitness.values = fit
+			print(fit)
+		exit('in eval invalid freaks')
 		#Elitism
 		best_pop = tools.selBest(pop, 1)[0]
 		offspring = sorted(offspring, key=attrgetter("fitness"), reverse = True)
