@@ -88,22 +88,24 @@ def main(func, dim, maxfuncevals, ftarget=None, tournsize=20):
 			if random.random() < MUTPB:
 				toolbox.mutate(mutant)
 				del mutant.fitness.values
-		best_pop = tools.selBest(pop, 1)[0]
-		pop[:] = offspring
-
+				
 		fitnesses = list(toolbox.map(toolbox.evaluate, pop))
 		for ind, fit in zip(pop, fitnesses):
 			ind.fitness.values = fit
-		pop = sorted(pop, key=attrgetter("fitness"), reverse = False)
-		pop[0]=best_pop
-		random.shuffle(pop)
-		record = stats.compile(pop)
+		#Elitism
+		best_pop = tools.selBest(pop, 1)[0]
+		offspring = sorted(offspring, key=attrgetter("fitness"), reverse = True)
+		offspring[0]=best_pop
+		random.shuffle(offspring)
+		pop[:] = offspring
+
 		if (abs(record["min"] - ftarget)) < 10e-8:
 			return best_pop
 		if record["std"] < 10e-12:	
 			sortedPop = sorted(pop, key=attrgetter("fitness"), reverse = True)
 			pop = toolbox.population(n)
 			pop[0] = sortedPop[0]
+			pop = toolbox.population(n)
 			fitnesses = list(toolbox.map(toolbox.evaluate, pop))
 			for ind, fit in zip(pop, fitnesses):
 				ind.fitness.values = fit

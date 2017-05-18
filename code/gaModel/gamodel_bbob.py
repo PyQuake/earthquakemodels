@@ -98,14 +98,26 @@ def gaModel(func,NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval, tournsize
         #Elitism
 		best_pop = tools.selBest(pop, 1)[0]
 		offspring = sorted(offspring, key=attrgetter("fitness"), reverse = True)
-		offspring[len(offspring)-1]=best_pop
+		offspring[0]=best_pop
 		random.shuffle(offspring)
 		pop[:] = offspring
+
 		
-		#logBook
-		# fitnesses = list(toolbox.map(toolbox.evaluate, pop))
-		for ind, fit in zip(pop, fitnesses):
-			ind.fitness.values = fit
+		if (abs(record["min"] - ftarget)) < 10e-8:
+			record = stats.compile(pop)
+			logbook.record(gen=g, **record)
+			print(logbook)
+			return best_pop
+		if record["std"] < 10e-12:	
+			sortedPop = sorted(pop, key=attrgetter("fitness"), reverse = True)
+			pop = toolbox.population(n)
+			pop[0] = sortedPop[0]
+			pop = toolbox.population(n)
+			fitnesses = list(toolbox.map(toolbox.evaluate, pop))
+			for ind, fit in zip(pop, fitnesses):
+				ind.fitness.values = fit
+			g += 1
+
 		record = stats.compile(pop)
 		logbook.record(gen=g, **record)
 	print(logbook)
