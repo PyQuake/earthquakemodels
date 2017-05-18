@@ -1,2 +1,2 @@
 #key, NGEN, n_aval, qntYears, CXPB, MUTPB, region, year, tournsize
-params 10 50 5 0.9 0.1, EastJapan 2006 2
+params 10 50 5 0.9 0.1 EastJapan 2006 2
