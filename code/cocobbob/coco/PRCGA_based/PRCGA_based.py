@@ -68,8 +68,8 @@ def main(func, dim, maxfuncevals, ftarget=None, tournsize=20):
 	stats.register("max", numpy.max)
 	toolbox.register("individual", tools.initRepeat, creator.Individual, toolbox.attr_float, dim)
 	toolbox.register("population", tools.initRepeat, list, toolbox.individual)
-	# logbook = tools.Logbook()
-	# logbook.header = "gen","min","avg","max","std"
+	logbook = tools.Logbook()
+	logbook.header = "gen","min","avg","max","std"
 	pop = toolbox.population(n)
 	fitnesses = list(toolbox.map(toolbox.evaluate, pop))
 	for ind, fit in zip(pop, fitnesses):
