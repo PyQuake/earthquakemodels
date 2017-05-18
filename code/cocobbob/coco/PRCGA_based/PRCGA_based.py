@@ -90,7 +90,7 @@ def main(func, dim, maxfuncevals, ftarget=None, tournsize=20):
 				del mutant.fitness.values
 
 		invalid_ind = [ind for ind in offspring if not ind.fitness.valid]
-		for ind, fit in zip(pop, fitnesses):
+		for ind, fit in zip(invalid_ind, fitnesses):
 			ind.fitness.values = fit
 			print(fit)
 		exit('in eval invalid freaks')
