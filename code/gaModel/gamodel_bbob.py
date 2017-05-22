@@ -59,8 +59,8 @@ def gaModel(func,NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval, tournsize
 	toolbox.register("individual", tools.initRepeat, creator.Individual, toolbox.attr_float, len(modelOmega[0].bins))
 	toolbox.register("population", tools.initRepeat, list, toolbox.individual)
 
-	logbook = tools.Logbook()
-	logbook.header = "gen","min","avg","max","std"
+	# logbook = tools.Logbook()
+	# logbook.header = "gen","min","avg","max","std"
 
 	pop = toolbox.population(n)
 	# Evaluate the entire population
@@ -104,10 +104,9 @@ def gaModel(func,NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval, tournsize
 		pop[:] = offspring
 
 		record = stats.compile(pop)
-		logbook.record(gen=g, **record)
+		# logbook.record(gen=g, **record)
 
 		if (abs(record["min"] - ftarget)) < 10e-8:
-			print(logbook)
 			return best_pop
 		if record["std"] < 10e-12:	
 			sortedPop = sorted(pop, key=attrgetter("fitness"), reverse = True)
@@ -119,9 +118,8 @@ def gaModel(func,NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval, tournsize
 				ind.fitness.values = fit
 			g += 1
 			record = stats.compile(pop)
-			logbook.record(gen=g, **record)
+			# logbook.record(gen=g, **record)
 
-	print(logbook)
 	return best_pop
 
 if __name__ == "__main__":
