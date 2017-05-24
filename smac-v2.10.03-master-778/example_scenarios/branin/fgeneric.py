@@ -241,7 +241,7 @@ class LoggingFunction(object):
                     % self.fopt)
             f.close()
 
-    def evalfun(self, inputx, modelOmega, mean, *args, **kwargs):
+    def evalfun(self, inputx, *args, **kwargs):
         """Evaluate the function, return objective function value. 
         
         Positional and keyword arguments args and kwargs are directly
@@ -267,7 +267,7 @@ class LoggingFunction(object):
         if not self._is_ready():
             self._readytostart()
 
-        out = self._fun_evalfull(x, modelOmega, mean, *args, **kwargs)
+        out = self._fun_evalfull(x, *args, **kwargs)
         try:
             fvalue, ftrue = out
         except TypeError:
@@ -290,6 +290,7 @@ class LoggingFunction(object):
                     ftruej = ftrue
                     xj = x
                 self.lasteval.update(fvaluej, ftruej, xj)
+
                 if self.lasteval.num >= self.evalsTrigger:
                     buffr.append(self.lasteval.sprintData(self.fopt))
                     while self.lasteval.num >= np.floor(10**(self.idxEvalsTrigger/self.nbptsevals)):
