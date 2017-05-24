@@ -117,6 +117,7 @@ def gaModel(func,NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval, tournsize
 
 if __name__ == "__main__":
     for i in range(len(sys.argv) - 1):
+        print(sys.argv[i])
         if (sys.argv[i] == '-tournsize'):
             tournsize = int(sys.argv[i + 1])
         else:
