@@ -1,3 +1,3 @@
 #!/bin/bash
-nohup python2.7 gamodel_bbob.py output ../../params/gaParams.txt &
+nohup python2.7 gamodel_bbob.py output ../../params/gaParams.txt EastJapan 2006 &
 

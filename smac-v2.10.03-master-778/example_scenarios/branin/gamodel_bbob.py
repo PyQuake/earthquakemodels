@@ -115,11 +115,16 @@ def gaModel(func,NGEN,CXPB,MUTPB,modelOmega,year,region, mean, n_aval, tournsize
 
 
 if __name__ == "__main__":
-    output = sys.argv[1]
-    gaParams = sys.argv[2]
-    region = sys.argv[3]
-    year = sys.argv[4]
-
+    for i in range(len(sys.argv) - 1):
+        if (sys.argv[i] == '-tournsize'):
+            tournsize = int(sys.argv[i + 1])
+        else:
+            output = sys.argv[1]
+            gaParams = sys.argv[2]
+            region = sys.argv[3]
+            year = sys.argv[4]
+    print(year, region, gaParams, output, tournsize)
+    exit()
     f = open(gaParams, "r")
     keys = ['key', 'NGEN', 'n_aval', 'qntYears', 'CXPB', 'MUTPB', 'tournsize']
 
@@ -170,8 +175,7 @@ if __name__ == "__main__":
             n_aval=params['n_aval'],
             tournsize=params['tournsize'],
             ftarget=e.ftarget)
-    print('ftarget=%.e4 FEs=%d fbest-ftarget=%.4e and fbest = %.4e' % (e.ftarget, e.evaluations, e.fbest - e.ftarget, e.fbest))
+    # print('ftarget=%.e4 FEs=%d fbest-ftarget=%.4e and fbest = %.4e' % (e.ftarget, e.evaluations, e.fbest - e.ftarget, e.fbest))
     e.finalizerun()
-    print('date and time: %s' % time.asctime())
-    # output = generatedModel.loglikelihood
-    # return((-1)*output[0])
+    return e.fbest
+    # print('date and time: %s' % time.asctime())

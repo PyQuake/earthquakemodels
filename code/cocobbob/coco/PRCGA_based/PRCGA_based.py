@@ -14,19 +14,15 @@
 #    You should have received a copy of the GNU Lesser General Public
 #    License along with DEAP. If not, see <http://www.gnu.org/licenses/>.
 import sys
-#sys.path.insert(0, '../../../')
+# sys.path.insert(0, '../../../')
 import array
 import math
 import random
 import time
-
 from scoop import futures
-
 from itertools import chain
-
 from deap import base
 from deap import creator
-from deap import benchmarks
 from deap import tools
 import fgeneric
 import numpy
@@ -40,6 +36,7 @@ creator.create("Individual", array.array, typecode="d", fitness=creator.FitnessM
 # pool = multiprocessing.Pool()
 toolbox.register("map", futures.map)
 
+
 def tupleize(func):
     """A decorator that tuple-ize the result of a function. This is useful
     when the evaluation function returns a single value.
@@ -48,121 +45,121 @@ def tupleize(func):
         return func(*args, **kargs),
     return wrapper
 
+
 def main(func, dim, maxfuncevals, ftarget=None, tournsize=20):
-	NGEN=100
-	CXPB=0.9
-	MUTPB=0.1
-	g=0
-	n = min(100, 10 * dim)
-	toolbox = base.Toolbox()
-	toolbox.register("evaluate", func)
-	toolbox.decorate("evaluate", tupleize)
-	toolbox.register("attr_float", random.uniform, -5,5)
-	toolbox.register("mate", tools.cxTwoPoint)
-	toolbox.register("select", tools.selTournament, tournsize=tournsize)
-	toolbox.register("mutate", tools.mutPolynomialBounded,indpb=0.1, eta = 1, low = -5, up = 5)
-	stats = tools.Statistics(key=lambda ind: ind.fitness.values)
-	stats.register("avg", numpy.mean)
-	stats.register("std", numpy.std)
-	stats.register("min", numpy.min)
-	stats.register("max", numpy.max)
-	toolbox.register("individual", tools.initRepeat, creator.Individual, toolbox.attr_float, dim)
-	toolbox.register("population", tools.initRepeat, list, toolbox.individual)
-	# logbook = tools.Logbook()
-	# logbook.header = "gen","min","avg","max","std"
-	pop = toolbox.population(n)
-	fitnesses = list(toolbox.map(toolbox.evaluate, pop))
-	for ind, fit in zip(pop, fitnesses):
-		ind.fitness.values = fit
-	maxfuncevals -= len(pop)
-	# for g in range(maxfuncevals):
-	while(g < maxfuncevals):
-		offspring = toolbox.select(pop, len(pop))
-		offspring = list(toolbox.map(toolbox.clone, pop))
-		for child1, child2 in zip(offspring[::2], offspring[1::2]):
-			if random.random() < CXPB:
-				toolbox.mate(child1, child2)
-				del child1.fitness.values
-				del child2.fitness.values
-		for mutant in offspring:
-			if random.random() < MUTPB:
-				toolbox.mutate(mutant)
-				del mutant.fitness.values
+    CXPB = 0.9
+    MUTPB = 0.1
+    g = 0
+    n = min(100, 10 * dim)
+    toolbox = base.Toolbox()
+    toolbox.register("evaluate", func)
+    toolbox.decorate("evaluate", tupleize)
+    toolbox.register("attr_float", random.uniform, -5, 5)
+    toolbox.register("mate", tools.cxTwoPoint)
+    toolbox.register("select", tools.selTournament, tournsize=tournsize)
+    toolbox.register("mutate", tools.mutPolynomialBounded, indpb=0.1, eta=1, low=-5, up=5)
+    stats = tools.Statistics(key=lambda ind: ind.fitness.values)
+    stats.register("avg", numpy.mean)
+    stats.register("std", numpy.std)
+    stats.register("min", numpy.min)
+    stats.register("max", numpy.max)
+    toolbox.register("individual", tools.initRepeat, creator.Individual, toolbox.attr_float, dim)
+    toolbox.register("population", tools.initRepeat, list, toolbox.individual)
+    # logbook = tools.Logbook()
+    # logbook.header = "gen","min","avg","max","std"
+    pop = toolbox.population(n)
+    fitnesses = list(toolbox.map(toolbox.evaluate, pop))
+    for ind, fit in zip(pop, fitnesses):
+        ind.fitness.values = fit
+    maxfuncevals -= len(pop)
+    # for g in range(maxfuncevals):
+    while(g < maxfuncevals):
+        offspring = toolbox.select(pop, len(pop))
+        offspring = list(toolbox.map(toolbox.clone, pop))
+        for child1, child2 in zip(offspring[::2], offspring[1::2]):
+            if random.random() < CXPB:
+                toolbox.mate(child1, child2)
+                del child1.fitness.values
+                del child2.fitness.values
+        for mutant in offspring:
+            if random.random() < MUTPB:
+                toolbox.mutate(mutant)
+                del mutant.fitness.values
 
-		invalid_ind = [ind for ind in offspring if not ind.fitness.valid]
-		for ind, fit in zip(invalid_ind, fitnesses):
-			ind.fitness.values = fit
-		#Elitism
-		best_pop = tools.selBest(pop, 1)[0]
-		offspring = sorted(offspring, key=attrgetter("fitness"), reverse = True)
-		offspring[0]=best_pop
-		random.shuffle(offspring)
-		pop[:] = offspring
-		record = stats.compile(pop)
-		# logbook.record(gen=g, **record)
+        invalid_ind = [ind for ind in offspring if not ind.fitness.valid]
+        for ind, fit in zip(invalid_ind, fitnesses):
+            ind.fitness.values = fit
+        # Elitism
+        best_pop = tools.selBest(pop, 1)[0]
+        offspring = sorted(offspring, key=attrgetter("fitness"), reverse=True)
+        offspring[0] = best_pop
+        random.shuffle(offspring)
+        pop[:] = offspring
+        record = stats.compile(pop)
+        # logbook.record(gen=g, **record)
 
-		if (abs(record["min"] - ftarget)) < 10e-8:
-			return best_pop
-		if record["std"] < 10e-12:	
-			sortedPop = sorted(pop, key=attrgetter("fitness"), reverse = True)
-			pop = toolbox.population(n)
-			pop[0] = sortedPop[0]
-			pop = toolbox.population(n)
-			fitnesses = list(toolbox.map(toolbox.evaluate, pop))
-			for ind, fit in zip(pop, fitnesses):
-				ind.fitness.values = fit
-			g += len(pop)
-			record = stats.compile(pop)
-			# logbook.record(gen=g, **record)
-		
-		g += len(pop)
-	return best_pop
+        if (abs(record["min"] - ftarget)) < 10e-8:
+            return best_pop
+        if record["std"] < 10e-12:
+            sortedPop = sorted(pop, key=attrgetter("fitness"), reverse=True)
+            pop = toolbox.population(n)
+            pop[0] = sortedPop[0]
+            pop = toolbox.population(n)
+            fitnesses = list(toolbox.map(toolbox.evaluate, pop))
+            for ind, fit in zip(pop, fitnesses):
+                ind.fitness.values = fit
+            g += len(pop)
+            record = stats.compile(pop)
+            # logbook.record(gen=g, **record)
+        g += len(pop)
+    return best_pop
+
 
 if __name__ == "__main__":
-	output = sys.argv[1]
-	tournsize = int(sys.argv[2])
-	# Maximum number of restart for an algorithm that detects stagnation
-	maxrestarts = 1000
+    output = sys.argv[1]
+    tournsize = int(sys.argv[2])
+    # Maximum number of restart for an algorithm that detects stagnation
+    maxrestarts = 1000
 
-	# Create a COCO experiment that will log the results under the
-	# ./output directory
-	e = fgeneric.LoggingFunction(output)
+    # Create a COCO experiment that will log the results under the
+    # ./output directory
+    e = fgeneric.LoggingFunction(output)
 
-	# Iterate over all desired test dimensions
-	for dim in (2, 3, 5, 10, 20, 40):
-		# Set the maximum number function evaluation granted to the algorithm
-		# This is usually function of the dimensionality of the problem
-		maxfuncevals = 10e5 * dim
-		minfuncevals = dim + 2
+    # Iterate over all desired test dimensions
+    for dim in (2, 3, 5, 10, 20, 40):
+        # Set the maximum number function evaluation granted to the algorithm
+        # This is usually function of the dimensionality of the problem
+        maxfuncevals = 10e5 * dim
+        minfuncevals = dim + 2
 
-		# Iterate over a set of benchmarks (noise free benchmarks here)
-		for f_name in bn.nfreeIDs:
+        # Iterate over a set of benchmarks (noise free benchmarks here)
+        for f_name in bn.nfreeIDs:
 
-			# Iterate over all the instance of a single problem
-			# Rotation, translation, etc.
-			for instance in chain(range(1, 6), range(21, 31)):
+            # Iterate over all the instance of a single problem
+            # Rotation, translation, etc.
+            for instance in chain(range(1, 6), range(21, 31)):
 
-				# Set the function to be used (problem) in the logger
-				e.setfun(*bn.instantiate(f_name, iinstance=instance))
+                # Set the function to be used (problem) in the logger
+                e.setfun(*bn.instantiate(f_name, iinstance=instance))
 
-				# Independent restarts until maxfunevals or ftarget is reached
-				for restarts in range(0, maxrestarts + 1):
-					if restarts > 0:
-						# Signal the experiment that the algorithm restarted
-						e.restart('independent restart')  # additional info
+                # Independent restarts until maxfunevals or ftarget is reached
+                for restarts in range(0, maxrestarts + 1):
+                    if restarts > 0:
+                        # Signal the experiment that the algorithm restarted
+                        e.restart('independent restart')  # additional info
 
-					# Run the algorithm with the remaining number of evaluations
-					revals = int(math.ceil(maxfuncevals - e.evaluations))
-					main(e.evalfun, dim, revals, e.ftarget, tournsize)
+                    # Run the algorithm with the remaining number of evaluations
+                    revals = int(math.ceil(maxfuncevals - e.evaluations))
+                    main(e.evalfun, dim, revals, e.ftarget, tournsize)
 
-					# Stop if ftarget is reached
-					if e.fbest < e.ftarget or e.evaluations + minfuncevals > maxfuncevals:
-						break
+                    # Stop if ftarget is reached
+                    if e.fbest < e.ftarget or e.evaluations + minfuncevals > maxfuncevals:
+                        break
 
-				e.finalizerun()
+                e.finalizerun()
 
-				print('f%d in %d-D, instance %d: FEs=%d with %d restarts, '
-					'fbest-ftarget=%.4e, and best=%.4e'
-					% (f_name, dim, instance, e.evaluations, restarts,
-						e.fbest - e.ftarget, e.fbest))
-			print('date and time: %s' % time.asctime())
+                print('f%d in %d-D, instance %d: FEs=%d with %d restarts, '
+                    'fbest-ftarget=%.4e, and best=%.4e'
+                    % (f_name, dim, instance, e.evaluations, restarts,
+                        e.fbest - e.ftarget, e.fbest))
+            print('date and time: %s' % time.asctime())
