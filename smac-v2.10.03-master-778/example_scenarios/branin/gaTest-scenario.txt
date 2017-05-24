@@ -3,8 +3,8 @@ runObj = QUALITY
 overall_obj = MEAN
 deterministic = 0
 pcs-file = example_scenarios/branin/params-gaTest.pcs
-algo = example_scenarios/branin/gaTest.py
-outdir = gaResults/
+algo = example_scenarios/branin/gamodel_bbob.py output ../../../params/gaParams.txt EastJapan 2006
+outdir = testando/
 wallclock-limit = 172800
 
 
