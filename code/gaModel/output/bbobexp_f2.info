@@ -1,6 +1,10 @@
 funcId = 2, opt = -4346.56945297, DIM = 1600, Precision = 1.000e-08, algId = 'not-specified'
 % 
+<<<<<<< HEAD
+data_f2/bbobexp_f2_DIM1600.dat, 1:914795|2.9e+02
+=======
 data_f2/bbobexp_f2_DIM1600.dat, 1:9487|8.1e+01
 funcId = 2, opt = -4346.56945297, DIM = 1600, Precision = 1.000e-08, algId = 'not-specified'
 % 
 data_f2/bbobexp-01_f2_DIM1600.dat, 1
+>>>>>>> 7f0f20305f21291e7e5c02ecb3427e8a00f23a34
