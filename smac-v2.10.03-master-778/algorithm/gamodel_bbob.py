@@ -1,3 +1,4 @@
+#!/usr/bin/python
 import sys
 from deap import base, creator, tools
 import numpy as np
