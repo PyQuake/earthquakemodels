@@ -1,0 +1,14 @@
+11:48:07.204 [main] INFO  c.u.c.b.a.l.ComplexLoggingOptions - Logging to: /Users/yclavinas/Documents/estudos/master-unb/exp/smac-v2.10.03-master-778/log-run344076461.txt
+11:48:07.218 [main] INFO  c.u.c.b.a.m.version.VersionTracker - Version of Algorithm Execution & Abstraction Toolkit is v2.10.03-master-814 (ebf4c8c913d5) 
+11:48:07.218 [main] INFO  c.u.c.b.a.m.version.VersionTracker - Version of Java Runtime Environment is Java HotSpot(TM) 64-Bit Server VM (1.8.0_60) 
+11:48:07.218 [main] INFO  c.u.c.b.a.m.version.VersionTracker - Version of OS is Mac OS X 10.12.5 (x86_64) 
+11:48:07.218 [main] INFO  c.u.c.b.a.m.version.VersionTracker - Version of Random Forest Library is v1.10.01-master-120 (b68439c2c391) 
+11:48:07.219 [main] INFO  c.u.c.b.a.m.version.VersionTracker - Version of SMAC is v2.10.03-master-778 (3ee628ef9bf2) 
+11:48:07.220 [main] ERROR c.u.c.b.smac.executors.SMACExecutor - Message: Unknown option: --//
+11:48:07.220 [main] INFO  c.u.c.b.smac.executors.SMACExecutor - Note that some options are read from files in ~/.aeatk/
+11:48:07.220 [main] INFO  c.u.c.b.smac.executors.SMACExecutor - Exiting SMAC with failure. Log: /Users/yclavinas/Documents/estudos/master-unb/exp/smac-v2.10.03-master-778/log-run344076461.txt
+11:48:07.221 [main] INFO  c.u.c.b.smac.executors.SMACExecutor - For a list of available commands use:  --help
+11:48:07.221 [main] INFO  c.u.c.b.smac.executors.SMACExecutor - The Quickstart guide at available at: http://www.cs.ubc.ca/labs/beta/Projects/SMAC/ or alternatively (doc/quickstart.html) gives simple examples for getting up and running.
+11:48:07.221 [main] INFO  c.u.c.b.smac.executors.SMACExecutor - The FAQ (doc/faq.pdf) contains commonly asked questions regarding troubleshooting, and usage.
+11:48:07.221 [main] INFO  c.u.c.b.smac.executors.SMACExecutor - The Manual (doc/manual.pdf) contains detailed information on file format semantics.
+11:48:07.221 [main] INFO  c.u.c.b.smac.executors.SMACExecutor - If you are stuck, please ask a question in the SMAC forum: https://groups.google.com/forum/#!forum/smac-forum
