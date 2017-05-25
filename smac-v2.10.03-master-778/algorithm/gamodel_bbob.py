@@ -12,6 +12,7 @@ from operator import attrgetter
 import fgeneric
 import bbobbenchmarks as bn
 
+loglikelihood = 0
 
 toolbox = base.Toolbox()
 creator.create("FitnessFunction", base.Fitness, weights=(-1.0,))
@@ -197,20 +198,21 @@ if __name__ == "__main__":
     e.setfun(func, opt=ftarget)
 
     loglikelihood = gaModel(e.evalfun,
-                            NGEN=params['NGEN'],
-                            CXPB=params['CXPB'],
-                            MUTPB=params['MUTPB'],
-                            modelOmega=observations,
-                            year=params['year'] +
-                            params['qntYears'],
-                            region=params['region'],
-                            mean=mean,
-                            n_aval=params['n_aval'],
-                            tournsize=params['tournsize'],
-                            ftarget=e.ftarget)
+            NGEN=params['NGEN'],
+            CXPB=params['CXPB'],
+            MUTPB=params['MUTPB'],
+            modelOmega=observations,
+            year=params['year'] +
+            params['qntYears'],
+            region=params['region'],
+            mean=mean,
+            n_aval=params['n_aval'],
+            tournsize=params['tournsize'],
+            ftarget=e.ftarget)
     # print('ftarget=%.e4 FEs=%d fbest-ftarget=%.4e and
     # fbest = %.4e' % (e.ftarget, e.evaluations, e.fbest - e.ftarget, e.fbest))
-    e.finalizerun()
-    print ("Result of algorithm run: SUCCESS, 0, 0, %f, 0" % loglikelihood)
-
+    e.finalizerun()    
+    global loglikelihood
+    loglikelihood = e.fbest
     # print('date and time: %s' % time.asctime())
+print ("Result of algorithm run: SUCCESS, 0, 0, %f, 0" % loglikelihood)
