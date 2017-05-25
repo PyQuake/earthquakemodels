@@ -11,7 +11,7 @@ from operator import attrgetter
 # from scoop import futures
 import fgeneric
 import bbobbenchmarks as bn
-
+global
 loglikelihood = 0
 
 toolbox = base.Toolbox()
