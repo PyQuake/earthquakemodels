@@ -204,7 +204,7 @@ if __name__ == "__main__":
             region=region,
             mean=mean,
             n_aval=params['n_aval'],
-            tournsize=params['tournsize'],
+            tournsize=tournsize,
             ftarget=e.ftarget)
     # print('ftarget=%.e4 FEs=%d fbest-ftarget=%.4e and
     # fbest = %.4e' % (e.ftarget, e.evaluations, e.fbest - e.ftarget, e.fbest))
