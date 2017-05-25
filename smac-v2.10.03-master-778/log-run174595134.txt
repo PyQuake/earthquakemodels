@@ -1,0 +1,14 @@
+12:27:39.358 [main] INFO  c.u.c.b.a.l.ComplexLoggingOptions - Logging to: /root/mpi_projects/earthquakemodels/smac-v2.10.03-master-778/log-run174595134.txt
+12:27:39.368 [main] INFO  c.u.c.b.a.m.version.VersionTracker - Version of Algorithm Execution & Abstraction Toolkit is v2.10.03-master-814 (ebf4c8c913d5) 
+12:27:39.368 [main] INFO  c.u.c.b.a.m.version.VersionTracker - Version of Java Runtime Environment is Java HotSpot(TM) 64-Bit Server VM (1.7.0_67) 
+12:27:39.368 [main] INFO  c.u.c.b.a.m.version.VersionTracker - Version of OS is Linux 3.10.0-327.28.3.el7.x86_64 (amd64) 
+12:27:39.368 [main] INFO  c.u.c.b.a.m.version.VersionTracker - Version of Random Forest Library is v1.10.01-master-120 (b68439c2c391) 
+12:27:39.368 [main] INFO  c.u.c.b.a.m.version.VersionTracker - Version of SMAC is v2.10.03-master-778 (3ee628ef9bf2) 
+12:27:39.369 [main] ERROR c.u.c.b.smac.executors.SMACExecutor - Message: Option File (JCommander @ParameterFile) does not exist: gaTest-scenario.txt
+12:27:39.369 [main] INFO  c.u.c.b.smac.executors.SMACExecutor - Note that some options are read from files in ~/.aeatk/
+12:27:39.369 [main] INFO  c.u.c.b.smac.executors.SMACExecutor - Exiting SMAC with failure. Log: /root/mpi_projects/earthquakemodels/smac-v2.10.03-master-778/log-run174595134.txt
+12:27:39.369 [main] INFO  c.u.c.b.smac.executors.SMACExecutor - For a list of available commands use:  --help
+12:27:39.369 [main] INFO  c.u.c.b.smac.executors.SMACExecutor - The Quickstart guide at available at: http://www.cs.ubc.ca/labs/beta/Projects/SMAC/ or alternatively (doc/quickstart.html) gives simple examples for getting up and running.
+12:27:39.369 [main] INFO  c.u.c.b.smac.executors.SMACExecutor - The FAQ (doc/faq.pdf) contains commonly asked questions regarding troubleshooting, and usage.
+12:27:39.370 [main] INFO  c.u.c.b.smac.executors.SMACExecutor - The Manual (doc/manual.pdf) contains detailed information on file format semantics.
+12:27:39.370 [main] INFO  c.u.c.b.smac.executors.SMACExecutor - If you are stuck, please ask a question in the SMAC forum: https://groups.google.com/forum/#!forum/smac-forum
