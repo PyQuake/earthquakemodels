@@ -211,5 +211,5 @@ if __name__ == "__main__":
     # print('ftarget=%.e4 FEs=%d fbest-ftarget=%.4e and
     # fbest = %.4e' % (e.ftarget, e.evaluations, e.fbest - e.ftarget, e.fbest))
     e.finalizerun()
-    return e.fbest
+    print ("Result of algorithm run: SUCCESS, 0, 0, %f, 0" % e.fbest)
     # print('date and time: %s' % time.asctime())
