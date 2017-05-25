@@ -95,9 +95,9 @@ from numpy.random import standard_normal as _randn # TODO: may bring confusion
 from numpy.random import random as _rand # TODO: may bring confusion
 import sys
 sys.path.insert(0, '../')
-from csep.loglikelihood import calcLogLikelihood
-from models.mathUtil import calcNumberBins
-import models.model
+from loglikelihood import calcLogLikelihood
+from mathUtil import calcNumberBins
+import model
 """
 % VAL = BENCHMARKS(X, FUNCID)
 % VAL = BENCHMARKS(X, STRFUNC)
@@ -454,7 +454,7 @@ class BBOBFunction(AbstractTestFunction):
             region = param[0]
             year = param[1]
             qntyears = param[2]
-            observation = models.model.loadModelDB(region+'jmaData', year+qntyears+1)
+            observation = model.loadModelDB(region+'jmaData', year+qntyears+1)
             self.fopt = -calcLogLikelihood(observation, observation)
         self.iinstance = iinstance
         self.dim = None
@@ -708,9 +708,9 @@ class F2(BBOBNfreeFunction):
     funId = 2
     def _evalfull(self, individual, modelOmega, mean):
         logValue = float('Inf')
-        genomeModel=models.model.newModel(modelOmega[0].definitions)
+        genomeModel=model.newModel(modelOmega[0].definitions)
         genomeModel.bins=list(individual)
-        modelLambda=models.model.newModel(modelOmega[0].definitions)
+        modelLambda=model.newModel(modelOmega[0].definitions)
         modelLambda.bins=calcNumberBins(genomeModel.bins, mean)
         for i in range(len(modelOmega)):
             tempValue=calcLogLikelihood(modelLambda, modelOmega[i])
