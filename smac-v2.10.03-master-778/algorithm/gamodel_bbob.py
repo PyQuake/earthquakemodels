@@ -148,13 +148,9 @@ if __name__ == "__main__":
         print(sys.argv[i])
         if (sys.argv[i] == '-tournsize'):
             tournsize = int(sys.argv[i + 1])
-        else:
-            output = sys.argv[1]
-            gaParams = sys.argv[2]
+        elif (sys.argv[i] == '-region'):
             region = sys.argv[3]
-            year = int(sys.argv[4])
-    # print(tournsize)
-    print(year, region, gaParams, output, tournsize)
+    print(region, tournsize)
     return 2
     # exit()
     f = open(gaParams, "r")
