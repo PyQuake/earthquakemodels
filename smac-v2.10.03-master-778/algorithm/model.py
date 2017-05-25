@@ -7,7 +7,7 @@
 import pymysql.cursors
 import datetime
 import numpy
-from models.mathUtil import invertPoisson
+from mathUtil import invertPoisson
 from collections import Counter
 
 class model(object):

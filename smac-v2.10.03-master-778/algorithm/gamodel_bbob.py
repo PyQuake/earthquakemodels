@@ -11,8 +11,8 @@ from operator import attrgetter
 # from scoop import futures
 import fgeneric
 import bbobbenchmarks as bn
-global loglikelihoodValue
-loglikelihoodValue = 0
+# global loglikelihoodValue
+# loglikelihoodValue = 0
 
 toolbox = base.Toolbox()
 creator.create("FitnessFunction", base.Fitness, weights=(-1.0,))
@@ -212,7 +212,7 @@ if __name__ == "__main__":
     # print('ftarget=%.e4 FEs=%d fbest-ftarget=%.4e and
     # fbest = %.4e' % (e.ftarget, e.evaluations, e.fbest - e.ftarget, e.fbest))
     e.finalizerun()
-    global loglikelihoodValue
-    loglikelihoodValue = e.fbest
+    # global loglikelihoodValue
+    # loglikelihoodValue = e.fbest
     # print('date and time: %s' % time.asctime())
-print ("Result of algorithm run: SUCCESS, 0, 0, %f, 0" % loglikelihoodValue)
+print ("Result of algorithm run: SUCCESS, 0, 0, %f, 0" % e.fbest)
