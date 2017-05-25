@@ -1,0 +1,3 @@
+tournsize integer [2,50] [3]
+region categorical {EastJapan} [EastJapan]
+

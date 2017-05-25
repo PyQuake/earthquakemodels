@@ -1,0 +1,10 @@
+use-instances = false
+runObj = QUALITY
+overall_obj = MEAN
+deterministic = 0
+pcs-file = algorithm/params-gaTest.pcs
+algo = 	algorithm/gamodel_bbob.py
+outdir = testando/
+wallclock-limit = 172800
+
+
