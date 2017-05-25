@@ -149,64 +149,67 @@ if __name__ == "__main__":
         print(sys.argv[i])
         if (sys.argv[i] == '-tournsize'):
             tournsize = int(sys.argv[i + 1])
+        elif (sys.argv[i] == '-year'):
+            region = int(sys.argv[3])
+        elif (sys.argv[i] == '-params'):
+            region = sys.argv[3]
         elif (sys.argv[i] == '-region'):
             region = sys.argv[3]
     print(region, tournsize)
-    # return 2
-    # exit()
-    # f = open(gaParams, "r")
-    # keys = ['key', 'NGEN', 'n_aval', 'qntYears', 'CXPB', 'MUTPB']
+    exit()
+    f = open(gaParams, "r")
+    keys = ['key', 'NGEN', 'n_aval', 'qntYears', 'CXPB', 'MUTPB']
 
-    # params = dict()
-    # for line in f:
-    #     if line[0] == '#':
-    #         continue
-    #     tokens = line.split()
-    #     for key, value in zip(keys, tokens):
-    #         if key == 'key':
-    #             params[key] = value
-    #         elif key == 'CXPB' or key == 'MUTPB':
-    #             params[key] = float(value)
-    #         elif key == 'region':
-    #             params[key] = value
-    #         else:
-    #             params[key] = int(value)
-    # f.close()
-    # # Create a COCO experiment that will log the results under the
-    # # ./output directory
-    # e = fgeneric.LoggingFunction(output)
+    params = dict()
+    for line in f:
+        if line[0] == '#':
+            continue
+        tokens = line.split()
+        for key, value in zip(keys, tokens):
+            if key == 'key':
+                params[key] = value
+            elif key == 'CXPB' or key == 'MUTPB':
+                params[key] = float(value)
+            elif key == 'region':
+                params[key] = value
+            else:
+                params[key] = int(value)
+    f.close()
+    # Create a COCO experiment that will log the results under the
+    # ./output directory
+    e = fgeneric.LoggingFunction(output)
 
-    # observations = list()
-    # means = list()
-    # for i in range(params['qntYears']):
-    #     observation = models.model.loadModelDB(region + 'jmaData', year + i)
-    #     observation.bins = observation.bins.tolist()
-    #     observations.append(observation)
-    #     means.append(observation.bins)
-    # # del observation
-    # mean = np.mean(means, axis=0)
-    # param = (params['region'], params['year'], params['qntYears'])
-    # func, opt = bn.instantiate(2, iinstance=1, param=param)
-    # observation = models.model.loadModelDB(
-    #     region + 'jmaData', year + params['qntYears'] + 1)
-    # ftarget = calcLogLikelihood(observation, observation)
+    observations = list()
+    means = list()
+    for i in range(params['qntYears']):
+        observation = models.model.loadModelDB(region + 'jmaData', year + i)
+        observation.bins = observation.bins.tolist()
+        observations.append(observation)
+        means.append(observation.bins)
     # del observation
-    # e.setfun(func, opt=ftarget)
+    mean = np.mean(means, axis=0)
+    param = (params['region'], params['year'], params['qntYears'])
+    func, opt = bn.instantiate(2, iinstance=1, param=param)
+    observation = models.model.loadModelDB(
+        region + 'jmaData', year + params['qntYears'] + 1)
+    ftarget = calcLogLikelihood(observation, observation)
+    del observation
+    e.setfun(func, opt=ftarget)
 
-    # gaModel(e.evalfun,
-    #         NGEN=params['NGEN'],
-    #         CXPB=params['CXPB'],
-    #         MUTPB=params['MUTPB'],
-    #         modelOmega=observations,
-    #         year=params['year'] +
-    #         params['qntYears'],
-    #         region=params['region'],
-    #         mean=mean,
-    #         n_aval=params['n_aval'],
-    #         tournsize=params['tournsize'],
-    #         ftarget=e.ftarget)
-    # # print('ftarget=%.e4 FEs=%d fbest-ftarget=%.4e and
-    # # fbest = %.4e' % (e.ftarget, e.evaluations, e.fbest - e.ftarget, e.fbest))
-    # # e.finalizerun()
-    # # return e.fbest
-    # # print('date and time: %s' % time.asctime())
+    gaModel(e.evalfun,
+            NGEN=params['NGEN'],
+            CXPB=params['CXPB'],
+            MUTPB=params['MUTPB'],
+            modelOmega=observations,
+            year=params['year'] +
+            params['qntYears'],
+            region=params['region'],
+            mean=mean,
+            n_aval=params['n_aval'],
+            tournsize=params['tournsize'],
+            ftarget=e.ftarget)
+    # print('ftarget=%.e4 FEs=%d fbest-ftarget=%.4e and
+    # fbest = %.4e' % (e.ftarget, e.evaluations, e.fbest - e.ftarget, e.fbest))
+    # e.finalizerun()
+    # return e.fbest
+    # print('date and time: %s' % time.asctime())
