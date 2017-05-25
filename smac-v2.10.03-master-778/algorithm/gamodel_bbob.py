@@ -2,15 +2,15 @@
 import sys
 from deap import base, creator, tools
 import numpy as np
-# from csep.loglikelihood import calcLogLikelihood
+from csep.loglikelihood import calcLogLikelihood
 # from models.mathUtil import calcNumberBins
-# import models.model
+import models.model
 import random
 import array
 from operator import attrgetter
 # from scoop import futures
-# import fgeneric
-# import bbobbenchmarks as bn
+import fgeneric
+import bbobbenchmarks as bn
 
 
 toolbox = base.Toolbox()
@@ -177,7 +177,7 @@ if __name__ == "__main__":
     f.close()
     # Create a COCO experiment that will log the results under the
     # ./output directory
-    e = fgeneric.LoggingFunction(output)
+    e = fgeneric.LoggingFunction('output')
 
     observations = list()
     means = list()
@@ -210,6 +210,6 @@ if __name__ == "__main__":
             ftarget=e.ftarget)
     # print('ftarget=%.e4 FEs=%d fbest-ftarget=%.4e and
     # fbest = %.4e' % (e.ftarget, e.evaluations, e.fbest - e.ftarget, e.fbest))
-    # e.finalizerun()
-    # return e.fbest
+    e.finalizerun()
+    return e.fbest
     # print('date and time: %s' % time.asctime())
