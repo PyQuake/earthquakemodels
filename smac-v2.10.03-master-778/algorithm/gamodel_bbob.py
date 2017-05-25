@@ -2,9 +2,9 @@
 import sys
 from deap import base, creator, tools
 import numpy as np
-from csep.loglikelihood import calcLogLikelihood
+from loglikelihood import calcLogLikelihood
 # from models.mathUtil import calcNumberBins
-import models.model
+import model
 import random
 import array
 from operator import attrgetter
@@ -182,7 +182,7 @@ if __name__ == "__main__":
     observations = list()
     means = list()
     for i in range(params['qntYears']):
-        observation = models.model.loadModelDB(region + 'jmaData', year + i)
+        observation = model.loadModelDB(region + 'jmaData', year + i)
         observation.bins = observation.bins.tolist()
         observations.append(observation)
         means.append(observation.bins)
@@ -190,7 +190,7 @@ if __name__ == "__main__":
     mean = np.mean(means, axis=0)
     param = (params['region'], params['year'], params['qntYears'])
     func, opt = bn.instantiate(2, iinstance=1, param=param)
-    observation = models.model.loadModelDB(
+    observation = model.loadModelDB(
         region + 'jmaData', year + params['qntYears'] + 1)
     ftarget = calcLogLikelihood(observation, observation)
     del observation
