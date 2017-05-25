@@ -196,20 +196,21 @@ if __name__ == "__main__":
     del observation
     e.setfun(func, opt=ftarget)
 
-    gaModel(e.evalfun,
-            NGEN=params['NGEN'],
-            CXPB=params['CXPB'],
-            MUTPB=params['MUTPB'],
-            modelOmega=observations,
-            year=params['year'] +
-            params['qntYears'],
-            region=params['region'],
-            mean=mean,
-            n_aval=params['n_aval'],
-            tournsize=params['tournsize'],
-            ftarget=e.ftarget)
+    loglikelihood = gaModel(e.evalfun,
+                            NGEN=params['NGEN'],
+                            CXPB=params['CXPB'],
+                            MUTPB=params['MUTPB'],
+                            modelOmega=observations,
+                            year=params['year'] +
+                            params['qntYears'],
+                            region=params['region'],
+                            mean=mean,
+                            n_aval=params['n_aval'],
+                            tournsize=params['tournsize'],
+                            ftarget=e.ftarget)
     # print('ftarget=%.e4 FEs=%d fbest-ftarget=%.4e and
     # fbest = %.4e' % (e.ftarget, e.evaluations, e.fbest - e.ftarget, e.fbest))
     e.finalizerun()
-    print ("Result of algorithm run: SUCCESS, 0, 0, %f, 0" % e.fbest)
+    print ("Result of algorithm run: SUCCESS, 0, 0, %f, 0" % loglikelihood)
+
     # print('date and time: %s' % time.asctime())
