@@ -12,7 +12,7 @@ import array
 import time
 from operator import attrgetter
 from pathos.multiprocessing import ProcessingPool as Pool
-from functools import lru_cache as cache
+# from functools import lru_cache as cache
 
 
 @jit
@@ -29,7 +29,7 @@ def evaluationFunction(individual, modelOmega, mean):
     modelLambda.bins = calcNumberBins(genomeModel.bins, mean)
     for i in range(len(modelOmega)):
         tempValue = calcLogLikelihood(modelLambda, modelOmega[i])
-        calcLogLikelihood.cache_clear()
+        # calcLogLikelihood.cache_clear()
         if tempValue < logValue:
             logValue = tempValue
     return logValue,
