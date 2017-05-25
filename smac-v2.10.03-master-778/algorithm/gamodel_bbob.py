@@ -150,9 +150,9 @@ if __name__ == "__main__":
         if (sys.argv[i] == '-tournsize'):
             tournsize = int(sys.argv[i + 1])
         elif (sys.argv[i] == '-year'):
-            region = int(sys.argv[3])
+            year = int(sys.argv[3])
         elif (sys.argv[i] == '-params'):
-            region = sys.argv[3]
+            gaParams = sys.argv[3]
         elif (sys.argv[i] == '-region'):
             region = sys.argv[3]
     print(region, tournsize)
