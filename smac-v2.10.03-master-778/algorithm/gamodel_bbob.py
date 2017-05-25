@@ -170,8 +170,6 @@ if __name__ == "__main__":
                 params[key] = value
             elif key == 'CXPB' or key == 'MUTPB':
                 params[key] = float(value)
-            elif key == 'region':
-                params[key] = value
             else:
                 params[key] = int(value)
     f.close()
@@ -188,7 +186,7 @@ if __name__ == "__main__":
         means.append(observation.bins)
     # del observation
     mean = np.mean(means, axis=0)
-    param = (params['region'], params['year'], params['qntYears'])
+    param = (region, year, params['qntYears'])
     func, opt = bn.instantiate(2, iinstance=1, param=param)
     observation = model.loadModelDB(
         region + 'jmaData', year + params['qntYears'] + 1)
@@ -201,9 +199,9 @@ if __name__ == "__main__":
             CXPB=params['CXPB'],
             MUTPB=params['MUTPB'],
             modelOmega=observations,
-            year=params['year'] +
+            year=year +
             params['qntYears'],
-            region=params['region'],
+            region=region,
             mean=mean,
             n_aval=params['n_aval'],
             tournsize=params['tournsize'],
