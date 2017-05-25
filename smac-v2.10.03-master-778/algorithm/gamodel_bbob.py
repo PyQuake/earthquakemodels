@@ -11,8 +11,8 @@ from operator import attrgetter
 # from scoop import futures
 import fgeneric
 import bbobbenchmarks as bn
-global loglikelihood
-loglikelihood = 0
+
+loglikelihoodValue = 0
 
 toolbox = base.Toolbox()
 creator.create("FitnessFunction", base.Fitness, weights=(-1.0,))
@@ -197,7 +197,7 @@ if __name__ == "__main__":
     del observation
     e.setfun(func, opt=ftarget)
 
-    loglikelihood = gaModel(e.evalfun,
+    gaModel(e.evalfun,
             NGEN=params['NGEN'],
             CXPB=params['CXPB'],
             MUTPB=params['MUTPB'],
@@ -211,8 +211,8 @@ if __name__ == "__main__":
             ftarget=e.ftarget)
     # print('ftarget=%.e4 FEs=%d fbest-ftarget=%.4e and
     # fbest = %.4e' % (e.ftarget, e.evaluations, e.fbest - e.ftarget, e.fbest))
-    e.finalizerun()    
-    global loglikelihood
-    loglikelihood = e.fbest
+    e.finalizerun()
+    global loglikelihoodValue
+    loglikelihoodValue = e.fbest
     # print('date and time: %s' % time.asctime())
-print ("Result of algorithm run: SUCCESS, 0, 0, %f, 0" % loglikelihood)
+print ("Result of algorithm run: SUCCESS, 0, 0, %f, 0" % loglikelihoodValue)
