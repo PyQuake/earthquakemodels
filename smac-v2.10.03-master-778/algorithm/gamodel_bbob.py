@@ -156,8 +156,7 @@ if __name__ == "__main__":
             gaParams = sys.argv[i + 1]
         elif (sys.argv[i] == '-region'):
             region = sys.argv[i + 1]
-    print(region, tournsize)
-    exit()
+
     f = open(gaParams, "r")
     keys = ['key', 'NGEN', 'n_aval', 'qntYears', 'CXPB', 'MUTPB']
 
