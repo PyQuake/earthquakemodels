@@ -1,0 +1,8 @@
+use-instances = false
+runObj = QUALITY
+overall_obj = MEAN
+deterministic = 0
+pcs-file = benchmarks/params-benchmarks.pcs
+algo = 	benchmarks/benchmarks-gamodelF16.py
+outdir = results/
+runcount-limit = 1000

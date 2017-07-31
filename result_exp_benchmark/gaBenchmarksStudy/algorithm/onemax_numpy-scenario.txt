@@ -1,0 +1,8 @@
+use-instances = false
+runObj = QUALITY
+overall_obj = MEAN
+algo-deterministic = 0
+pcs-file = algorithm/params-gaTest.pcs
+algo = 	algorithm/onemax_numpy.py
+outdir = results/
+runcount-limit = 10

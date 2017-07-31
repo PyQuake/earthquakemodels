@@ -6,15 +6,14 @@ import gaModel.gaModel_Yuri as ga
 import numpy as np
 
 
-def execGaModel(year, region, qntYears=5, times=10):
+def execGaModel(year, region, qntYears=5, times=1):
     """
     Creates the GAModel with JMA catalog
     """
     observations = list()
     means = list()
-    logbook = list()
     for i in range(qntYears):
-        observation = model.loadModelDB(region+'jmaData', year+i)
+        observation = model.loadModelDB(region + 'jmaData', year + i)
         observation.bins = observation.bins.tolist()
         observations.append(observation)
         means.append(observation.bins)
@@ -30,51 +29,54 @@ def execGaModel(year, region, qntYears=5, times=10):
             qntYears,
             region=region,
             mean=mean,
+            tournsize=2,
             n_aval=50000)
-        model_.executionNumber=i
-        model_.year=year+qntYears
-        model_.modelName = region+'GAModel' 
+        model_.executionNumber = i
+        model_.year = year + qntYears
+        model_.modelName = region + 'GAModel' 
         # model.saveModelDB(model_)
-        model.saveModelToFile(model_,
-            '../../Zona4/GAModel/tournsize=2' + region +'GAModel' + str(year+qntYears) + '_' + str(i) + '.txt')
-        with open("../../Zona4/GAModel/tournsize=2" + region +"GAModel" + str(year+qntYears) + "_loglikelihood.txt", 'a') as f:
-            f.write(str(model_.loglikelihood))
-            f.write("\n")
-            f.close()   
-        with open("../../Zona4/GAModel/tournsize=2" + region +"GAModel" + str(year+qntYears) + '_' + str(i) + "logbook.txt", 'w') as f:
-            f.write(str(model_.logbook))
-            f.write("\n")
-            f.close()
-        f.close()
+        # model.saveModelToFile(model_,
+        #     '../../Zona4/GAModel/tournsize=2' + region +'GAModel' + str(year+qntYears) + '_' + str(i) + '.txt')
+        # with open("../../Zona4/GAModel/tournsize=2" + region +"GAModel" + str(year+qntYears) + "_loglikelihood.txt", 'a') as f:
+        #     f.write(str(model_.loglikelihood))
+        #     f.write("\n")
+        #     f.close()   
+        # with open("../../Zona4/GAModel/tournsize=2" + region +"GAModel" + str(year+qntYears) + '_' + str(i) + "logbook.txt", 'w') as f:
+        #     f.write(str(model_.logbook))
+        #     f.write("\n")
+        #     f.close()
+        # f.close()
+
 
 def callGAModel(region):
     """
     It is a wrapper to the function that generates the GAModel with JMA data
     It cover the years of 2000 to 2005, and the models are from 2005 to 2010
     """
-    year = 2005
-    while(year <= 2006):
-        execGaModel(year, region)
-        year+=1
+    year = 2000
+    # while(year <= 2006):
+    execGaModel(year, region)
+    year += 1
+
 
 def main():
     """
-    This function creates the needed enviroment needed to generate both GAModel and List Model with JMA catalog
+    This function creates the needed enviroment needed to
+    generate both GAModel and List Model with JMA catalog
     for the regions: EastJapan, Kanto, Kansai, Tohoku
     from 2000 to 2005 to create models from 2005 to 2010
     """
     region = 'Kanto'
     callGAModel(region)
 
-    region = 'EastJapan'
-    callGAModel(region)
+    # region = 'EastJapan'
+    # callGAModel(region)
 
-    region = 'Tohoku'
-    callGAModel(region)
+    # region = 'Tohoku'
+    # callGAModel(region)
 
-    region = 'Kansai'
-    callGAModel(region)
-
+    # region = 'Kansai'
+    # callGAModel(region)
 
 
 if __name__ == "__main__":

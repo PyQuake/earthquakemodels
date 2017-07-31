@@ -11,7 +11,7 @@ import random
 import array
 import time
 from operator import attrgetter
-from pathos.multiprocessing import ProcessingPool as Pool
+# from pathos.multiprocessing import ProcessingPool as Pool
 # from functools import lru_cache as cache
 
 
@@ -29,7 +29,7 @@ def evaluationFunction(individual, modelOmega, mean):
     modelLambda.bins = calcNumberBins(genomeModel.bins, mean)
     for i in range(len(modelOmega)):
         tempValue = calcLogLikelihood(modelLambda, modelOmega[i])
-        # calcLogLikelihood.cache_clear()
+        calcLogLikelihood.cache_clear()
         if tempValue < logValue:
             logValue = tempValue
     return logValue,
@@ -39,12 +39,22 @@ def evaluationFunction(individual, modelOmega, mean):
 
 toolbox = base.Toolbox()
 creator.create("FitnessFunction", base.Fitness, weights=(1.0,))
-creator.create("Individual", array.array, typecode='d', fitness=creator.FitnessFunction)
-pool = Pool()
-toolbox.register("map", pool.map)
+creator.create("Individual", array.array, typecode='d',
+               fitness=creator.FitnessFunction)
+# pool = Pool()
+# toolbox.register("map", pool.map)
 
 
-def gaModel(NGEN, CXPB, MUTPB, modelOmega, year, region, mean, tournsize=2, n_aval=50000):
+def gaModel(NGEN,
+            CXPB,
+            MUTPB,
+            modelOmega,
+            year,
+            region,
+            mean,
+            tournsize,
+            n_aval
+            ):
     """
     The main function. It evolves models, namely modelLamba or individual.
     """
@@ -57,7 +67,8 @@ def gaModel(NGEN, CXPB, MUTPB, modelOmega, year, region, mean, tournsize=2, n_av
     # is replaced by the 'fittest' (best) of three individuals
     # drawn randomly from the current generation.
     toolbox.register("select", tools.selTournament, tournsize=tournsize)
-    toolbox.register("mutate", tools.mutPolynomialBounded, indpb=0.1, eta=1, low=0, up=1)
+    toolbox.register("mutate", tools.mutPolynomialBounded,
+                     indpb=0.1, eta=1, low=0, up=1)
 
     stats = tools.Statistics(key=lambda ind: ind.fitness.values)
     stats.register("avg", numpy.mean)
@@ -65,13 +76,20 @@ def gaModel(NGEN, CXPB, MUTPB, modelOmega, year, region, mean, tournsize=2, n_av
     stats.register("min", numpy.min)
     stats.register("max", numpy.max)
 
-    # calculating the number of individuals of the populations based on the number of executions
+    # calculating the number of individuals of the
+    # populations based on the number of executions
     y = int(n_aval / NGEN)
     x = n_aval - y * NGEN
     n = x + y
 
-    toolbox.register("evaluate", evaluationFunction, modelOmega=modelOmega, mean=mean)
-    toolbox.register("individual", tools.initRepeat, creator.Individual, toolbox.attr_float, len(modelOmega[0].bins))
+    toolbox.register("evaluate", evaluationFunction,
+                     modelOmega=modelOmega, mean=mean)
+    toolbox.register("individual",
+                     tools.initRepeat,
+                     creator.Individual,
+                     toolbox.attr_float,
+                     len(modelOmega[0].bins)
+                     )
     toolbox.register("population", tools.initRepeat, list, toolbox.individual)
 
     logbook = tools.Logbook()
@@ -84,8 +102,7 @@ def gaModel(NGEN, CXPB, MUTPB, modelOmega, year, region, mean, tournsize=2, n_av
     for ind, fit in zip(pop, fitnesses):
         ind.fitness.values = fit
     for g in range(NGEN):
-        if g % 10 == 0:
-            print(g)
+        print(g)
         # Select the next generation individuals
         offspring = toolbox.select(pop, len(pop))
         # Clone the selected individuals
@@ -106,7 +123,8 @@ def gaModel(NGEN, CXPB, MUTPB, modelOmega, year, region, mean, tournsize=2, n_av
         for ind, fit in zip(invalid_ind, fitnesses):
             ind.fitness.values = fit
 
-        # The population is entirely replaced by the offspring, but the last pop best_pop
+        # The population is entirely replaced by the offspring,
+        # but the last pop best_pop
         # Elitism
         best_pop = tools.selBest(pop, 1)[0]
         offspring = sorted(offspring, key=attrgetter("fitness"), reverse=True)
@@ -127,8 +145,6 @@ def gaModel(NGEN, CXPB, MUTPB, modelOmega, year, region, mean, tournsize=2, n_av
     generatedModel.logbook = logbook
     # output = generatedModel.loglikelihood
     # return((-1)*output[0])
-    print(logbook)
-    exit()
     return generatedModel
 
 

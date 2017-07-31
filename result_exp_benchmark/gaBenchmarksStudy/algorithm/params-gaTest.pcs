@@ -1,0 +1,5 @@
+tournsize integer [2,25] [3]
+year categorical {2006} [2006]
+region categorical {EastJapan} [EastJapan]
+params categorical {algorithm/gaParams.txt} [algorithm/gaParams.txt]
+

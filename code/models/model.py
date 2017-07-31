@@ -1,14 +1,15 @@
-# "Definitions" is a list of dictionaries defined by the keys: 
+# "Definitions" is a list of dictionaries defined by the keys:
 # {"key","min","step","bins"} where
 # Key - is which value is used for this bin
 # min - is the minimum value used
 # step - is the size of the bin
 # bins - is the number of bins in this dimension
 import pymysql.cursors
-import datetime
+# import datetime
 import numpy
-from models.mathUtil import invertPoisson
+# from models.mathUtil import invertPoisson
 from collections import Counter
+
 
 class model(object):
     def __init__(self):
@@ -23,31 +24,32 @@ class model(object):
         self.executionNumber = 0
         self.values4poisson = None
 
+
 def newModel(definitions,initialvalue=0):
-    """ Creates an empty model based on a set of definitions. 
-    The initialvalue parameter determines the initial value of 
-    the bins contained in the model, and can be used to create 
+    """ Creates an empty model based on a set of definitions.
+    The initialvalue parameter determines the initial value of
+    the bins contained in the model, and can be used to create
     "neutral" models (containing 1 in all bins)
     bins are the dimensional size for lat and long
     cells are the dimensional size for mag
     """
     ret = model()
-    totalbins,totalcells = 1, 1
+    totalbins = 1
 
     for i in definitions:
         totalbins *= i['bins']
     ret.definitions = definitions
-    
     ret.bins = numpy.ndarray(shape=(totalbins), dtype='i')
     ret.bins.fill(initialvalue)
     ret.prob = numpy.ndarray(shape=(totalbins), dtype='i')
     ret.prob.fill(0.0)
     return ret
-    
 
 # This considers the catalog has passed a filter before
 # TODO: Use datetime instead of year
 # TODO: Redo this, this is terrible
+
+
 def addFromCatalog(model,catalog, year):
     """
     Adds data from a catalog var to a model
