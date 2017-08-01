@@ -67,7 +67,7 @@ def main(func,
         tools.mutGaussian,
         mu=0,
         sigma=1,
-        indpb=0.5
+        indpb=0.1
     )
     stats = tools.Statistics(key=lambda ind: ind.fitness.values)
     stats.register("avg", np.mean)
