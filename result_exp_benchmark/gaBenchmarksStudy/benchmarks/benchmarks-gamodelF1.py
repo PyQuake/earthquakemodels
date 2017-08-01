@@ -62,13 +62,19 @@ def main(func,
     #     low=-5,
     #     up=5
     # )
+    # toolbox.register(
+    #     "mutate",
+    #     tools.mutGaussian,
+    #     mu=0,
+    #     sigma=1,
+    #     indpb=0.1
+    # )
     toolbox.register(
         "mutate",
-        tools.mutGaussian,
-        mu=0,
-        sigma=1,
+        tools.mutShuffleIndexes,
         indpb=0.1
     )
+    mutShuffleIndexes
     stats = tools.Statistics(key=lambda ind: ind.fitness.values)
     stats.register("avg", np.mean)
     stats.register("std", np.std)
