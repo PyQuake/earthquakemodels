@@ -75,7 +75,7 @@ def main(func,
 
     toolbox.register("evaluate", func)
     toolbox.decorate("evaluate", tupleize)
-    toolbox.register("attr_float", random.uniform, -5, 5)
+    toolbox.register("attr_float", random.uniform, -4, 4)
     toolbox.register("mate", tools.cxUniform)
     toolbox.register("individual", tools.initRepeat, creator.Individual,
                      toolbox.attr_float, dim)
