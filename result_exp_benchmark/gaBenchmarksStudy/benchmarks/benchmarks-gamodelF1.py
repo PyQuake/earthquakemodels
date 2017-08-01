@@ -74,7 +74,7 @@ def main(func,
         tools.mutShuffleIndexes,
         indpb=0.1
     )
-    mutShuffleIndexes
+    # mutShuffleIndexes
     stats = tools.Statistics(key=lambda ind: ind.fitness.values)
     stats.register("avg", np.mean)
     stats.register("std", np.std)
