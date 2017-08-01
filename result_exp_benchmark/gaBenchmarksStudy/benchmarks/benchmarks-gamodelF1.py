@@ -54,24 +54,11 @@ def main(func,
          ):
     toolbox.register("attr_float", random.random)
     toolbox.register("select", tools.selTournament, tournsize=tournsize)
-    # toolbox.register(
-    #     "mutate",
-    #     tools.mutPolynomialBounded,
-    #     indpb=0.1,
-    #     eta=10,
-    #     low=-5,
-    #     up=5
-    # )
-    # toolbox.register(
-    #     "mutate",
-    #     tools.mutGaussian,
-    #     mu=0,
-    #     sigma=1,
-    #     indpb=0.1
-    # )
     toolbox.register(
         "mutate",
-        tools.mutShuffleIndexes,
+        tools.mutGaussian,
+        mu=0,
+        sigma=1,
         indpb=0.1
     )
     # mutShuffleIndexes
