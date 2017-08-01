@@ -35,9 +35,9 @@ do
 	for j in {0..40} 
 	do
 		# ga  tournsize _ exec_number . txt
-		nohup python2.7 /mpi_projects/earthquakemodels/result_exp_benchmark/gaBenchmarksStudy/benchmarks/benchmarks-gamodelF1.py -tournsize "$i" -params  '/mpi_projects/earthquakemodels/result_exp_benchmark/gaBenchmarksStudy/benchmarks/gaParams.txt' &> 'f1_'$i'_'$j'.txt' &
-		nohup  python2.7 /mpi_projects/earthquakemodels/result_exp_benchmark/gaBenchmarksStudy/benchmarks/benchmarks-gamodelF2.py -tournsize "$i" -params  '/mpi_projects/earthquakemodels/result_exp_benchmark/gaBenchmarksStudy/benchmarks/gaParams.txt' &> 'f2_'$i'_'$j'.txt' &
-		nohup python2.7 /mpi_projects/earthquakemodels/result_exp_benchmark/gaBenchmarksStudy/benchmarks/benchmarks-gamodelF3.py -tournsize "$i" -params  '/mpi_projects/earthquakemodels/result_exp_benchmark/gaBenchmarksStudy/benchmarks/gaParams.txt' &> 'f3_'$i'_'$j'.txt' &
+		nohup python2.7 mpi_projects/earthquakemodels/result_exp_benchmark/gaBenchmarksStudy/benchmarks/benchmarks-gamodelF1.py -tournsize "$i" -params  'mpi_projects/earthquakemodels/result_exp_benchmark/gaBenchmarksStudy/benchmarks/gaParams.txt' &> 'f1_'$i'_'$j'.txt' &
+		nohup  python2.7 mpi_projects/earthquakemodels/result_exp_benchmark/gaBenchmarksStudy/benchmarks/benchmarks-gamodelF2.py -tournsize "$i" -params  'mpi_projects/earthquakemodels/result_exp_benchmark/gaBenchmarksStudy/benchmarks/gaParams.txt' &> 'f2_'$i'_'$j'.txt' &
+		nohup python2.7 mpi_projects/earthquakemodels/result_exp_benchmark/gaBenchmarksStudy/benchmarks/benchmarks-gamodelF3.py -tournsize "$i" -params  'mpi_projects/earthquakemodels/result_exp_benchmark/gaBenchmarksStudy/benchmarks/gaParams.txt' &> 'f3_'$i'_'$j'.txt' &
 		wait		
 	done
 	
