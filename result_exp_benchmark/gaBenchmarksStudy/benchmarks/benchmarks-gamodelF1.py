@@ -58,7 +58,7 @@ def main(func,
         "mutate",
         tools.mutPolynomialBounded,
         indpb=0.1,
-        eta=2,
+        eta=5,
         low=-5,
         up=5
     )
