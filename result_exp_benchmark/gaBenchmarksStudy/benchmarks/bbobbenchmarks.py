@@ -993,7 +993,7 @@ class _FStepEllipsoid(BBOBFunction):
             x1 = x[0]
         idx = np.abs(x) > .5
         x[idx] = np.round(x[idx])
-        x[np.negative(idx)] = np.round(self.alpha * x[np.logical_not(idx)]) / self.alpha
+        # x[np.negative(idx)] = np.round(self.alpha * x[np.logical_not(idx)]) / self.alpha
         aux = self.alpha * x[np.logical_not(idx)]
         aux3 = np.round(aux)
         aux2= aux3 / self.alpha
