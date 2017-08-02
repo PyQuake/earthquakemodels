@@ -2934,4 +2934,7 @@ funcId = 3, DIM = 40, Precision = 1.000e-08, algId = 'not-specified'
 data_f3/bbobexp-977_f3_DIM40.dat, 1:364452|3.4e+02
 funcId = 3, DIM = 40, Precision = 1.000e-08, algId = 'not-specified'
 % 
-data_f3/bbobexp-978_f3_DIM40.dat, 1
+data_f3/bbobexp-978_f3_DIM40.dat, 1:364931|4.0e+02
+funcId = 3, DIM = 40, Precision = 1.000e-08, algId = 'not-specified'
+% 
+data_f3/bbobexp-979_f3_DIM40.dat, 1
