@@ -52,13 +52,12 @@ def gaModel(func,
     toolbox.register("attr_float", random.random)
     toolbox.register("mate", tools.cxUniform)
     toolbox.register("select", tools.selTournament, tournsize=tournsize)
-    toolbox.register(
+    ttoolbox.register(
         "mutate",
-        tools.mutPolynomialBounded,
-        indpb=0.1,
-        eta=1,
-        low=0.5,
-        up=1
+        tools.mutGaussian,
+        mu=0,
+        sigma=1,
+        indpb=0.1
     )
     stats = tools.Statistics(key=lambda ind: ind.fitness.values)
     stats.register("avg", np.mean)
