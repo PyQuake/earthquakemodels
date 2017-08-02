@@ -2439,4 +2439,10 @@ funcId = 16, DIM = 40, Precision = 1.000e-08, algId = 'not-specified'
 data_f16/bbobexp-812_f16_DIM40.dat, 1:365082|2.4e+01
 funcId = 16, DIM = 40, Precision = 1.000e-08, algId = 'not-specified'
 % 
-data_f16/bbobexp-813_f16_DIM40.dat, 1
+data_f16/bbobexp-813_f16_DIM40.dat, 1:364935|2.6e+01
+funcId = 16, DIM = 40, Precision = 1.000e-08, algId = 'not-specified'
+% 
+data_f16/bbobexp-814_f16_DIM40.dat, 1:364906|2.2e+01
+funcId = 16, DIM = 40, Precision = 1.000e-08, algId = 'not-specified'
+% 
+data_f16/bbobexp-815_f16_DIM40.dat, 1

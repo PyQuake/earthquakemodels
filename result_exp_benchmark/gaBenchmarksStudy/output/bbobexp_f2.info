@@ -2925,4 +2925,13 @@ funcId = 2, DIM = 40, Precision = 1.000e-08, algId = 'not-specified'
 data_f2/bbobexp-974_f2_DIM40.dat, 1:364823|1.1e+05
 funcId = 2, DIM = 40, Precision = 1.000e-08, algId = 'not-specified'
 % 
-data_f2/bbobexp-975_f2_DIM40.dat, 1
+data_f2/bbobexp-975_f2_DIM40.dat, 1:365152|1.8e+05
+funcId = 2, DIM = 40, Precision = 1.000e-08, algId = 'not-specified'
+% 
+data_f2/bbobexp-976_f2_DIM40.dat, 1:364706|8.6e+04
+funcId = 2, DIM = 40, Precision = 1.000e-08, algId = 'not-specified'
+% 
+data_f2/bbobexp-977_f2_DIM40.dat, 1:364962|1.0e+05
+funcId = 2, DIM = 40, Precision = 1.000e-08, algId = 'not-specified'
+% 
+data_f2/bbobexp-978_f2_DIM40.dat, 1
