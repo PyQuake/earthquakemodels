@@ -8,6 +8,11 @@ output: pdf_document
 ```{r global_options, include=FALSE}
 knitr::opts_chunk$set(fig.pos = 'H')
 knitr::opts_chunk$set(cache=TRUE)
+
+library(knitr)
+library(ggplot2)
+library(gridExtra)
+
 par(mfrow=c(2,1))
 ```
 #Summary
@@ -37,12 +42,7 @@ Sawyerr et al concluded that the RCGAu has excelled in solving the f1, f2, f3, f
 The order of the plots is: first we show the GAModel plots and the the BBOB benchmark functions, from F1 to F24.
 
 ```{r pressure, echo=FALSE}
-par(mfrow=c(2,1))
-setwd("~/Documents/estudos/master-unb/earthquakemodels/result_exp_benchmark/gaBenchmarksStudy/")
-library(knitr)
-library(ggplot2)
-library(gridExtra)
-
+setwd("~/Documents/estudos/master-unb/earthquakemodels/result_exp_benchmark/UniformGaussian40D")
 # #create function to read data with paste - header problems - GA
 # loadDataGA_2_10 = function(type, i,  nrows = 500){
 #     filename = paste(type,'_',i,'.txt',sep='')
@@ -170,7 +170,7 @@ teste = findMaxBenchmarks(1)
 # create function to find the max value and where it is located
 findMaxPosBenchmarks = function (benchmarck_index_function){
     vectorAuxMax=findMaxBenchmarks(benchmarck_index_function)
-    p1<- ggplot(vectorAuxMax, aes(1:nrow(vectorAuxMax)-1, mean, colour=vectorAuxMax$mean)) +
+    p1<- ggplot(vectorAuxMax, aes(1:nrow(vectorAuxMax), mean, colour=vectorAuxMax$mean)) +
         geom_errorbar(aes(ymin=vectorAuxMax$mean-vectorAuxMax$std, ymax=vectorAuxMax$mean+vectorAuxMax$std), width=.1) +
         geom_line() +
         geom_point() +
@@ -179,7 +179,7 @@ findMaxPosBenchmarks = function (benchmarck_index_function){
         ggtitle(paste("F",benchmarck_index_function,' means and std' , sep=''))
     print(p1+ theme(legend.position="none"))
 
-    p1<- ggplot(vectorAuxMax, aes(1:nrow(vectorAuxMax)-1, mean, colour=vectorAuxMax$mean)) +
+    p1<- ggplot(vectorAuxMax, aes(1:nrow(vectorAuxMax), mean, colour=vectorAuxMax$mean)) +
         # geom_errorbar(aes(ymin=vectorAuxMax$mean-vectorAuxMax$std, ymax=vectorAuxMax$mean+vectorAuxMax$std), width=.1) +
         geom_line() +
         geom_point() +
@@ -202,7 +202,7 @@ Based on the best values for K, from plots of the last section, we made the conv
 
 ```{r, echo=FALSE}
 par(mfrow=c(2,1))
-setwd("~/Documents/estudos/master-unb/earthquakemodels/result_exp_benchmark/gaBenchmarksStudy/")
+setwd("~/Documents/estudos/master-unb/earthquakemodels/result_exp_benchmark/UniformGaussian40D")
 #create function to read data with paste - header problems - GA
 # loadDataGA_2_10 = function(type, i, nrows = 500){
 #     filename = paste(type,'_',i,'.txt',sep='')
