@@ -33,7 +33,7 @@ else
 fi
 
 
-for i in {2..25} 
+for i in {20..25} 
 do
 	for j in {0..40} 
 	do
