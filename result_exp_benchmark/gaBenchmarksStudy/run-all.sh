@@ -4,5 +4,5 @@ nohup ssh cluster5.local 'cd mpi_projects/earthquakemodels/result_exp_benchmark/
 nohup ssh cluster6.local 'cd mpi_projects/earthquakemodels/result_exp_benchmark/gaBenchmarksStudy; nohup sh runme10-12.sh & ' &> trash &
 nohup ssh cluster8.local 'cd mpi_projects/earthquakemodels/result_exp_benchmark/gaBenchmarksStudy; nohup sh runme13-15.sh &' &> trash &
 nohup ssh cluster9.local 'cd mpi_projects/earthquakemodels/result_exp_benchmark/gaBenchmarksStudy; nohup sh runme16-18.sh &' &> trash &
-nohup ssh cluster12.local 'cd mpi_projects/earthquakemodels/result_exp_benchmark/gaBenchmarksStudy; nohup sh runme19-21.sh &' &> trash &
+nohup ssh cluster7.local 'cd mpi_projects/earthquakemodels/result_exp_benchmark/gaBenchmarksStudy; nohup sh runme19-21.sh &' &> trash &
 nohup ssh cluster11.local 'cd mpi_projects/earthquakemodels/result_exp_benchmark/gaBenchmarksStudy; nohup sh runme22-24.sh &' &> trash &

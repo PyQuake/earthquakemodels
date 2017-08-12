@@ -176,7 +176,7 @@ if __name__ == "__main__":
 
     # Iterate over all desired test dimensions
     # for dim in (2, 3, 5, 10, 20, 40):
-    dim = 20
+    dim = 10
     # Set the maximum number function evaluation granted to the algorithm
     # This is usually function of the dimensionality of the problem
 
