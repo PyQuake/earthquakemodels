@@ -30,7 +30,7 @@ else
 	echo 'First you should install java 1.7' 
 fi
 
-for i in {20..25} 
+for i in {2..25} 
 do
 	for j in {0..40} 
 	do
