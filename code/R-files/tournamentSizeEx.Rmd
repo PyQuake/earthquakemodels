@@ -7,7 +7,7 @@ output: pdf_document
 
 ```{r "setup", include=FALSE}
 require("knitr")
-knitr::opts_knit$set(root.dir = "~/Documents/estudos/master-unb/earthquakemodels/result_exp_benchmark/gaBenchmarksStudy")
+knitr::opts_knit$set(root.dir = "~/Documents/estudos/master-unb/earthquakemodels/result_exp_benchmark/UniformGaussian20D")
 ```
 
 ```{r global_options, include=FALSE}
@@ -148,9 +148,10 @@ createMeanFromExecBenchmarks = function (name_function, j){
         else{
             data=loadDataBenchmarksF1_F3(name_function,i-1, skip = 0, nrows = 500)
         }
-
-        vectorAuxMean[i] = data$min[500]
+        vectorAuxMean[i]=tail(data, 2)$min[1]
     }
+    print(name_function)
+    print(vectorAuxMean)
     aux = t.test(vectorAuxMean)
     df <-data.frame(mean(vectorAuxMean), sd(vectorAuxMean), aux$conf.int[1], aux$conf.int[2])
     names(df) <- c('mean', 'std', 'five', 'ninetyFive')
@@ -314,7 +315,8 @@ for (i in 1:24){
     else{
         data=loadDataBenchmarksF1_F3(name_function,i-1, skip=0, nrows = 502)
     }
-    ablines[i] = data$gen[501]
+    # ablines[i] = data$gen[501]
+    ablines[i] = tail(data, 1)$gen[1]
 }
 
 
