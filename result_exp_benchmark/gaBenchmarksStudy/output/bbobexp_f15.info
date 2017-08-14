@@ -8847,4 +8847,13 @@ funcId = 15, DIM = 10, Precision = 1.000e-08, algId = 'not-specified'
 data_f15/bbobexp-980_f15_DIM10.dat, 1:364701|4.1e+01
 funcId = 15, DIM = 10, Precision = 1.000e-08, algId = 'not-specified'
 % 
-data_f15/bbobexp-981_f15_DIM10.dat, 1
+data_f15/bbobexp-981_f15_DIM10.dat, 1:365264|4.5e+01
+funcId = 15, DIM = 10, Precision = 1.000e-08, algId = 'not-specified'
+% 
+data_f15/bbobexp-982_f15_DIM10.dat, 1:364577|5.7e+01
+funcId = 15, DIM = 10, Precision = 1.000e-08, algId = 'not-specified'
+% 
+data_f15/bbobexp-983_f15_DIM10.dat, 1:364717|4.6e+01
+funcId = 15, DIM = 10, Precision = 1.000e-08, algId = 'not-specified'
+% 
+data_f15/bbobexp-984_f15_DIM10.dat, 1:364860|6.0e+01
