@@ -30,7 +30,6 @@ Every plot it was calculated the mean, the standart deviation (std) and the conf
 We did some experiments with 40 dimensions, now we are experimenting with 20 dimensions. 
 
 Standart Deviation: F20 (For k = 1...25) -> 0.3577385  1.4522482  0.3722891  0.3342789  0.3203987  0.3432203 0.3179952  0.3193463 15.7308372  0.2495824  0.4440507  0.6733610  1.7549915  9.6024268 10.8827583  0.2660707  0.3039624  0.2499267 0.3054992  0.2952024  2.2356739  0.4414154  0.2572610  0.3786557
-> 
 
 #More information
 
@@ -148,10 +147,9 @@ createMeanFromExecBenchmarks = function (name_function, j){
         else{
             data=loadDataBenchmarksF1_F3(name_function,i-1, skip = 0, nrows = 500)
         }
-        vectorAuxMean[i]=tail(data, 2)$min[1]
+
+        vectorAuxMean[i] = data$min[500]
     }
-    print(name_function)
-    print(vectorAuxMean)
     aux = t.test(vectorAuxMean)
     df <-data.frame(mean(vectorAuxMean), sd(vectorAuxMean), aux$conf.int[1], aux$conf.int[2])
     names(df) <- c('mean', 'std', 'five', 'ninetyFive')
@@ -315,8 +313,7 @@ for (i in 1:24){
     else{
         data=loadDataBenchmarksF1_F3(name_function,i-1, skip=0, nrows = 502)
     }
-    # ablines[i] = data$gen[501]
-    ablines[i] = tail(data, 1)$gen[1]
+    ablines[i] = data$gen[501]
 }
 
 
@@ -347,5 +344,4 @@ for (i in 1:24){
 
 
 ```
-
 
