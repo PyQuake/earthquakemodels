@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "benchmarks/benchmarks-gamodelF1.py", line 154, in <module>
+    i_tournsize = int(sys.argv[i + 1])
+ValueError: invalid literal for int() with base 10: ''

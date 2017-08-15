@@ -49,11 +49,12 @@ def main(func,
          MUTPB,
          dim,
          ftarget,
-         tournsize,
+         i_tournsize,
+         f_tournsize,
          n_aval
          ):
     toolbox.register("attr_float", random.random)
-    toolbox.register("select", tools.selTournament, tournsize=tournsize)
+    toolbox.register("select", tools.selTournament, tournsize=i_tournsize)
     toolbox.register(
         "mutate",
         tools.mutGaussian,
@@ -94,6 +95,12 @@ def main(func,
         ind.fitness.values = fit
 
     for g in range(NGEN):
+        if (g == 249):
+            toolbox.register(
+                "select",
+                tools.selTournament,
+                tournsize=f_tournsize
+            )
         # Select the next generation individuals
         offspring = toolbox.select(pop, len(pop))
         # create offspring
@@ -124,8 +131,6 @@ def main(func,
         record = stats.compile(pop)
         logbook.record(gen=g, **record)
         print(logbook.stream)
-        if (record["min"] - ftarget) < 10e-8:
-            return best_pop
         if record["std"] < 10e-12:
             best_pop = tools.selBest(pop, 1)[0]
             pop = toolbox.population(n)
@@ -143,14 +148,16 @@ def main(func,
 
 if __name__ == "__main__":
     for i in range(len(sys.argv) - 1):
-        if (sys.argv[i] == '-tournsize'):
-            tournsize = int(sys.argv[i + 1])
+        if (sys.argv[i] == '-i_tournsize'):
+            i_tournsize = int(sys.argv[i + 1])
         elif (sys.argv[i] == '-year'):
             year = int(sys.argv[i + 1])
         elif (sys.argv[i] == '-params'):
             gaParams = sys.argv[i + 1]
         elif (sys.argv[i] == '-region'):
             region = sys.argv[i + 1]
+        elif (sys.argv[i] == '-f_tournsize'):
+            f_tournsize = int(sys.argv[i + 1])
 
     f = open(gaParams, "r")
     keys = ['key', 'NGEN', 'n_aval', 'qntYears', 'CXPB', 'MUTPB']
@@ -176,7 +183,7 @@ if __name__ == "__main__":
 
     # Iterate over all desired test dimensions
     # for dim in (2, 3, 5, 10, 20, 40):
-    dim = 10
+    dim = 5
     # Set the maximum number function evaluation granted to the algorithm
     # This is usually function of the dimensionality of the problem
 
@@ -199,7 +206,8 @@ if __name__ == "__main__":
          MUTPB=params['MUTPB'],
          dim=dim,
          n_aval=params['n_aval'],
-         tournsize=tournsize,
+         i_tournsize=i_tournsize,
+         f_tournsize=f_tournsize,
          ftarget=e.ftarget)
 
     # Stop if ftarget is reached
