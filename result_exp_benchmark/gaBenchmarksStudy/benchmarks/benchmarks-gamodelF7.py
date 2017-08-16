@@ -130,7 +130,8 @@ def main(func,
         pop[:] = offspring
         record = stats.compile(pop)
         logbook.record(gen=g, **record)
-        print(logbook.stream)
+        if (record["min"] - ftarget) < 10e-8:
+            return logbook
         if record["std"] < 10e-12:
             best_pop = tools.selBest(pop, 1)[0]
             pop = toolbox.population(n)
@@ -142,8 +143,7 @@ def main(func,
             g += 1
             record = stats.compile(pop)
             logbook.record(gen=g, **record)
-            print(logbook.stream)
-    return best_pop
+    return logbook
 
 
 if __name__ == "__main__":
@@ -200,21 +200,31 @@ if __name__ == "__main__":
     # Independent restarts until maxfunevals or ftarget is reached
     # Run the algorithm with the remaining
     # number of evaluations
-    main(e.evalfun,
-         NGEN=params['NGEN'],
-         CXPB=params['CXPB'],
-         MUTPB=params['MUTPB'],
-         dim=dim,
-         n_aval=params['n_aval'],
-         tournsize=tournsize,
-         ftarget=e.ftarget)
+    logbook = main(e.evalfun,
+                   NGEN=params['NGEN'],
+                   CXPB=params['CXPB'],
+                   MUTPB=params['MUTPB'],
+                   dim=dim,
+                   n_aval=params['n_aval'],
+                   i_tournsize=i_tournsize,
+                   f_tournsize=f_tournsize,
+                   ftarget=e.ftarget)
 
+    filename = ("f" +
+                str(f_name) +
+                "_dim_" +
+                str(dim) +
+                "_f_tournsize_" +
+                str(f_tournsize) +
+                ".txt")
+    if((np.DataSource().exists(filename))==False):
+        with open(filename, "w") as myfile:
+            myfile.write(str(e.ftarget))
+            myfile.write(str('\n'))
+        myfile.close()
+    with open(filename, "a") as myfile:
+        myfile.write(str(logbook))
+        myfile.write(str('\n'))
+    myfile.close()
     # Stop if ftarget is reached
     e.finalizerun()
-
-    # print('f%d in %d-D, instance %d: FEs=%d with %d restarts, '
-    #       'fbest-ftarget=%.4e, and best=%.4e'
-    #       % (f_name, dim, instance, e.evaluations, restarts,
-    #          e.fbest - e.ftarget, e.fbest))
-    # print('date and time: %s' % time.asctime())
-    print(e.ftarget)
