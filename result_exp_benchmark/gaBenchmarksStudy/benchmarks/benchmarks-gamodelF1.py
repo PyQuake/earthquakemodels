@@ -52,6 +52,7 @@ def main(func,
          tournsize,
          n_aval
          ):
+    random.seed(64)
     toolbox.register("attr_float", random.random)
     toolbox.register("select", tools.selTournament, tournsize=tournsize)
     toolbox.register(
