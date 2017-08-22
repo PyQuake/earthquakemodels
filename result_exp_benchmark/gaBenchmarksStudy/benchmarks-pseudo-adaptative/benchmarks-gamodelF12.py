@@ -218,7 +218,7 @@ if __name__ == "__main__":
                 "_f_tournsize_" +
                 str(f_tournsize) +
                 ".txt")
-    if((np.DataSource().exists(filename))==False):
+    if((np.DataSource().exists(filename)) is False):
         with open(filename, "w") as myfile:
             myfile.write(str(e.ftarget))
             myfile.write(str('\n'))
