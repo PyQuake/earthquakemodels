@@ -6,6 +6,7 @@ do
 		nohup python2.7 benchmarks-pseudo-adaptative/benchmarks-gamodelF7.py -i_tournsize 2 -f_tournsize "$i" -params  'benchmarks-pseudo-adaptative/gaParams.txt' &
 		nohup python2.7 benchmarks-pseudo-adaptative/benchmarks-gamodelF8.py -i_tournsize 2 -f_tournsize "$i" -params  'benchmarks-pseudo-adaptative/gaParams.txt' &
 		nohup python2.7 benchmarks-pseudo-adaptative/benchmarks-gamodelF9.py -i_tournsize 2 -f_tournsize "$i" -params  'benchmarks-pseudo-adaptative/gaParams.txt' &		
+		wait
 	# done
 	
 done
