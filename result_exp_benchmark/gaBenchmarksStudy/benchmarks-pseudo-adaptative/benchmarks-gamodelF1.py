@@ -161,7 +161,7 @@ if __name__ == "__main__":
             f_tournsize = int(sys.argv[i + 1])
 
     f = open(gaParams, "r")
-    keys = ['key', 'NGEN', 'n_aval', 'qntYears', 'CXPB', 'MUTPB']
+    keys = ['key', 'NGEN', 'n_aval', 'qntYears', 'CXPB', 'MUTPB', 'dim']
 
     params = dict()
     for line in f:
@@ -184,7 +184,7 @@ if __name__ == "__main__":
 
     # Iterate over all desired test dimensions
     # for dim in (2, 3, 5, 10, 20, 40):
-    dim = 40
+    dim = params['dim']
     # Set the maximum number function evaluation granted to the algorithm
     # This is usually function of the dimensionality of the problem
 

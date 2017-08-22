@@ -53,6 +53,7 @@ def main(func,
          f_tournsize,
          n_aval
          ):
+    random.seed(64)
     toolbox.register("attr_float", random.random)
     toolbox.register("select", tools.selTournament, tournsize=i_tournsize)
     toolbox.register(
@@ -160,7 +161,7 @@ if __name__ == "__main__":
             f_tournsize = int(sys.argv[i + 1])
 
     f = open(gaParams, "r")
-    keys = ['key', 'NGEN', 'n_aval', 'qntYears', 'CXPB', 'MUTPB']
+    keys = ['key', 'NGEN', 'n_aval', 'qntYears', 'CXPB', 'MUTPB', 'dim']
 
     params = dict()
     for line in f:
@@ -183,17 +184,13 @@ if __name__ == "__main__":
 
     # Iterate over all desired test dimensions
     # for dim in (2, 3, 5, 10, 20, 40):
-    dim = 40
+    dim = params['dim']
     # Set the maximum number function evaluation granted to the algorithm
     # This is usually function of the dimensionality of the problem
 
     # Iterate over a set of benchmarks (noise free benchmarks here)
     # for f_name in bn.nfreeIDs:
     f_name = 8
-    # Iterate over all the instance of a single problem
-    # Rotation, translation, etc.
-    # for instance in chain(range(1, 6), range(21, 31)):
-    instance = 1
     # Iterate over all the instance of a single problem
     # Rotation, translation, etc.
     # for instance in chain(range(1, 6), range(21, 31)):

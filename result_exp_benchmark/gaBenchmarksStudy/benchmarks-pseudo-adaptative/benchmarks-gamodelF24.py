@@ -53,6 +53,7 @@ def main(func,
          f_tournsize,
          n_aval
          ):
+    random.seed(64)
     toolbox.register("attr_float", random.random)
     toolbox.register("select", tools.selTournament, tournsize=i_tournsize)
     toolbox.register(
@@ -148,17 +149,19 @@ def main(func,
 
 if __name__ == "__main__":
     for i in range(len(sys.argv) - 1):
-        if (sys.argv[i] == '-tournsize'):
-            tournsize = int(sys.argv[i + 1])
+        if (sys.argv[i] == '-i_tournsize'):
+            i_tournsize = int(sys.argv[i + 1])
         elif (sys.argv[i] == '-year'):
             year = int(sys.argv[i + 1])
         elif (sys.argv[i] == '-params'):
             gaParams = sys.argv[i + 1]
         elif (sys.argv[i] == '-region'):
             region = sys.argv[i + 1]
+        elif (sys.argv[i] == '-f_tournsize'):
+            f_tournsize = int(sys.argv[i + 1])
 
     f = open(gaParams, "r")
-    keys = ['key', 'NGEN', 'n_aval', 'qntYears', 'CXPB', 'MUTPB']
+    keys = ['key', 'NGEN', 'n_aval', 'qntYears', 'CXPB', 'MUTPB', 'dim']
 
     params = dict()
     for line in f:
@@ -181,7 +184,7 @@ if __name__ == "__main__":
 
     # Iterate over all desired test dimensions
     # for dim in (2, 3, 5, 10, 20, 40):
-    dim = 40
+    dim = params['dim']
     # Set the maximum number function evaluation granted to the algorithm
     # This is usually function of the dimensionality of the problem
 
