@@ -14,7 +14,6 @@
 #    You should have received a copy of the GNU Lesser General Public
 #    License along with DEAP. If not, see <http://www.gnu.org/licenses/>.
 import sys
-# sys.path.insert(0, '../../../')
 import array
 import random
 from deap import base
@@ -49,13 +48,11 @@ def main(func,
          MUTPB,
          dim,
          ftarget,
-         i_tournsize,
-         f_tournsize,
+         tournsize,
          n_aval
          ):
-    random.seed(64)
     toolbox.register("attr_float", random.random)
-    toolbox.register("select", tools.selTournament, tournsize=i_tournsize)
+    toolbox.register("select", tools.selTournament, tournsize=tournsize)
     toolbox.register(
         "mutate",
         tools.mutGaussian,
@@ -86,6 +83,18 @@ def main(func,
     logbook = tools.Logbook()
     logbook.header = "gen", "min", "avg", "max", "std"
     pop = toolbox.population(n)
+    # get initial pop
+    filename = ("../pseudo-adaptative/init_pop_f" +
+                str(f_name) +
+                "_dim_" +
+                str(dim) +
+                "_tournsize_2.txt")
+    if((np.DataSource().exists(filename)) is True):
+        with open(filename, 'r') as f:
+            a = eval(f.readline())
+        f.close()
+        for index in range(len(pop[0])):
+            pop[0][index] = a[index]
     # Evaluate the entire population
     # 2 model.bins: real data, generated model
     fitnesses = list(toolbox.map(toolbox.evaluate, pop))
@@ -96,12 +105,6 @@ def main(func,
         ind.fitness.values = fit
 
     for g in range(NGEN):
-        if (g == 249):
-            toolbox.register(
-                "select",
-                tools.selTournament,
-                tournsize=f_tournsize
-            )
         # Select the next generation individuals
         offspring = toolbox.select(pop, len(pop))
         # create offspring
@@ -131,8 +134,6 @@ def main(func,
         pop[:] = offspring
         record = stats.compile(pop)
         logbook.record(gen=g, **record)
-        if (record["min"] - ftarget) < 10e-8:
-            return logbook
         if record["std"] < 10e-12:
             best_pop = tools.selBest(pop, 1)[0]
             pop = toolbox.population(n)
@@ -144,21 +145,31 @@ def main(func,
             g += 1
             record = stats.compile(pop)
             logbook.record(gen=g, **record)
+    filename = ("../pseudo-adaptative/init_pop_f" +
+                str(f_name) +
+                "_dim_" +
+                str(dim) +
+                "_tournsize_2.txt")
+    if((np.DataSource().exists(filename)) is False):
+        with open(filename, "w") as myfile:
+            for element in best_pop:
+                myfile.write(str(element))
+                myfile.write(str(', '))
+            myfile.write(str('\n'))
+        myfile.close()
     return logbook
 
 
 if __name__ == "__main__":
     for i in range(len(sys.argv) - 1):
-        if (sys.argv[i] == '-i_tournsize'):
-            i_tournsize = int(sys.argv[i + 1])
+        if (sys.argv[i] == '-tournsize'):
+            tournsize = int(sys.argv[i + 1])
         elif (sys.argv[i] == '-year'):
             year = int(sys.argv[i + 1])
         elif (sys.argv[i] == '-params'):
             gaParams = sys.argv[i + 1]
         elif (sys.argv[i] == '-region'):
             region = sys.argv[i + 1]
-        elif (sys.argv[i] == '-f_tournsize'):
-            f_tournsize = int(sys.argv[i + 1])
 
     f = open(gaParams, "r")
     keys = ['key', 'NGEN', 'n_aval', 'qntYears', 'CXPB', 'MUTPB', 'dim']
@@ -194,6 +205,7 @@ if __name__ == "__main__":
     # Iterate over all the instance of a single problem
     # Rotation, translation, etc.
     # for instance in chain(range(1, 6), range(21, 31)):
+    instance = 1
     # Set the function to be used (problem) in the logger
     e.setfun(*bn.instantiate(f_name, iinstance=1))
 
@@ -206,18 +218,17 @@ if __name__ == "__main__":
                    MUTPB=params['MUTPB'],
                    dim=dim,
                    n_aval=params['n_aval'],
-                   i_tournsize=i_tournsize,
-                   f_tournsize=f_tournsize,
+                   tournsize=tournsize,
                    ftarget=e.ftarget)
 
-    filename = ("f" +
+    filename = ("../pseudo-adaptative/f" +
                 str(f_name) +
                 "_dim_" +
                 str(dim) +
-                "_f_tournsize_" +
-                str(f_tournsize) +
+                "_tournsize_" +
+                str(tournsize) +
                 ".txt")
-    if((np.DataSource().exists(filename))==False):
+    if((np.DataSource().exists(filename)) is False):
         with open(filename, "w") as myfile:
             myfile.write(str(e.ftarget))
             myfile.write(str('\n'))

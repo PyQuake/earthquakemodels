@@ -1,12 +1,21 @@
-for i in {3..25} 
+# random set.seed
+RANDOM=1341
+# create middle gen
+nohup python2.7 benchmarks-pseudo-adaptative/benchmarks-gamodelF19.py -tournsize 2 -params  'benchmarks-pseudo-adaptative/gaParams.txt' &
+nohup python2.7 benchmarks-pseudo-adaptative/benchmarks-gamodelF20.py -tournsize 2 -params  'benchmarks-pseudo-adaptative/gaParams.txt' &
+nohup python2.7 benchmarks-pseudo-adaptative/benchmarks-gamodelF21.py -tournsize 2 -params  'benchmarks-pseudo-adaptative/gaParams.txt' & 
+wait
+# random set.seed
+RANDOM=1342
+# k loop
+for i in {2..25} 
 do
-	# for j in {0..40} 
-	# do
-		# ga  tournsize _ exec_number . txt
-		nohup python2.7 benchmarks-pseudo-adaptative/benchmarks-gamodelF19.py -i_tournsize 2 -f_tournsize "$i" -params  'benchmarks-pseudo-adaptative/gaParams.txt' &
-		nohup python2.7 benchmarks-pseudo-adaptative/benchmarks-gamodelF20.py -i_tournsize 2 -f_tournsize "$i" -params  'benchmarks-pseudo-adaptative/gaParams.txt' &
-		nohup python2.7 benchmarks-pseudo-adaptative/benchmarks-gamodelF21.py -i_tournsize 2 -f_tournsize "$i" -params  'benchmarks-pseudo-adaptative/gaParams.txt' &
+	# repetition loop
+	for j in {0..40} 
+	do
+		nohup python2.7 benchmarks-pseudo-adaptative/benchmarks-gamodelF19.py -tournsize "$i" -params  'benchmarks-pseudo-adaptative/gaParams.txt' &
+		nohup python2.7 benchmarks-pseudo-adaptative/benchmarks-gamodelF20.py -tournsize "$i" -params  'benchmarks-pseudo-adaptative/gaParams.txt' &
+		nohup python2.7 benchmarks-pseudo-adaptative/benchmarks-gamodelF21.py -tournsize "$i" -params  'benchmarks-pseudo-adaptative/gaParams.txt' &
 		wait
-	# done
-	
+	done
 done

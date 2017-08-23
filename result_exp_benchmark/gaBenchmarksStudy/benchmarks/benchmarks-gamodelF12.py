@@ -50,7 +50,6 @@ def main(func,
          dim,
          ftarget,
          i_tournsize,
-         f_tournsize,
          n_aval
          ):
     toolbox.register("attr_float", random.random)
@@ -95,12 +94,12 @@ def main(func,
         ind.fitness.values = fit
 
     for g in range(NGEN):
-        if (g == 249):
-            toolbox.register(
-                "select",
-                tools.selTournament,
-                tournsize=f_tournsize
-            )
+        # if (g == 249):
+        #     toolbox.register(
+        #         "select",
+        #         tools.selTournament,
+        #         tournsize=50
+        #     )
         # Select the next generation individuals
         offspring = toolbox.select(pop, len(pop))
         # create offspring
@@ -131,6 +130,12 @@ def main(func,
         record = stats.compile(pop)
         logbook.record(gen=g, **record)
         if (record["min"] - ftarget) < 10e-8:
+            with open('old_init_pop', "w") as myfile:
+                for element in tools.selBest(pop, 1)[0]:
+                    myfile.write(str(element))
+                    myfile.write(str(', '))
+                myfile.write(str('\n'))
+            myfile.close()
             return logbook
         if record["std"] < 10e-12:
             best_pop = tools.selBest(pop, 1)[0]
@@ -160,7 +165,7 @@ if __name__ == "__main__":
             f_tournsize = int(sys.argv[i + 1])
 
     f = open(gaParams, "r")
-    keys = ['key', 'NGEN', 'n_aval', 'qntYears', 'CXPB', 'MUTPB']
+    keys = ['key', 'NGEN', 'n_aval', 'qntYears', 'CXPB', 'MUTPB', 'dim']
 
     params = dict()
     for line in f:
@@ -183,7 +188,7 @@ if __name__ == "__main__":
 
     # Iterate over all desired test dimensions
     # for dim in (2, 3, 5, 10, 20, 40):
-    dim = 40
+    dim = params['dim']
     # Set the maximum number function evaluation granted to the algorithm
     # This is usually function of the dimensionality of the problem
 
@@ -207,24 +212,7 @@ if __name__ == "__main__":
                    dim=dim,
                    n_aval=params['n_aval'],
                    i_tournsize=i_tournsize,
-                   f_tournsize=f_tournsize,
                    ftarget=e.ftarget)
-
-    filename = ("f" +
-                str(f_name) +
-                "_dim_" +
-                str(dim) +
-                "_f_tournsize_" +
-                str(f_tournsize) +
-                ".txt")
-    if((np.DataSource().exists(filename))==False):
-        with open(filename, "w") as myfile:
-            myfile.write(str(e.ftarget))
-            myfile.write(str('\n'))
-        myfile.close()
-    with open(filename, "a") as myfile:
-        myfile.write(str(logbook))
-        myfile.write(str('\n'))
-    myfile.close()
+    print(logbook)
     # Stop if ftarget is reached
     e.finalizerun()

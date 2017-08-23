@@ -95,12 +95,6 @@ def main(func,
         ind.fitness.values = fit
 
     for g in range(NGEN):
-        if (g == 249):
-            toolbox.register(
-                "select",
-                tools.selTournament,
-                tournsize=f_tournsize
-            )
         # Select the next generation individuals
         offspring = toolbox.select(pop, len(pop))
         # create offspring
