@@ -1,3 +1,0 @@
-tournsize integer [2,25] [3]
-params categorical {benchmarks/output} [benchmarks/output]
-

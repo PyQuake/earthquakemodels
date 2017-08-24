@@ -49,7 +49,7 @@ def main(func,
          dim,
          ftarget,
          tournsize,
-         n_aval
+         n_aval,
          ):
     toolbox.register("attr_float", random.random)
     toolbox.register("select", tools.selTournament, tournsize=tournsize)
@@ -162,17 +162,11 @@ def main(func,
 
 if __name__ == "__main__":
     for i in range(len(sys.argv) - 1):
-        if (sys.argv[i] == '-tournsize'):
-            tournsize = int(sys.argv[i + 1])
-        elif (sys.argv[i] == '-year'):
-            year = int(sys.argv[i + 1])
-        elif (sys.argv[i] == '-params'):
+        if (sys.argv[i] == '-params'):
             gaParams = sys.argv[i + 1]
-        elif (sys.argv[i] == '-region'):
-            region = sys.argv[i + 1]
 
     f = open(gaParams, "r")
-    keys = ['key', 'NGEN', 'n_aval', 'qntYears', 'CXPB', 'MUTPB', 'dim']
+    keys = ['key', 'NGEN', 'n_aval', 'CXPB', 'MUTPB', 'dim', 'seed']
 
     params = dict()
     for line in f:
@@ -212,13 +206,14 @@ if __name__ == "__main__":
     # Independent restarts until maxfunevals or ftarget is reached
     # Run the algorithm with the remaining
     # number of evaluations
+    random.seed(params['seed'])
     logbook = main(e.evalfun,
                    NGEN=params['NGEN'],
                    CXPB=params['CXPB'],
                    MUTPB=params['MUTPB'],
                    dim=dim,
                    n_aval=params['n_aval'],
-                   tournsize=tournsize,
+                   tournsize=2,
                    ftarget=e.ftarget)
 
     filename = ("../pseudo-adaptative/f" +
@@ -226,16 +221,37 @@ if __name__ == "__main__":
                 "_dim_" +
                 str(dim) +
                 "_tournsize_" +
-                str(tournsize) +
+                str(2) +
                 ".txt")
-    if((np.DataSource().exists(filename)) is False):
-        with open(filename, "w") as myfile:
-            myfile.write(str(e.ftarget))
-            myfile.write(str('\n'))
-        myfile.close()
-    with open(filename, "a") as myfile:
-        myfile.write(str(logbook))
-        myfile.write(str('\n'))
-    myfile.close()
+
+    random.seed(params['seed'])
+    k_values = list(range(2, 26))
+    for k in k_values:
+        for i in range(40):
+            logbook = main(e.evalfun,
+                           NGEN=params['NGEN'],
+                           CXPB=params['CXPB'],
+                           MUTPB=params['MUTPB'],
+                           dim=dim,
+                           n_aval=params['n_aval'],
+                           tournsize=k,
+                           ftarget=e.ftarget)
+
+            filename = ("../pseudo-adaptative/f" +
+                        str(f_name) +
+                        "_dim_" +
+                        str(dim) +
+                        "_tournsize_" +
+                        str(k) +
+                        ".txt")
+            if((np.DataSource().exists(filename)) is False):
+                with open(filename, "w") as myfile:
+                    myfile.write(str(e.ftarget))
+                    myfile.write(str('\n'))
+                myfile.close()
+            with open(filename, "a") as myfile:
+                myfile.write(str(logbook))
+                myfile.write(str('\n'))
+            myfile.close()
     # Stop if ftarget is reached
     e.finalizerun()
