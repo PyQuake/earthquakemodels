@@ -14,7 +14,6 @@
 #    You should have received a copy of the GNU Lesser General Public
 #    License along with DEAP. If not, see <http://www.gnu.org/licenses/>.
 import sys
-# sys.path.insert(0, '../../../')
 import array
 import random
 from deap import base
@@ -49,11 +48,11 @@ def main(func,
          MUTPB,
          dim,
          ftarget,
-         i_tournsize,
-         n_aval
+         tournsize,
+         n_aval,
          ):
     toolbox.register("attr_float", random.random)
-    toolbox.register("select", tools.selTournament, tournsize=i_tournsize)
+    toolbox.register("select", tools.selTournament, tournsize=tournsize)
     toolbox.register(
         "mutate",
         tools.mutGaussian,
@@ -76,7 +75,7 @@ def main(func,
     toolbox.register("evaluate", func)
     toolbox.decorate("evaluate", tupleize)
     toolbox.register("attr_float", random.uniform, -4, 4)
-    toolbox.register("mate", tools.cxUniform)
+    toolbox.register("mate", tools.cxSimulatedBinaryBounded, eta = 0, low= -4, up = 4)
     toolbox.register("individual", tools.initRepeat, creator.Individual,
                      toolbox.attr_float, dim)
     toolbox.register("population", tools.initRepeat, list, toolbox.individual)
@@ -84,6 +83,18 @@ def main(func,
     logbook = tools.Logbook()
     logbook.header = "gen", "min", "avg", "max", "std"
     pop = toolbox.population(n)
+    # get initial pop
+    filename = ("../pseudo-adaptative/init_pop_f" +
+                str(f_name) +
+                "_dim_" +
+                str(dim) +
+                "_tournsize_2.txt")
+    if((np.DataSource().exists(filename)) is True):
+        with open(filename, 'r') as f:
+            a = eval(f.readline())
+        f.close()
+        for index in range(len(pop[0])):
+            pop[0][index] = a[index]
     # Evaluate the entire population
     # 2 model.bins: real data, generated model
     fitnesses = list(toolbox.map(toolbox.evaluate, pop))
@@ -94,12 +105,6 @@ def main(func,
         ind.fitness.values = fit
 
     for g in range(NGEN):
-        # if (g == 249):
-        #     toolbox.register(
-        #         "select",
-        #         tools.selTournament,
-        #         tournsize=50
-        #     )
         # Select the next generation individuals
         offspring = toolbox.select(pop, len(pop))
         # create offspring
@@ -107,7 +112,7 @@ def main(func,
         # Apply crossover and mutation on the offspring
         for child1, child2 in zip(offspring[::2], offspring[1::2]):
             if random.random() < CXPB:
-                toolbox.mate(child1, child2, 0.1)
+                toolbox.mate(child1, child2)
                 del child1.fitness.values
                 del child2.fitness.values
         for mutant in offspring:
@@ -129,14 +134,6 @@ def main(func,
         pop[:] = offspring
         record = stats.compile(pop)
         logbook.record(gen=g, **record)
-        if (record["min"] - ftarget) < 10e-8:
-            with open('old_init_pop', "w") as myfile:
-                for element in tools.selBest(pop, 1)[0]:
-                    myfile.write(str(element))
-                    myfile.write(str(', '))
-                myfile.write(str('\n'))
-            myfile.close()
-            return logbook
         if record["std"] < 10e-12:
             best_pop = tools.selBest(pop, 1)[0]
             pop = toolbox.population(n)
@@ -148,24 +145,30 @@ def main(func,
             g += 1
             record = stats.compile(pop)
             logbook.record(gen=g, **record)
+    filename = ("../SBX/init_pop_f" +
+                str(f_name) +
+                "_dim_" +
+                str(dim) +
+                "_tournsize_2.txt")
+    if((np.DataSource().exists(filename)) is False):
+        with open(filename, "w") as myfile:
+            for element in best_pop:
+                myfile.write(str(element))
+                myfile.write(str(', '))
+            myfile.write(str('\n'))
+        myfile.close()
     return logbook
 
 
 if __name__ == "__main__":
     for i in range(len(sys.argv) - 1):
-        if (sys.argv[i] == '-i_tournsize'):
-            i_tournsize = int(sys.argv[i + 1])
-        elif (sys.argv[i] == '-year'):
-            year = int(sys.argv[i + 1])
-        elif (sys.argv[i] == '-params'):
+        if (sys.argv[i] == '-params'):
             gaParams = sys.argv[i + 1]
-        elif (sys.argv[i] == '-region'):
-            region = sys.argv[i + 1]
-        elif (sys.argv[i] == '-f_tournsize'):
-            f_tournsize = int(sys.argv[i + 1])
-
+        elif (sys.argv[i] == '-tournsize'):
+            tournsize = sys.argv[i + 1]
+            
     f = open(gaParams, "r")
-    keys = ['key', 'NGEN', 'n_aval', 'qntYears', 'CXPB', 'MUTPB', 'dim']
+    keys = ['key', 'NGEN', 'n_aval', 'CXPB', 'MUTPB', 'dim', 'seed', 'tournsize']
 
     params = dict()
     for line in f:
@@ -205,14 +208,20 @@ if __name__ == "__main__":
     # Independent restarts until maxfunevals or ftarget is reached
     # Run the algorithm with the remaining
     # number of evaluations
+    random.seed(params['seed'])
     logbook = main(e.evalfun,
                    NGEN=params['NGEN'],
                    CXPB=params['CXPB'],
                    MUTPB=params['MUTPB'],
                    dim=dim,
                    n_aval=params['n_aval'],
-                   i_tournsize=i_tournsize,
+                   tournsize=tournsize,
                    ftarget=e.ftarget)
-    print(logbook)
-    # Stop if ftarget is reached
-    e.finalizerun()
+
+    filename = ("SBX/f" +
+                str(f_name) +
+                "_dim_" +
+                str(dim) +
+                "_tournsize_" +
+                str(2) +
+                ".txt")

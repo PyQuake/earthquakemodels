@@ -75,7 +75,7 @@ def main(func,
     toolbox.register("evaluate", func)
     toolbox.decorate("evaluate", tupleize)
     toolbox.register("attr_float", random.uniform, -4, 4)
-    toolbox.register("mate", tools.cxUniform)
+    toolbox.register("mate", tools.cxSimulatedBinaryBounded, eta = 0, low= -4, up = 4)
     toolbox.register("individual", tools.initRepeat, creator.Individual,
                      toolbox.attr_float, dim)
     toolbox.register("population", tools.initRepeat, list, toolbox.individual)
@@ -112,7 +112,7 @@ def main(func,
         # Apply crossover and mutation on the offspring
         for child1, child2 in zip(offspring[::2], offspring[1::2]):
             if random.random() < CXPB:
-                toolbox.mate(child1, child2, 0.1)
+                toolbox.mate(child1, child2)
                 del child1.fitness.values
                 del child2.fitness.values
         for mutant in offspring:
@@ -145,7 +145,7 @@ def main(func,
             g += 1
             record = stats.compile(pop)
             logbook.record(gen=g, **record)
-    filename = ("../pseudo-adaptative/init_pop_f" +
+    filename = ("../SBX/init_pop_f" +
                 str(f_name) +
                 "_dim_" +
                 str(dim) +
@@ -164,9 +164,11 @@ if __name__ == "__main__":
     for i in range(len(sys.argv) - 1):
         if (sys.argv[i] == '-params'):
             gaParams = sys.argv[i + 1]
-
+        elif (sys.argv[i] == '-tournsize'):
+            tournsize = sys.argv[i + 1]
+            
     f = open(gaParams, "r")
-    keys = ['key', 'NGEN', 'n_aval', 'CXPB', 'MUTPB', 'dim', 'seed']
+    keys = ['key', 'NGEN', 'n_aval', 'CXPB', 'MUTPB', 'dim', 'seed', 'tournsize']
 
     params = dict()
     for line in f:
@@ -213,45 +215,13 @@ if __name__ == "__main__":
                    MUTPB=params['MUTPB'],
                    dim=dim,
                    n_aval=params['n_aval'],
-                   tournsize=2,
+                   tournsize=tournsize,
                    ftarget=e.ftarget)
 
-    filename = ("../pseudo-adaptative/f" +
+    filename = ("SBX/f" +
                 str(f_name) +
                 "_dim_" +
                 str(dim) +
                 "_tournsize_" +
                 str(2) +
                 ".txt")
-
-    random.seed(params['seed'])
-    k_values = list(range(2, 26))
-    for k in k_values:
-        for i in range(40):
-            logbook = main(e.evalfun,
-                           NGEN=params['NGEN'],
-                           CXPB=params['CXPB'],
-                           MUTPB=params['MUTPB'],
-                           dim=dim,
-                           n_aval=params['n_aval'],
-                           tournsize=k,
-                           ftarget=e.ftarget)
-
-            filename = ("../pseudo-adaptative/f" +
-                        str(f_name) +
-                        "_dim_" +
-                        str(dim) +
-                        "_tournsize_" +
-                        str(k) +
-                        ".txt")
-            if((np.DataSource().exists(filename)) is False):
-                with open(filename, "w") as myfile:
-                    myfile.write(str(e.ftarget))
-                    myfile.write(str('\n'))
-                myfile.close()
-            with open(filename, "a") as myfile:
-                myfile.write(str(logbook))
-                myfile.write(str('\n'))
-            myfile.close()
-    # Stop if ftarget is reached
-    e.finalizerun()
