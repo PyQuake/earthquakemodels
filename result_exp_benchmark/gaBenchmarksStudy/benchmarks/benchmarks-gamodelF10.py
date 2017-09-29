@@ -165,7 +165,7 @@ if __name__ == "__main__":
         if (sys.argv[i] == '-params'):
             gaParams = sys.argv[i + 1]
         elif (sys.argv[i] == '-tournsize'):
-            tournsize = sys.argv[i + 1]
+            tournsize = int(sys.argv[i + 1])
             
     f = open(gaParams, "r")
     keys = ['key', 'NGEN', 'n_aval', 'CXPB', 'MUTPB', 'dim', 'seed', 'tournsize']
@@ -208,7 +208,7 @@ if __name__ == "__main__":
     # Independent restarts until maxfunevals or ftarget is reached
     # Run the algorithm with the remaining
     # number of evaluations
-    random.seed(params['seed'])
+    # random.seed(params['seed'])
     logbook = main(e.evalfun,
                    NGEN=params['NGEN'],
                    CXPB=params['CXPB'],
@@ -218,10 +218,15 @@ if __name__ == "__main__":
                    tournsize=tournsize,
                    ftarget=e.ftarget)
 
-    filename = ("SBX/f" +
+    filename = ("../SBX/f" +
                 str(f_name) +
                 "_dim_" +
                 str(dim) +
                 "_tournsize_" +
-                str(2) +
+                str(tournsize) +
                 ".txt")
+
+    with open(filename, "a") as myfile:
+        myfile.write(str(logbook))
+        myfile.write(str('\n'))
+    myfile.close()

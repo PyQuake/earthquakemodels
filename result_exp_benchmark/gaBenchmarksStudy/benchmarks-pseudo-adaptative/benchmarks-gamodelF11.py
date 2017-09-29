@@ -218,10 +218,15 @@ if __name__ == "__main__":
                    tournsize=tournsize,
                    ftarget=e.ftarget)
 
-    filename = ("SBX/f" +
-                str(f_name) +
-                "_dim_" +
-                str(dim) +
-                "_tournsize_" +
-                str(2) +
-                ".txt")
+    # filename = ("../SBX/f" +
+    #             str(f_name) +
+    #             "_dim_" +
+    #             str(dim) +
+    #             "_tournsize_" +
+    #             str(2) +
+    #             ".txt")
+
+    # with open(filename, "w") as myfile:
+    #     myfile.write(str(logbook))
+    #     myfile.write(str('\n'))
+    # myfile.close()
