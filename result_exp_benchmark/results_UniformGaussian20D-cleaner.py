@@ -1,32 +1,31 @@
 import os
 import re
 
+j = 0
 i = 0
 for file in os.listdir("UniformGaussian20D"):
 	if file.endswith(".txt") and file.startswith("f"):
-		
-		f = open("UniformGaussian40D/"+file, "r")
-		if i == 0:
+
+		f = open("UniformGaussian20D/"+file, "r")
+		if j == 0:
 			output_file = re.sub ('_[0-9]*.txt', '.txt', file)
 			g = open("results_UniformGaussian20D/"+output_file, "w")
 		# f.readline()
-		i += 1
+		j += 1
+
 		for line in f:
 			data = line.split()
 
 			if data[0] == 'gen':
-				if i == 0:
-					data.append('exp_number')
-					output = ', '.join(data)
-					g.write(output)
-					g.write('\n')
 				exp_number = i 
 			elif i == 40:
 				i = 0
+				j = 0
+				break
 			elif len(data) == 5:
-				data.append(exp_number)
+				data.append(i)
 				output = ', '.join(str(e) for e in data)
 				g.write(output)
 				g.write('\n')
+		i+=1	
 		f.close()
-	
