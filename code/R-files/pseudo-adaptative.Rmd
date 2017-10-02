@@ -7,7 +7,7 @@ output: pdf_document
 
 ```{r "setup", include=FALSE}
 require("knitr")
-knitr::opts_knit$set(root.dir = "~/Documents/estudos/master-unb/earthquakemodels/result_exp_benchmark/pseudo-adaptative")
+knitr::opts_knit$set(root.dir = "~/Documents/estudos/earthquakemodels/result_exp_benchmark/pseudo-adaptative")
 ```
 
 ```{r global_options, include=FALSE}

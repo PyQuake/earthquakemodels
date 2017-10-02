@@ -3,6 +3,7 @@ import re
 
 j = 0
 i = 0
+exp_number = 0
 for file in os.listdir("UniformGaussian10D"):
 	if file.endswith(".txt") and file.startswith("f"):
 
@@ -18,10 +19,9 @@ for file in os.listdir("UniformGaussian10D"):
 
 			if data[0] == 'gen':
 				exp_number = i 
-			elif i == 40:
+			elif exp_number == 40:
 				i = 0
 				j = 0
-				break
 			elif len(data) == 5:
 				data.append(i)
 				output = ', '.join(str(e) for e in data)
