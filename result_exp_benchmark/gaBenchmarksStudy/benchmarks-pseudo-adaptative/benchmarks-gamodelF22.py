@@ -211,7 +211,7 @@ if __name__ == "__main__":
                 "_dim_" +
                 str(dim) +
                 "_tournsize_" +
-                str(2) +
+                str(tournsize) +
                 ".txt")
 
     with open(filename, "w") as myfile:
