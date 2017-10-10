@@ -75,7 +75,7 @@ def main(func,
     toolbox.register("evaluate", func)
     toolbox.decorate("evaluate", tupleize)
     toolbox.register("attr_float", random.uniform, -4, 4)
-    toolbox.register("mate", tools.cxSimulatedBinaryBounded, eta = 0, low= -4, up = 4)
+    toolbox.register("mate", tools.cxUniform)
     toolbox.register("individual", tools.initRepeat, creator.Individual,
                      toolbox.attr_float, dim)
     toolbox.register("population", tools.initRepeat, list, toolbox.individual)
@@ -84,7 +84,7 @@ def main(func,
     logbook.header = "gen", "min", "avg", "max", "std"
     pop = toolbox.population(n)
     # get initial pop
-    filename = ("../pseudo-adaptative/init_pop_f" +
+    filename = ("../init_pops/init_pop_f" +
                 str(f_name) +
                 "_dim_" +
                 str(dim) +
@@ -112,7 +112,7 @@ def main(func,
         # Apply crossover and mutation on the offspring
         for child1, child2 in zip(offspring[::2], offspring[1::2]):
             if random.random() < CXPB:
-                toolbox.mate(child1, child2)
+                toolbox.mate(child1, child2, 0.1)
                 del child1.fitness.values
                 del child2.fitness.values
         for mutant in offspring:
@@ -145,18 +145,6 @@ def main(func,
             g += 1
             record = stats.compile(pop)
             logbook.record(gen=g, **record)
-    filename = ("../SBX/init_pop_f" +
-                str(f_name) +
-                "_dim_" +
-                str(dim) +
-                "_tournsize_2.txt")
-    if((np.DataSource().exists(filename)) is False):
-        with open(filename, "w") as myfile:
-            for element in best_pop:
-                myfile.write(str(element))
-                myfile.write(str(', '))
-            myfile.write(str('\n'))
-        myfile.close()
     return logbook
 
 
@@ -165,7 +153,7 @@ if __name__ == "__main__":
         if (sys.argv[i] == '-params'):
             gaParams = sys.argv[i + 1]
         elif (sys.argv[i] == '-tournsize'):
-            tournsize = sys.argv[i + 1]
+            tournsize = int(sys.argv[i + 1])
             
     f = open(gaParams, "r")
     keys = ['key', 'NGEN', 'n_aval', 'CXPB', 'MUTPB', 'dim', 'seed', 'tournsize']
@@ -218,15 +206,15 @@ if __name__ == "__main__":
                    tournsize=tournsize,
                    ftarget=e.ftarget)
 
-    # filename = ("../SBX/f" +
-    #             str(f_name) +
-    #             "_dim_" +
-    #             str(dim) +
-    #             "_tournsize_" +
-    #             str(2) +
-    #             ".txt")
+    filename = ("../pseudo-adaptative/f" +
+                str(f_name) +
+                "_dim_" +
+                str(dim) +
+                "_tournsize_" +
+                str(2) +
+                ".txt")
 
-    # with open(filename, "w") as myfile:
-    #     myfile.write(str(logbook))
-    #     myfile.write(str('\n'))
-    # myfile.close()
+    with open(filename, "w") as myfile:
+        myfile.write(str(logbook))
+        myfile.write(str('\n'))
+    myfile.close()
