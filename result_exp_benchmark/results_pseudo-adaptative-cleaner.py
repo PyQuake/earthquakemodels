@@ -2,8 +2,8 @@ import os
 
 for file in os.listdir("pseudo-adaptative"):
 	if file.endswith(".txt") and file.startswith("f"):
-
-		f = open("pseudo-adaptative"+file, "r")
+		print(file)
+		f = open("pseudo-adaptative/"+file, "r")
 		g = open("results_pseudo-adaptative/"+file, "w")
 		w = open("targets/target_"+file, "w")
 		i = 0

@@ -66,9 +66,11 @@ createMeanFromExecBenchmarks = function (name_function, j){
     vectorAuxMean = c(1:40)
     for (i in 1:40) {
         if(j<7){
+            print('aqui? no j')
             data=loadDataBenchmarksF1_F6(name_function,i-1)
         }
         else{
+            print('aqui? no else')
             data=loadDataBenchmarksF7_F24(name_function,i-1)
         }
         vectorAuxMean[i] = tail(data, 2)$min[1]

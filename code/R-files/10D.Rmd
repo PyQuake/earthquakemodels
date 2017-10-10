@@ -7,7 +7,7 @@ output: pdf_document
 
 ```{r "setup", include=FALSE}
 require("knitr")
-knitr::opts_knit$set(root.dir = "~/Documents/estudos/master-unb/earthquakemodels/result_exp_benchmark/UniformGaussian10D")
+knitr::opts_knit$set(root.dir = "~/Documents/estudos/earthquakemodels/result_exp_benchmark/UniformGaussian10D")
 ```
 
 ```{r global_options, include=FALSE}
@@ -46,6 +46,8 @@ It is important to state that for the benchmark function number 5, frequently, t
 The order of the plots is: first we show the GAModel plots and the the BBOB benchmark functions, from F1 to F24.
 
 ```{r pressure, echo=FALSE}
+
+
 
 #create function to read data with paste - benchmarks
 loadDataBenchmarksF7_F24 = function(type, i,  nrows = 500, skip=2){
@@ -89,6 +91,18 @@ findMaxBenchmarks = function(benchmarck_index_function){
     return(df)
 }
 
+ablines = c(1:24)
+for (i in 1:24){
+
+    name_function = paste('F',i,'_',20, sep='')
+    if(i<7){
+        data=loadDataBenchmarksF1_F6(name_function,1, 501)
+    }
+    else{
+        data=loadDataBenchmarksF7_F24(name_function,1, 501)
+    }
+    ablines[i] = tail(data, 1)$gen
+}
 
 # create function to find the max value and where it is located
 findMaxPosBenchmarks = function (benchmarck_index_function){
@@ -99,6 +113,7 @@ findMaxPosBenchmarks = function (benchmarck_index_function){
         geom_point() +
         xlab('tournament size') +
         ylab('function mean value') +
+        geom_hline(yintercept = ablines[benchmarck_index_function], color = "red") +
         ggtitle(paste("F",benchmarck_index_function,' means and std' , sep=''))
     print(p1+ theme(legend.position="none"))
 
@@ -108,6 +123,7 @@ findMaxPosBenchmarks = function (benchmarck_index_function){
         geom_point() +
         xlab('tournament size') +
         ylab('function mean value') +
+        geom_hline(yintercept = ablines[benchmarck_index_function], color = "red") +
         ggtitle(paste("F",benchmarck_index_function,' means and C.I.' , sep='')) +
         geom_segment(aes(x = 1:nrow(vectorAuxMax), y = vectorAuxMax$five, xend = 1:nrow(vectorAuxMax), yend=vectorAuxMax$ninetyFive))
     print(p1+ theme(legend.position="none"))
