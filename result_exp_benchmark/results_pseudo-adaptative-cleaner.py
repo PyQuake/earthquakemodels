@@ -5,10 +5,7 @@ for file in os.listdir("pseudo-adaptative"):
 		print(file)
 		f = open("pseudo-adaptative/"+file, "r")
 		g = open("results_pseudo-adaptative/"+file, "w")
-		w = open("targets/target_"+file, "w")
 		i = 0
-		w.write(f.readline())
-		w.close()
 
 		for line in f:
 			data = line.split()
