@@ -49,91 +49,56 @@ f_subsetting <- function(data, f_interval = NULL){
   } 
 }
 
+ablines = c(1:24)
+for (i in 1:24){
+  workdir <- paste0("targets/")
+  data <- read.csv(paste0(workdir,"target_f",i,"_dim_40_tournsize_2.txt"),header = FALSE)
+  ablines[i] = tail(data)$V1
+}
+
 #function to plot k versus min value given an interval (function goes in graph)
-k_min_plot <- function(data10, data20, data40, k_interval = NULL, f_interval = NULL){
-  means10 <- k_subsetting(data10, k_interval)
-  means20 <- k_subsetting(data20, k_interval)
-  means40 <- k_subsetting(data40, k_interval)
+k_min_plot <- function(data, k_interval = NULL, f_interval = NULL, dim = NULL){
+  means <- k_subsetting(data, k_interval)
   
-  means10 <- f_subsetting(means10, f_interval)
-  means20 <- f_subsetting(means20, f_interval)
-  means40 <- f_subsetting(means40, f_interval)
+  means <- f_subsetting(means, f_interval)
   
-  p10<- ggplot(means10, aes(k, min, color = f, group = means10$f))+
+  p10<- ggplot(means, aes(k, min, color = f, group = means$f))+
     geom_point(col = 'red')+
     geom_line()+
-    scale_color_gradient()
-  p10$labels$colour <- "Function"
-  p10$labels$title <- "10 dimensions"
-  p20<- ggplot(means10, aes(k, min, color = f, group = means20$f))+
-    geom_point(col = 'red')+
-    geom_line()+
-    scale_color_gradient()
-  p20$labels$colour <- "Function"
-  p20$labels$title <- "20 dimensions"
-  p40<- ggplot(means40, aes(k, min, color = f, group = means40$f))+
-    # geom_ribbon(aes(ymin = 0, ymax = means40$min, fill = means40$f), alpha = 0.3)+
-    geom_point(col = 'red')+
-    geom_line()+
-    scale_color_gradient()
-  p40$labels$colour <- "Function"
-  p40$labels$title <- "40 dimensions"
+    geom_smooth(alpha  = .7,method = 'lm')+
+    geom_hline(yintercept = ablines[f_interval], color = "red")+
+    theme(legend.position="none")
+    p10$labels$colour <- "Function"
+    p10$labels$title <- paste("Function",f_interval,"with",dim,"dimensions")
   grid.arrange(arrangeGrob(p10+theme(axis.title.y = element_blank(),axis.title.x = element_blank()),
-                           p20+theme(axis.title.y = element_blank(),axis.title.x = element_blank()),
-                           p40+theme(axis.title.y = element_blank(),axis.title.x = element_blank()),
-                           nrow=3,
-                           left = textGrob("Optimum Value found", rot = 90),
-                           top  = textGrob("Function"),
+                           nrow=1,
+                           left = textGrob("Optimum Value", rot = 90),
                            bottom = textGrob("Tournament size")
   )
   )
 }
-# k_min_plot(means10, means20, means40, k_interval = c(2,3))
-# k_min_plot(means10, means20, means40, log = TRUE)
+# k_min_plot(means10, means20, means40, f_interval = c(1))
 
 #function to plot f versus min value given an interval (k goes in graph)
-f_min_plot <- function(data10, data20, data40, k_interval = NULL, f_interval = NULL){
-  means10 <- k_subsetting(data10, k_interval)
-  means20 <- k_subsetting(data20, k_interval)
-  means40 <- k_subsetting(data40, k_interval)
+f_min_plot <- function(data, k_interval = NULL, f_interval = NULL, dim = NULL){
+  means <- k_subsetting(data, k_interval)
+  means <- f_subsetting(means, f_interval)
   
-  means10 <- f_subsetting(means10, f_interval)
-  means20 <- f_subsetting(means20, f_interval)
-  means40 <- f_subsetting(means40, f_interval)
-  
-  p10<- ggplot(means10, aes(f, min, color = k, group = means10$k))+
+  p10<- ggplot(means, aes(f, min, color = k, group = means$k))+
     geom_point(col = 'red')+
     geom_line()+
-    scale_color_gradient()
+    geom_smooth(alpha  = .3,method = 'lm')+
+    p10$labels$title <- paste("Function",f_interval,"with",dim,"dimensions")
   p10$labels$colour <- "Tour. size"
-  p10$labels$title <- "10 dimensions"
-  p20<- ggplot(means10, aes(f, min, color = k, group = means20$k))+
-    geom_point(col = 'red')+
-    geom_line()+
-    scale_color_gradient()
-  p20$labels$colour <- "Tour. size"
-  p20$labels$title <- "20 dimensions"
-  p40<- ggplot(means40, aes(f, min, color = k, group = means40$k))+
-    geom_point(col = 'red')+
-    geom_line()+
-    scale_color_gradient()
-  p40$labels$colour <- "Tour. size"
-  p40$labels$title <- "40 dimensions"
+  p10$labels$title <- paste("Function",f_interval,dim,"dimensions")
   grid.arrange(arrangeGrob(p10+
                             theme(axis.title.y = element_blank(),
                                   axis.title.x = element_blank()),
-                           p20+
-                             theme(axis.title.y = element_blank(),
-                                   axis.title.x = element_blank()),
-                           p40+
-                             theme(axis.title.y = element_blank(),
-                                   axis.title.x = element_blank()),
-                           nrow=3,
+                           nrow=1,
                            left = textGrob("Optimum Value found", rot = 90),
                            top  = textGrob(" Tournament size"),
                            bottom = textGrob("Function")))
 }
-# f_min_plot(means10, means20, means40, k_interval = c(2,5,10), f_interval = c(2,5,10))
 
 # processing data
 ## getting data of only the last gen
@@ -150,11 +115,6 @@ ddd20 <- group[group[, .I[gen == max(gen)], by=list(rep, k, f)]$V1]
 group <- as.data.table(ddd40)
 ddd40 <- group[group[, .I[gen == max(gen)], by=list(rep, k, f)]$V1]
 
-# max(aux[aux$f == 5 & aux$rep == 10, ]$gen)
-# unique(aux[aux$f == 4, ]$gen)
-# unique(aux[aux$f == 5, ]$gen)
-
-
 # get the means of the last gen
 means10 <- aggregate(ddd10, list(k = ddd10$k, f = ddd10$f), mean)
 means10 <- as.data.table(means10)
@@ -165,16 +125,4 @@ means20 <- as.data.table(means20)
 means40 <- aggregate(ddd40, list(k = ddd40$k, f = ddd40$f), mean)
 means40 <- as.data.table(means40)
 
-
-#plot data
-k_min_plot(means10, means20, means40, k_interval = c(2,5,10), f_interval = c(2,5,10))
-
-f_min_plot(means10, means20, means40, f_interval = c(2,5,10, 22,24), log = TRUE)
-
-k_min_plot(means10, means20, means40)
-f_min_plot(means10, means20, means40)
-
-f_min_plot(means10, means20, means40, f_interval = 10:12)
-
-   
 

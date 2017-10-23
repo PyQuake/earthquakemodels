@@ -214,7 +214,7 @@ if __name__ == "__main__":
                 str(tournsize) +
                 ".txt")
 
-    with open(filename, "w") as myfile:
+    with open(filename, "a") as myfile:
         myfile.write(str(logbook))
         myfile.write(str('\n'))
     myfile.close()
